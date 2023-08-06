@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: jtimer
+Version: 0.1.0
+Summary: John's Timer - desktop app for tracking time
+License: GNU GENERAL PUBLIC LICENSE V3
+Keywords: productivity
+Author: John Watson
+Author-email: jmwdev@pm.me
+Maintainer: John Watson
+Maintainer-email: jmwdev@pm.me
+Requires-Python: >=3.10.6,<4.0.0
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: PyQt6 (>=6.5.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+# Timer App
+
+This app 
+
+## General usage
+
+## Feature Roadmap
+* github workflow
+* store timer data
+* stats view
+* on-exit behaviour
+* timer and relation
+* timer mutual exclusion
+
