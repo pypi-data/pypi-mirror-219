@@ -1,0 +1,15 @@
+selenium>=4.10.0
+typer>=0.9.0
+fastapi>=0.98.0
+uvicorn[standard]>=0.22.0
+pydantic>=1.10.9
+pymongo>=4.4.1
+httpx>=0.24.1
+beautifulsoup4>=4.12.2
+pytest>=7.4.0
+pytest-clarity==1.0.1
+pytest-cov>=4.1.0
+ruff>=0.0.275
+black>=23.3.0
+mypy>=1.4.1
+isort>=5.12.0
