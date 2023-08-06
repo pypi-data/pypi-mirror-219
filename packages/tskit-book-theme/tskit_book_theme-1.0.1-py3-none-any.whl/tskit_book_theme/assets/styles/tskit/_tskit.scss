@@ -1,0 +1,272 @@
+@import "../tskit/palette";
+
+$font-family-sans-serif: rothwood, serif;
+$font-family-sans-serif-2: sofia-pro, sans-serif;
+
+@media screen {
+  ::-moz-selection {
+    background-color: $brand-color-1;
+    color: $color-1;
+  }
+
+  ::selection {
+    background-color: $brand-color-1;
+    color: $color-1;
+  }
+
+  html {
+    font-size: 100%; // 16px
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: $font-family-sans-serif-2;
+    background-color: $brand-color-7;
+    color: $color-1;
+  }
+
+  p {
+    color: inherit;
+  }
+  p.caption
+  {
+    color: inherit !important;
+  }
+
+
+  .bd-header-article{
+    border-color: $brand-color-2;
+    background-color: $brand-color-2;
+    box-shadow: $box-shadow-2;
+  }
+
+  .bd-sidebar span.caption-text {
+    color: #323232;
+  }
+
+  .bd-toc {
+    border-color: $brand-color-2;
+    background-color: $brand-color-2;
+    box-shadow: $box-shadow-2;
+  }
+
+  .bd-toc nav li.active > a.active {
+    border-left: $brand-color-8;
+  }
+
+  .bd-toc nav a:hover,
+  .bd-toc nav li.active > a.active {
+    color: $brand-color-8;
+  }
+
+  .bd-toc .toc-entry a,
+  .bd-toc .toc-entry a:visited,
+  .bd-toc div.onthispage {
+    color: $brand-color-6;
+  }
+
+  .bd-toc-item a:visited{
+    color: #646464 !important;
+  }
+
+  .navbar-nav li a:focus, .navbar-nav li a:hover, .navbar-nav li.current>a {
+    color: $brand-color-3 !important;
+  }
+
+  .sidebar-secondary-item {
+    border-color: $brand-color-2;
+    background-color: $brand-color-2;
+  }
+
+  .sd-fs-3,
+  .sd-fs-3 > p {
+    color: $brand-color-2;
+  }
+
+  .bd-container a,
+  .bd-container a:visited {
+    color: $brand-color-2;
+  }
+
+  .bd-container h1,
+  .bd-container h2,
+  .bd-container h3,
+  .bd-container h4,
+  .bd-container h5,
+  .bd-container h6 {
+    color: $brand-color-2;
+  }
+
+  .admonition,
+  div.admonition {
+    box-shadow: $box-shadow-1 !important;
+    background-color: $brand-color-8;
+  }
+
+  .admonition.seealso {
+    border-color: $brand-color-2;
+
+    .admonition-title {
+      background-color: transparentize($brand-color-2, 0.9);
+    }
+
+    .admonition-title:before {
+      color: $brand-color-2;
+    }
+  }
+
+  .admonition.note,
+  div.admonition.note,
+  {
+    border-color: $brand-color-4;
+
+    .admonition-title {
+      background-color: transparentize($brand-color-4, 0.9);
+    }
+
+    .admonition-title:before {
+      color: $brand-color-4;
+    }
+  }
+
+  div.deprecated, div.versionadded, div.versionchanged {
+    background-color: transparentize($brand-color-4, 0.9);
+    box-shadow: $box-shadow-1 !important;
+  }
+
+  code.literal {
+    background-color: inherit;
+    border: inherit;
+  }
+
+  .highlight {
+    background: inherit !important;
+  }
+
+  blockquote p{
+    color: white !important;
+  }
+
+  code,
+  .sig-name {
+    color: $color-11;
+  }
+
+  aside.sidebar {
+    box-shadow: $box-shadow-1;
+    background-color: $brand-color-8;
+  }
+
+  .table {
+    color: inherit;
+  }
+
+  figure figcaption{
+    color: white;
+  }
+  //Notebook stuff, here be dragons
+  pre,
+  div.contents,
+  div.topic,
+  div.cell {
+    background-color: $brand-color-8;
+    border-radius: 5px;
+    border: inherit;
+    box-shadow: $box-shadow-1;
+    color: $color-1;
+  }
+
+  div.cell div.cell_input {
+    border-width: 0 0 0 4px !important;
+    border-radius: 0px !important;
+    border-style: solid !important;
+    border-color: $brand-color-6 !important;
+  }
+
+  div.cell div.cell_output pre,
+  .cell_output .output.text_plain,
+  .cell_output .output.stream,
+  .cell_output .output.stderr {
+    border-width: 0 0 0 4px !important;
+    border-radius: 0px !important;
+    border-style: solid !important;
+    border-color: $brand-color-9 !important;
+  }
+
+  div.cell_output,
+  div.cell_input {
+    background-color: $brand-color-9 !important;
+  }
+
+  .cell_output .output.text_plain,
+  .cell_output .output.traceback,
+  .cell_output .output.stream,
+  .cell_output .output.stderr {
+    background: inherit !important;
+  }
+
+  .cell_output,
+  section {
+    img {
+      background-color: white;
+    }
+  }
+
+  .tskit-table {
+    img {
+      filter: inherit;
+    }
+  }
+
+  div.cell_output table {
+    color: inherit !important;
+  }
+
+  div.cell_output thead {
+    border-bottom: 1px solid white !important;
+  }
+  div.cell_output tbody tr:nth-child(odd) {
+    background: rgba(66, 165, 245, 0.2) !important;
+  }
+  div.cell_output tbody tr:nth-child(odd):hover {
+    background: rgba(66, 165, 245, 0.2) !important;
+  }
+
+  div.cell_output tbody tr:nth-child(even):hover {
+    background: inherit !important;
+  }
+
+  details.toggle-details {
+    color: black !important;
+  }
+
+  .sig.c .k,
+  .sig.c .kt,
+  .sig.c .m,
+  .sig.c .s,
+  .sig.c .sc,
+  .sig.cpp .k,
+  .sig.cpp .kt,
+  .sig.cpp .m,
+  .sig.cpp .s,
+  .sig.cpp .sc {
+    color: $color-11 !important;
+  }
+
+  .prev-next-area a p.prev-next-title {
+    color: inherit !important;
+  }
+
+  .viewcode-block:target {
+    background-color: #1a4e56 !important;
+  }
+
+  //Horrible hack, I'm sorry
+  .theme-switch-button {
+    display: none;
+  }
+
+
+
+}
