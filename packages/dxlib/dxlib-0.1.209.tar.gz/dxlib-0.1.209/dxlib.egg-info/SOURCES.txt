@@ -1,0 +1,11 @@
+README.md
+setup.py
+dxlib.egg-info/PKG-INFO
+dxlib.egg-info/SOURCES.txt
+dxlib.egg-info/dependency_links.txt
+dxlib.egg-info/requires.txt
+dxlib.egg-info/top_level.txt
+src/__init__.py
+src/app.py
+src/euler_method.py
+src/finite_differences.py
