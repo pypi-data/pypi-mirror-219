@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: google-cloud-utilities
+Version: 0.0.5
+Summary: A few handy Python functions for interacting with Google Cloud Platform
+Home-page: https://github.com/johnf1004/google_cloud_utilities
+Author: John Foley
+Author-email: johnf1004@yahoo.co.uk
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: google-cloud-bigquery (==3.4.2)
+Requires-Dist: google-cloud-secret-manager (==2.4.0)
+Requires-Dist: pandas (>=1.5.3)
+
+
+# google_cloud_utilities
+
+A small package with some handy Python functions for GCP users.
+
+`pip install google-cloud-utilities`
