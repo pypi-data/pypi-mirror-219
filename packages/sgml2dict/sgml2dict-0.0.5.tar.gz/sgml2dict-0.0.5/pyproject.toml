@@ -1,0 +1,22 @@
+[build-system]
+requires      = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[project]
+name    = "sgml2dict"
+version = "0.0.5"
+authors = [
+    {name = "D. H. B. Marcos", email = "dhbmarcos@gmail.com"}
+]
+description     = "Convert SGML text to dictionary."
+readme          = "README.md"
+requires-python = ">=3.7"
+classifiers     = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage"    = "https://gitlab.com/dhbmarcos/sgml2dict"
