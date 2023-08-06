@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: palette-generator
+Version: 0.1.3
+Summary: `palette_generator` is here to turn your images into beautiful palettes
+Home-page: https://github.com/neonfuzz/palette_generator
+Author: neonfuzz
+Requires-Python: >=3.9,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.7.2,<4.0.0)
+Requires-Dist: numpy (>=1.25.1,<2.0.0)
+Requires-Dist: pandas (>=2.0.3,<3.0.0)
+Requires-Dist: scipy (>=1.11.1,<2.0.0)
+Requires-Dist: wand (>=0.6.11,<0.7.0)
+Project-URL: Documentation, https://neonfuzz.github.io/palette_generator/html/index.html
+Project-URL: Repository, https://github.com/neonfuzz/palette_generator
+Description-Content-Type: text/markdown
+
+
+Installation
+============
+
+`pip install palette_generator`
+
+Basic Usage
+===========
+
+`python -m palette_generator -h`
+
+Documentation
+=============
+
+[Find full documentation here!](https://neonfuzz.github.io/palette_generator/html/index.html)
+
