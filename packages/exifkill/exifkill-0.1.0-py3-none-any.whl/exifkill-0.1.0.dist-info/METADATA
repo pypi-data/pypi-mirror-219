@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: exifkill
+Version: 0.1.0
+Summary: Removes exif data in an image
+Home-page: https://github.com/4thel00z/exifkill
+License: GPL-3
+Author: 4thel00z
+Author-email: 4thel00z@gmail.com
+Requires-Python: >=3.8
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pillow (>=10.0.0,<11.0.0)
+Description-Content-Type: text/markdown
+
+# exifkill
+
+## Motivation
+
+There doesn't seem to be a nice cli tool, that just kills exif data from an image
+and just writes it back.
+
+## Installation
+
+```
+pip install exifkill
+```
+
+## Usage
+
+```
+python -m exifkill image_with_exif.png image_without_exif.png
+```
+
+## License
+
+This project is licensed under the GPL-3 license.
+
