@@ -1,0 +1,12 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+moore_itertools/__init__.py
+moore_itertools/product.py
+moore_itertools/py.typed
+moore_itertools.egg-info/PKG-INFO
+moore_itertools.egg-info/SOURCES.txt
+moore_itertools.egg-info/dependency_links.txt
+moore_itertools.egg-info/requires.txt
+moore_itertools.egg-info/top_level.txt

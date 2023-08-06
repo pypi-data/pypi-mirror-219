@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: moore-itertools
+Version: 0.0.3
+Summary: Moore Itertools
+Author-email: Nick Moore <nick@zoic.org>
+Maintainer-email: Nick Moore <nick@zoic.org>
+License: BSD-3-Clause
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE.txt
+
+# `moore_itertools`
+
+This exists mostly as a pun on `more_itertools`.
+
+So far there's only one thing in it, a memoizing cartesian product for unbounded iterators.
+
