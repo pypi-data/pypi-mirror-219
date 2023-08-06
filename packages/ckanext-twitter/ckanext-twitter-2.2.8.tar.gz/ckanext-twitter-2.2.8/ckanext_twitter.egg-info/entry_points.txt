@@ -1,0 +1,2 @@
+[ckan.plugins]
+twitter = ckanext.twitter.plugin:TwitterPlugin
