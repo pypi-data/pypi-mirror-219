@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+matplotlib = "*"
+pandas = "*"
+seaborn = "*"
+heatmap-cli = {editable = true, path = "."}
+
+[dev-packages]
+pytest = "*"
+flit = "*"
+tox = "<4"
+tox-pyenv = "*"
+pre-commit = "*"
+pytest-cov = "*"
+pytest-xdist = "*"
+pytest-console-scripts = "*"
+sphinx = "*"
+myst-parser = "*"
+sphinx-copybutton = "*"
+sphinx-autodoc-typehints = "*"
+heatmap-cli = {editable = true, path = "."}
+pylint = "*"
+
+[requires]
+python_version = "3.8"
