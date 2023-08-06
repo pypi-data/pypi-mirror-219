@@ -1,0 +1,24 @@
+pysid/__init__.py,sha256=jtIL4PR-U5tyQUkveVLUCSxQFrZrUkrv9ake4peJKLc,378
+pysid/correlation/__init__.py,sha256=3Xhs40csqU8pEloR9nI-JAoQ5mv7V6RIilkAR6wsX5Q,87
+pysid/correlation/autocorr.py,sha256=Ormmw2Cvd4GQsk6Uq1J8Qb8MFiA1oGxTKDj7blaIRKE,6008
+pysid/correlation/croscorr.py,sha256=KW7m3xklvDb9YCPg9Zpi8TL0jIV2Kj8IClDNcPTQeNk,6442
+pysid/identification/__init__.py,sha256=3eTRNINLuOshuuiOcnnLFhiZxJCSkOu0z4fd6xEc_Xs,199
+pysid/identification/accr.py,sha256=l0X_k9aS7AqGYwEuX4fNcvgjFNouFd-hUqo6zMEvxHw,5247
+pysid/identification/comcrit.py,sha256=L5-aIulYMjDNJs1k4NeQil9V6_DX1gY36XwahUvd7vE,2979
+pysid/identification/ivmethod.py,sha256=GuZ0-KubKumtduceBKC5NS8FKrFfp61qvuT-uWyQfkI,2655
+pysid/identification/models.py,sha256=fnzkINP1lQZznfHVuKeOoxrEl6g41Sp9W-OObhpdIR8,6266
+pysid/identification/pemethod.py,sha256=r_vu_wJMnKZn9VTm22nDfQ1dpUEPpMb8IzebDbdVQEo,58425
+pysid/identification/recursive.py,sha256=QCm4eNOqRflap4d4cMtcGO5k3RCi88G9GoxrOMr6RoA,8035
+pysid/identification/solvers.py,sha256=G3jYN1nO5OumLOXNIs5yAkBWu7tXYDXKINZxUjD6ldg,3767
+pysid/identification/tseries.py,sha256=sCf9ZUNTrtv7FtiL0oo4atn9IcGSKFJdxV0yBsMlJms,5493
+pysid/io/__init__.py,sha256=z5bLvKG-164qn9KhdSlDzeMcXD95IkftAJ45JQES2Dw,86
+pysid/io/check.py,sha256=fP_8AbNQn2ZkudRFyORjYXHqeO68lOjV_2SvXlUPw8E,4222
+pysid/io/csv_data.py,sha256=rsnJC7oR787Vl0kN-NoHjTX9_GlViPCKz2h9Qk8awH8,2983
+pysid/io/print.py,sha256=W9JDoqWAkotomeZlB-gHR2FDvTNDb9AuaSU43duzOn8,7059
+pysid/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pysid/tests/pem tests.py,sha256=Hayatq6qE8htdcIckb8uyXgpkhb_DTr52ZHrdNGAQ0M,506
+pysid-0.1.1.dist-info/LICENSE,sha256=i8Cwrfonu1_OGg2lt714o1aBx2e41Ozy4NmyslVeLFE,1074
+pysid-0.1.1.dist-info/METADATA,sha256=_N_G65vPq6yrKGjP08t_kzhBoAl8wGXFxY_FJpc66S8,1024
+pysid-0.1.1.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+pysid-0.1.1.dist-info/top_level.txt,sha256=_77mh6QNH7MYCJXJEIBw1ZztNMy8BkvGGhfYYLQ981A,6
+pysid-0.1.1.dist-info/RECORD,,
