@@ -1,0 +1,13 @@
+*.pyc
+__pycache__/
+
+*.idea
+
+build/
+dist/
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+*.swp
+*.swo
