@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "render-thumbnail"
+version = "0.1.1"
+description = "A CLI tool written in python using click package for creating thumbnail for youtube using the tex file it basically extracts tikzpicture environment from the tex file and put it into separate tex file and then it renders as pdf then to manually you can export as png usign vbpdf instagram tool."
+authors = ["vaibhavblayer <vaibhavblayer@gmail.com>"]
+readme = "README.md"
+packages = [{include = "render_thumbnail"}]
+
+
+[tool.poetry.scripts]
+render-thumbnail = "render_thumbnail.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
