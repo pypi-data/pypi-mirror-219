@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "goldretriever"
+version = "0.1.3"
+description = "Create and host retrieval plugins for ChatGPT in one click"
+authors = ["Jina AI <hello@jina.ai>"]
+readme = "README.md"
+include = ["goldretriever/**/*"]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.92.0"
+uvicorn = "^0.20.0"
+openai = "^0.27.2"
+python-dotenv = "^0.21.1"
+pydantic = "^1.10.5"
+tenacity = "^8.2.1"
+tiktoken = "^0.3.1"
+numpy = "^1.24.2"
+docx2txt = "^0.8"
+PyPDF2 = "^3.0.1"
+python-pptx = "^0.6.21"
+python-multipart = "^0.0.6"
+arrow = "^1.2.3"
+docarray = "^0.21.0"
+jina = "^3.16.0"
+jcloud = "^0.2.10"
+typer = "^0.7.0"
+pyjwt = "2.6.0"
+requests = "^2.27.1"
+urllib3 = "^1.26.7"
+wheel = "^0.37.0"
+
+[tool.poetry.scripts]
+goldretriever = "goldretriever.retriever:app"
+
+[tool.poetry.dev-dependencies]
+httpx = "^0.23.3"
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+pytest-asyncio = "^0.20.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
