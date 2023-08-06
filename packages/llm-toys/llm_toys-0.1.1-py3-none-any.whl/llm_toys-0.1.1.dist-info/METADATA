@@ -1,0 +1,249 @@
+Metadata-Version: 2.1
+Name: llm-toys
+Version: 0.1.1
+Summary: Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
+Home-page: https://github.com/kuutsav/llm-toys
+Author: Kumar Utsav
+Author-email: krum.utsav@gmail.com
+License: https://opensource.org/license/mit/
+Requires-Python: >=3.10.0
+Description-Content-Type: text/markdown
+Requires-Dist: absl-py (==1.4.0)
+Requires-Dist: accelerate (==0.20.3)
+Requires-Dist: aim (==3.17.5)
+Requires-Dist: aim-ui (==3.17.5)
+Requires-Dist: aimrecords (==0.0.7)
+Requires-Dist: aimrocks (==0.4.0)
+Requires-Dist: aiofiles (==23.1.0)
+Requires-Dist: alembic (==1.11.1)
+Requires-Dist: annotated-types (==0.5.0)
+Requires-Dist: anyio (==3.7.1)
+Requires-Dist: backoff (==2.2.1)
+Requires-Dist: base58 (==2.0.1)
+Requires-Dist: bitsandbytes (==0.39.1)
+Requires-Dist: cachetools (==5.3.1)
+Requires-Dist: certifi (==2023.5.7)
+Requires-Dist: cffi (==1.15.1)
+Requires-Dist: charset-normalizer (==3.2.0)
+Requires-Dist: click (==8.1.5)
+Requires-Dist: cmake (==3.26.4)
+Requires-Dist: cryptography (==41.0.2)
+Requires-Dist: einops (==0.6.1)
+Requires-Dist: exceptiongroup (==1.1.2)
+Requires-Dist: fastapi (==0.100.0)
+Requires-Dist: filelock (==3.12.2)
+Requires-Dist: fsspec (==2023.6.0)
+Requires-Dist: greenlet (==2.0.2)
+Requires-Dist: grpcio (==1.56.0)
+Requires-Dist: h11 (==0.14.0)
+Requires-Dist: huggingface-hub (==0.16.4)
+Requires-Dist: idna (==3.4)
+Requires-Dist: Jinja2 (==3.1.2)
+Requires-Dist: joblib (==1.3.1)
+Requires-Dist: lit (==16.0.6)
+Requires-Dist: Mako (==1.2.4)
+Requires-Dist: MarkupSafe (==2.1.3)
+Requires-Dist: monotonic (==1.6)
+Requires-Dist: mpmath (==1.3.0)
+Requires-Dist: networkx (==3.1)
+Requires-Dist: nltk (==3.8.1)
+Requires-Dist: numpy (==1.25.1)
+Requires-Dist: nvidia-cublas-cu11 (==11.10.3.66)
+Requires-Dist: nvidia-cuda-cupti-cu11 (==11.7.101)
+Requires-Dist: nvidia-cuda-nvrtc-cu11 (==11.7.99)
+Requires-Dist: nvidia-cuda-runtime-cu11 (==11.7.99)
+Requires-Dist: nvidia-cudnn-cu11 (==8.5.0.96)
+Requires-Dist: nvidia-cufft-cu11 (==10.9.0.58)
+Requires-Dist: nvidia-curand-cu11 (==10.2.10.91)
+Requires-Dist: nvidia-cusolver-cu11 (==11.4.0.1)
+Requires-Dist: nvidia-cusparse-cu11 (==11.7.4.91)
+Requires-Dist: nvidia-nccl-cu11 (==2.14.3)
+Requires-Dist: nvidia-nvtx-cu11 (==11.7.91)
+Requires-Dist: packaging (==23.1)
+Requires-Dist: Pillow (==10.0.0)
+Requires-Dist: protobuf (==4.23.4)
+Requires-Dist: psutil (==5.9.5)
+Requires-Dist: py3nvml (==0.2.7)
+Requires-Dist: pycparser (==2.21)
+Requires-Dist: pydantic (==2.0.3)
+Requires-Dist: pydantic-core (==2.3.0)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: PyYAML (==6.0)
+Requires-Dist: regex (==2023.6.3)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: RestrictedPython (==6.1)
+Requires-Dist: rouge-score (==0.1.2)
+Requires-Dist: safetensors (==0.3.1)
+Requires-Dist: scipy (==1.11.1)
+Requires-Dist: segment-analytics-python (==2.2.3)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: sniffio (==1.3.0)
+Requires-Dist: SQLAlchemy (==1.4.49)
+Requires-Dist: starlette (==0.27.0)
+Requires-Dist: sympy (==1.12)
+Requires-Dist: tokenizers (==0.13.3)
+Requires-Dist: torch (==2.0.1)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: triton (==2.0.0)
+Requires-Dist: typing-extensions (==4.7.1)
+Requires-Dist: urllib3 (==2.0.3)
+Requires-Dist: uvicorn (==0.23.0)
+Requires-Dist: xmltodict (==0.13.0)
+
+# llm-toys
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![py\_versions](https://img.shields.io/badge/python-3.10%2B-blue)](https://pypi.org/project/llm-toys/)
+
+Small(7B and below), production-ready finetuned LLMs for a diverse set of useful tasks.
+
+Supported tasks: Paraphrasing, Changing the tone of a passage, Summary and Topic generation from a dailogue,
+~~Retrieval augmented QA(WIP)~~.
+
+We finetune LoRAs on quantized 3B and 7B models. The 3B model is finetuned on specific tasks, while the 7B model is
+finetuned on all the tasks.
+
+The goal is to be able to finetune and use all these models on a very modest consumer grade hardware.
+
+## Installation
+
+```bash
+pip install llm-toys
+```
+
+> Note that we are using the transformers and peft packages from the source directory, 
+> not the installed package. 4bit bitsandbytes quantization was only working with the 
+> main brach of transformers and peft. Once transformers version 4.31.0 and peft version 0.4.0 is 
+> published to pypi we will use the published version.
+
+## Usage
+
+### Task specific 3B models
+
+#### Paraphrasing
+
+```python
+from llm_toys.tasks import Paraphraser
+
+paraphraser = Paraphraser()
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?")
+# "Could you kindly assist me in canceling my previous order?"
+```
+
+#### Tone change
+
+```python
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="casual")
+# "Hey, could you help me cancel my order?"
+
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="professional")
+# "I would appreciate guidance on canceling my previous order."
+
+paraphraser.paraphrase("Hey, can yuo hepl me cancel my last order?", tone="witty")
+# "Hey, I need your help with my last order. Can you wave your magic wand and make it disappear?"
+```
+
+#### Dialogue Summary and Topic generation
+
+```python
+from llm_toys.tasks import SummaryAndTopicGenerator
+
+summary_theme_generator = SummaryAndTopicGenerator()
+summary_theme_generator.generate_summary_and_topic(
+    """
+    #Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
+    #Person2#: What's got you so hyped?
+    #Person1#: Studio Ghibli movies are pure magic! The animation, storytelling, everything is incredible.
+    #Person2#: Which movie is it?
+    #Person1#: It's called "Whisper of the Wind." It's about a girl on a magical journey to save her village.
+    #Person2#: Sounds amazing! I'm in for the premiere.
+    #Person1#: Great! We're in for a visual masterpiece and a heartfelt story.
+    #Person2#: Can't wait to be transported to their world.
+    #Person1#: It'll be an unforgettable experience, for sure!
+    """.strip()
+)
+# {"summary": "#Person1# is excited for the premiere of the latest Studio Ghibli movie.
+#              #Person1# thinks the animation, storytelling, and heartfelt story will be unforgettable.
+#              #Person2# is also excited for the premiere.",
+#  "topic": "Studio ghibli movie"}
+```
+
+### General 7B model
+
+```python
+from llm_toys.tasks import GeneralTaskAssitant
+from llm_toys.config import TaskType
+
+gta = GeneralTaskAssitant()
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?")
+# "Could you assist me in canceling my previous order?"
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="casual")
+# "Hey, can you help me cancel my last order?"
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="professional")
+# "I would appreciate if you could assist me in canceling my previous order."
+
+gta.complete(TaskType.PARAPHRASE_TONE, "Hey, can yuo hepl me cancel my last order?", tone="witty")
+# "Oops! Looks like I got a little carried away with my shopping spree. Can you help me cancel my last order?"
+
+chat = """
+#Person1#: I'm so excited for the premiere of the latest Studio Ghibli movie!
+#Person2#: What's got you so hyped?
+#Person1#: Studio Ghibli movies are pure magic! The animation, storytelling, everything is incredible.
+#Person2#: Which movie is it?
+#Person1#: It's called "Whisper of the Wind." It's about a girl on a magical journey to save her village.
+#Person2#: Sounds amazing! I'm in for the premiere.
+#Person1#: Great! We're in for a visual masterpiece and a heartfelt story.
+#Person2#: Can't wait to be transported to their world.
+#Person1#: It'll be an unforgettable experience, for sure!
+""".strip()
+gta.complete(TaskType.DIALOGUE_SUMMARY_TOPIC, chat)
+# {"summary": "#Person1# tells #Person2# about the upcoming Studio Ghibli movie.
+#              #Person1# thinks it's magical and #Person2#'s excited to watch it.",
+#  "topic": "Movie premiere"}
+```
+
+## Training
+
+### Data
+
+- [Paraphrasing and Tone change](data/paraphrase_tone.json): Contains passages and their paraphrased versions as well
+as the passage in different tones like casual, professional and witty. Used to models to rephrase and change the
+tone of a passage. Data was generated using gpt-35-turbo. A small sample of training passages have also been picked
+up from quora quesions and squad_2 datasets.
+
+- [Dialogue Summary and Topic generation](data/dialogue_summary_topic.json): Contains Dialogues and their Summary
+and Topic. The training data is ~1k records from the training split of the
+[Dialogsum dataset](https://github.com/cylnlp/dialogsum). It also contains ~20 samples from the dev split.
+Data points with longer Summaries and Topics were given priority in the sampling. Note that some(~30) topics
+were edited manually in final training data as the original labeled Topic was just a word and not descriptive enough.
+
+## Evaluation
+
+### Paraphrasing and Tone change
+
+WIP
+
+### Dialogue Summary and Topic generation
+
+Evaluation is done on 500 records from the [Dialogsum test](https://github.com/cylnlp/dialogsum/tree/main/DialogSum_Data)
+split.
+
+```python
+# llm-toys/RedPajama-INCITE-Base-3B-v1-dialogue-summary-topic
+{"rouge1": 0.453, "rouge2": 0.197, "rougeL": 0.365, "topic_similarity": 0.888}
+
+# llm-toys/falcon-7b-paraphrase-tone-dialogue-summary-topic
+{'rouge1': 0.448, 'rouge2': 0.195, 'rougeL': 0.359, 'topic_similarity': 0.886}
+```
+
+## Roadmap
+
+- [ ] Add tests.
+- [ ] Ability to switch the LoRAs(for task wise models) without re-initializing the backbone model and tokenizer.
+- [ ] Retrieval augmented QA.
+- [ ] Explore the generalizability of 3B model across more tasks.
+- [ ] Explore even smaller models.
+- [ ] Evaluation strategy for tasks where we don"t have a test/eval dataset handy.
