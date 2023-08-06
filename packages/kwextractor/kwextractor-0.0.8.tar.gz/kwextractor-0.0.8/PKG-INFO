@@ -1,0 +1,97 @@
+Metadata-Version: 2.1
+Name: kwextractor
+Version: 0.0.8
+Summary: Extract keywords for vietnamese text.
+Author: Trinh Do Duy Hung
+Author-email: trinhhungsss492@gmail.com
+License: MIT
+Description-Content-Type: text/markdown
+
+# Welcome to Keywords Extractor 🐣
+This is a simple library for extracting keywords from a text. It is based on the [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf) algorithm for extracting keywords. Beside, it also uses the [YAKE](https://github.com/LIAAD/yake) and [RapidFuzz](https://github.com/maxbachmann/RapidFuzz) libraries.
+
+Fast and easy to use. But it still works better than the other libraries I've tried. I think so  (●´ω｀●).
+
+If you have any complain, my mail here  (>‘o’)>: trinhhungsss492@gmail.com. Or my facebook here  (｡◕‿◕｡): https://www.facebook.com/trinhdoduyhungss.
+
+
+## Installation
+Download and install through pip with wheel support:
+```bash
+pip install kwextractor
+```
+## Usage
+```python
+from kwextractor.process.extract_keywords import ExtractKeywords
+from kwextractor.process.extract_numverse import ExtractNumverse
+from kwextractor.process.replacing_w2n import ReplacingWtoN
+keywords = ExtractKeywords().extract_keywords("tôi thích nghe các bản nhạc của Trịnh Công Sơn")
+print(keywords) # "bản nhạc,Trịnh Công Sơn"
+num_verse = ExtractNumverse().extract_numverse("sinh cho tui bài thơ gồm hai chục câu nhé",20) #20 is the maximum value returned. It can be any integer number, you can set it fit your need.
+print(num_verse) # 20
+replacing_w2n = ReplacingWtoN().replacing_w2n("cho hỏi làm sao để sinh ra mười bài thơ")
+print(replacing_w2n) # "cho hỏi làm sao để sinh ra 10 bài thơ"
+keywords = ExtractKeywords().extract_keywords("Tổng thống Mỹ Donald Trump đã đề nghị các nước thành viên NATO tăng cường đầu tư trong lĩnh vực an ninh, đặc biệt là trong lĩnh vực phòng chống tấn công từ các quốc gia có thể xâm nhập vào các thành phố của các nước thành viên. Đây là lần đầu tiên tổng thống Mỹ đề nghị các nước thành viên NATO tăng cường đầu tư trong lĩnh vực an ninh.")
+print(keywords) # "cường đầu,quốc gia,xâm nhập,ninh đặc,an ninh,Donald Trump,Tổng thống lĩnh vực phòng chống tấn công,NATO"
+```
+
+🤘 Version v0.0.3:  Customize is available now🤘
+
+
+## Customize
+```python
+from kwextractor.process.extract_keywords import ExtractKeywords
+text = "tôi thích nghe các bản nhạc của Trịnh Công Sơn"
+fake_data = {
+    "author": [
+        "Trịnh Thăng Bình",
+        "Lê Bảo Bình",
+        "Phan Mạnh Quỳnh",
+        "Karik",
+        "Ngô Kiến Huy",
+        "Chí Tâm",
+        "Trang Yue",
+        "B Ray",
+        "ERIK",
+        "Emcee L (Da LAB)",
+        "Badbies",
+        "Vũ",
+        "Sơn Tùng M-TP"
+    ]
+}
+kw = ExtractKeywords(lan='vi', data_keywords=fake_data, return_group=True) # all parameters: data_keywords, lan, ngram, stop_words
+print(kw.extract_keywords(text)) #{'author': ['bản nhạc', 'Trịnh Công Sơn']}
+```
+
+
+## Features
+
+
+| Feature | Description                                                                                                                                                       | Available at version |
+| --- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|
+|🍎 **Extract keywords from a sentence** | Extract keywords from a sentence. If the sentence has more than one keyword, the keywords will be separated by a comma. And empty if the sentence has no keyword. | ✅ v0.0.1 ⇪           |
+|🍎 **Extract keywords from a paragraph** | Extract keywords from a paragraph and return a list of keywords                                                                                                   | ✅ v0.0.2 ⇪           |
+|🍎 **Extract num-string from a sentence** | Extract num-string (number as text) from a sentence. Only return 1 number as a integer in a sentence.                                                             | ✅ v0.0.1 ⇪           |
+|🍎 **Replace num-string with a number** | Replace num-string with a number in the sentence.                                                                                                                 | ✅ v0.0.1 ⇪           |
+
+## Development
+### Install dependencies
+```bash
+pip install -r requirements.txt
+```
+### Build
+```bash
+python setup.py bdist_wheel
+```
+### Test
+```bash
+pytest
+```
+
+Any question? (ு८ு) 
+```
+_/﹋\_
+(҂`_´)
+<,︻╦╤─ ҉ – – 🍎
+_/﹋\_
+```
