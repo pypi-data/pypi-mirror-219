@@ -1,0 +1,21 @@
+<div id='dqi' class="pull-right" data-module="gbif-dqi" data-module-gbif-id="{{ gbif_id }}">
+
+    {% set errors = h.dqi_parse_errors(errors) %}
+    {% set severity = h.dqi_get_severity(errors, gbif_id) %}
+
+    GBIF quality indicators: <span role="button" class="dqi-pill dqi-{{ severity.lower().replace(' ', '-') }}">{{ severity }}</span>
+
+    {% if errors %}
+        <div class="dqi-errors">
+            <ul>
+                {% for error in errors %}
+                    <li class="{{ error.severity.lower().replace(' ', '-') }}"><abbr title="{{ error.description }}">{{ error.title }}</abbr></li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+</div>
+
+{% asset 'ckanext-gbif/main-css' %}
+{% asset 'ckanext-gbif/dqi-js' %}

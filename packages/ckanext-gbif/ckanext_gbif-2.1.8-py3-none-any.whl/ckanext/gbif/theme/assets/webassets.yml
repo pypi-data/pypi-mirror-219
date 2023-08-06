@@ -1,0 +1,14 @@
+main-css:
+  output: ckanext-gbif/%(version)s_gbif.css
+  filters: less
+  contents:
+    - less/gbif.less
+
+dqi-js:
+  output: ckanext-gbif/%(version)s_dqi.js
+  filters: rjsmin
+  extra:
+    preload:
+      - base/main
+  contents:
+    - scripts/gbif-dqi.js
