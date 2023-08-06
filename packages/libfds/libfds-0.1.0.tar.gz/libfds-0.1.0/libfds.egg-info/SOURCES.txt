@@ -1,0 +1,14 @@
+setup.py
+libfds/__init__.py
+libfds/cmaths.c
+libfds/cutils.c
+libfds/fields.c
+libfds/filters.c
+libfds/fluxes.c
+libfds/libdiff.c
+libfds/libfilt.c
+libfds.egg-info/PKG-INFO
+libfds.egg-info/SOURCES.txt
+libfds.egg-info/dependency_links.txt
+libfds.egg-info/requires.txt
+libfds.egg-info/top_level.txt
