@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "task2a"
+version = "1.0.22"
+description = "Password generation CLI and library"
+repository = "https://gitlab.com/Bill-EPAM-DevOpsInt2023/python/task2a"
+authors = ["Bill.Avramenko <billavramenko@gmail.com>"]
+readme = "README.md"
+packages = [{include = "pwgen"}]
+#packages = [{include = "pwgen", format = "sdist"}]
+license = "MIT"
+
+#[tool.poetry.build]
+#generate-setup-file = true
+
+[tool.poetry.dependencies]
+python = "^3.8"
+questionary = "^1.10.0"
+
+[tool.poetry.scripts]
+pwgen = "pwgen:pwgen_cli"
+pwgen_showcase = "pwgen.showcase:pwgen_showcase"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
