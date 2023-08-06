@@ -1,0 +1,15 @@
+gcp_helpers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gcp_helpers/cloud_tasks/__init__.py,sha256=2m9a5hRVuitVmD-yuKNmZrqeoHs-h_5Xcqeu6gVMQXE,74
+gcp_helpers/cloud_tasks/manager.py,sha256=COKh8n6a3CjeRW1mf2p6-pHkH9zkQ1hjeBvXb13ExuM,2881
+gcp_helpers/common/__init__.py,sha256=ThPCMttKLi55P9vMEVb0Hyi-MOhBUGxwQQIK7Qbl-EA,49
+gcp_helpers/common/web.py,sha256=VkKqiGoXhwPb47VXhN56dZ3ean0fUFoG19nADrw32ak,1274
+gcp_helpers/firestore/__init__.py,sha256=yW2nEWSMklA7gcISHje8y_Etyq5AQXOk7ix7D0Nr2bg,172
+gcp_helpers/firestore/collections.py,sha256=ojW8scaqKq7Qa9sxfC2GBylgtbDn3PP2DZC0xqyyJ-0,7510
+gcp_helpers/functions/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+gcp_helpers/functions/decorators.py,sha256=jMU0xOOp272I7-SQ1NDf1ExnvsdoN83-laUsCtjDHV4,4272
+gcp_helpers/functions/routers.py,sha256=DH0EiRHT60qlc2XJdMZmBztJv63z-ATrXMcftxY3WN0,2063
+gcp_ng_helpers-0.0.15.dist-info/LICENSE,sha256=hRExj6T4VWzbR58de5V-DbNWdsvvElnibmhUEuRdkYI,1067
+gcp_ng_helpers-0.0.15.dist-info/METADATA,sha256=PX85IVIuaTVD35Q6jfdWQheDSVHTPOr6rpyxF2bNAMU,2490
+gcp_ng_helpers-0.0.15.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+gcp_ng_helpers-0.0.15.dist-info/top_level.txt,sha256=wYXT4M5t2qi0e3k4y4Atox-Cs9B0FbzhnVyWYtSbU_4,12
+gcp_ng_helpers-0.0.15.dist-info/RECORD,,
