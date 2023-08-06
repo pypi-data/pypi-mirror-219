@@ -1,0 +1,6 @@
+[console_scripts]
+repo-review = repo_review.__main__:main
+
+[repo_review.fixtures]
+list_all = repo_review.fixtures:list_all
+pyproject = repo_review.fixtures:pyproject
