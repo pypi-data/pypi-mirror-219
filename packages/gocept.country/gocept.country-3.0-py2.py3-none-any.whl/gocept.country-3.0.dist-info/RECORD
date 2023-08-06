@@ -1,0 +1,16 @@
+gocept.country-3.0-py3.11-nspkg.pth,sha256=XrF_EgR9630Tyi-5ziXbOZVzDtiNiqRPelyeS-BvoAA,539
+gocept/country/README.txt,sha256=HjezSEc577BJCOyfqZsx871k60MDrecyIb-JOhoL8pc,10792
+gocept/country/__init__.py,sha256=8Pvna_uyevWrpCfrFMNZjA2gKiPNP-8EzjFodUE6R2w,435
+gocept/country/configure.zcml,sha256=9jcy5W5kOtaMZf1zysciQvASJodbnn0znB6mlsnvKks,712
+gocept/country/db.py,sha256=G6v1Vfel2TqMFTq1Ct919Y56wkIGYSQnZT1KPnopqcY,2306
+gocept/country/ftesting.zcml,sha256=AdkTNzlrHJGalE17wA6Cd0q0pkMzCi9aE5rGBj-J5yc,271
+gocept/country/interfaces.py,sha256=Dqxbr1f9im_3Flv01Be6RbREtfQHKijc0FhYYHlSvPU,277
+gocept/country/sources.py,sha256=giLZaJJTBd21uaV-_2-UaVkdgmoOvKWAIyKXd3bgEgg,3197
+gocept/country/tests/test_db.py,sha256=1v4IXaCZc6xbyDADTfPNUQQauVef-v3UcufcDJYPvgk,206
+gocept/country/tests/test_doctest.py,sha256=xiRluf337CMZ4jKLTusEH-QzGZHsThUNRLcynMFLHEA,326
+gocept.country-3.0.dist-info/LICENSE.txt,sha256=LgkZgYmTrW63RHfPZ8BfITPglCA-HDxyqtyqLPU7KSs,2070
+gocept.country-3.0.dist-info/METADATA,sha256=B94HIktFCuoI3fnxYxhonYKIsNNIGxCfcfS3-1RqVkk,16004
+gocept.country-3.0.dist-info/WHEEL,sha256=a-zpFRIJzOq5QfuhBzbhiA1eHTzNCJn8OdRvhdNX0Rk,110
+gocept.country-3.0.dist-info/namespace_packages.txt,sha256=dLXUiNQ2z7NJIlFVMgdxhn_daKSodZVJYenJ47LRf3E,7
+gocept.country-3.0.dist-info/top_level.txt,sha256=dLXUiNQ2z7NJIlFVMgdxhn_daKSodZVJYenJ47LRf3E,7
+gocept.country-3.0.dist-info/RECORD,,
