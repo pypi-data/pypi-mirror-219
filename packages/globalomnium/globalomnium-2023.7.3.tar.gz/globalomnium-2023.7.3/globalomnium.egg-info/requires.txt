@@ -1,0 +1,4 @@
+aiohttp<4,>=3.8.0
+
+[mqtt]
+paho-mqtt<2,>=1.6.1
