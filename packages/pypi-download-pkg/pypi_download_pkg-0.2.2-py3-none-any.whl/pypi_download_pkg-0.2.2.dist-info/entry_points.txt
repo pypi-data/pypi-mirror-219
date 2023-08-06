@@ -1,0 +1,3 @@
+[console_scripts]
+download_linux_pkg=pypi_download_pkg.cli:cli
+
