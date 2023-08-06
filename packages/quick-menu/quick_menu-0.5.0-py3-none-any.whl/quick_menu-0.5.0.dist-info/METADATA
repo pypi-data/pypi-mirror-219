@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: quick-menu
+Version: 0.5.0
+Project-URL: Documentation, https://yqbear.github.io/quick-menu
+Project-URL: Issues, https://github.com/yqbear/quick-menu/issues
+Project-URL: Source, https://github.com/yqbear/quick-menu
+Author-email: Stephan Poole <yqbear@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: typing-extensions
+Description-Content-Type: text/markdown
+
+# quick-menu
+
+[![PyPI - Version](https://img.shields.io/pypi/v/quick-menu.svg)](https://pypi.org/project/quick-menu)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/quick-menu.svg)](https://pypi.org/project/quick-menu)
+
+-----
+
+This is a simple package to create text menus for use in console applications.
+
+## Documentation
+
+The [documentation](https://yqbear.github.io/quick-menu) is made with [Material for MkDocs](https://github.com/squidfunk/mkdocs-material) and is hosted by [GitHub Pages](https://docs.github.com/en/pages).
+
+## Installation
+
+```console
+pip install quick-menu
+```
+
+## License
+
+`quick-menu` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
