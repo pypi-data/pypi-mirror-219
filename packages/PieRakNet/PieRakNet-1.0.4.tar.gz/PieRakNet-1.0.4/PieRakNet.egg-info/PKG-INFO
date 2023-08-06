@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: PieRakNet
+Version: 1.0.4
+Summary: RakNet implementation, written in Python. Created for PieMC.
+Home-page: https://github.com/PieMC-Dev/PieRakNet
+Author: lapismyt
+Author-email: nikitagavrilin005@gmail.com
+Project-URL: Example, https://github.com/PieMC-Dev/PieRakNet/tree/main/EXAMPLE.md
+Project-URL: Developer, https://github.com/PieMC-Dev
+Keywords: python python3 raknet rak-net mcpe bedrock rak_net piemc pieraknet
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Games/Entertainment
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Networking
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PieRakNet
+RakNet implementation, written in Python. Created for PieMC.
