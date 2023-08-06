@@ -1,0 +1,193 @@
+from copy import deepcopy
+from pathlib import Path
+from typing import ClassVar, List
+
+import pytest
+
+import rispy
+
+DATA_DIR = Path(__file__).parent.resolve() / "data"
+
+
+def test_dump_and_load():
+    # check that we can write the same file we read
+    source_fp = DATA_DIR / "example_full.ris"
+
+    # read text
+    actual = source_fp.read_text()
+
+    # map to RIS structure and dump
+    entries = rispy.loads(actual)
+    export = rispy.dumps(entries)
+
+    assert actual == export
+
+
+def test_dumps_multiple_unknown_tags_ris(tmp_path):
+    fp = tmp_path / "test_dump_unknown_tags.ris"
+
+    results = [{"title": "my-title", "abstract": "my-abstract", "does_not_exists": "test"}]
+
+    # check that we get a warning
+    with pytest.warns(UserWarning, match="label `does_not_exists` not exported"):
+        with open(fp, "w") as f:
+            rispy.dump(results, f)
+
+    # check that we get everything back except missing key
+    text = Path(fp).read_text()
+    entries = rispy.loads(text)
+    assert entries[0] == {
+        "type_of_reference": "JOUR",
+        "title": "my-title",
+        "abstract": "my-abstract",
+    }
+
+    # check file looks as expected
+    lines = text.splitlines()
+    assert lines[0] == "1."
+    assert lines[1] == "TY  - JOUR"
+    assert lines[4] == "ER  - "
+    assert len(lines) == 5
+
+
+def test_custom_list_tags():
+    filepath = DATA_DIR / "example_custom_list_tags.ris"
+    list_tags = deepcopy(rispy.LIST_TYPE_TAGS)
+    list_tags.append("SN")
+
+    expected = {
+        "type_of_reference": "JOUR",
+        "authors": ["Marx, Karl", "Marxus, Karlus"],
+        "issn": ["12345", "ABCDEFG", "666666"],
+    }
+
+    actual = filepath.read_text()
+
+    entries = rispy.loads(actual, list_tags=list_tags)
+    assert expected == entries[0]
+
+    export = rispy.dumps(entries, list_tags=list_tags)
+    assert export == actual
+
+
+def test_skip_unknown_tags():
+    entries = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Marx, Karl", "Marxus, Karlus"],
+            "issn": "12222",
+            "unknown_tag": {"JP": ["CRISPR"], "DC": ["Direct Current"]},
+        }
+    ]
+    expected = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Marx, Karl", "Marxus, Karlus"],
+            "issn": "12222",
+        }
+    ]
+
+    export = rispy.dumps(entries, skip_unknown_tags=True)
+    reload = rispy.loads(export)
+
+    assert reload == expected
+
+
+def test_writing_all_list_tags():
+    expected = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Marx, Karl", "Marxus, Karlus"],
+            "issn": ["12345", "ABCDEFG", "666666"],
+        }
+    ]
+
+    export = rispy.dumps(expected, enforce_list_tags=False, list_tags=[])
+    entries = rispy.loads(export, list_tags=["AU", "SN"])
+    assert expected == entries
+
+
+def test_file_implementation_write():
+    class CustomParser(rispy.RisParser):
+        DEFAULT_IGNORE: ClassVar[List[str]] = ["JF", "ID", "KW"]
+
+    class CustomWriter(rispy.RisWriter):
+        DEFAULT_IGNORE: ClassVar[List[str]] = ["JF", "ID", "KW"]
+
+    list_tags = ["SN", "T1", "A1", "UR"]
+
+    fn = DATA_DIR / "example_full.ris"
+    with open(fn) as f:
+        entries = rispy.load(f, implementation=CustomParser, list_tags=list_tags)
+
+    fn_write = DATA_DIR / "example_full_write.ris"
+
+    with open(fn_write, "w") as f:
+        rispy.dump(entries, f, implementation=CustomWriter, list_tags=list_tags)
+
+    with open(fn_write) as f:
+        reload = rispy.load(f, implementation=CustomParser, list_tags=list_tags)
+
+    assert reload == entries
+
+
+def test_write_single_unknown_tag():
+    entries = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Shannon, Claude E."],
+            "year": "1948/07//",
+            "title": "A Mathematical Theory of Communication",
+            "start_page": "379",
+            "unknown_tag": {"JP": ["CRISPR"]},
+        }
+    ]
+
+    text_output = rispy.dumps(entries)
+
+    # check output is as expected
+    lines = text_output.splitlines()
+    assert lines[6] == "JP  - CRISPR"
+    assert len(lines) == 8
+
+
+def test_write_multiple_unknown_tag_same_type():
+    entries = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Shannon, Claude E."],
+            "year": "1948/07//",
+            "title": "A Mathematical Theory of Communication",
+            "start_page": "379",
+            "unknown_tag": {"JP": ["CRISPR", "PEOPLE"]},
+        }
+    ]
+
+    text_output = rispy.dumps(entries)
+
+    # check output is as expected
+    lines = text_output.splitlines()
+    assert lines[6] == "JP  - CRISPR"
+    assert lines[7] == "JP  - PEOPLE"
+    assert len(lines) == 9
+
+
+def test_write_multiple_unknown_tag_diff_type():
+    entries = [
+        {
+            "type_of_reference": "JOUR",
+            "authors": ["Shannon, Claude E."],
+            "year": "1948/07//",
+            "title": "A Mathematical Theory of Communication",
+            "start_page": "379",
+            "unknown_tag": {"JP": ["CRISPR"], "ED": ["Swinburne, Ricardo"]},
+        }
+    ]
+
+    text_output = rispy.dumps(entries)
+
+    # check output is as expected
+    lines = text_output.splitlines()
+    assert lines[6] == "JP  - CRISPR"
+    assert lines[7] == "ED  - Swinburne, Ricardo"
+    assert len(lines) == 9
