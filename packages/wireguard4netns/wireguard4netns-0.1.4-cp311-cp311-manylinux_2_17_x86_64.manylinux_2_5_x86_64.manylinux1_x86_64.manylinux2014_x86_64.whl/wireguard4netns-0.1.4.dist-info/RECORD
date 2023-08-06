@@ -1,0 +1,14 @@
+wireguard4netns-0.1.4.dist-info/RECORD,,
+wireguard4netns-0.1.4.dist-info/METADATA,sha256=-6OCDqGvH-5KGvpLmiU44pOESVVvibGCTVfFEypW4eE,5888
+wireguard4netns-0.1.4.dist-info/entry_points.txt,sha256=QNif73PBxhpmlEFtHtn18LRIr0e3yUMesqJMvVEmILc,60
+wireguard4netns-0.1.4.dist-info/WHEEL,sha256=tJZMgWkpx2QN2XADNu3K8WFWXRrE_BPs6Llx8t2aFvE,222
+wireguard4netns-0.1.4.dist-info/LICENSE,sha256=uF3NPkU9BZglUsUrX8ngvdbSPG-OhEuYSoivMlcLDMA,1078
+wireguard4netns-0.1.4.dist-info/LICENSES/MIT.txt,sha256=uF3NPkU9BZglUsUrX8ngvdbSPG-OhEuYSoivMlcLDMA,1078
+wireguard4netns-0.1.4.dist-info/LICENSES/0BSD.txt,sha256=4_GMceENZzWQ65hWwded07Sw1lQE77XoWE2-3n7dYIs,643
+wireguard4netns/__init__.py,sha256=GRjGtVarl_SwHCtMXnupGA0Ghowoloe2zyjJjUXpGt8,231
+wireguard4netns/wireguard-go,sha256=M8Tf8pNhl3hm64K8FsID-zgHGs3DEgE_0Ue3Idauxn4,2564096
+wireguard4netns/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+wireguard4netns/cli.py,sha256=J8WDrZ-VoJWlK29ZSgOnZxVTzujB6d2i3pk59IKFgqs,886
+wireguard4netns/tundev.py,sha256=8jR6HlsJ7fE2UtJDjbk-jH2PD5sOwONAH1GCjrieoAs,1819
+wireguard4netns/wireguard_daemon.py,sha256=WrlArlyhX1QLMyho_fwFjP_u0sCW7B7fhOCtfeXH7x4,1828
+wireguard4netns/__main__.py,sha256=8RCS1MpKIUpZd3yX7-BGUjak_JJV85cOIyuelW1KJeg,156
