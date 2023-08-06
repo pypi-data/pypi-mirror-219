@@ -1,0 +1,4 @@
+*.pyc
+*.tsv
+local_sqlite_db
+src/dbx/local_sqlite_db

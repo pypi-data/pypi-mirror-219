@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: davex
+Version: 2.1.9
+Summary: Command line Data Profiling for Postgres, MySQL and sqlite.
+Project-URL: Homepage, https://github.com/daveskura/davex
+Project-URL: Author Linkedin, https://www.linkedin.com/in/2166883
+Author-email: Dave Skura <dskura@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: garbledave-package>=1.0.0
+Requires-Dist: mysqldave-package>=2.0.3
+Requires-Dist: postgresdave-package>=2.0.4
+Requires-Dist: querychart-package>=2.0.4
+Requires-Dist: readchar
+Requires-Dist: schemawizard-package>=2.5.1
+Requires-Dist: sqlitedave-package>=2.0.1
+Description-Content-Type: text/markdown
+
+# dbx
+ 
