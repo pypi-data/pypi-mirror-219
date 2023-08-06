@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: gfx-perp-python-sdk
+Version: 0.0.3
+Summary: Perp python sdk
+Home-page: https://github.com/GooseFX1/gfx-perp-python-sdk
+Author: Shashank Shekhar
+Author-email: shashank@goosefx.io
+License-File: LICENSE
+Requires-Dist: pytest
+
