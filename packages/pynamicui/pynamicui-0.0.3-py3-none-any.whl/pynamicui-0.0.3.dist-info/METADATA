@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pynamicui
+Version: 0.0.3
+Summary: dynamic web-like UIs using a declarative syntax
+Home-page: https://github.com/zacharie410/PynamicUI
+Author: zacharie410
+License: Apache Software License
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: customtkinter
+
+PynamicUI is a lightweight Python library that provides a dynamic user interface (UI) framework for creating interactive and responsive applications. It simplifies the process of building user interfaces by abstracting away the complexities of working directly with a UI toolkit like Tkinter.
