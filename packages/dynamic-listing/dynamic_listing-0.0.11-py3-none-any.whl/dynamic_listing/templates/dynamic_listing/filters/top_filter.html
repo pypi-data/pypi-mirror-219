@@ -1,0 +1,32 @@
+{% load i18n filters %}
+
+<div class="card mb-5">
+  <div class="card-header align-items-center px-4 gap-2 gap-md-5">
+    <div class="card-title">
+      {% with f=filter|get_first_filter_by_type:"search" %}
+        {% include f.template_name with attrs=f.attrs %}
+      {% endwith %}
+    </div>
+    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+      {% with f=filter|get_first_filter_by_type:"sort" %}
+        {% if f %}
+          {% include f.template_name with attrs=f.attrs %}
+        {% endif %}
+      {% endwith %}
+    </div>
+  </div>
+  {% with switchs=filter|get_filters_by_type:"switch" %}
+    {% if switchs|length > 0 %}
+      <div class="card-body p-4">
+        <div class="row row-cols-4">
+          {% for switch in switchs %}
+            <div class="col mb-3">
+              {% include switch.template_name with attrs=switch.attrs %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endwith %}
+</div>
+

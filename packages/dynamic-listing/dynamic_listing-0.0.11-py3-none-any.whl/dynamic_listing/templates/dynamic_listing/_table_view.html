@@ -1,0 +1,28 @@
+{% load i18n %}
+{% load static %}
+
+{% if factory and media %}
+  {{ media }}
+
+  {% if filter or listing_actions and factory %}
+    {% include 'dynamic_listing/filters/inline_filter.html' %}
+  {% endif %}
+{% endif %}
+
+
+<div class="card">
+  <div class="card-body py-4">
+    <div id="kt_table_users_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+      {% if object_list|length > 0 %}
+        {% include "dynamic_listing/_table.html" %}
+        {% include "dynamic_listing/_pagination.html" %}
+      {% else %}
+        {% include 'dynamic_listing/_no_data.html' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if modals_template_name %}
+  {% include modals_template_name %}
+{% endif %}

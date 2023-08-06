@@ -1,0 +1,54 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-03 01:40+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: filters/__init__.py:20 filters/__init__.py:26 filters/__init__.py:32
+#: filters/__init__.py:38
+msgid " & Up"
+msgstr " فاعلى"
+
+#: filters/filters.py:12
+#, python-format
+msgid "%s Descending"
+msgstr "%s من الاعلى الى الاقل"
+
+#: filters/filters.py:13
+#, python-format
+msgid "%s Ascending"
+msgstr "%s من الاقل الى الاعلى"
+
+#: templates/dynamic_listing/_grid.html:24
+#: templates/dynamic_listing/_no_data.html:6
+msgid "No items found."
+msgstr "لا يوجد محتوى"
+
+#: templates/dynamic_listing/_no_data.html:4
+msgid "No Items Available"
+msgstr "لا يوجد محتوى"
+
+#: templates/dynamic_listing/_pagination.html:8
+#, python-format
+msgid "Showing %(start)s-%(end)s of total result %(count)s"
+msgstr "إظهار %(start)s-%(end)s من اجمالى النتائج %(count)s"
+
+#: templates/dynamic_listing/filters/inline_filter.html:26
+#: templates/dynamic_listing/filters/side_filter.html:9
+msgid "Clear Filters"
+msgstr "الغاء الترشيحات"

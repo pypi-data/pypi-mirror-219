@@ -1,0 +1,29 @@
+{% load i18n static %}
+
+{% if factory and media %}
+  {{ media }}
+
+  {% if filter or listing_actions and factory %}
+    {% include 'dynamic_listing/filters/inline_filter.html' %}
+  {% endif %}
+{% endif %}
+
+{% if object_list|length > 0 %}
+  <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-5 g-xl-9">
+    {% for object in object_list %}
+      {% include row_template_name with item=object %}
+    {% endfor %}
+    {% if listing_actions_template_name %}
+      {% include listing_actions_template_name %}
+    {% endif %}
+  </div>
+  {% include "dynamic_listing/_pagination.html" %}
+{% else %}
+  <div class="d-flex flex-column flex-center">
+    <img src="{% static "images/illustrations/sketchy-1/5.png" %}" class="mw-400px">
+    <div class="fs-1 fw-bolder text-dark mb-4">{% trans "No items found." %}</div>
+      {% if empty_listing_actions_template_name %}
+        {% include empty_listing_actions_template_name %}
+      {% endif %}
+  </div>
+{% endif %}
