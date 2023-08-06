@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: simpletest_basket
+Version: 0.0.1
+Summary: simpletest_basket
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Author-email: CX104305 <CX104305@chinanetwork.co.uk>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Example Package
+
+This is a simple square function package. You can use CX104305 to write your content.
