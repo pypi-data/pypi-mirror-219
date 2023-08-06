@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+vsss_client/__init__.py
+vsss_client/command_pb2.py
+vsss_client/common_pb2.py
+vsss_client/packet_pb2.py
+vsss_client/replacement_pb2.py
+vsss_client.egg-info/PKG-INFO
+vsss_client.egg-info/SOURCES.txt
+vsss_client.egg-info/dependency_links.txt
+vsss_client.egg-info/requires.txt
+vsss_client.egg-info/top_level.txt
