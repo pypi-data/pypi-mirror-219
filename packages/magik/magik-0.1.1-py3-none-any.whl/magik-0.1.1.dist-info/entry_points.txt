@@ -1,0 +1,2 @@
+[console_scripts]
+magik = magik_prompt_sdk.cli:main
