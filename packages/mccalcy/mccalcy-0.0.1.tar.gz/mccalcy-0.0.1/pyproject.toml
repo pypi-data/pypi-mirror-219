@@ -1,0 +1,16 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "mccalcy"
+version = "0.0.1"
+authors = [{name = "Vitalijus", email = "vitalijus.kiubis@gmail.com"}]
+description = "A small test package with calculator module."
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+[project.urls]
+Home = "https://github.com/VitalijusKiubis/mccalcy"
