@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: timezoneutils
+Version: 0.0.1
+Summary: Package For timezoneutils
+Author: GOH YU HAN
+Author-email: gohyuhan123456@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Python Package for timezoneutils including but not limit to converting timezone, calculate timezone difference, timezone offset, get timezone info (including which country use this timezone), check is the timezone DST, check the DST start and end date for a particular year or current year by default. Middleware to get timezone and related info like country using public ip address from request
