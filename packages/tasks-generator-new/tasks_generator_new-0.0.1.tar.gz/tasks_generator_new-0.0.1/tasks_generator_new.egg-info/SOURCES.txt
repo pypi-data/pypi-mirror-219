@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+tasks_generator/__init__.py
+tasks_generator/super_functions.py
+tasks_generator/tasks_generator.py
+tasks_generator_new.egg-info/PKG-INFO
+tasks_generator_new.egg-info/SOURCES.txt
+tasks_generator_new.egg-info/dependency_links.txt
+tasks_generator_new.egg-info/not-zip-safe
+tasks_generator_new.egg-info/top_level.txt
