@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: vmc_reporter
+Version: 1.99.100
+Summary: This package is supposed to prove a Dependency Confusion Attack
+Home-page: https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610
+Author: Appsec@SBB
+Author-email: application-security@sbb.ch
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+
+This package is supposed to prove a Dependency Confusion Attack
