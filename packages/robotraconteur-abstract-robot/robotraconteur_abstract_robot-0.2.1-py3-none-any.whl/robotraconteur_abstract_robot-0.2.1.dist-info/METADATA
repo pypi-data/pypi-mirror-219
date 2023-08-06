@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: robotraconteur-abstract-robot
+Version: 0.2.1
+Summary: Robot Raconteur Python Abstract Robot and Abstract Tool
+Home-page: https://github.com/robotraconteur/robotraconteur_abstract_robot_python
+Author: John Wason
+Author-email: wason@wasontech.com
+License-File: LICENSE.txt
+Requires-Dist: RobotRaconteur
+Requires-Dist: RobotRaconteurCompanion
+Requires-Dist: numpy
+Requires-Dist: PyYAML
+Requires-Dist: setuptools
+Requires-Dist: importlib-resources
+Requires-Dist: general-robotics-toolbox
+Requires-Dist: scipy
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
