@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: mqttapi
+Version: 0.1.2
+Summary: simplified mqtt library
+Home-page: https://github.com/davifurao/mqttapi
+Author: Davi Luna
+Author-email: Sdavi738@gmail.com
+Keywords: mqtt api,mosquitto api,real-time,messaging,simplified mqtt,paho-mqtt api
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
