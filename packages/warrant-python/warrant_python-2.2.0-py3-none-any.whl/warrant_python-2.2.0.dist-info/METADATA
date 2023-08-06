@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: warrant-python
+Version: 2.2.0
+Summary: Python SDK for Warrant
+Home-page: https://github.com/warrant-dev/warrant-python
+Author: Warrant
+Author-email: hello@warrant.dev
+License: Apache Software License (http://www.apache.org/licenses/LICENSE-2.0.txt)
+Project-URL: Bug Tracker, https://github.com/warrant-dev/warrant-python/issues
+Project-URL: Documentation, https://docs.warrant.dev
+Project-URL: Source Code, https://github.com/warrant-dev/warrant-python
+Keywords: warrant api authorization access control
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# Warrant Python Library
+
+Use [Warrant](https://warrant.dev/) in Python projects.
+
+[![PyPI](https://img.shields.io/pypi/v/warrant-python)](https://pypi.org/project/warrant-python/)
+[![Slack](https://img.shields.io/badge/slack-join-brightgreen)](https://join.slack.com/t/warrantcommunity/shared_invite/zt-12g84updv-5l1pktJf2bI5WIKN4_~f4w)
+
+## Installation
+
+```python
+pip install warrant-python
+```
+
+## Usage
+
+```python
+import warrant
+
+warrant.api_key = "api_test_f5dsKVeYnVSLHGje44zAygqgqXiLJBICbFzCiAg1E="
+
+warrant.User.create()
+warrant.Tenant.create(id="dunder_mifflin")
+```
+
+## Configuring the API Endpoint
+---
+The API endpoint the SDK makes requests to is configurable via the `warrant.api_endpoint` attribute:
+
+```python
+import warrant
+
+# Set api endpoint to http://localhost:8000
+warrant.api_endpoint = 'http://localhost:8000'
+```
+
+We’ve used a random API key in these code examples. Replace it with your
+[actual publishable API keys](https://app.warrant.dev) to
+test this code through your own Warrant account.
+
+For more information on how to use the Warrant API, please refer to the
+[Warrant API reference](https://docs.warrant.dev).
+
+Note that we may release new [minor and patch](https://semver.org/) versions of this library with small but backwards-incompatible fixes to the type declarations. These changes will not affect Warrant itself.
+
+## Warrant Documentation
+
+- [Warrant Docs](https://docs.warrant.dev/)
