@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "cacheline"
+version = "0.0.1"
+description = ""
+authors = ["cache-missing <cache@cache-miss.tech>"]
+readme = "README.md"
+packages = [{ include = "cache_lib", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
