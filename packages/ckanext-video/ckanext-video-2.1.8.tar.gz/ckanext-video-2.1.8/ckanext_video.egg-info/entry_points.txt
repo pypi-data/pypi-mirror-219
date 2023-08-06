@@ -1,0 +1,2 @@
+[ckan.plugins]
+video = ckanext.video.plugin:VideoPlugin
