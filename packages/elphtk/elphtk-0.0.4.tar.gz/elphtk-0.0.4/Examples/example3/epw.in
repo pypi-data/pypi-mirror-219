@@ -1,0 +1,98 @@
+--
+&inputepw
+  prefix      = ZrN
+  amass(1)    = 91.224
+  amass(2)    = 14.006
+  outdir      = './tmp/'
+  max_memlt   = 5
+
+  elph        = .true.
+  ep_coupling = .true.
+  kmaps       = .false.
+  epbwrite    = .true.
+  epbread     = .false.
+
+  epwwrite    = .true.
+  epwread     = .false.
+
+  ephwrite    = .true.
+
+  nbndsub     = 16
+  nbndskip    =  2
+
+  wannierize  = .true.
+  num_iter    = 20000
+  dis_win_max = 10
+  dis_win_min = -6
+  dis_froz_min= -4
+  dis_froz_max= 2
+  proj(1)     = 'Zr:d'
+  proj(2)     = 'N:p'
+
+  wdata(1) = 'bands_plot = .true.'
+  wdata(2) = 'begin kpoint_path'
+  wdata(3) = 'G 0.000000     0.000000     0.000000  X  0.500000     0.000000     0.000000'
+  wdata(4) = 'X 0.500000     0.000000     0.000000  M  0.500000     0.500000     0.000000'
+  wdata(5) = 'M 0.500000     0.500000     0.000000  G  0.000000     0.000000     0.000000'
+  wdata(6) = 'end kpoint_path'
+  wdata(7) = 'bands_plot_format = gnuplot'
+  wdata(8) = 'dis_num_iter = 5000'
+
+  iverbosity  = 3
+  etf_mem     = 2
+  !efermi_read = .true.
+  !fermi_energy= 1.9821
+  elecselfen  = .true.
+  phonselfen  = .true.
+  a2f         = .true.
+  nest_fn     = .false.
+
+  eliashberg  = .true.
+  laniso = .false.
+  limag  = .false.
+  lpade  = .false.
+
+  conv_thr_iaxis = 1.0d-4
+  wscut = 0.6   ! eV   Upper limit over frequency integration/summation in the Elisashberg eq
+
+  nstemp   = 4
+  tempsmin = 0.50
+  tempsmax = 2.00
+  nsiter   = 50
+  muc     = 0.16
+
+
+  fsthick     = 0.4 ! eV
+  eptemp      = 300 ! K
+  degaussw    = 0.1  ! eV
+  degaussq    = 0.1 ! meV
+  nsmear      = 1
+  delta_smear = 0.04 ! eV
+
+
+  dvscf_dir   = '../phonons/save'
+  filukk      = './ZrN.ukk'
+
+  mp_mesh_k   = .false.
+  mp_mesh_q   = .false.
+
+  nkf1        = 36
+  nkf2        = 36
+  nkf3        = 1
+
+  nqf1        = 12
+  nqf2        = 12
+  nqf3        = 1
+
+  nk1         = 9
+  nk2         = 9
+  nk3         = 1
+
+  nq1         = 3
+  nq2         = 3
+  nq3         = 1
+ /
+   3
+   0.000000000000000E+00   0.000000000000000E+00   0.000000000000000E+00
+   0.000000000000000E+00   0.333333333333333E+00   0.000000000000000E+00
+   0.333333333333333E+00   0.333333333333333E+00   0.000000000000000E+00

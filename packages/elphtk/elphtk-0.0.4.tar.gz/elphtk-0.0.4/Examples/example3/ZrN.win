@@ -1,0 +1,43 @@
+begin projections
+ Zr:d
+ N:p
+end projections
+num_wann  16
+iprint   2
+dis_win_min    -6.000000000000
+dis_win_max    10.000000000000
+dis_froz_min    -4.000000000000
+dis_froz_max     2.000000000000
+num_iter   20000
+ bands_plot = .true.                                                            
+                                                                                
+                                                                                
+                    
+ begin kpoint_path                                                              
+                                                                                
+                                                                                
+                    
+ G 0.000000     0.000000     0.000000  X  0.500000     0.000000     0.000000    
+                                                                                
+                                                                                
+                    
+ X 0.500000     0.000000     0.000000  M  0.500000     0.500000     0.000000    
+                                                                                
+                                                                                
+                    
+ M 0.500000     0.500000     0.000000  G  0.000000     0.000000     0.000000    
+                                                                                
+                                                                                
+                    
+ end kpoint_path                                                                
+                                                                                
+                                                                                
+                    
+ bands_plot_format = gnuplot                                                    
+                                                                                
+                                                                                
+                    
+ dis_num_iter = 5000                                                            
+                                                                                
+                                                                                
+                    

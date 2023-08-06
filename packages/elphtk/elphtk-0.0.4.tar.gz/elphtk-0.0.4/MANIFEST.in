@@ -1,0 +1,7 @@
+graft scripts
+graft Examples
+
+recursive-include Examples README*
+recursive-include Examples *py
+recursive-exclude Examples *png
+recursive-exclude Examples *dat 

@@ -1,0 +1,18 @@
+ &input
+    asr='simple',
+    fildyn   = 'ZrN.dyn',
+    flfrc='ZrN.fc',
+    flfrq='ZrN.freq',
+    q_in_band_form=.true.
+    la2f=.false.
+    !dos=.true.
+    !nk1=16
+    !nk2=16
+    !nk3=1
+    !ndos=50
+ /
+4
+0.5 0 0 30 X
+0 0 0 30 !G
+0.5 0.5 0 30 !M
+0.5 0 0 30 X

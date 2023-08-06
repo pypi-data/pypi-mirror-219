@@ -1,0 +1,5 @@
+To plot phonon bands calculated by QE, run
+phplot --source=QE
+
+For more options about plotting, run
+phplot -h
