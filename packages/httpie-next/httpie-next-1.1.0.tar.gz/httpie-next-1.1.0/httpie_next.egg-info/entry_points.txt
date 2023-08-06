@@ -1,0 +1,2 @@
+[httpie.plugins.transport.v1]
+httpie_next = httpie_next:HTTPNextTransportPlugin

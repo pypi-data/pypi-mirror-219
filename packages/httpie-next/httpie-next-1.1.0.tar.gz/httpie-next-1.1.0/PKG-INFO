@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: httpie-next
+Version: 1.1.0
+Summary: Use urllib3.future alongside HTTPie.
+Home-page: https://github.com/Ousret/httpie-next
+Author: Ahmed TAHRI
+Author-email: ahmed.tahri@cloudnursery.dev
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Environment :: Plugins
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+HTTPie Extra!
+-------------
+
+This plugin brings support for HTTP/2 and HTTP/3 to HTTPie.
+Use this plugin with caution as it uses urllib3.future (and actually shadows urllib3 in your environment).
+
+```shell
+pip install git+https://github.com/Ousret/httpie-next -U
+
+# run twice! first is http/2 and second should be http/3
+https GET www.cloudflare.com/img/nav/globe-lang-select-dark.svg
+```
+
+When a server yield its QUIC support, it is saved in the default HTTPie configuration directory.
+Installing this in your environment will alter basically everything that relies on urllib3.
+
+Your feedback is appreciated so that we can prepare a safe (and actually reviewable / merge-able feature) in urllib3.
