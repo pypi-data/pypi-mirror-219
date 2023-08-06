@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: tidytweets
+Version: 0.1
+Summary: Clean tweets to perform various NLP tasks such as topic analysis, word embeddings, sentiment analysis, etc.
+Home-page: https://github.com/lgomezt/Tidytweets
+Author: Lucas Gómez Tobón, Jose Fernando Barrera
+Author-email: lucasgomeztobon@hotmail.com, jf.barrera10@uniandes.edu.co
+License: MIT
+Keywords: NLP Text processing Twitter API processing data cleaning
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+License-File: LICENSE.rst
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: nltk
+Requires-Dist: spacy
+Requires-Dist: gensim
+Requires-Dist: textblob
+Requires-Dist: tweepy
+Requires-Dist: emoji
+Requires-Dist: unidecode
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: wordcloud
+Requires-Dist: plotly
+Requires-Dist: pyLDAvis
+Requires-Dist: thefuzz
+Requires-Dist: tqdm
+Requires-Dist: spacy-spanish-lemmatizer
+
