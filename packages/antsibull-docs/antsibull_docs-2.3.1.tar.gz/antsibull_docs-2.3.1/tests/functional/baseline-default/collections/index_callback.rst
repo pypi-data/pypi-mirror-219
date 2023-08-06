@@ -1,0 +1,21 @@
+
+:orphan:
+
+.. _list_of_callback_plugins:
+
+Index of all Callback Plugins
+=============================
+
+.. toctree::
+   :maxdepth: 1
+   :caption: List of callback plugins by callback type
+   :glob:
+
+   callback_index_*
+
+
+ns2.col
+-------
+
+* :ansplugin:`ns2.col.foo#callback` -- Foo output \ :ansopt:`ns2.col.foo#callback:bar`\ 
+
