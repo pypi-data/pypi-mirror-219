@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: uta-gms-engine
+Version: 0.0.1
+Summary: Engine for UTA GMS method
+Home-page: https://github.com/UTA-WESOME/uta-gms-engine
+Author: Filip Marciniak
+Author-email: filip.marciniak15@gmail.com
+Project-URL: Bug Tracker, https://github.com/UTA-WESOME/uta-gms-engine/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# UTA GMS ENGINE
+
+## Deploy to PyPI
+
+```commandline
+py -m build
+py -m twine upload dist/*
+```
