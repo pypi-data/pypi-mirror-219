@@ -1,0 +1,15 @@
+climatePy/__init__.py,sha256=u5B-8xTRR_tJlD49NrI_AQJMFyDDEJBYxc7O-_WRnRM,1940
+climatePy/_climatepy_filter.py,sha256=2LuQas0whkcPV5RmsJ9dlLS2aaSgnuPOhMgd6r5wR18,20018
+climatePy/_dap.py,sha256=zHZsn2icKGuOfNO7Ilv6gwwp9uMwRsWlCW-tLv6MPcM,61537
+climatePy/_netrc_utils.py,sha256=F9k_e1n7p_xp765ABzi7qNg_Ph54Fq5UQuf58lP-hJY,3926
+climatePy/_shortcuts.py,sha256=muw7lBwOr2IuM2TyXBhHcEFXEFDpqXTr4fo7sFLElPk,39285
+climatePy/_utils.py,sha256=ZM1cx8emXBwaNoHwDQF4DuytIpcKs6jteUOY6-rpF-c,26690
+climatePy/data/catalog.csv,sha256=9Am_SESu6Zx2tNu2PmVa_VQ1pgXAX2AYxMWSL4bkfys,45897655
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_shortcuts.py,sha256=fAAbQm2sPBd-AJMLE3rU15s0K26W_5zptaKxdJnFIAc,43960
+tests/test_utils.py,sha256=cm3mvyDBrjoP3epjJzqh-z6UbtpE-DhHK3uqN_LqgmA,3166
+climatePy-0.4.30.dist-info/LICENSE,sha256=-BC_GOio9hLoamRtchpbwkqSZCWairTz8q3QLaVV-mo,1087
+climatePy-0.4.30.dist-info/METADATA,sha256=7plfhWR8FDREikpYCEoDVNZZzCOTgKZeFgYVGHviMMA,6118
+climatePy-0.4.30.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+climatePy-0.4.30.dist-info/top_level.txt,sha256=SN6PVw_QvwRxNeO9sntBeh3XUhk6he6LrCzBWvGnOW8,16
+climatePy-0.4.30.dist-info/RECORD,,
