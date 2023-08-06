@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "pybench-2"
+version = "1.1.0"
+description = "Set of benchmarks of Python code"
+authors = ["Binh Vu <binh@toan2.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "pybench" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyperf = "^2.6.1"
+t2-yada = "^1.2.0"
+loguru = "^0.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pybench-2
+Version: 1.1.0
+Summary: Set of benchmarks of Python code
+License: MIT
+Author: Binh Vu
+Author-email: binh@toan2.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.6.0,<0.7.0)
+Requires-Dist: pyperf (>=2.6.1,<3.0.0)
+Requires-Dist: t2-yada (>=1.2.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Introduction
+
+Contains a set of benchmarks of Python code. To run the benchmarks, use the following command:
+
+```bash
+python -m pybench --benchname=<module> [--rerun true|false] [--output-dir "./data"]
+```
+
