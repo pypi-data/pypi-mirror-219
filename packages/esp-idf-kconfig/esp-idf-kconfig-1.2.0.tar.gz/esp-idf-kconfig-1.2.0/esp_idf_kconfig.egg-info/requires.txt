@@ -1,0 +1,5 @@
+kconfiglib>=13.7.1
+
+[dev]
+pre-commit
+pexpect

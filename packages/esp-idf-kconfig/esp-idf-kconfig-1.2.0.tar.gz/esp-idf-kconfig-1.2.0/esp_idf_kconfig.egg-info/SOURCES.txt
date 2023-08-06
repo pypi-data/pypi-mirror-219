@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+esp_idf_kconfig/__init__.py
+esp_idf_kconfig/gen_kconfig_doc.py
+esp_idf_kconfig.egg-info/PKG-INFO
+esp_idf_kconfig.egg-info/SOURCES.txt
+esp_idf_kconfig.egg-info/dependency_links.txt
+esp_idf_kconfig.egg-info/requires.txt
+esp_idf_kconfig.egg-info/top_level.txt
+kconfgen/__init__.py
+kconfgen/__main__.py
+kconfgen/core.py
+kconfserver/__init__.py
+kconfserver/__main__.py
+kconfserver/core.py
