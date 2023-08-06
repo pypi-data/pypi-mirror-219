@@ -1,0 +1,16 @@
+numpy>=1.19.0
+Cython>=0.29.21
+pettingzoo>=1.23.1
+supersuit>=3.8.1
+halo
+colorama
+
+[all]
+pettingzoo[classic]>=1.23.1
+chatarena[umshini]>=0.1.12.7
+
+[classic]
+pettingzoo[classic]>=1.23.1
+
+[llm]
+chatarena[umshini]>=0.1.12.6
