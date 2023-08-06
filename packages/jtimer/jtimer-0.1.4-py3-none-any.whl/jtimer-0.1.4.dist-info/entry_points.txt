@@ -1,0 +1,3 @@
+[console_scripts]
+jtimer=jtimer.main:start
+
