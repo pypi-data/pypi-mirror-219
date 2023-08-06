@@ -1,0 +1,116 @@
+version: "3"
+
+services:
+  minio:
+    image: minio/minio:RELEASE.2023-06-02T23-17-26Z
+    ports:
+      - ${MINIO_ADDRESS_PORT:-9000}:9000
+      - ${MINIO_CONSOLE_PORT:-9001}:9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:-minio}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:-minio123}
+    command: server /data --address ":9000" --console-address ":9001"
+    restart: unless-stopped
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "http://minio:9000/minio/health/live"
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+
+  create_models_buckets:
+    image: minio/mc:RELEASE.2023-05-30T22-41-38Z
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "mc config host add myminio http://minio:9000 ${MINIO_ROOT_USER:-minio} ${MINIO_ROOT_PASSWORD:-minio123}; if ! mc ls myminio | grep --quiet models; then mc mb myminio/models; else echo 'bucket myminio/models already exists'; fi; mc anonymous set public myminio/models; exit 0;"
+
+  triton_servering:
+    image: ${TRITONSERVER_IMAGE:-nvcr.io/nvidia/tritonserver:22.12-py3}
+    depends_on:
+      minio:
+        condition: service_healthy
+      create_models_buckets:
+        condition: service_completed_successfully
+    environment:
+      - LOG_VERBOSE=${LOG_VERBOSE:-1}
+      - MODEL_CONTROL_MODE=${MODEL_CONTROL_MODE:-explicit}
+      - EXIT_ON_ERROR=${EXIT_ON_ERROR:-0}
+    ports:
+      - ${TRITONSERVER_HTTP_PORT:-8000}:8000
+      - ${TRITONSERVER_GRPC_PORT:-8001}:8001
+      - ${TRITONSERVER_MATRICS_PORT:-8002}:8002
+    command: >
+      bash -c 'tritonserver --model-repository=s3://http://minio:9000/models --exit-on-error=$${EXIT_ON_ERROR} --model-control-mode=$${MODEL_CONTROL_MODE} --log-verbose=$${LOG_VERBOSE}'
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "http://triton_servering:8000/v2/health/ready"
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    shm_size: 256M
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+
+  minio_mlflow_bucket:
+    image: minio/mc:RELEASE.2023-05-30T22-41-38Z
+    depends_on:
+      minio:
+        condition: service_healthy
+    entrypoint: >
+      bash -c "mc config host add myminio http://minio:9000 ${MINIO_ROOT_USER:-minio} ${MINIO_ROOT_PASSWORD:-minio123}; if ! mc ls myminio | grep --quiet mlflow; then mc mb myminio/mlflow; else echo 'bucket myminio/mlflow already exists'; fi; mc anonymous set public myminio/mlflow; exit 0;"
+
+  postgres:
+    image: postgres:14.8-bullseye
+    restart: unless-stopped
+    ports:
+      - ${POSTGRES_PORT:-5432}:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-mlflow}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres123}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mlflow_tracking_server:
+    image: ghcr.io/mlflow/mlflow:v2.4.2
+    depends_on:
+      postgres:
+        condition: service_healthy
+      triton_servering:
+        condition: service_healthy
+      minio_mlflow_bucket:
+        condition: service_completed_successfully
+    ports:
+      - ${MLFLOW_TRACKING_SERVER_PORT:-5000}:5000
+    environment:
+      MLFLOW_S3_ENDPOINT_URL: http://minio:9000
+      AWS_ACCESS_KEY_ID: ${MINIO_ROOT_USER:-minio}
+      AWS_SECRET_ACCESS_KEY: ${MINIO_ROOT_PASSWORD:-minio123}
+    command: >
+      bash -c 'pip install psycopg2-binary boto3 && mlflow server \
+        --host 0.0.0.0 \
+        --port 5000 \
+        --backend-store-uri postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres123}@postgres:5432/${POSTGRES_DB:-mlflow} \
+        --artifacts-destination s3://mlflow \
+        --gunicorn-opts "--log-level debug"'
