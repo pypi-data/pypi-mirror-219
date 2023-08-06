@@ -1,0 +1,17 @@
+<div class="dalec-item"
+    data-app="{{ object.app }}" data-content-type="{{ object.content_type}}"
+    {% if channel %}
+        data-channel="{{ channel }}"
+        {% if channel_object %}
+            data-channel-object="{{ channel_object }}"
+        {% endif %}
+    {% endif %}
+>
+    {% block item_content %}
+        {% if object.dj_content_obj %}
+            {{ object.dj_content_obj }}
+        {% else %}
+            {{ object.content_id }}
+        {% endif %}
+    {% endblock %}
+</div>
