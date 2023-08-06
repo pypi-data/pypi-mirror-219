@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: openHySim
+Version: 0.0.1
+Summary: OpenSees and OpenFresco combined together
+Home-page: http://github.com/nealleehit/osfeo
+Author: Ning Li
+Author-email: neallee@tju.edu.cn
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+License-File: LICENSE.md
+Requires-Dist: numpy
+
