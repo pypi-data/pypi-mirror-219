@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+tests/test_core.py
+tests/test_xarray_plugin.py
+xpystac/__init__.py
+xpystac/core.py
+xpystac/utils.py
+xpystac/xarray_plugin.py
+xpystac.egg-info/PKG-INFO
+xpystac.egg-info/SOURCES.txt
+xpystac.egg-info/dependency_links.txt
+xpystac.egg-info/entry_points.txt
+xpystac.egg-info/requires.txt
+xpystac.egg-info/top_level.txt
