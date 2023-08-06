@@ -1,0 +1,2271 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Tom Keffer <tkeffer@gmail.com>">
+      
+      
+        <link rel="canonical" href="https://www.weewx.com/utilities/wee_database/">
+      
+      
+        <link rel="prev" href="../weectl-database/">
+      
+      
+        <link rel="next" href="../wee_debug/">
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.14">
+    
+    
+      
+        <title>wee_database - WeeWX 5.0</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CInconsolata+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Inconsolata Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/weewx_ui.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="white">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wee_database" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="WeeWX 5.0" class="md-header__button md-logo" aria-label="WeeWX 5.0" data-md-component="logo">
+      
+  <img src="../../images/logo-weewx.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WeeWX 5.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              wee_database
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="white"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WeeWX 5.0" class="md-nav__button md-logo" aria-label="WeeWX 5.0" data-md-component="logo">
+      
+  <img src="../../images/logo-weewx.png" alt="logo">
+
+    </a>
+    WeeWX 5.0
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../quickstarts/">Quick starts</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Quick starts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstarts/debian/" class="md-nav__link">
+        Debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstarts/redhat/" class="md-nav__link">
+        RedHat
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstarts/suse/" class="md-nav__link">
+        SuSE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstarts/pip/" class="md-nav__link">
+        pip
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstarts/git/" class="md-nav__link">
+        git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../usersguide/">User's guide</a>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User's guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/system-requirements/" class="md-nav__link">
+        System requirements
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/installing-weewx/" class="md-nav__link">
+        Installing WeeWX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/where/" class="md-nav__link">
+        Where to find things
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/running-weewx/" class="md-nav__link">
+        Running WeeWX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/webserver-integration/" class="md-nav__link">
+        Web server integration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/backing-up-weewx/" class="md-nav__link">
+        Backup & restore
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/mysql-mariadb-config/" class="md-nav__link">
+        Configuring MySQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../usersguide/troubleshooting/">Troubleshooting</a>
+          
+            <label for="__nav_2_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Troubleshooting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/troubleshooting/hardware/" class="md-nav__link">
+        Hardware Problems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/troubleshooting/software/" class="md-nav__link">
+        Software Problems
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/troubleshooting/meteo/" class="md-nav__link">
+        Meteorological Problems
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../usersguide/weewx-config-file/">Configuration options</a>
+          
+            <label for="__nav_2_10">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          Configuration options
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/general/" class="md-nav__link">
+        General options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stations-config/" class="md-nav__link">
+        [Station]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdrestful-config/" class="md-nav__link">
+        [StdRESTful]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdreport-config/" class="md-nav__link">
+        [StdReport]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdconvert-config/" class="md-nav__link">
+        [StdConvert]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdcalibrate-config/" class="md-nav__link">
+        [StdCalibrate]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdqc-config/" class="md-nav__link">
+        [StdQC]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdwxcalculate-config/" class="md-nav__link">
+        [StdWXCalculate]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdarchive/" class="md-nav__link">
+        [StdArchive]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/stdtimesynch/" class="md-nav__link">
+        [StdTimeSynch]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/data-bindings/" class="md-nav__link">
+        [DataBindings]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/databases/" class="md-nav__link">
+        [Databases]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/databasetypes/" class="md-nav__link">
+        [DatabaseTypes]
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usersguide/weewx-config-file/engine/" class="md-nav__link">
+        [Engine]
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../custom/">Customization guide</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Customization guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/custom-reports/" class="md-nav__link">
+        Customizing reports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/report-scheduling/" class="md-nav__link">
+        Scheduling reports
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/cheetah/" class="md-nav__link">
+        The Cheetah generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/image-generator/" class="md-nav__link">
+        The Image generator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/multiple-bindings/" class="md-nav__link">
+        Multiple data bindings
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/localization/" class="md-nav__link">
+        Localization
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/service-engine/" class="md-nav__link">
+        Customizing the service engine
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/database/" class="md-nav__link">
+        Customizing the database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/units/" class="md-nav__link">
+        Customizing units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/derived/" class="md-nav__link">
+        Derived types
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/drivers/" class="md-nav__link">
+        Custom drivers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/extensions/" class="md-nav__link">
+        Extensions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/report-options/" class="md-nav__link">
+        Report options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../custom/appendix/" class="md-nav__link">
+        Appendix
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Utilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Utilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weewxd/" class="md-nav__link">
+        weewxd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          weectl
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          weectl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weectl-station/" class="md-nav__link">
+        weectl station
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weectl-extension/" class="md-nav__link">
+        weectl extension
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../weectl-database/" class="md-nav__link">
+        weectl database
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          wee_database
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        wee_database
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-create" class="md-nav__link">
+    --create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-reconfigure" class="md-nav__link">
+    --reconfigure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-transfer" class="md-nav__link">
+    --transfer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-add-columnname" class="md-nav__link">
+    --add-column=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-rename-columnname" class="md-nav__link">
+    --rename-column=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-drop-columnsname" class="md-nav__link">
+    --drop-columns=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-check" class="md-nav__link">
+    --check
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-update" class="md-nav__link">
+    --update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-drop-daily" class="md-nav__link">
+    --drop-daily
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-rebuild-daily" class="md-nav__link">
+    --rebuild-daily
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-reweight" class="md-nav__link">
+    --reweight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-calc-missing" class="md-nav__link">
+    --calc-missing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-check-strings" class="md-nav__link">
+    --check-strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-fix-strings" class="md-nav__link">
+    --fix-strings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wee_debug/" class="md-nav__link">
+        wee_debug
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wee_device/" class="md-nav__link">
+        wee_device
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wee_import/" class="md-nav__link">
+        wee_import
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wee_reports/" class="md-nav__link">
+        wee_reports
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Hardware guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Hardware guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/drivers/" class="md-nav__link">
+        Drivers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/acurite/" class="md-nav__link">
+        AcuRite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/cc3000/" class="md-nav__link">
+        CC3000
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/fousb/" class="md-nav__link">
+        FineOffset
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/te923/" class="md-nav__link">
+        TE923
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/ultimeter/" class="md-nav__link">
+        Ultimeter
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/vantage/" class="md-nav__link">
+        Vantage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/wmr100/" class="md-nav__link">
+        WMR100
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/wmr300/" class="md-nav__link">
+        WMR300
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/wmr9x8/" class="md-nav__link">
+        WMR9x8
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/ws1/" class="md-nav__link">
+        WS1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/ws23xx/" class="md-nav__link">
+        WS23xx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware/ws28xx/" class="md-nav__link">
+        WS28xx
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../versions/" class="md-nav__link">
+        Upgrade guide
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devnotes/" class="md-nav__link">
+        Notes for developers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/" class="md-nav__link">
+        Change log
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#-create" class="md-nav__link">
+    --create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-reconfigure" class="md-nav__link">
+    --reconfigure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-transfer" class="md-nav__link">
+    --transfer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-add-columnname" class="md-nav__link">
+    --add-column=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-rename-columnname" class="md-nav__link">
+    --rename-column=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-drop-columnsname" class="md-nav__link">
+    --drop-columns=NAME
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-check" class="md-nav__link">
+    --check
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-update" class="md-nav__link">
+    --update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-drop-daily" class="md-nav__link">
+    --drop-daily
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-rebuild-daily" class="md-nav__link">
+    --rebuild-daily
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-reweight" class="md-nav__link">
+    --reweight
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-calc-missing" class="md-nav__link">
+    --calc-missing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-check-strings" class="md-nav__link">
+    --check-strings
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-fix-strings" class="md-nav__link">
+    --fix-strings
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="wee_database">wee_database<a class="headerlink" href="#wee_database" title="Permanent link">&para;</a></h1>
+<p>The database utility simplifies typical database maintenance operations. For
+example, it can rebuild the daily summaries or check a SQLite database for
+embedded strings where floats are expected.</p>
+<p>Specify <code>--help</code> to see how it is used:
+<div class="highlight"><pre><span></span><code>wee_database --help
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Usage: wee_database --help
+       wee_database --create
+       wee_database --reconfigure
+       wee_database --transfer --dest-binding=BINDING_NAME [--dry-run]
+       wee_database --add-column=NAME [--type=(REAL|INTEGER)]
+       wee_database --rename-column=NAME --to-name=NEW_NAME
+       wee_database --drop-columns=NAME1,NAME2,...
+       wee_database --check
+       wee_database --update [--dry-run]
+       wee_database --drop-daily
+       wee_database --rebuild-daily [--date=YYYY-mm-dd |
+                                    [--from=YYYY-mm-dd] [--to=YYYY-mm-dd]]
+                                    [--dry-run]
+       wee_database --reweight [--date=YYYY-mm-dd |
+                               [--from=YYYY-mm-dd] [--to=YYYY-mm-dd]]
+                               [--dry-run]
+       wee_database --calc-missing [--date=YYYY-mm-dd |
+                                   [--from=YYYY-mm-dd[THH:MM]] [--to=YYYY-mm-dd[THH:MM]]]
+       wee_database --check-strings
+       wee_database --fix-strings [--dry-run]
+
+Description:
+
+Manipulate the WeeWX database. Most of these operations are handled
+automatically by WeeWX, but they may be useful in special cases.
+
+Options:
+  -h, --help            show this help message and exit
+  --create              Create the WeeWX database and initialize it with the
+                        schema.
+  --reconfigure         Create a new database using configuration information
+                        found in the configuration file. The new database will
+                        have the same name as the old database, with a &#39;_new&#39;
+                        on the end.
+  --transfer            Transfer the WeeWX archive from source database to
+                        destination database.
+  --add-column=NAME     Add new column NAME to database.
+  --type=TYPE           New database column type (INTEGER|REAL) (option --add-
+                        column only).  Default is &#39;REAL&#39;.
+  --rename-column=NAME  Rename the column with name NAME.
+  --to-name=NEW_NAME    New name of the column (option --rename-column only).
+  --drop-columns=NAME1,NAME2,...
+                        Drop one or more columns. Names must be separated by
+                        commas, with NO SPACES.
+  --check               Check the calculations in the daily summary tables.
+  --update              Update the daily summary tables if required and
+                        recalculate the daily summary maximum windSpeed
+                        values.
+  --calc-missing        Calculate and store any missing derived observations.
+  --check-strings       Check the archive table for null strings that may have
+                        been introduced by a SQL editing program.
+  --fix-strings         Fix any null strings in a SQLite database.
+  --drop-daily          Drop the daily summary tables from a database.
+  --rebuild-daily       Rebuild the daily summaries from data in the archive
+                        table.
+  --reweight            Recalculate the weighted sums in the daily summaries.
+  --config=CONFIG_FILE  Use configuration file CONFIG_FILE.
+  --date=YYYY-mm-dd     This date only (options --calc-missing and --rebuild-
+                        daily only).
+  --from=YYYY-mm-dd[THH:MM]
+                        Start with this date or date-time (options --calc-
+                        missing and --rebuild-daily only).
+  --to=YYYY-mm-dd[THH:MM]
+                        End with this date or date-time (options --calc-
+                        missing and --rebuild-daily only).
+  --binding=BINDING_NAME
+                        The data binding to use. Default is &#39;wx_binding&#39;.
+  --dest-binding=BINDING_NAME
+                        The destination data binding (option --transfer only).
+  --dry-run             Print what would happen but do not do it. Default is
+                        False.
+</code></pre></div></p>
+<h3 id="-create"><code>--create</code><a class="headerlink" href="#-create" title="Permanent link">&para;</a></h3>
+<p>If the database does not already exist, this action will create it and
+initialize it with the schema specified in the WeeWX configuration file.
+Because WeeWX does this automatically, this action is rarely needed.</p>
+<div class="highlight"><pre><span></span><code>wee_database --create
+</code></pre></div>
+<h3 id="-reconfigure"><code>--reconfigure</code><a class="headerlink" href="#-reconfigure" title="Permanent link">&para;</a></h3>
+<p>This action is useful for changing the schema or unit system in your database.</p>
+<p>It creates a new database with the same name as the old, except with the suffix
+<code>_new</code> attached at the end (nominally, <code>weewx.sdb_new</code> if you are using SQLite,
+<code>weewx_new</code> if you are using MySQL). It then initializes it with the schema
+specified in <code>weewx.conf</code>. Finally, it copies over the data from your old
+database into the new database.</p>
+<div class="highlight"><pre><span></span><code>wee_database --reconfigure
+</code></pre></div>
+<p>See the section <a href="customizing.htm#Changing_the_unit_system">Changing
+the database unit system in an existing database</a> in the Customization
+Guide for step-by-step instructions that use this option.</p>
+<h3 id="-transfer"><code>--transfer</code><a class="headerlink" href="#-transfer" title="Permanent link">&para;</a></h3>
+<p>This action is useful for moving your database from one type of database to
+another, such as from SQLite to MySQL. To use it, you must have two bindings
+specified in your <code>weewx.conf</code> configuration file. One will serve as the
+source, the other as the destination. Specify the source binding with option
+<code>--binding</code>, the destination binding with option <code>--dest-binding</code>. The
+<code>--binding</code> option may be omitted in which case the default <code>wx-binding</code>
+will be used.</p>
+<div class="highlight"><pre><span></span><code>wee_database --transfer --binding=source_binding --dest-binding=dest_binding
+wee_database --transfer --dest-binding=dest_binding
+</code></pre></div>
+<p>See the Wiki for examples of moving data from <a href="https://github.com/weewx/weewx/wiki/Transfer%20from%20sqlite%20to%20MySQL#using-wee_database">SQLite to MySQL</a>, and from <a href="https://github.com/weewx/weewx/wiki/Transfer%20from%20MySQL%20to%20sqlite#using-wee_database">MySQL to SQLite</a>, using <code>wee_database</code>.</p>
+<h3 id="-add-columnname"><code>--add-column=NAME</code><a class="headerlink" href="#-add-columnname" title="Permanent link">&para;</a></h3>
+<p>This action adds a new database observation type (column) to the database. If
+used without the <code>--type</code> option, the type will default to <code>REAL</code>.</p>
+<div class="highlight"><pre><span></span><code>wee_database --add-column
+</code></pre></div>
+<p>Optionally, option <code>--type</code> can be used with a SQL type <code>REAL</code>, <code>INTEGER</code>,
+or any other SQL column definition (such as <code>INTEGER DEFAULT 0</code>).</p>
+<div class="highlight"><pre><span></span><code>wee_database --add-column=NAME --type=TYPE
+</code></pre></div>
+<h3 id="-rename-columnname"><code>--rename-column=NAME</code><a class="headerlink" href="#-rename-columnname" title="Permanent link">&para;</a></h3>
+<p>Use this action to rename a database observation type (column) to a new name.
+It requires the option <code>--to-name</code>.</p>
+<div class="highlight"><pre><span></span><code>wee_database --rename-column=NAME --to-name=NEW_NAME
+</code></pre></div>
+<p>For example, to rename the column <code>luminosity</code> in your schema to <code>illuminance</code>:</p>
+<div class="highlight"><pre><span></span><code>wee_database --rename-column=luminosity --to-name=illuminance
+</code></pre></div>
+<h3 id="-drop-columnsname"><code>--drop-columns=NAME</code><a class="headerlink" href="#-drop-columnsname" title="Permanent link">&para;</a></h3>
+<p>This action will drop one or more observation types (columns) from the
+database. If more than one column name is given, they should be separated by
+commas and <em>no spaces</em>.</p>
+<p>It is an error to attempt to drop a non-existing column. In this case, nothing
+will be done.</p>
+<div class="highlight"><pre><span></span><code>wee_database --drop-columns=NAME1,NAME2
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When dropping columns from a SQLite database, the entire database must be
+copied except for the dropped columns. Because this can be quite slow, if
+you are dropping more than one column, it is better to do them all in one
+pass. This is why option <code>--drop-columns</code> accepts more than one name.</p>
+</div>
+<h3 id="-check"><code>--check</code><a class="headerlink" href="#-check" title="Permanent link">&para;</a></h3>
+<p>This action will check the calculations in the daily summary tables as well as
+checking the archive for null strings (refer to <code>--check-strings</code>). If the
+daily summary tables contain summaries calculated using an old algorithm, the
+user is advised to update the daily summary tables using the <code>--update</code> action.
+If null strings are found the user is advised to fix them using the
+<code>--fix-strings</code> action.</p>
+<div class="highlight"><pre><span></span><code>wee_database --check
+</code></pre></div>
+<p><a id="wee_database_utility_update">FIXME</a></p>
+<h3 id="-update"><code>--update</code><a class="headerlink" href="#-update" title="Permanent link">&para;</a></h3>
+<p>This action updates the daily summary tables to use interval weighted
+calculations as well as recalculating the <code>windSpeed</code> maximum daily values and
+times. Interval weighted calculations are only applied to the daily summaries
+if not previously applied. The update process is irreversible and users are
+advised to backup their database before performing this action.</p>
+<div class="highlight"><pre><span></span><code>wee_database --update
+</code></pre></div>
+<p>For further information on interval weighting and recalculation of daily
+<code>windSpeed</code> maximum values, see the sections <a href="upgrading.htm#change_to_daily_summaries">Changes to daily summaries</a> and <a href="upgrading.htm#recalculation_of_windspeed">Recalculation of <code>windSpeed</code> maximum values</a> in the Upgrade Guide.</p>
+<h3 id="-drop-daily"><code>--drop-daily</code><a class="headerlink" href="#-drop-daily" title="Permanent link">&para;</a></h3>
+<p>In addition to the regular archive data, every WeeWX database also includes a
+daily summary table for each observation type. Because there can be dozens of
+observation types, there can be dozens of these daily summaries. It does not
+happen very often, but there can be occasions when it's necessary to drop them
+all and then rebuild them. Dropping them by hand would be very tedious! This
+action does them all at once.</p>
+<div class="highlight"><pre><span></span><code>wee_database --drop-daily
+</code></pre></div>
+<h3 id="-rebuild-daily"><code>--rebuild-daily</code><a class="headerlink" href="#-rebuild-daily" title="Permanent link">&para;</a></h3>
+<p>This action is the inverse of action <code>--drop-daily</code> in that it rebuilds the
+daily summaries from the archive data. In most cases it is not necessary to
+drop the daily summary tables using the action <code>--drop-daily</code> before rebuilding
+them.</p>
+<p>The action <code>--rebuild-daily</code> accepts a number of date related options,
+<code>--date</code>, <code>--from</code> and <code>--to</code> that allow selective rebuilding of the daily
+summaries for one or more days rather than for the entire archive history.
+These options may be useful if bogus data has been removed from the archive
+covering a single day or a period of few days. The daily summaries can then
+be rebuilt for this period only, resulting in a faster rebuild and detailed
+low/high values and the associated times being retained for unaffected days.</p>
+<p>The <code>--date</code> option limits the daily summary rebuild to the specified date.</p>
+<p>The <code>--from</code> and <code>--to</code> options may be used together or individually to limit
+the daily summary rebuild to a specified period. When used individually the
+<code>--to</code> option limits the rebuild to the inclusive period from the earliest date
+for which there is data in the database through to and including the specified
+date. Similarly when used individually the <code>--from</code> option limits the rebuild
+to the inclusive period from the specified date through until the last date
+for which there is data in the database. When the <code>--from</code> and <code>--to</code> options
+are used together the daily summary rebuild is limited to the specified
+inclusive period.</p>
+<div class="highlight"><pre><span></span><code>wee_database --rebuild-daily
+wee_database --rebuild-daily --date=YYYY-mm-dd
+wee_database --rebuild-daily --from=YYYY-mm-dd
+wee_database --rebuild-daily --to=YYYY-mm-dd
+wee_database --rebuild-daily --from=YYYY-mm-dd --to=YYYY-mm-dd
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whilst the <code>--from</code> and <code>--to</code> options will accept optional hour and
+minutes in the format <code>THH:MM</code>, any such hour and minute options are
+ignored by the <code>--rebuild</code> action as the daily summaries represent whole
+days only and it is not possible to partially rebuild a daily summary.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When used with the <code>--rebuild-daily</code> action the period defined by <code>--to</code>
+and <code>--from</code> is inclusive and the daily summary tables will be rebuild for
+the day defined by <code>--from</code> and the day defined by <code>--to</code> and all days in
+between.</p>
+</div>
+<h3 id="-reweight"><code>--reweight</code><a class="headerlink" href="#-reweight" title="Permanent link">&para;</a></h3>
+<p>As an alternative to dropping and rebuilding the daily summaries, this action
+simply rebuilds the weighted daily sums (used to calculate averages) from the
+archive data. It does not touch the highs and lows. It is much faster than
+<code>--rebuild-daily</code>, and has the advantage that the highs and lows remain
+unchanged.</p>
+<p>Other options are as in <code>--rebuild-daily</code>.</p>
+<h3 id="-calc-missing"><code>--calc-missing</code><a class="headerlink" href="#-calc-missing" title="Permanent link">&para;</a></h3>
+<p>This action calculates derived observations for archive records in the database
+and then stores the calculated observations in the database. This can be
+useful if erroneous archive data is corrected or some additional observational
+data is added to the archive that may alter previously calculated or missing
+derived observations.</p>
+<p>The period over which the derived observations are calculated can be limited
+through use of the <code>--date</code>, <code>--from</code> and/or <code>--to</code> options. When used without
+any of these options <code>--calc-missing</code> will calculate derived observations for
+all archive records in the database. The <code>--date</code> option limits the calculation
+of derived observations to the specified date only. The <code>--from</code> and <code>--to</code>
+options can be used together to specify the start and end date-time
+respectively of the period over which derived observations will be calculated.</p>
+<p>If <code>--from</code> is used by itself the period is fom the date-time specified up to
+and including the last archive record in the database.</p>
+<p>If <code>--to</code> is used by itself the period is the first archive record in the
+database through to the specified date-time.</p>
+<div class="highlight"><pre><span></span><code>wee_database --calc-missing
+wee_database --calc-missing --date=YYYY-mm-dd
+wee_database --calc-missing --from=YYYY-mm-dd[THH:MM]
+wee_database --calc-missing --to=YYYY-mm-dd[THH:MM]
+wee_database --calc-missing --from=YYYY-mm-dd[THH:MM] --to=YYYY-mm-dd[THH:MM]
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a <code>YYYY-mm-dd</code> date is used as the <code>--from</code> option the period used by
+<code>--calc-missing</code> includes records after midnight at the start of
+<code>YYYY-mm-dd</code>, if a <code>YYYY-mm-ddTHH:MM</code> format date-time is used as the
+<code>--from</code> option the period includes records after <code>YYYY-mm-dd HH:MM</code>.
+When a <code>YYYY-mm-dd</code> date is used as the <code>--to</code> option the period includes
+records up to and including midnight at the end of <code>YYYY-mm-dd</code>, if a
+<code>YYYY-mm-ddTHH:MM</code> format date-time is used as the <code>--to</code> option the period
+includes records up to and including <code>YYYY-mm-dd HH:MM</code>. When using the
+<code>--date</code> option the period is all records after midnight at the start of
+<code>YYYY-mm-dd</code> up to and including midnight at the end of <code>YYYY-mm-dd</code>, in
+effect the same as <code>--from=YYYY-mm-ddT00:00 --to=YYYY-mm-dd+1T00:00</code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>--calc-missing</code> uses the <code>StdWXCalculate</code> service to calculate missing
+derived observations. The data binding used by the <code>StdWXCalculate</code> service
+should normally match the data binding of the database being operated on by
+<code>--calc-missing</code>. Those who use custom or additional data bindings should
+take care to ensure the correct data bindings are used by both
+<code>--calc-missing</code> and the <code>StdWXCalculate</code> service. Those who use the
+default data binding need take no special precautions.</p>
+</div>
+<h3 id="-check-strings"><code>--check-strings</code><a class="headerlink" href="#-check-strings" title="Permanent link">&para;</a></h3>
+<p>Normally, all entries in the archive are numbers. However, some SQLite
+database editors use a null string instead of a null value when deleting
+entries. These null strings can cause problems. This action checks the
+database to see if it contains any null strings.</p>
+<div class="highlight"><pre><span></span><code>wee_database --check-strings
+</code></pre></div>
+<h3 id="-fix-strings"><code>--fix-strings</code><a class="headerlink" href="#-fix-strings" title="Permanent link">&para;</a></h3>
+<p>This action will check for any null strings in a SQLite database and if found
+substitute a true null value.</p>
+<div class="highlight"><pre><span></span><code>wee_database --fix-strings
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2009-2023 Thomas Keffer, Matthew Wall, and Gary Roderick, all rights reserved
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "navigation.top", "toc.follow", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+    
+  </body>
+</html>
