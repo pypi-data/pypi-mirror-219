@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: calcos
+Version: 3.4.7
+Summary: Calibration software for COS (Cosmic Origins Spectrograph)
+Home-page: https://github.com/spacetelescope/calcos
+Author: Phil Hodge, Robert Jedrzejewski
+Author-email: help@stsci.edu
+License: BSD
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: docs
+Provides-Extra: test
+
+README.md
