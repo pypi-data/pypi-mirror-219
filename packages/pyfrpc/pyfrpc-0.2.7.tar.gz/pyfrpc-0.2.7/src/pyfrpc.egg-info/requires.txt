@@ -1,0 +1,7 @@
+requests
+
+[async]
+aiohttp
+
+[nc]
+ipython
