@@ -1,0 +1,9 @@
+include setup.py
+include README.rst
+recursive-include cubicweb_leaflet *.py
+recursive-include cubicweb_leaflet/data *.gif *.png *.ico *.css *.js
+recursive-include cubicweb_leaflet/i18n *.poexclude .gitlab-ci.yml
+exclude .yamllint
+exclude .cube-doctor.yml
+exclude .gitlab-ci-extended.yml
+exclude CHANGELOG.md

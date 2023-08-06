@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: cubicweb-leaflet
+Version: 1.0.0
+Summary: Cube for leaflet map, see http://leafletjs.com/
+Home-page: https://forge.extranet.logilab.fr/cubicweb/cubes/cubicweb-leaflet
+Author: LOGILAB S.A. (Paris, FRANCE)
+Author-email: contact@logilab.fr
+License: LGPL
+Classifier: Environment :: Web Environment
+Classifier: Framework :: CubicWeb
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: JavaScript
+
+Summary
+-------
+Cube for leaflet map, see http://leafletjs.com/
