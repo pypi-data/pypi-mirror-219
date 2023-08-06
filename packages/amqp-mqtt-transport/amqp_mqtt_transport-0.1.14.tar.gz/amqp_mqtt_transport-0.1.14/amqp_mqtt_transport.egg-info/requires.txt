@@ -1,0 +1,4 @@
+tenacity<=8.2.2
+aio-pika<=9.0.5
+autopep8==2.0.2
+gmqtt<=0.6.12
