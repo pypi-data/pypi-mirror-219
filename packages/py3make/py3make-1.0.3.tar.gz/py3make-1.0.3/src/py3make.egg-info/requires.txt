@@ -1,0 +1,14 @@
+docopt>=0.6.0
+
+[test]
+pytest
+pytest-cov
+coveralls
+flake8
+Flake8-pyproject
+
+[testmeta]
+build
+twine
+validate-pyproject
+rstcheck
