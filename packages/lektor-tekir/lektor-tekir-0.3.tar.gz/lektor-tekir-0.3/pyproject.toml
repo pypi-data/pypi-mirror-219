@@ -1,0 +1,96 @@
+[project]
+name = "lektor-tekir"
+version = "0.3"
+description = "An alternative admin panel for Lektor."
+readme = "README.rst"
+
+authors = [{name = "H. Turgut Uyar", email = "uyar@tekir.org"}]
+license = {file = "LICENSE.txt"}
+
+keywords = ["lektor", "cms"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: Lektor",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: BSD License",
+    "Natural Language :: English",
+    "Natural Language :: Turkish",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP :: Site Management",
+]
+
+requires-python = "~=3.8"
+dependencies = ["lektor", "python-slugify", "flask-babel"]
+
+[project.optional-dependencies]
+style = ["ruff"]
+dev = [
+    "lektor-tekir[style]",
+    "babel",
+    "build",
+    "twine",
+    "tox",
+]
+
+[project.scripts]
+lektor-tekir = "lektor_tekir.cli:main"
+
+[project.urls]
+repository = "https://github.com/uyar/lektor-tekir"
+
+[tool.setuptools.package-data]
+lektor_tekir = ["translations/**"]
+
+[tool.ruff]
+select = ["E", "F", "I"]
+ignore = ["E731"]
+line-length = 79
+
+[tool.ruff.isort]
+lines-after-imports = 2
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = style
+isolated_build = True
+
+[testenv:style]
+skip_install = true
+deps =
+    ruff
+commands =
+    ruff lektor_tekir
+
+[testenv:flake8]
+skip_install = true
+deps =
+    flake8
+    flake8-isort
+commands =
+    flake8 lektor_tekir
+
+[testenv:package]
+skip_install = true
+deps =
+    babel
+    build
+    twine
+commands =
+    pybabel compile -d lektor_tekir/translations/
+    python -c "import shutil; shutil.rmtree('dist', ignore_errors=True)"
+    python -m build
+    twine check dist/*
+"""
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,136 @@
+{% extends 'tekir_base.html' %}
+
+{% block body %}
+<div id="tekir-breadcrumbs">
+  <p>{{ _('You are here:') }}</p>
+  <ul>
+    {% for item in parents %}
+    <li><a href="{{ url_for('tekir_admin.contents', path=item.path) }}">{{ item._slug or _('home') }}</a></li>
+    {% endfor %}
+    <li>{{ record._slug or _('home') }}</li>
+  </ul>
+</div>
+
+<div id="tekir-contents">
+  <section id="tekir-summary">
+    <h2>{{ record.title }}</h2>
+    <a class="button" href="{{ url_for('tekir_admin.edit_content', path=record.path) }}">{{ _('Edit') }}</a>
+  </section>
+
+  <section id="tekir-subpages">
+    <h2>{{ _('Subpages') }}</h2>
+    {% if record.children %}
+    <form id="delete-subpages" action="." method="POST">
+      <div class="field content-listing">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ _('Select') }}</th>
+              <th>{{ _('ID') }}</th>
+              <th>{{ _('Type') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in record.children %}
+            <tr>
+              <td><input type="checkbox" name="selected-items" value="{{ item.path }}"/></td>
+              <td><a href="{{ url_for('tekir_admin.contents', path=item.path) }}">{{ item._slug }}</a></td>
+              <td>{{ item.datamodel.name_i18n.get(g.lang_code, item.datamodel.name) }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <button class="delete-content" hx-post="{{ url_for('tekir_admin_api.check_delete') }}"
+          hx-target="#delete-items">{{ _('Delete selected items') }}</button>
+    {% else %}
+      <div class="field content-listing">
+        <p>{{ _('No subpages.') }}</p>
+      </div>
+    {% endif %}
+
+      <button id="add-subpage">{{ _('Add') }}</button>
+    </form>
+  </section>
+
+  <section id="tekir-attachments">
+    <h2>{{ _('Attachments') }}</h2>
+    {% if record.attachments %}
+    <form id="delete-attachments" action="." method="POST">
+      <div class="field content-listing">
+        <table>
+          <thead>
+            <tr>
+              <th>{{ _('Select') }}</th>
+              <th>{{ _('File name') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in record.attachments %}
+            <tr>
+              <td><input type="checkbox" name="selected-items" value="{{ item.path }}"/></td>
+              <td><a href="{{ url_for('tekir_admin.contents', path=item.path) }}">{{ record.url_to(item) }}</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <button class="delete-content" hx-post="{{ url_for('tekir_admin_api.check_delete') }}"
+          hx-target="#delete-items">{{ _('Delete selected items') }}</button>
+    {% else %}
+      <div class="field content-listing">
+        <p>{{ _('No attachments.') }}</p>
+      </div>
+    {% endif %}
+    </form>
+  </section>
+</div>
+
+<dialog id="delete-confirm">
+  <p>{{ _('This operation will delete the following content items:') }}</p>
+  <ol id="delete-items"></ol>
+  <p>{{ _('Do you want to continue?') }}</p>
+  <button id="delete-continue" hx-swap="none" hx-post="{{ url_for('tekir_admin_api.delete_content', lang=g.lang_code) }}">{{ _('Yes, delete') }}</button>
+  <button id="delete-cancel">{{ _('No, cancel') }}</button>
+</dialog>
+
+<dialog id="add-form">
+  <form action="." method="POST">
+    <div class="field">
+      <label for="field-model">{{ _('Content Type') }}</label>
+
+      {% set content_models = record.pad.db.datamodels %}
+      {% set child_model = record.datamodel.child_config.model %}
+      {% if child_model %}
+      {{ content_models[child_model].name_i18n.get(g.lang_code) or content_models[child_model].name }}
+      <input type="hidden" id="field-model" name="model" value="{{ child_model }}" disabled/>
+      {% else %}
+      <select id="field-model" name="model">
+        {% for model in content_models %}
+          {% if model != 'none' %}
+        <option value="{{ model }}">{{ content_models[model].name_i18n.get(g.lang_code) or content_models[model].name }}</option>
+          {% endif %}
+        {% endfor %}
+      </select>
+      {% endif %}
+    </div>
+
+    <div class="field">
+      <label for="field-title">{{ _('Title') }}</label>
+      <input type="text" id="field-title" name="title"
+          hx-get="{{ url_for('tekir_admin_api.slug_from_title') }}"
+          hx-trigger="keyup delay:500ms changed"
+          hx-swap="none"/>
+    </div>
+
+    <div class="field">
+      <label for="field-slug">{{ _('ID') }}</label>
+      <input type="text" id="field-slug" name="slug"/>
+    </div>
+
+    <button id="add-confirm" hx-post="{{ url_for('tekir_admin_api.new_content', lang=g.lang_code, parent=record.path) }}">{{ _('Add') }}</button>
+    <button id="add-cancel">{{ _('Cancel') }}</button>
+  </form>
+</dialog>
+{% endblock %}
