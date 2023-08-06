@@ -1,0 +1,109 @@
+[build-system]
+requires = ["setuptools>=61.0", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yet_another_wizz"
+dynamic = ["version"]
+authors = [
+    {name = "Jan Luca van den Busch", email = "jlvdb@astro.ruhr-uni-bochum.de"},
+]
+description = "Implementation of the Schmidt et al. (2013) clustering redshift method."
+readme = "README.rst"
+license = {text = "GPL-3.0-or-later"}
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+requires-python = ">=3.8"
+dependencies = [
+    "typing_extensions;python_version<'3.10'",
+    "more_itertools;python_version<'3.10'",
+    "deprecated",
+    "tqdm",
+    "numpy",
+    "pandas",
+    "astropandas>=1.2.1",
+    "scipy",
+    "astropy",
+    "pyarrow",
+    "h5py",
+    "pyyaml",
+    "treecorr>=4.3",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+cli = ["yet_another_wizz_cli>=1.2.1"]
+plot = ["matplotlib"]
+# note that yaw_cli is currently necessary to generate the joint docs
+docs = [
+    "sphinx",
+    "sphinx-design",
+    "sphinx-copybutton",
+    "pydata-sphinx-theme",
+    "yet_another_wizz[cli]",
+]
+test = [
+    "typing_extensions",
+    "more_itertools",
+    "coverage",
+    "pytest",
+    "pytest-cov",
+]
+style = [
+    "black",
+    "isort",
+    "flake8",
+    "pre-commit",
+]
+dev = [
+    "yet_another_wizz[docs]",
+    "yet_another_wizz[test]",
+    "yet_another_wizz[style]",
+    "ipykernel",
+]
+
+[tool.setuptools.dynamic]
+version = {attr = "yaw.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+yaw = [
+    "examples/*.hdf",
+    "examples/*.dat",
+    "examples/*.cov",
+    "examples/*.smp",
+]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+]
+addopts = [
+    "--cov=yaw",
+    "--cov-report=xml",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+include = ".pyi?$"
+exclude = """
+/(
+    .git
+    | .hg
+    | .mypy_cache
+    | .tox
+    | .venv
+    | _build
+    | buck-out
+    | build
+    | dist
+)/
+"""
