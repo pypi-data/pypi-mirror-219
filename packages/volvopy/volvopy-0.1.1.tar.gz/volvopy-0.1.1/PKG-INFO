@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: volvopy
+Version: 0.1.1
+Summary: Connect to the Volvo API using Python.
+Project-URL: Homepage, https://github.com/Mausy5043/volvopy
+Project-URL: Bug Tracker, https://github.com/Mausy5043/volvopy/issues
+Author: Mausy5043
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Home Automation
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# volvopy
+Connect to the Volvo API using Python
+
+This is a placeholder for the project under development at GitHub.
+
+Development is in Python 3.9. Python 3.8 is expected to work also.
