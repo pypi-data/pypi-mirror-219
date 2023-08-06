@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: flespi
+Version: 1.2.1
+Summary: Flespi REST API for Python
+Author-email: "Golden M, Inc." <software@goldenmcorp.com>
+Maintainer-email: Kenny Mochizuki <kenny@goldenmcorp.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: requests
+
