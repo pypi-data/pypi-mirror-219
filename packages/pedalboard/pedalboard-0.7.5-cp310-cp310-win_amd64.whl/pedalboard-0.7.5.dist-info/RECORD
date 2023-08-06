@@ -1,0 +1,17 @@
+pedalboard_native.cp310-win_amd64.pyd,sha256=xL-1QXO4Z_9V5uuaqMirylehiUarvBGRPd0gI_-0hIo,7366144
+pedalboard/__init__.py,sha256=Q7p0cQU5noDsbB5zsXI41W8kstP8Zwu1hY0AYSvXipc,1917
+pedalboard/_pedalboard.py,sha256=s7eBQLEs_aRbL3defYMBwm6i4r8y6twXsDgoYR0loLE,32061
+pedalboard/midi_utils.py,sha256=tKRj9AujvV0K-YfoiPPduYNMTS_PInH1GOOJ-JL8JLc,3527
+pedalboard/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pedalboard/version.py,sha256=5KOLp53QL-cE26Tor1Os4IapCcB0Wpsvpe6ABQUubvo,705
+pedalboard/io/__init__.py,sha256=bE2o4g2VYxi1zuLbRt6rcEa-ENsEJya_XUAdBDu38VI,478
+pedalboard_native/__init__.pyi,sha256=3ET-VsGk2ImLTJXB_KsGQ42wDsgxBjmRG-n8czUv01Y,64646
+pedalboard_native/_internal/__init__.pyi,sha256=61KHyN3rGg3JuH6eZx7QVwf_EJin6KIyK5yBwOKkaMg,2588
+pedalboard_native/io/__init__.pyi,sha256=-DbmWO1p_o-S9hBA2w3_WvQ9ik8663u5eHB97xzRtTU,38749
+pedalboard_native/utils/__init__.pyi,sha256=3R6Fd0rFZo7rGc97AETjz6LjaCA6OnVsvqnh9t7GwfA,1647
+pedalboard-0.7.5.dist-info/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+pedalboard-0.7.5.dist-info/METADATA,sha256=sVKYckU-3cYQ_Nk47RX7l30me9STRndS_gkPeB9t2vE,15688
+pedalboard-0.7.5.dist-info/NOTICE,sha256=kiwgiOynSFva5dva9jbBupGHmrxihaxbDWAsJNGZzls,589
+pedalboard-0.7.5.dist-info/WHEEL,sha256=jrOhEbqKwvzRFSJcbYXlJCyVkgVdHg4_7__YHrdTUfw,102
+pedalboard-0.7.5.dist-info/top_level.txt,sha256=jXwDvqMjquuPLra-PGmmayt3AFe5_l7hpSqbUgOvP9g,29
+pedalboard-0.7.5.dist-info/RECORD,,
