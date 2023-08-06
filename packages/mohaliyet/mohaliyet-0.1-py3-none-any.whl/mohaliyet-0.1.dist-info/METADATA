@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: mohaliyet
+Version: 0.1
+Summary: A simple package to add two numbers
+Author: Your Name
+Author-email: your.email@example.com
+Keywords: sample setuptools development
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
+License-File: LICENSE
+
