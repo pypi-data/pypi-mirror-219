@@ -1,0 +1,3 @@
+[console_scripts]
+valdazpack=valdazpack.__main__:_main
+
