@@ -1,0 +1,4 @@
+[console_scripts]
+bed2map = plinkliftover.bed2map:bed2mapapp
+map2bed = plinkliftover.map2bed:map2bedapp
+plinkliftover = plinkliftover.__main__:app
