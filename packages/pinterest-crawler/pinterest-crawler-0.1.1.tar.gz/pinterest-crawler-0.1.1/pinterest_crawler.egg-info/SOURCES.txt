@@ -1,0 +1,16 @@
+LICENSE.md
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+pinterest_crawler/__init__.py
+pinterest_crawler/config.py
+pinterest_crawler/loop.py
+pinterest_crawler/pinterest_crawler.py
+pinterest_crawler/scraper.py
+pinterest_crawler.egg-info/PKG-INFO
+pinterest_crawler.egg-info/SOURCES.txt
+pinterest_crawler.egg-info/dependency_links.txt
+pinterest_crawler.egg-info/entry_points.txt
+pinterest_crawler.egg-info/requires.txt
+pinterest_crawler.egg-info/top_level.txt
