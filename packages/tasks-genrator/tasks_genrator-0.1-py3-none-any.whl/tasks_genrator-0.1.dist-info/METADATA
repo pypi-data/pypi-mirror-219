@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: tasks-genrator
+Version: 0.1
+Summary: Add static script_dir() method to pathlib.Path
+Home-page: https://github.com/XxXDeathmatchXxX/tasks_generator.git
+Author: Kirill Kudinov
+Author-email: dr.kireal@yandex.ru
+License: MIT
+License-File: LICENSE
+
+# tasks_generator
+Tasks_generator
+This is a generator of math tasks with using logarythmic functions for education.
