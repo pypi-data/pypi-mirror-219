@@ -1,0 +1,11 @@
+numpy>=1.10
+toolz
+cytoolz
+dask>=0.10
+h5py>=2.6.0
+six
+ase
+sidpy>=0.0.2
+
+[MPI]
+mpi4py

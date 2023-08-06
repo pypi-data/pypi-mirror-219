@@ -1,0 +1,14 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+pyNSID/__init__.py
+pyNSID/__version__.py
+pyNSID.egg-info/PKG-INFO
+pyNSID.egg-info/SOURCES.txt
+pyNSID.egg-info/dependency_links.txt
+pyNSID.egg-info/requires.txt
+pyNSID.egg-info/top_level.txt
+pyNSID/io/__init__.py
+pyNSID/io/hdf_io.py
+pyNSID/io/hdf_utils.py
