@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: FITSImageQA
+Version: 0.0.1
+Summary: Perform quality checks on FITS images
+Home-page: https://github.com/wpb-astro/FITSImageQA
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# FITSImageQA
+Perform quality checks on FITS images
+
+# Install package in editable mode
+pip install -e .
+
+# REORGANIZE ALL OF FOLLOWING INTO SENSIBLE TEXT - just dumping info for now
+
+- use python=3.10 (maybe doesn't matter, or specified in requirements, or elsewhere?)
+
+# Example images can be downloaded from the following url:
+https://yale.box.com/s/gjz3310ft56iaepjrkcfyd4z0bxqph5t
