@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: AnimazePy
+Version: 1.0.0
+Summary: A Python Wrapper for the Animaze API
+Home-page: https://github.com/gitagogaming/AnimazePy
+Author: Gitago
+Author-email: gitproductions.814@gmail.com
+License: GPLv3+
+Project-URL: Documentation, https://github.com/gitagogaming/AnimazePy
+Project-URL: Source, https://github.com/gitagogaming/AnimazePy
+Project-URL: Issues, https://github.com/gitagogaming/AnimazePyissues
+Keywords: Animaze,API,SDK
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AnimazePy
