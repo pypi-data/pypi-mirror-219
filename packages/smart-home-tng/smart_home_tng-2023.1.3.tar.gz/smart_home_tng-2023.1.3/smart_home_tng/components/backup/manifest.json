@@ -1,0 +1,9 @@
+{
+  "domain": "backup",
+  "name": "Backup",
+  "documentation": "https://www.home-assistant.io/integrations/backup",
+  "dependencies": ["http", "websocket_api"],
+  "codeowners": ["@nixe64"],
+  "requirements": ["securetar>=2023.3.0, < 2023.4"],
+  "quality_scale": "internal"
+}

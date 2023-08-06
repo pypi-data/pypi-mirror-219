@@ -1,0 +1,12 @@
+---
+extends: default
+
+rules:
+    truthy:
+        ignore: |
+          .github/workflows/*
+    line-length:
+        ignore: | 
+          .pre-commit-config.yaml
+          notify_leaving_zone.yaml
+          motion_light.yaml

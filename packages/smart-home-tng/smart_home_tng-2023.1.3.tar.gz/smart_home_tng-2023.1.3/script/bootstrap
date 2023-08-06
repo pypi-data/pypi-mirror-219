@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+pip install -c smart_home_tng/package_constraints.txt -U \
+    aiohttp \
+    aiohttp-cors \
+    astral \
+    async-upnp-client \
+    atomicwrites-homeassistant \
+    awesomeversion \
+    bcrypt \
+    certifi \
+    ciso8601 \
+    colorlog \
+    cryptography \
+    jinja2 \
+    packaging \
+    pyjwt \
+    pyotp \
+    pyqrcode \
+    python-slugify \
+    pyturbojpeg \
+    pyyaml \
+    requests \
+    sqlalchemy \
+    tqdm \
+    urllib3 \
+    voluptuous \
+    voluptuous-serialize \
+    zeroconf

@@ -1,0 +1,111 @@
+---
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+      - id: no-commit-to-branch
+        args:
+          - --branch=dev
+      - id: check-json
+        exclude: (.vscode|.devcontainer)
+      - id: check-executables-have-shebangs
+        stages: [manual]
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.32.1
+    hooks:
+      - id: pyupgrade
+        args: [--py39-plus]
+  - repo: https://github.com/cdce8p/python-typing-update
+    rev: v0.3.5
+    hooks:
+      # Run `python-typing-update` hook manually from time to time
+      # to update python typing syntax.
+      # Will require manual work, before submitting changes!
+      - id: python-typing-update
+        stages: [manual]
+        args:
+          - --py39-plus
+          - --force
+          - --keep-updates
+        files: ^(smart_home_tng|tests)/.+\.py$
+  - repo: local
+    hooks:
+      - id: pytest-check
+        name: pytest-check
+        entry: script/run-in-env.sh pytest
+        language: script
+        pass_filenames: false
+        stages: [manual]
+
+      - id: black
+        name: black
+        entry: script/run-in-env.sh black --safe --quiet smart_home_tng/ tests/
+        language: script
+        pass_filenames: false
+        stages: [commit, push, manual]
+
+      - id: pylint
+        name: pylint
+        entry: script/run-in-env.sh pylint --rcfile=.pylint 
+        language: script
+        types: [python]
+        pass_filenames: true
+        stages: [commit, push, manual]
+
+      - id: prettier
+        name: prettier
+        entry: script/run-in-env.sh python3 -m prettier
+        language: script
+        pass_filenames: false
+        stages: [commit, manual]
+
+      - id: flake8
+        name: flake8
+        entry: script/run-in-env.sh flake8 smart_home_tng
+        language: script
+        pass_filenames: false
+        stages: [commit, manual]
+
+      - id: ggshield
+        name: GitGuardian Shield
+        entry: script/run-in-env.sh ggshield
+        language: script
+        pass_filenames: false
+        stages: [commit, push, manual]
+
+      - id: mypy
+        name: mypy
+        entry: script/run-in-env.sh mypy
+        language: script
+        types: [python]
+        require_serial: true
+        pass_filenames: true
+        stages: [manual]
+
+      - id: isort
+        name: isort
+        entry: script/run-in-env.sh isort
+        language: script
+        pass_filenames: false
+        stages: [commit, push, manual]
+
+      - id: bandit
+        name: bandit
+        entry: script/run-in-env.sh bandit -qr --format=custom -c=tests/bandit.yaml smart_home_tng/
+        language: script
+        pass_filenames: false
+        stages: [commit, manual]
+
+      - id: yamllint
+        name: yamllint
+        entry: script/run-in-env.sh yamllint tests/ smart_home_tng/
+        language: script
+        pass_filenames: false
+        stages: [commit, manual]
+
+      - id: typos
+        name: typos
+        entry: typos
+        language: system
+        pass_filenames: false
+        stages: [commit, manual]

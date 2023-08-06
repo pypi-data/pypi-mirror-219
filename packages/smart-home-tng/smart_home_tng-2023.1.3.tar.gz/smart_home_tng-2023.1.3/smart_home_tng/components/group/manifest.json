@@ -1,0 +1,9 @@
+{
+  "domain": "group",
+  "integration_type": "helper",
+  "name": "Group",
+  "documentation": "https://www.home-assistant.io/integrations/group",
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal",
+  "config_flow": true
+}

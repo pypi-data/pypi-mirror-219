@@ -1,0 +1,10 @@
+#!/bin/sh
+# Builds the frontend for production
+
+# Stop on errors
+set -e
+
+cd "$(dirname "$0")/.."
+
+npx browserslist@latest --update-db
+./node_modules/.bin/gulp build-app

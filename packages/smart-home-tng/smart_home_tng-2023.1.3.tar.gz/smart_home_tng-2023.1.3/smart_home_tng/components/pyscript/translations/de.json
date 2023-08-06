@@ -1,0 +1,34 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Pyscript",
+        "description": "Wenn du einen Eintrag erstellt hast, lese die [Dokumentation](https://hacs-pyscript.readthedocs.io/en/latest/), um zu erfahren, wie du Skripte und Funktionen erstellen kannst.",
+        "data": {
+          "allow_all_imports": "Alle Importe zulassen?",
+          "shc_is_global": "Zugriff auf Smart Home Conttroller als globale Variable?"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Bereits konfiguriert.",
+      "single_instance_allowed": "Bereits konfiguriert. Nur eine einzige Konfiguration möglich.",
+      "updated_entry": "Dieser Eintrag wurde bereits eingerichtet, aber die Konfiguration wurde aktualisiert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Pyscript-Konfiguration aktualisieren",
+        "data": {
+          "allow_all_imports": "Alle Importe zulassen?",
+          "shc_is_global": "Zugriff auf Smart Home Conttroller als globale Variable?"
+        }
+      }
+    },
+    "abort": {
+      "no_ui_configuration_allowed": "## Keine UI-Konfiguration erlaubt\nDieser Eintrag wurde über **configuration.yaml** erstellt, daher müssen alle Konfigurationsparameter dort aktualisiert werden. Mit dem Dienst [**pyscript.reload**](/developer-tools/service) kannst du die Änderungen in der Datei **configuration.yaml** übernehmen, ohne deinen Smart Home Controller neu zu starten.",
+      "no_update": "## Keine Aktualisierung erforderlich\nEs gibt nichts zu aktualisieren."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "domain": "http",
+  "name": "HTTP",
+  "documentation": "https://www.home-assistant.io/integrations/http",
+  "dependencies": ["network"],
+  "requirements": ["aiohttp_cors>=0.7.0, < 0.8"],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal",
+  "iot_class": "local_push"
+}

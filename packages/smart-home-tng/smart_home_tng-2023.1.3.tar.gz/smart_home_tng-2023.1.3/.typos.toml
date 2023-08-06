@@ -1,0 +1,10 @@
+[default]
+check-filename = false
+
+[default.extend-words]
+hass = "hass"
+iif = "iif"
+Ba = "Ba"
+nd = "nd"
+ons = "ons"
+splitted = "splitted"

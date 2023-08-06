@@ -1,0 +1,10 @@
+**/__pycache__
+/.venv/
+/.secrets
+*-badge.md
+/.config/
+!manifest.json
+/.pytest_cache
+/dist
+
+/.gitsecret/keys/random_seed
