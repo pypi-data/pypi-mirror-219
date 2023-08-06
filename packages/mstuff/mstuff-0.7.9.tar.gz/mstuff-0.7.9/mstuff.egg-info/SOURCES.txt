@@ -1,0 +1,10 @@
+README.rst
+pyproject.toml
+mstuff/__init__.py
+mstuff/http.py
+mstuff/mstuff.py
+mstuff.egg-info/PKG-INFO
+mstuff.egg-info/SOURCES.txt
+mstuff.egg-info/dependency_links.txt
+mstuff.egg-info/requires.txt
+mstuff.egg-info/top_level.txt
