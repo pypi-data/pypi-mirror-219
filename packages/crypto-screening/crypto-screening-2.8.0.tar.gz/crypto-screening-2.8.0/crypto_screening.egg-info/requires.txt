@@ -1,0 +1,13 @@
+numpy
+pandas
+ccxt
+cryptofeed
+attrs
+pyrepresent
+pymultithreading
+
+[dev]
+pdoc3
+pytest
+spinneroo
+twine
