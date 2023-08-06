@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: vanitas-antispam
+Version: 1.0.0
+Summary: AntiSpam Wrapper for Vanitas
+Home-page: https://github.dev/ArshCypherZ/vanitaspy.git
+Author: ArshCypherZ
+Author-email: weebarsh@protonmail.com
+License: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+# How to use
+
+
+```
+from vanitas-antispam import User
+
+fk = User()
+
+x = fk.get_info(6040984893) # user id of telegram
+print(x)
+print(x.reason)
+
+```
