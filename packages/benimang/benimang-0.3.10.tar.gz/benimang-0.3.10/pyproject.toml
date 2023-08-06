@@ -1,0 +1,34 @@
+# https://peps.python.org/pep-0621/#example
+
+[project]
+name = "benimang"
+version = "0.3.10"
+description = "utils library for Beni"
+requires-python = ">=3.10"
+keywords = ["benimang", "beni"]
+authors = [
+  {email = "benimang@126.com"},
+  {name = "Beni Mang"}
+]
+maintainers = [
+  {name = "Beni Mang", email = "benimang@126.com"}
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+cmd = [
+  'aiofiles',
+  'aiohttp',
+  'aioconsole',
+  'pyperclip',
+  'nest-asyncio',
+  'tzdata',
+  'typer',
+  'qiniu',
+  'orjson',
+  'colorama',
+]
+
+[project.scripts]
+beni = "beni.bcmd:main"
