@@ -1,0 +1,8 @@
+[napari.plugin]
+ome-types = ome_types._napari_plugin
+
+[xsdata.plugins.class_types]
+xsdata_pydantic_basemodel = xsdata_pydantic_basemodel.hooks.class_type
+
+[xsdata.plugins.cli]
+xsdata_pydantic_basemodel = xsdata_pydantic_basemodel.hooks.cli
