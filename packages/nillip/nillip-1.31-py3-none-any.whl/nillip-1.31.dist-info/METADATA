@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: nillip
+Version: 1.31
+Summary: custom utils package for me, but feel free to use it if you want
+Home-page: UNKNOWN
+Author: Phillip Maire
+Author-email: phillip.maire@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.24.3)
+Requires-Dist: natsort (==8.4.0)
+Requires-Dist: scipy (==1.11.1)
+Requires-Dist: h5py (==3.9.0)
+Requires-Dist: matplotlib (==3.7.2)
+Requires-Dist: pandas (==2.0.3)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: opencv-python (==4.8.0)
+
+UNKNOWN
+
+
