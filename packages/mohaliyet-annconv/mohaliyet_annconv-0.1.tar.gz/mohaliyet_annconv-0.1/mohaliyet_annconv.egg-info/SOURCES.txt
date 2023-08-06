@@ -1,0 +1,13 @@
+README.md
+setup.py
+annotation_converter/__init__.py
+annotation_converter/main.py
+annotation_converter/parsers.py
+annotation_converter/writers.py
+mohaliyet_annconv.egg-info/PKG-INFO
+mohaliyet_annconv.egg-info/SOURCES.txt
+mohaliyet_annconv.egg-info/dependency_links.txt
+mohaliyet_annconv.egg-info/entry_points.txt
+mohaliyet_annconv.egg-info/requires.txt
+mohaliyet_annconv.egg-info/top_level.txt
+tests/__init__.py
