@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pyfang
+Version: 0.1.0
+Summary: Write html and css in python
+Author-email: julkar9 <julkar9dev@gmail.com>
+License: MIT License (MIT)
+Project-URL: Homepage, https://github.com/julkaar9/pyfang
+Keywords: html,css,website,static
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+# pyfang
+
+Utilize the full power of python while writing html and css.
+
+## Important
+This package is currently in open-beta, so there isn't any stable public version yet.   
+The design philoshopy might change until 1.0.0 is released.  
+
+Only a fraction of the HTML tags are covered, however you can use the `RawTag` and `RawAttr` or `DefaultAttr` to write any html tag.
+
+
