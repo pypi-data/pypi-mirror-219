@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+# This command takes two arguments, a kit and a branch.
+#
+# It will query the deepdive database, and identify all catpkgs referenced by the specified
+# kit/branch that do not exist within the kit -- in other words, the outbound 'inter-kit
+# links.' These catpkgs exist in other kits -- or may not exist at all. Anything printed
+# simply refers to things referenced in the kit that can't be found within the kit.
+
+import sys
+from subpop.hub import Hub
+
+hub = Hub()
+
+import dyne.org.funtoo.metatools.merge as merge
+
+if __name__ == "__main__":
+	nodep_catpkgs = dict()
+	all_relations = set()
+	all_catpkgs = set()
+	for pypak in merge.DEEPDIVE.find({"kit": sys.argv[1], "branch": sys.argv[2]}):
+		all_catpkgs.add(pypak["catpkg"])
+		all_relations = all_relations | set(pypak["relations"])
+
+	inter_kitlink_catpkgs = all_relations - all_catpkgs
+	for catpkg in sorted(list(inter_kitlink_catpkgs)):
+		print(catpkg)

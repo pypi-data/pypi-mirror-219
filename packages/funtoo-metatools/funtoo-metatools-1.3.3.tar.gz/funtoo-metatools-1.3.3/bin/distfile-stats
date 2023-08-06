@@ -1,0 +1,154 @@
+#!/usr/bin/python3
+
+# If you load stuff into deepdive, this tool can then be run and will show you stats on what
+# percentage of distfiles for each kit are in your fastpull database.
+
+# It also contains code that I started to work on for the new distfile spider. So it's sort
+# of a mish-mash.
+
+import json
+import os
+from argparse import ArgumentParser
+
+from subpop.hub import Hub
+from dict_tools.data import NamespaceDict
+
+from metatools.tree import GitTree
+
+hub = Hub()
+
+import dyne.org.funtoo.metatools.merge as merge
+
+
+def sizeof_fmt(num, suffix="B"):
+	for unit in ["", "Ki", "Mi", "Gi", "Ti", "Pi", "Ei", "Zi"]:
+		if abs(num) < 1024.0:
+			return "%3.1f%s%s" % (num, unit, suffix)
+		num /= 1024.0
+	return "%.1f%s%s" % (num, "Yi", suffix)
+
+
+def print_summary(stats, kit=None):
+	if kit is not None:
+		print(f"* Kit {kit.name} branch {kit.branch}:")
+	else:
+		print("* Global Statistics:")
+	tot_bytes = stats.bytes_exist + stats.bytes_todo
+	if tot_bytes == 0:
+		tot_bytes_complete = "N/A"
+	else:
+		tot_bytes_complete = f"{stats.bytes_exist * 100 / tot_bytes:2f}%"
+	tot_files = stats.files_exist + stats.files_todo
+	if tot_files == 0:
+		tot_files_complete = "N/A"
+	else:
+		tot_files_complete = f"{stats.files_exist * 100 / tot_files:2f}%"
+	print(f"      Total bytes: {sizeof_fmt(tot_bytes)}")
+	print(f"      Total files: {stats.files_exist + stats.files_todo}")
+	print(f" Percent Complete: {tot_bytes_complete} (by size)")
+	print(f"                   {tot_files_complete} (by count)")
+	print(f"   Skipped digest: {len(stats.skip.no_digest)}")
+	print(f"  Skipped src_uri: {len(stats.skip.no_src_uri)}")
+	print(f"     Skipped size: {len(stats.skip.no_size)}")
+	print(f"   Skipped sha512: {len(stats.skip.no_sha512)}")
+	print()
+
+
+def create_stats():
+	return NamespaceDict(
+		{
+			"bytes_exist": 0,
+			"bytes_todo": 0,
+			"files_exist": 0,
+			"files_todo": 0,
+			"skip": NamespaceDict({"no_digest": set(), "no_src_uri": set(), "no_size": set(), "no_sha512": set()}),
+		}
+	)
+
+
+def add_stats(main_stats, new_stats):
+	for key in ["bytes_exist", "bytes_todo", "files_exist", "files_todo"]:
+		main_stats[key] += new_stats[key]
+	for skip_key in ["no_digest", "no_src_uri", "no_size", "no_sha512"]:
+		main_stats.skip[key] = main_stats.skip[skip_key] | new_stats.skip[skip_key]
+
+
+# While useful for statistics, this next function has a flaw -- it kind of sucks that we have to load
+# stuff into deepdive before we can process things. At least if we are wanting to start a spider run.
+# We would want to just read it from the JSON.
+
+
+async def distfile_stats():
+	global_stats = create_stats()
+	out = []
+	for kit_group in merge.KIT_GROUPS:
+		ctx = NamespaceDict()
+		ctx["kit"] = kit = NamespaceDict(kit_group)
+		ctx["stats"] = stats = create_stats()
+		for pkg in merge.DEEPDIVE.find({"kit": kit.name, "branch": kit.branch}):
+			if "files" in pkg:
+				for file in pkg["files"]:
+
+					if "src_uri" not in file:
+						stats.skip.no_src_uri.add(pkg["atom"])
+						continue
+
+					if not "digests" in file and not "hashes" in file:
+						stats.skip.no_digest.add(pkg["atom"])
+						continue
+
+					if "digests" in file:
+						# compat with deepdive change
+						file["hashes"] = file["digests"]
+
+					if not "size" in file:
+						stats.skip.no_size.add(pkg["atom"])
+						continue
+
+					if not "sha512" in file["hashes"]:
+						stats.skip.no_sha512.add(pkg["atom"])
+						continue
+
+					sz_bytes = int(file["size"])
+					dp = merge.parent.get_disk_path(file["hashes"]["sha512"])
+					if os.path.exists(dp):
+						stats.bytes_exist += sz_bytes
+						stats.files_exist += 1
+					else:
+						stats.bytes_todo += sz_bytes
+						stats.files_todo += 1
+						if merge.OUT is not None:
+							out.append(file)
+		print_summary(ctx.stats, ctx.kit)
+		add_stats(global_stats, stats)
+	print_summary(global_stats)
+	return out
+
+
+if __name__ == "__main__":
+	ap = ArgumentParser()
+	ap.add_argument("release")
+	ap.add_argument("--out", default=None)
+	args = ap.parse_args()
+
+	merge.apply_config(release=args.release)
+
+	merge.FIXUP_REPO = GitTree(
+		"kit-fixups",
+		merge.MERGE_CONFIG.branch("kit-fixups"),
+		url=merge.MERGE_CONFIG.kit_fixups,
+		root=merge.MERGE_CONFIG.source_trees + "/kit-fixups",
+	)
+
+	merge.FIXUP_REPO.initialize()
+	merge.KIT_GROUPS = list(merge.foundations.kit_groups())
+	merge.OUT = args.out
+
+	out = merge.LOOP.run_until_complete(distfile_stats())
+	if merge.OUT:
+		with open(merge.OUT, "w") as f:
+			f.write(json.dumps(out))
+			print(f"Listing of missing files JSON written to {merge.OUT}.")
+
+
+# vim: ts=4 sw=4 noet

@@ -1,0 +1,148 @@
+#!/usr/bin/python3
+import asyncio
+import os
+
+import tornado.gen
+import tornado.ioloop
+import tornado.web
+from pymongo import MongoClient
+from subpop.hub import Hub
+from tornado.httpserver import HTTPServer
+from tornado.log import enable_pretty_logging
+
+hub = Hub()
+
+import dyne.org.funtoo.metatools.pkgtools as pkgtools
+
+from metatools.config.autogen import StoreConfig
+
+enable_pretty_logging()
+
+
+class UptimeHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.set_status(200)
+		return
+
+# This just shows contents of the mongo db record:
+#
+# class DistfileQueryHandler(tornado.web.RequestHandler):
+# 	def get(self, sha512):
+# 		self.set_header("Content-Type", "text/plain")
+# 		db_ent = self.application.legacy_db.find_one({"hashes.sha512": sha512})
+# 		if db_ent is None:
+# 			self.write("Not found.")
+# 		else:
+# 			pp = PrettyPrinter(indent=4)
+# 			self.write(pp.pformat(db_ent))
+
+
+redirect_url = "https://1153732560.rsc.cdn77.org/"
+
+
+class RedirectHandler(tornado.web.RequestHandler):
+	def get(self, fn):
+		fn = os.path.basename(fn)
+		success = False
+		if fn == "layout.conf":
+			self.set_header("Content-Type", "text/plain")
+			self.write(
+				"""[structure]
+0=flat
+"""
+			)
+			return
+
+		# Since the IntegrityDatabase has no way to search by filename, since we don't have an index for that,
+		# we can't implement this. A DistfileHashHandler is necessary for next-gen fastpull.
+
+		fp_ent = self.application.legacy_db.find_one({"filename": fn})
+		if fp_ent:
+			sh = fp_ent["hashes"]["sha512"]
+			basepath = f"{sh[:2]}/{sh[2:4]}/{sh[4:6]}/{sh}"
+			url = redirect_url + basepath
+			self.redirect(url, permanent=False)
+		else:
+			self.set_status(404)
+
+
+class DistfileHashHandler(tornado.web.RequestHandler):
+	def get(self, hp1, hp2, hp3, full_hash):
+		if hp1 != full_hash[0:2] or hp2 != full_hash[2:4] or hp3 != full_hash[4:6] or len(full_hash) != 128:
+			self.set_status(503)
+			return
+		# Look directly in the BLOS for the hash:
+		obj = pkgtools.model.blos.read({"hashes.sha512": full_hash})
+		if obj is not None or obj.blob is not None:
+			redirect_subpath = pkgtools.model.blos.get_relative_path_to_root(obj.blob.path)
+			url = redirect_url + "/direct/" + redirect_subpath
+			self.redirect(url, permanent=False)
+		else:
+			# legacy:
+			fp_ent = self.application.legacy_db.find_one({"hashes.sha512": full_hash})
+			if fp_ent:
+				# file exists! redirect to CDN for fastest download:
+				basepath = f"{hp1}/{hp2}/{hp3}/{full_hash}"
+				url = redirect_url + basepath
+				self.redirect(url, permanent=False)
+			else:
+				# file does not exist. Return 404 to avoid redirect loop.
+				self.set_status(404)
+
+
+class OldSchoolLayoutConfHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.set_header("Content-Type", "text/plain")
+		self.write("""[structure]
+0=flat
+""")
+
+
+class DirectHashLayoutConfHandler(tornado.web.RequestHandler):
+	def get(self):
+		self.set_header("Content-Type", "text/plain")
+		self.write("""[structure]
+0=content-hash SHA512 8:8:8
+1=flat
+""")
+
+
+settings = {
+	"xsrf_cookies": False,
+	"cache_json": False,
+}
+
+
+class Application(tornado.web.Application):
+
+	name = "fastpull beta service"
+	handlers = [
+		(r"/layout.conf", OldSchoolLayoutConfHandler),
+		(r"/distfiles/layout.conf", OldSchoolLayoutConfHandler),
+		(r"/distfiles/distfiles/layout.conf", OldSchoolLayoutConfHandler),
+		(r"/direct/layout.conf", DirectHashLayoutConfHandler),
+		(r"/direct/([0-9a-f][0-9a-f])/([0-9a-f][0-9a-f])/([0-9a-f][0-9a-f])/([0-9a-f]*)", DistfileHashHandler),
+		(r"/distfiles/distfiles/(.*)", RedirectHandler),
+		(r"/distfiles/(.*)", RedirectHandler),
+		(r"/up", UptimeHandler),
+		(r"/(.*)", RedirectHandler),
+	]
+
+	def __init__(self):
+		tornado.web.Application.__init__(self, self.handlers, **settings)
+
+
+async def main_thread():
+	await pkgtools.launch(StoreConfig, fastpull_scope="local")
+	application = Application()
+	http_server = HTTPServer(application, xheaders=True)
+	http_server.bind(8080, "127.0.0.1")
+	http_server.start()
+	# prevent function from ending:
+	while True:
+		# can potentially do something periodic here:
+		await asyncio.sleep(1)
+
+asyncio.run(main_thread())
+
+# vim: ts=4 sw=4 noet

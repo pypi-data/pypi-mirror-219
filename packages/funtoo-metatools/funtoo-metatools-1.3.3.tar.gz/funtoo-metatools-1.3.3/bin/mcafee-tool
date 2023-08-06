@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+
+# This tool is designed to parse McAfee virus scanner logs and potentially do things with the
+# output.
+import os
+import sys
+
+from subpop.hub import Hub
+
+hub = Hub()
+
+import dyne.org.funtoo.metatools.merge as merge
+
+if __name__ == "__main__":
+	action = sys.argv[1]
+	log_file = sys.argv[2]
+	if not os.path.exists(log_file):
+		print("Specified file not found.")
+		sys.exit(1)
+	for sha512 in merge.parent.parse_mcafee_logs(log_file):
+		db_ent = merge.model.FASTPULL.find_one({"sha512": sha512})
+		print(db_ent)
