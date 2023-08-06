@@ -1,0 +1,14 @@
+ckanext/__init__.py,sha256=yn3ZAXvqsskR-hO4ZI_ETF33sza-iEITADlU8zV2jA4,310
+ckanext/sketchfab/__init__.py,sha256=yn3ZAXvqsskR-hO4ZI_ETF33sza-iEITADlU8zV2jA4,310
+ckanext/sketchfab/plugin.py,sha256=mfmupdtfS4p01lq4Ael6a8dMdKlb0sRx30zvvWfHKZk,2162
+ckanext/sketchfab/logic/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ckanext/sketchfab/logic/validators.py,sha256=Ni1ickFsWZQ3fcjXG8WEIVbcw-7Vgz4sD6OzcFE2WAs,537
+ckanext/sketchfab/theme/templates/sketchfab_form.html,sha256=hUeXzqLsBJtmTWO3W1mXe0O73BLdeucDfpUe904jrwk,571
+ckanext/sketchfab/theme/templates/sketchfab_view.html,sha256=l2YeU-hsh1GBRsBz0w6bEozVOdDH2Jxgb0o14-3q9LM,203
+docs/_scripts/gen_api_pages.py,sha256=FWuP-WqcfAl6fAMSvCR0MnLBrqd2jImfVGEAKToZb0U,1243
+ckanext_sketchfab-2.1.8.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+ckanext_sketchfab-2.1.8.dist-info/METADATA,sha256=TWLo4gfPpLRI9HaowKpDEUFRswlvgk0ZIYZULfDvshY,4862
+ckanext_sketchfab-2.1.8.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ckanext_sketchfab-2.1.8.dist-info/entry_points.txt,sha256=qUi9UtyatQrLaWcjoNI3oqwN769VIawjC1gDLjg-hFQ,68
+ckanext_sketchfab-2.1.8.dist-info/top_level.txt,sha256=w-vKlvacHfVip3Sq_burAFRwyFHya8Z-yVMARpWRWrU,13
+ckanext_sketchfab-2.1.8.dist-info/RECORD,,
