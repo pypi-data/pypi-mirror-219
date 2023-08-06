@@ -1,0 +1,5 @@
+rtree>=1.0.1
+cherrypy>=18.8.0
+matplotlib>=3.6.2
+mpld3>=0.5.8
+numpy>=1.23.5
