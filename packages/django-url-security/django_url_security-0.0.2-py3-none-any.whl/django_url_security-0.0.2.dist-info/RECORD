@@ -1,0 +1,12 @@
+LICENSE,sha256=4VduNH4lfgPj1ZVsdU9EoB4Dy0CRxJLgr9qNrGmM1xU,1064
+django_url_security/__init__.py,sha256=K-4LVQGNf0xxkVYa_7QDL2pQL6-i5r7YmLd-LKL0YiU,404
+django_url_security/core.py,sha256=hWWbV9jIdRJRu_YL7fcZJT64-PQ2Tlm6wfEZELr6wps,7029
+django_url_security/django_url_security.py,sha256=h0hwdogXGFqerm-5ZPeT-irPn91pCcQRjiHThXsRzEk,19
+django_url_security/generate_permission_spec_file.py,sha256=-8hXD7RBISxHDb2n9_QE_df2jliSRuKMCYU0wDDNaXo,1969
+django_url_security/management/commands/export_url_security_file.py,sha256=jJOrT53gLdrFr3YXRdPGiN8z3CYdAMUSNUmw9eU_3Vc,484
+django_url_security/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_url_security/url_security.py,sha256=yIULOO3m63ygg6ZeuxYLK1ShmqbMFPOMHPwCAfu9kGc,11713
+django_url_security-0.0.2.dist-info/LICENSE,sha256=4VduNH4lfgPj1ZVsdU9EoB4Dy0CRxJLgr9qNrGmM1xU,1064
+django_url_security-0.0.2.dist-info/METADATA,sha256=BHZo8z_5SKN0surdR1CNIbQmx6hl-wgKHirCoNSv8B8,1723
+django_url_security-0.0.2.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+django_url_security-0.0.2.dist-info/RECORD,,
