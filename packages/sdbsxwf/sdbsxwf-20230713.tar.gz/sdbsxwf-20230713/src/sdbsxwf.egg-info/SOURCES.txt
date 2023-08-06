@@ -1,0 +1,10 @@
+setup.cfg
+setup.py
+src/sdbsxwf/__init__.py
+src/sdbsxwf/mkgjx.py
+src/sdbsxwf/mkmain.py
+src/sdbsxwf.egg-info/PKG-INFO
+src/sdbsxwf.egg-info/SOURCES.txt
+src/sdbsxwf.egg-info/dependency_links.txt
+src/sdbsxwf.egg-info/requires.txt
+src/sdbsxwf.egg-info/top_level.txt
