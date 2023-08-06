@@ -1,0 +1,14 @@
+grokcore.startup-4.0-py3.11-nspkg.pth,sha256=FGLyUvF2srNYAjknZKalB1Fea_a5qTilG6fke1nJSVs,549
+grokcore/startup/README.rst,sha256=VcK5VPnFYNn_4SFvyvF-svLqdaB0T28RmkBvL2A9IXA,12454
+grokcore/startup/__init__.py,sha256=96oi7fS-HryunRD-PhAycglIEQhUhJENofyvFJXmdqw,823
+grokcore/startup/debug.py,sha256=9mCyULZD4WrxvYug6BVmEIzJ73lxr2IdKwJIE9sO6Xg,5906
+grokcore/startup/startup.py,sha256=nMC-FOp8mryucttEpfkd8P8yXq7AuvNKfU5ISOMkqf4,2912
+grokcore/startup/tests/__init__.py,sha256=nFa4sn7SGMgCxVss13M2_uzaJEsA3KTIM8_j8TsX_Tw,23
+grokcore/startup/tests/test_grokcorestartup.py,sha256=idq1mGEFU_gMAV1g3br-4wXsOz58aasJM1WY7CBRcpY,421
+grokcore.startup-4.0.dist-info/LICENSE.txt,sha256=PmcdsR32h1FswdtbPWXkqjg-rKPCDOo_r1Og9zNdCjw,2070
+grokcore.startup-4.0.dist-info/METADATA,sha256=G8ZwHGdFtf4ckVFrdg8gZ5ajYTmNMdMZNQo6QNacCAM,17438
+grokcore.startup-4.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+grokcore.startup-4.0.dist-info/entry_points.txt,sha256=hIk09EyHUVmFBydkV-rRHXws-2tP4bGYPsgktkgQtn8,115
+grokcore.startup-4.0.dist-info/namespace_packages.txt,sha256=JsYPykcFxefQ8WbP8IVCYAVG31OXvejwWfIExoYu3Pk,9
+grokcore.startup-4.0.dist-info/top_level.txt,sha256=JsYPykcFxefQ8WbP8IVCYAVG31OXvejwWfIExoYu3Pk,9
+grokcore.startup-4.0.dist-info/RECORD,,
