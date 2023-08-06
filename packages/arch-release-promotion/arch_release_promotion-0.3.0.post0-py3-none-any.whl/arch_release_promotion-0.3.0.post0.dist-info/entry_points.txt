@@ -1,0 +1,4 @@
+[console_scripts]
+arch-release-promotion = arch_release_promotion.cli:main
+arch-release-sync = arch_release_promotion.cli:arch_release_sync
+

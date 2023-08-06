@@ -1,0 +1,14 @@
+arch_release_promotion-0.3.0.post0.dist-info/METADATA,sha256=TlNGNPQiJ3Lg7jfxSIDoX2Uv5lGTDQwrYaIIs1M8u8M,12378
+arch_release_promotion-0.3.0.post0.dist-info/WHEEL,sha256=0QD4Fi8spmPDA9YIWsctxI6ukFf44Zgk0L9495lbqs0,90
+arch_release_promotion-0.3.0.post0.dist-info/entry_points.txt,sha256=B9bsfArAMcMc8jHD6maa-3tZePsq5EEuybfCRE15MvA,141
+arch_release_promotion-0.3.0.post0.dist-info/licenses/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+arch_release_promotion/__init__.py,sha256=HGdi2NAavFoav02ls8PUeJeCA6wBTc8cCgRg3MbOB0M,46
+arch_release_promotion/argparse.py,sha256=6X6YbSjogUofoDdH1mQXtkPFcS6uEXXnjj6EdPlNyjI,3834
+arch_release_promotion/cli.py,sha256=8L9xsWhD4WejvRxS0F0sDyV6rmxW2vcv2EtdxvE0fYs,5224
+arch_release_promotion/config.py,sha256=NeuRlZeUU0IW25UE02Y1GyD7J2Rs8yAWDyhpejpWof4,14783
+arch_release_promotion/files.py,sha256=oJJ054SOYF0osVpvnpdjry26HdbCYg92_UrnX2mxjJ0,26534
+arch_release_promotion/gitlab.py,sha256=rWI5EwaDirF0XdNFn0dI9XD78leOmlo_YQF3gMnXGBo,6877
+arch_release_promotion/release.py,sha256=WHrJCZSIJHncecbpOWKfTnAAq4NQzi-zyz1ORnWn9bA,1973
+arch_release_promotion/signature.py,sha256=zp_MK7IQuq4Dum4WsQnM52SYqXbJ6PozDepIRpKGAyI,1552
+arch_release_promotion/torrent.py,sha256=4vehr2Eh5FSrikgvxIu9j4EL4-jFxTijoS6vddodRP4,1795
+arch_release_promotion-0.3.0.post0.dist-info/RECORD,,
