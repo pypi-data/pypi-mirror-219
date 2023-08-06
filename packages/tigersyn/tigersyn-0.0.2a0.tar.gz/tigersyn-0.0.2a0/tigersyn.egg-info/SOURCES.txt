@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+tigersyn/__init__.py
+tigersyn/syn.py
+tigersyn/syn_tool.py
+tigersyn.egg-info/PKG-INFO
+tigersyn.egg-info/SOURCES.txt
+tigersyn.egg-info/dependency_links.txt
+tigersyn.egg-info/requires.txt
+tigersyn.egg-info/top_level.txt
