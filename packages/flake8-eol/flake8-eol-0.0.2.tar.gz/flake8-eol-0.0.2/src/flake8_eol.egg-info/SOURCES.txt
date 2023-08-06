@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+src/flake8_eol/__init__.py
+src/flake8_eol/add.py
+src/flake8_eol.egg-info/PKG-INFO
+src/flake8_eol.egg-info/SOURCES.txt
+src/flake8_eol.egg-info/dependency_links.txt
+src/flake8_eol.egg-info/requires.txt
+src/flake8_eol.egg-info/top_level.txt
+src/tests/__init__.py
+src/tests/test_add.py
