@@ -1,0 +1,62 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+class ReportGenerator:
+    """Class to generate reports from the integrated data."""
+
+    def __init__(self, species_abundance_file, top_filo, absolute):
+        """
+        Constructor method.
+
+        Args:
+            species_abundance_file (str): Path to the .csv file containing species abundance.
+            top_filo (int): Top N filos to be considered for the bar chart.
+            absolute (bool): Use absolute abundance for the bar chart. If False, relative abundance is used.
+        """
+        self.species_abundance_file = species_abundance_file
+        self.top_filo = top_filo
+        self.absolute = absolute
+
+    def generate_report(self):
+        """
+        Method to generate the report.
+        """
+        self.generate_stacked_bar_chart()
+
+    def generate_stacked_bar_chart(self):
+        """Method to generate a stacked bar chart."""
+        df = pd.read_csv(self.species_abundance_file)
+        df = df[df['reads'] > 0]  # Filter out rows with reads <= 0
+        df_grouped = df.groupby('phylum').agg({'reads': 'sum'}).reset_index()
+        df_grouped = df_grouped.sort_values(by='reads', ascending=False)
+
+        if not self.absolute:
+            df_grouped['reads'] = df_grouped['reads'] / df_grouped['reads'].sum() * 100  # Convert to percentage if not absolute
+
+        # Check if absolute abundance is selected
+        if self.absolute:
+            df_final = df_grouped
+        else:
+            # Add a 'Others Phyla' group for those not in top N
+            top_filos = df_grouped.iloc[:self.top_filo].copy()
+            others = df_grouped.iloc[self.top_filo:].copy()
+            others['phylum'] = 'Other Phyla'  # Assign 'Other Phyla' to all others
+            df_final = pd.concat([top_filos, others]).groupby('phylum').sum().reset_index()  # Combine them and sum up the 'reads'
+
+        # Rename column for plotting
+        df_final.rename(columns={'reads': 'Sample'}, inplace=True)
+
+        # Generate the chart
+        fig, ax = plt.subplots()
+        df_final.set_index('phylum', inplace=True)
+        df_final.T.plot(kind='bar', stacked=True, ax=ax)  # Plot the graph
+        ax.set_xlabel('Sample')  # Corrected label for x-axis
+        ax.set_ylabel('Abundance' if self.absolute else 'Percentage (%)')
+        ax.set_title('Absolute abundance' if self.absolute else 'Relative abundance')  # Title based on whether it's absolute or relative
+
+        # Move legend to the right side
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+        # Save the figure
+        fig.savefig('PhylumAbundance.png', bbox_inches='tight')
