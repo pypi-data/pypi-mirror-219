@@ -1,0 +1,2 @@
+[console_scripts]
+kirkwoodnight = kirkwoodnight.command_line:main
