@@ -1,0 +1,12 @@
+opnsenseapi/__about__.py,sha256=r4xAFihOf72W9TD-lpMi6ntWSTKTP2SlzKP1ytkjRbI,22
+opnsenseapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opnsenseapi/opnsense.py,sha256=oSLF9jRP4qnPrS0gD--AAgAnYd60L8ZdCNhC3WS-VoU,2934
+opnsenseapi/ifaces/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opnsenseapi/ifaces/opnsense.py,sha256=PMsEQwKHNZvJEQZtz4nxdH271mlokNdT6tHyqTjDUe0,302
+opnsenseapi/unbound/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+opnsenseapi/unbound/host_override.py,sha256=QvQSafH4Yck1uxFE6b1ghY4_LxcFql5tx9_lRrmvz4E,5047
+opnsenseapi/unbound/host_override_test.py,sha256=BSxTuDBo6TKibCwzWeOPxil2vXgZar0gYkGC8S7PZWo,2043
+opnsenseapi-0.3.1.dist-info/METADATA,sha256=yojsZVsV7lLXdtqE1YwUlvPcXk2CYXeqaJUI-3Cnv1c,1045
+opnsenseapi-0.3.1.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+opnsenseapi-0.3.1.dist-info/licenses/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+opnsenseapi-0.3.1.dist-info/RECORD,,
