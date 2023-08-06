@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: Thya
+Version: 0.0.3
+Summary: ThyaTechnology SDK
+Home-page: https://github.com/ThyaTechnology/thya
+Author: Silvio Giancola
+Author-email: silvio@thya-technology.com
+License: GNU Affero General Public License v3.0
+Keywords: Thya,Technology,SDK,Cloud,Computer Vision,Object Detection,Instance Segmentation
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: tqdm
+Requires-Dist: xmltodict
+Requires-Dist: imagesize
+Requires-Dist: xlsxwriter
+
+[![Python](https://img.shields.io/pypi/pyversions/thya)](https://img.shields.io/pypi/pyversions/thya)
+[![Pypi](https://img.shields.io/pypi/v/thya)](https://pypi.org/project/thya/)
+[![Downloads](https://static.pepy.tech/personalized-badge/thya?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=PyPI%20downloads/month)](https://pepy.tech/project/thya)
+[![Downloads](https://static.pepy.tech/personalized-badge/thya?period=total&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads)](https://pepy.tech/project/thya)
+[![License](https://img.shields.io/badge/license-AGPLv3-green)](https://github.com/ThyaTechnology/thya/blob/master/LICENSE)
+
+
+# Thya Technology Package
+
