@@ -1,0 +1,14 @@
+pysudoku_package/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pysudoku_package/alignment.py,sha256=vJu8pmaDdGbxwYwC4GfSYWY-LwMspoBCvsTo42l1eMY,3059
+pysudoku_package/config.py,sha256=JyyJZCEjRqxjZPF4XEOciaEigDVjB4CqE6CojWPP8Cg,2117
+pysudoku_package/deconvolution.py,sha256=9totQJWPJOog7TbZ5G7xwwjC5MpU-JKRsEzlgSlAHJY,12349
+pysudoku_package/generate_count_matrix.py,sha256=lqIzCJ0uJN6jrdYeoTJh2wpnWetMv2lGzf5mn4yUTKw,7657
+pysudoku_package/io.py,sha256=umUammBw3S3ETyCFMAgB3IkoIguOsFUWxoESxXLHSmk,839
+pysudoku_package/libraryexperiment.py,sha256=Q1GCOvpkgUDN5bF0U39oRKj0pw-85qsM3GU3biUJdnE,10950
+pysudoku_package/main.py,sha256=uvDjq6wLCq4Udf1cqwVgckwy5Zb-eJRkzF0aW6C_bu8,11602
+pysudoku_package/predict_locations.py,sha256=xkTVhLXIbIGpJyTPcfo7YpoZoLqT_PZW-BDZQzzjbk4,6344
+pysudoku_package/trimming.py,sha256=-L8QYz4_P0MFkq4ckpSvoOar4Ze3p0iq3D14ucpCimw,5571
+arraylib_solve-0.24.0.dist-info/entry_points.txt,sha256=sQ-MYY8kmQRVadu4P_oNzqpKTifpG-aBkhU6Xga-Xrs,249
+arraylib_solve-0.24.0.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+arraylib_solve-0.24.0.dist-info/METADATA,sha256=5I9xBsMPasJbtR0fXVySCybXYRCiGELTQHYqF4iGWRI,6180
+arraylib_solve-0.24.0.dist-info/RECORD,,
