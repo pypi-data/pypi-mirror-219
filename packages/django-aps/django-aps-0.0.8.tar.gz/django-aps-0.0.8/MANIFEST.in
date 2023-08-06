@@ -1,0 +1,1 @@
+exclude ["django_aps1", "django_aps1.*", "test", "test.*"]
