@@ -1,0 +1,3 @@
+[ckan.plugins]
+gallery = ckanext.gallery.plugins.gallery:GalleryPlugin
+gallery_image = ckanext.gallery.plugins.image:GalleryImagePlugin
