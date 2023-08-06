@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: efrem-utils
+Version: 0.0.6
+Summary: Efrem's utilities
+Home-page: https://github.com/NikitaNightBot/efrem-utils
+Author: lone_druid
+Author-email: enikita332@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://github.com/NikitaNightBot/efrem-utils
+Description-Content-Type: text/markdown
+
+# `efrem-utils`
+
+A package with utility functions to abstract some logic. 
+
+## `examples`
+
+Check: [`examples directory`](https://github.com/NikitaNightBot/EfremUtils/tree/main/examples)
