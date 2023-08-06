@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+davidflmatematica.egg-info/PKG-INFO
+davidflmatematica.egg-info/SOURCES.txt
+davidflmatematica.egg-info/dependency_links.txt
+davidflmatematica.egg-info/top_level.txt
+matematica/__init__.py
+matematica/aritmetica.py
+matematica/geometria.py
