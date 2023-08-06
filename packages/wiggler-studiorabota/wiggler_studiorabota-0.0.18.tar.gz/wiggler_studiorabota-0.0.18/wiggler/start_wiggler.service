@@ -1,0 +1,8 @@
+[Unit]
+Description=WiggleR service
+
+[Service]
+ExecStart=/bin/bash /usr/bin/start_wiggler.sh
+
+[Install]
+WantedBy=multi-user.target
