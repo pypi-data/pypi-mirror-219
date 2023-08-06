@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: seedwork-python
+Version: 0.3.0
+Summary: Python seedwork library.
+Home-page: https://github.com/Huangkai1008/seedwork-python
+License: MIT
+Author: Huang Kai
+Author-email: h1770360848@outlook.com
+Maintainer: Huang Kai
+Maintainer-email: h1770360848@outlook.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pydantic (>=2.0.2,<3.0.0)
+Requires-Dist: redis[hiredis] (>=4.6.0,<5.0.0)
+Requires-Dist: sqlalchemy[mypy] (>=2.0.18,<3.0.0)
+Project-URL: Repository, https://github.com/Huangkai1008/seedwork-python
+Description-Content-Type: text/markdown
+
+# seedwork-python
+
+Python seedwork library.
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Requirements
+
+
+## Installation
+
+## Usage
+
+## License
+[MIT @ Huang Kai](./LICENSE)
+
+
+
