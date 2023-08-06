@@ -1,0 +1,11 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+src/w3bstream_client_python/__init__.py
+src/w3bstream_client_python/client.py
+src/w3bstream_client_python.egg-info/PKG-INFO
+src/w3bstream_client_python.egg-info/SOURCES.txt
+src/w3bstream_client_python.egg-info/dependency_links.txt
+src/w3bstream_client_python.egg-info/requires.txt
+src/w3bstream_client_python.egg-info/top_level.txt
