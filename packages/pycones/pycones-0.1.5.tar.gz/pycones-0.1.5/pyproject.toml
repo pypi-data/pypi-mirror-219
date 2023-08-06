@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "pycones"
+version = "0.1.5"
+description = ""
+authors = ["william <william_swl@163.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+matplotlib = ">=3.0"
+numpy = ">=1.0"
+pandas = ">=2.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.3.3"
+tox = "^4.6.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.bumpver]
+current_version = "0.1.5"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"',
+]
+"pycones/__init__.py" = [
+    '__version__ = "{version}"',
+]
