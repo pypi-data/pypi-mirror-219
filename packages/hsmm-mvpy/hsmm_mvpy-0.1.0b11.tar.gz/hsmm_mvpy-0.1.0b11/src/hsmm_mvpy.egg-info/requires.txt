@@ -1,0 +1,9 @@
+mne>=1.0.0
+numpy
+xarray
+scikit-learn
+statsmodels
+seaborn
+scipy
+netcdf4
+more_itertools
