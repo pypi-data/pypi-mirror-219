@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: open-gpt-torch
+Version: 0.0.12
+Summary: An open-source cloud-native of large multi-modal models (LMMs) serving framework.
+Home-page: https://https://github.com/jina-ai/opengpt
+Download-URL: https://https://github.com/jina-ai/opengpt/tags
+Author: Jina AI
+Author-email: hello@jina.ai
+License: Apache 2.0
+Project-URL: Documentation, https://opengpt.jina.ai
+Project-URL: Source, https://github.com/jina-ai/opengpt/
+Project-URL: Tracker, https://github.com/jina-ai/opengpt/issues
+Keywords: jina,pytorch,large-language-model,GPT,LLM,multi-modality,cloud-native,model-serving,model-inference,llama,vicuna,stabellm
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
