@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: morbin
+Version: 0.1.0
+Summary: Base class for creating modules that are bindings for command line tools.
+Project-URL: Homepage, https://github.com/matt-manes/morbin
+Project-URL: Documentation, https://github.com/matt-manes/morbin/tree/main/docs
+Project-URL: Source code, https://github.com/matt-manes/morbin/tree/main/src/morbin
+Author-email: Matt Manes <mattmanes@pm.me>
+License-File: LICENSE.txt
+Keywords: binding,bindings,cli,morbin,morbius,morph,terminal
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: pathier
+Requires-Dist: pytest
+Requires-Dist: typing-extensions
+Description-Content-Type: text/markdown
+
+# morbin
+
+Base class for creating modules that are bindings for command line tools.
+
+## Installation
+
+Install with:
+
+<pre>
+pip install morbin
+</pre>
+
+## Usage
+
+The easiest way to start is to use the bundled template generator.<br>
+The only argument it requires is the name of the program you want to create bindings for.
+
+As an example we'll do Git.
+
+Running `morbin git` in your terminal will produce a file named `git.py` in your current directory.<br>
+It should look like this:
+![](/imgs/template.png)
+Additional functions should be built on top of this `git` function and return its output.<br>
+
+After adding functions for `git add`, `git commit`, and `git log` the class should look like this:
+![](/imgs/functions.png)
+
+The `Output` object each function returns is a `dataclass` with three fields: `return_code`, `stdout`, and `stderr`.<br>
+<pre>
+@dataclass
+class Output:
+    """Dataclass representing the output of a terminal command.
+
+    #### Fields:
+    * `return_code: list[int]`
+    * `stdout: str`
+    * `stderr: str`"""
+
+    return_code: list[int]
+    stdout: str = ""
+    stderr: str = ""
+
+    def __add__(self, output: Self) -> Self:
+        return Output(
+            self.return_code + output.return_code,
+            self.stdout + output.stdout,
+            self.stderr + output.stderr,
+        )
+</pre>
+
+
+By default `stdout` and `stderr` are not captured.<br>
+They are sent to wherever they normally would be and the `stdout` and `stderr` fields of the `Output` object will be empty strings.<br>
+`stdout` and `stderr` can be captured by either setting the `capture_output` property of a class instance to `True` 
+or by using the `capturing_output` context manager as demonstrated below:
+![](/imgs/use.png)
