@@ -1,0 +1,96 @@
+[MAIN]
+    ☐ Protocol (for abstract classes)
+    ?  Logging class
+    ?  itertools & functools
+    ☐ Play Sound
+    ☐ @high @norm Call_later **kwargs
+    ☐ @low Other archive file extensions in `extract`
+    ☐ Screen recorder
+    ☐ Create Local Server
+    ☐ Threading
+    ☐ mp3 tags
+    ☐ win32api.LoadLibrary() - ctypes.PyDLL()
+    ☐ socket.socket()
+    ✔ type annotation for all functions and classes
+    ✔ @v4 @high @norm Improve docstrings
+        ?  for variables and functions?
+    ✔ @v4 @norm Separate classes files
+    ✔ @v4 @easy `pypackage.toml` instead of `setup.py`
+    ✘ Random.shuffle better implementation
+    ✘ @high @easy Add old releases to Github releases and delete their file
+    ✘ pip install update
+    ✘ Check 3rd-party modules imports
+    ✘ Classes accept both normal methods and static methods
+    ✘ re module
+    ✘ average()
+    ✘ Ready-obj module
+    ✘ Open Video
+    ✘ Open Audio
+
+
+[README]
+    ☐ @high Date_Time Class
+
+
+[FUNCTIONS]
+    ☐ import_module accept module name as string
+
+
+[NEW MODULES]
+    KeyboardMouse:
+        ☐ Move mouse
+        ☐ Write with keyboard
+        ☐ Press button
+        ☐ Use scroll
+    Developer:
+        ✔ run file using `runpy`
+        ✔ python version
+        ✔ reload_module
+        ✔ add_module_dir
+
+
+[TERMINAL]
+    ? run: replace os.system with subprocess.call
+        https://hackernoon.com/calling-shell-commands-from-python-ossystem-vs-subprocess-mc253z4f
+    set_size: sys.stdout.write("\x1b[8;{rows};{cols}t".format(rows=32, cols=100))
+    ✔ clear
+
+
+[DATETIME]
+    ✘ calendar_month_st replace day will be all noms
+    ☐ Passed Time function
+
+
+[Internet]
+    ☐ default_timeout
+    ✔ GET and POST
+
+
+[Files]
+    ?  make "list_path" functions generator
+    ☐ Docstring typehint for "list_path"
+    ✔ files.join files.dirname
+    ✔ Error in files.MEMBERS.all_all_*
+
+
+[System]
+    ☐ registery editor
+    ☐ copy_to_clipboard & paste_from_clipboard
+    ✔ OS
+
+
+[IO]
+    ?  regex_input methods: split,sub,findall
+    ✘  modify_input(prompt, modifier:Callable): returns modifier(prompt)
+    ✔ regex_input should return the user input if true
+    ✔ `pre_action` and `post_action`
+
+
+[Style]
+    ?  Should the Styled be a function that returns a string?
+    ✔ Styled should be derived from `str`
+    ✔ pprint() and pformat()
+
+
+[Record]
+    ✔ `timer` decorator
