@@ -1,0 +1,4 @@
+[console_scripts]
+theia = theia.web.run:local
+theia-cli = theia.cli.cli:predict_cli
+theia-download = theia.cli.cli:download
