@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: potee
+Version: 0.5.0
+Summary: A package to simplify the process of writing checkers for the Potee platform
+Author-email: Ivan Hahanov <ivanhahanov13@gmail.com>
+Project-URL: Homepage, https://github.com/PoteeDev/library
+Project-URL: Bug Tracker, https://github.com/PoteeDev/library/issues
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.md
+
+# library
