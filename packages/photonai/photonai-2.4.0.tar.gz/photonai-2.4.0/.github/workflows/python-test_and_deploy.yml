@@ -1,0 +1,65 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: PHOTONAI test and test deploy
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 10 5 * *'
+
+jobs:
+  coverage:
+    name: Run PHOTONAI tests and publish test coverage
+    runs-on: ubuntu-22.04
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    - name: Install dependencies
+      run: |
+        pip install wheel flake8 pbr
+        python setup.py egg_info
+        pip install tensorflow pytest pytest-cov coveralls -r photonai.egg-info/requires.txt -r photonai/optimization/smac/requirements.txt -r photonai/optimization/nevergrad/requirements.txt
+    - name: Test with pytest
+      run: |
+        PYTHONPATH=./ pytest ./test --cov=./photonai --full-trace
+    - name: Coveralls
+      run: coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    name: Build and publish to TestPyPI
+    runs-on: ubuntu-22.04
+    if: github.ref == 'refs/heads/main'
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    - name: Install pypa/build
+      run: pip install build pbr wheel
+    - name: Build a binary wheel and a source tarball
+      run: python -m build -n --sdist --wheel --outdir dist/ .
+    - name: Publish distribution to Test PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        user: __token__
+        password: ${{ secrets.TEST_PYPI_API_TOKEN }}
+        repository_url: https://test.pypi.org/legacy/

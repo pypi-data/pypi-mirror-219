@@ -1,0 +1,1584 @@
+CHANGES
+=======
+
+2.4.0
+-----
+
+* debugged imbalanced transformer test
+* remove smac tests
+* fixed smac tests
+* fixed skopt test
+* fixed architecture test
+* fixed sklearn and imblearn version
+* remove restriction on scikit-learn version
+* adapt menu
+* adapt getting started
+* add docstrings and adapt documentation
+* restructure the model zoo and write unit tests
+* added v1 of pipeline zoo ->  no unit\_tests yet!
+* add functionality to compare model and permutation feature importances
+* Update calculation of p-values for permutation tests
+* Fixed testing workflow
+* Removed matrix testing
+* Relaxed smac test requirement
+* Fixed python to 3.10.8
+* Fixed python version
+* Fixed smac version
+* fixed calculation of permutation importances
+* fixed example for posthoc permutation importances
+* Added switch to create json output
+* Revert "Develop (#50)" (#62)
+* Added monthly matrix testing technique (#60)
+
+2.3.0
+-----
+
+* Develop (#50)
+* Fixed np bool
+* Fixed scikit-learn version due to currently missing support
+* Fixed scikit-learn version due to currently missing support
+* switched python tests from boston\_housing to diabetes dataset
+* Switched to diabetes dataset for sklearn compatibility
+* [skip ci] Added summary
+* added missing import
+* removed ugly test results
+* refactor photonai output
+* Adapted gh action for new main branch
+* Adapted gh action to new main branch
+* debug
+* switched to processes for parallelBranch and PermutationTest
+* debug unit tests
+* debug imbalanced data transform unit test
+* add json serialization for non-native result objects, add warning for imbalanced classes with accuracy
+* Updated readme
+* Feature/new imports (#55)
+* Create dependabot.yml (#54)
+* deactivated test pypi build for non master pushes
+* Changed versioning to pbr, resolved circular input errors, moved base… (#52)
+* Added multiprocessing switch for parallel computing (#53)
+* Fixed save\_optimum\_pipe bugfix
+* fixed save\_optimum\_pipe loading error
+* Added tests for save\_optimum\_pipe
+* Fixed save\_optimum\_pipe function
+* dont write json transformer file if save\_output = False
+* Fixed registry test
+* Fixed issue with photon registry when multiple registry objects are issued with and without custom elements folder
+* test json serialization
+* add example for hyperparam optimizer use case and debugg allow\_multi\_dim\_metrics
+* make paths relative for more compatibility
+* move all external ressources into repo
+* disable google fonts in documentation
+* fix broken dependencies for mkdocs deployment
+* set version for pypi publishing action
+
+2.2.1
+-----
+
+* Relaxed test requirements
+* Fixed tf.keras import
+* Fixed failure in test\_parameter\_k and removed keras import
+* Fixed potential None object access
+* Fixed test\_time\_limit
+* Increased version
+* Fixed random search settings
+* adapt example for mean training predictions
+* add functionality to extract mean training predictions for best configs respectively
+* removed obsolte folder
+* add functionality to reload hyperpipe in order to post-hocly calculate permutation importances
+* add tests, config parameter for imblearn
+* imbalanced transformer fix
+* fixed allow\_multidim\_targets bug
+* Removed keras requirement - import tf.keras instead of keras - minor api adaptions for optimizers
+* Revert "Create CITATION.cff"
+* Create CITATION.cff
+
+2.2.0
+-----
+
+* Upgrade to PHOTONAI version 2.2.0
+* Upgrade to dask version 2021.10.0 due to security reasons
+* Add PLOS ONE paper to readme
+* Fix number of processes (1) for permutation test test
+* Only use two cores for permutation test test
+* Skip permutation test for now (debug Github action pytest)
+* Update scorer unit tests
+* Add example for cached kernel svm
+* Update strategy for deleting cache files
+* Increase verbosity of pytest in github test workflow
+* Get rid of version specifier for dask, should work with latest version
+* Adjust StratifiedKFoldRegression for sklearn 1.0.0
+* Add version specifier for keras in setup.py
+* Fix version issue with keras/tensorflow
+* Update smac imports
+* Fix input parameter of load\_breast\_cancer() to suit latest sklearn version
+* Update code to work with latest version of smac (1.0.0)
+* Fix Keras and imblearn version issues in PHOTONAI tests
+* Update call to scorer
+* remove bug in nan-target tidying
+* substitute performance of best config with outer fold list in summary
+* enable Preprocessing/ParallelBranch
+* optimum\_pipe-preprocessing fix
+
+2.1.0
+-----
+
+* further decrease of test\_architecture complexity
+* decreased hyperparmaeter space for sk\_opt test
+* adapt test\_architectures to save time
+* adapt permutation importances procedure for use\_test\_set=False
+* adapted feature importances docstring
+* adapted feature\_importances permutation for each outer fold best model
+* loading photonai logo via https
+* updated href of photonai logo
+* update build badge
+* update PyPI infos
+* add workflow for deployment on PyPI
+* use datetime as version numbering in testpypi deployments
+* shorten description in setup.py
+* add replacement of version number for test deployments
+* alter names for gh-actions jobs
+* add user = \_\_token\_\_ for test pypi deployment
+* add deployment step to GitHub actions
+* deprecation warning for eval-final-performance and increased version number
+* Move to GitHub actions (from TravisCI) (#29)
+* Fix typo
+* Update commit badge
+* add some tests, \*\*kwargs parameter
+* docs/api upgrade
+* skopt: add timebound
+* changed link highlights to photonai colors
+* change examples to regression
+* Add additional explanations to architectures and add structure to the examples
+* small typos
+* debug compare\_estimators example
+* add results handler example, preprocessing example, renamed items in menu
+* tests: decrease verbosity
+* docs: add api/keras + imblearn
+* refresh example/custom\_metric
+* add repr -> avoid jupyter bug
+* remove TimeBoxed optimization
+* smaller changes
+* docs: preprocessing
+* adapted index example
+* highlighted feature importance script
+* adapt to new imbalanced learn version
+* adapt custom metric
+* adapted custom metric
+* remove specific ConfigSpace installation
+* updated documentation
+* enable estimator filter
+* docs: add hyperlinks
+* add permutation feature importances
+* merged
+* example update I
+* add highlited lines to docu and update texts
+* extension of the hpos page
+* further typo fixing
+* fixed typo
+* removed uikit and added img to photonai website
+* minor adjustments to the docu
+* merged develop and fixed conflicts
+* upgrade photon docs
+* add site to gitignore
+* clean up index documentation page
+* merged examples
+* temporary adjustment of smac installation
+* changed python version for travis
+* changed python version for travis
+* updated setup .py to fix version python, cython, numpy conflict
+* changed numpy version because of smac error
+* fixed unittest
+* eLife example and renaming of eval\_final\_performance
+* add compare estimator examples
+* add functionality to print n best configs per estimator in switch
+* minor changes
+* rename fi example
+* add scorer method and example
+* fixed last bug for today
+* added LocallyLinearEmbedding example
+* fixed merging errors, further tidied hyperpipe class
+* missed one file
+* further merge conflicts
+* merged conflicts
+* fixed unittests
+* mkdocs: getting started + features+ examples
+* fixed metric usage in permutation test and respective unit tests
+* added log output to compare best performances per outer fold per switch estimators, fixed unit tests
+* added getting\_started
+* refactored results, removed flowchart, updated tests
+* docs/api adjustment
+* project\_folder switch: OutputSettings -> Hyperpipe
+* doc/api update
+* snychronizing summary.txt and photon logger output
+* added missing nevergrad info to dict
+* merged develop
+* fixed Syntax highlighting thanks to Nils
+* fixed unit tests, converted print in logger output and removed setup errors file
+* added LocallyLinearEmbedding example
+* added LocallyLinearEmbedding
+* mkdocs update
+* adapted example for imbalacned data
+* fixing unittests in hyperpipe and performance constraints
+* mkdocs update for pipeline\_elements I
+* mkdocs update for Hyperpipe II
+* rebuild docstings for mkdocs in optimization/\*
+* mkdocs update for Hyperpipe I
+* unittest fixing
+* futher unittest fixing
+* fixed import in test\_switch\_optimizer
+* fixed unit\_tests
+* minor adaptions to docu
+* removed helper file
+* importing examples in mkdocs and automatic docstring rendering
+* adapted exampels
+* hotfix: skip inverse if disabled not test\_disabled
+* merged conflicts
+* add protection for backmapping
+* adapt switch to handle not hyperparameter-optimized estimators, clean up heart\_failure example
+* add inverse\_transform to modelwrapper/feature\_selection
+* smac adjustments
+* small updates
+* added test for switch-optimizer, remove further unneccessary attributes from output.json, write pipeline\_structure to json in order to update explorer pipeline representation
+* add new HPOptimizer that optimizes each element of an estimator switch inidividually
+* update docstrings in optimization/\*
+* temporary version clip for dask/distribution for parallel permutation tests
+* update docstrings in processing/\*
+* add pyDOE to smac/requirements
+* test: minor adjustments related to scikit-learn==0.24
+* added mkdocs theme
+* disable multiprocessing for preprocessing elements in optimum\_pipe
+* save missing time in perm test with timedelta
+* handle missing computation\_end\_time
+* hotfix - remove typingwith nevergrad prerequisite
+* replace dot in float labels for mongoDB
+* allow estimator\_type in [None, 'transformer'] for PipelineElement without predict method
+* change random\_seed type hint to int and default value (no seed) to None
+* add xlrd to dependencies
+* small adjustment for learning curve plot for seaborn version >= 0.11
+* remove reload\_weights, small pep8s
+* cnn example: build model in fit
+* increase skopt runs 10 -> 25
+* add example for nevergrad and some comments+typing
+* adaptions for optimization tests, keras wrapper and rename save\_memory -> decrease\_memory
+* remove folds probabilities, unset scikit-learn version, update cnn example, pep8 adjustments
+* count warnings -> content based warnings testing, improve cnn example
+* adapt callback test
+* updated keras examples
+* integration of nevergrad optimizers
+* enable logspace in optimizer SMAC
+* remove a code smell, add BaseShuffleSplit and \_RepeatedSplits to Hyperpipe.inner\_fold types
+* raise warning -> warnings.warn, add BooleanSwitch to bayesian optimizer, add optimization tests
+* Update README
+* fix test: allow float values to differ minimally
+* Improved badges
+* Update README.md
+
+2.0.0
+-----
+
+* increase versoin number. ready to take off
+* add tests for pipeline element, permutation test, hyperparameters and result handler
+* Delete LICENSE.md
+* Create LICENSE
+* Create LICENSE.md
+* Add badges
+* reenabled smac
+* merged developments to develop
+* merged recent developments
+* found that nasty little bug
+* fixed typo
+* fixed tests
+* fixed tests
+* add tests for keras\_base
+* merged merge
+* merged travis.yml
+* test the correct class in modelwrapper tests
+* debug imbalanced tests
+* debug imbalanced tests
+* debug travis coveralls
+* debug travis coveralls setup
+* switch test\_smac facade BO->HPO
+* small changes
+* small changes
+* multidim metrics unti tests
+* Add test coverage for feature selection
+* Add more test coverage for saving the optimal model
+* corrected typo in travis.yml
+* Set SMAC requirements to 0.12.1
+* Delete installation of fabolas from .travis.yml
+* cleaned up unit tests
+* removed fabolas
+* added unit\_test for permutation and optimizatiOn
+* Change to new cross validation class for StratifiedKFoldRegression
+* refactored test and examples
+* merged conflicts
+* removed test results
+* removed conflict
+* removed conflict
+* switched to mongo:latest
+* updated example tests
+* accidentally removed folder but restored it
+* removed db ref and debugged perm\_test
+* added mongodb travis support
+* removed nibabel import
+* removed minor typo bug
+* removed minor typo bug
+* removed minor typo bug
+* auto-deleting missing module registrations
+* set default output\_plots to False
+* fixed merge setup py
+* smac requirement in hyperpipe test, set smac==0.12, add test for result\_handler.get\_performance\_table
+* add photon\_setup\_errors.log to gitignore
+* adapted registry to avoid circular import
+* adapted requirements in txt and setup.py
+* adapted setup.py
+* fixing example test generator: new method to find test s
+* delted outer folds of mother perm when writing to db
+* Fix backmapping tests
+* Fix travis: made dirs to modules
+* delete ParallelBranch, add smac-switch-condition test, raise error when skopt+Switch
+* Fix travis: added swig for DIRECT install
+* write helper functions for adding and deleting module jsons. problem: circle import
+* Fix travis: added fortran for DIRECT install
+* added os and distr instructions in travis.yml
+* Fixing optimization\_tests: added pip instructions for smac and fabolas
+* Fixing optimization\_tests: fixed fabolas optimizer import
+* Fixing KerasDnnRegressor: encoding\_targets is called in fit method
+* Fixing KerasDnnClassifier: encoding\_targets is called in fit method
+* Fixing KerasDnnClassifier: saving init\_weights in create
+* removed out-of-date comment
+* imblearn -> imbalanced-learn
+* new method to find examples directory in tests
+* removed TFOptimizer since import not possible anymore
+* put build button beneath banner
+* reenabled keras tests
+* added auto download with keras download utils
+* fixed warning where first hidden layer isn't allowed to have 0 outputs
+* reenabled encoding of target method call
+* register custom keras or tf.keras layer as custom objects
+* changed reset strategy of keras wrapper (save init weights)
+* reformat
+* debugged unit tests
+* Added coverage calculation via coveralls
+* fix smac integration test, add ParallelBranch, delete source\_splitter
+* updated readme.md
+* allow multidim target by Hyperpipe setting
+* add\_multidim\_metrics: register custom metrics in hyperpipe to strings
+* updated weight reset for keras models
+* add\_multidim\_metrics: added option to register custom metrics
+* add\_multidim\_metrics: add casting options for numpy values to json
+* small cosmetic changes
+* fixed some unittests
+* fixed permutation tests
+* fixed permutation tests
+* fixed permutation tests
+* merged master neuro test fix
+* fixed hyperpipe tests
+* deleted neuro
+* fixed pipeline cacaching tests
+* improved type checks and hints and reformatted scope
+* fixed bug where var call is out of scope
+* add comments and change to some pep8 standards
+* Added all tests and build badge
+* Added continuous integration pipeline
+* smac facade fixes
+* removed additional investigator references (again)
+* add facade param to smac optimizer and change some tests
+* fix default params in FloatRange range->linspace float32->float64, add multiple tests, add more dtypes
+* fixed pca import due to FutureWarning
+* loading sklean datasets with return\_X\_y=True due to FutureWarning
+* adjusted pip install instructions
+* removed additional investigator references
+* fixed header syntax
+* fixed import in code example
+* removed trivial photon neuro references
+* fixed joblib import
+* replaced deprecated logger.warn function calls
+* Last commit EVER EVER EVER EVER EVER
+
+1.1.0
+-----
+
+* Update version to 1.1.0
+* Update README.md
+* fixed unittests
+* fix in PhotonModelPersistor: if class\_name != wrapper\_name and wrapper got save method. Add class\_name to element\_identifier in that case and support backward version loading with its wrapper\_name
+* added learning curve tests
+* add metric table for best config summary
+* update inner fold tests for learning curves
+* result file json
+* merged photon\_dev
+* force inner\_cv attribute in Hyperpipe - raise error if inner\_cv is None
+* 'learning\_curves'
+* temporary version of multiple predictions: avoid bug with len(outer\_old) > 1
+* temporary version of multiple prediction output for model\_wrapper
+* enable JsonTransformer in base.Hyperpipe, add example and tests
+* additional data pipeline streaming example
+* keras wrapper - add callbacks support/example, improve other keras examples
+* small changes in /optimization and add working smac\_example
+* Rebase SMAC - new optimiz representation [Master, Slave]. Add result\_file\_mode to OutputSettings to switch off .photon file
+* add convenience function
+* clean up sample split
+* manuscript changes
+* first step of hyperpipe json serialization
+* fix pre\_processing deletion: save optimum\_pipe.elements instead of hyperpipe.elements. Change test for this case. Update optimum\_pipe\_feature\_importances\_backmapped test ngz -> csv
+* wrapper modifications: keras
+* add base\_tests for model wrapper. based on \_estimator\_type of ClassfierMixin/RegressorMixin
+* bug fixes for imbalanced-learning
+* rebase modelwrapper/imbalanced\_data\_transformer, add test for it
+* first part of modelwrapper\_tests
+* add BestPerformanceConstraint to PerfromanceConstraints. mean(all\_inner\_folds) better than threshold +- std(inner\_folds)
+* add code for sample split analysis
+* minor changes
+* Fix empty hyperparameter space
+* Fix model path when saving or loading optimum pipe
+* Add RandomSearchOptimizer in Hyperpipe - add tests for wrapper KerasDnnClassifier, reset weights in every fit for KerasBaseEstimator
+* optimizer rebuild (smac, RealRandomOptimizer) - fix some bugs (optimzier and keras wrapper)
+* adapt query
+* debug backmapping and confusion matrix
+* decrease permutation save load
+* write feature importances to csv if < 1000 deliver kwargs to permutation test hyperpipes
+* add connect
+* adapt wizard permutation preparation
+* adapt mongodb queries for permutation test
+* adapt debug messages
+* adapt investigator: add error page, show inner\_fold predictions adapt summary file to not show empty nr of train and test data
+* some more parameters for regression example
+* adapt examples
+* update documentation
+* update perm result exportation update jquery document ready
+* write result folder to results write p values of perm\_test
+* update permutation test to write csv results and to attune usability test for eval\_final\_performance = False
+* adapt random grid search n\_configs
+* add objective function stub for smac test
+* update keras wrapper and add three examples
+* Add feature selection example and fix small bug
+* adjust permutation test add logging of input path for failed roi extraction
+* Major update of performance plots
+* add single core permutation test
+* switch to dask backend for permutation test
+* debug permutation test
+* debug permutation test fo rwizard
+* debug permutation metrics
+* update permutation tests for wizard
+* add minimum performance example
+* add sanity check for X -> pandas.SERIES
+* adapt permutation test with helper functions for PHOTON Wizard
+* change time monitor pie charts and add a view to the Investigator
+* Minor bugfixes
+* change metric printing of inner folds to debug
+* cleaned up modelwrapper folder and json
+* Add version specifier
+* all unit tests are running
+* Style install\_requires
+* remove brain age script
+* adjust core-wise sample input in neuro branch parallelising updating debug output in neuro classes and inner folds
+* add debug info about which step is currently performed by photon pipeline
+* add minor change
+* Added script with bugs under examples/debug\_nifti
+* insert version nr format console output raise Warning when grid search might take endlessly debug photon\_output\_log when fit is not yet called for setup of pipeline architecture
+* style console output add tmp and cache in gitignore
+* add a number increment to doubled items (e.g. adding the second SVC renames it to SVC2) debug copying of custom elements
+* new version of smac optimizer. Without seed setting yet but working with one instance per config
+* implement random seed aka random\_state in sklearn and adjust all photon building blocks, tests, copy\_me, and sample\_pairing. unit-tested
+* remove cls distribution from summary file and check for estiamtion type instead of metric
+* Add multiclass examples including multiclass case in architecture test
+* Handle inverse\_transform in case there is a stack in our pipeline
+* making all tests run. yeah
+* Add use\_probabilities for Stack
+* debug tests
+* add tests for sanity checking pipeline generation add tests for feature importances add example for estimator voting adapt examples for new feature importances
+* prepare pipeline tests
+* Finish work on feature importances, update unit tests
+* add tests for output\_settings.overwrite and cache\_folder
+* add tests for processing/result\_handler
+* Get rid of save\_feature\_importances and save\_predictions
+* update \_input\_data\_sanity\_checks(), use np.squeeze for targets
+* Delete old logger file
+* Change to python logging module
+* Start working on new logger
+* Major update for PhotonModelPersistor
+* hyperpipe tests v2
+* minor changes
+* removed small todo
+* photon hyperpipe tests v1
+* Add UnitTests for Hyperpipe
+* Update copy\_me of Hyperpipe
+* Fix wrong indent
+* Add unittest for Stack and change method stack\_data() to stack\_data\_horizontally
+* add expected value tests for metrics across folds
+* add outer fold manager tests
+* add InnerFoldManagerTests
+* Add more unit tests for photon elements
+* Remove voting from stack
+* Add Unittests for fit, transform, predict, inverse\_transform, predict\_proba
+* add unittest for metrics and delete two elements in ELEMENT\_DICTIONARY
+* update optimization tests - test .ask() generator
+* create common PhotonTestBase class for all classes that need to delete tmp and cache folders
+* Update tests
+* first steps to inner fold testing
+* method stubs
+* update inner and outer folds to use PhotonDataHelper.split\_data adapt helper function to use indices and update photon\_helper\_tests add stubs for inner and outer fold tests
+* Change from relative to absolute paths in all unit tests
+* Don't delete folders after running tests
+* Fix sample pairing
+* Create helper folder within test folder
+* Update join\_dictionaries in PhotonDataHelper
+* add unit tests for PhotonFolds class
+* remove common helpers from base folder debug switch, registry and neuro unit tests add test stubs for photon\_fold tests
+* Fix sample pairing for classification with kwargs
+* new optimization tests, few changes to fabolas and smac
+* adapt cacheing to filesystem indexing only and switch to dask
+* Keep custom elements folder when cleaning integration\_tests folder
+* Allow custom\_elements\_folder as argument in \_\_init\_\_ of PhotonRegistry
+* Delete created result folders while unittesting
+* Fix sample pairing
+* Update permutation test to new photon syntax
+* Use list when collecting probabilities
+* Update project\_folder for all examples scripts
+* Remove groups variable from data object and use kwargs['groups'] instead
+* Update result handler examples
+* Update optimizer examples
+* Update neuro examples
+* Fix copy\_me of hyperpipe
+* Update neural networks examples
+* Update advanced examples
+* Update basic examples
+* Fix case when switch returns proba only in some folds
+* Clean up examples folder
+* Try outer folds parallelization using dask
+* Update tests
+* Add Tims architecture examples as UnitTests
+* Add PhotonMLPClassifier as model wrapper
+* Generate UnitTests for all example files
+* Add test for Switch
+* Add unit tests for fit, predict, transform, predict\_proba, inverse\_transform for PipelineElement
+* Add \_estimator\_property to every photon element
+* import adaptions
+* Add \_estimator\_type property to all photon elements
+* Fix Confounder Removal unit test
+* Fix neuro unit tests
+* add result handler tests try to avoid eof file error when using caching in parallized version -> now converted into resource warning...
+* add config\_grid\_test.py
+* Check if base\_element provided in .create() is an instance or a class
+* Raise ValueError in hyperparameters is not part of Stack
+* Add UnitTests for copy\_me() of custom elements
+* Add UnitTests for CallbackElement
+* Add UnitTests for CallbackElement
+* Add "elements" argument to constructor of Branch
+* Add UnitTest for DataFilter
+* Add UnitTests for PipelineElement, Stack, Switch and Branch
+* change name: \_check\_hyper -> \_check\_hyperparameters and fix a little bug
+* add and change unittests for optimization/hyperparameters, optimazation/performance\_constraints
+* Add UnitTests for Switch
+* Add PipelineElement UnitTests
+* Add UnitTests for PHOTON Registry
+*  added unit test for nesingle subject caching
+* fix some logging issues
+* add unittests for performance\_constrains
+* add cases for eval\_final\_performance=False with and without outer\_cv
+* assuring result\_tree entails all the expected calculation of metrics and correct mean and std on each tree level
+* Resolve conflicts and merge
+* Add UnitTests for registry module
+* Update PhotonRegistry module
+* test the collection from predictions from tree
+* refactoring get\_vald\_preds and get\_inner\_val\_preds initializing unit tests
+* adjust all examples to new file structure (change imports and names)
+* Add tims architecture and hyperpipe tests
+* major clean up, refactoring of folders, names and modules
+* Major refactoring of all imports and file names
+* Update PhotonRegister module
+* Evalulate time of methods only if plots=True
+* Update hyperpipe\_infos in results object
+* Save all relevant info to results.hyperpipe\_info
+* Fix FlowchartCreator
+* Fix Investigator
+* Move FlowchartCreator to Hyperpipe
+* Add separate classes for PhotonVotingRegressor and PhotonVotingClassifier
+* Fix mean performance over outer folds
+* Raise ModuleNotFoundError in case import doesn't work because of MNFE
+* Handle copy of custom pipeline elements
+* Fix import of ResultsHandler
+* Prevent plots from showing up
+* Fix mess created by "named\_steps"
+* Fix train and test scores in summary file
+* refactor performance constraints in OOP way
+* debug Stack implement VotingStrategy see examples/basic/ensemble\_stack.py
+* Rename pipe\_elements, pipeline\_elements, steps and so on to "elements"
+* adapt example
+* Rename ResultsTreeHandler to ResultsHandler and results\_tree to results
+* Major refactoring of main classes (Stack, Branch, Switch, Preprocessing)
+* debug predictions\_csv writing
+* debug default configuration pipeline with no outer cv and eval\_final\_performance to false
+* Add unit tests for BrainAtlas and BrainMask
+* new resultstreehandler time monitoring
+* strange things happen
+* minor changes dont know, strange things
+* Finalize backmapping for AtlasMapping
+* Start working on backmapping for AtlasMapper
+* Add inverse\_transform to NeuroModuleBranch and add feature importances for optimum pipe
+* Fix strange PYMODM effects when saving tested\_configs\_list
+* Add plots to Investigator (update Flowchart, confusion matrices)
+* Add hyperparameter to Hyperpipe flowchart
+* Move class Flowchart to Investigator file and adjust data\_integration example
+* Use os.path.join everywhere
+* Add hyperpipe flowchart to Investigator
+* Add inverse\_transform to BrainAtlas
+* Fix os.path.join in save\_element
+* Fix recursive\_cache\_folder\_propagation for PipelineBranch
+* Update recursive\_cache\_folder\_propagation
+* Set caching for optimum\_pipe to False
+* Fix metrics across folds
+* Fix preprocessing pipe
+* Catch if calculate\_metrics\_across/per\_fold is False
+* Catch needs\_y in PipelineStack
+* Remove catch for needs\_y in PipelineBranch
+* Check for estimator in PipelineSwitch, fix predict\_proba if base element does not have this method
+* Change delegate transform/predict calls --> allow y and kwargs for PipelineSwitch and Branches
+* Update confounder\_removal\_example
+* Update UnitTests
+* PreCommit: Revert to this point if anything goes wrong with messing with adjusted\_delegate\_call
+* Add bug files that need fixing
+* Add prediction plots to investigator
+* Rename PipelineStacking to PipelineStack
+* Add spearman correlation as metric
+* Update switch example
+* Suppress Deprecation and Future Warning
+* Use os.makedirs within OutputSettings
+* Add tims failing neuro example
+* Fix no caching folder case
+* Minor refactoring
+* Update pipeline\_branches example
+* Fix rmtree when saved photon model directory is not empty
+* Fix AtlasMapping
+* Close file after loading from pickle
+* Add RangeRestrictor
+* Fix caching for optimum pipe
+* Allow CallbackElement to be in PipelineBranches
+* Add callback example
+* Add estimator type to result\_tree
+* Change fold idx to fix fold problems in investigator
+* Add estimator type to hyperpipe and result\_tree, fix estimator check for PipelineSwitch, fix fold counter
+* Minor updates to sample pairing example
+* fixed unit tests
+* Add requirements for SMAC in separate file
+* get rid of y in \_\_batch\_predict
+* Fix order of curr\_train\_fold and curr\_test\_fold
+* Add joblib, seaborn and fasteners to setup.py
+* Add data\_integration example
+* Get rid of SMAC for now
+* Fix checking for estimator type
+* Delete import of ResultsTreeHandler from PhotonBase because of circularity
+* remove bcolz from setup
+* Handle merge conflict
+* Last fixes to confounder removal
+* Check if Hyperpipe has estimator as last pipeline element
+* Update confounder removal
+* Fix handling of kwargs
+* Add results\_tree\_example and fix feature importances
+* Fix saving of best config feature importances and predictions
+* remove timeplotting
+* Add time-monitoring result to the outputfolder
+* Fix permutations in PermutationTest
+* Add copy\_me() to PipelineStacking
+* Fix bugs in PermutationTest and ResultsTreeHandler
+* Reorder example files
+* Fix data types for class\_distribution in results\_tree
+* Add copy\_me for PipelineStacking
+* test neuro branch
+* Add unit tests for output of Image Basics
+* Hi Tim. We removed PhotonBatchElement and transferred the logic to pipelineElement. If you read this write the following emojis: heart, king, sun, cocktail, panda, zucchini!!!!!!!!!!!!!!!!
+* any kind of changes
+* Add range\_type geomspace
+* Add brain\_mask example
+* Move all neuro examples to new folder
+* Fix "remove background" from roi list
+* Add BrainMasks
+* Added func eval\_mean\_time\_components...first working but 'not-beautiful-yet' and tested version
+* Change output of BrainAtlas so that SUBJECTSxROISxVOXEL is always preserved
+* adapted pipeline for subject-wise caching but group-wise transformation
+* log number of samples used fo rtrain and test
+* send BatchJobs to Titania
+* Update NeuroModuleBranch and AtlasMapper and adjust for different outputs
+* add batch\_job primer
+* debugging constraint objects
+* debug copy\_me
+* Update AtlasMapper
+* enable dict mode for brain mapper
+* making reading and writing to cache index thread-safe with a lock
+* adapt multi core caching
+* Add 3d vs 4d nifti speed test
+* update parallelisation for neuro adapt dummy constraint
+* Added more features to PerformanceConstraints (DummyConstaints and strategies in InnerFolds)
+* debug caching
+* add caching functionality for photon pipeline in general
+* adjust code for constraint objects
+* add PerformanceConstraints to not parallel\_cv in innerFolds. Fix little hyperparameter bug in PhotonBase
+* Add new plot\_optimizer\_history() function to photon\_dev
+* add sanity\_check: check for None and different lengths in data and target - check not supported hyperparameters in PipelineElements
+* Restructure Hyperpipe and prepare for parallelisation
+* restructure hyerpipe fit
+* Add smoothing\_kernel to example (plot\_optimizer\_history())
+* Add smoothing\_kernel to plot\_optimizer\_history()
+* debug and optimize parallel neuro module branch application
+* Add scatter plot functionality for optimizer history
+* preparing NeuroModuleBranch for parallelization
+* Add functions for ResultsTreeHandler (for example plot\_optimizer\_history)
+* Add metric names to MDBHyperpipe (aka result\_tree)
+* Fix model saving for preprocessing pipes
+* Fix matthews\_corrceof and pearson\_correlation
+* Added copy\_me for PhotonBatchElement
+* Add examples for batching and accessing the result tree
+* Add results file for AtlasMapper
+* Resolve merge conflicts
+* Add KerasBaseEstimator and KerasPretrainedCNN
+* Add example for atlas mapper
+* Add function to copy entire hyperpipe and add preprocessing to save\_optimum\_pipe function
+* Add scikit-image and bcolz to requirements
+* adapt switch for SMAC
+* remove mongodb settings, add a stand-alone mongodb exmaple
+* Add option to overwrite results in this case no timestamp is added to the results folder
+* debugging..
+* adjust copy mechanism and test transform of neuro module branch add pseudo code for AtlasMapper
+* debug SamplePairing add LassoWrapper for FeatureSelection add Information about Class Balance to ResultTree write Tests
+* debug preprocessing and Nans
+* adapted human readable config for switch
+* add FeatureEncoder add Tests for Neuro adapt copy mechanism
+* Added SMAC Optimizer to photon\_dev
+* Added SMAC Optimizer to photon\_dev
+* adapted PipelineSwitch for SMAC need to debug copying of PIpelineElements
+
+0.5.0
+-----
+
+* Cleaned Up PHOTON Reassured all examples are working
+* add example code
+* add example code
+* optimize neuro add new example debug pipeline stacking
+* debugged and tested Image Smoothing and Resampling
+* adapt changes for titania
+* add example\_1
+* debug parallelilzation
+* Adapted Brain\_Age\_Master for analysis of patch\_size
+* added caching functionality and sorting images
+* Repaired Biclustering Wrapper (tested), Added SamplePairing (by Nils Winter)
+* first test run for patches
+* Die Wrapper für Brain Age Predictions
+* edit parallelisation so it uses bcolz
+* Add PretrainedCNN
+* parallelize patching
+* Branch to merge
+* debugged multiprocessing of image smoothing and resampling added test data
+* Add example for sample pairing classification
+* Add Sample Pairing for classification
+* skip dummy estimator results v2
+* skip dummy estimator if there are too much dimensions
+* adapt photon neuro, refactor smoothing and sampling add batching add parallelization restructure brain atlas add tests for all
+* Add paralellization, refactor code and test batching for Photon Neuro
+* Add distance metric to example
+* Fix sort\_CV
+* Add sample pairing model wrapper
+* first draft for batch item and test file
+* adapt Stacking again
+* debug predict of pipelineStacking
+* adapt pipeline switch to new pipeline
+* adapt predict\_proba to covariates removal
+* adapt skopt to an empty hyperparameter space
+* dont apply timestamp to wizard result tree remove logger from resultdatabase copy for investigator
+* Save executing file in results folder
+* always reconnect
+* add connection alias and remove project scripts
+* update connection alias for PHOTONDB
+* perm\_perf\_metrics
+* Add kappa parameter for skopt to adjust variance of hyperparameter search, add skopt plots to visualize searched hyperparameter space, not yet done with tests
+* write permutation results to a pretty subclass and save n\_perms\_todo in database
+* debug RandomGridSearch
+* return p value
+* make permutation computation retrievable anytime from anywhere
+
+0.4.0
+-----
+
+* Add hard-coded version specifier to init file of photonai
+* Finally fix installation of photon requirements
+* Update pymodm requirements
+* Update version and requirements
+* investigator: change pk to name
+* debug reference MDBHyperpipe is instance error
+* commti minor changes
+* parallelize inner\_cv
+* add datetime for versioning of results in mongodb and adapt investigator for it
+* save result tree in db with fitting time
+* add result timestamp to result tree
+* change from Pool to Process
+* change nr of permutation runs and give it an ID
+* adapt investigator to run in docker 2
+* adapt permutation tests to be interruptable and always restart at the latest permutation\_run
+* add try catch in fit function
+* added sys path append to scripts for titania
+* add permutation tests nils
+* add new permutations test nils
+* updated requirements add sys path for permutation test nopel01
+* Revert logger fix
+* update permtests to work with mongodb asure compatibiltiy of new version to photon models using the old pipeline
+* Pass updated logfile name to PHOTON logger
+* Fix hash creation in transform
+* Add StratifiedKFoldRegression with "groups" variable (incl tests)
+* update permutation test to new outputSettings class
+* extract the distinction of maximization or minimization of the metric for further use in the permutation test. add perm test example nopel01
+* change the time of day distinction symbol
+* Add tests for ConfounderRemoval that really (statistically) checks if covariates have been regressed out
+* Add caching for ConfounderRemoval and add tests for all functions
+* merge neuro\_update, debug photon logger path, add function to write predictions of outer fold tests in csv
+* Get rid of slack client
+* Add pipe name and timestamp to results folder
+* debug predict\_proba from pipeline debug wizard objects in the investigator.show() function
+* Add NeuroModuleBranch (including example)
+* Fix project folder detection in case no project folder is specified
+* minor changes
+* adapt tests and add confounder removal
+* add wrapper for cofounder removal, imbalanced data and label encoder implement inverse\_transform and predict\_proba for photon pipeline (plus tests) remove old imbalanced\_data strategies and filter\_element from hyperpipe clean up examples directory refactor PersistOptions to OutputSettings
+* add a working version of the new pipeline that is able to transform y uses two cases: one is to add preprocessing items that are used BEFORE the cross-validated hyperparameter optimization is done the second one is to add items that can transform y during training
+* add first tests for photon pipeline debug and tidy up old tests
+* remove Fabolas and add enigma brain age test script
+* FABOLAS robo and george version mismatch! (Fuck you fabolas)
+* first Version of photon pipeline
+* switch fabolas hyperparameter space construction to that of Photon
+* added zip password reading capability for .photon model files added zip password writing capability for .photon model files using pyminizip
+* adding Fabolas Files
+* fully implemented skOpt Optimizer for Photon
+* renamed methods to ask and tell from Optimizers include skopt Optimizer (right now: random performance feedback)
+* Fix dummy estimation for PipelineSwitch
+* Fix dummy estimation for PipelineSwitch
+* Add feature selection to PhotonCore.json
+* added Biclustering2d transformer which performs sklearn Spectral Biclustering on the mean 2d image and applies the thus found order of rows and cols to every image in X
+* auto scale plots in investigator
+* set name of result tree to obj Id from wizard
+* asdsadasdsd
+* Add and fix stuff for wizard presentation
+* Only write results after completing an outer fold
+
+0.3.7
+-----
+
+* write summary file
+* automatically save optimum pipe to file when filename is specified in persist options
+* code for testinig nonsense metric
+* you can now add a nonsense metric and it continues
+* explicitly close file after dumping pickle
+* removed enigma brain age stuff
+* remove enigma brain age stuff from branch
+* change probabilites != None to probabilites is not None save photon\_wizard\_object\_id as ObjectId not as str make the photon Logger log the stacktrace as well limit the k of random grid search to maximal available configs
+* Version 0.3.6
+* Add permutation test for IQ prediction
+* Version 0.3.5
+* Delete tensorflow from requirements
+* Change version number
+* Change version to 0.3.3
+* save wizard info in db
+* add get/set params function dummies to AutoSklearn wrapper
+* built first version of AutoSklearnRegressor Wrapper
+* typos
+* Apply save\_predictions and save\_importance\_scores to PermutationTest
+* preds can now be sorted to undo kfold CV in ResultsTreeHandler
+* bugfix: Handle empty probabiliteis in results tree handler
+* added sorting for predictions to undo shuffled CV
+* start CV sort for get\_val\_preds\_inner and get\_val\_preds
+* fixed bug in get\_val\_preds\_inner
+* Added get\_val\_preds\_inner function which returns the predictions, true targets, and fold index of each inner fold if outer fold is not set and eval\_final\_performance is False AND there is only 1 config tested
+* Fix error if len probabilities is 0
+* add cv strategy for OutlierKfold
+* Add AnomalyDetectorWrapper for wrapping one class estimators of sklearn
+* added balanced\_accuracy metric
+* added funciton plot\_roc\_curve to ResultsTreeHandler
+* fixed check for empty probabilities list and added probabilities to ResultsTreeHandler
+* finished atlas-based brain mapping class and example
+* Fix stacking of Hyperpipes - get rid of "local search" left-overs - fix names of variables related to stacking - add predict\_proba to pipeline switch
+* dont balance testset
+* imbalanced strategy applied to testset and to train\_x from inner cv\_splits
+* save probabilities
+* debug imbalanced strategy
+* - Prettified PhotonCore.json
+* added atlas-based brain mapping example
+* added validation sample size to overall summary in the ResultsTreeHandler
+* Add load\_from\_mongodb() function
+* Fix get\_performance\_outer\_folds() function
+* renamed get\_performance\_table in ResultsTreeHandler, added proper fold number counter and human readable best config information to results table
+* Add load function and function to get outer folds performance
+* Move ResultsTreeHandler to validation folder, move python imports to top of script, rename get\_imps() to get\_importance\_scores(), rename fold\_idx to fold\_indices
+* added sensitivity and specificity as metrics for binary classification
+* added Wrapper for Rasmussen and Williams GPR; still needs predict without training data
+* add optimum pipe loading and clean up; still need to fix loading without unzipping
+* Fixed optimum\_pipe\_loading bug; folder is now deleted to clean up
+* added bare code for Gaussian Process AM Wrapper
+* added dummy file for a wrapper using Andre Marquandt's GPR
+* Add docstring to PersistOptions
+* Add possibility to choose between all, best or None for saving feature importances or predictions
+* Add StratifiedKFoldRegression
+* exclude documentation html files
+* Update version
+* debug stacking of data in pipeline stacking
+* add group split functionality
+* Update version
+* debugged PipelineSwitch with no hyperparameters
+* Update version
+* Fix bug in save\_optimum\_pipe()
+* debug stacking\_transform
+* Change version to 0.1.8
+* Change location of requirements
+* Revert to automatically setting version number
+* Revert to manual version number
+* Change location of requirements file
+* Fix import statements for regression metrics
+* Change version number
+* Change version
+* Fix creation of PipelineElement
+* Delete the number "5" - strangely - appeared within the import statements
+* Add regression example
+* Print p < 1/n\_perms in case no permutation result was better than true performance
+* Update version
+* Update Version
+* add test\_disabled = True remove bug for only one onfig
+* Update version
+* add a base model wrapper class remove bug if only one item in pipeline branch has hyperparameters remove bug if item only has test\_disabled as hyperparamter
+* define and document PhotonBase Classes for optimizers and PerformanceConstraints
+* Update version
+* Change console output of permutation test in case p > something
+* Fix bug in save method
+* update references and add logo to readme
+* update references and imports generate documentation
+* Update version
+* Delete unnecessary files
+* extend REadme
+* debug README
+* debug README
+* debugging README
+* debug README
+* more Readme Content
+* debug Trailing Spaces README
+* extend README
+* debug README
+* README ADAPTATION
+* update README
+* Test Table of Contents
+* Edit REadME
+* Adjust imports
+* add logout button
+* Change score/error metric check in Scorer class
+* refactor test\_disabled and config\_grid generation
+* Change imports
+* Add "photonai." to all photon wrapper registrations
+* Change PipelineWrapper to modelwrapper in PhotonCore.json
+* Change version
+* changes in investigator for two scripts at the same time. -> not working
+* Change version
+* Delete genetics' module
+* loading files for investigator
+* Change version
+* Change version
+* Add include\_package\_data=True to setup script
+* Get rid of unnecessary brackets
+* Add find\_packages() to setup file
+* Add all submodules
+* Change version to 0.3.5
+* Delete recursive-include command
+* Add MANIFEST.in file
+* Change to version 0.3.3
+* Change MANIFEST
+* Change to version 0.3.1
+* Add MANIFEST
+* load hyperpipes from objects and mongodb adapt views for different sources adapt views for eval\_final\_performance = False
+* Change to version 0.3
+* Delete mpl\_toolkits from requirements
+* Change version to 0.2
+* Fix permutation test issues and add example
+* add investigator
+* add callback functionality to inner cv loop for breaking a configuration test
+* add persist options class -> all save options pretty managed so the ctor of hyperpipe does not explode
+* Fix error in result\_tree's best\_config.inner\_folds
+* Avoid relative imports
+* Avoid relative imports
+* some more documentation
+* removed hyperparameter property -> we only have sklearn hyperparamaters refactored PhotonRegister class
+* Find best hp config for outer folds and optimum pipe
+* Making changes to results\_tree
+* adapt ResultTree - add validation performance to the best config if no test set performance is available - remove y\_true and y\_pred from the tree when save\_all\_predictions=False and calculate\_metrics\_across\_folds= True (so save them only in working memory)
+* Add best config for optimum pipe across folds
+* Add best config to MDBHyperpipe definition
+* some progress in the optimization hyperparameter grid generation
+* Fix typo in requirements
+* Delete python built-in modules from requirements
+* Add requirements
+* Add KerasBaseEstimator
+* Update load\_optimum\_pipe() and save\_optimum\_pipe() so that they automatically save wrapper scripts
+* Save optimum pipe as zip file
+* TIDY 2
+* TIDY TIDY TIDY TIDY
+* delete old Documentation folder
+* some changes i dont remember
+* Implement .save\_optimum\_pipe() and .load\_optimum\_pipe() (even works with Keras models)
+* Inherit from KerasBaseEstimator
+* Add KerasBaseEstimator that implements save and load methods
+* Update imports
+* Remove "photon\_core." from PhotonCore.json
+* Adjust imports...AGAAAAIN
+* Delete "photon\_core." in class paths
+* Add function to load results\_tree
+* Change folder name to photonai
+* Change project name
+* Change version
+* Add requirements to setup.py
+* Change version number
+* Add README.txt
+* Change location of README.md
+* Add setup.cfg file to tell PyPI where README.md is
+* Change tag name for PyPI test
+* Change folder name to photon-ai
+* Add another tag
+* Change project structure so that we can put PHOTON on PyPI
+* Tidy up pipeline wrapper/method names
+* Add Dummy estimators
+* Add Ensemble Methods
+* Add Gaussian Process models
+* Add Linear Models
+* Add Gaussian Mixture models
+* Add Naive Bayes classifiers
+* Add Nearest Neighbors algorithms
+* Add Scikit Learn's neural network models
+* Add Support Vector Machines
+* Add decision trees
+* Add all preprocessing and normalization algorithms of Sklearn
+* Add Scikit Learn's cross decomposition algorithms
+* Add all feature selection methods of Scikit Learn
+* Add all of Scikit Learn's decomposition algorithms
+* Fix format of predictions for KerasDNNRegressor
+* Temporary fix for Log-Level in KerasDNNRegressor
+* Temporary fix for Log-Level in KerasDNNRegressor
+* Update relative imports...again
+* Set calculate\_metrics\_across\_folds to false
+* Add DeepPRSClassifier PHOTON Wrapper
+* Fix multiprocessing bug by using pool.join() after for loop
+* Version 07.05.18 (Permutation Test)
+* Use apply again
+* Change pythons multiprocessing from apply to apply\_async
+* Adjust path
+* Adjust path
+* Write permutation test results to mongo db result tree
+* Set random seed right before permuting the targets
+* Add MongoDBWriter to PhotonBase
+* Use hyperpipe constructor function for parallizing permutation test
+* Copy hyperpipe (first try)
+* Get X and y from hyperpipe object directly
+* Add permutation test for hyperpipes
+* Removed Clusterfiles from branch
+* Removed Clusterfiles from branch
+* updated branch
+* updated branch
+* small CHanges
+* small CHanges
+* anyChanges
+* anyChanges
+* tidy up code change internally used variables to protected or private change pydoc string to pdoc
+* tidy up code change internally used variables to protected or private change pydoc string to pdoc
+* add across-folds-metric calculations
+* add across-folds-metric calculations
+* Get rid of unnecessary imports
+* Get rid of unnecessary imports
+* add imbalanced data strategy
+* add imbalanced data strategy
+* Fix typo in save\_all\_predictions
+* Fix typo in save\_all\_predictions
+* Fix updating of inner fold counter; add variable to specify whether to save all predictions of all folds and hyperparameter configurations
+* Fix updating of inner fold counter; add variable to specify whether to save all predictions of all folds and hyperparameter configurations
+* Optimize printing of children config
+* Optimize printing of children config
+* add some more pydoc strings and tidy up code
+* add some more pydoc strings and tidy up code
+* Write Pydocs for PhotonBase file
+* Write Pydocs for PhotonBase file
+* add pydoc strings
+* add pydoc strings
+* some new documentations
+* Add PhotonOneClassSVM
+* Add PhotonOneClassSVM
+* Add Photon OneClassSVM to customize score function
+* Add Photon OneClassSVM to customize score function
+* Add sklearn imputer
+* Add sklearn imputer
+* Accept list for config\_nr in set\_params()
+* Accept list for config\_nr in set\_params()
+* Ignore warnings
+* Ignore warnings
+* debug PipelineStacking from Nils
+* insert comment
+* Revert "Dirty fix of optimize\_printing for stacked pipelines"
+* Revert "Dirty fix of optimize\_printing for stacked pipelines"
+* Dirty fix of optimize\_printing for stacked pipelines
+* Only save predictions for outer folds
+* Save y\_true and y\_pred only for test
+* Add copy\_all attribute to copy\_score\_info
+* CHange config\_item\_dict
+* Fix transforming f\_importances to list
+* Change logging
+* Change logging
+* Add human\_readable\_config to MBDConfig
+* Change prettify\_config\_output
+* Change prettify\_config\_output
+* Add config\_to\_dict
+* Add human readable config
+* Major updates for result tree mongo db
+* continue hyperparameter search when config failed and write into pymodm result tree
+* implemented further details of pymodm result tree
+* add BIC
+* Turn result\_tree into pymodm object
+* add class for automatically generating cluster metrics
+* change logger directory
+* small changes
+* small changes
+* Get rid of unnecessary comments
+* Pull results from db
+* Write results of mother and child pipes to mongodb
+* Write result\_tree to mongo db after every hp configuration
+* Update imports
+* Use OrderedDict for pipe\_elements in Stacking class
+* Change logging for GWAS FS
+* Add information on runtime of outer fold
+* add y support to transform and predict function of PipelineElement
+* add Wrapper for imbalanced data
+* Add custom log file name
+* Add custom log file name
+* add date to photon log name
+* Add time to log file name
+* Change default parameters of Autoencoder
+* Fix typo in PhotonCore.json
+* Register DecisionTreeClassifier
+* Register Simple Keras Autoencoder
+* Add simple Keras Autoencoder
+* Hash with C-ordered numpy array
+* Change default folder for saving logs
+* Register PhotonPCA
+* Add PhotonPCA that saves already trained PCAs and reloads them if input data is the same
+* Close pool in GWASFeatureSelection
+* Add all relevant stuff for corex and get it working
+* Get rid of unimportant import
+* Change Corex to BioCorex
+* Add biocorex to PhotonCore.json
+* Add biocorex init
+* Add bio\_corex package
+* restored Logger
+* add missing ResultsDB File
+* add threshold as hyperparameter
+* include also select k percentile
+* edit behavior: dont raise exception when no features are selected, raise warning and give back original features
+* debugged FeatureSelectionWrapper
+* LassoWrapper
+* write result\_tree in pymodm classes to MongoDB
+* Add example script for stacking functionality
+* write result\_tree to mongodb
+* Add information on number of selected features (GWAS FS)
+* Fix try catch
+* Add logging to GWAS feature selection
+* Use try catch in case convergence of logistic regression model fails
+* Fix import paths in PhotonCore.json
+* Add LogisticGWASFeatureSelection
+* Add batch size to Keras DNN Classifier
+* Merged in hotfix/output\_keras (pull request #25)
+* Fix output of KerasDNNClassifier
+* Fix binary input
+* Merged in hotfix/greater\_is\_better (pull request #24)
+* Change target checking
+* Make test\_X and test\_y a class variable
+* Make last missing validation\_y a class variable
+* Make validation\_X and validation\_y a class variable
+* Fix greater\_is\_better variable in accordance to estimator type
+* Fix greater\_is\_better variable in accordance to estimator type
+* Fix default value for init variables
+* Update imports for PHOTON Neuro
+* Update imports
+* Update imports
+* Use part of pygwas for fast\_f\_test on snps
+* Implement linear model
+* Add GWASLinearModel
+* Initial commit for PhotonGenetics
+* adjust predictions method to give two lists as return values [y\_true], [y\_predicted] also add function for best config -> functionality shown in CANLABIES\_demo.py
+* add a rearranged loop for collecting the predictions
+* furhter import adjustments
+* adjusted imports
+* adjusted imports
+* Merged in feature/merge\_snippets\_in\_projects (pull request #22)
+* Merged in feature/get\_dataset\_predictions (pull request #21)
+* Adjusted imports for submoduling
+* Add helper function to get y\_true and y\_predicted for all dataset items across cross validation folds
+* Merged in feature/jhonny\_dti\_2 (pull request #20)
+* adding new Anova Feature Selection
+* fixed FeatureSelection using ANOVA
+* add VarianceThreshold method
+* pushing improvements so far. inverseTransform still not working
+* took out variance threshold ToDo: make it work with variance threshold
+* include inverse transform for anova feature selection
+* using OneClassSVM for outlier detection in DTI FA Data, threshhold < Hamilton Delta below 7 -> no luck yet
+* final analyses for Genetic Brain Atlas of MDD Risk
+* added dumb failsafe if there are no features left after feature selection
+* - fixed ANOVA function which did not return any f or p values - implemented a general 1-way ANOVA for k independent groups
+* fixed ANOVA function which did not return any f or p values
+* adding the anova select percentile transformer to the registry
+* adding untested anova percentile wrapper
+* novel analyses using morphometrics/structure as features + reading other covs
+* new analyses techs
+* Add spacecraft loss to KerasDNNMultiOutput
+* Add spacecraft loss
+* Revert "Fix possible bug in \_merge\_metric\_dicts()"
+* Fix possible bug in \_merge\_metric\_dicts()
+* Fix possible bug in \_merge\_metric\_dicts()
+* preliminary target scaling (not yet train/test independent)
+* fiximportance\_score "\_" issue in validation.py
+* Get metrics for every task
+* Add interaction\_terms to PhotonCore.json
+* Don't give names to output layers
+* Fix scoring in KerasDNNMultiOutput
+* Add additional metrics to KerasDNNMultiOutput
+* Fix callbacks
+* Revert "Change calculate\_metrics for multi-task case"
+* Change calculate\_metrics for multi-task case
+* Delete printing of model summary
+* Add KerasDNNMultiOutput
+* Comment out dimensionality check in calculate metrics for now
+* Change name of variance\_explained metric
+* Change name of variance\_explained metric
+* Merged in feature/jhonny\_dti (pull request #17)
+* adding first plotting version of configuration performances using plotly
+* Merged in feature/jhonny\_dti (pull request #16)
+* adding lost function \_merge dict
+* Merged in feature/jhonny\_dti (pull request #14)
+* logging functionality for feature\_importance scores in result tree inverse\_transform for a sklearn pipeline copy a hyperpipe's sklearn pipeline (WITHOUT STACKING OR SWITCH)
+* add more helper functions to evaluate the result tree
+* Merged in feature/jhonny\_dti (pull request #12)
+* add new metric aggregation function for result tree
+* Merged in feature/jhonny\_dti (pull request #11)
+* add new result tree request method
+* Pearson Feature Selection put in Wrapper Calculating Accuracy for Ham<8 predictors
+* Testing SVM and pearson correlated feature selection as well as pearson correlation of prediction for Johnny DTI
+* Fix binary to one hot in KerasDNNClassifier
+* Fix input checks (binary or one hot)
+* Add chi2 k best feature selection
+* Delete warning message for one\_hot\_to\_binary() for now
+* Add RandomForestClassifier to PhotonCore.json
+* Add mutual information based feature selection in PhotonCore.json
+* Add mutual information based feature selection
+* Merged in hotfix/verbosity\_for\_keras (pull request #9)
+* initial commit for Johnny's DTI analysis
+* Add verbosity level for Keras models
+* Add attribute for verbosity level (different from log level)
+* Change console output to enhance readability
+* Merged in predict\_proba (pull request #8)
+* Add type specification within docstrings
+* Add docstring to all predict\_proba functions
+* Add docstring to all predict\_proba functions and use logger for printing
+* Add predict\_proba function NN wrappers
+* Add predict\_proba function to Hyperpipe, PipelineElement and PipelineStacking
+* Add missing imports
+* Fix printing of results config\_item.get\_metric() received wrong input for FoldOperations to calculate mean performances
+* LogExtractor:  - added private attribute  - added DocString for public functions
+* LogExtractor bugfix for namespace problem
+* LogExtractor:  - deleted unused functions  - rearranged functions  - added types  - cleaned code  - PEP8
+* deleted old, unused files
+* - LogExtractor is now able to extract also the configurations of the inner folds. - The CSV file is timestamped by default
+* Improvement of PretrainedCNNClassifier. Cancer:   - Bug: Correct class weights   - Improvement: You can now load fractions of the dataset   - Results will now be stored in timestamped CSV-files
+* Improve LogExtractor, still WIP
+* improvment of the pretrained CNN implentation
+* implements an extractor for the result tree. This also includes a CSV representation
+* Fix reshaping of input for LSTM
+* Fix name for "epochs" variable
+* Fix input shape for sequential model (LSTM)
+* Add SimpleLSTM wrapper
+* Add callback functionality to CNN1d wrapper
+* updated requirementes.txt
+* bugfix for result logging
+* prettified JSON-files
+* bug fix: reading the config file in right way, Booleans are now Booleans and not Strings. bug fix: setter print\_to\_slack sets now the right variable
+* - fixed list to array bug (never comment out Ramonas stuff ;-) - added Logging
+* delete BadLogger and get rid of QT5 requirement
+* added PhotonNeuro support for probabilistic maps
+* Begin of human readable result log
+* Add metrics for regression:  - Pearson Correlation  - explained Variance
+* Add pseudo code for avoiding doubled extraction
+* Implemented AtlasInfo Object to share between AtlasStacker and BrainAtlas
+* Tidy up some old artefacts
+* Implement helper functions to query tree Avoid printing to slack if no slack\_token is given Added slack configuration: choose channel to print to
+* Refactor Helpers to fulfill coding conventions
+* Refactor Logger to fulfill coding conventions
+* Refactor Register to fulfill coding conventions
+* Add optimized Result Tree -> var
+* Refactor Metrics to fulfill coding conventions
+* Refactor PhotonConf to fulfill coding conventions
+* Refactor PhotonBase to fulfill coding conventions
+* implement result logging structure
+* One more time, but with feeling
+* Clean up and optimize some code
+* added keras to requirements
+* Workaround for log level handling. Should be configureable for every channel. (in future)
+* Added a requirements.txt (hopefully almost complete)
+* Added a configfile (especially for the logger)
+* Configfile for Logger with unkown bugs
+* first version of AtlasStacker ATTENTION: each hyperpipe has now a filter\_element attribute that can be used to preselect features from X
+* yay Photon Neuro hooked up
+* ramona
+* implemented managing of lists as input X
+* ramona
+* + renamed PhotonNeuro folder + registered basic PhotonNeuro classes with PhotonCore (created PhotonNeuro.json) + changed PhotonBase to include PhotonNeuro package - BUG: When using images as X in PhotonNeuro, train and test set are ranges and throw an error!
+* add loading of best model to pretrained\_cnn\_cancer.py script
+* add model checkpoint to PretrainedCNNClassifier wrapper
+* added explanation for result logging tree structure
+* add print to csv\_file functionality for new Result Logging some changes to Result Logging Class Tree
+* implement result logging classes create and fill the result logging tree in the hyperpipe
+* fixed typo
+* Pritified the results output with pprint
+* Fixed pretrain skin cancer demo. Removed conflicts with one hot encoding
+* Slack Integration - disabled by default
+* Harden the logger against not String logs
+* - Cleaned up Logger and deleted old code that belongs to the MongoDB implementation. - Added the date and the loglevel to the print output
+* Friday evening: Cleaning up our imports. (thanks Pycharm :-) )
+* removed remaining MongoDB dependencies from the logger
+* recreated oneHot helperfuction: split it into one\_hot\_to\_binary and binary\_to\_one\_hot
+* recreated oneHot helperfuction: split it into one\_hot\_to\_binary and binary\_to\_one\_hot
+* use PhotonRegister to load everything to Element Dictionary
+* (temporarily) disable mongodb for logger
+* - Added show\_package\_info to Register class which prettyprints infos about the package(s) installed. - Moved get and show package from PipelineElement to PhotonRegister as they are usefull for everything that can be registered
+* add dropout to model
+* make pair creation possible for n number of classes
+* update siamese network wrapper
+* bugfix in register
+* add siamese pretraining step to siamese net wrapper
+* add wrapper for siamese network
+* update cancer cnn
+* update cancer cnn
+* added Logger to Register.py
+* Added PhotonRegister Class and updated PhotonCore.json
+* add pretrainedCNN wrapper
+* add mnist\_example and implement and debug categorical\_accuracy
+* add helper functions for keras and tensorflow
+* rename categorical\_accuracy to categorical\_accuracy\_score
+* add custom metrics (i.e. categorical\_accuracy from keras)
+* bugfixes for logger and KerasDNNClassifier
+* add logger to validation file
+* change logger module so that singleton instance is useable across all classes
+* remove sklearn fit and predict method do some error handling and warning while fitting and predicting calculate and save duration for each pipeline fit and the respective prediction + metrics calculation for train and test data fix bug in timebox random grid search fix imports in DataLoader Klasse
+* bugfix print best config with logger
+* make LoggerClass a Singleton
+* make LoggerClass a Singleton
+* add hack for keras callbacks
+* streamline keras wrapper names
+* replace all prints with logger in photon base
+* write all prints to log file
+* change \_insert\_log\_into\_database so that only warnings and erros are saved in the database
+* implement logging with verbosity level for hyperpipe
+* fix Loglevel
+* make logger a class
+* add verbose log level
+* rename import of KerasDNNRegressor
+* add KerasDNNRegressor to ELEMENT\_DICTIONARY
+* change xslx loader (now \*\*kwargs are passed to the actual function)
+* change xslx loader (now \*\*kwargs are passed to the actual function)
+* ramona photon v1 example application beta using ESN
+* merged PhotonBase
+* add some regression models (RandomForestRegressor etc)
+* add KerasDNNRegressor wrapper
+* finally fix train/test order in results logging
+* write results to csv after every hyperparameter configuration
+* apply variance threshold before using feature selection
+* add sklearn wrapper for feature selection (select percentile)
+* implement hash-per-fold strategy to avoid redundant optimization of hyperpipes change UATs accordingly
+* clean up test section of code add todo file for writing of tests implement first version of data hash to avoid redundant fitting (->not working because cross validation is not considered)
+* cleaned up file and class names logging children hyperpipes configuration setting children hyperpipes config and is finsihed flag after first level hyperpipe is finished optimizing in order to avoid doubled fitting
+* change best config selection behaviour: - if metric\_to\_optimize shall be maximized: a combined metric is created by adding mean\_metric\_to\_optimize + (1 - std\_metric\_to\_optimize) - if metric\_to\_optimize shall be minized: a combined metric is created by adding mean\_metric\_to\_optimize + std\_metric\_to\_optimize
+* prepare change in fit after best config of outer pipe is found
+* use keras dnn in photon version
+* change transform() method of source splitter
+* last commit before using SourceSplitter
+* add SourceSplitter to ELEMENT\_DICTIONARY (selects data from X for stacking)
+* add source splitter
+* add CVTestCaseC2
+* bugfix: use np.concatenate in stack\_data() and reshape b when concatenating predictions of source pipes
+* bugfix: use overwrite\_x data in PipelineFusion.transform when stacking elements
+* run all UnitTests and rename it to fit into Case Conventions
+* prepare branch for merging to local\_photon\_version
+* edit PCA\_AE\_WRAPPER: new basic class stub for an autoencoder
+* fix the logic: even though the final unseen test data is ignored with \_evaluate\_final\_performance = False, there should still be an optimized pipe
+* add print of optimizer metric
+* bugfix
+* and once again: handle case if optimizer\_metric is not specified in metrics
+* and again: handle case if optimizer\_metric is not specified in metrics
+* handle case if optimizer\_metric is not specified in metrics
+* bugfix: \_estimator\_type is not in PipelineElement but in PipelineElement.base\_element
+* add \_estimator\_type (needed to check whether score method has attribute greater\_is\_better=True/False
+* add OptimizerMetric() class
+* JSON\_interfaces.json edited online with Bitbucket Einige Fehlerbehebungen im JSON-file
+* fix CNN1d import
+* change defaults in CNN1d
+* add CNN1d wrapper
+* add gaussian noise
+* add predict() method
+* finalize CNN1d-wrapper
+* add create\_model() and define\_optimizer() for CNN1d
+* initial commit
+* add init
+* update (still in test phase)
+* change input of score method
+* add a package for methods that are repeatedly used add a file for methods that help to get a feeling for the data add a method for displaying the data of a classification task in a 3D PCA Scatter Plot
+* ckpt before moving train\_2 and val\_1 outside the c and kernel loop
+* add metric 'recall'
+* bug-fixing again
+* bug-fixing..
+* adding infrastructure for hyperparameter testing
+* debugging RLCNN
+* adjust imports for inner-module references add file for custom Tensorflow CNN
+* move PCA initialization to fit() method
+* testing git error
+* add ae\_pca (AE\_PCA\_Wrapper) to PipelineElement dictionary
+* add CVTestCaseB
+* add PCA\_AE\_Wrapper as dummy pca that can be optimized
+* correct unit tests after default hyperparameter search cross validation strategy has been changed
+* add CVTestCaseA5 with check for final test performance
+* Re eval\_final\_performance:
+* set default of eval\_final\_performance to False
+* initial commit of CVTestCaseA4
+* move to folder above
+* add another c parameter
+* change kfold and kernel
+* fix scaler in sklearn version
+* include PCA and StandardScaler, add assertions
+* update WrapperModel Example for better demonstration
+* - fix major difference between Photon and manual implementation in TestCaseA2 by making sure a standard\_scaler is present in both - edit the Wrapper Model class so that setting of a new parameter through the hyperpipe is printed to the console
+* add an awesome comment
+* added second version of test
+* add example for encoding of PipelineSwitch with SVM and GPC
+* add data-source section for Client-Input-Config
+* add an example encoding of the interfaces between the designer, the manager and the client layer of future Photon
+* add an explicit invoke to the CV.split lambda so that the loop wont get stuck because the generator finished
+* add an awesome comment
+* Add a unit test for test case A
+* added example file for project seminar finally fix the rename of 'set\_disable' to 'test\_disable' fix some "I want to use an estimator as an transformer"-issues in Pipeline Fusion
+* fixed folder structure
+* add a parameter to set a random seed
+* adapt pipeline fusion so that it can stack classifiers
+* add demo files for cross validating the hyper parameter search
+* tidying up example files
+* enabled testing validating hyperparameter search in three modes: no splitting into validation and test set default splitting into validation and test set via percentage of test set splitting into validation and test set via cross validation object
+* enables splitting in validation and test set enabled cross validation of complete hyperparameter optimization testing needs an alternative to shuffle split!
+* first cv stacking unit testing and bug fixing external data overwriting
+* Preparing further UnitTesting
+* tidying config\_grid
+* transpose data vector when printing (for debugging)
+* fixed script problems and edited param\_grid compilation of hyperpipe -> removed items from children that optimize themselves
+* write config to results csv-file
+* add write\_config\_to\_csv method
+* get rid of config info in parameter\_history (because there already exists a config\_history)
+* show output for f1 score
+* always save results to OrderedDicts (better when writing to csv)
+* recreate csv writer to write results to csv
+* initial commit
+* get full model specification and save to results
+* DO NOT MERGE THIS BRANCH
+* try accuracy and confusion matrix as metrics
+* add additional sklearn metrics
+* remove wrong search for best config
+* handle merging of results for all hp settings, merge\_dicts() now works with train and test keys
+* expand reorder\_results() so that is saves mean of folds and raw scores of folds
+* add method for ordering the results dictonaries
+* change score collector
+* add collector for all scores that are computed and only return default score within sklearn
+* bugfix: removed comma and added accuracy\_score
+* redesigned use of multiple metrics
+* some bug fixes -> not seeing the estimtor when no hyperparams are given and not being able to use fit twice
+* change metric names
+* bugfix: metrics import
+* bugfix: metric names are different from actual method name
+* add test for "metrics"
+* add "metrics" variable to Hyperpipe and TestPipeline
+* handle case when metrics aren't specified
+* add score method that handles mutliple metrics
+* tried to fix bug that is probably provoked by hpo\_framework\_demo2
+* added 1) random grid search and 2) time boxed random grid search
+* dynamically importing Pipeline Element Base Classes such as PCA, SVC ..
+* optimized output printing
+* unit testing HPO Framework Base Classes Part 1
+* a prettier version of printing the current status
+* further fixing of same bug
+* fixed PipelineSwitch. Internal config\_grid ignored set\_disabled if hyperparamter dict was empty
+* add possibility to merge list of dicts to one dict with lists as values (for results logging)
+* add hyperpipe\_results.csv
+* change result logging
+* Merged in unit\_tests\_pipeline (pull request #3)
+* fixed the bug that occurred when there is more than one item in a hyperpipe that is stacked in a pipeline fusion
+* Preparation for unit tests
+* missed to update two file paths
+* it was not a sklearn problem, it was  home made. Everything appears to work, but needs a lot of testing
+* first version of Pipeline Fusion element that joins to pipelines into one output. the sklearn decoding of parameters seems to be a problem
+* changed concept for disabling pipeline elements added config\_grid attribute changed internal management of GridSearchOptimizer
+* refactor Hyperpipe Manager to fit sklearn Pipeline Element
+* removed one abstraction layer test rbf kernel first
+* beta version of new pipeline concept
+* first version of on/off switch for items of pipeline as well as for a switch item
+* Merged in new\_nifti\_loader (pull request #4)
+* any unit tests
+* delete obsolete files (MatlabLoader)
+* add unit test for nifit-loader
+* bug fix for checking if input is numpy array
+* add todo for error handling when input is not numpy, string or list
+* check if input is numpy array, otherwise throw TypeError
+* changed horizontal concatenation when multiple features are loaded horizontal concat is deprecated
+* change default for nii-loader to vectorize False
+* add list input for nifit-loader
+* add list input for data container now lists with filenames can be passed to the data container
+* add example for search queries
+* add Tim
+* add Tim
+* add Tim
+* first DataLoading UnitTests checked by Daniel
+* first DataLoading UnitTests
+* Merged refactor\_loading into master
+* hopefully in the future the .idea folder is ignored
+* removing pycharm files
+* Merged unit\_testing\_pipelines into master
+* Merged in updated\_loader (pull request #2)
+* tidying up and for master merge
+* added UnitTest Directory
+* add ToDo
+* add NiiLoader
+* change name of BaseObject to BaseDataObject
+* change file names to match OO guidelines
+* add a optimizer dummy example added file to documentation in confluence abstracted cross validation
+* add a optimizer dummy example added file to documentation in confluence
+* added more useful framework\_demo comments
+* additional comments in code
+* added other classifiers from sklearn
+* updated example for hyperpipe framework. included and updated loading framework
+* adding .add function instead of +=
+* First Version of finding best config and creating an according pipeline
+* First Version of Keras DNN Model compatible to Pipeline
+* Added Functionality to setup pipeline by either config or code, e.g. add pca and dnn by specifying name and hyperparameters only. Will internally be converted to pipeline. Needs more error handling
+* Renaming of Module Pipeline Wrapper Adding base classes and example for Hyperparameter Optimization Pipeline is still hard coded and needs to be generated automatically
+* Untrack and remove pyCharm project files
+* including all new files in commit for a change
+* trouble
+* Refactored loading.py file
+* Refactored Loading Module. Example use is at bottom of file loading.py. Needs concept for referring to Features, Targets and Covariates!
+* First version of scikitlearn pipeline with mixed in tensorflow neural net, both optimzied by scikit learn grid search. Source file for training and test data not commited
+* add example for loading mat-files
+* BUG: add variable name for pandas dataframe in load\_mat()
+* add function to load .mat-files
+* delete oop related "self's"
+* initial commit
+* loading\_test.ipynb deleted online with Bitbucket
+* delete irrelevant comments
+* create csv file within code
+* change function description
+* add basic demo
+* intial commit
+* Initial commit
+* Add my name
+* Added my name ("Nils") to show that I successfully connected to the repo
+* git check
+* Git-Check added
+* README.md edited online with Bitbucket
+* .gitignore created online with Bitbucket
