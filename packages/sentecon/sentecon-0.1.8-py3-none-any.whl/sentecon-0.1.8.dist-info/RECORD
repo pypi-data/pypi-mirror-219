@@ -1,0 +1,15 @@
+sentecon/__init__.py,sha256=VAmQxF81BPXmuwPF4qUIePCac6mznS_VTnBrogeMWug,26
+sentecon/core.py,sha256=cEX-B_pxfAiCQOAK-eRHyF9dGmzHZ9WkPLFLiH5SKpM,5235
+sentecon/data/EmpathVocab_centroids_Empath_all-MiniLM-L6-v2.csv,sha256=yP_q_UgMfGIFzVz2TLAe9D6R8YoeuvJWdOOC3jrgWMY,936473
+sentecon/data/EmpathVocab_centroids_Empath_all-mpnet-base-v2.csv,sha256=XP5YlpHr1Hg8AgQu7fLDMCPrcMWuNAHT_Y547pybwbg,1886798
+sentecon/data/LIWCVocab_centroids_LIWC_all-MiniLM-L6-v2.csv,sha256=qb8MFG2KkRC47Bt2_q4vpRgkT9AdXm-hBoxz43tK5kI,351609
+sentecon/data/LIWCVocab_centroids_LIWC_all-distilroberta-v1.csv,sha256=UGjtZid4Fpp2BxWH2cC5KI9ADoEPXTPOwaQ8eiFU6YM,506131
+sentecon/data/LIWCVocab_centroids_LIWC_all-mpnet-base-v2.csv,sha256=e_qbnOh6dTMMmipIXs7Jg6iT2DNxgbjiKKzg7D82Tp4,710224
+sentecon/data/LIWCVocab_centroids_LIWC_bert-base-uncased.csv,sha256=VVQlcQ8Lpr-XkwEs1AF6V0KYR9fTlh6YNLEzO85PjkU,462534
+sentecon/data/LIWCVocab_centroids_LIWC_roberta-base.csv,sha256=HUb8L6dI-nowDqudrIGHZM_mPxszjA4zZYCsiq39w_M,482765
+sentecon/data/empath_vocab.csv,sha256=R7EKMzoH3NJ5eHwXUTNyqWpniGtvzBV-hPdordKoiVg,219530
+sentecon/data/liwc_vocab.csv,sha256=WrNmXGN9dlnSJ-qWqFKdhfAOagBqMKBXAGpeS08WAi8,47458
+sentecon-0.1.8.dist-info/METADATA,sha256=nWPvtYi-vz3T5w-mh74sD18q2s9bX_iTg4etnOoyji4,411
+sentecon-0.1.8.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+sentecon-0.1.8.dist-info/top_level.txt,sha256=Lf9c710FobR6j8uX0IZwgeajaYIIpToqmrX5LlRN5zY,9
+sentecon-0.1.8.dist-info/RECORD,,
