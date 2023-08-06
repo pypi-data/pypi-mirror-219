@@ -1,0 +1,52 @@
+name: Executing Notebook
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: integralsw/osa-python:auto-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    #- name: Sphinx Docs build with ReadTheDocs Docker
+    #  uses: DavidLeoni/readthedocs-to-actions@v1.2
+    #  with:
+    #    RTD_PRJ_NAME: oda-api        
+    #    GIT_URL: https://github.com/${{ github.repository }}.git
+    #    GIT_TAG: ${{ env.GIT_TAG }}
+    #    VERSION: ${{ env.VERSION }}
+    #    REQUIREMENTS: requirements.txt
+    #    LANGUAGE: ${{ env.LANGUAGE }}
+    #    RTD_HTML_SINGLE: false
+    #    RTD_HTML_EXT: false              
+   
+    - name: Run Tutorial Notebooks
+      run: |
+        set +e
+        cat /init.sh
+        
+        source /etc/pyenvrc
+        which python
+        pip install --upgrade pip
+        pip install wheel
+        pip install papermill jupyter_client astropy oda-api>=1.1.1 nbconvert scipy --upgrade --ignore-installed
+        pip install 'git+https://github.com/integral-observatory/astroquery.git#egg=astroquery'
+        pip install --force-reinstall 'urllib3<2.0' # TODO: to remove after https://github.com/oda-hub/oda_api/issues/198
+        export HOME_OVERRRIDE=/tmp/home
+        mkdir -pv /tmp/home
+        export
+        source /init.sh
+        papermill doc/source/user_guide/AsynchronousAPI.ipynb doc/source/user_guide/AsynchronousAPI-output.ipynb
+        jupyter nbconvert --to html doc/source/user_guide/AsynchronousAPI-output.ipynb
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: AsynchronousAPI-output.html
+        path: doc/source/user_guide/AsynchronousAPI-output.html
+
