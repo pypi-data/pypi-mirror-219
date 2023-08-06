@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: hedgesql
+Version: 1.3.1
+Summary: Convenient work with sqlite3 and aiosqlite
+Home-page: https://github.com/I-HedgeDev/litesqlite
+Author: HedgeDev
+Author-email: hedge_dev@mail.ru
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
