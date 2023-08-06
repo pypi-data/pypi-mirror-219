@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: HCNetSDK-python
+Version: 1.0.0
+Summary: HKVISION SDK for Python
+Home-page: 
+Author: laugh12321
+Author-email: laugh12321@vip.qq.com
+Keywords: hikvision,sdk,HCNetSDK
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
