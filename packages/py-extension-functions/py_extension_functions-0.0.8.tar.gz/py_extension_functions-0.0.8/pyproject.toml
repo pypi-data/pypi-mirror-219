@@ -1,0 +1,63 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+  "hatchling",
+]
+
+[project]
+name = "py_extension_functions"
+description = "personally, python extension functions"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    { name = "aJava" },
+]
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dynamic = [
+  "version",
+]
+dependencies = [
+  "Django>=3.2",
+  "pytz>=2022.7.1",
+]
+[project.urls]
+Download = "https://pypi.org/project/py_extension_functions/"
+Homepage = "https://github.com/Gaolious/py_extension_functions"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/gpp",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["gpp"]
+
+[tool.hatch.version]
+path = "gpp/__init__.py"
+
+[tool.isort]
+combine_as_imports = true
+profile = "black"
+
+[tool.coverage.html]
+skip_covered = true
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["gpp"]
+
+[tool.coverage.paths]
+source = ["gpp"]
+
+[tool.coverage.report]
+# Update coverage badge link in README.rst when fail_under changes
+fail_under = 93
+show_missing = true
