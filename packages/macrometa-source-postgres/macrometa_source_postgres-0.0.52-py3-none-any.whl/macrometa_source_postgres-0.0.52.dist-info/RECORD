@@ -1,0 +1,13 @@
+macrometa_source_postgres/__init__.py,sha256=u1Hp1Oahc40hwZpTW9mD3qsq2f9aSvMUXXPVsqQa57w,36495
+macrometa_source_postgres/connection.py,sha256=h9YqYqK-jYqbbIOORUPkmWt3s9sgb-elWe_qdK8Ztko,8690
+macrometa_source_postgres/helper.py,sha256=x0COKDX0ujgV_VUjPetxBf93qpXwOPTZ62A31t6GXSQ,20349
+macrometa_source_postgres/sync_strategies/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+macrometa_source_postgres/sync_strategies/common.py,sha256=l6DCa9o_cGWaMkQcx_hOw37aA647IY0sAiYO7d2TfHE,1212
+macrometa_source_postgres/sync_strategies/full_table.py,sha256=5BbTZSTaK_NBJdWR2wYGsSjEkp4VzldyORbWq83wJhs,9019
+macrometa_source_postgres/sync_strategies/log_based.py,sha256=7WcMJc5-p-jrWC4TU_Y9YJNieIuqfV8QTczaUwJ-l2s,28173
+macrometa_source_postgres/sync_strategies/sample_data.py,sha256=Rs7vSl8jfqumOutqgd-tzgWA7MciOa9MZ4jsMxw2MFw,3698
+macrometa_source_postgres-0.0.52.dist-info/entry_points.txt,sha256=X1g6tzCHs0ixhd0pbZSlnuvHm8BxYlhz9v2gX1isrmo,76
+macrometa_source_postgres-0.0.52.dist-info/LICENSE,sha256=CMmn0X5B7NYBp2tOuzHP4NkoXJG8YicVLigQPF60EFc,11899
+macrometa_source_postgres-0.0.52.dist-info/WHEEL,sha256=bbU3AyvhQ312rVm7zzRQjs6axI1UYWC3nmFA2E6FFSI,88
+macrometa_source_postgres-0.0.52.dist-info/METADATA,sha256=Iyg3zJD6j4WsVNal6Ec17iOqkf-E7DYr7phl89ookkw,921
+macrometa_source_postgres-0.0.52.dist-info/RECORD,,
