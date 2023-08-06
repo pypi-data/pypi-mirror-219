@@ -1,0 +1,3 @@
+[console_scripts]
+convertCurr=exchange_currency.cli:main
+
