@@ -1,0 +1,5 @@
+makefile
+__pycache__
+*.pyc
+/dist/
+/.tox/
