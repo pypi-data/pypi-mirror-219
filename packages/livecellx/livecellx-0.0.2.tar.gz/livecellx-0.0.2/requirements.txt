@@ -1,0 +1,45 @@
+numpy
+pandas
+Pillow
+scikit-image
+ipympl
+
+# correction CNN training requirements
+torchmetrics==0.8.2 # DO NOT change version here, otherwise it will break the training (complaints about Accuracy())
+
+# labelme2coco requirements below
+sahi>=0.8.19
+jsonschema>=2.6.0
+################################################################################
+# Segmentation 
+################################################################################
+pycocotools
+# conda install pytorch torchvision -c pytorch
+pytorch-lightning
+# note we need to use multitracker in cv2 legacy
+Augmentor
+# seg evaluation
+miseval
+cellpose
+opencv-contrib-python
+
+
+################################################################################
+# Tracking
+################################################################################
+# For sort tracker
+# lap[alldeps]
+filterpy
+
+
+################################################################################
+# Trajectory
+################################################################################
+mahotas
+
+
+################################################################################
+# Visualization
+################################################################################
+seaborn
+umap-learn
