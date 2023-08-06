@@ -1,0 +1,7 @@
+tabcompleter>=1.2.1
+
+[:python_version < "3.7"]
+pygments>=2.14.0
+
+[:python_version >= "3.7"]
+pygments>=2.15.1
