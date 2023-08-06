@@ -1,0 +1,3 @@
+[console_scripts]
+wb=waffle_box.cli:app
+
