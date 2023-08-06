@@ -1,0 +1,2 @@
+[console_scripts]
+neural_engine = intel_extension_for_transformers.backends.neural_engine:neural_engine_bin
