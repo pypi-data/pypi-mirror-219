@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: MicrosoftEasterEggs
+Version: 0.9.1
+Summary: Tools for extracting assets from easter eggs in Microsoft projects
+Author: npjg
+License: MIT License
+        
+        Copyright (c) 2022 Nathanael Gentry
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/npjg/microsoft-easter-eggs
+Keywords: microsoft,reverse-engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# ![Windows flag waving in the digital wind](https://raw.githubusercontent.com/npjg/microsoft-easter-eggs/main/examples/Windows%20Flag.gif) Microsoft Easter Eggs
+This repository holds Python scripts to extract
+the assets for Easter eggs from Microsoft products. Only extraction logic is provided; you must have access to the required original file(s) from the original Microsoft products.
+For more information on the required file(s) for each easter egg, install the package from PyPI and run `MicrosoftEasterEggs -h`.
+
+## Installation
+Get it [on PyPI](https://pypi.org/project/MicrosoftEasterEggs/): ```pip3 install MicrosoftEasterEggs```
+
+## Usage
+If you install via `pip`, you can use the installed `MicrosoftEasterEggs` script, which includes subcommands for specific easter eggs:
+```
+MicrosoftEasterEggs windows31-credits ~/WINDOWS/SYSTEM/SHELL.DLL ~/Desktop
+```
+
+You can also use the code as a library and do your own export:
+```{python}
+from MicrosoftEasterEggs.windows31 import credits
+
+windows31_credits = credits.Windows31Credits('/home/developer/WINDOWS/SYSTEM/SHELL.DLL')
+windows31_credits.export('/home/developer')
+```
+
+## Current Support
+* Windows 3.1
+  * Credits (Program Manager)

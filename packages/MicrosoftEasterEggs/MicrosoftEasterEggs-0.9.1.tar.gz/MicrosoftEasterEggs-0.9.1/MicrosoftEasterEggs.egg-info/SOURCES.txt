@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+MicrosoftEasterEggs/CommandLine.py
+MicrosoftEasterEggs.egg-info/PKG-INFO
+MicrosoftEasterEggs.egg-info/SOURCES.txt
+MicrosoftEasterEggs.egg-info/dependency_links.txt
+MicrosoftEasterEggs.egg-info/entry_points.txt
+MicrosoftEasterEggs.egg-info/requires.txt
+MicrosoftEasterEggs.egg-info/top_level.txt
+MicrosoftEasterEggs/windows31/__init__.py
+MicrosoftEasterEggs/windows31/credits/__init__.py
+MicrosoftEasterEggs/windows31/credits/resources/__init__.py
+MicrosoftEasterEggs/windows31/credits/resources/emcees.py
+MicrosoftEasterEggs/windows31/credits/resources/flag.py
+MicrosoftEasterEggs/windows31/credits/resources/text.py

@@ -1,0 +1,29 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "MicrosoftEasterEggs"
+version = "0.9.1"
+description = "Tools for extracting assets from easter eggs in Microsoft projects"
+readme = "README.md"
+authors = [{ name = "npjg" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["microsoft", "reverse-engineering"]
+requires-python = ">=3.9"
+dependencies = [
+    "Pillow>=9.2.0",
+    "nefile>=0.9.1",
+    "jsons>=1.6.2"
+]
+
+[project.urls]
+Homepage = "https://github.com/npjg/microsoft-easter-eggs"
+
+[project.scripts]
+MicrosoftEasterEggs = "MicrosoftEasterEggs:CommandLine.main"
