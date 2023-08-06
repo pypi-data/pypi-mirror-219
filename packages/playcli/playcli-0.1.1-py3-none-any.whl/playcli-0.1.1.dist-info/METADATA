@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: playcli
+Version: 0.1.1
+Summary: Browse and search games with ease
+License: Beerware
+Author: Alekyo4
+Author-email: alexsandergomes4742@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Customer Service
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Games/Entertainment
+Requires-Dist: beautifulsoup4 (>=4.12.2,<5.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Project-URL: bug, https://github.com/alekyo4/playcli/issues
+Project-URL: code, https://github.com/alekyo4/playcli
+Project-URL: documentation, https://github.com/alekyo4/playcli
+Description-Content-Type: text/markdown
+
+# Playcli
+
+Easily download and browse third-party games
+
+## Run
+
+```sh
+pip install playcli
+playcli search "The last of Us"
+```
+
+## Source code
+>
+> Requires [Poetry](https://python-poetry.org/docs/#installation) installed on your machine
+
+```sh
+poetry install
+poetry run task test
+```
+
+- [All Games](https://www.elamigos-games.com/)
+
