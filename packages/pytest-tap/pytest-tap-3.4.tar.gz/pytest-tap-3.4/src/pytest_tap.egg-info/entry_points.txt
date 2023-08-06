@@ -1,0 +1,2 @@
+[pytest11]
+tap = pytest_tap.plugin
