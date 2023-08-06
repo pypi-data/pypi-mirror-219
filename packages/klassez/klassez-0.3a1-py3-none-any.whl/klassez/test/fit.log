@@ -1,0 +1,37 @@
+***                          FIT LOG                           ***
+
+Fit performed by francesco on 23/01/2023 at 15:42:27
+
+------------------------------------------------------------
+
+Input file: /home/francesco/Programma/KLASSEZ/klassez/test/inp_80--40
+***                   WINDOW DELIMITERS /ppm                   ***
+  80.00	- 40.00
+
+***                     SIGNAL PARAMETERS                      ***
+#   	      u	    s	    k	  x_g	  phi	A        
+1   	  40.00	  256	0.164	 1.00	 0.00	6.88e+01
+2   	  25.20	  256	0.836	 0.60	 0.00	6.88e+01
+***                  END OF SIGNAL PARAMETERS                  ***
+------------------------------------------------------------
+
+Output file:/home/francesco/Programma/KLASSEZ/klassez/test/out_80--40
+***                   WINDOW DELIMITERS /ppm                   ***
+  80.00	- 40.00
+
+***                     SIGNAL PARAMETERS                      ***
+#   	      u	    s	    k	  x_g	  phi	A        
+1   	  39.99	  219	0.179	 1.00	 0.00	6.56e+01
+2   	  25.21	  229	0.821	 0.60	 0.00	6.56e+01
+***                  END OF SIGNAL PARAMETERS                  ***
+------------------------------------------------------------
+Fit succeeded.
+Total runtime: 0:00:00.088833.
+Number of function evaluations:   157
+
+                   Statistics of the fit                    
+Mean of residuals              = 1.513e+00 | Optimal : 0
+Mean/STD of residuals          = 8.830e-03 | Optimal : 0
+Systematic deviation           = 3.989e-02 | Optimal : 1
+Gaussianity of residuals       = 2.465e-01 | Optimal : 1
+------------------------------------------------------------
