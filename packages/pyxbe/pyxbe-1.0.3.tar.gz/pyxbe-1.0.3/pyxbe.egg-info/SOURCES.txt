@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+pyxbe.egg-info/PKG-INFO
+pyxbe.egg-info/SOURCES.txt
+pyxbe.egg-info/dependency_links.txt
+pyxbe.egg-info/requires.txt
+pyxbe.egg-info/top_level.txt
+tests/test_load.py
+xbe/__init__.py
+xbe/__main__.py
+xbe/py.typed
