@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: examon-beginners-package
+Version: 0.0.4
+Summary: 
+Author: Jarrod Folino
+Author-email: jdfolino@icloud.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: examon-core (==1.0.5)

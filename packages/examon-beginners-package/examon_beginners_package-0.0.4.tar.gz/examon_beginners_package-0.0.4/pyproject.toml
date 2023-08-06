@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "examon_beginners_package"
+version = "0.0.4"
+description = ""
+authors = ["Jarrod Folino <jdfolino@icloud.com>"]
+packages = [{include = "examon_beginners_package"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.9"
+examon-core = "1.0.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
