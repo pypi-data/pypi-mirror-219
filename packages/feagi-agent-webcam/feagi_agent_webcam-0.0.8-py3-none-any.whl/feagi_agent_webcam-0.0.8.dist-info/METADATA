@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: feagi-agent-webcam
+Version: 0.0.8
+Summary: Feagi agent webcam to connect feagi with your webcam
+Home-page: https://github.com/feagi/feagi
+Author: Neuraville LLC
+Author-email: info@neuraville.com
+Project-URL: Bug Tracker, https://github.com/feagi/feagi/issues
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: feagi-agent
+Requires-Dist: pyzmq (>=22.3.0)
+Requires-Dist: zmq (>=0.0.0) ; python_version < "3.8"
+
+# Quick start
+`pip3 install feagi_agent_webcam`
+
+`python3 -m feagi_agent_webcam --ip 127.0.0.1`
+
+# What is feagi_agent_webcam?
+Feagi_agent_webcam enables you to connect your webcam to Feagi while it's running. This allows you to see what your webcam sees on the brain activity. The response rate can be adjusted depending on the refresh rate you set, which can range from slow to fast.
+
+In addition, Feagi_agent_webcam can be used with various devices, including picamera, webcam, and robots' vision.
+
+# Requirements.txt
+These are the requirements which will be updated over time. The script will use this requirement to scan.
+
+Here: [requirements.txt](https://github.com/feagi/feagi/blob/staging/peripherals/feagi_agent_webcam/feagi_agent_webcam/requirements.txt)
+
