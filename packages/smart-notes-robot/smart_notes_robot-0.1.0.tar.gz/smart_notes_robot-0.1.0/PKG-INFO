@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: smart_notes_robot
+Version: 0.1.0
+Author-Email: Jan Kolomaznik <jan.kolomaznik@gmail.com>
+License: MIT
+Requires-Python: >=3.10
+Requires-Dist: pyyaml>=6.0
+Description-Content-Type: text/markdown
+
+# Smart notes robot
+
+Automatization library for working with Obsidian vault.

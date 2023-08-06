@@ -1,0 +1,1 @@
+from snr.io import open_vault
