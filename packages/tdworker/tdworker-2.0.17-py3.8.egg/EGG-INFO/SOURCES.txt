@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+readme.md
+setup.cfg
+setup.py
+scripts/automation.py
+tdworker.egg-info/PKG-INFO
+tdworker.egg-info/SOURCES.txt
+tdworker.egg-info/dependency_links.txt
+tdworker.egg-info/not-zip-safe
+tdworker.egg-info/requires.txt
+tdworker.egg-info/top_level.txt
+uiautomation/__init__.py
+uiautomation/uiautomation.py
+uiautomation/version.py
+uiautomation/bin/UIAutomationClient_VC140_X64.dll
+uiautomation/bin/UIAutomationClient_VC140_X86.dll
