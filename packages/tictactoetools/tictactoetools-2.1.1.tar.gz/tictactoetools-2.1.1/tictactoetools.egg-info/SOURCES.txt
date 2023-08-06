@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+tests/test.py
+tictactoetools/__init__.py
+tictactoetools/tictac_exceptions.py
+tictactoetools/tictactoetools.py
+tictactoetools.egg-info/PKG-INFO
+tictactoetools.egg-info/SOURCES.txt
+tictactoetools.egg-info/dependency_links.txt
+tictactoetools.egg-info/requires.txt
+tictactoetools.egg-info/top_level.txt
