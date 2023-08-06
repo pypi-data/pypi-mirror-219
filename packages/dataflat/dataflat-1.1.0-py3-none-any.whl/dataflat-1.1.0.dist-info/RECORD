@@ -1,0 +1,17 @@
+dataflat/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflat/commons.py,sha256=JQbOw0dlOAbVUFHLtkGQNxrBMQEkA3fzWz3IapLhz4Q,967
+dataflat/exceptions.py,sha256=yZhRxqpQTci-KXkBTgCCnZge3KsdtEeZwYtewd-aiJs,1039
+dataflat/flattener_handler.py,sha256=ALIFl0OpZuEiEXKprlCc4HVEYph0tSB7gU-rW2UDq4U,2618
+dataflat/dictionary/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflat/dictionary/flattener.py,sha256=lRaSoLNOw_6XBgDIrP2x6oFoT-bx6mzCdpUACG0DM_E,9395
+dataflat/pandas_df/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflat/pandas_df/flattener.py,sha256=Nv_T27da5RXjIcGLDF-IuSpkkfSIEreV8h9aELJGjbg,4197
+dataflat/spark_df/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflat/spark_df/flattener.py,sha256=sa4Kw549uQVvxFEoB1hlatdtlDJJULEECFihnozJv0Q,9556
+dataflat/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dataflat/utils/case_translator.py,sha256=Dr7njobloryaPYzfFnKxNdqJm8Ovj49zl0Vxd-obXDI,4777
+dataflat-1.1.0.dist-info/LICENSE,sha256=-b9AQaAwlfCxlqoyHq8GWzHNelRbdCmrFcnCpztWkQk,11340
+dataflat-1.1.0.dist-info/METADATA,sha256=XDZ42ztra9g0z2_qHB73gSBu3G8fHfU-r0-qV_ingPc,3048
+dataflat-1.1.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+dataflat-1.1.0.dist-info/top_level.txt,sha256=fNdLUHlZOj9ZT9iA0yQZXeraIjreptz-WbcaYXSmxek,9
+dataflat-1.1.0.dist-info/RECORD,,
