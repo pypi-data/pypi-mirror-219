@@ -1,0 +1,15 @@
+python_spectrometer/__init__.py,sha256=s8vfpxSCqmzJYaDWdnXB1aM7ve9LYy-dKV9pUB_PenE,4141
+python_spectrometer/core.py,sha256=BFODQ0dhVElpvVFCNwqrDk6UTb19AuaAFuC8OUEuZyc,78709
+python_spectrometer/daq/__init__.py,sha256=vIrWKALrBz8ypr--WHiQPT3oVConxPk-jCu6cINDMog,1707
+python_spectrometer/daq/__init__.pyi,sha256=0n9pZqzZXgyY9x8XgkTXTKOZJcle9eN63KuT2gYz-iI,1165
+python_spectrometer/daq/atsaverage.py,sha256=V8TBAnwT1h8LxoeGWUdZSs0m_s7KhSVozaXazVmlzqE,5675
+python_spectrometer/daq/core.py,sha256=IsmJNsEw2fa4Bv5KofPQrowx6N1pf8kde6-NTmhRsBk,3572
+python_spectrometer/daq/qcodes.py,sha256=Bf0NvEK_FyMctBACM1-kiGAUMsPjVuurHnabMUxIOY8,6964
+python_spectrometer/daq/settings.py,sha256=VEy9j3E0riH4b7Gwua3Vi6wALZSf7mj1Yngskxpxi_w,34491
+python_spectrometer/daq/simulator.py,sha256=ITQafK4blVM_toCIS3xet_H_xIMAV-azYmo4jPA0xZU,2274
+python_spectrometer/daq/swabian_instruments.py,sha256=FXCxuy22xEBNCL8IO3UrNdGpEdjxqEq9toziorRf91s,3843
+python_spectrometer/daq/zurich_instruments.py,sha256=3YqMc32du2eqA33Ixw2fAueL94tEeAabPiGnYS6nXKk,18583
+python_spectrometer-2023.7.1.dist-info/METADATA,sha256=kwEqiYQWpLLnEp4wlTxS2Wtf1kCWL7D-so_I-CXSzF4,5649
+python_spectrometer-2023.7.1.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+python_spectrometer-2023.7.1.dist-info/licenses/LICENSE,sha256=Vrxuw0ezpdfl4OOGf5nNJwthY-YqRotm-GZ_YTU6WS8,35168
+python_spectrometer-2023.7.1.dist-info/RECORD,,
