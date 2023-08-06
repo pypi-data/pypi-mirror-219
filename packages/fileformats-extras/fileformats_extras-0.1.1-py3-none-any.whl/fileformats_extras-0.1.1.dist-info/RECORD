@@ -1,0 +1,16 @@
+fileformats/extras/archive/__init__.py,sha256=3KTKGzoTKnp2-OpcwBU7erl8UcAQcmMGBgOVqrr2rBE,57
+fileformats/extras/archive/converters.py,sha256=tVIF-MMy1nsnVSnR6ZK4H3R54MA6ip0IUsnGgiKgNIE,8869
+fileformats/extras/archive/tests/test_archive_converters.py,sha256=575e-ssrzYjH-sZFHtzIlcYpYB03SHmdIKX65v3kMOE,2515
+fileformats/extras/core/__init__.py,sha256=aBz5LW_HYsQJZaXUuOpZOp5S6n4utPAOO2gD2Yx10CM,120
+fileformats/extras/core/_version.py,sha256=aDfNBQh0vsVL7CSgYEMdMUbrxVw92raLxMivH20w2A4,160
+fileformats/extras/image/__init__.py,sha256=xbtnsYfMpTUkU44K3huwcmdbO2Emlgt6YNWAUOH-c9E,82
+fileformats/extras/image/converters.py,sha256=Xgk99z10ii8peou65mUjXq-x7bg3EnEZT8P9CmyP788,929
+fileformats/extras/image/readwrite.py,sha256=d5U23f6o8RYYmDpaP3u7Vfsc4bZLoZDHsshm--yw4Gk,315
+fileformats/extras/image/tests/test_image_converters.py,sha256=0ySIMMzOvAOwTNozN9JJ6H2BH0ml78J16PCiEposY1A,536
+fileformats/extras/serialization/__init__.py,sha256=3KTKGzoTKnp2-OpcwBU7erl8UcAQcmMGBgOVqrr2rBE,57
+fileformats/extras/serialization/converters.py,sha256=azTlOfiFfOrj25jZpoH71RQrqlNKg0WkIqwVfE-GmYU,762
+fileformats/extras/serialization/tests/test_serialization_converters.py,sha256=7FjlTufAa4-_Ccmr_dMTIKEDKKhoR1Y5iP_5VVVZ7C8,770
+fileformats_extras-0.1.1.dist-info/METADATA,sha256=lh0XNZ5sNNw4gc2vyA2SDD6Wcsb9Jb4Lhmnj1sB8DFI,18214
+fileformats_extras-0.1.1.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+fileformats_extras-0.1.1.dist-info/licenses/LICENSE,sha256=s12hb9VeRlj1uxCx7NSbKwRGyTklVA7omWbTLyMhYIs,14222
+fileformats_extras-0.1.1.dist-info/RECORD,,
