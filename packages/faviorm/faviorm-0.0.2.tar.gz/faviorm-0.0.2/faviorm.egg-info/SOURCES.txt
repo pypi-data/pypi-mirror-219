@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.py
+faviorm/__init__.py
+faviorm/column.py
+faviorm/database.py
+faviorm/isql_struct.py
+faviorm/table.py
+faviorm.egg-info/PKG-INFO
+faviorm.egg-info/SOURCES.txt
+faviorm.egg-info/dependency_links.txt
+faviorm.egg-info/top_level.txt
