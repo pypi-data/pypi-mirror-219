@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: settus
+Version: 0.0.1
+Summary: Settings management using Pydantic, with ability to retrieve cloud secrets.
+Keywords: one,two
+Author-email: Olivier Soucy <osoucy.transactions@gmail.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: pydantic-settings
+Requires-Dist: black ; extra == "dev"
+Requires-Dist: flit ; extra == "dev"
+Requires-Dist: pytest ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Project-URL: Bug Tracker, https://github.com/opencubes-ai/settus/issues
+Project-URL: Homepage, https://github.com/opencubes-ai/settus
+Provides-Extra: aws
+Provides-Extra: azure
+Provides-Extra: dev
+Provides-Extra: gcp
+Provides-Extra: test
+
+# settus
+Settings management using Pydantic, with ability to retrieve cloud secrets.
+
