@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: np-config
+Version: 0.4.24
+Summary: Config fetching from file or Zookeeper - with local backup - repackaging code from AIBS mpeconfig.
+Author: Ben Hardcastle
+Author-email: ben.hardcastle@alleninstitute.org
+Maintainer: Ben Hardcastle
+Maintainer-email: ben.hardcastle@alleninstitute.org
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: appdirs (>=1,<2)
+Requires-Dist: backports.cached-property
+Requires-Dist: kazoo (>=2.8,<2.9)
+Requires-Dist: pyyaml (>=5,<7)
+Requires-Dist: requests (>=2,<3)
+Requires-Dist: singledispatch (>=4.0.0,<5.0.0)
+Requires-Dist: types-singledispatch (>=4.0.0.1,<5.0.0.0)
+Requires-Dist: typing-extensions (>=4)
+Project-URL: Bug Tracker, https://github.com/alleninstitute/np_config/issues
+Project-URL: Repository, https://github.com/alleninstitute/np_config
+Description-Content-Type: text/markdown
+
+# np_config
+
+
+### *For use on internal Allen Institute network*
+
+
+
+Fetch configs from ZooKeeper nodes or .yaml/.json files:
+
+```python
+import np_config
+
+zk_config: dict[str, str | int] = np_config.from_zk('/rigs/NP.1')
+
+file_config: dict[str, Any] = np_config.from_file('local_config.yaml')
+
+```
+
+
+If running on a machine attached to a Mindscope Neuropixels rig (`NP.0`, ..., `NP.3`), get rig-specific config info with:
+
+```python
+rig = np_config.Rig()
+
+name: str = rig.id                            # "NP.1"
+index: int = rig.idx                          # 1
+
+acquisition_pc_hostname: str = rig.acq        # "W10DT713843"
+config: dict[str, str | int] = rig.config     # specific to NP.1
+paths: dict[str, pathlib.Path] = rig.paths    # using values from rig.config
+```
+
+
+
+If not running on a rig-attached machine, get the config for a particular rig by supplying rig-index as an `int` to `Rig`:
+
+```python
+np1 = np_config.Rig(1)
+
+np1_mvr_data_root: pathlib.Path = np.paths['MVR']
+```
+
+
+***
+
+
+- the Mindscope ZooKeeper server is at `eng-mindscope:2181`
+- configs can be added via ZooNavigator webview:
+  [http://eng-mindscope:8081](http://eng-mindscope:8081)
+- or more conveniently, via an extension for VSCode such as [gaoliang.visual-zookeeper](https://marketplace.visualstudio.com/items?itemName=gaoliang.visual-zookeeper)
+
