@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: private_lecture_automation
+Version: 0.2.0
+Summary: Automation tools for private lecture management.
+Project-URL: Repository, https://github.com/PythonVilag/private-lecture-automation
+Author-email: Daniel Mizsak <info@pythonvilag.hu>
+License: MIT License
+        
+        Copyright (c) 2023 Daniel Mizsak
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: automation,calendar event,introduction email,private lecture
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Home Automation
+Requires-Python: >=3.8
+Requires-Dist: icalendar==5.0.7
+Requires-Dist: python-dotenv==1.0.0
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: furo; extra == 'dev'
+Requires-Dist: hatch; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: pytest; extra == 'dev'
+Requires-Dist: pytest-cov; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: sphinx; extra == 'dev'
+Requires-Dist: sphinx-copybutton; extra == 'dev'
+Description-Content-Type: text/markdown
+
+## <div align="center"> Private Lecture Automation</div>
+<br>
+
+[![docs](https://github.com/PythonVilag/private-lecture-automation/actions/workflows/static.yaml/badge.svg)](https://github.com/PythonVilag/private-lecture-automation/actions/workflows/static.yaml)
+
+
+Private Lecture Automation contains tools that make managing private lectures easier.
+
+These tools include:
+- Sending out an introduction email to new potential clients (`send_introduction_email`)
+- Creating a calendar event for the next lecture for a client (`send_calendar_event`)
+
+
+You can find more information about the installation and the usage of these
+tools in the <a href="https://pythonvilag.github.io/private-lecture-automation/" target="_blank">documentation</a>.
