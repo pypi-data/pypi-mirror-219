@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/similarity_ts_cli/__init__.py
+src/similarity_ts_cli/cli.py
+src/similarity_ts_cli.egg-info/PKG-INFO
+src/similarity_ts_cli.egg-info/SOURCES.txt
+src/similarity_ts_cli.egg-info/dependency_links.txt
+src/similarity_ts_cli.egg-info/entry_points.txt
+src/similarity_ts_cli.egg-info/requires.txt
+src/similarity_ts_cli.egg-info/top_level.txt
