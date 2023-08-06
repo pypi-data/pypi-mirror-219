@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+src/soarsdk/__init__.py
+src/soarsdk/client.py
+src/soarsdk/exceptions.py
+src/soarsdk/objects.py
+src/soarsdk.egg-info/PKG-INFO
+src/soarsdk.egg-info/SOURCES.txt
+src/soarsdk.egg-info/dependency_links.txt
+src/soarsdk.egg-info/requires.txt
+src/soarsdk.egg-info/top_level.txt
