@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: gd32graphing
+Version: 0.0.3
+Summary: Several no-fuss methods for creating plots with plotly by microsoft
+Author: GeorgeDong32
+Author-email: GeorgeDong32@outlook.com
+Requires: numpy
+Requires: typing
+Requires: pandas
+Requires: plotly
+
