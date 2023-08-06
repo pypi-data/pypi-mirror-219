@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: bittensor-wallet
+Version: 0.0.4
+Summary: BittensorWallet is a library for managing wallet keypairs, keyfiles, etc. for the Bittensor API.
+Home-page: https://github.com/opentensor/bittensor-wallet
+Author: opentensor.ai
+Author-email: hello@opentensor.dev
+Maintainer: 
+Maintainer-email: 
+License: MIT
+Keywords: bittensor,validator,ai,machine-learning,deep-learning,blockchain,pytorch,torch,neural-networks,cryptocurrency
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ansible-vault (==2.1.0)
+Requires-Dist: cryptography (==41.0.0)
+Requires-Dist: bittensor-config (==0.0.0)
+Requires-Dist: pathlib (==1.0.1)
+Requires-Dist: substrate-interface (==1.5.0)
+Requires-Dist: scalecodec (==1.2.0)
+Requires-Dist: termcolor (==2.1.1)
+Provides-Extra: test
+Requires-Dist: pytest (==7.2.0) ; extra == 'test'
+
+# BittensorWallet - v0.0.4
+
+BittensorWallet is a library for managing wallet keypairs, keyfiles, etc. for the [Bittensor Python API](https://github.com/opentensor/bittensor).  
+
+The purpose of this repo is to separate the concern of keyfile management from the https://github.com/opentensor/bittensor repo, to decrease the attack surface of Bittensor related to local keys and wallet functionality.  
+
+# Installation
+This package can be installed from [PyPi.org](https://pypi.org/project/bittensor-wallet/):
+```bash
+pip install bittensor-wallet==0.0.4
+```
+or via this repo (using [gh-cli](https://cli.github.com/)):  
+```bash
+gh repo clone opentensor/bittensor-wallet
+cd bittensor-wallet
+pip install -e .
+```
+
+
