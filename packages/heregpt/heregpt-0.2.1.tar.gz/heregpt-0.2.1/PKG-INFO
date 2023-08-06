@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: heregpt
+Version: 0.2.1
+Summary: Have ChatGPT right_here_ within your shell
+Home-page: https://github.com/drorata/heregpt
+License: MIT
+Author: Dror Atariah
+Author-email: drorata@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.7.0,<0.8.0)
+Requires-Dist: openai (>=0.27.8,<0.28.0)
+Requires-Dist: pydantic (>=2.0.2,<3.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Project-URL: Repository, https://github.com/drorata/heregpt
+Description-Content-Type: text/markdown
+
+# hereGPT
+
+Your chatGPT assistant right in the Terminal
+
+## Getting started and OpenAI key
+
+1. Install using `pip install heregpt` (or using any other method you favor).
+2. Get yourself an [OpenAI API key](https://platform.openai.com/account/api-keys).
+3. Place the key in one of the following places:
+   1. ~/config/heregpt with the key `OPENAI_API_KEY`
+   2. Set the environment variable `OPENAI_API_KEY`
+   3. Use the global option `openai-key`. For example: `heregpt --openai-key "my-great-key-12jd33`
+   4. When you're in DEV mode, you can also place the key in a `.env` file. It should be with the key `OPENAI_API_KEY`
+
