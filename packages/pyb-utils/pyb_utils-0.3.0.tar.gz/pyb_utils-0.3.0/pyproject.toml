@@ -1,0 +1,25 @@
+[tool.black]
+line-length = 80
+
+[tool.poetry]
+name = "pyb_utils"
+version = "0.3.0"
+description = "Basic utilities for PyBullet, including collision detection, ghost (i.e. visual-only) objects, and cameras."
+authors = ["Adam Heins <mail@adamheins.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<3.11"
+numpy = "^1.21.5"
+pybullet = "^3.2.1"
+spatialmath-python = ">=1.0.0"
+Pillow = "^9.0.0"
+matplotlib = "^3.5.1"
+opencv-python = "^4.5.5"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

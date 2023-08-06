@@ -1,0 +1,158 @@
+Metadata-Version: 2.1
+Name: pyb-utils
+Version: 0.3.0
+Summary: Basic utilities for PyBullet, including collision detection, ghost (i.e. visual-only) objects, and cameras.
+License: MIT
+Author: Adam Heins
+Author-email: mail@adamheins.com
+Requires-Python: >=3.7,<3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: Pillow (>=9.0.0,<10.0.0)
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0)
+Requires-Dist: numpy (>=1.21.5,<2.0.0)
+Requires-Dist: opencv-python (>=4.5.5,<5.0.0)
+Requires-Dist: pybullet (>=3.2.1,<4.0.0)
+Requires-Dist: spatialmath-python (>=1.0.0)
+Description-Content-Type: text/markdown
+
+# pyb_utils: utilities for PyBullet
+
+This is a collection of utilities I've found useful for working with PyBullet,
+including:
+* Collision detection: conveniently set up shortest distance computations and
+  collision checking between arbitrary objects in arbitrary configurations with
+  PyBullet. See the accompanying [blog post](https://adamheins.com/blog/collision-detection-pybullet).
+* Ghost objects: add purely visual objects to the simulation, optionally
+  attached to another body.
+* Camera: virtual camera from which to get RGBA, depth, segmentation, and point
+  cloud data. Also provides video recording using OpenCV.
+* Convenience class for easily creating rigid bodies.
+* Versions of some PyBullet functions that return *named* tuples, for easy
+  field access.
+* Basic quaternion functions.
+
+## Install and run
+This package requires **Python 3.7+**. It has been tested on Ubuntu 16.04,
+18.04, and 20.04.
+
+### From pip
+```
+pip install pyb_utils
+```
+
+### From source
+Clone the repo:
+```bash
+git clone https://github.com/adamheins/pyb_utils
+cd pyb_utils
+```
+
+Install using [poetry](https://python-poetry.org/):
+```bash
+poetry install
+poetry run python examples/collision_detection_example.py  # for example
+```
+
+Or using pip:
+```bash
+python -m pip install .
+```
+
+## Usage and examples
+This package provides a few basic quality of life utilities. First, PyBullet
+represents rotations using quaternions (in `[x, y, z, w]` order). We provide a
+few helper routines to convert to rotation matrices and rotate points (using
+[spatialmath](https://github.com/bdaiinstitute/spatialmath-python) under the
+hood):
+```python
+>>> import pyb_utils
+>>> q = (0, 0, np.sqrt(2) / 2, np.sqrt(2) / 2)  # 90 deg rotation about z-axis
+
+>>> pyb_utils.quaternion_to_matrix(q)  # convert to rotation matrix
+array([[ 1.,  0.,  0.],
+       [ 0., -0., -1.],
+       [ 0.,  1., -0.]])
+
+>>> pyb_utils.quaternion_multiply(q, q)  # rotate two quaternions together
+array([0, 0, -1, 0])                     # 180 deg rotate about z
+
+>>> pyb_utils.quaternion_rotate(q, [1, 0, 0])  # rotate a point
+array([0, 1, 0])
+```
+
+Second, we provide a simple class to quickly create rigid bodies
+programmatically, which is useful for adding basic objects to manipulate or act
+as obstacles:
+```python
+>>> import pybullet as pyb
+>>> import pyb_utils
+
+>>> pyb.connect(pyb.GUI)
+
+# create a 1x1x1 cube at the origin
+>>> box = pyb_utils.BulletBody.box(position=[0, 0, 0], half_extents=[0.5, 0.5, 0.5])
+
+# put a ball on top
+>>> ball = pyb_utils.BulletBody.sphere(position=[0, 0, 1.5], radius=0.5)
+
+# now put it somewhere else
+ball.set_pose(position=[2, 0, 0.5])
+```
+
+Third, we wrap some PyBullet functions to return *named* tuples, rather than
+normal tuples. When the tuples have 10+ fields in them, it is rather helpful to
+have names! The names and parameters of these functions are exactly the same as
+the underlying PyBullet ones, to make swapping effortless. Continuing our
+previous example:
+```python
+# built-in PyBullet method
+# the output is not easy to read!
+>>> pyb.getDynamicsInfo(box.uid, -1)
+(1.0,
+ 0.5,
+ (0.16666666666666666, 0.16666666666666666, 0.16666666666666666),
+ (0.0, 0.0, 0.0),
+ (0.0, 0.0, 0.0, 1.0),
+ 0.0,
+ 0.0,
+ 0.0,
+ -1.0,
+ -1.0,
+ 2,
+ 0.001)
+
+# switch to the pyb_utils version
+# now we can access fields by name
+>>> info = pyb_utils.getDynamicsInfo(box.uid, -1)
+>>> info.mass
+1.0
+>>> info.localInertiaPos
+(0.0, 0.0, 0.0)
+```
+
+And there's more! You can find example scripts of all of this package's
+utilities in the `examples/` directory:
+
+* [rigid bodies](examples/bodies_example.py)
+* [camera](examples/camera_example.py)
+* [collision detection](examples/collision_detection_example.py)
+* [ghost objects](examples/ghost_object_example.py)
+* [named tuples](examples/named_tuples_example.py)
+* [video](examples/video_example.py)
+
+## Known issues
+Feel free to open issues (or better yet, a pull request!) if you find a
+problem. Currently known issues:
+
+* Video recording does not output MP4 videos correctly. The AVI format works,
+  however.
+* Ghost objects sometimes flicker (spooky, but undesirable).
+
+## License
+[MIT](https://github.com/adamheins/pyb_utils/blob/main/LICENSE)
+
