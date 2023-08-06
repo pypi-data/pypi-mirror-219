@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: opendal
+Version: 0.38.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: gevent ; extra == 'benchmark'
+Requires-Dist: greenify ; extra == 'benchmark'
+Requires-Dist: greenlet ; extra == 'benchmark'
+Requires-Dist: boto3 ; extra == 'benchmark'
+Requires-Dist: pydantic ; extra == 'benchmark'
+Requires-Dist: boto3-stubs[essential] ; extra == 'benchmark'
+Requires-Dist: pdoc ; extra == 'docs'
+Requires-Dist: behave ; extra == 'test'
+Provides-Extra: benchmark
+Provides-Extra: docs
+Provides-Extra: test
+Summary: OpenDAL Python Binding
+Home-Page: https://opendal.apache.org/
+Author: OpenDAL Contributors <dev@opendal.apache.org>
+Author-email: OpenDAL Contributors <dev@opendal.apache.org>
+License: Apache-2.0
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Documentation, https://opendal.apache.org/docs/python/opendal.html
+Project-URL: Homepage, https://opendal.apache.org/
+Project-URL: Repository, https://github.com/apache/incubator-opendal
+
+# OpenDAL Python Binding
+
+Documentation: [main](https://opendal.apache.org/docs/python/)
+
+This crate intends to build a native python binding.
+
+![](https://github.com/apache/incubator-opendal/assets/5351546/87bbf6e5-f19e-449a-b368-3e283016c887)
+
+## Installation
+
+```bash
+pip install opendal
+```
+
+## Usage
+
+```python
+import opendal
+
+op = opendal.Operator("fs", root="/tmp")
+op.write("test.txt", b"Hello World")
+print(op.read("test.txt"))
+print(op.stat("test.txt").content_length)
+```
+
+Or using the async API:
+
+```python
+import asyncio
+
+async def main():
+    op = opendal.AsyncOperator("fs", root="/tmp")
+    await op.write("test.txt", b"Hello World")
+    print(await op.read("test.txt"))
+
+asyncio.run(main())
+```
+
+## Development
+
+Setup virtualenv:
+
+```shell
+python -m venv venv
+```
+
+Activate venv:
+
+```shell
+source venv/bin/activate
+````
+
+Install `maturin`:
+
+```shell
+pip install maturin[patchelf]
+```
+
+Build bindings:
+
+```shell
+maturin develop
+```
+
+Run some tests:
+
+```shell
+maturin develop -E test
+behave tests
+```
+
+Build API docs:
+
+```shell
+maturin develop -E docs
+pdoc opendal
+```
+
