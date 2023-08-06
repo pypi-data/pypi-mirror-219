@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+streamlink_repo/__init__.py
+streamlink_repo/common.py
+streamlink_repo/paths.py
+streamlink_repo.egg-info/PKG-INFO
+streamlink_repo.egg-info/SOURCES.txt
+streamlink_repo.egg-info/dependency_links.txt
+streamlink_repo.egg-info/entry_points.txt
+streamlink_repo.egg-info/requires.txt
+streamlink_repo.egg-info/top_level.txt
