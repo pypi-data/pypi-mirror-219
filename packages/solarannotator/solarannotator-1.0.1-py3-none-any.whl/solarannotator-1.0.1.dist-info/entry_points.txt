@@ -1,0 +1,2 @@
+[console_scripts]
+SolarAnnotator = solarannotator.main:main
