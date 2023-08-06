@@ -1,0 +1,9 @@
+{
+  "name": "token_types",
+  "version": "0.1.0",
+  "repo": "goodcleanfun/token_types",
+  "description": "Generic vectors in C",
+  "keywords": ["tokenization", "strings", "tokens"],
+  "license": "MIT",
+  "src": ["src/token_types.h"]
+}

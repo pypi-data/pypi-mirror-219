@@ -1,0 +1,15 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 6639e72
+_src_path: gh:goodcleanfun/tokenizer
+author: Al Barrentine
+description: Tokenizer for semiformal unicode text using TR-29 segmentation
+lang: ''
+license: MIT
+name: semiformal
+pypi_package: true
+python_binding: true
+repo_name: semiformal
+repo_url: https://github.com/goodcleanfun/semiformal
+standard_token_types: true
+unicode_word_breaks: true
+

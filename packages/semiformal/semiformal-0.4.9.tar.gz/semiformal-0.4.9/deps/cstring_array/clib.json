@@ -1,0 +1,13 @@
+{
+  "name": "cstring_array",
+  "version": "0.1.0",
+  "repo": "goodcleanfun/cstring_array",
+  "description": "Stores an array of NUL-terminated C strings as one contiguous array with index pointers",
+  "keywords": ["vector", "array", "string"],
+  "license": "MIT",
+  "dependencies": {
+    "goodcleanfun/char_array": "*",
+    "goodcleanfun/num_arrays": "*"
+  },
+  "src": ["src/cstring_array.h", "src/cstring_array.c"]
+}

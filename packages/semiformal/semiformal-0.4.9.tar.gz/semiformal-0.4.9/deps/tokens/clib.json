@@ -1,0 +1,14 @@
+{
+  "name": "tokens",
+  "version": "0.1.0",
+  "repo": "goodcleanfun/tokens",
+  "description": "Arrays of tokens as string offsets and lengths as well as a tokenized string which stores the tokens as a single contiguous array of NUL-terminated strings using cstring_array",
+  "keywords": ["vector", "array", "string"],
+  "license": "MIT",
+  "dependencies": {
+    "goodcleanfun/cstring_array": "*",
+    "goodcleanfun/vector": "*",
+    "clibs/strndup": "*"
+  },
+  "src": ["src/tokens.h", "src/tokens.c"]
+}

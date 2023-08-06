@@ -1,0 +1,9 @@
+{
+  "name": "utf8proc",
+  "version": "v2.8.0",
+  "repo": "JuliaStrings/utf8proc",
+  "description": "utf8proc is a small, clean C library that provides Unicode normalization, case-folding, and other operations for data in the UTF-8 encoding",
+  "keywords": ["strings", "unicode", "utf8", "utf-8", "normalization"],
+  "license": "MIT",
+  "src": ["utf8proc.h", "utf8proc.c", "utf8proc_data.c"]
+}

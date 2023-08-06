@@ -1,0 +1,17 @@
+{ 
+  "name": "semiformal",
+  "version": "0.4.9",
+  "repo": "goodcleanfun/semiformal",
+  "description": "Tokenizer for semiformal unicode text using TR-29 segmentation",
+  "keywords": ["tokenizer", "lexer", "re2c", "fsa", "semiformal"],
+  "dependencies": {
+    "goodcleanfun/token_types": "*",
+    "goodcleanfun/word_breaks": "*",
+    "goodcleanfun/tokens": "*"
+  },
+  "license": "MIT",
+  "src": [
+    "src/scanner.h",
+    "src/scanner.c"
+  ]
+}

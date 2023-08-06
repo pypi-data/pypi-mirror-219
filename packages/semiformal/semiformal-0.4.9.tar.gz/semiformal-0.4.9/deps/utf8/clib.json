@@ -1,0 +1,14 @@
+{
+  "name": "utf8",
+  "version": "0.1.0",
+  "repo": "goodcleanfun/utf8",
+  "description": "UTF-8 strings to unicode codepoints using utf8proc in C",
+  "keywords": ["utf8", "string", "unicode"],
+  "license": "MIT",
+  "dependencies": {
+    "goodcleanfun/utf8proc": "*",
+    "goodcleanfun/num_arrays": "*",
+    "clibs/strndup": "*"
+  },
+  "src": ["src/utf8.h", "src/utf8.c"]
+}

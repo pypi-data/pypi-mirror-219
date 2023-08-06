@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm[toml]", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semiformal"
+dynamic = ["version"]
+description = "Tokenizer for semiformal unicode text using TR-29 segmentation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.7"
+authors = [
+    { name = "Al Barrentine" },
+]
+keywords = [
+    "word",
+    "tokenizer",
+    "lexer",
+    "re2c",
+    "fsa"
+]
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/goodcleanfun/semiformal"
+Repository = "https://github.com/goodcleanfun/semiformal"
+
+[tool.coverage.run]
+parallel = true
+source = [
+    "python/semiformal",
+]
+context = '${CONTEXT}'
+
+
+[tool.ruff]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
+
+[tool.setuptools.packages.find]
+where = ["python"]
+
+[tool.setuptools.dynamic]
+version = {attr = "semiformal.__version__"}
