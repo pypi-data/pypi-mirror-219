@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: ML-Algo
+Version: 1.2.1
+Summary: A package for calculating Series Time Data
+Author: Mr Raj
+Author-email: arunraj14092002@gmail.com
+Requires-Dist: pandas
+
