@@ -1,0 +1,11 @@
+from abc import ABC, abstractmethod
+
+import pandas as pd
+
+from datamazing.pandas.types import TimeInterval
+
+
+class Database(ABC):
+    @abstractmethod
+    def query(self, table_name: str, time_interval: TimeInterval) -> pd.DataFrame:
+        raise NotImplementedError
