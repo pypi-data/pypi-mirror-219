@@ -1,0 +1,15 @@
+genericparser/__init__.py,sha256=lZYbIDNVsUKcyM77nVg38V4VuytyuFHH0ueUo6trlcw,112
+genericparser/accept_plugins.py,sha256=Vu5wWKgpPJ6vQWPdrifh9KZfTIpZKPYGbjS_5ogWx4o,135
+genericparser/genericparser.py,sha256=xn3v3vq8xF8mwRXmoEx6O4QnnCKdoigcnK82nwqnS3U,2024
+genericparser/plugins/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+genericparser/plugins/dinamic/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+genericparser/plugins/dinamic/github.py,sha256=lYyWNa5FI2i_OF1YKsT3NTEIOASAA1tKdJg-H7Q2Ni0,6404
+genericparser/plugins/domain/generic_class.py,sha256=TwcBmf45AK9BUkgeYkeYSqAgiusF1zrIefv_QjU_EhI,1921
+genericparser/plugins/statics/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+genericparser/plugins/statics/sonarqube.py,sha256=OdJKoxHxSLT16xKZKvIvea2pW7305k108k2141Yb-y4,785
+genericparser/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+msgram_parser-1.1.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+msgram_parser-1.1.0.dist-info/METADATA,sha256=dGyKCGSrrfIgQkpDQE7Tr8bmcFJZGQ-DDomst67vjBs,44992
+msgram_parser-1.1.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+msgram_parser-1.1.0.dist-info/top_level.txt,sha256=h6-Mn1XoPzHabOEq0bg4Klpvo3ll05ziOVhlJTNONSg,14
+msgram_parser-1.1.0.dist-info/RECORD,,
