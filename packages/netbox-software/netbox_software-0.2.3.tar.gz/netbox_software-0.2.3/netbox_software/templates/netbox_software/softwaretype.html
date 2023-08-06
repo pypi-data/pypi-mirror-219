@@ -1,0 +1,35 @@
+{% extends 'generic/object.html' %}
+{% load helpers %}
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Тип ПО</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Название</th>
+              <td>{{ object.name|placeholder }}</td>
+            </tr>
+            <tr>
+              <th scope="row">Приложения</th>
+              <td>
+                {% if object.get_apps %}
+                  {% for app in object.get_apps %}
+                    {{ app.name|placeholder }};
+                  {% endfor %}
+                {% else %}
+                  Нет установленных приложений данного типа
+                {% endif %}
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      {% include 'inc/panels/custom_fields.html' %}
+    </div>
+    <div class="col col-md-6">
+      {% include 'inc/panels/comments.html' %}
+    </div>
+  </div>
+{% endblock content %}
