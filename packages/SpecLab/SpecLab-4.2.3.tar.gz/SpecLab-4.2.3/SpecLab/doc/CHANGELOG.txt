@@ -1,0 +1,36 @@
+4.0.5
+
+- Added epar_imXam.py to files that are put into anaconda bin, allowing one
+to directly edit the imXam_param.dat using vim.
+
+- Added imXam_param.default.dat just as a file in case imXam_param.dat gets
+too messed up 
+
+4.0.6
+
+- added improved documentation to README
+
+- now T key allows user to enter a number like 1.5e4 (previously, could
+only enter integers)
+
+- changed plot style for 'c' and 'l' keys in Plotly.
+
+4.0.8
+
+- added documentation to the Pypi webpage
+
+4.1.0
+
+- updates for python 3.6 and 3.7
+
+4.1.1 
+
+- updates to PyQtGraph, photutils module call for Python 3.8, Numpy 1.
+
+4.2.3
+
+Updated everything to PyQtGraph 0.13, PyQt6, and Python 3.11.4.  All other packages were updated to latest version.
+No longer packages up the PyQtGraph into a tar, now only packages up the modified routines (ROI, GraphicsScene, ImageView).
+
+install_requires=['numpy>=1.25.0', 'plotly>=5.15.0', 'pandas>=2.0.3','astropy>=5.3.1','scipy>=1.11.1','matplotlib>=3.7.2','PyQt6==6.5.1', 'photutils>=1.8.0','pyqtgraph==0.13.3',]
+

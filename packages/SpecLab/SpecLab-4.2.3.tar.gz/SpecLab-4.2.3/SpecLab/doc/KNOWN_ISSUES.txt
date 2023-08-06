@@ -1,0 +1,27 @@
+Plotly opens a new tab in a browser each time it is used.  I am not sure how to fix this as searching for solutions for a while did not bring up any browser settings that could be modified.
+
+Have not tested this in Jupyter Notebooks.  I don't think it will work yet in Jupyter Notebooks but you can try.
+
+The spectral trace success relies on a decent to good Gaussian fit in spatial direction at every ~20-50 columns, so this could fail entirely on spectra that are very out of focus and show double peaks.  I plan to fix this and make it more flexible in a future update.
+
+When running epar_imXam.py, "Greys" is the only option for color map at the moment.  Will be changed in the future.
+
+Note 1: the first time you use imXam, it will take longer than normal to start b/c it's creating
+all those pycache/ folders.
+
+Note 2: imXam requires vim, which is already installed on most systems that use UNIX (make sure that your
+system has vim, not vi).
+
+Note 3: For Linux, one may have to do the following:  
+sudo apt install libxcb-cursor0 
+or 
+sudo apt install --reinstall libxcb-cursor0 
+or
+sudo apt-get install --reinstall libxcb-xinerama0
+
+Note 4: The default version of PyQtGraph encounters a problem with Python 3.11:
+https://github.com/python/cpython/issues/105497
+This fix won't get pushed until August 2023.  In the meantime, I've made the necessary
+fixes to ROI.py in PyQtGraph.
+
+Note 5: This should work with Intel processors on a Mac.  For M1/2 processors, a build for PyQt6 should be available soon.
