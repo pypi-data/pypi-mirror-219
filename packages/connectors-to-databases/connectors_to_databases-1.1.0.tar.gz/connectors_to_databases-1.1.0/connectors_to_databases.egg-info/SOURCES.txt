@@ -1,0 +1,15 @@
+LICENSE.MD
+README.md
+pyproject.toml
+setup.py
+connectors_to_databases/BaseOperator.py
+connectors_to_databases/ClickHouse.py
+connectors_to_databases/PostgreSQL.py
+connectors_to_databases/TypeHinting.py
+connectors_to_databases/__init__.py
+connectors_to_databases/class_use.py
+connectors_to_databases.egg-info/PKG-INFO
+connectors_to_databases.egg-info/SOURCES.txt
+connectors_to_databases.egg-info/dependency_links.txt
+connectors_to_databases.egg-info/requires.txt
+connectors_to_databases.egg-info/top_level.txt
