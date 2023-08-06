@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: FastCG
+Version: 0.0.4
+Summary: Counterfactual Generation Package
+Author: Linoy Cohen
+Author-email: colinoy@gmail.com
+License: MIT
+Keywords: conversion
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+
+A package that makes it easy generate counterfactuals in a fast manner
