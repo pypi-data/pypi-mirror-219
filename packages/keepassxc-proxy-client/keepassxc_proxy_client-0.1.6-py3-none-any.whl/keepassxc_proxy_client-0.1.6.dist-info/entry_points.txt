@@ -1,0 +1,2 @@
+[console_scripts]
+keepassxc_proxy_client = keepassxc_proxy_client.__main__:main
