@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: logol
+Version: 1.0.0
+Summary: Pre-configured logs
+Author-email: Joseíto Oliveira <joseito.oliveira@outlook.com>
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Project-URL: Home, https://github.com/JoseitoOliveira/logol
+
+A easy way to use and configure logging builtin library
