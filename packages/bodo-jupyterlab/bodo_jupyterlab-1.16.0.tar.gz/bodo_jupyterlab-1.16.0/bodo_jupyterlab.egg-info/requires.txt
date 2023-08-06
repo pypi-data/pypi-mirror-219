@@ -1,0 +1,5 @@
+jupyterlab==3.4.*
+jupyter-packaging>=0.12.3
+cachetools>=4.2.4
+remote-ikernel>=0.7.0
+terminado==0.15.0

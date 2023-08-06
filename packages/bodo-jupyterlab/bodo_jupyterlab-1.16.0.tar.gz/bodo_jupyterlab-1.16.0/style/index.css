@@ -1,0 +1,478 @@
+@import url('base.css');
+
+/*
+* Copied from IPyParallel
+*/
+
+:root {
+  --bodo-launch-button-height: 24px;
+}
+
+/**
+   * Rules related to the overall sidebar panel.
+   */
+
+.bodo-Sidebar {
+  background: var(--jp-layout-color1);
+  color: var(--jp-ui-font-color1);
+  font-size: var(--jp-ui-font-size1);
+  overflow-y: auto;
+}
+
+/**
+   * Rules related to the cluster manager.
+   */
+
+.bodo-ClusterManager {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bodo-ClusterManager .jp-Toolbar {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bodo-ClusterManager .jp-Toolbar .bodo-ClusterManager-label {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--jp-ui-font-size0);
+  padding: 8px 8px 8px 12px;
+  margin: 0px;
+}
+
+.bodo-ClusterManager button.jp-Button > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.bodo-ClusterListing ul.bodo-ClusterListing-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bodo-ClusterListing h2 {
+  padding: 8px 12px;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: unset;
+  color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  border-bottom: var(--jp-border-width) solid var(--jp-toolbar-border-color);
+  -webkit-box-shadow: var(--jp-toolbar-box-shadow);
+  box-shadow: var(--jp-toolbar-box-shadow);
+}
+
+.bodo-ClusterListingItem {
+  display: inline-block;
+  list-style-type: none;
+  padding: 8px;
+  width: 98%;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+.bodo-ClusterListingItem-drag {
+  opacity: 0.7;
+  color: var(--jp-ui-font-color1);
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  max-width: 260px;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.bodo-ClusterListingItem-title {
+  margin: 0px;
+  font-size: var(--jp-ui-font-size2);
+  font-weight: 500;
+}
+.bodo-ClusterListingItem-stats {
+  font-weight: 300;
+}
+.bodo-ClusterListingItem-stats-name {
+  font-weight: 500;
+}
+.bodo-ClusterListing-warning {
+  font-weight: 300;
+  color: var(--jp-warn-color1);
+  white-space: normal;
+  font-size: smaller;
+}
+.bodo-ClusterListingItem-link a {
+  text-decoration: none;
+  color: var(--jp-content-link-color);
+}
+
+.bodo-ClusterListingItem-link a:hover {
+  text-decoration: underline;
+}
+
+.bodo-ClusterListingItem-link a:visited {
+  color: var(--jp-content-link-color);
+}
+
+.bodo-ClusterListingItem:hover {
+  background: var(--jp-layout-color2);
+}
+
+.bodo-ClusterListingItem.jp-mod-active {
+  color: white;
+  background: var(--jp-brand-color0);
+}
+
+.bodo-ClusterListingItem.jp-mod-active a,
+.bodo-ClusterListingItem.jp-mod-active a:visited {
+  color: white;
+}
+
+.bodo-ClusterListingItem button.jp-mod-styled {
+  background-color: transparent;
+}
+
+.bodo-ClusterListingItem button.jp-mod-styled:hover {
+  background-color: var(--jp-layout-color3);
+}
+
+.bodo-ClusterListingItem.jp-mod-active button.jp-mod-styled:hover {
+  background-color: var(--jp-brand-color1);
+}
+
+.bodo-ClusterListingItem-button-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+}
+
+button.bodo-ClusterListingItem-stop {
+  color: var(--jp-warn-color1);
+  font-weight: 600;
+}
+
+button.bodo-ClusterListingItem-scale {
+  color: var(--jp-accent-color1);
+  font-weight: 600;
+}
+
+button.bodo-ClusterListingItem-start {
+  color: var(--jp-accent-color1);
+  font-weight: 600;
+}
+
+button.bodo-hidden {
+  display: none;
+}
+
+.bodo-ClusterListingItem button.bodo-ClusterListingItem-code.jp-mod-styled {
+  margin: 0 4px 0 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/**
+   * Rules for the scaling dialog.
+   */
+
+.bodo-DialogHeader {
+  font-size: var(--jp-ui-font-size2);
+}
+
+.bodo-DialogSection {
+  margin-left: 24px;
+}
+
+.bodo-DialogSection-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  margin: 12px 0 12px 0;
+}
+
+.bodo-DialogHeader input[type='checkbox'] {
+  position: relative;
+  top: 4px;
+  left: 4px;
+  margin: 0 0 0 8px;
+}
+
+.bodo-DialogSection input[type='number'] {
+  width: 72px;
+}
+
+.bodo-DialogSection-label.bodo-mod-disabled {
+  color: var(--jp-ui-font-color3);
+}
+
+.bodo-DialogSection input[type='number']:disabled {
+  color: var(--jp-ui-font-color3);
+}
+
+.bodo-cluster-list-terminal svg {
+  height: 24px;
+  cursor: pointer;
+}
+
+.bodo-cluster-list-pause-unpause svg {
+  height: 24px;
+  cursor: pointer;
+}
+
+.bodo-cluster-list-stop-restart svg {
+  height: 24px;
+  cursor: pointer;
+}
+
+.bodo-cluster-list-pause-unpause path {
+  fill: #1db100;
+}
+
+.bodo-cluster-list-stop-restart path {
+  fill: #1db100;
+}
+
+#stop-svg path {
+  fill: #f75149 !important;
+}
+
+.cluster-status {
+  display: inline-block;
+  padding: 2px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  background-color: #607d8b;
+  color: #fff !important;
+  font-weight: bold;
+}
+.cluster-status.running {
+  background-color: #34b100 !important;
+}
+.cluster-status.new {
+  background-color: #58aafd !important;
+}
+.cluster-status.new,
+.cluster-status.inprogress,
+.cluster-status.pending,
+.cluster-status.scaling,
+.cluster-status.initializing,
+.cluster-status.terminating {
+  background-color: #ecc817 !important;
+}
+.bodo-ClusterListingItem-status-and-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 1rem;
+}
+.bodo-ClusterListingItem-status-and-buttons svg {
+  height: 24px !important;
+  width: 24px !important;
+}
+.bodo-ClusterListingItem-buttons {
+  display: flex;
+  align-items: center;
+}
+/**
+   * Rules for the logos.
+   */
+
+.bodo-SearchIcon {
+  background-image: var(--jp-icon-search);
+}
+
+[data-jp-theme-light='true'] .bodo-CodeIcon {
+  background-image: url(code-light.svg);
+}
+
+[data-jp-theme-light='false'] .bodo-CodeIcon {
+  background-image: url(code-dark.svg);
+}
+
+.bodo-ClusterListingItem.jp-mod-active .bodo-CodeIcon {
+  background-image: url(code-dark.svg);
+}
+.jp-Toolbar {
+  z-index: 4;
+}
+.bodo-dropdown-container {
+  position: relative;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  height: 24px;
+}
+.bodo-currently-selected-dropdown {
+  border: 1px solid #616161;
+  color: black;
+  width: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0 4px;
+  height: 24px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background: var(--jp-layout-color1);
+}
+
+.bodo-currently-selected-cluster span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bodo-select-chevron {
+  cursor: pointer;
+  fill: #616161;
+}
+
+.bodo-dropdown-list,
+.bodo-cluster-select-list {
+  display: none;
+  position: fixed;
+  background-color: white;
+  border: 1px solid #616161;
+  width: 400px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 999;
+  max-height: 400px;
+  overflow: scroll;
+  transform: translate3d(0, 0, 0);
+}
+.bodo-dropdown-list > div {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  padding: 4px;
+  justify-content: space-between;
+}
+.bodo-dropdown-list > div:not(.bodo-drop-down-details) {
+  cursor: pointer;
+}
+
+.bodo-dropdown-list > div:not(.bodo-drop-down-details):not(.current-cluster-option):hover {
+  background-color: rgb(236, 236, 236);
+}
+.bodo-dropdown-list > div.current-cluster-option {
+  background-color: #eaf6ff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: default;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.bodo-dropdown-list > div:not(:last-child) {
+  border-bottom: 1px dotted gray;
+}
+.current-cluster-option button {
+  border: 0;
+  padding: 8px;
+  background-color: transparent;
+  color: #2374bb;
+  cursor: pointer;
+}
+.bodo-cluster-dropdown-item.paused-bodo-clusuter {
+  background-color: #f2f2f2;
+  cursor: default !important;
+}
+.bodo-cluster-dropdown-item.paused-bodo-clusuter svg {
+  height: 20px;
+  width: 20px;
+}
+.cluster-select-resume-cluster svg {
+  cursor: pointer !important;
+}
+.cluster-select-resume-loading svg {
+  cursor: default !important;
+}
+.cluster-select-resume-loading,
+.cluster-select-resume-cluster {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cluster-select-resume-loading svg {
+  width: 20px;
+}
+.bodo-cluster-dropdown-item.paused-bodo-clusuter svg path {
+  fill: #1db100;
+}
+.cluster-name {
+  line-height: 1;
+}
+.cluster-details {
+  display: block;
+  line-height: 1;
+}
+.bodo-dropdown-item > div {
+  line-height: 1.2;
+}
+
+.bodo-dropdown-list.selecting,
+.bodo-cluster-select-list.selecting {
+  display: block;
+}
+
+.bodo-drop-down-details {
+  font-weight: 600;
+  line-height: 1;
+}
+
+.jp-Cell-header {
+  overflow: visible;
+}
+
+.bodo-header-textbox {
+  display: none;
+}
+
+.bodo-header-textbox.visible {
+  display: block;
+}
+
+.jp-CodeCell {
+  margin-top: 12px;
+}
