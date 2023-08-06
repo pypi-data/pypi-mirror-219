@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: faknow
+Version: 0.0.1
+Summary: A unified fake news detection library
+Home-page: https://github.com/thinking024/FaKnow
+Author: NPURG
+Author-email: yiyuanzhu@mail.nwpu.edu.cn
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8.0
+License-File: LICENSE
