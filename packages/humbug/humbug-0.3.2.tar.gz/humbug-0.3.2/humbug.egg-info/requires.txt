@@ -1,0 +1,23 @@
+requests
+
+[:python_version == "3.6"]
+dataclasses
+
+[dev]
+black
+mypy
+types-dataclasses
+types-pkg_resources
+types-psutil
+types-requests
+wheel
+
+[distribute]
+setuptools
+twine
+wheel
+
+[profile]
+GPUtil
+psutil
+types-psutil
