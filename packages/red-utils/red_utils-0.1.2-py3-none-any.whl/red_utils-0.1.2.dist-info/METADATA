@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: red_utils
+Version: 0.1.2
+Summary: Collection of utility scripts/functions that I use frequently.
+Author-Email: redjax <none@none.com>
+License: MIT
+Project-URL: Homepage, https://github.com/redjax/red-utils
+Requires-Python: >=3.11
+Requires-Dist: msgpack>=1.0.5
+Requires-Dist: loguru>=0.7.0
+Requires-Dist: httpx>=0.24.1
+Requires-Dist: diskcache>=5.6.1
+Description-Content-Type: text/markdown
+
+# red-utils
+
+**Important**: This is my first Python package. I'm experimenting with CI/CD and Pypi. This library is most likely not useful to anyone else.
+
+# Description
+
+A collection of utility scripts/functions that I use frequently. Includes helper functions/default variables for libraries like `loguru`, `diskcache`, and `msgpack`.
+
+# Installation
+
+*WIP*
+
+# Development
+
+*WIP*
