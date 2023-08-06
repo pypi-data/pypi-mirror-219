@@ -1,0 +1,3 @@
+[console_scripts]
+entelecheia=entelecheia.__cli__:main
+
