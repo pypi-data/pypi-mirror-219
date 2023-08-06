@@ -1,0 +1,10 @@
+README.md
+setup.py
+src/kk_plugins/__init__.py
+src/kk_plugins/excel.py
+src/kk_plugins/project.py
+src/kk_plugins.egg-info/PKG-INFO
+src/kk_plugins.egg-info/SOURCES.txt
+src/kk_plugins.egg-info/dependency_links.txt
+src/kk_plugins.egg-info/requires.txt
+src/kk_plugins.egg-info/top_level.txt
