@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: Tiupy
+Version: 0.0.10
+Summary: A scraper for Tiu student system website
+Home-page: https://github.com/heromr/tiupy
+Author: HeroMR
+Author-email: mrhero4006@gmail.com
+License: MIT
+Keywords: python,tiu,tishk,tiu scraper,tiu API
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# tiupy
+A library to scrape data from [TIU](https://my.tiu.edu.iq) student system
+
+## Installation
+
+```bash
+pip install tiupy
+```
+
+## Example
+
+```python
+import tiupy
+
+client = Client()
+client.login(<username>, <password>)
+
+print(client.sid)
+print(client.profile.gpa)
+print(client.get_courses_data())
+```
