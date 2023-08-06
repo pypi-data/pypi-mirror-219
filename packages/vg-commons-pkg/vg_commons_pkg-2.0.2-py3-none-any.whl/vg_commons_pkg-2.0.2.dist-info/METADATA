@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: vg-commons-pkg
+Version: 2.0.2
+Summary: A package for Vanguard Commons
+Home-page: https://github.com/Syed-Shah-Fahad/https://github.com/TridentMarketing/vanguard-common.git
+Author: Syed-Shah-Fahad
+Author-email: syed.fahad009@gmail.com
+Project-URL: Bug Reports, https://github.com/Syed-Shah-Fahad/https://github.com/TridentMarketing/vanguard-common/issues
+Project-URL: Source, https://github.com/Syed-Shah-Fahad/https://github.com/TridentMarketing/vanguard-common
+Keywords: vanguard commons package
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+Detailed description of the package and its features.
