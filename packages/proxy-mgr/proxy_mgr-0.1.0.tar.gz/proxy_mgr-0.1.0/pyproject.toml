@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "proxy-mgr"
+version = "0.1.0"
+description = "Proxy Manager"
+authors = ["What-XD"]
+readme = "README.md"
+packages = [
+    { include = "proxyMGR" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
