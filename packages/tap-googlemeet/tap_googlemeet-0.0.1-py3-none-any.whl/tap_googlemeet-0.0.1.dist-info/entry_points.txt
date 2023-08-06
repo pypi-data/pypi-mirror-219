@@ -1,0 +1,3 @@
+[console_scripts]
+tap-googlemeet=tap_googlemeet.tap:TapGoogleMeet.cli
+
