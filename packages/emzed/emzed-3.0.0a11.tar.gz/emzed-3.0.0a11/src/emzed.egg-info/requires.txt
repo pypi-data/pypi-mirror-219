@@ -1,0 +1,15 @@
+dill
+IsoSpecPy==2.2.1
+numpy>=1.17
+openpyxl
+pyper==1.1.1
+requests
+scikit-learn
+xlrd
+xlwt
+xlwt
+matplotlib
+pandas>=2.0.1
+
+[:python_version < "3.9"]
+importlib-resources>=1.1.0
