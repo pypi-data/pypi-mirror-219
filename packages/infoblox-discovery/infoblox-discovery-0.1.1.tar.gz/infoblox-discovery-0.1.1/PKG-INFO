@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: infoblox-discovery
+Version: 0.1.1
+Summary: A Prometheus file and http discovery for infoblox
+Home-page: https://github.com/thenodon/infoblox_discovery
+Author: thenodon
+Author-email: aha@ingby.com
+License: GPLv3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+infoblox-discovery
+---------------------
