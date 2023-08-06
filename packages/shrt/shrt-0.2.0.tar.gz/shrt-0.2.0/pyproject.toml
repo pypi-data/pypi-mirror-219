@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "shrt"
+version = "0.2.0"
+description = "Shorten URLs"
+authors = ["Yehuda Deutsch <yeh@uda.co.il>"]
+maintainers = ["Yehuda Deutsch <yeh@uda.co.il>"]
+readme = "README.md"
+repository = "https://gitlab.com/uda/shrt"
+license = "MIT"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://gitlab.com/uda/shrt/-/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = { extras = ["all"], version = "^0.99.0" }
+typer = "^0.9.0"
+fastapi-jinja = "^0.2.0"
+SQLAlchemy = "^1.4.40"
+databases = { extras = ["aiosqlite"], version = "^0.7.0" }
+tabulate = "^0.9.0"
+redis = {version = "^4.6.0", optional = true}
+
+[tool.poetry.extras]
+cache = ["redis"]
+
+[tool.poetry.scripts]
+shrt = 'shrt.cli.main:cli'
+
+[tool.poetry.group.dev.dependencies]
+dunamai = "^1.17.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
