@@ -1,0 +1,6 @@
+include pyproject.toml
+recursive-include src/speechmos *.onnx
+
+
+
+
