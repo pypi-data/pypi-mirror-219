@@ -1,0 +1,12 @@
+numpy
+pandas
+transformers<=4.28.1
+torch
+sentencepiece
+pydantic
+nest-asyncio
+jsonlines
+langchain
+evaluate
+rouge_score
+typing-extensions<4.6.0
