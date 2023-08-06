@@ -1,0 +1,82 @@
+[project]
+name = "ona"
+dynamic = ["version"]
+description = "A wheel for OpenNARS for Applications"
+keywords = [
+  "nars",
+  "ai",
+]
+authors = [{name = "Adrian Borucki", email = "ab@synthillect.ai"}]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: C",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.urls]
+Source = "https://github.com/ntoxeg/pyona"
+Sponsor = "https://github.com/sponsors/ntoxeg"
+Tracker = "https://github.com/ntoxeg/pyona/issues"
+
+[project.scripts]
+NAR = "ona.NAR:NAR"
+
+[build-system]
+requires = ["hatchling>=1.17.0", "hatch-vcs", "hatch-build-scripts"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/onasrc/misc",
+  "/onasrc/*.py",
+]
+
+[tool.hatch.build.targets.wheel]
+pure_python = false
+exclude = [
+  "/onasrc",
+]
+
+[[tool.hatch.build.hooks.build-scripts.scripts]]
+commands = [
+  "./build.sh",
+  "mv NAR NARexe",
+]
+work_dir = "onasrc"
+out_dir = "ona/NAR"
+artifacts = [
+  "NARexe",
+  "*.so",
+  "*.dll",
+]
+
+[[tool.hatch.build.hooks.build-scripts.scripts]]
+commands = [
+  "chmod +x ona/NAR/NARexe",
+]
+artifacts = ["ona/NAR/NARexe"]
+
+[tool.hatch.build.targets.wheel.hooks.mypyc]
+enable-by-default = false
+dependencies = ["hatch-mypyc>=0.14.1"]
+require-runtime-dependencies = true
+mypy-args = [
+  "--no-warn-unused-ignores",
+]
+exclude = [
+  "/ona/NAR"
+]
+
+[terminal.styles]
+spinner = "dots"
