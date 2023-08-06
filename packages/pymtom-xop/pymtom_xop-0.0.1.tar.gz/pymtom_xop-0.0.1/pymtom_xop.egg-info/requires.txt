@@ -1,0 +1,5 @@
+zeep>=4.2.1
+
+[dev]
+pytest>=7.4.0
+twine>=4.0.2

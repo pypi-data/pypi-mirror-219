@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+pymtom_xop/__init__.py
+pymtom_xop/constants.py
+pymtom_xop/mtom_attachment.py
+pymtom_xop/mtom_transport.py
+pymtom_xop/soap_envelope.py
+pymtom_xop/xop_package.py
+pymtom_xop.egg-info/PKG-INFO
+pymtom_xop.egg-info/SOURCES.txt
+pymtom_xop.egg-info/dependency_links.txt
+pymtom_xop.egg-info/requires.txt
+pymtom_xop.egg-info/top_level.txt
+test/test_mtom_attachment.py
+test/test_mtom_transport.py
+test/test_soap_envelope.py
