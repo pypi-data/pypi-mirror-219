@@ -1,0 +1,3 @@
+include concataudio/requirements.txt
+include concataudio/thirdparty.json
+include concataudio/README.MD

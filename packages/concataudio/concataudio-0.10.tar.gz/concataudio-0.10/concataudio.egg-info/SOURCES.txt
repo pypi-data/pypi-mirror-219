@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+concataudio/README.MD
+concataudio/__init__.py
+concataudio/requirements.txt
+concataudio/thirdparty.json
+concataudio.egg-info/PKG-INFO
+concataudio.egg-info/SOURCES.txt
+concataudio.egg-info/dependency_links.txt
+concataudio.egg-info/requires.txt
+concataudio.egg-info/top_level.txt
