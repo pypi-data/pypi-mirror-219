@@ -1,0 +1,178 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  release:
+    types: [created]
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "20 23 * * 4"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        python-version: [3.8]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+
+      - name: Install latest stable rust
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+
+      - name: Lint with rustfmt
+        run: cargo fmt
+
+      - name: Lint with clippy
+        run: cargo clippy --all-targets --all-features
+
+      - name: Install Python dependencies
+        run: |
+          python -m venv venv
+          . venv/bin/activate
+          pip install wheel patchelf
+          pip install --upgrade pip
+          # run raster unittests on platforms where binary rasterio wheel is available
+          pip install rasterio
+          python install-dev-dependencies.py
+
+      - name: Build python extension with maturin
+        run: |
+          . venv/bin/activate
+          maturin develop
+
+      - name: pytest
+        run: |
+          . venv/bin/activate
+          pytest -v
+
+      #- name: run the README notebook
+      #  run: |
+      #    . venv/bin/activate
+      #    pip install -r requirements.documentation.txt
+      #    jupyter nbconvert --to Markdown --execute README.ipynb
+        
+
+
+  publish-manylinux-2-28:
+    if: (github.event_name == 'release' && github.event.action == 'created') || github.event_name == 'schedule'
+    needs: lint
+    runs-on: ubuntu-latest
+    container: quay.io/pypa/manylinux_2_28_x86_64
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install latest stable rust
+        run: |
+          curl --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --profile minimal --default-toolchain stable -y
+
+      - name: Install dependencies
+        run: |
+          export PATH="/opt/python/cp38-cp38/bin/:$PATH"
+          python install-dev-dependencies.py
+
+      - name: Build Python package
+        shell: bash
+        env:
+          RUSTFLAGS: "-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma"
+        run: |
+          source $HOME/.cargo/env
+          export PATH="/opt/python/cp38-cp38/bin/:$PATH"
+          maturin build --release --strip --manylinux 2_28
+
+      - name: List wheels
+        run: find ./target/wheels/
+
+      - name: Install wheels
+        run: |
+          export PATH="/opt/python/cp38-cp38/bin/:$PATH"
+          pip install target/wheels/h3ronpy*.whl
+
+      - name: PyPi publish
+        if: github.event_name == 'release' && github.event.action == 'created'
+        env:
+          MATURIN_PASSWORD: ${{ secrets.PYPI }}
+        shell: bash
+        run: |
+          export PATH="/opt/python/cp38-cp38/bin/:$PATH"
+          source $HOME/.cargo/env
+          maturin publish --username __token__ --skip-existing
+
+
+  publish-macos:
+    needs: lint
+    if: (github.event_name == 'release' && github.event.action == 'created') || github.event_name == 'schedule'
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+          architecture: x64
+      - name: Install Python dependencies and build
+        env:
+          RUSTFLAGS: "-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma"
+        run: |
+          python -V
+          pip install wheel
+          pip install --upgrade pip
+          pip install rasterio
+          python install-dev-dependencies.py
+          maturin build --release --strip --interpreter python
+          pip install target/wheels/h3ronpy*.whl
+      - name: PyPi publish
+        if: github.event_name == 'release' && github.event.action == 'created'
+        env:
+          MATURIN_PASSWORD: ${{ secrets.PYPI }}
+        run: |
+          maturin publish --username __token__ --skip-existing
+
+  publish-windows:
+    needs: lint
+    if: (github.event_name == 'release' && github.event.action == 'created') || github.event_name == 'schedule'
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.8"
+          miniforge-version: latest
+          miniforge-variant: Mambaforge
+          use-mamba: true
+      - name: Set LIBCLANG_PATH
+        run: echo "LIBCLANG_PATH=$((gcm clang).source -replace "clang.exe")" >> $env:GITHUB_ENV
+      - name: Install Python dependencies and build
+        env:
+          RUSTFLAGS: "-C target-feature=+fxsr,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+popcnt,+avx,+fma"
+        # binary dependencies without wheels on pypi are installed via conda
+        run: |
+          python -V
+          pip install wheel
+          conda install rasterio geopandas
+          python install-dev-dependencies.py
+          maturin build --release --strip --interpreter python
+          pip install --find-links=target/wheels h3ronpy
+      - name: PyPi publish
+        if: github.event_name == 'release' && github.event.action == 'created'
+        env:
+          MATURIN_PASSWORD: ${{ secrets.PYPI }}
+        run: |
+          maturin publish --username __token__ --skip-existing
