@@ -1,0 +1,4 @@
+[console_scripts]
+curlgoogle_download = curlgoogle.console:download
+curlgoogle_upload = curlgoogle.console:upload
+
