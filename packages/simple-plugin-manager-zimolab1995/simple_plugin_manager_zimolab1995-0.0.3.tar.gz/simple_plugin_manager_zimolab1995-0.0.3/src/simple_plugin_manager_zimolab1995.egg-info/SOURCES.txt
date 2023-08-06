@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/plugin_manager/__init__.py
+src/plugin_manager/exceptions.py
+src/plugin_manager/manager.py
+src/plugin_manager/plugin.py
+src/simple_plugin_manager_zimolab1995.egg-info/PKG-INFO
+src/simple_plugin_manager_zimolab1995.egg-info/SOURCES.txt
+src/simple_plugin_manager_zimolab1995.egg-info/dependency_links.txt
+src/simple_plugin_manager_zimolab1995.egg-info/requires.txt
+src/simple_plugin_manager_zimolab1995.egg-info/top_level.txt

@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: simple_plugin_manager_zimolab1995
+Version: 0.0.3
+Summary: A simple plugin manager for python project
+Author-email: zimolab1995 <zimolab@aliyun.com>
+Project-URL: Homepage, https://gitee.com/zimolab1995/simple_plugin_manager
+Project-URL: Bug Tracker, https://gitee.com/zimolab1995/simple_plugin_manager/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Simple Plugin Manager
+
+a simple plugin manager for python project
