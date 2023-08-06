@@ -1,0 +1,12 @@
+satori_playbook_validator-3.1.2.dist-info/METADATA,sha256=FMRBQnUwpPfmFKPiVn6fZmW6HiQGAnUMeYyR-im4B_M,311
+satori_playbook_validator-3.1.2.dist-info/WHEEL,sha256=0QD4Fi8spmPDA9YIWsctxI6ukFf44Zgk0L9495lbqs0,90
+satorici/validator/__init__.py,sha256=buApz4G7-hZgUUZExNXQv94RyrQy_cfccReSpjr4YkQ,301
+satorici/validator/_validator.py,sha256=vX3VNzlBmVMTwjhtmR-k-3Pc-ib1ANjZq3Iyj1JBOnM,6168
+satorici/validator/exceptions.py,sha256=ogIfC_4nSqfRCRp6Fo_lXy07UI-WqiGswXezk-ylWfo,298
+satorici/validator/schemas/command.json,sha256=qUQRvJOXUM2Ijt0fi6jMwZKRHDwlFLXqZPTXtJFAq1k,267
+satorici/validator/schemas/import.json,sha256=fTDoLa9qe7HN5H_lpRF5fsl8OPNj7i7q6WbmkfkuXLk,251
+satorici/validator/schemas/input.json,sha256=CkADsqSgo8OPu0hQm1dNM5fVk92QgD5qDsCL0ay5hrQ,2197
+satorici/validator/schemas/settings.json,sha256=ep-cTmuZ7A38IXxJRYTPZHD7q37qgXaKIETJ1-RArv8,1906
+satorici/validator/schemas/test.json,sha256=npHm-7TaZTI4M0Egd0Ghd62OVXEP5zfMqlVMgKYnhr0,2361
+satorici/validator/warnings.py,sha256=TY7Erdpy4iO4-7x-gqSeyXDjEGfCAAHmVfharYQdvdI,100
+satori_playbook_validator-3.1.2.dist-info/RECORD,,
