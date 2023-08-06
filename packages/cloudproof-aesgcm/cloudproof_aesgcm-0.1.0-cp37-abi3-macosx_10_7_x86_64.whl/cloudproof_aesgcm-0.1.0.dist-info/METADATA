@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cloudproof_aesgcm
+Version: 0.1.0
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Dist: cffi
+License-File: LICENSE.md
+Summary: Cosmian AES256GCM library
+Author: Emmanuel Coste<emmanuel.coste@cosmian.com>
+Author-email: Emmanuel Coste<emmanuel.coste@cosmian.com>
+Requires-Python: >=3.7
+Project-URL: Source Code, https://github.com/cosmian/cloudproof_rust/
