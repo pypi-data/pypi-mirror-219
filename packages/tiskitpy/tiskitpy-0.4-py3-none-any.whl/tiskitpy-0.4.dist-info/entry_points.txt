@@ -1,0 +1,2 @@
+[console_scripts]
+tiskitpy_decimate_SDS = tiskitpy.decimate.decimate_SDS:main
