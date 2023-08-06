@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: invoicing-excel-to-pdf
+Version: 1.0.0
+Summary: This package can be used to convert Excel invoices to PDF invoices.
+Home-page: https://s1fam-portfolio-home-at8i55.streamlit.app
+Author: Jaroslav Ištvan
+Author-email: s1fam0n3@gmail.com
+License: MIT
+Keywords: invoice,excel,pdf
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
