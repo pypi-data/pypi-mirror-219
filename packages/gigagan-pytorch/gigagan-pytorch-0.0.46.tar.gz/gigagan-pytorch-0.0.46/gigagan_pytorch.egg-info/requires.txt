@@ -1,0 +1,8 @@
+accelerate
+beartype
+einops>=0.6
+ema-pytorch
+open-clip-torch<3.0.0,>=2.0.0
+pillow
+torch>=1.6
+torchvision
