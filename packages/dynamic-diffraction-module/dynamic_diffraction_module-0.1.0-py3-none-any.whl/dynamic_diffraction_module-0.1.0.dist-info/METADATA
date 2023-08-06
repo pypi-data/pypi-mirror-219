@@ -1,0 +1,100 @@
+Metadata-Version: 2.1
+Name: dynamic-diffraction-module
+Version: 0.1.0
+Summary: A python based framework for dynamic diffraction calculations of crystals.
+Home-page: https://gitlab.desy.de/patrick.rauer/dynamic-diffraction-module
+License: GPL-3.0-or-later
+Author: Patrick Rauer
+Author-email: patrick.rauer@desy.de
+Requires-Python: >=3.7.1,<4.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: test
+Requires-Dist: black (>=21.5b2,<22.0) ; (python_full_version >= "3.6.2" and python_full_version < "4.0.0") and (extra == "test")
+Requires-Dist: bump2version (>=1.0.1,<2.0.0) ; extra == "dev"
+Requires-Dist: flake8 (>=3.9.2,<4.0.0) ; extra == "test"
+Requires-Dist: flake8-docstrings (>=1.6.0,<2.0.0) ; extra == "test"
+Requires-Dist: isort (>=5.8.0,<6.0.0) ; extra == "test"
+Requires-Dist: matplotlib (>=3.5.1,<4.0.0) ; python_version < "3.8"
+Requires-Dist: matplotlib (>=3.6.1,<4.0.0) ; python_version >= "3.8" and python_version < "4.0"
+Requires-Dist: mkdocs (>=1.1.2,<2.0.0) ; extra == "doc"
+Requires-Dist: mkdocs-autorefs (>=0.2.1,<0.3.0) ; extra == "doc"
+Requires-Dist: mkdocs-include-markdown-plugin (>=1.0.0,<2.0.0) ; extra == "doc"
+Requires-Dist: mkdocs-material (>=6.1.7,<7.0.0) ; extra == "doc"
+Requires-Dist: mkdocs-material-extensions (>=1.0.1,<2.0.0) ; extra == "doc"
+Requires-Dist: mkdocstrings (>=0.15.2,<0.16.0) ; extra == "doc"
+Requires-Dist: mypy (>=0.900,<0.901) ; extra == "test"
+Requires-Dist: numpy (>=1.20.1,<2.0.0) ; python_version < "3.8"
+Requires-Dist: numpy (>=1.23.2,<2.0.0) ; python_version >= "3.8" and python_version < "4.0"
+Requires-Dist: pandas (>=1.3,<2.0) ; python_version < "3.8"
+Requires-Dist: pandas (>=2.0,<3.0) ; python_version >= "3.8" and python_version < "4.0"
+Requires-Dist: pip (>=20.3.1,<21.0.0) ; extra == "dev"
+Requires-Dist: pre-commit (>=2.12.0,<3.0.0) ; extra == "dev"
+Requires-Dist: pytest (>=6.2.4,<7.0.0) ; extra == "test"
+Requires-Dist: pytest-cov (>=2.12.0,<3.0.0) ; extra == "test"
+Requires-Dist: toml (>=0.10.2,<0.11.0) ; extra == "dev"
+Requires-Dist: tox (>=3.20.1,<4.0.0) ; extra == "dev"
+Requires-Dist: twine (>=3.3.0,<4.0.0) ; extra == "dev"
+Requires-Dist: virtualenv (>=20.2.2,<21.0.0) ; extra == "dev"
+Requires-Dist: xraylib (>=4.0.1,<5.0.0)
+Description-Content-Type: text/markdown
+
+# Dynamic Diffraction Module
+
+[![pypi](https://img.shields.io/pypi/v/dynamic-diffraction-module.svg)](https://pypi.org/project/dynamic-diffraction-module/)
+[![python](https://img.shields.io/pypi/pyversions/dynamic-diffraction-module.svg)](https://pypi.org/project/dynamic-diffraction-module/)
+
+A repository meant for (python based) functions on the dynamic diffraction theory. It is closely related to the Matlab written <https://gitlab.desy.de/patrick.rauer/MatlabDiffractionStuff>.
+The structure, however, is based on the Dynamic Diffraction submodule of the [pXCP](https://gitlab.desy.de/patrick.rauer/Xgeno_mpi) framework.
+
+* Documentation: <https://patrick.rauer.github.io/dynamic-diffraction-module>
+* GitLab: <https://gitlab.desy.de/patrick.rauer/dynamic-diffraction-module>
+* PyPI: <https://pypi.org/project/dynamic-diffraction-module/>
+
+## Features
+
+Currently, the scope of the package is rather rudimentary.
+It includes:
+
+* computing the (modified) Bragg energy for any given plane H for a specific micro- and macroscopic crystal orientation
+* computing the (approximative) energy width for any given plane H for a specific micro- and macroscopic crystal orientation in the two beam approximation
+* Selecting the number of reflecting planes in the vicinity of a given photon energy + crystal orientation configuration
+* computing reflectivity/transmissivity vs energy for a specified crystal plane H0 can be computed in the two beam approximation
+* Rocking curve scans in the two beam approximation
+
+However, further functionality is to follow soon:
+
+* n-beam diffraction
+* diffraction at strained crystals
+* ...
+
+## External packages
+
+* numpy (required)
+* [xraylib](https://github.com/tschoonj/xraylib) (prospectively optional,currently required)
+* matplotlib
+* pandas
+
+## Usage
+
+There is no documentation for the API yet. However, you can find some tutorial *.ipynb scripts in the [playgrounds folder](playgrounds/README.md)
+
+## LICENSE
+
+* Free software: GNU GENERAL PUBLIC LICENSE Version 3
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [waynerv/cookiecutter-pypackage](https://github.com/waynerv/cookiecutter-pypackage) project template.
+
