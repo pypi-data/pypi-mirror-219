@@ -1,0 +1,3 @@
+[console_scripts]
+render-thumbnail=render_thumbnail.main:main
+
