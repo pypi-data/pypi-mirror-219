@@ -1,0 +1,5 @@
+django>=3.2
+apscheduler<4.0,>=3.2
+djangorestframework>=3.14
+django-apscheduler>=0.6.2
+pydantic>=2.0
