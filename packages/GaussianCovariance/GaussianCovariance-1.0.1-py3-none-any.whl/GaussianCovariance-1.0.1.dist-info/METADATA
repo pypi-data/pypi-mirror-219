@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: GaussianCovariance
+Version: 1.0.1
+Summary: Python Module to compute the covariance of two-point clustering statistics
+Home-page: https://gitlab.com/veropalumbo.alfonso/gaussiancovariance
+Author: Alfonso Veropalumbo
+Author-email: Alfonso Veropalumbo <alfonso.veropalumbo@inaf.it>, Elena Sarpa <sarpa@cppm.in2p3.fr>
+Project-URL: Homepage, https://gitlab.com/veropalumbo.alfonso/gaussiancovariance/
+Project-URL: Bug Tracker, https://gitlab.com/veropalumbo.alfonso/gaussiancovariance/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+# GaussianCovariances
+
+Python Module to compute the covariance of 
+two-point clustering statistics (power-spectrum and two-point correlation multipoles), 
+based on the work described in Grieb et al. 2016 (https://arxiv.org/abs/1509.04293).
+
+## Installation
+
+You can install this package in two ways:
+
+* Using pip:
+
+    <pre> pip install gaussiancovariance </pre>
+
+* From this repository
+    - Clone the repository:
+
+       <pre> git clone https://gitlab.com/veropalumbo.alfonso/gaussiancovariance/ </pre>
+    - Install:
+
+        <pre> pip install .</pre>
+
+# Usage
+
+Please refer to the demo folder for basic examples
+
+
+    
+
