@@ -1,0 +1,49 @@
+{% extends 'generic/object.html' %}
+{% load helpers %}
+{% block content %}
+  <div class="row mb-3">
+    <div class="col col-md-6">
+      <div class="card">
+        <h5 class="card-header">Разработчик</h5>
+        <div class="card-body">
+          <table class="table table-hover attr-table">
+            <tr>
+              <th scope="row">Название</th>
+              <td>{{ object.name|placeholder }}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Приложений всего</th>
+              <td> {{ object.get_software_count }}</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Приложения:</th>
+              <table>
+                {% if object.get_software %}
+                  {% for soft in object.get_software %}
+                    <tr>
+                      <th scope="row"><a href="{% url 'plugins:netbox_software:devicesoftware' pk=soft.pk %}">{{ soft.app.name }}</a></th>
+                      <td></td>
+                      <td> | Версия: {{ soft.version.name }} </td>
+                    </tr>
+                  {% endfor %}
+                {% else %}
+                <tr>
+                  <th scope="row"></th>
+                  <td>нет установленных приложений </td>
+                  <td></td>
+                </tr>
+                {% endif %}
+              </table>
+          </tr>
+          </table>
+        </div>
+      </div>
+      {% include 'inc/panels/custom_fields.html' %}
+    </div>
+    <div class="col col-md-6">
+      {% include 'inc/panels/comments.html' %}
+    </div>
+  </div>
+{% endblock content %}
