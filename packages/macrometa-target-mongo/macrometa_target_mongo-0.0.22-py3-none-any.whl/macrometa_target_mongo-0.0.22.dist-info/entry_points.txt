@@ -1,0 +1,3 @@
+[console_scripts]
+macrometa-target-mongo=macrometa_target_mongo.main:main
+
