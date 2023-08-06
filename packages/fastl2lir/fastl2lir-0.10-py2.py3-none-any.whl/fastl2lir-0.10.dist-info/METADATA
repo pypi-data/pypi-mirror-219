@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fastl2lir
+Version: 0.10
+Summary: Fast L2-reguralized linear regression
+Home-page: https://github.com/KamitaniLab/PyFastL2LiR
+Author: Kei Majima
+Author-email: kamitanilab@gmail.com
+Maintainer: Shuntaro C. Aoki
+Maintainer-email: kamitanilab@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: tqdm
+
+UNKNOWN
+
+
