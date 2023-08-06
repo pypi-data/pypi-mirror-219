@@ -1,0 +1,17 @@
+discordnotify/__init__.py,sha256=ejQ2kG88xPQWiWv-SDmAfwB2-osUuxPCr-lPJ-evBo0,178
+discordnotify/app_settings.py,sha256=JyESaem2nFt1IEeec2dbj5wvRbkAdot0_kKZvwx6sBs,665
+discordnotify/apps.py,sha256=ctHG9adKeJdF6ZyaJt1cXFkHXSzCHZ-w-GgivbCnIQs,229
+discordnotify/auth_hooks.py,sha256=HgzDCrwR1EU3JfWJvgu_KVqmuDh6jp3HTpXCbvyrCHs,212
+discordnotify/core.py,sha256=Ip-Kg4dmv-W0ZNfa2Ax7_6A1Fnq1ziXG0WcaXujZ7wQ,2351
+discordnotify/signals.py,sha256=s_IJfxxPCjh0J3p9NQ3UqhHqUI5qtpur8sboeVHvYuE,1808
+discordnotify/tasks.py,sha256=3Pl0OOW9FjAiXwg9IhO7DOxkenr-HNVntdhWfryv0MQ,1255
+discordnotify/urls.py,sha256=tqCHfw1vMQwP0IOypGVv_HmMpVIHuQrS9YN2uEzGUto,176
+discordnotify/views.py,sha256=PKCQeYQrmrUJeLBVVMjhcj7efx-6QROFBWnq8EWxlww,580
+discordnotify/migrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+discordnotify/static/discordnotify/discordnotify_logo.png,sha256=mZzT-SdMjvcRZf-vSwXrx6YSFjb3eHayCAgsH1sFqC8,1027
+discordnotify/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+discordnotify/tests/test_integration.py,sha256=qNxwTSl4UamEI8adv8qEA5P5H3NyJ3dcVJfBbYN5Cg8,9267
+aa_discordnotify-1.2.0.dist-info/LICENSE,sha256=XZiwB_S_40_HhnvLg5xvtBb3g1oGjPrk0rpFwk8iInE,1070
+aa_discordnotify-1.2.0.dist-info/WHEEL,sha256=EZbGkh7Ie4PoZfRQ8I0ZuP9VklN_TvcZ6DSE5Uar4z4,81
+aa_discordnotify-1.2.0.dist-info/METADATA,sha256=oLpzgDOK11RJ_Gk9PR23ZmxdCeRcmbM1qQrRsqc17KU,5457
+aa_discordnotify-1.2.0.dist-info/RECORD,,
