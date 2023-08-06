@@ -1,0 +1,308 @@
+Metadata-Version: 2.1
+Name: leadtools
+Version: 22.0.0.8
+Summary: Powered by patented artificial intelligence and machine learning algorithms, LEADTOOLS is a collection of comprehensive toolkits to integrate recognition, document, medical, imaging, and multimedia technologies into desktop, server, tablet, web and mobile solutions.
+Author-email: "LEAD Technologies, Inc." <support@leadtools.com>
+License: 
+        LEADTOOLS Software License Agreement
+        IMPORTANT
+        
+        LEAD TECHNOLOGIES, INC. IS WILLING TO LICENSE LEAD SDK(S) TO YOU ONLY UPON THE CONDITION THAT YOU ACCEPT ALL OF THE TERMS CONTAINED IN THE LICENSE AGREEMENT PRINTED BELOW, INCLUDING WITHOUT LIMITATION, THE WARRANTY DISCLAIMERS, LIMITATIONS OF LIABILITY AND INDEMNITY PROVISIONS.  PLEASE READ THE TERMS CAREFULLY BEFORE CLICKING THE ACCEPT BUTTON DURING INSTALLATION OR USING THE LEAD SDK(S), AS SUCH CONDUCT INDICATES YOUR ACCEPTANCE TO ALL OF THE TERMS OF THE LICENSE AGREEMENT.  IF YOU DO NOT AGREE TO THE TERMS, LEAD TECHNOLOGIES, INC. IS UNWILLING TO LICENSE THE LEAD SDK(S) TO YOU AND YOU ARE NOT PERMITTED TO INSTALL OR USE THE LEAD SDK(S).  
+        
+        This License Agreement ("Agreement") is a legal agreement between LEAD Technologies, Inc. ("LEAD"), a North Carolina corporation, principally located in Charlotte, North Carolina, and you (either an individual or single entity) ("Licensee"), and is effective the date Licensee installs and/or otherwise uses the applicable LEAD SDK(s).
+        
+        1. DEFINITIONS
+        
+        As used herein, the following terms, when capitalized, will have the following meanings:
+        
+        "LEAD SDK" means all material, including Redistributables and Development Resources, comprising one or more of the following LEADTOOLS(r) developer toolkit products:  LEADTOOLS Imaging Pro, LEADTOOLS Barcode Pro, LEADTOOLS PDF Pro, LEADTOOLS Pro Suite, LEADTOOLS Document, LEADTOOLS Document Suite, LEADTOOLS Recognition, LEADTOOLS Forms, LEADTOOLS Edit, LEADTOOLS Medical, LEADTOOLS Medical Suite, LEADTOOLS Multimedia, LEADTOOLS Multimedia Suite, LEADTOOLS OCR Modules, LEADTOOLS ICR Module, and LEADTOOLS Streaming Module. LEAD SDK also includes any and all full and partial evaluation or demonstration versions of the above products, including without limitation, evaluation versions that are available on Nuget.org, GitHub.com, and similar public-facing sites used for distribution of development components.  This Agreement also applies to any updates or supplements to the LEAD SDK(s) provided by LEAD, unless LEAD provides new license terms and conditions with the update or supplement.
+        
+        "Licensee" means the person or entity entering into this Agreement with LEAD.  Any person who is entering into this Agreement on behalf of an organizational entity represents that he or she has the authority to bind such entity.
+        
+        "End User Software" means an end user program which Licensee develops using a LEAD SDK and into which one or more of the Redistributables are incorporated, and which contains significant additional functionality over and above the functionality contained in the LEAD SDK.
+        
+        "Redistributables" are those runtime libraries and files intended for duplication and distribution with the End User Software.  The Redistributables are identified in the Development Resources under the topic "Files to be Included with Your Application".
+        
+        "Development Resources" means programming materials included with the LEAD SDKs such as user manuals and on-line help files, tutorials, videos, sample source code examples, demo programs, and other tools designed to facilitate developing End User Software with a LEAD SDK. 
+        
+        "Development License" means the license granted pursuant to section 2 below allowing Licensee to use a LEAD SDK to develop End User Software by integrating the Redistributables into End User Software. 
+        
+        "Deployment License" means the license granted pursuant to section 3 below allowing Licensee to copy, deploy, and redistribute one or more Redistributables to end users as part of the End User Software.  
+        
+        "Deployment of End User Software" includes any and all copies of End User Software installed, used, distributed, leased, sold, or otherwise disposed of by Licensee; and any of its customers, employees, distributors, resellers, affiliates or other channel partners; and includes, Internal Deployments, Hosted Service Deployments and Commercial Deployments.
+        
+        "Commercial Deployments" are distributions and other dispositions of End User Software by Licensee to third-party end users, either directly or through distribution channels.  Examples of Commercial Deployments include (i) Licensee acting as an ISV offering End User Software for sale or subscription to paying customers; (ii) Licensee offering End User Software to its customers, vendors, business partners or the public free of charge; and (iii) any other transaction whereby a third party receives a copy, instance or user account or user privilege for the End User Software.   
+        
+        "Internal Deployments" are distributions or other dispositions of the End User Software for use by Licensee's employees and contractors only.   Examples of Internal Deployments include  (i) installation of the End User Software on hardware devices owned or controlled by Licensee and used by Licensee's employees and contractors and (ii) installation of the End User Software on machines hosted by third-party "cloud" providers or in third party data centers for use by Licensee's employees and contractors. If Licensee is a consultant, systems integrator or similar contracting entity using the LEAD SDK to develop End User Software as a work for hire on behalf of a third-party customer, and the End User Software is for internal use by the third-party customer, this would be an example of an Internal Deployment and would not be considered to be a Commercial Deployment for purposes hereof.    
+        
+        "Hosted Service Deployment" is a type of Deployment where Licensee is hosting End User Software on Licensee's machines (or on third-party "cloud" providers' machines) for consumption or commercial use by customers, vendors, and other third parties. Examples of a "Hosted Service Deployment" include End User Software operated by a service bureau, application service provider, software as a service (SaaS), outsource facility, and any public-facing End User Software hosted by Licensee (on premises or via a third-party "cloud provider) accessible by customers and/or third parties via the internet or other network.    If Licensee is a consultant, systems integrator or similar contracting entity using the LEAD SDK to develop End User Software as a work for hire on behalf of a third-party customer and the End User Software is to be hosted by the third-party customer for consumption or commercial use by the customer's customers, vendors and/or other third parties, this would be an example of a Hosted Service Deployment and would not be considered to be a Commercial Deployment for purposes hereof.    
+        
+        
+        "Single User Deployment" means installation of the End User Software by Licensee and/or its customer on a stand-alone PC, workstation, mobile device, or other hardware for use by a single named user.  End User Software that is deployed as Single User is intended for interactive use by the named end user, and has a GUI requiring the user to control the application by mouse, keyboard, touch-screen, or similar means.  A Single User Deployment is also applicable where End User Software is distributed to client machines through a deployment server or other network device via a CAB file or similar mechanism and installed on the client machine.  Single User Deployments are commonly referred to as desktop licenses, client licenses, stand-alone licenses, app licenses and user licenses. 
+        
+        "Concurrent Deployment" means Licensee has built a reasonable method of concurrency into the End User Software so that, although installed on multiple PCs for single user usage, only a limited number of users are technically permitted to use the End User Software at the same time.  For example, if the End User Software is installed on one hundred (100) PCs, but only ten (10) users may be logged in to use the End User Software at the same time, licensing for ten (10) Concurrent Deployments would be required instead of 100 Single User Deployment licenses. The fact that a server application is "queuing" jobs sent to it, and processing one job at a time, is not considered concurrency for purposes hereof.  This type of deployment would be a Server Deployment.  A Concurrent Deployment also occurs if Licensee issues client licenses on a subscription type model and wishes to recapture client licenses that are no longer subscribed and assign such licenses to another user.  Concurrent licenses are also commonly referred to as floating licenses.
+        
+        "Server Deployment" includes the following:  (i) End User Software installed on a networked device accessible by one or more persons who can independently operate the End User Software from another machine, (ii) End User Software installed on a networked device running  as a service that accepts connections from other machines or applications (for example,  a headless process to watch a folder or other data sources for work originating from other machines), and (iii) End User Software deployed to a browser from a webserver, such as an HTML5/ JavaScript based application, where the End User Software is not installed on the client machine but is in use by the client machine when the user is connected to the webserver. 
+        
+        "Multi-User Deployment" means a computer installation designed to service the public or multiple un-named users, and not a single named user or set of concurrent named users, such as a kiosk or a scan station. 
+        
+        "Deployment License Fee" means the required payment by Licensee to LEAD for each Deployment of End User Software made by Licensee.
+        
+        2. GRANT OF DEVELOPMENT LICENSE
+        
+        For each Development License of the LEAD SDK purchased by Licensee, LEAD grants Licensee a non-exclusive, non-transferable, worldwide license for one (1) named programmer to install the applicable LEAD SDK on a personal computer and use the LEAD SDK, including the Development Resources, in the development of End User Software.  Licensee may install the LEAD SDK on one additional development computer, such as a laptop computer, for use by Licensee's named programmer when such person's primary development computer is not available.  Licensee may also install the LEAD SDK on up to two (2) additional "build" machines in use by other developers, provided that the other developers are not programming with the LEAD SDK.  Only one (1) named programmer is permitted to program using the LEAD SDK for each Development License purchased by Licensee.  Additional Development Licenses (including licenses for additional named programmers and/or additional build machines), may be procured at discounted pricing by contacting LEAD's sales department.  The license granted hereunder applies only to the designated version of the accompanying LEAD SDK.  If the LEAD SDK is an upgrade, it, and the product that was upgraded constitutes a single license of the LEAD SDK for purposes hereof, and the new version and product that was upgraded may only be used by the same named programmer.
+        
+        3. GRANT OF DEPLOYMENT LICENSE
+        
+        LEAD grants Licensee  a non-exclusive, non-transferable, worldwide license to reproduce (and have reproduced) exact copies of the Redistributables and include such files in the End User Software, and to make Internal Deployments, Hosted Service Deployments, and Commercial Deployments of the End User Software, to end users for their use, without further distribution, subject to the following terms and conditions:
+        (a) Deployment License Application Process.  Licensee will apply for a Deployment License by completing a Deployment License Application form ("DLA") which, among other things, will identify whether Licensee's End User Software is for Internal Deployment, Hosted Service Deployment, or Commercial Deployment and the type and manner of deployment (e. g. Single User, Concurrent, Multi-User, Server and/or such other deployment method(s) approved by LEAD).    
+        
+        (b) Deployment License Grants for Internal Deployments. For all LEAD SDKs, Licensee must pay a Deployment Licensee Fee for each Internal Deployment made by Licensee, including Single User Deployment, Concurrent User Deployment, Server Deployment, Multi-User Deployment and/or such other deployment method(s) approved by LEAD.  Based on the information provided in Licensee's DLA, LEAD will provide Licensee a firm Deployment License Fee quotation for the number and type of Deployment Licenses for Internal Deployments being acquired by Licensee. Upon purchase of the required Deployment License Fees, LEAD will issue Licensee an invoice/statement evidencing the number, type and duration of Deployment Licenses granted to Licensee for Internal Deployment.  No Deployment License is granted until such time as Licensee has purchased the applicable Deployment License. 
+        
+        (c) Deployment License Grants for Commercial Deployments and Hosted Service Deployments.  For all LEAD SDKs, Licensee must execute a Commercial Deployment License agreement prior to making any Commercial Deployment or Hosted Service Deployment.  The Commercial Deployment License agreement will contain the pricing, payment terms for Deployment License Fees and other terms and conditions for Commercial Deployment and Hosted Service Deployment of End User Software. Under no circumstances may Licensee make any Commercial Deployment or Hosted Service Deployment until such time as LEAD and Licensee have executed a Commercial Deployment License agreement.  
+        
+        (d) Deployment Files.  License files, developer keys or similar items ("Deployment Files") are required to be included with the End User Software when deployed.  Without the appropriate Deployment Files, the Redistributables will not function.  For Internal Deployments, LEAD will provide Licensee its Deployment Files when Licensee has completed the Deployment License Application form and purchased its required Deployment Licenses.  For Commercial Deployments and Hosted Service Deployments, LEAD will provide Licensee its Deployment Files when Licensee has executed the Commercial Deployment License.  Unique domain-specific Deployment Files will be created and provided to Licensee when Licensee wishes to deploy LEAD's HTML5/JavaScript components with its End User Application.  
+        
+        (e) Record Keeping and Reporting.  Licensee agrees to maintain full, clear and accurate records regarding its use of the LEAD SDK and the Deployment of the End User Software and will promptly respond to inquiries from LEAD's license compliance department, including responding to an annual deployment activity report.  Additional reporting requirements for Commercial Deployments are contained in the Commercial Deployment License agreement. LEAD shall have the right, no more than once during any calendar year, to have an independent certified public accountant or other disinterested third party inspect the relevant records of Licensee on thirty (30) days' notice and during regular business hours to verify the reports and payments required to be made hereunder.  Should an underpayment in excess of five percent (5%) be discovered, Licensee will pay the cost of the audit.  
+        
+        (f) Duration of Deployment Licenses.  Unless otherwise stated on the invoice/statement provided by LEAD upon purchase, Deployment Licenses for Internal Deployments and Hosted Service Deployments are valid for one (1) year and Licensee may  renew the license(s) on an annual basis by paying the applicable Deployment License Fee each year for as long as Licensee is using the End User Software. If a Deployment License(s) is not renewed, the Deployment License is terminated, and Licensee will be required to execute a license termination form confirming that the End User Software is no longer in use. Deployment Licenses for Commercial Deployments will have the duration set forth in the applicable Commercial Deployment License executed by LEAD and Licensee.  
+        
+        (g) New Versions; Upgrades.  Minor version updates to the LEAD SDK (e.g., patches or point releases) are provided to Licensee free of charge.  Licensee may license major new versions of the LEAD SDK (designated either as a whole number or a .5 release, e.g., LEADTOOLS version 23, 23.5, 24) by purchasing a Development License to the new version at LEAD's then prevailing upgrade price.  No additional deployment licensing is required for deploying minor version updates to Licensee's duly licensed install base for the End User Software.  For Internal Deployments and Hosted Service Deployments, if a major new version of the LEAD SDK is included in an upgrade to the End User Software, no additional Deployment License Fee will be required to deploy the New Version to existing paid Deployments for so long as Licensee is paying the required annual Deployment License Fees for each such Deployment. For Commercial Deployments, the Deployment License upgrade pricing and maintenance options will be set forth in the Commercial Deployment License agreement executed by LEAD and Licensee.   
+        
+        (h) OEM Distribution.  If Licensee wishes to use an OEM who will modify the End User Software and copy it, Licensee must first obtain an OEM distribution license from LEAD or must require the OEM to obtain a license from LEAD.  Duplication or redistribution of the End User Software, or any portion thereof, by the users of the End User Software, without a separate written redistribution license from LEAD, is prohibited.
+        
+        (i) Activation.  No rights to copy, deploy or redistribute the End User Software are granted until such time as Licensee has properly activated the LEAD SDK with LEAD and obtained its Deployment Files.  
+        
+        4. OTHER LICENSE TERMS AND RESTRICTIONS
+        
+        The licenses granted under this Agreement are expressly conditioned upon Licensee's compliance with all the terms and conditions of this Agreement. Licensee may not use, copy, rent, lease, sell, sublicense, assign, or otherwise transfer the LEAD SDK except as expressly provided for in this Agreement.  Licensee may make a reasonable number of archival copies of the LEAD SDK.    Licensee acknowledges that the LEAD SDK, in source code form, remains a confidential trade secret of LEAD and/or its suppliers and therefore Licensee agrees that it shall not modify, decompile, disassemble, or reverse engineer the LEAD SDK, or attempt to do so, except as permitted by applicable legislation.  Licensee shall not reproduce, copy, or redistribute any Development Resources, except Licensee may use the sample source code examples and demo code contained in the Development Resources for the purpose of developing the End User Software subject to the following limitations:  (i) Licensee may not use the sample source code for any purpose other than developing the End User Software, and (ii) Licensee may not disclose, redistribute, or otherwise transfer any of the sample source code, or any source code derived from the sample source code.  Licensee acknowledges that the Development Resources contain confidential trade secrets of LEAD, and Licensee shall treat the Development Resources in the same manner as Licensee treats its own trade secret information, but in no event less than a reasonable degree of protection.  Licensee employees or contractors who have access to the sample source code must be bound by a written nondisclosure agreement prohibiting him from disclosing any trade secret information of Licensee and/or its suppliers.    Licensee agrees to refrain from disclosing any unlock keys, serial numbers, or activation codes to any third party, or otherwise take any action intended to circumvent copyright protection or other anti-piracy measures implemented by LEAD with respect to the LEAD SDK.  The End User Software developed by Licensee must be an "end user application."  An "end user application" is a specific application program that is licensed to a person or firm for business or personal use and not with a view toward redistributing the application or any part of the application, and may be either an application that is used by Licensee internally, or an application that is commercially distributed to end users for their use.  A user of an end user application may not modify or redistribute the application and may not copy it (other than for archival purposes).  The End User Software may only be offered to end users in object code form.  Licensee's license agreement covering the End User Software must contain restrictions prohibiting redistribution, modification, and copying of the End User Software.  Only one (1) end user application may be developed for each Development License purchased by Licensee. Nothing herein will be deemed to allow use of LEAD SDKs or inclusion of any Redistributables in any of the following types of software:  development toolkit/development component/development library, dynamic link library (DLL), software with an application programming interface (API), compiler, operating system, or any other software not falling within the above definition of End User Software.  If Licensee wishes to use the LEAD SDK in a manner prohibited by this Agreement, Licensee must contact LEAD's OEM department to determine whether a special license may be obtained.  Upon LEAD's request, Licensee agrees to send LEAD one demonstration copy of the End User Software. Licensee agrees that LEAD may use Licensee's corporate name, logo and the name of the End User Software on LEAD's websites and in marketing materials where LEAD provides a partial list of customers who have licensed the LEAD SDK, and Licensee grants LEAD a nonexclusive and limited license in any associated Licensee trademarks for such purposes.
+        
+        
+        5. EVALUATION VERSION LICENSE
+        
+        If Licensee is using an "evaluation version" of the LEAD SDK, (including full or partial versions of a LEAD SDK available for download on NuGet.org, Github.com or other repository), then the licenses granted hereunder are limited as follows: (a) Licensee is granted a license to use the LEAD SDK for a period not to exceed sixty (60) days(or such other period authorized by LEAD) (the "Evaluation Period") solely for purposes of evaluation and testing the LEAD SDK to determine if Licensee wishes to purchase a license for the release version of the LEAD SDK,  (b) any End User Software developed with the evaluation version of the LEAD SDK may not be deployed other than internally for testing purposes, and will not be distributed or used for any purpose other than evaluating the functionality and performance of the LEAD SDK, and (c) upon completion of the Evaluation Period, Licensee shall either i) delete the LEAD SDK or  ii) obtain a paid Development License and Deployment License of the LEAD SDK from LEAD or an authorized reseller.
+        
+        6. THIRD PARTY CONSULTANTS AND SYSTEMS INTEGRATORS
+        
+        If Licensee is a consultant, systems integrator or similar contracting entity and is licensing the LEAD SDK to develop End User Software on behalf of a customer as a work for hire, Licensee will enter into a written agreement with its customer with such terms as are necessary to comply with the Deployment License obligations described in Section 3 hereof, and which otherwise protects and preserves LEAD's intellectual property rights in the LEAD SDK and Redistributables.  Unless Licensee's customer purchases its own Development License for the LEAD SDK, Licensee will not deliver the End User Software source code or LEAD SDK to its customer or otherwise permit its customer to further develop the End User Software.  If Licensee wishes to assign the LEAD SDK and End User Software to the customer upon completion of the development of the End User Software, Licensee and its customer must execute an assignment agreement, in form acceptable to LEAD, whereby Licensee's customer assumes Licensee's obligations under the terms of this Agreement, including without limitation, the obligations for annual Deployment License payments, renewals and deployment reporting.  Unless and until this Agreement is properly assigned by Licensee to the customer, Licensee remains responsible for the Deployment of the End User Software by Licensee's customer, including purchasing and renewing Deployment Licenses based on the customer's Deployment of the End User Software.
+        
+        
+        7. PAYMENT TERMS; PURCHASE ORDERS
+        
+        Licensee will pay all valid LEAD invoices on a timely basis. If Licensee is more than 30 days past due on any invoice, Licensee agrees to pay finance charges equal to one and a half percent (1.5%) per month or at the maximum rate permitted by law, whichever is less, on all over due and unpaid invoices until paid in full. All license fees and other amounts due to LEAD are denominated and will be paid in United States Dollars and are exclusive of any and all applicable taxes.  Licensee is responsible for paying any sales, use, value added, or other taxes and tariffs (other than federal and state taxes levied on LEAD's income) in connection with the licenses granted hereby. LEAD accepts purchase orders provided Licensee obtains credit approval from LEAD's credit department.  To the extent any term of a purchase order is inconsistent with the terms of this Agreement, Licensee agrees that the terms of this Agreement are controlling.
+        
+        8. PROPRIETARY RIGHTS; COPYRIGHT NOTICES
+        
+        Except for the limited license granted herein, LEAD, and its suppliers, retain exclusive ownership of all proprietary rights (including all ownership rights, title, and interest) in and to the LEAD SDK.  Licensee agrees not to represent that LEAD is affiliated with or approves of Licensee's End User Software in any way.  Except as required hereby, Licensee shall not use LEAD's name, trademarks, or any LEAD designation in association with Licensee's End User Software.  The End User Software must contain the following copyright and patent notices in its documentation: "Portions of this product were created using LEADTOOLS (c)1991-2023, LEAD Technologies, Inc.  ALL RIGHTS RESERVED. Portions of this product are licensed under US patents 9,552,527, 10,318,563, 10,579,653, 11,488,407 and 11,613,114 and foreign counterparts."  Additional third-party attribution and license requirements may apply to certain modules or demo programs contained in the LEAD SDK that include open source libraries.  These additional requirements are found in the LEAD SDK documentation under Intellectual Property Notices.
+        
+        9. EXPORT LAW
+        
+        Licensee acknowledges and agrees that the LEAD SDK and End User Software may be subject to restrictions and controls imposed by the United States Export Administration Act, as amended (the "ACT"), and the regulations thereunder.  Licensee agrees and certifies that neither the LEAD SDK nor any direct product thereof (e.g., the End User Software) is being or will be acquired, shipped, transferred or re-exported, directly or indirectly, to any person or into any country prohibited by the ACT and the regulations thereunder or will be used for any purpose prohibited by the same.  Licensee bears all responsibility for export law compliance of the End User Software.
+        
+        10. U.S. GOVERNMENT RESTRICTED RIGHTS LEGEND
+        
+        Use, duplication, or disclosure by the Government is subject to restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013 and FAR 52.227-19, as applicable.  Manufacturer/Contractor is LEAD Technologies, Inc., 1927 South Tryon Street, Suite 200, Charlotte, NC 28203.
+        
+        11.  TERM; TERMINATION.
+        
+        The Development License granted hereunder is effective until terminated. Deployment Licenses are effective for the period described on the applicable invoice/statement/Commercial Deployment License agreement.  If Licensee has purchased an annual subscription to the Development License, the Development License will expire and be terminated if the subscription is not renewed.  Licensee may terminate this Agreement and the licenses granted hereunder at any time by providing notice to LEAD and executing a certificate of destruction or other termination document required by LEAD; provided however, no refunds of license fees, maintenance fees or other amounts paid to LEAD will be provided. LEAD may terminate this Agreement and the licenses granted hereunder for any material breach of this Agreement or any corresponding Commercial Deployment License agreement by providing written notice to Licensee.   In the event Licensee ceases doing business, is adjudged bankrupt or becomes insolvent, LEAD may, at its sole option, terminate this Agreement by giving ten (10) days written notice.  Upon termination, Licensee shall cease using the LEAD SDK and cease using or distributing the End User Software containing the Redistributables and will cause any and all resellers and distributors to cease distributing the End User Software.  All restrictions prohibiting Licensee's use of the LEAD SDK and intellectual property provisions relating to LEAD SDK running to the benefit of LEAD will survive termination of the license pursuant hereto.  Termination will not affect properly granted end user licenses of the End User Software distributed by Licensee prior to termination, provided all Deployment License Fees have been paid for such end user licenses granted by Licensee.
+        
+        12.  EXCLUSION OF WARRANTIES
+        
+        LICENSEE HAS HAD FULL OPPORTUNITY TO EVALUATE AND TEST THE LEAD SDK TO DETERMINE IF IT MEETS LICENSEE'S REQUIREMENTS.  ACCORDINGLY, LEAD SDK IS PROVIDED "AS IS" AND LEAD MAKES NO PERFORMANCE WARRANTY OR OTHER WARRANTY OF ANY KIND, WHATSOEVER, AND LICENSEE ACKNOWLEDGES THAT NO REPRESENTATIONS OF ANY KIND HAVE BEEN MADE CONCERNING THE LEAD SDK ON WHICH LICENSEE IS RELYING IN ENTERING INTO THIS AGREEMENT AND LICENSING THE LEAD SDK.  
+        
+        ALL WARRANTIES, EXPRESS OR IMPLIED, ARE EXCLUDED FROM THIS AGREEMENT, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NONINFRINGEMENT.  NOT ALL JURISDICTIONS ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, AND THUS THE FOREGOING LIMITATION MAY NOT APPLY TO LICENSEE.
+        
+        13.  INFRINGEMENT INDEMNIFICATION
+        
+        This section is applicable to Infringement Actions as defined below.
+        
+        (a) Indemnity.	In the event that a claim is filed in a court of competent jurisdiction alleging that the LEAD SDK used within the scope of the license granted hereunder directly infringes any copyright or trade secret of any third-party ("Infringement Action"), LEAD shall indemnify, defend and hold Licensee harmless from and against such Infringement Action and any and all costs, damages, penalties and expenses, including reasonable attorney's fees, finally resulting from or awarded in actions attributable to such claim, provided the alleged infringement was not caused by (i) Licensee's failure to incorporate a LEAD SDK update or upgrade that would have avoided the alleged infringement, (ii) the modification of the LEAD SDK by any party other than LEAD, (iii) the combination or use of the LEAD SDK with software, hardware, firmware, data, or technology not licensed to Licensee by LEAD, or (iv) unlicensed activities of the Licensee.
+        (b) Notice and Cooperation.	LEAD's indemnity obligations are further conditioned upon (i) Licensee promptly notifying LEAD in writing of the existence of such Infringement Action when Licensee becomes aware of such Infringement Action, (ii) LEAD having control of the defense of such Infringement Action and all related settlement negotiations, and (iii) Licensee providing all reasonable assistance and cooperation in such defense.  
+        (c) Remedies.	In the event of an infringement claim for which LEAD is obligated to indemnify Licensee, LEAD may, at its sole discretion, (i) obtain a license that allows Licensee to continue using the LEAD SDK, or (ii) replace or modify the LEAD SDK so as to be non-infringing in a manner that does not materially affect its functionality.  
+        
+        The foregoing represents LEAD's sole responsibility to Licensee in the event of a third-party infringement claim of any kind. 
+        
+        14.  LICENSEE'S REMEDIES: LIMITATIONS
+        
+        IN NO EVENT SHALL LEAD BE LIABLE FOR ANY SPECIAL, INDIRECT, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL DAMAGES IN CONNECTION WITH OR ARISING OUT OF THIS AGREEMENT OR THE USE OF THE LEAD SDK, REGARDLESS OF WHETHER LEAD HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.  IN NO EVENT SHALL LEAD'S AGGREGATE LIABILITY UNDER THIS AGREEMENT EXCEED AMOUNTS PAID TO LEAD BY LICENSEE UNDER THE TERMS OF THIS AGREEMENT. LICENSEE UNDERSTANDS AND AGREES THAT THE FOREGOING LIABILITY LIMITATIONS ARE ESSENTIAL ELEMENTS OF THIS AGREEMENT AND THAT IN THE ABSENCE OF SUCH LIMITATIONS THE MATERIAL AND ECONOMIC TERMS OF THIS AGREEMENT WOULD BE SUBSTANTIALLY DIFFERENT.  NOT ALL JURISDICTIONS ALLOW LIMITATIONS OF LIABILITY, AND THUS THE FOREGOING LIMITATION MAY NOT APPLY TO LICENSEE.
+        
+        15.  STANDARDS LICENSING; RIGHTS OF CONTENT OWNERS
+        
+        Certain technologies such as MPEG 2, MPEG 4, AAC, and H.264 may be subject to third party patents, including patents managed by MPEG LA and Via Licensing, Inc.  LEAD has obtained a patent license from MPEG LA and Via Licensing which covers LEAD's distribution of its products.  LEAD's license does not extend to Licensee's End User Software.  Licensee is responsible for obtaining any and all third-party patent licenses for the deployment and distribution of the End User Software, including any licenses required by MPEG LA or Via Licensing, and will indemnify and hold LEAD harmless from any and all patent claims asserted against LEAD which arise by virtue of Licensee's distribution or deployment of the End User Software.  Additionally, Licensee agrees that it will not use the LEAD SDK or End User Software for any unlawful purpose, including without limitation, for copying, distributing, broadcasting, or publishing the copyrighted works of any third party without a proper content license, and Licensee will indemnify and hold LEAD harmless from any and all claims asserted against LEAD as the result of any wrongful actions taken by Licensee.
+        
+        16.  TECHNICAL SUPPORT AND MAINTENANCE	
+        
+        LEAD's technical support policies and annual maintenance plan benefits are posted on LEAD's website (www.leadtools.com) and LEAD reserves the right to amend and modify its technical support policies and annual maintenance plan from time to time, in its sole discretion.  Licensee agrees that LEAD may collect and freely use any and all technical information or other submissions regarding the LEAD SDK, including feature requests and product suggestions, provided by Licensee to LEAD's support and technical sales departments.  Licensee agrees that LEAD is not responsible for providing technical support to Licensee's customers or other end users of the End User Software.
+        
+        17. PRIVACY AND RESELLERS
+        
+        Licensee acknowledges that it has read and has accepted the terms of LEAD's privacy policy (https://www.leadtools.com/corporate/privacy), ("Privacy Policy") as may be amended from time to time.  If Licensee has purchased the LEAD SDK or obtained an evaluation version through a LEAD reseller or distributor, Licensee agrees that LEAD and the reseller may share with one another the names and contact information of Licensee's developers, procurement and licensing personnel, as well as information regarding Licensee's LEAD SDK license purchases and the name and description of the End User Software developed with the LEAD SDK.  LEAD and its resellers use and treatment of such information will be governed by the Privacy Policy.   
+        
+        18.  GENERAL
+        
+        This Agreement shall be interpreted, construed, and enforced according to the laws of the State of North Carolina.  In the event of any action under this Agreement, the parties agree that federal and state courts located in Charlotte, North Carolina will have exclusive jurisdiction and that a suit may only be brought in Charlotte, North Carolina and Licensee submits itself for the jurisdiction and venue of the state and federal courts located in Charlotte, North Carolina.  This Agreement constitutes the entire agreement and understanding of the parties and may be modified only in writing signed by both parties.  No salesman, support agent or other LEAD employee or any LEAD reseller has any authority to obligate LEAD by any terms, stipulations, or conditions not expressed in the Agreement.  All previous representations and agreements, if any, either verbal or written, referring to the subject matter of this Agreement are void.  If any portion of this Agreement is determined to be legally invalid or unenforceable, such portion will be severed from this Agreement and the remainder of the Agreement will continue to be fully enforceable and valid.  This Agreement, and the rights hereunder, may not be assigned by Licensee, whether by oral or written assignment, sale of assets, merger, consolidation, or otherwise, without the express written consent of LEAD.  Licensee agrees to defend, indemnify and hold LEAD harmless from any such loss or damage, including attorney's fees, arising from Licensee's breach of any term of this Agreement. Portions of the LEAD SDK are protected by copyright and other proprietary rights of third-party LEAD SDK vendors, who shall be deemed to be intended third party beneficiaries of this Agreement.  Licensee may be held directly responsible by third-party vendors for acts relating to the LEAD SDK which are not authorized by this Agreement. 
+        
+        19. OFFICAL LANGUAGE OF AGREEMENT
+        
+        The original text of this Agreement, as well as the documents referenced herein, has been written in the English language, and for convenience, may be translated to other native languages (Japanese, for example).  The text written in English and the provisions of the English version of this Agreement shall be the official contract between the parties, and in the event of an ambiguity or conflict between the terms of the English version and any translated version, the English version shall be controlling.  
+        
+        
+        
+        Copyright (c) 1991-2023 LEAD Technologies, Inc., 1927 South Tryon Street, Suite 200, Charlotte, NC 28203.  ALL RIGHTS RESERVED.  LEAD, LEADTOOLS and LEADVIEW are registered trademarks of LEAD Technologies, Inc.  All other product names are trademarks of their respective owners.
+        
+        
+        
+Project-URL: Homepage, https://www.leadtools.com
+Project-URL: Documentation, https://www.leadtools.com/support/webhelp
+Project-URL: Chat, https://www.leadtools.com/support/chat
+Keywords: Intelligent Character Recognition,ICR,DOC,DOCX,XLS,XLSX,PPT,PPTX,TXT,ID,IDCard,receipt,convert,conversion,Office,Microsoft,audio,video,scan,recognition,lead,leadtools,lead-tools,imaging,multimedia,annotation,image,markup,image-markup,mark-up,document,viewer,OCR,MICR,OMR,PDF,PDF/A,XML,XPS,SVG,Optical Character Recognition,Barcode,UPC,EAN,Code 128,QR,Data Matrix,PDF417,Codes,UCC/EAN,UCC-128,EAN-128,EAN-14,GTIN-14,GS1,DataBar,RSS-14,4-State,POSTNET,USPS4CB,Codabar,extract,text,bookmarks,annotations,replace,split,merge,linearize,forms recognition,form processing,invoice,driver's license,passport,bubble sheets,bank check
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: C#
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Build Tools
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pythonnet
+Requires-Dist: leadtools-common-runtime
+
+<div align="center">
+<img src="https://www.leadtools.com/images/header-nav/leadtools-logo-header.svg" style="width: 55vw;"><br>
+</div>
+
+---
+![Python - Version](https://img.shields.io/badge/Python-3.0%2B-brightgreen)
+[![Powered by LEADTOOLS](https://img.shields.io/badge/Powered%20by%20LEADTOOLS-Leadtools.com-blue)](https://www.leadtools.com?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+[![Twitter Follow](https://img.shields.io/twitter/follow/LEADtools?style=social)](https://twitter.com/leadtools)
+[![YouTube Channel Subscribers](https://img.shields.io/youtube/channel/subscribers/UCB32BVMh2jnYb89IbNxveVA?style=social)](https://www.youtube.com/@LeadtoolsSDK)
+
+# Build Better Apps with LEADTOOLS
+
+Powered by patented artificial intelligence and machine learning algorithms, LEADTOOLS SDKs have helped developers Build Better Apps for over 30 years. LEADTOOLS comprehensive collection of toolkits offer low-code, reliable controls for developers to integrate powerful recognition, document, medical, imaging and multimedia technologies into their applications.
+
+- [OCR / ICR / OMR / MICR](https://www.leadtools.com/sdk/ocr?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Barcode](https://www.leadtools.com/sdk/barcode?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [PDF](https://www.leadtools.com/sdk/pdf?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Forms Processing](https://www.leadtools.com/sdk/ocr/forms/recognition-processing?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+ 
+- [Document Editor](https://www.leadtools.com/sdk/document/document-editor-html5?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Document Viewer](https://www.leadtools.com/sdk/document/document-viewer?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Document Converter](https://www.leadtools.com/sdk/document/document-converter?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Document Analyzer](https://www.leadtools.com/sdk/document/analyzer?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [DICOM](https://www.leadtools.com/sdk/medical/dicom?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [PACS](https://www.leadtools.com/sdk/medical/pacs?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Image Processing](https://www.leadtools.com/sdk/image-processing?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Office Formats](https://www.leadtools.com/sdk/formats?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+- [Multimedia Video and Audio](https://www.leadtools.com/sdk/engine/multimedia?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+
+## Where to get LEADTOOLS
+
+LEADTOOLS requires a license file for evaluation as well as production. The recommended way to receive a license file is to download the [Full Evaluation](https://www.leadtools.com/downloads?category=main&utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org), which includes all LEADTOOLS Recognition, Document, Medical, Vector, Multimedia, and Imaging technologies for all development and target platforms. The license file included with the [Full Evaluation Download](https://www.leadtools.com/downloads?category=main&utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) unlocks all LEADTOOLS features for evaluation.
+
+LEADTOOLS also offers a package available at the [Python
+Package Index (PyPI)](https://pypi.org/project/leadtools/).
+
+The LEADTOOLS pip package can be installed through the command line:
+
+```sh
+pip install leadtools
+```
+
+Note that the LEADTOOLS SDK will still need to be downloaded from the [Full Evaluation Download](https://www.leadtools.com/downloads?category=main)
+
+## Starting off with LEADTOOLS
+
+LEADTOOLS has a multitude of tutorials available to make utilizing the SDK that much easier. 
+
+Go to the [LEADTOOLS Tutorials](https://www.leadtools.com/help/sdk/tutorials/home.html#/?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) page to find the tutorial that best fits your development needs. 
+
+Included with the [Full Evaluation Download](https://www.leadtools.com/downloads?category=main&utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) are a multitude of demos with respective source code to aid in your evaluation of the SDK. These can be found at this filepath: `<INSTALL DIR>\Leadtools22\Examples`
+
+LEADTOOLS hosts a multitude of web demos which can be found at the [LEADTOOLS Web Demo Applications](https://www.leadtools.com/demos/html5) page
+
+## Getting a LEADTOOLS SDK License
+
+1. Register for a LEADTOOLS Portal account by [downloading the evaluation SDK](https://www.leadtools.com/downloads?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org). 
+2. Once you've downloaded,  your evaluation license will be emailed to you. Your evaluation license can also be found within the [LEADTOOLS Portal](https://www.leadtools.com/portal/licenses?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org)
+
+For additional details, refer to the [Obtaining a License](https://www.leadtools.com/help/sdk/mapping/obtaining-a-license.html?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) documentation.
+
+## Setting the LEADTOOLS SDK License in Python
+
+Setting your runtime license is required to use the LEADTOOLS SDK.
+
+1. Place your LEADTOOLS.LIC and LEADTOOLS.LIC.KEY files at this filepath: `<INSTALL DIR>\Leadtools22\Support\Common\License`. 
+2. Add the following to the top of your Python file:
+```Python
+import os
+import sys
+
+# Import LEADTOOLS Demo common modules
+sys.path.append("<INSTALL DIR>/Leadtools22/Examples/Common/Python")
+
+from DemosTools import *
+from UnlockSupport import Support
+
+# Add reference to LEADTOOLS
+from leadtools import LibraryLoader
+LibraryLoader.add_reference("Leadtools")
+from Leadtools import RasterSupport
+```
+3. In the DemosTools.py file found at `<INSTALL DIR>/Leadtools22/Examples/Common/Python` replace the get_bin() method with the following:
+```Python
+@staticmethod
+    def get_bin():
+        # try with version number first
+        bin_folder = os.path.abspath(
+            os.path.join(
+                DemosTools.get_root(), "<INSTALL DIR>/Leadtools22/Bin{}".format(DemosTools.get_version())
+            )
+        )
+        # then try without version number
+        if not os.path.exists(bin_folder):
+            bin_folder = os.path.abspath(os.path.join(DemosTools.get_root(), "INSTALL DIR/Leadtools22/Bin"))
+        return DemosTools.to_unix_path(bin_folder)
+```
+**Note: If the leadtools Wheel package is installed step 3 can be skipped**
+
+This can be done with the following in the command line:
+```sh
+pip install leadtools
+```
+4. To set your LEADTOOLS SDK license in your python application, place the following line before calling anything else from the SDK, such as the beginning of the main() method:
+```Python
+Support.set_license("<INSTALL DIR>/Leadtools22/Support/Common/License")
+```
+
+For a more detailed guide refer to our [Add Reference and Set a License - Python](https://www.leadtools.com/help/sdk/tutorials/python-add-references-and-set-a-license.html?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) tutorial.
+
+## LEADTOOLS Software License Agreement (EULA)
+
+All LEADTOOLS Python Packages are Copyright (c) 1991-2023 LEAD Technologies, Inc., ALL RIGHTS RESERVED and are subject to the [LEADTOOLS Software License Agreement](https://www.leadtools.com/help/sdk/licensing/leadtools-software-license-agreement.html).
+
+
+## Free Technical Support
+
+LEADTOOLS offers free [live chat](https://www.leadtools.com/support/chat?utm_source=pypi.org&utm_medium=PyPIPackage&utm_campaign=pypi&SrcOrigin=pypi.org) support to evaluating users and customers. 
+Chat is available Monday - Friday between 8:30am-6:00pm (Eastern Time). 
+
+LEADTOOLS support can also be reached at support@leadtools.com
+
+For any licensing related questions, please contact sales@leadtools.com
