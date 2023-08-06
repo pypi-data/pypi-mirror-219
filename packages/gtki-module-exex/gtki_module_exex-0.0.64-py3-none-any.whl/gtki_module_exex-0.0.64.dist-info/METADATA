@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: gtki-module-exex
+Version: 0.0.64
+Author: PunchyArchy
+Author-email: ksmdrmvscthny@gmail.com
+License-File: LICENSE
+Requires-Dist: XLsxWriter (==3.0.3)
+Requires-Dist: wsqluse
+Requires-Dist: ar-one-qdk (>=1.1.1)
+Requires-Dist: qodex-pi (==0.3)
+
