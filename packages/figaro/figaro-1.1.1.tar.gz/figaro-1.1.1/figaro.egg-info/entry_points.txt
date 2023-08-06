@@ -1,0 +1,9 @@
+[console_scripts]
+figaro-density = figaro.pipelines.probability_density:main
+figaro-entropy = figaro.pipelines.entropy:main
+figaro-glade = figaro.pipelines.create_glade:main
+figaro-hierarchical = figaro.pipelines.hierarchical_inference:main
+figaro-mockdata = figaro.pipelines.gen_mock_data:main
+figaro-par-density = figaro.pipelines.par_probability_density:main
+figaro-par-hierarchical = figaro.pipelines.par_hierarchical_inference:main
+figaro-pp_plot = figaro.pipelines.ppplot:main
