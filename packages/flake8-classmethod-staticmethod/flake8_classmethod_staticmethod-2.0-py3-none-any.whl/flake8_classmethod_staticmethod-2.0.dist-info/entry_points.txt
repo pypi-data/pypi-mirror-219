@@ -1,0 +1,2 @@
+[flake8.extension]
+CSM1 = flake8_classmethod_staticmethod.checker:Checker
