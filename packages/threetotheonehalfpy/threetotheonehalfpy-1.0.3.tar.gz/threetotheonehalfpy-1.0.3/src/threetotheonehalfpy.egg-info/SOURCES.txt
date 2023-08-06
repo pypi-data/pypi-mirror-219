@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/threetotheonehalfpy/__init__.py
+src/threetotheonehalfpy/calculate.py
+src/threetotheonehalfpy.egg-info/PKG-INFO
+src/threetotheonehalfpy.egg-info/SOURCES.txt
+src/threetotheonehalfpy.egg-info/dependency_links.txt
+src/threetotheonehalfpy.egg-info/top_level.txt

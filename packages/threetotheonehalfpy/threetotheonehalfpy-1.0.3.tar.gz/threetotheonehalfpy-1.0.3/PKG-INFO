@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: threetotheonehalfpy
+Version: 1.0.3
+Summary: A Python package for rapid and secure calculation of three to the one half in an industrial environment
+Home-page: https://github.com/funtrix-ds1/threetotheonehalfpy
+Author: funtrix_doesstuff
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ThreeToTheOneHalfPy
+
+A Python package for rapid and secure calculation of three to the one half in an industrial environment
+(for a local environment, use PySqrtRootOf3Taker)
+(i had to actually learn how to use setuptools and everything send help)
+
+# Installation
+
+Install threetotheonehalfpy with pip:
+```
+pip install threetotheonehalfpy
+```
+
+# Use
+
+Calculate three to the one half:
+```python
+import threetotheonehalfpy
+print(threetotheonehalfpy.calculate_threetotheonehalf())
+```
