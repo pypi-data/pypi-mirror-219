@@ -1,0 +1,15 @@
+LICENSE.md
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+skapex/__init__.py
+skapex/inner_ap.cpp
+skapex/inner_ap.pyx
+skapex/leveraged_affinity_propagation.py
+skapex.egg-info/PKG-INFO
+skapex.egg-info/SOURCES.txt
+skapex.egg-info/dependency_links.txt
+skapex.egg-info/not-zip-safe
+skapex.egg-info/requires.txt
+skapex.egg-info/top_level.txt
