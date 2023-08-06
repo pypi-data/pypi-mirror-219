@@ -1,0 +1,203 @@
+// Dispatch gRPC API definition.
+//
+// Copyright:
+// Copyright 2022 Frequenz Energy-as-a-Service GmbH
+//
+// License:
+// All rights reserved.
+
+// protolint:disable MAX_LINE_LENGTH
+
+syntax = "proto3";
+
+package frequenz.api.dispatch;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+import "frequenz/api/common/components.proto";
+
+service DispatchService {
+  // Returns a list of all dispatches
+  rpc ListDispatches(DispatchFilter) returns (DispatchList) {
+    option (google.api.http) = {
+      get: "/v1/dispatches"
+    };
+  }
+
+  // Create a new dispatch
+  rpc CreateDispatch(DispatchCreateRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/dispatches"
+    };
+  }
+
+  // Update a dispatch
+  rpc UpdateDispatch(DispatchUpdateRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      patch: "/v1/dispatches"
+    };
+  }
+}
+
+// Message representing one dispatch
+message Dispatch {
+  // The dispatch identifier
+  uint64 id = 1;
+
+  // The microgrid identifier
+  uint64 microgrid_id = 2;
+
+  // The dispatch type.
+  // Contains user-defined information about what "type" of dispatch this is.
+  // Downstream applications that consume the dispatch API are responsible for
+  // understanding and processing this field.
+  string type = 3;
+
+  // The start time
+  google.protobuf.Timestamp start_time = 4;
+
+  // The end time
+  google.protobuf.Timestamp end_time = 5;
+
+  // The component selector
+  DispatchComponentSelector selector = 6;
+
+  // The creation time
+  google.protobuf.Timestamp create_time = 7;
+
+  // The "active" status
+  bool is_active = 8;
+
+  // The "dry run" status
+  bool is_dry_run = 9;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 10;
+}
+
+// Filter parameter for specifying multiple time intervals
+message TimeIntervalFilter {
+  // Filter by start_time >= this timestamp
+  google.protobuf.Timestamp start_from = 1;
+
+  // Filter by start_time < this timestamp
+  google.protobuf.Timestamp start_to = 2;
+
+  // Filter by end_time >= this timestamp
+  google.protobuf.Timestamp end_from = 3;
+
+  // Filter by end_time < this timestamp
+  google.protobuf.Timestamp end_to = 4;
+}
+
+// Parameter for controlling which components a dispatch applies to
+// Either a set of component IDs, or all components belonging to a category
+message DispatchComponentSelector {
+  oneof selector {
+    // Set of component IDs
+    DispatchComponentIDs dispatch_component_ids = 1;
+
+    // Component category
+    frequenz.api.common.components.ComponentCategory dispatch_component_category = 2;
+  }
+}
+
+// Wrapper for controlling dispatches with a set of component IDs
+message DispatchComponentIDs {
+  // Set of component IDs
+  repeated uint64 component_ids = 1;
+}
+
+// Parameters for filtering the dispatch list
+message DispatchFilter {
+  // Filter by dispatch ID
+  repeated uint64 ids = 1;
+
+  // Filter by microgrid ID
+  repeated uint64 microgrid_ids = 2;
+
+  // Filter by dispatch type
+  repeated string types = 3;
+
+  // Filter by component ID or category
+  repeated DispatchComponentSelector selectors = 4;
+
+  // Filter by time interval
+  TimeIntervalFilter time_interval = 5;
+
+  // Filter by "active" status
+  optional bool is_active = 6;
+
+  // Filter by "dry run" status
+  optional bool is_dry_run = 7;
+}
+
+
+// A list of dispatches
+message DispatchList {
+  // The dispatches
+  repeated Dispatch dispatches = 1;
+}
+
+// Message to create a new dispatch with the given attributes
+message DispatchCreateRequest {
+  // The microgrid identifier
+  uint64 microgrid_id = 1;
+
+  // The type of dispatch
+  string type = 2;
+
+  // The start time
+  google.protobuf.Timestamp start_time = 3;
+
+  // The end time
+  google.protobuf.Timestamp end_time = 4;
+
+  // The component selector
+  DispatchComponentSelector selector = 5;
+
+  // The "active" status
+  bool is_active = 6;
+
+  // The "dry run" status
+  bool is_dry_run = 7;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 8;
+}
+
+// Message to update the dispatch with the given ID, with the given attributes
+message DispatchUpdateRequest {
+  // The dispatch identifier
+  uint64 id = 1;
+
+  // The microgrid identifier
+  optional uint64 microgrid_id = 2;
+
+  // The type of dispatch
+  optional string type = 3;
+
+  // The start time
+  google.protobuf.Timestamp start_time = 4;
+
+  // The end time
+  google.protobuf.Timestamp end_time = 5;
+
+  // The component selector
+  DispatchComponentSelector selector = 6;
+
+  // The creation time
+  google.protobuf.Timestamp create_time = 7;
+
+  // The "active" status
+  optional bool is_active = 8;
+
+  // The "dry run" status
+  optional bool is_dry_run = 9;
+
+  // The dispatch payload
+  google.protobuf.Struct payload = 10;
+}
