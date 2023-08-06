@@ -1,0 +1,38 @@
+{
+    "device_automation": {
+        "action_type": {
+            "clean": "{entity_name} temizle",
+            "dock": "{entity_name} \u015farj istasyonuna d\u00f6ns\u00fcn"
+        },
+        "condition_type": {
+            "is_cleaning": "{entity_name} temizliyor",
+            "is_docked": "{entity_name} \u015farj istasyonunda"
+        },
+        "trigger_type": {
+            "cleaning": "{entity_name} temizlemeye ba\u015flad\u0131",
+            "docked": "{entity_name} \u015farj istasyonunda"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "Robot S\u00fcp\u00fcrge",
+            "state": {
+                "cleaning": "Temizleniyor",
+                "docked": "\u015earj istasyonunda",
+                "error": "Hata",
+                "idle": "Bo\u015fta",
+                "off": "Kapal\u0131",
+                "on": "A\u00e7\u0131k",
+                "paused": "Durduruldu",
+                "returning": "\u015earj istasyonuna d\u00f6n\u00fcyor"
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "{domain} entegrasyonu i\u00e7in {platform} platformu, platform kurulumunu desteklemiyor. \n\n L\u00fctfen yap\u0131land\u0131rman\u0131zdan kald\u0131r\u0131n ve bu sorunu \u00e7\u00f6zmek i\u00e7in Home Assistant'\u0131 yeniden ba\u015flat\u0131n.",
+            "title": "Platform deste\u011fi desteklenmiyor"
+        }
+    },
+    "title": "Robot S\u00fcp\u00fcrge"
+}

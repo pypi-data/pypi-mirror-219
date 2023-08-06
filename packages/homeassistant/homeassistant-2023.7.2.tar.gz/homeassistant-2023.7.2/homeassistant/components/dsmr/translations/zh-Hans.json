@@ -1,0 +1,95 @@
+{
+    "entity": {
+        "sensor": {
+            "current_electricity_delivery": {
+                "name": "\u7535\u529b\u751f\u4ea7"
+            },
+            "current_electricity_usage": {
+                "name": "\u529f\u8017"
+            },
+            "electricity_active_tariff": {
+                "name": "\u6709\u6548\u8d44\u8d39",
+                "state": {
+                    "low": "\u4f4e",
+                    "normal": "\u6b63\u5e38"
+                }
+            },
+            "electricity_tariff": {
+                "state": {
+                    "low": "\u4f4e",
+                    "normal": "\u6b63\u5e38"
+                }
+            },
+            "instantaneous_active_power_l2_negative": {
+                "name": "\u53d1\u7535\u76f8\u4f4d L2"
+            },
+            "instantaneous_active_power_l2_positive": {
+                "name": "\u529f\u8017\u76f8\u4f4d L2"
+            },
+            "instantaneous_active_power_l3_negative": {
+                "name": "\u53d1\u7535\u76f8\u4f4d L3"
+            },
+            "instantaneous_active_power_l3_positive": {
+                "name": "\u529f\u8017\u76f8\u4f4dL3"
+            },
+            "instantaneous_current_l1": {
+                "name": "\u5f53\u524d\u76f8\u4f4dL1"
+            },
+            "instantaneous_current_l2": {
+                "name": "\u7535\u6d41\u76f8\u4f4d L2"
+            },
+            "instantaneous_current_l3": {
+                "name": "\u7535\u6d41\u76f8\u4f4d L3"
+            },
+            "instantaneous_voltage_l1": {
+                "name": "\u7535\u538b\u76f8\u4f4d L1"
+            },
+            "instantaneous_voltage_l2": {
+                "name": "\u7535\u538b\u76f8\u4f4d L2"
+            },
+            "instantaneous_voltage_l3": {
+                "name": "\u7535\u538b\u76f8\u4f4d L3"
+            },
+            "long_power_failure_count": {
+                "name": "\u957f\u65f6\u505c\u7535\u8ba1\u6570"
+            },
+            "max_current_per_phase": {
+                "name": "\u6bcf\u76f8\u6700\u5927\u7535\u6d41"
+            },
+            "max_power_per_phase": {
+                "name": "\u6bcf\u76f8\u6700\u5927\u529f\u7387"
+            },
+            "short_power_failure_count": {
+                "name": "\u77ed\u65f6\u505c\u7535\u8ba1\u6570"
+            },
+            "voltage_sag_l1_count": {
+                "name": "\u7535\u538b\u8dcc\u843d\u9636\u6bb5 L1"
+            },
+            "voltage_sag_l2_count": {
+                "name": "\u7535\u538b\u8dcc\u843d\u9636\u6bb5 L2"
+            },
+            "voltage_sag_l3_count": {
+                "name": "\u7535\u538b\u8dcc\u843d\u9636\u6bb5 L3"
+            },
+            "voltage_swell_l1_count": {
+                "name": "\u7535\u538b\u9aa4\u5347\u9636\u6bb5 L1"
+            },
+            "voltage_swell_l2_count": {
+                "name": "\u7535\u538b\u9aa4\u5347\u9636\u6bb5 L2"
+            },
+            "voltage_swell_l3_count": {
+                "name": "\u7535\u538b\u9aa4\u5347\u9636\u6bb5 L3"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "time_between_update": "\u5b9e\u4f53\u66f4\u65b0\u4e4b\u95f4\u7684\u6700\u77ed\u65f6\u95f4 [s]"
+                },
+                "title": "DSMR \u9009\u9879"
+            }
+        }
+    }
+}

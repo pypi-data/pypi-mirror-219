@@ -1,0 +1,58 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_auth": "Neplatn\u00e9 overenie",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Hostite\u013e",
+                    "password": "Heslo",
+                    "username": "Pou\u017e\u00edvate\u013esk\u00e9 meno"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "pending_system_alerts": {
+                "name": "\u010cakaj\u00face syst\u00e9mov\u00e9 upozornenia"
+            },
+            "water_detected": {
+                "name": "Voda zisten\u00e1"
+            }
+        },
+        "sensor": {
+            "current_flow_rate": {
+                "name": "Prietok vody"
+            },
+            "current_system_mode": {
+                "name": "Aktu\u00e1lny re\u017eim syst\u00e9mu"
+            },
+            "daily_consumption": {
+                "name": "Dne\u0161n\u00e1 spotreba vody"
+            },
+            "water_pressure": {
+                "name": "Tlak vody"
+            },
+            "water_temperature": {
+                "name": "Teplota vody"
+            }
+        },
+        "switch": {
+            "shutoff_valve": {
+                "name": "Uzatv\u00e1rac\u00ed ventil"
+            }
+        }
+    },
+    "services": {
+        "run_health_test": {
+            "description": "Nechajte zariadenie Flo vykona\u0165 test stavu."
+        }
+    }
+}

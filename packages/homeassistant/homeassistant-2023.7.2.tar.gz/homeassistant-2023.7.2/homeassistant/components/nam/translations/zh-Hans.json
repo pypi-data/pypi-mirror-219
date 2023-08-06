@@ -1,0 +1,69 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u8bbe\u5907\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86",
+            "device_unsupported": "\u8be5\u8bbe\u5907\u4e0d\u53d7\u652f\u6301\u3002"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25",
+            "unknown": "\u975e\u9884\u671f\u7684\u9519\u8bef"
+        },
+        "flow_title": "{host}",
+        "step": {
+            "confirm_discovery": {
+                "description": "\u60a8\u60f3\u5728{host}\u8bbe\u7f6e Nettigo Air Monitor \u5417\uff1f"
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "restart": {
+                "name": "\u91cd\u542f"
+            }
+        },
+        "sensor": {
+            "dht22_temperature": {
+                "name": "DHT22\u6e29\u5ea6"
+            },
+            "heca_humidity": {
+                "name": "HECA\u6e7f\u5ea6"
+            },
+            "heca_temperature": {
+                "name": "HECA\u6e29\u5ea6"
+            },
+            "last_restart": {
+                "name": "\u4e0a\u6b21\u91cd\u542f"
+            },
+            "pmsx003_caqi_level": {
+                "state": {
+                    "high": "\u9ad8",
+                    "low": "\u4f4e",
+                    "medium": "\u4e2d",
+                    "very_high": "\u5f88\u9ad8",
+                    "very_low": "\u5f88\u4f4e"
+                }
+            },
+            "sds011_caqi_level": {
+                "state": {
+                    "high": "\u9ad8",
+                    "low": "\u4f4e",
+                    "medium": "\u4e2d",
+                    "very_high": "\u5f88\u9ad8",
+                    "very_low": "\u5f88\u4f4e"
+                }
+            },
+            "signal_strength": {
+                "name": "\u4fe1\u53f7\u5f3a\u5ea6"
+            },
+            "sps30_caqi_level": {
+                "state": {
+                    "high": "\u9ad8",
+                    "low": "\u4f4e",
+                    "medium": "\u4e2d",
+                    "very_high": "\u5f88\u9ad8",
+                    "very_low": "\u5f88\u4f4e"
+                }
+            }
+        }
+    }
+}

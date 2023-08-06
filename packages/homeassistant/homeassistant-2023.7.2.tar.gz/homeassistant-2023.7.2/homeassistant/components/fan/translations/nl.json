@@ -1,0 +1,37 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Ventilator",
+            "state": {
+                "off": "Uit",
+                "on": "Aan"
+            },
+            "state_attributes": {
+                "direction": {
+                    "name": "Richting",
+                    "state": {
+                        "forward": "Vooruit",
+                        "reverse": "Achteruit"
+                    }
+                },
+                "oscillating": {
+                    "name": "Oscillerend",
+                    "state": {
+                        "false": "Nee",
+                        "true": "Ja"
+                    }
+                },
+                "percentage": {
+                    "name": "Snelheid"
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "Platform {platform} van de {domain} integratie heeft geen platformondersteuning.\n\nVerwijder dit uit je configuratie en herstart Home Assistant om dit issue op te lossen.",
+            "title": "Platformondersteuning is niet ondersteund"
+        }
+    },
+    "title": "Ventilator"
+}

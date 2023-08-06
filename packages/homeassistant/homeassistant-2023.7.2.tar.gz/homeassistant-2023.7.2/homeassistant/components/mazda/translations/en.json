@@ -1,0 +1,48 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Account is already configured",
+            "reauth_successful": "Re-authentication was successful"
+        },
+        "error": {
+            "account_locked": "Account locked. Please try again later.",
+            "cannot_connect": "Failed to connect",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "email": "Email",
+                    "password": "Password",
+                    "region": "Region"
+                },
+                "description": "Please enter the email address and password you use to log into the MyMazda mobile app."
+            }
+        }
+    },
+    "services": {
+        "send_poi": {
+            "description": "Sends a GPS location to the vehicle's navigation system as a POI (Point of Interest). Requires a navigation SD card installed in the vehicle.",
+            "fields": {
+                "device_id": {
+                    "description": "The vehicle to send the GPS location to.",
+                    "name": "Vehicle"
+                },
+                "latitude": {
+                    "description": "The latitude of the location to send.",
+                    "name": "Latitude"
+                },
+                "longitude": {
+                    "description": "The longitude of the location to send.",
+                    "name": "Longitude"
+                },
+                "poi_name": {
+                    "description": "A friendly name for the location.",
+                    "name": "POI name"
+                }
+            },
+            "name": "Send POI"
+        }
+    }
+}

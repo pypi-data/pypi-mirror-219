@@ -1,0 +1,69 @@
+{
+    "services": {
+        "set_device_value": {
+            "fields": {
+                "address": {
+                    "description": "Direcci\u00f3n del dispositivo homematic o BidCoS-RF para control remoto virtual."
+                },
+                "channel": {
+                    "description": "Canal para llamar a una pulsaci\u00f3n de tecla."
+                },
+                "interface": {
+                    "description": "Establece un valor de interfaz."
+                },
+                "param": {
+                    "description": "Evento a enviar, es decir, PRESS_LONG, PRESS_SHORT.",
+                    "name": "Par\u00e1metro"
+                },
+                "value": {
+                    "description": "Nuevo valor."
+                }
+            }
+        },
+        "set_install_mode": {
+            "fields": {
+                "mode": {
+                    "name": "Modo"
+                }
+            }
+        },
+        "set_variable_value": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entidad"
+                },
+                "name": {
+                    "description": "Nombre de la variable a configurar.",
+                    "name": "Nombre"
+                },
+                "value": {
+                    "description": "Nuevo valor.",
+                    "name": "Valor"
+                }
+            },
+            "name": "Establecer valor de variable"
+        },
+        "virtualkey": {
+            "description": "Pulsa una tecla virtual desde CCU/Homegear o simula la pulsaci\u00f3n de una tecla.",
+            "fields": {
+                "address": {
+                    "description": "Direcci\u00f3n del dispositivo homematic o BidCoS-RF para control remoto virtual.",
+                    "name": "Direcci\u00f3n"
+                },
+                "channel": {
+                    "description": "Canal para llamar a una pulsaci\u00f3n de tecla.",
+                    "name": "Canal"
+                },
+                "interface": {
+                    "description": "Establece un valor de interfaz.",
+                    "name": "Interfaz"
+                },
+                "param": {
+                    "description": "Evento a enviar, es decir, PRESS_LONG, PRESS_SHORT.",
+                    "name": "Par\u00e1metro"
+                }
+            },
+            "name": "Llave virtual"
+        }
+    }
+}

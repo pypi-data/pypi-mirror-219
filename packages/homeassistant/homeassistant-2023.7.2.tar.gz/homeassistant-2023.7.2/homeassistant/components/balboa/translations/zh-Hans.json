@@ -1,0 +1,17 @@
+{
+    "entity": {
+        "climate": {
+            "balboa": {
+                "state_attributes": {
+                    "preset_mode": {
+                        "state": {
+                            "ready": "\u5c31\u7eea",
+                            "ready_in_rest": "\u51c6\u5907\u5c31\u7eea",
+                            "rest": "\u4f11\u606f"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

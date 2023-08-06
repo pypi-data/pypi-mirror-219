@@ -1,0 +1,76 @@
+{
+    "device_automation": {
+        "action_type": {
+            "toggle": "Prepn\u00fa\u0165 {entity_name}",
+            "turn_off": "Vypn\u00fa\u0165 {entity_name}",
+            "turn_on": "Zapn\u00fa\u0165 {entity_name}"
+        },
+        "condition_type": {
+            "is_off": "{entity_name} je vypnut\u00e9",
+            "is_on": "{entity_name} je zapnut\u00e9"
+        },
+        "trigger_type": {
+            "changed_states": "{entity_name} zapnut\u00e9 alebo vypnut\u00e9",
+            "turned_off": "{entity_name} vypnut\u00e9",
+            "turned_on": "{entity_name} zapnut\u00e9"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "Dia\u013ekov\u00e9 ovl\u00e1danie",
+            "state": {
+                "off": "Neakt\u00edvny",
+                "on": "Akt\u00edvny"
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "Platforma {platform} pre integr\u00e1ciu {domain} nepodporuje nastavenie platformy. \n\n Odstr\u00e1\u0148te ho z konfigur\u00e1cie a re\u0161tartujte Home Assistant, aby ste tento probl\u00e9m vyrie\u0161ili.",
+            "title": "Podpora platformy nie je podporovan\u00e1"
+        }
+    },
+    "services": {
+        "delete_command": {
+            "fields": {
+                "device": {
+                    "description": "Zariadenie, z ktor\u00e9ho sa pr\u00edkazy odstr\u00e1nia.",
+                    "name": "Zariadenie"
+                }
+            }
+        },
+        "learn_command": {
+            "description": "Nau\u010d\u00ed sa pr\u00edkaz alebo zoznam pr\u00edkazov zo zariadenia.",
+            "fields": {
+                "alternative": {
+                    "description": "Ak sa k\u00f3d mus\u00ed ulo\u017ei\u0165 ako alternat\u00edva. To je u\u017eito\u010dn\u00e9 pre diskr\u00e9tne k\u00f3dy. Diskr\u00e9tne k\u00f3dy sa pou\u017e\u00edvaj\u00fa pre prep\u00edna\u010de, ktor\u00e9 vykon\u00e1vaj\u00fa len jednu funkciu. Napr\u00edklad k\u00f3d, ktor\u00fd sl\u00fa\u017ei len na zapnutie zariadenia. Ak je u\u017e zapnut\u00e9, odoslan\u00edm k\u00f3du sa stav nezmen\u00ed."
+                },
+                "device": {
+                    "description": "ID zariadenia, z ktor\u00e9ho sa m\u00e1 pr\u00edkaz nau\u010di\u0165.",
+                    "name": "Zariadenie"
+                }
+            }
+        },
+        "send_command": {
+            "description": "Odo\u0161le pr\u00edkaz alebo zoznam pr\u00edkazov do zariadenia.",
+            "fields": {
+                "device": {
+                    "description": "ID zariadenia, ktor\u00e9mu sa m\u00e1 posla\u0165 pr\u00edkaz.",
+                    "name": "Zariadenie"
+                }
+            }
+        },
+        "toggle": {
+            "description": "Zapnutie/vypnutie zariadenia.",
+            "name": "Prepn\u00fa\u0165"
+        },
+        "turn_off": {
+            "description": "Vypne zariadenie.",
+            "name": "Vypn\u00fa\u0165"
+        },
+        "turn_on": {
+            "name": "Zapn\u00fa\u0165"
+        }
+    },
+    "title": "Dia\u013ekov\u00e9 ovl\u00e1danie"
+}

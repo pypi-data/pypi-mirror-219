@@ -1,0 +1,9 @@
+{
+    "config": {
+        "step": {
+            "confirm": {
+                "description": "\u60a8\u60f3\u8981\u8bbe\u7f6e{name} {model} ( {host} ) \u5417\uff1f"
+            }
+        }
+    }
+}

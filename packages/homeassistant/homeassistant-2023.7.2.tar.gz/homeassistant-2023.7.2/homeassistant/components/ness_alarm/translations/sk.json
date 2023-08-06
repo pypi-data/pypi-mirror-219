@@ -1,0 +1,14 @@
+{
+    "services": {
+        "aux": {
+            "fields": {
+                "output_id": {
+                    "name": "ID v\u00fdstupu"
+                },
+                "state": {
+                    "description": "Stav zapnutia/vypnutia. Ak je aktivovan\u00fd P14xE 8E, potom hodnota true sp\u00f4sob\u00ed, \u017ee v\u00fdstup x bude pulzova\u0165 po dobu uveden\u00fa v P14(x+4)E."
+                }
+            }
+        }
+    }
+}

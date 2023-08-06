@@ -1,0 +1,31 @@
+{
+    "services": {
+        "clear_zone_override": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                }
+            }
+        },
+        "set_system_mode": {
+            "fields": {
+                "mode": {
+                    "name": "Re\u017eim"
+                }
+            }
+        },
+        "set_zone_override": {
+            "fields": {
+                "duration": {
+                    "name": "Trvanie"
+                },
+                "entity_id": {
+                    "name": "Entita"
+                },
+                "setpoint": {
+                    "name": "Nastaven\u00e1 hodnota"
+                }
+            }
+        }
+    }
+}

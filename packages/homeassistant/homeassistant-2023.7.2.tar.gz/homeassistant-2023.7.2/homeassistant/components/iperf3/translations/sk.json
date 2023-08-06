@@ -1,0 +1,12 @@
+{
+    "services": {
+        "speedtest": {
+            "fields": {
+                "host": {
+                    "name": "Hostite\u013e"
+                }
+            },
+            "name": "Test r\u00fdchlosti"
+        }
+    }
+}

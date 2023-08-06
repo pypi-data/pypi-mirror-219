@@ -1,0 +1,21 @@
+{
+    "entity": {
+        "sensor": {
+            "efficiency": {
+                "name": "\u6548\u7387"
+            },
+            "energy_consumption": {
+                "name": "\u6d88\u8017\u7684\u80fd\u91cf"
+            },
+            "energy_generation": {
+                "name": "\u4ea7\u751f\u7684\u80fd\u91cf"
+            },
+            "power_consumption": {
+                "name": "\u8017\u7535\u91cf"
+            },
+            "power_generation": {
+                "name": "\u53d1\u7535\u91cf"
+            }
+        }
+    }
+}

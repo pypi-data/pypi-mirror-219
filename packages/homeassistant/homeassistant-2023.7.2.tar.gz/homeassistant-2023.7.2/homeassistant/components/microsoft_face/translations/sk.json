@@ -1,0 +1,46 @@
+{
+    "services": {
+        "create_group": {
+            "description": "Vytvor\u00ed nov\u00fa skupinu os\u00f4b.",
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "create_person": {
+            "description": "Vytvor\u00ed nov\u00fa osobu v skupine.",
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "delete_group": {
+            "description": "Odstr\u00e1ni nov\u00fa skupinu os\u00f4b.",
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "delete_person": {
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "face_person": {
+            "description": "Prid\u00e1 nov\u00fd obr\u00e1zok k osobe.",
+            "fields": {
+                "camera_entity": {
+                    "name": "Entita kamery"
+                }
+            }
+        },
+        "train_group": {
+            "description": "Vy\u0161kol\u00ed skupinu os\u00f4b."
+        }
+    }
+}

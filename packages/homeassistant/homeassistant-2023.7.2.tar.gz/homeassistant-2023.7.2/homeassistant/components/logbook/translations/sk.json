@@ -1,0 +1,19 @@
+{
+    "services": {
+        "log": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entity ID"
+                },
+                "message": {
+                    "description": "Spr\u00e1va z\u00e1znamu v denn\u00edku.",
+                    "name": "Spr\u00e1va"
+                },
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            },
+            "name": "Log"
+        }
+    }
+}

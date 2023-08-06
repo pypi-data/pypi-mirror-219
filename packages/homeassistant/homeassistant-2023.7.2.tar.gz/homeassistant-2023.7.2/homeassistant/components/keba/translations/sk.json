@@ -1,0 +1,27 @@
+{
+    "services": {
+        "authorize": {
+            "name": "Autoriz\u00e1cia"
+        },
+        "deauthorize": {
+            "name": "Zru\u0161enie autoriz\u00e1cie"
+        },
+        "disable": {
+            "name": "Zak\u00e1za\u0165"
+        },
+        "enable": {
+            "name": "Povoli\u0165"
+        },
+        "request_data": {
+            "description": "Vy\u017eiadanie nov\u00fdch \u00fadajov z nab\u00edjacej stanice.",
+            "name": "Vy\u017eiadajte si \u00fadaje"
+        },
+        "set_current": {
+            "fields": {
+                "current": {
+                    "description": "Maxim\u00e1lny pr\u00fad pou\u017e\u00edvan\u00fd pri nab\u00edjan\u00ed. Hodnota z\u00e1vis\u00ed od nastavenia prep\u00edna\u010da DIP a pou\u017eit\u00e9ho k\u00e1bla nab\u00edjacej stanice."
+                }
+            }
+        }
+    }
+}

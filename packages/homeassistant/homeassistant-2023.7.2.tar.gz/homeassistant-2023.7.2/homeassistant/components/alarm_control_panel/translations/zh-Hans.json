@@ -1,0 +1,72 @@
+{
+    "device_automation": {
+        "action_type": {
+            "arm_away": "{entity_name} \u79bb\u5bb6\u8b66\u6212",
+            "arm_home": "{entity_name} \u5728\u5bb6\u8b66\u6212",
+            "arm_night": "{entity_name} \u591c\u95f4\u8b66\u6212",
+            "arm_vacation": "{entity_name} \u5ea6\u5047\u8b66\u6212",
+            "disarm": "\u89e3\u9664 {entity_name} \u8b66\u6212",
+            "trigger": "\u89e6\u53d1 {entity_name}"
+        },
+        "condition_type": {
+            "is_armed_away": "{entity_name} \u79bb\u5bb6\u8b66\u6212",
+            "is_armed_home": "{entity_name} \u5728\u5bb6\u8b66\u6212",
+            "is_armed_night": "{entity_name} \u591c\u95f4\u8b66\u6212",
+            "is_armed_vacation": "{entity_name} \u5ea6\u5047\u8b66\u6212",
+            "is_disarmed": "{entity_name} \u8b66\u6212\u5df2\u89e3\u9664",
+            "is_triggered": "{entity_name} \u8b66\u62a5\u5df2\u89e6\u53d1"
+        },
+        "trigger_type": {
+            "armed_away": "{entity_name} \u79bb\u5bb6\u8b66\u6212",
+            "armed_home": "{entity_name} \u5728\u5bb6\u8b66\u6212",
+            "armed_night": "{entity_name} \u591c\u95f4\u8b66\u6212",
+            "armed_vacation": "{entity_name} \u5ea6\u5047\u8b66\u6212",
+            "disarmed": "{entity_name} \u8b66\u6212\u89e3\u9664",
+            "triggered": "{entity_name} \u89e6\u53d1\u8b66\u62a5"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "\u8b66\u62a5\u63a7\u5236\u5668",
+            "state": {
+                "armed": "\u8b66\u6212\u4e2d",
+                "armed_away": "\u79bb\u5bb6\u8b66\u6212",
+                "armed_custom_bypass": "\u81ea\u5b9a\u4e49\u8b66\u6212",
+                "armed_home": "\u5728\u5bb6\u8b66\u6212",
+                "armed_night": "\u591c\u95f4\u8b66\u6212",
+                "armed_vacation": "\u5ea6\u5047\u8b66\u6212",
+                "arming": "\u8b66\u6212\u4e2d",
+                "disarmed": "\u5df2\u89e3\u9664",
+                "disarming": "\u8b66\u6212\u89e3\u9664",
+                "pending": "\u51c6\u5907\u4e2d",
+                "triggered": "\u5df2\u89e6\u53d1"
+            },
+            "state_attributes": {
+                "changed_by": {
+                    "name": "\u66f4\u6539\u8005"
+                },
+                "code_arm_required": {
+                    "name": "\u5e03\u9632\u4ee3\u7801",
+                    "state": {
+                        "false": "\u975e\u5fc5\u8981\u9009\u9879",
+                        "true": "\u5fc5\u586b"
+                    }
+                },
+                "code_format": {
+                    "name": "\u4ee3\u7801\u683c\u5f0f",
+                    "state": {
+                        "number": "\u6570\u503c",
+                        "text": "\u6587\u672c"
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "\u7528\u4e8e {domain} \u96c6\u6210\u7684 {platform} \u5e73\u53f0\u4e0d\u518d\u652f\u6301\u901a\u8fc7YAML\u914d\u7f6e\u3002\n\u8bf7\u5c06\u5176\u4ece\u914d\u7f6e\u6587\u4ef6\u4e2d\u5220\u9664\uff0c\u7136\u540e\u91cd\u65b0\u542f\u52a8\u5bb6\u5ead\u52a9\u7406\u4ee5\u89e3\u51b3\u6b64\u95ee\u9898\u3002",
+            "title": "\u5e73\u53f0\u4e0d\u652f\u6301"
+        }
+    },
+    "title": "\u8b66\u62a5\u63a7\u5236\u5668"
+}

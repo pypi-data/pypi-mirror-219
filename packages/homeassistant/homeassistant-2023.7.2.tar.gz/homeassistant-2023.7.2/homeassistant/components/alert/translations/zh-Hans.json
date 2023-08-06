@@ -1,0 +1,11 @@
+{
+    "entity_component": {
+        "_": {
+            "state": {
+                "idle": "\u7a7a\u95f2",
+                "off": "\u5df2\u786e\u8ba4",
+                "on": "\u6fc0\u6d3b"
+            }
+        }
+    }
+}

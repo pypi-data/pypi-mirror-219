@@ -1,0 +1,11 @@
+{
+    "services": {
+        "pulse": {
+            "fields": {
+                "ihc_id": {
+                    "name": "ID IHC"
+                }
+            }
+        }
+    }
+}

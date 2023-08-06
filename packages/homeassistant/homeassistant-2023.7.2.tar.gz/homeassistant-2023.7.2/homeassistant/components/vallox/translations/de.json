@@ -1,0 +1,48 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Der Dienst ist bereits konfiguriert",
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_host": "Ung\u00fcltiger Hostname oder IP-Adresse",
+            "unknown": "Unerwarteter Fehler"
+        },
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen",
+            "invalid_host": "Ung\u00fcltiger Hostname oder IP-Adresse",
+            "unknown": "Unerwarteter Fehler"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host"
+                }
+            }
+        }
+    },
+    "services": {
+        "set_profile_fan_speed_away": {
+            "fields": {
+                "fan_speed": {
+                    "description": "L\u00fcftergeschwindigkeit.",
+                    "name": "L\u00fcftergeschwindigkeit"
+                }
+            }
+        },
+        "set_profile_fan_speed_boost": {
+            "fields": {
+                "fan_speed": {
+                    "description": "L\u00fcftergeschwindigkeit.",
+                    "name": "L\u00fcftergeschwindigkeit"
+                }
+            }
+        },
+        "set_profile_fan_speed_home": {
+            "fields": {
+                "fan_speed": {
+                    "description": "L\u00fcftergeschwindigkeit.",
+                    "name": "L\u00fcftergeschwindigkeit"
+                }
+            }
+        }
+    }
+}

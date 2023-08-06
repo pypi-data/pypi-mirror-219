@@ -1,0 +1,30 @@
+{
+    "entity": {
+        "switch": {
+            "fan_beep_enable": {
+                "name": "\u561f"
+            },
+            "led_indicators_enable": {
+                "name": "LED \u6307\u793a\u706f"
+            },
+            "legacy_ir_remote_enable": {
+                "name": "\u4f20\u7edf\u7ea2\u5916\u9065\u63a7\u5668"
+            },
+            "light_dim_to_warm_enable": {
+                "name": "\u8c03\u6697\u81f3\u6e29\u6696"
+            },
+            "light_return_to_auto_enable": {
+                "name": "\u5149\u8fd4\u56de\u81ea\u52a8"
+            },
+            "motion_sense_enable": {
+                "name": "\u8fd0\u52a8\u611f\u5e94"
+            },
+            "return_to_auto_enable": {
+                "name": "\u8fd4\u56de\u81ea\u52a8"
+            },
+            "whoosh_enable": {
+                "name": "\u55d6\u55d6"
+            }
+        }
+    }
+}

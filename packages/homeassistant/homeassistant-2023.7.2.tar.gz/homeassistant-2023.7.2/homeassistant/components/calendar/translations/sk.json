@@ -1,0 +1,85 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Kalend\u00e1r",
+            "state": {
+                "off": "Neakt\u00edvny",
+                "on": "Akt\u00edvny"
+            },
+            "state_attributes": {
+                "all_day": {
+                    "name": "Cel\u00fd de\u0148",
+                    "state": {
+                        "false": "Nie",
+                        "true": "\u00c1no"
+                    }
+                },
+                "description": {
+                    "name": "Popis"
+                },
+                "end_time": {
+                    "name": "\u010cas ukon\u010denia"
+                },
+                "location": {
+                    "name": "Umiestnenie"
+                },
+                "messages": {
+                    "name": "Spr\u00e1va"
+                },
+                "start_time": {
+                    "name": "Doba spustenia"
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "Platforma {platform} pre integr\u00e1ciu {domain} nepodporuje nastavenie platformy. \n\n Odstr\u00e1\u0148te ho z konfigur\u00e1cie a re\u0161tartujte Home Assistant, aby ste tento probl\u00e9m vyrie\u0161ili.",
+            "title": "Podpora platformy nie je podporovan\u00e1"
+        }
+    },
+    "services": {
+        "create_event": {
+            "description": "Prid\u00e1 nov\u00fa udalos\u0165 kalend\u00e1ra.",
+            "fields": {
+                "description": {
+                    "name": "Popis"
+                },
+                "end_date": {
+                    "name": "D\u00e1tum konca"
+                },
+                "end_date_time": {
+                    "name": "\u010cas ukon\u010denia"
+                },
+                "location": {
+                    "name": "Umiestnenie"
+                },
+                "start_date": {
+                    "name": "D\u00e1tum za\u010diatku"
+                },
+                "start_date_time": {
+                    "name": "Doba spustenia"
+                },
+                "summary": {
+                    "name": "Zhrnutie"
+                }
+            },
+            "name": "Vytvori\u0165 udalos\u0165"
+        },
+        "list_events": {
+            "fields": {
+                "duration": {
+                    "name": "Trvanie"
+                },
+                "end_date_time": {
+                    "name": "\u010cas ukon\u010denia"
+                },
+                "start_date_time": {
+                    "name": "Doba spustenia"
+                }
+            },
+            "name": "Zoznam udalost\u00ed"
+        }
+    },
+    "title": "Kalend\u00e1r"
+}

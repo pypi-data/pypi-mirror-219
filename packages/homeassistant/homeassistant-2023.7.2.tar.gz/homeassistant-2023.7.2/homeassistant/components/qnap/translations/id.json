@@ -1,0 +1,8 @@
+{
+    "issues": {
+        "deprecated_yaml": {
+            "description": "Proses konfigurasi Integrasi IMAP lewat QNAP dalam proses penghapusan.\n\nKonfigurasi YAML yang ada telah diimpor ke antarmuka secara otomatis.\n\nHapus konfigurasi YAML Integrasi QNAP dari file configuration.yaml dan mulai ulang Home Assistant untuk memperbaiki masalah ini.",
+            "title": "Konfigurasi YAML QNAP dalam proses penghapusan"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "config": {
+        "abort": {
+            "address_already_configured": "\u5df2\u914d\u7f6e\u5177\u6709\u6b64\u5730\u5740\u7684 ElkM1",
+            "already_configured": "\u5177\u6709\u6b64\u524d\u7f00\u7684 ElkM1 \u5df2\u914d\u7f6e"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25",
+            "invalid_auth": "\u8eab\u4efd\u8ba4\u8bc1\u65e0\u6548",
+            "unknown": "\u975e\u9884\u671f\u7684\u9519\u8bef"
+        },
+        "step": {
+            "manual_connection": {
+                "data": {
+                    "prefix": "\u552f\u4e00\u7684\u524d\u7f00\uff08\u5982\u679c\u60a8\u53ea\u6709\u4e00\u53f0 ElkM1\uff0c\u5219\u7559\u7a7a\uff09\u3002"
+                }
+            },
+            "user": {
+                "description": "\u5982\u679c\u5c1a\u672a\u53d1\u73b0\u4efb\u4f55\u8bbe\u5907\uff0c\u8bf7\u9009\u62e9\u5df2\u53d1\u73b0\u7684\u7cfb\u7edf\u6216\u201c\u624b\u52a8\u8f93\u5165\u201d\u3002",
+                "title": "\u8fde\u63a5\u5230 Elk-M1 \u63a7\u5236"
+            }
+        }
+    }
+}

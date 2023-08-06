@@ -1,0 +1,27 @@
+{
+    "device_automation": {
+        "action_type": {
+            "turn_off": "\u5173\u95ed{entity_name}",
+            "turn_on": "\u5f00\u542f{entity_name}"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state": {
+                "eco": "\u8282\u80fd",
+                "electric": "\u7535\u70ed",
+                "gas": "\u71c3\u6c14",
+                "heat_pump": "\u70ed\u6cf5",
+                "high_demand": "\u6025\u9700",
+                "off": "\u5173\u95ed",
+                "performance": "\u9ad8\u6027\u80fd"
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "\u7528\u4e8e {domain} \u96c6\u6210\u7684 {platform} \u5e73\u53f0\u4e0d\u518d\u652f\u6301\u901a\u8fc7YAML\u914d\u7f6e\u3002\n\u8bf7\u5c06\u5176\u4ece\u914d\u7f6e\u6587\u4ef6\u4e2d\u5220\u9664\uff0c\u7136\u540e\u91cd\u65b0\u542f\u52a8\u5bb6\u5ead\u52a9\u7406\u4ee5\u89e3\u51b3\u6b64\u95ee\u9898\u3002",
+            "title": "\u5e73\u53f0\u4e0d\u652f\u6301"
+        }
+    }
+}

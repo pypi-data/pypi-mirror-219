@@ -1,0 +1,20 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "liability_insured": {
+                "name": "\u8d23\u4efb\u4fdd\u9669"
+            },
+            "pending_recall": {
+                "name": "\u51c6\u5907\u91cd\u65b0\u8c03\u7528"
+            }
+        },
+        "sensor": {
+            "apk_expiration": {
+                "name": "APK\u8fc7\u671f"
+            },
+            "ascription_date": {
+                "name": "\u5f52\u5c5e\u65e5\u671f"
+            }
+        }
+    }
+}

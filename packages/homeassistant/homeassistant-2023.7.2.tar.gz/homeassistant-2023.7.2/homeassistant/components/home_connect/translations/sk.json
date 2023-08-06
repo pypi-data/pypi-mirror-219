@@ -1,0 +1,110 @@
+{
+    "config": {
+        "abort": {
+            "missing_configuration": "Komponent nie je nakonfigurovan\u00fd. Postupujte pod\u013ea dokument\u00e1cie.",
+            "no_url_available": "Nie je k dispoz\u00edcii \u017eiadna adresa URL. Inform\u00e1cie o tejto chybe n\u00e1jdete [pozrite si sekciu pomocn\u00edka]({docs_url})"
+        },
+        "create_entry": {
+            "default": "\u00daspe\u0161ne overen\u00e9"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Vyberte met\u00f3du overenia"
+            }
+        }
+    },
+    "services": {
+        "change_setting": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                },
+                "key": {
+                    "name": "K\u013e\u00fa\u010d"
+                },
+                "value": {
+                    "description": "Hodnota nastavenia.",
+                    "name": "Hodnota"
+                }
+            }
+        },
+        "pause_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                }
+            }
+        },
+        "resume_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                }
+            }
+        },
+        "select_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                },
+                "program": {
+                    "name": "Program"
+                },
+                "value": {
+                    "description": "Hodnota mo\u017enosti.",
+                    "name": "Hodnota mo\u017enosti"
+                }
+            },
+            "name": "Vyberte program"
+        },
+        "set_option_active": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                },
+                "key": {
+                    "name": "K\u013e\u00fa\u010d"
+                },
+                "value": {
+                    "description": "Hodnota mo\u017enosti.",
+                    "name": "Hodnota"
+                }
+            }
+        },
+        "set_option_selected": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                },
+                "key": {
+                    "name": "K\u013e\u00fa\u010d"
+                },
+                "value": {
+                    "description": "Hodnota mo\u017enosti.",
+                    "name": "Hodnota"
+                }
+            }
+        },
+        "start_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID zariadenia.",
+                    "name": "ID zariadenia"
+                },
+                "program": {
+                    "name": "Program"
+                },
+                "value": {
+                    "description": "Hodnota mo\u017enosti.",
+                    "name": "Hodnota mo\u017enosti"
+                }
+            }
+        }
+    }
+}

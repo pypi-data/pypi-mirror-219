@@ -1,0 +1,100 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "El dispositivo ya est\u00e1 configurado",
+            "connection_aborted": "No se pudo conectar",
+            "unknown": "Error inesperado"
+        },
+        "error": {
+            "invalid_sgtin_or_pin": "C\u00f3digo SGTIN o PIN no v\u00e1lido, por favor, int\u00e9ntalo de nuevo.",
+            "press_the_button": "Por favor, pulsa el bot\u00f3n azul",
+            "register_failed": "No se pudo registrar, por favor, int\u00e9ntalo de nuevo.",
+            "timeout_button": "Se agot\u00f3 el tiempo de espera para presionar el bot\u00f3n azul, por favor, int\u00e9ntalo de nuevo."
+        },
+        "step": {
+            "init": {
+                "data": {
+                    "hapid": "ID de punto de acceso (SGTIN)",
+                    "name": "Nombre (opcional, usado como prefijo de nombre para todos los dispositivos)",
+                    "pin": "C\u00f3digo PIN"
+                },
+                "title": "Elegir punto de acceso HomematicIP"
+            },
+            "link": {
+                "description": "Pulsa el bot\u00f3n azul en el punto de acceso y el bot\u00f3n de env\u00edo para registrar HomematicIP en Home Assistant.\n\n![Ubicaci\u00f3n del bot\u00f3n en la pasarela](/static/images/config_flows/config_homematicip_cloud.png)",
+                "title": "Vincular punto de acceso"
+            }
+        }
+    },
+    "services": {
+        "activate_eco_mode_with_duration": {
+            "description": "Activa el modo eco durante un periodo",
+            "fields": {
+                "accesspoint_id": {
+                    "description": "El ID de Homematic IP Access Point.",
+                    "name": "ID de Accesspoint"
+                },
+                "duration": {
+                    "description": "La duraci\u00f3n del modo eco en minutos.",
+                    "name": "Duraci\u00f3n"
+                }
+            },
+            "name": "Activar modo eco con duraci\u00f3n"
+        },
+        "activate_eco_mode_with_period": {
+            "description": "Activa el modo eco durante un periodo",
+            "fields": {
+                "accesspoint_id": {
+                    "description": "El ID de Homematic IP Access Point.",
+                    "name": "ID de Accesspoint"
+                },
+                "endtime": {
+                    "description": "La hora a la que el modo eco debe desactivarse autom\u00e1ticamente.",
+                    "name": "Hora de finalizaci\u00f3n"
+                }
+            },
+            "name": "Activar el modo eco durante un periodo"
+        },
+        "activate_vacation": {
+            "description": "Activa el modo vacaciones hasta la hora indicada.",
+            "fields": {
+                "accesspoint_id": {
+                    "description": "El ID de Homematic IP Access Point.",
+                    "name": "ID de Accesspoint"
+                },
+                "endtime": {
+                    "name": "Hora de finalizaci\u00f3n"
+                }
+            }
+        },
+        "deactivate_eco_mode": {
+            "fields": {
+                "accesspoint_id": {
+                    "description": "El ID de Homematic IP Access Point.",
+                    "name": "ID de Accesspoint"
+                }
+            }
+        },
+        "deactivate_vacation": {
+            "fields": {
+                "accesspoint_id": {
+                    "description": "El ID de Homematic IP Access Point.",
+                    "name": "ID de Accesspoint"
+                }
+            }
+        },
+        "set_active_climate_profile": {
+            "fields": {
+                "climate_profile_index": {
+                    "description": "El \u00edndice del perfil de clima.",
+                    "name": "\u00cdndice de perfil de clima"
+                },
+                "entity_id": {
+                    "description": "El ID de la entidad de clima. Utiliza la palabra clave 'all' para cambiar el perfil de todas las entidades.",
+                    "name": "Entidad"
+                }
+            },
+            "name": "Establecer perfil de clima activo"
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "services": {
+        "seek_by": {
+            "fields": {
+                "seconds": {
+                    "name": "Sekundy"
+                }
+            },
+            "name": "H\u013eadaj pod\u013ea"
+        },
+        "seek_forward": {
+            "name": "H\u013eadajte dopredu"
+        }
+    }
+}

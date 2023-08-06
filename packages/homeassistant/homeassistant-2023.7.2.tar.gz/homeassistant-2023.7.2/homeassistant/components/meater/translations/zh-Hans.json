@@ -1,0 +1,30 @@
+{
+    "entity": {
+        "sensor": {
+            "ambient": {
+                "name": "\u73af\u5883\u6e29\u5ea6"
+            },
+            "cook_name": {
+                "name": "\u70f9\u996a"
+            },
+            "cook_peak_temp": {
+                "name": "\u5cf0\u503c\u6e29\u5ea6"
+            },
+            "cook_state": {
+                "name": "\u70f9\u996a\u72b6\u6001"
+            },
+            "cook_target_temp": {
+                "name": "\u8bbe\u5b9a\u6e29\u5ea6"
+            },
+            "cook_time_elapsed": {
+                "name": "\u5df2\u7528\u65f6\u95f4"
+            },
+            "cook_time_remaining": {
+                "name": "\u5269\u4f59\u65f6\u95f4"
+            },
+            "internal": {
+                "name": "\u5185\u90e8\u6e29\u5ea6"
+            }
+        }
+    }
+}

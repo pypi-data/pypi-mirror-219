@@ -1,0 +1,12 @@
+{
+    "services": {
+        "play_media": {
+            "description": "Stiahne s\u00fabor z danej adresy URL.",
+            "fields": {
+                "media_content_id": {
+                    "name": "ID medi\u00e1lneho obsahu"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "device_automation": {
+        "action_type": {
+            "select_first": "{entity_name} ilk se\u00e7ene\u011fe de\u011fi\u015ftirin",
+            "select_last": "{entity_name} \u00f6\u011fesini son se\u00e7ene\u011fe de\u011fi\u015ftirin",
+            "select_next": "{entity_name} \u00f6\u011fesini sonraki se\u00e7ene\u011fe de\u011fi\u015ftir",
+            "select_option": "{entity_name} se\u00e7ene\u011fini de\u011fi\u015ftirin",
+            "select_previous": "{entity_name} \u00f6nceki se\u00e7ene\u011fe de\u011fi\u015ftir"
+        },
+        "condition_type": {
+            "selected_option": "Ge\u00e7erli {entity_name} se\u00e7ili se\u00e7enek"
+        },
+        "trigger_type": {
+            "current_option_changed": "{entity_name} se\u00e7ene\u011fi de\u011fi\u015fti"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "Se\u00e7",
+            "state_attributes": {
+                "options": {
+                    "name": "Se\u00e7enekler"
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "{domain} entegrasyonu i\u00e7in {platform} platformu, platform kurulumunu desteklemiyor. \n\n L\u00fctfen yap\u0131land\u0131rman\u0131zdan kald\u0131r\u0131n ve bu sorunu \u00e7\u00f6zmek i\u00e7in Home Assistant'\u0131 yeniden ba\u015flat\u0131n.",
+            "title": "Platform deste\u011fi desteklenmiyor"
+        }
+    },
+    "title": "Se\u00e7"
+}

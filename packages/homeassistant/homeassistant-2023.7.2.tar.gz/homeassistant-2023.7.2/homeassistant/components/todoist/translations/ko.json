@@ -1,0 +1,16 @@
+{
+    "services": {
+        "new_task": {
+            "description": "\uc0c8 \uc791\uc5c5\uc744 \uc0dd\uc131\ud558\uace0 \ud504\ub85c\uc81d\ud2b8\uc5d0 \ucd94\uac00\ud569\ub2c8\ub2e4.",
+            "fields": {
+                "assignee": {
+                    "description": "\uc774 \uc791\uc5c5\uc744 \ud560\ub2f9\ud560 \uacf5\uc720 \ud504\ub85c\uc81d\ud2b8\uc758 \uad6c\uc131\uc6d0 \uc0ac\uc6a9\uc790 \uc774\ub984",
+                    "name": "\ub2f4\ub2f9\uc790"
+                },
+                "content": {
+                    "description": "\uc791\uc5c5\uc758 \uc774\ub984"
+                }
+            }
+        }
+    }
+}

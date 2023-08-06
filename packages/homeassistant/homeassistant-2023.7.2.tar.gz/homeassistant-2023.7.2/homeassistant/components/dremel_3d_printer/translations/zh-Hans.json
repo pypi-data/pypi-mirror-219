@@ -1,0 +1,66 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u8bbe\u5907\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25",
+            "unknown": "\u975e\u9884\u671f\u7684\u9519\u8bef"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "\u4e3b\u673a"
+                }
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "pause_job": {
+                "name": "\u6682\u505c\u4f5c\u4e1a"
+            },
+            "resume_job": {
+                "name": "\u6062\u590d\u5de5\u4f5c"
+            }
+        },
+        "sensor": {
+            "api_version": {
+                "name": "API\u7248\u672c"
+            },
+            "available_storage": {
+                "name": "\u53ef\u7528\u5b58\u50a8\u7a7a\u95f4"
+            },
+            "chamber": {
+                "name": "\u5ba4"
+            },
+            "connection_type": {
+                "name": "\u8fde\u63a5\u7c7b\u578b"
+            },
+            "elapsed_time": {
+                "name": "\u7ecf\u8fc7\u65f6\u95f4"
+            },
+            "estimated_total_time": {
+                "name": "\u9884\u8ba1\u603b\u65f6\u95f4"
+            },
+            "extruder": {
+                "name": "\u6324\u51fa\u673a"
+            },
+            "filament": {
+                "name": "\u706f\u4e1d"
+            },
+            "host": {
+                "name": "\u4e3b\u673a"
+            },
+            "hours_used": {
+                "name": "\u4f7f\u7528\u5c0f\u65f6\u6570"
+            },
+            "job_name": {
+                "name": "\u804c\u4f4d\u540d\u79f0"
+            },
+            "job_phase": {
+                "name": "\u5de5\u4f5c\u9636\u6bb5"
+            }
+        }
+    }
+}

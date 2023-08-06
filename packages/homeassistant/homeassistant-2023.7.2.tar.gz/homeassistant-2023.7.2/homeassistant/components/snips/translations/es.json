@@ -1,0 +1,46 @@
+{
+    "services": {
+        "feedback_off": {
+            "fields": {
+                "site_id": {
+                    "description": "Sitio para activar los sonidos, por defecto todos los sitios."
+                }
+            }
+        },
+        "feedback_on": {
+            "fields": {
+                "site_id": {
+                    "description": "Sitio para activar los sonidos, por defecto todos los sitios."
+                }
+            }
+        },
+        "say": {
+            "fields": {
+                "custom_data": {
+                    "description": "Datos personalizados que se incluir\u00e1n con todos los mensajes en esta sesi\u00f3n.",
+                    "name": "Datos personalizados"
+                },
+                "site_id": {
+                    "description": "Sitio a usar para iniciar la sesi\u00f3n, por defecto es el predeterminado."
+                },
+                "text": {
+                    "description": "Texto para decir."
+                }
+            }
+        },
+        "say_action": {
+            "fields": {
+                "custom_data": {
+                    "description": "Datos personalizados que se incluir\u00e1n con todos los mensajes en esta sesi\u00f3n.",
+                    "name": "Datos personalizados"
+                },
+                "site_id": {
+                    "description": "Sitio a usar para iniciar la sesi\u00f3n, por defecto es el predeterminado."
+                },
+                "text": {
+                    "description": "Texto para decir."
+                }
+            }
+        }
+    }
+}

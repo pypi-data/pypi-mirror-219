@@ -1,0 +1,16 @@
+{
+    "services": {
+        "set_all_zones": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov akejko\u013evek z\u00f3ny blackbird.",
+                    "name": "Entita"
+                },
+                "source": {
+                    "name": "Zdroj"
+                }
+            },
+            "name": "Nastavenie v\u0161etk\u00fdch z\u00f3n"
+        }
+    }
+}

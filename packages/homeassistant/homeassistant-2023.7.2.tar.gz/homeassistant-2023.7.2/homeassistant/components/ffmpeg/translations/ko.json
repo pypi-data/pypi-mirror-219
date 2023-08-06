@@ -1,0 +1,13 @@
+{
+    "services": {
+        "restart": {
+            "name": "\uc7ac\uc2dc\uc791"
+        },
+        "start": {
+            "name": "\uc2dc\uc791"
+        },
+        "stop": {
+            "name": "\uc911\uc9c0"
+        }
+    }
+}

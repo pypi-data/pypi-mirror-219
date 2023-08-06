@@ -1,0 +1,20 @@
+{
+    "config": {
+        "abort": {
+            "no_devices_found": "\u6ca1\u6709\u5728\u7f51\u7edc\u4e0a\u627e\u5230\u8bbe\u5907",
+            "reauth_successful": "\u91cd\u65b0\u8ba4\u8bc1\u6210\u529f"
+        },
+        "error": {
+            "invalid_access_token": "\u8bbf\u95ee Token \u65e0\u6548",
+            "unknown": "\u975e\u9884\u671f\u7684\u9519\u8bef"
+        },
+        "step": {
+            "user": {
+                "description": "\u9009\u62e9\u672c\u5730\u4ee5\u83b7\u5f97\u6700\u4f73\u4f53\u9a8c\u3002\u5982\u679c\u8bbe\u5907\u672a\u8fde\u63a5\u5230\u4e0e Home Assistant \u76f8\u540c\u7684\u7f51\u7edc\uff0c\u6216\u8005\u5982\u679c\u60a8\u6709\u65e7\u8bbe\u5907\uff0c\u5219\u4ec5\u4f7f\u7528\u4e91\u3002",
+                "menu_options": {
+                    "local": "\u672c\u5730\u8fde\u63a5\uff08\u9996\u9009\uff09"
+                }
+            }
+        }
+    }
+}

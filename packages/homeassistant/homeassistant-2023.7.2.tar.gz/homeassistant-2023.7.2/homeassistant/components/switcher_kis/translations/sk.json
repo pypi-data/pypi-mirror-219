@@ -1,0 +1,21 @@
+{
+    "config": {
+        "abort": {
+            "no_devices_found": "V sieti sa nena\u0161li \u017eiadne zariadenia",
+            "single_instance_allowed": "U\u017e je nakonfigurovan\u00fd. Mo\u017en\u00e1 je len jedna konfigur\u00e1cia."
+        },
+        "step": {
+            "confirm": {
+                "description": "Chcete za\u010da\u0165 nastavova\u0165?"
+            }
+        }
+    },
+    "services": {
+        "set_auto_off": {
+            "description": "Aktualizuje nastavenie automatick\u00e9ho vypnutia zariadenia Switcher."
+        },
+        "turn_on_with_timer": {
+            "description": "Zapne zariadenie Switcher s \u010dasova\u010dom."
+        }
+    }
+}

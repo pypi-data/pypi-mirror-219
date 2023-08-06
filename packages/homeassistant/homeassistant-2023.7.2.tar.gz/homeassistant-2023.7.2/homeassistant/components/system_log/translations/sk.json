@@ -1,0 +1,15 @@
+{
+    "services": {
+        "write": {
+            "fields": {
+                "logger": {
+                    "description": "N\u00e1zov z\u00e1znamn\u00edka, pod ktor\u00fdm sa m\u00e1 spr\u00e1va zaznamena\u0165. Predvolen\u00e9 nastavenie je `system_log.external`."
+                },
+                "message": {
+                    "description": "Spr\u00e1va do denn\u00edka.",
+                    "name": "Spr\u00e1va"
+                }
+            }
+        }
+    }
+}

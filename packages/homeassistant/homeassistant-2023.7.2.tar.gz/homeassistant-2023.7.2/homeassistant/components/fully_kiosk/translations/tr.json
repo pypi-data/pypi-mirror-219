@@ -1,0 +1,109 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Hesap zaten yap\u0131land\u0131r\u0131lm\u0131\u015f"
+        },
+        "error": {
+            "cannot_connect": "Ba\u011flanma hatas\u0131",
+            "unknown": "Beklenmeyen hata"
+        },
+        "step": {
+            "discovery_confirm": {
+                "data": {
+                    "password": "Parola"
+                },
+                "description": "{name} ({host}) kurmak istiyor musunuz?"
+            },
+            "user": {
+                "data": {
+                    "host": "Sunucu",
+                    "password": "Parola"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "device_admin": {
+                "name": "Cihaz y\u00f6neticisi"
+            },
+            "kiosk_mode": {
+                "name": "Kiosk modu"
+            },
+            "plugged_in": {
+                "name": "Fi\u015fe tak\u0131l\u0131"
+            }
+        },
+        "button": {
+            "load_start_url": {
+                "name": "Ba\u015flang\u0131\u00e7 URL'sini y\u00fckle"
+            },
+            "restart_browser": {
+                "name": "Taray\u0131c\u0131y\u0131 yeniden ba\u015flat\u0131n"
+            },
+            "restart_device": {
+                "name": "Cihaz\u0131 yeniden ba\u015flat\u0131n"
+            },
+            "to_background": {
+                "name": "Arka plana g\u00f6nder"
+            },
+            "to_foreground": {
+                "name": "\u00d6n plana \u00e7\u0131kar\u0131n"
+            }
+        },
+        "number": {
+            "screen_brightness": {
+                "name": "Ekran parlakl\u0131\u011f\u0131"
+            },
+            "screen_off_time": {
+                "name": "Ekran kapatma zamanlay\u0131c\u0131s\u0131"
+            },
+            "screensaver_brightness": {
+                "name": "Ekran koruyucu parlakl\u0131\u011f\u0131"
+            },
+            "screensaver_time": {
+                "name": "Ekran koruyucu zamanlay\u0131c\u0131s\u0131"
+            }
+        },
+        "sensor": {
+            "current_page": {
+                "name": "Ge\u00e7erli sayfa"
+            },
+            "foreground_app": {
+                "name": "\u00d6n plan uygulamas\u0131"
+            },
+            "internal_storage_free_space": {
+                "name": "Dahili depolama bo\u015f alan\u0131"
+            },
+            "internal_storage_total_space": {
+                "name": "Dahili depolama toplam alan\u0131"
+            },
+            "ram_free_memory": {
+                "name": "Bo\u015f haf\u0131za"
+            },
+            "ram_total_memory": {
+                "name": "Toplam haf\u0131za"
+            },
+            "screen_orientation": {
+                "name": "Ekran y\u00f6n\u00fc"
+            }
+        },
+        "switch": {
+            "kiosk": {
+                "name": "Kiosk kilidi"
+            },
+            "maintenance": {
+                "name": "Bak\u0131m Modu"
+            },
+            "motion_detection": {
+                "name": "Hareket alg\u0131lama"
+            },
+            "screen_on": {
+                "name": "Ekran"
+            },
+            "screensaver": {
+                "name": "Ekran koruyucu"
+            }
+        }
+    }
+}

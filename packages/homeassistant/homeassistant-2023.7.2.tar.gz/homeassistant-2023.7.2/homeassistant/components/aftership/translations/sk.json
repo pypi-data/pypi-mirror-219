@@ -1,0 +1,26 @@
+{
+    "services": {
+        "add_tracking": {
+            "description": "Prid\u00e1 nov\u00e9 sledovacie \u010d\u00edslo do slu\u017eby Aftership.",
+            "fields": {
+                "title": {
+                    "description": "Vlastn\u00fd n\u00e1zov pre nov\u00e9 sledovanie.",
+                    "name": "N\u00e1zov"
+                },
+                "tracking_number": {
+                    "description": "\u010c\u00edslo z\u00e1sielky pre nov\u00e9 sledovanie.",
+                    "name": "Sledovacie \u010d\u00edslo"
+                }
+            },
+            "name": "Pridajte sledovanie"
+        },
+        "remove_tracking": {
+            "fields": {
+                "tracking_number": {
+                    "name": "Sledovacie \u010d\u00edslo"
+                }
+            },
+            "name": "Odstr\u00e1nenie sledovania"
+        }
+    }
+}

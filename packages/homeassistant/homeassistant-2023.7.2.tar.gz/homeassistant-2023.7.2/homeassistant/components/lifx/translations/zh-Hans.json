@@ -1,0 +1,27 @@
+{
+    "config": {
+        "abort": {
+            "no_devices_found": "\u6ca1\u6709\u5728\u7f51\u7edc\u4e0a\u627e\u5230\u8bbe\u5907"
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "clean_cycle": {
+                "name": "\u6e05\u6d01\u5468\u671f"
+            }
+        },
+        "select": {
+            "infrared_brightness": {
+                "name": "\u7ea2\u5916\u4eae\u5ea6"
+            },
+            "theme": {
+                "name": "\u4e3b\u9898"
+            }
+        },
+        "sensor": {
+            "rssi": {
+                "name": "RSSI"
+            }
+        }
+    }
+}

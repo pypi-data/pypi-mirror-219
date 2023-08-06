@@ -1,0 +1,114 @@
+{
+    "services": {
+        "disable_audio": {
+            "description": "Zak\u00e1\u017ee streamovanie zvuku.",
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            },
+            "name": "Zak\u00e1zanie zvuku"
+        },
+        "disable_motion_recording": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            },
+            "name": "Zak\u00e1\u017ee nahr\u00e1vanie pohybu"
+        },
+        "disable_recording": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            },
+            "name": "Zak\u00e1za\u0165 nahr\u00e1vanie"
+        },
+        "enable_audio": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            }
+        },
+        "enable_motion_recording": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            }
+        },
+        "enable_recording": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            }
+        },
+        "goto_preset": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                },
+                "preset": {
+                    "name": "Predvo\u013eba"
+                }
+            },
+            "name": "Prejs\u0165 na predvo\u013ebu"
+        },
+        "ptz_control": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                },
+                "movement": {
+                    "description": "Smer pohybu kamery.",
+                    "name": "Pohyb"
+                },
+                "travel_time": {
+                    "name": "\u010cas cesty"
+                }
+            },
+            "name": "PTZ ovl\u00e1danie"
+        },
+        "set_color_bw": {
+            "description": "Nastav\u00ed farebn\u00fd re\u017eim fotoapar\u00e1tu.",
+            "fields": {
+                "color_bw": {
+                    "description": "Farebn\u00fd re\u017eim.",
+                    "name": "Farba"
+                },
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            },
+            "name": "Nastavi\u0165 farbu"
+        },
+        "start_tour": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            }
+        },
+        "stop_tour": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) kamier alebo \"v\u0161etko\" pre v\u0161etky kamery.",
+                    "name": "Entita"
+                }
+            }
+        }
+    }
+}

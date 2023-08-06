@@ -1,0 +1,59 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9",
+            "cannot_connect": "Nepodarilo sa pripoji\u0165"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "name": "N\u00e1zov tohto spojenia velbus",
+                    "port": "Re\u0165azec pripojenia"
+                },
+                "title": "Definujte typ pripojenia velbus"
+            }
+        }
+    },
+    "services": {
+        "clear_cache": {
+            "description": "Vyma\u017ee velbuscache a potom spust\u00ed nov\u00e9 skenovanie.",
+            "fields": {
+                "address": {
+                    "name": "Adresa"
+                },
+                "interface": {
+                    "description": "Rozhranie velbus, na ktor\u00e9 sa m\u00e1 posla\u0165 pr\u00edkaz, t\u00e1to hodnota bude rovnak\u00e1 ako hodnota pou\u017eit\u00e1 po\u010das konfigur\u00e1cie."
+                }
+            }
+        },
+        "scan": {
+            "description": "Skenuje moduly velbusu, \u010do bude potrebn\u00e9, ak sa v denn\u00edkoch zobrazia varovania o nezn\u00e1mom module alebo ak ste pridali nov\u00e9 moduly.",
+            "fields": {
+                "interface": {
+                    "description": "Rozhranie velbus, na ktor\u00e9 sa m\u00e1 posla\u0165 pr\u00edkaz, t\u00e1to hodnota bude rovnak\u00e1 ako hodnota pou\u017eit\u00e1 po\u010das konfigur\u00e1cie."
+                }
+            }
+        },
+        "set_memo_text": {
+            "fields": {
+                "address": {
+                    "name": "Adresa"
+                },
+                "interface": {
+                    "description": "Rozhranie velbus, na ktor\u00e9 sa m\u00e1 posla\u0165 pr\u00edkaz, t\u00e1to hodnota bude rovnak\u00e1 ako hodnota pou\u017eit\u00e1 po\u010das konfigur\u00e1cie."
+                }
+            }
+        },
+        "sync_clock": {
+            "description": "Synchronizuje hodiny modulov velbus s hodinami Home Assistant, \u010do je rovnak\u00e9 ako synchroniz\u00e1cia hod\u00edn z VelbusLink.",
+            "fields": {
+                "interface": {
+                    "description": "Rozhranie velbus, na ktor\u00e9 sa m\u00e1 posla\u0165 pr\u00edkaz, t\u00e1to hodnota bude rovnak\u00e1 ako hodnota pou\u017eit\u00e1 po\u010das konfigur\u00e1cie."
+                }
+            }
+        }
+    }
+}

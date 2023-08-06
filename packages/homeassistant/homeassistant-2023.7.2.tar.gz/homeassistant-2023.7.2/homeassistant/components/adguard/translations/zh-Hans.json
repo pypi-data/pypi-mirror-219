@@ -1,0 +1,76 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u670d\u52a1\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86",
+            "existing_instance_updated": "\u66f4\u65b0\u4e86\u73b0\u6709\u914d\u7f6e\u3002"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25"
+        },
+        "step": {
+            "hassio_confirm": {
+                "description": "\u60a8\u8981\u914d\u7f6e Home Assistant \u4ee5\u8fde\u63a5\u5230\u9644\u52a0\u7ec4\u4ef6\u63d0\u4f9b\u7684 AdGuard Home\uff1a {addon}\u5417\uff1f",
+                "title": "\u4f7f\u7528 Home Assistant \u52a0\u8f7d\u9879 AdGuard Home"
+            },
+            "user": {
+                "data": {
+                    "host": "\u4e3b\u673a",
+                    "password": "\u5bc6\u7801",
+                    "port": "\u7aef\u53e3",
+                    "ssl": "\u4f7f\u7528 SSL \u8bc1\u4e66",
+                    "username": "\u7528\u6237\u540d",
+                    "verify_ssl": "\u9a8c\u8bc1 SSL \u8bc1\u4e66"
+                },
+                "description": "\u8bbe\u7f6e\u60a8\u7684 AdGuard Home \u5b9e\u4f8b\u4ee5\u5141\u8bb8\u76d1\u89c6\u548c\u63a7\u5236"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "average_processing_speed": {
+                "name": "\u5e73\u5747\u5904\u7406\u901f\u5ea6"
+            },
+            "dns_queries": {
+                "name": "DNS \u67e5\u8be2"
+            },
+            "dns_queries_blocked": {
+                "name": "DNS \u67e5\u8be2\u88ab\u963b\u6b62"
+            },
+            "dns_queries_blocked_ratio": {
+                "name": "DNS \u67e5\u8be2\u963b\u585e\u7387"
+            },
+            "parental_control_blocked": {
+                "name": "\u5bb6\u957f\u63a7\u5236\u88ab\u963b\u6b62"
+            },
+            "rules_count": {
+                "name": "\u89c4\u5219\u8ba1\u6570"
+            },
+            "safe_browsing_blocked": {
+                "name": "\u5b89\u5168\u6d4f\u89c8\u5df2\u88ab\u963b\u6b62"
+            },
+            "safe_searches_enforced": {
+                "name": "\u5f3a\u5236\u5b89\u5168\u641c\u67e5"
+            }
+        },
+        "switch": {
+            "filtering": {
+                "name": "\u8fc7\u6ee4"
+            },
+            "parental": {
+                "name": "\u5bb6\u957f\u63a7\u5236"
+            },
+            "protection": {
+                "name": "\u4fdd\u62a4"
+            },
+            "query_log": {
+                "name": "\u67e5\u8be2\u65e5\u5fd7"
+            },
+            "safe_browsing": {
+                "name": "\u5b89\u5168\u6d4f\u89c8"
+            },
+            "safe_search": {
+                "name": "\u5b89\u5168\u641c\u7d22"
+            }
+        }
+    }
+}

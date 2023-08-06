@@ -1,0 +1,68 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_auth": "Neplatn\u00e9 overenie",
+            "old_firmware": "Nepodporovan\u00fd star\u00fd firmv\u00e9r na zariaden\u00ed Bond \u2013 pred pokra\u010dovan\u00edm aktualizujte",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "flow_title": "{name} ({host})",
+        "step": {
+            "confirm": {
+                "data": {
+                    "access_token": "Pr\u00edstupov\u00fd token"
+                },
+                "description": "Chcete nastavi\u0165 {name}?"
+            },
+            "user": {
+                "data": {
+                    "access_token": "Pr\u00edstupov\u00fd token",
+                    "host": "Hostite\u013e"
+                }
+            }
+        }
+    },
+    "services": {
+        "set_fan_speed_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                },
+                "speed": {
+                    "name": "R\u00fdchlos\u0165 ventil\u00e1tora"
+                }
+            }
+        },
+        "set_light_brightness_tracked_state": {
+            "fields": {
+                "brightness": {
+                    "description": "Jas.",
+                    "name": "Jas"
+                },
+                "entity_id": {
+                    "name": "Entita"
+                }
+            }
+        },
+        "set_light_power_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                }
+            }
+        },
+        "set_switch_power_tracked_state": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                }
+            }
+        },
+        "stop": {
+            "name": "Zastavi\u0165"
+        }
+    }
+}
