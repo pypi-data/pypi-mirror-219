@@ -1,0 +1,96 @@
+[tool.poetry]
+name = "flake8_boolean_trap"
+version = "1.0.1"
+description = "flake8 plugin which forbids boolean positional arguments"
+authors = ["Pablo Woolvett <github@devx.pw>"]
+packages = [
+    { include = "flake8_boolean_trap.py", from = "src" },
+]
+readme = "README.md"
+homepage = "https://pwoolvett.github.io/flake8_boolean_trap"
+repository = "https://github.com/pwoolvett/flake8_boolean_trap"
+license = "UNLICENSE"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Environment :: Console",
+    "Framework :: Flake8",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flake8 = "*"
+
+[tool.poetry.dev-dependencies]
+pytest = ">=6.2.5"
+astpretty = ">=3.0.0"
+black = ">=22.3.0"
+mypy = ">=0.961"
+isort = ">=5.10.1"
+Sphinx = ">=5.0.1"
+myst-parser = ">=0.18.0"
+sphinx-copybutton = ">=0.5.0"
+sphinx-inline-tabs = ">=2022.1.2-beta.11"
+furo = ">=2022.6.4"
+flake8-isort = ">=4.1.1"
+flake8-bandit = ">=3.0.0"
+flake8-bugbear = ">=22.4.25"
+flake8-builtins = ">=1.5.3"
+flake8-comprehensions = ">=3.10.0"
+flake8-docstrings = ">=1.6.0"
+flake8-eradicate = ">=1.2.1"
+flake8-debugger = ">=4.1.2"
+flake8-mutable = ">=1.2.0"
+flake8-pytest-style = ">=1.6.0"
+pep8-naming = ">=0.13.0"
+darglint = ">=1.8.1"
+flake8-black = ">=0.3.3"
+pylint = ">=2.14.1"
+
+
+[tool.poetry.plugins."flake8.extension"]
+FBT = "flake8_boolean_trap:Plugin"
+
+
+[tool.poetry.group.dev.dependencies]
+Flake8-pyproject = "^1.2.2"
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+src_paths = ["src"]
+known_local_folder = ["test"]
+atomic = true
+
+[tool.flake8]
+docstring-convention = "google"  # flake8-docstrings
+docstring_style = "google"  # darglint
+ignore = [
+  "D412",  # we do want lines between header and contents. See https://github.com/PyCQA/pydocstyle/issues/412
+  "D202",  # black conflict
+  "W503",  # black conflict, looks ok
+]
+max_line_length = 88
+
+
+[tool.commitizen]
+version = "1.0.1"
+annotated_tag = true
+update_changelog_on_bump = true
+name = "cz_conventional_commits"
+tag_format = "$version"
+# keep this in sync with the bump workflow to avoid
+# re-triggering it after commitizen bump command pushes
+bump_message = "bump: $current_version → $new_version"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
