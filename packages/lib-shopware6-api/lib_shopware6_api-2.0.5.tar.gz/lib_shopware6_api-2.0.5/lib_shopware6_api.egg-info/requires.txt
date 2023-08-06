@@ -1,0 +1,19 @@
+attrs>=21.3.0
+click
+cli_exit_tools
+lib_detect_testenv
+lib_shopware6_api_base
+
+[test]
+black
+codecov
+coloredlogs
+coverage
+flake8
+pytest
+pytest-cov
+pytest-runner
+readme_renderer
+
+[test:platform_python_implementation != "PyPy"]
+mypy
