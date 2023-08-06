@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: remote-drawing-provider
+Version: 1.0.2
+Summary: Remote Drawing Provider
+Home-page: https://github.com/XiaoyanQian/remote-drawing
+Author: XY-qian
+Author-email: XY-qian <xiaoyanqian1010@gmail.com>
+Project-URL: Homepage, https://github.com/XiaoyanQian/remote-drawing
+Project-URL: Bug Tracker, https://github.com/XiaoyanQian/remote-drawing/issues
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# remote-drawing-provider
+
+## install
+
+```bash
+pip install remote-drawing-provider
+```
+
+## using
+
+```python
+from remote-drawing-provider.provider import send
+
+send(method='visualize_point_cloud',[args])
+```
