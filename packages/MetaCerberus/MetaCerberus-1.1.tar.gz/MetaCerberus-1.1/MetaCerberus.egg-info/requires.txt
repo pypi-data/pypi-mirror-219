@@ -1,0 +1,12 @@
+setuptools
+ray
+grpcio
+metaomestats
+configargparse
+kaleido
+scikit-learn
+pandas
+plotly
+psutil
+dominate
+gitpython
