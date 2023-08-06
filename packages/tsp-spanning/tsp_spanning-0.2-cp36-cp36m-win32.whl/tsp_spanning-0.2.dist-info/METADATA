@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: tsp-spanning
+Version: 0.2
+Summary: UNKNOWN
+Home-page: https://github.com/Czaki/tsp_spanning
+Author: Grzegorz Bokota
+Author-email: g.bokota@cent.uw.edu.pl
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+Requires-Dist: numpy
+Requires-Dist: cython
+
+tsp_spanning
+============
+.. image:: https://readthedocs.org/projects/tsp-spanning/badge/?version=latest
+  :target: https://tsp-spanning.readthedocs.io/en/latest/?badge=latest
+  :alt: Documentation Status
+
+.. image:: https://dev.azure.com/bokota/tsp%20spanning/_apis/build/status/Czaki.tsp_spanning?branchName=master
+  :target: https://dev.azure.com/bokota/tsp%20spanning/_build/latest?definitionId=1&branchName=master
+  :alt: Build Status  
+
+.. image:: https://badge.fury.io/py/tsp-spanning.svg
+  :target: https://badge.fury.io/py/tsp-spanning
+  :alt: PyPI version
+
+tsp_spanning is package which implements Traveling
+Salesman Problem with spanning tree heuristic.
+
+For performance reason algorithm is inplemented in C
+
+instalation
+-----------
+
+.. code:: bash 
+   
+   pip install tsp-spanning
+
+
+@copyright
+Code created by Grzegorz Bokota, Iwona Kotlarska, Jakub BartmiÅ„ski
+
+
