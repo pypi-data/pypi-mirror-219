@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: tux
+Version: 0.0.2
+Summary: Tools and Utils. Some tools and utils modified from many other code to fit my needs.
+Home-page: https://github.com/lhao499/tux
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Provides-Extra: jax

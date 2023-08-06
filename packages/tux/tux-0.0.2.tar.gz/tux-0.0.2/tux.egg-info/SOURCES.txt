@@ -1,0 +1,17 @@
+setup.py
+tux/__init__.py
+tux/checkpoint.py
+tux/config.py
+tux/distributed.py
+tux/jax_utils.py
+tux/loss.py
+tux/misc.py
+tux/optimizers.py
+tux/stats.py
+tux/utils.py
+tux/wandb.py
+tux.egg-info/PKG-INFO
+tux.egg-info/SOURCES.txt
+tux.egg-info/dependency_links.txt
+tux.egg-info/requires.txt
+tux.egg-info/top_level.txt
