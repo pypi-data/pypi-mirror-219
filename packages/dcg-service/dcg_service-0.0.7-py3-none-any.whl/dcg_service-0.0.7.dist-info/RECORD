@@ -1,0 +1,17 @@
+dcg_service/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dcg_service/core/__init__.py,sha256=E0bLabadeJv5fIVZIpWY0dOIdb4qfC1q_SiegQXIGjM,298
+dcg_service/core/authentication.py,sha256=7J3F4TaWcuwDeTr8TxP1a7B-N5nvshMDStPym_c7tME,2683
+dcg_service/core/encryption.py,sha256=cHyYVqk9kTQ4WA6Kf2DSYUClkXY70mnYH2Vp7XN0v1U,833
+dcg_service/core/events.py,sha256=XK5u7KG30u9Fybq0U_0qmhakRVkpEfXY9VK5B7UEEuQ,7591
+dcg_service/core/exceptions.py,sha256=biuPh72sjwPJEJKGI4Cyq-1OJDGXzx4RPa97ze1rFa8,2889
+dcg_service/core/filters.py,sha256=qKdE7e1m7Qi2rF4jcn-XQGLn0feVNa8A0At64Gpl5uU,2319
+dcg_service/core/logger.py,sha256=crpX31Mg_7YesDbOraDoKjcEPzyh5SLYRfdMCVfiwAc,618
+dcg_service/core/permissions.py,sha256=Kt0j30tuAFolvMa_Qz70DJX2oSbh_R4k9gEO8arMXmU,2800
+dcg_service/core/response.py,sha256=mmG8rqO7alL_2ILGj2x2Z_YPBNGC0wEu0CobsurKYw0,1341
+dcg_service/core/services.py,sha256=7qnBDfsB6TMGMvNbasfrfjshWrr5YxEFCQY-zoLBkbI,16189
+dcg_service/core/utils.py,sha256=NfRyccd8b_3ReKsWIN4j0Uk9nsqmx54O-L4HlN72kTg,1077
+dcg_service-0.0.7.dist-info/LICENCE,sha256=2bm9uFabQZ3Ykb_SaSU_uUbAj2-htc6WJQmS_65qD00,1073
+dcg_service-0.0.7.dist-info/METADATA,sha256=RXS-9vF_6fx_Nx4d_8UAQDQwvKQIucHQwXpi-I75Sg4,7162
+dcg_service-0.0.7.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+dcg_service-0.0.7.dist-info/top_level.txt,sha256=-9EvEYdBTNRgC4EkHmsrY-1jiJxzjnYQpiizbRX66kM,12
+dcg_service-0.0.7.dist-info/RECORD,,
