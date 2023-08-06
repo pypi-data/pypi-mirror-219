@@ -1,0 +1,19 @@
+# YAML 1.2
+---
+cff-version: "1.2.0"
+title: "emvoice"
+authors:
+  -
+    family-names: Lüken
+    given-names: Malte
+    orcid: "https://orcid.org/0000-0001-7095-203X"
+date-released: 2023-07-17
+doi: 10.5281/zenodo.8155380
+version: "0.1.1"
+repository-code: "https://github.com/mexca/emvoice"
+keywords:
+  - voice
+  - emotion
+  - feature
+message: "If you use this software, please cite it using these metadata."
+license: Apache-2.0
