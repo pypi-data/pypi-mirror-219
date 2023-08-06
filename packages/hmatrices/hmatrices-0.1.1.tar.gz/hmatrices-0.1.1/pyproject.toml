@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "hmatrices"
+version = "0.1.1"
+description = ""
+authors = ["Luiz M. Faria <maltezfaria@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+juliacall = "^0.9.13"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
