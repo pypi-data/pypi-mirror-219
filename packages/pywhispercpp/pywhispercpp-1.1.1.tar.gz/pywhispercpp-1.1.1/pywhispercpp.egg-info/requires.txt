@@ -1,0 +1,9 @@
+numpy
+pydub
+requests
+tqdm
+platformdirs
+
+[examples]
+sounddevice
+webrtcvad
