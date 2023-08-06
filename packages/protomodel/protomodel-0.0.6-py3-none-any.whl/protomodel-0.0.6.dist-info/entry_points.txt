@@ -1,0 +1,3 @@
+[console_scripts]
+protomodel=protomodel.protomodel-cli.cli:cli
+
