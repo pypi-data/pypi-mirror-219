@@ -1,0 +1,16 @@
+wyoming_openwakeword/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+wyoming_openwakeword/__main__.py,sha256=ZutcCgEcWka3w-MFtHml3O9kFyAJPvt6704SpFS4tSA,4257
+wyoming_openwakeword/const.py,sha256=FcSM3FMG4K0somk6hqGubwCX2X_i9KCh53cfVqmHOV8,2051
+wyoming_openwakeword/handler.py,sha256=efTvFlojEVKknRa4tbVK6mb-Lq7ZJbFBrU63lYta2ag,3259
+wyoming_openwakeword/openwakeword.py,sha256=kwYhGPJerOpfXeFW04n_JFKHQkWU-lS6I960iO1rlQs,17876
+wyoming_openwakeword/state.py,sha256=jzmCRiZfzl8omXu-6IXOcwQNtdOI3vRojkw1ax6-uXQ,808
+wyoming_openwakeword/models/alexa_v0.1.tflite,sha256=czOjF6eQBwp_NDK4HZQ5x3lIHMTr1nxz2nF06jz0g5c,855312
+wyoming_openwakeword/models/embedding_model.tflite,sha256=wK6iHrhKTOkKCMhw2kG3pxc7RSaeajIHxx1nxA86Wdg,1330312
+wyoming_openwakeword/models/hey_jarvis_v0.1.tflite,sha256=FL_3eGBJheG1wZ8Pe75HemnPKB2Ns0sjKzuXJBH3EOI,1278912
+wyoming_openwakeword/models/hey_mycroft_v0.1.tflite,sha256=v55DE2r9PKMjaYggpuMqR_iF70wwo7i1d-xxaIqdZNg,860300
+wyoming_openwakeword/models/hey_rhasspy_v0.1.tflite,sha256=AdJSa0UGj1Zao4SdbsK3q64JkVT8G0lvnvIN6e8kH-k,416140
+wyoming_openwakeword/models/melspectrogram.tflite,sha256=lvoK3MtujPlcsURlQJoaKJjuSpaoW7ntPH6w5ovxY-g,1092516
+wyoming_openwakeword-1.0.0.dist-info/METADATA,sha256=9_uwi00zv6LPvmNGoVJr1__jAdrnzdPiGospwqZ0cWU,668
+wyoming_openwakeword-1.0.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+wyoming_openwakeword-1.0.0.dist-info/top_level.txt,sha256=nvfTB-GloqwN_0rNtug_sHAfe20xBGFmLO0Qrei-q48,21
+wyoming_openwakeword-1.0.0.dist-info/RECORD,,
