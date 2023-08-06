@@ -1,0 +1,1 @@
+A easy way to use and configure logging builtin library
