@@ -1,0 +1,147 @@
+Metadata-Version: 2.1
+Name: fakesnow
+Version: 0.3.0
+Summary: Fake Snowflake Connector for Python. Run Snowflake DB locally.
+License: MIT License
+        
+        Copyright (c) 2023 Oliver Mannion
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy of
+        this software and associated documentation files (the "Software"), to deal in
+        the Software without restriction, including without limitation the rights to
+        use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+        the Software, and to permit persons to whom the Software is furnished to do so,
+        subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+        FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+        COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+        IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+        CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+        
+Project-URL: homepage, https://github.com/tekumara/fakesnow
+Keywords: snowflake,snowflakedb,fake,local,mock,testing
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: duckdb (~=0.8.0)
+Requires-Dist: pyarrow
+Requires-Dist: snowflake-connector-python
+Requires-Dist: sqlglot (~=16.8.1)
+Provides-Extra: dev
+Requires-Dist: black (~=23.3) ; extra == 'dev'
+Requires-Dist: build (~=0.10) ; extra == 'dev'
+Requires-Dist: snowflake-connector-python[pandas,secure-local-storage] ; extra == 'dev'
+Requires-Dist: pre-commit (~=3.2) ; extra == 'dev'
+Requires-Dist: pytest (~=7.3) ; extra == 'dev'
+Requires-Dist: ruff (~=0.0.263) ; extra == 'dev'
+Requires-Dist: twine (~=4.0) ; extra == 'dev'
+Provides-Extra: notebook
+Requires-Dist: duckdb-engine ; extra == 'notebook'
+Requires-Dist: ipykernel ; extra == 'notebook'
+Requires-Dist: jupysql ; extra == 'notebook'
+Requires-Dist: snowflake-sqlalchemy ; extra == 'notebook'
+
+# fakesnow ❄️
+
+[![ci](https://github.com/tekumara/fakesnow/actions/workflows/ci.yml/badge.svg)](https://github.com/tekumara/fakesnow/actions/workflows/ci.yml)
+[![release](https://github.com/tekumara/fakesnow/actions/workflows/release.yml/badge.svg)](https://github.com/tekumara/fakesnow/actions/workflows/release.yml)
+[![PyPI](https://img.shields.io/pypi/v/fakesnow?color=violet)](https://pypi.org/project/fakesnow/)
+
+Fake [Snowflake Connector for Python](https://docs.snowflake.com/en/user-guide/python-connector). Run and mock Snowflake DB locally.
+
+## Install
+
+```
+pip install fakesnow
+```
+
+## Usage
+
+```python
+import fakesnow
+import snowflake.connector
+
+with fakesnow.patch():
+    conn = snowflake.connector.connect()
+
+    print(conn.cursor().execute("SELECT 'Hello fake world!'").fetchone())
+```
+
+The following imports are automatically patched:
+
+- `import snowflake.connector.connect`
+- `import  snowflake.connector.pandas_tools.write_pandas`
+
+To patch modules that use the `from ... import` syntax, manually specify them, eg: if _mymodule.py_ has the import:
+
+```python
+from snowflake.connector.pandas_tools import write_pandas
+```
+
+Then patch it using:
+
+```python
+with fakesnow.patch("mymodule.write_pandas"):
+    ...
+```
+
+pytest [fixtures](fakesnow/fixtures.py) are provided for testing. Example _conftest.py_:
+
+```python
+from typing import Iterator
+
+import fakesnow.fixtures
+import pytest
+
+pytest_plugins = fakesnow.fixtures.__name__
+
+@pytest.fixture(scope="session", autouse=True)
+def setup(_fakesnow_session: None) -> Iterator[None]:
+    # the standard imports are now patched
+    ...
+    yield
+```
+
+Or with `from ... import` patch targets:
+
+```python
+from typing import Iterator
+
+import fakesnow
+import pytest
+
+@pytest.fixture(scope="session", autouse=True)
+def _fakesnow_session() -> Iterator[None]:
+    with fakesnow.patch("mymodule.write_pandas"):
+        yield
+```
+
+## Implementation coverage
+
+- [x] multiple databases
+- [x] cursors
+- [x] [get_result_batches()](https://docs.snowflake.com/en/user-guide/python-connector-api#get_result_batches)
+- [x] [write_pandas(..)](https://docs.snowflake.com/en/user-guide/python-connector-api#write_pandas)
+- [x] table comments
+- [x] [qmark binding](https://docs.snowflake.com/en/user-guide/python-connector-example#binding-data)
+- [ ] [access control](https://docs.snowflake.com/en/user-guide/security-access-control-overview)
+- [ ] standalone/out of process api/support for faking non-python connectors
+- [ ] [stored procedures](https://docs.snowflake.com/en/sql-reference/stored-procedures)
+
+Partial support
+
+- [x] date functions
+- [x] tags
+- [x] semi-structured data
+
+For more detail see [tests/test_fakes.py](tests/test_fakes.py)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) to get started and develop in this repo.
