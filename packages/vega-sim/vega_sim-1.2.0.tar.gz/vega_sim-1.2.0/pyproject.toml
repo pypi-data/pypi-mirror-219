@@ -1,0 +1,64 @@
+[tool.poetry]
+name = "vega_sim"
+description = "Simulator for running self-contained Vega chain on local PC"
+authors = ["Tom McLean <tom@vegaprotocol.io>"]
+license = "MIT"
+version = "1.2.0"
+
+[tool.setuptools]
+zip-safe = false
+
+[tool.poetry.dependencies]
+python = "^3.9,<3.12"
+requests = "*"
+toml = "*"
+grpcio-tools = "*"
+PyNaCl = "*"
+inflection = "*"
+scipy = "*"
+pandas = "*"
+numpy = "*"
+torch = {version = "*", optional = true}
+jupyterlab = {version = "*", optional = true}
+jupyter = {version = "*", optional = true}
+tqdm = {version = "*", optional = true}
+matplotlib = {version = "*", optional = true}
+snakeviz = {version = "*", optional = true}
+pytest-profiling = {version = "*", optional = true}
+ipywidgets = {version = "*", optional = true}
+protoc-gen-openapiv2 = "*"
+plotly = "*"
+TA-Lib = {version = "*", optional = true}
+python-dotenv = "*"
+deprecated = "*"
+psutil = "*"
+gymnasium = {version = "*", optional = true}
+sb3-contrib = {version = "*", optional = true}
+stable-baselines3 = {version = "*", optional = true }
+tensorboard = {version = "*", optional = true}
+pettingzoo = {version = "*", optional = true}
+numba = {version = "^0.57.1", optional = true}
+tianshou = {version = "*", optional = true}
+
+
+[tool.poetry.group.dev.dependencies]
+black = "*"
+pytest = "*"
+requests-mock = "*"
+flake8 = "*"
+Jinja2 = "*"
+nbmake = "*"
+matplotlib = "*"
+pytest-xdist = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.poetry.extras]
+learning = ["matplotlib", "tqdm", "torch", "gymnasium", "stable-baselines3", "tensorboard", "tianshou", "numba", "pettingzoo"]
+jupyter = ["jupyterlab", "jupyter", "matplotlib", "ipywidgets"]
+profile = ["snakeviz", "pytest-profiling"]
+agents = ["TA-Lib"]

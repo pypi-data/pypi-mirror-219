@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: vega-sim
+Version: 1.2.0
+Summary: Simulator for running self-contained Vega chain on local PC
+License: MIT
+Author: Tom McLean
+Author-email: tom@vegaprotocol.io
+Requires-Python: >=3.9,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: agents
+Provides-Extra: jupyter
+Provides-Extra: learning
+Provides-Extra: profile
+Requires-Dist: PyNaCl
+Requires-Dist: TA-Lib ; extra == "agents"
+Requires-Dist: deprecated
+Requires-Dist: grpcio-tools
+Requires-Dist: gymnasium ; extra == "learning"
+Requires-Dist: inflection
+Requires-Dist: ipywidgets ; extra == "jupyter"
+Requires-Dist: jupyter ; extra == "jupyter"
+Requires-Dist: jupyterlab ; extra == "jupyter"
+Requires-Dist: matplotlib ; extra == "learning" or extra == "jupyter"
+Requires-Dist: numba (>=0.57.1,<0.58.0) ; extra == "learning"
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pettingzoo ; extra == "learning"
+Requires-Dist: plotly
+Requires-Dist: protoc-gen-openapiv2
+Requires-Dist: psutil
+Requires-Dist: pytest-profiling ; extra == "profile"
+Requires-Dist: python-dotenv
+Requires-Dist: requests
+Requires-Dist: sb3-contrib
+Requires-Dist: scipy
+Requires-Dist: snakeviz ; extra == "profile"
+Requires-Dist: stable-baselines3 ; extra == "learning"
+Requires-Dist: tensorboard ; extra == "learning"
+Requires-Dist: tianshou ; extra == "learning"
+Requires-Dist: toml
+Requires-Dist: torch ; extra == "learning"
+Requires-Dist: tqdm ; extra == "learning"
