@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "rysk_client"
+version = "0.2.3"
+description = ""
+authors = ["8baller <8ball030@gmail.com>"]
+readme = "README.md"
+packages = [
+    { include = "rysk_client", from = "." },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<=3.11"
+ccxt = ">=1.72.82"
+rich-click = "^1.6.1"
+websocket-client = ">=0.32.0,<1"
+web3 = "~5"
+
+[tool.poetry.group.dev.dependencies]
+autonomy-dev = {extras = ["all"], version = "^0.2.5"}
+jupyterlab = ">=1.0.1"
+types-requests = "^2.31.0.1"
+bumpversion = "^0.6.0"
+responses = "^0.23.1"
+pytest-rerunfailures = "^11.1.2"
+docker = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+rysk = 'rysk_client.cli:cli'
