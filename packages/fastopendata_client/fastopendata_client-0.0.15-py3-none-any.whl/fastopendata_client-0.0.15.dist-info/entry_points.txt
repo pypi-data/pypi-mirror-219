@@ -1,0 +1,2 @@
+[console_scripts]
+fastopendata = fastopendata_client.client:hello
