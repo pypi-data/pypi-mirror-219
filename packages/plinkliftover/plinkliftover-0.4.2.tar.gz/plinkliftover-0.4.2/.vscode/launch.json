@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Module",
+            "type": "python",
+            "request": "launch",
+            "module": "plinkliftover.__main__",
+            "args": [
+                "--pedfile",
+                "/home/milo/workspace/PlinkLiftOver/data/batch1.tolift.ped",
+                "--prefix",
+                "lifted",
+                "/home/milo/workspace/PlinkLiftOver/data/batch1.tolift.map",
+                "/home/milo/workspace/PlinkLiftOver/data/hg38ToHg19.over.chain.gz"
+            ],
+            "env": {
+                "PYTHONPATH":"${workspaceRoot}:src"
+            }
+
+        },
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH":"${workspaceRoot}:src"
+            },
+            "args": [
+                "--pedfile",
+                "/home/milo/workspace/PlinkLiftOver/data/batch1.tolift.ped",
+                "--prefix",
+                "lifted",
+                "/home/milo/workspace/PlinkLiftOver/data/batch1.tolift.map",
+                "/home/milo/workspace/PlinkLiftOver/data/hg38ToHg19.over.chain.gz"
+            ]
+        }
+    ]
+}
