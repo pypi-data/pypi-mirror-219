@@ -1,0 +1,6 @@
+SQLAlchemy
+pandas
+psycopg2
+clickhouse-sqlalchemy
+clickhouse_driver
+ruff==0.0.278
