@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: aistudio-cognition
+Version: 1.0.1
+Summary: NLU and KM prediction utility for AIStudio
+Author: Ankita Nair
+Author-email: ankita.nair@automationedge.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: dataclasses-json (==0.5.6)
+Requires-Dist: requests (==2.31.0)
