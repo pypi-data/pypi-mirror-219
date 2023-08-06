@@ -1,0 +1,5 @@
+diskcache>=5.6.1
+geopy>=2.3.0
+requests>=2.31.0
+rich>=13.4.2
+yelpapi>=2.5.0
