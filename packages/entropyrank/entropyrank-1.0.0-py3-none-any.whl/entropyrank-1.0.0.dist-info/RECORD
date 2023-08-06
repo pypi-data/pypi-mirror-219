@@ -1,0 +1,11 @@
+entropyrank/EntropyRank.py,sha256=O20uV90mQsOJxhuyfGpR5ZqtiNpDfekN2vnjXu3M13Y,22461
+entropyrank/__init__.py,sha256=M5T-AJV37x5OskCtonJyJppvl6XuOm0warM4Jkm58tg,91
+entropyrank/requirements.txt,sha256=NISPPma1UBSkvkNcmIuO72yA-9cRSIVbOdshPsAe4qA,1894
+entropyrank/word_statistics.json,sha256=NBViYZQTPH5_gkPGob8tYsGU1kqlFT3QTdvqIj_eI-0,58207
+entropyrank/stopwords/FoxStopList.txt,sha256=Tgh5XcqHpzThLYsh9wQMQ8UzwjxHRjOCqXkRSUEYeV0,2896
+entropyrank/stopwords/SmartStopList.txt,sha256=-a8EqLHloKVWHZnv7BwwPgr3mBCncMt-8SZamOHzCf0,4158
+entropyrank/stopwords/TerrierStopList.txt,sha256=9NIKsXCzJJF4GTz8w54EtqL5qv1KNQi_HLoFruU3iCI,5961
+entropyrank-1.0.0.dist-info/METADATA,sha256=TFhNnHUpfv3CgaR3G0OOt2xn-5ZPOzFlOVyvz5XfV0A,3163
+entropyrank-1.0.0.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+entropyrank-1.0.0.dist-info/licenses/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+entropyrank-1.0.0.dist-info/RECORD,,
