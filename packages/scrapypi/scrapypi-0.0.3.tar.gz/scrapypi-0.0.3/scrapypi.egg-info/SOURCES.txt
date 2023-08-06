@@ -1,0 +1,16 @@
+CHANGELOG.md
+LICENCE.txt
+MANIFEST.in
+README.md
+setup.py
+scrapypi/__init__.py
+scrapypi/handler.py
+scrapypi/scrapypi.py
+scrapypi.egg-info/PKG-INFO
+scrapypi.egg-info/SOURCES.txt
+scrapypi.egg-info/dependency_links.txt
+scrapypi.egg-info/entry_points.txt
+scrapypi.egg-info/requires.txt
+scrapypi.egg-info/top_level.txt
+scrapypi/stubs/__init__.pyi
+scrapypi/stubs/scrapypi.pyi
