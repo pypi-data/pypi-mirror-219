@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: starlette-middleware
+Version: 0.0.2a1
+Summary: Library for server sessions
+Project-URL: Homepage, https://github.com/TheJecksMan/starlette-middleware
+Project-URL: Repository, https://github.com/tiangolo/fastapi
+Author: TheJecksMan
+License-Expression: MIT
+License-File: LICENSE.md
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Framework :: FastAPI
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: itsdangerous>=2.1.2
+Requires-Dist: starlette<0.28.0,>=0.27.0
+Provides-Extra: redis
+Requires-Dist: hiredis>=1.0.0; extra == 'redis'
+Requires-Dist: redis>=4.6.0; extra == 'redis'
+Description-Content-Type: text/x-rst
+
+.. image:: docs/source/_static/logo_lib.png
+   :align: center
+   :alt: starlette-middleware logo
+   :width: 200
+
+Introduction
+============
+
+This library provides the ability to quickly integrate server sessions into your application through the use of middleware. The library is compatible with python 3.8+.
+
+Note
+----
+
+This library is designed for such frameworks as: FastAPI and Starlette
+
+Installation
+============
+
+You can install or update starlette-middleware
+
+.. code:: shell
+
+    $ pip install starlette-middleware --upgrade
+
+
+Documentation
+=============
+
+You can find more information on usage here.
