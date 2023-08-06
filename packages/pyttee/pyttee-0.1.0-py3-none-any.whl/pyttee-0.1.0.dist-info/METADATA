@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyttee
+Version: 0.1.0
+Summary: PYThon TEmplate Engine (pyttee) - simple, zero-dependecy, list-oriented html template engine for python
+License: MIT
+Author: Lily Appely
+Author-email: lappely@yahoo.com
+Requires-Python: >3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+
