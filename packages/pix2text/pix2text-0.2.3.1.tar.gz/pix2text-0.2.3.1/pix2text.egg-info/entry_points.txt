@@ -1,0 +1,2 @@
+[console_scripts]
+p2t = pix2text.cli:cli
