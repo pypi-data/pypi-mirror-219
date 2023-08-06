@@ -1,0 +1,13 @@
+pip
+rpy2==3.3.*
+squidpy
+scvi-tools
+scipy
+scikit-learn
+matplotlib
+seaborn
+scanpy
+numba
+torch<=1.13
+gpytorch
+torchmetrics
