@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: tkinter-map
+Version: 0.1
+Summary: Efficient web map tkinter canvas
+Home-page: https://github.com/Moustikitos/tkinter-map
+Author: THOORENS Bruno
+Author-email: moustikitos@gmail.com
+Maintainer: THOORENS Bruno
+Maintainer-email: moustikitos@gmail.com
+License: Cpyright 2023 THOORENS Bruno
+Download-URL: https://github.com/Moustikitos/tkinter-map/archive/master.zip
+Description: # Tkmap widget
+        
+        **Efficient web map canvas for tkinter.**
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
