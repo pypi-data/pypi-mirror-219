@@ -1,0 +1,30 @@
+Metadata-Version: 1.2
+Name: gnd-distributions
+Version: 0.1
+Summary: Gaussian and Binomial distribution
+Home-page: UNKNOWN
+Author: Areej Fatima
+Author-email: areejch79@gmail.com
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: # My Distribution Package
+        
+        My Distribution Package is a Python package that provides functionality for Gaussian and Binomial distributions.
+        
+        ## Installation
+        
+        You can install the package using `pip`:
+        ## Usage
+        
+        ### Gaussian Distribution
+        
+        ```python
+        from gnd_distributions import Gaussian```
+        ### Binomial Distribution
+        ```from gnd_distributions import Binomial```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
