@@ -1,0 +1,17 @@
+datazets>=0.1.7
+scatterd>=1.1.2
+ismember
+pypickle
+pca
+distfit
+clusteval>=2.1.5
+colourmap
+numpy
+pandas
+tqdm
+scikit-learn
+scikit-image
+matplotlib
+scipy
+opencv-python
+imagehash
