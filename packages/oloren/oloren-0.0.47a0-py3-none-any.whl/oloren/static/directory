@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {
+      "module": "Base Node",
+      "scope": "EXTENSIONNAME",
+      "url": "/remoteEntry.js",
+      "metadata": {
+        "name": "Base Node",
+        "path": "./src/nodes/BaseNode.tsx",
+        "num_inputs": 0,
+        "num_outputs": 1
+      }
+    }
+  ]
+}

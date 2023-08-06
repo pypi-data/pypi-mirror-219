@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkfrontend=self.webpackChunkfrontend||[]).push([[871,976],{6871:(e,n,t)=>{t.r(n);var r=t(7976),o=t.n(r);function a(){return o().createElement("p",null,"A react extension is running at this URL.")}t(4478).s(document.getElementById("root")).render(o().createElement(a,null))},4478:(e,n,t)=>{var r=t(482);n.s=r.createRoot,r.hydrateRoot}}]);
