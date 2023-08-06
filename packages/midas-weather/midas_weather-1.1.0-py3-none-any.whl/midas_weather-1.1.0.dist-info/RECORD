@@ -1,0 +1,14 @@
+midas/modules/weather/__init__.py,sha256=VGxD0uo5JSrx0GIDovPF2_A29i7ctk3_rlbgpp7Rqo8,50
+midas/modules/weather/download.py,sha256=pfeHRveQN3nX0YyYNip_4Ff-Evyv1B4NF-VDC1mXV8o,8050
+midas/modules/weather/meta.py,sha256=6NokxNV67Hj8XhKfM8dPQt8LmULeUIuzN7ws4ajETT8,1467
+midas/modules/weather/module.py,sha256=WR2zLZTH7HPZrO1BTIIxGGAGre7eenVOAdWCh3KqMsk,6447
+midas/modules/weather/simulator.py,sha256=4o9RnVT1jgV9v0g5yEFFAebyb6O8VrDJ45c5MUr1yQ0,8857
+midas/modules/weather/model/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+midas/modules/weather/model/current.py,sha256=6FL1BC-LT2kfgaftx7yTPL7hRtiF4H1z3b3attYZGeM,4091
+midas/modules/weather/model/forecast.py,sha256=44RMgO4tqn5sGOEOLc6r0K82NEN9ENsAsVc7MsiZUo8,7156
+midas/modules/weather/model/provider.py,sha256=hc6OWUPpnxjK20HkA-BMlBxsW7zXLBIaCwOrGQJDpHc,5894
+midas_weather-1.1.0.dist-info/LICENSE,sha256=adm0bP3Oct0QajMMTL3NBtwd_yyhhZFiPc4YVPwmofE,7648
+midas_weather-1.1.0.dist-info/METADATA,sha256=fK82uBgLp0PBgCayxg0kWz08AFFxgPibfCgxddcUWbU,1407
+midas_weather-1.1.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+midas_weather-1.1.0.dist-info/top_level.txt,sha256=n8dkPfm_amUh86KWKdyQFSehtTdf2SnUDp54AX6RcE0,6
+midas_weather-1.1.0.dist-info/RECORD,,
