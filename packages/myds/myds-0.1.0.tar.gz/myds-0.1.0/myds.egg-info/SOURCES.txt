@@ -1,0 +1,10 @@
+LICENSE
+setup.py
+myds/__init__.py
+myds/database.py
+myds/test.py
+myds.egg-info/PKG-INFO
+myds.egg-info/SOURCES.txt
+myds.egg-info/dependency_links.txt
+myds.egg-info/requires.txt
+myds.egg-info/top_level.txt
