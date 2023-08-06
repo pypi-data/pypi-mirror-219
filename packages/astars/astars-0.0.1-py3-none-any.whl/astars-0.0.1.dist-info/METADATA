@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: astars
+Version: 0.0.1
+Summary: astars: An unified programming language parser & analyse AST tool for Souece Code Analysis.  
+Home-page: https://github.com/xwasoux
+Author: Wakana Hashimoto
+Author-email: oxwasouxo@gmail.com
+Maintainer: Wakana Hashimoto
+Maintainer-email: oxwasouxo@gmail.com
+License: MIT
+Download-URL: https://github.com/xwasoux/astars.git
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.8
+Requires-Dist: anytree
+Requires-Dist: graphviz
+Requires-Dist: pydot
+Requires-Dist: tree-sitter
+
+UNKNOWN
+
