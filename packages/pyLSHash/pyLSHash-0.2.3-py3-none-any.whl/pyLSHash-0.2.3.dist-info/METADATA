@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyLSHash
+Version: 0.2.3
+Summary: A Python implementation of locality sensitive hashing.
+Home-page: https://github.com/guofei9987/pyLSHash
+Author: Guo Fei
+Author-email: guofei9987@foxmail.com
+License: MIT
+Platform: linux
+Platform: windows
+Platform: macos
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: Pillow
+Requires-Dist: fuzzy-hash
+
