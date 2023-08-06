@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: dbt-databend-cloud
+Version: 1.3.9
+Summary: The Databend adapter plugin for dbt
+Home-page: https://github.com/databendcloud/dbt-databend.git
+Author: Databend Cloud Team
+Author-email: zhangzhihan@datafuselabs.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+License-File: LICENSE
+Requires-Dist: dbt-core (~=1.3.0)
+Requires-Dist: databend-py (~=0.3.5)
+Requires-Dist: databend-sqlalchemy (~=0.1.6)
+
+The Databend adapter plugin for dbt
