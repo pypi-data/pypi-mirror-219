@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+pytorch_quantum/__init__.py
+pytorch_quantum.egg-info/PKG-INFO
+pytorch_quantum.egg-info/SOURCES.txt
+pytorch_quantum.egg-info/dependency_links.txt
+pytorch_quantum.egg-info/requires.txt
+pytorch_quantum.egg-info/top_level.txt
