@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: flake8-eol
+Version: 0.0.4
+Summary: Flake8 plugin to enforce EOL consistency
+Author: Claudio Scheer
+Author-email: claudioscheer@protonmail.com
+Classifier: Framework :: Flake8
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# flake8-eol
+
+Flake8 plugin to enforce EOL consistency. The plugin simply checks if the first line of a file ends with '\r'. If do, it throws the warning EOL001.
+
+# Installation
+
+```bash
+pip install flake8-eol
+```
