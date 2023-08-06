@@ -1,0 +1,548 @@
+# Base configuration class
+import importlib
+import importlib.util
+from typing import Any, Optional
+
+import fsspec
+import msgspec
+
+
+def resolve_path(path: str):
+    module, cls = path.rsplit(":", maxsplit=1)
+    mod = importlib.import_module(module)
+    cls = getattr(mod, cls)
+    return cls
+class AlgoVisionConfig(msgspec.Struct, kw_only=True, frozen=True):
+    """
+    Base class for AlgoVision configurations.
+    """
+
+    @classmethod
+    def fully_qualified_name(cls) -> str:
+        """
+        Return the fully qualified name for the `NautilusConfig` class.
+
+        Returns
+        -------
+        str
+
+        References
+        ----------
+        https://www.python.org/dev/peps/pep-3155/
+
+        """
+        return cls.__module__ + ":" + cls.__qualname__
+
+    def dict(self) -> dict[str, Any]:
+        """
+        Return a dictionary representation of the configuration.
+
+        Returns
+        -------
+        dict[str, Any]
+
+        """
+        return {k: getattr(self, k) for k in self.__struct_fields__}
+
+    def json(self) -> bytes:
+        """
+        Return serialized JSON encoded bytes.
+
+        Returns
+        -------
+        bytes
+
+        """
+        return msgspec.json.encode(self)
+
+    @classmethod
+    def parse(cls, raw: bytes) -> Any:
+        """
+        Return a decoded object of the given `cls`.
+
+        Parameters
+        ----------
+        cls : type
+            The type to decode to.
+        raw : bytes
+            The raw bytes to decode.
+
+        Returns
+        -------
+        Any
+
+        """
+        return msgspec.json.decode(raw, type=cls)
+
+    def validate(self) -> bool:
+        """
+        Return whether the configuration can be represented as valid JSON.
+
+        Returns
+        -------
+        bool
+
+        """
+        return bool(msgspec.json.decode(self.json(), type=self.__class__))
+
+class InstrumentProviderConfig(AlgoVisionConfig, frozen=True):
+    """
+    Configuration for an instrument provider.
+    Parameters
+    ----------
+    load_all : bool, default False
+        If all venue instruments should be loaded on start.
+    load_ids : FrozenSet[str], optional
+        The list of instrument IDs to be loaded on start (if `load_all_instruments` is False).
+    filters : frozendict, optional
+        The venue specific instrument loading filters to apply.
+    filter_callable: str, optional
+        A fully qualified path to a callable that takes a single argument, `instrument` and returns a bool, indicating
+        whether the instrument should be loaded
+    log_warnings : bool, default True
+        If parser warnings should be logged.
+    """
+
+    def __eq__(self, other):
+        return (
+            self.load_all == other.load_all
+            and self.load_ids == other.load_ids
+            and self.filters == other.filters
+        )
+
+    def __hash__(self):
+        return hash((self.load_all, self.load_ids, self.filters))
+
+    load_all: bool = False
+    load_ids: Optional[frozenset[str]] = None
+    filters: Optional[dict[str, Any]] = None
+    filter_callable: Optional[str] = None
+    log_warnings: bool = True
+
+class DataEngineConfig(AlgoVisionConfig, frozen=True):
+    """
+    Configuration for ``DataEngine`` instances.
+
+    Parameters
+    ----------
+    time_bars_build_with_no_updates : bool, default True
+        If time bar aggregators will build and emit bars with no new market updates.
+    time_bars_timestamp_on_close : bool, default True
+        If time bar aggregators will timestamp `ts_event` on bar close.
+        If False then will timestamp on bar open.
+    validate_data_sequence : bool, default False
+        If data objects timestamp sequencing will be validated and handled.
+    debug : bool, default False
+        If debug mode is active (will provide extra debug logging).
+    """
+
+    time_bars_build_with_no_updates: bool = True
+    time_bars_timestamp_on_close: bool = True
+    validate_data_sequence: bool = False
+    debug: bool = False
+
+class ExecEngineConfig(AlgoVisionConfig, frozen=True):
+    """
+    Configuration for ``ExecutionEngine`` instances.
+
+    Parameters
+    ----------
+    load_cache : bool, default True
+        If the cache should be loaded on initialization.
+    allow_cash_positions : bool, default True
+        If unleveraged spot/cash assets should generate positions.
+    filter_unclaimed_external_orders : bool, default False
+        If unclaimed order events with an EXTERNAL strategy ID should be filtered/dropped.
+    debug : bool, default False
+        If debug mode is active (will provide extra debug logging).
+    """
+
+    load_cache: bool = True
+    allow_cash_positions: bool = True
+    filter_unclaimed_external_orders: bool = False
+    debug: bool = False
+
+class StreamingConfig(AlgoVisionConfig, frozen=True):
+    """
+    Configuration for streaming live or backtest runs to the catalog in feather format.
+
+    Parameters
+    ----------
+    catalog_path : str
+        The path to the data catalog.
+    fs_protocol : str, optional
+        The `fsspec` filesystem protocol for the catalog.
+    fs_storage_options : dict, optional
+        The `fsspec` storage options.
+    flush_interval_ms : int, optional
+        The flush interval (milliseconds) for writing chunks.
+    replace_existing: bool, default False
+        If any existing feather files should be replaced.
+    """
+
+    catalog_path: str
+    fs_protocol: Optional[str] = None
+    fs_storage_options: Optional[dict] = None
+    flush_interval_ms: Optional[int] = None
+    replace_existing: bool = False
+    include_types: Optional[list[str]] = None
+
+    @property
+    def fs(self):
+        return fsspec.filesystem(protocol=self.fs_protocol, **(self.fs_storage_options or {}))
+
+    def as_catalog(self) -> ParquetDataCatalog:
+        return ParquetDataCatalog(
+            path=self.catalog_path,
+            fs_protocol=self.fs_protocol,
+            fs_storage_options=self.fs_storage_options,
+        )
+
+class DataCatalogConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for a data catalog.
+
+    Parameters
+    ----------
+    path : str
+        The path to the data catalog.
+    fs_protocol : str, optional
+        The fsspec file system protocol for the data catalog.
+    fs_storage_options : dict, optional
+        The fsspec storage options for the data catalog.
+    use_rust : bool, default False
+        If queries will be for Rust schema versions (when implemented).
+    """
+
+    path: str
+    fs_protocol: Optional[str] = None
+    fs_storage_options: Optional[dict] = None
+    use_rust: bool = False
+
+class ActorConfig(NautilusConfig, kw_only=True, frozen=True):
+    """
+    The base model for all actor configurations.
+
+    Parameters
+    ----------
+    component_id : str, optional
+        The component ID. If ``None`` then the identifier will be taken from
+        `type(self).__name__`.
+    """
+
+    component_id: Optional[str] = None
+
+
+class ImportableActorConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for an actor instance.
+
+    Parameters
+    ----------
+    actor_path : str
+        The fully qualified name of the Actor class.
+    config_path : str
+        The fully qualified name of the Actor Config class.
+    config : dict
+        The actor configuration.
+    """
+
+    actor_path: str
+    config_path: str
+    config: dict
+
+class ActorFactory:
+    """
+    Provides actor creation from importable configurations.
+    """
+
+    @staticmethod
+    def create(config: ImportableActorConfig):
+        """
+        Create an actor from the given configuration.
+
+        Parameters
+        ----------
+        config : ImportableActorConfig
+            The configuration for the building step.
+
+        Returns
+        -------
+        Actor
+
+        Raises
+        ------
+        TypeError
+            If `config` is not of type `ImportableActorConfig`.
+
+        """
+        PyCondition.type(config, ImportableActorConfig, "config")
+        actor_cls = resolve_path(config.actor_path)
+        config_cls = resolve_path(config.config_path)
+        return actor_cls(config=config_cls(**config.config))
+
+class StrategyConfig(NautilusConfig, kw_only=True, frozen=True):
+    """
+    The base model for all trading strategy configurations.
+
+    Parameters
+    ----------
+    strategy_id : str, optional
+        The unique ID for the strategy. Will become the strategy ID if not None.
+    order_id_tag : str, optional
+        The unique order ID tag for the strategy. Must be unique
+        amongst all running strategies for a particular trader ID.
+    oms_type : OmsType, optional
+        The order management system type for the strategy. This will determine
+        how the `ExecutionEngine` handles position IDs (see docs).
+    external_order_claims : list[str], optional
+        The external order claim instrument IDs.
+    """
+
+    strategy_id: Optional[str] = None
+    order_id_tag: Optional[str] = None
+    oms_type: Optional[str] = None
+    external_order_claims: Optional[list[str]] = None
+
+class ImportableStrategyConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for a trading strategy instance.
+
+    Parameters
+    ----------
+    strategy_path : str
+        The fully qualified name of the strategy class.
+    config_path : str
+        The fully qualified name of the config class.
+    config : dict[str, Any]
+        The strategy configuration.
+    """
+
+    strategy_path: str
+    config_path: str
+    config: dict[str, Any]
+
+class StrategyFactory:
+    """
+    Provides strategy creation from importable configurations.
+    """
+
+    @staticmethod
+    def create(config: ImportableStrategyConfig):
+        """
+        Create a trading strategy from the given configuration.
+
+        Parameters
+        ----------
+        config : ImportableStrategyConfig
+            The configuration for the building step.
+
+        Returns
+        -------
+        Strategy
+
+        Raises
+        ------
+        TypeError
+            If `config` is not of type `ImportableStrategyConfig`.
+
+        """
+        PyCondition.type(config, ImportableStrategyConfig, "config")
+        strategy_cls = resolve_path(config.strategy_path)
+        config_cls = resolve_path(config.config_path)
+        return strategy_cls(config=config_cls(**config.config))
+class ExecAlgorithmConfig(NautilusConfig, kw_only=True, frozen=True):
+    """
+    The base model for all execution algorithm configurations.
+
+    Parameters
+    ----------
+    exec_algorithm_id : str, optional
+        The unique ID for the execution algorithm.
+        If not ``None`` then will become the execution algorithm ID.
+    """
+
+    exec_algorithm_id: Optional[str] = None
+
+class ImportableExecAlgorithmConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for an execution algorithm instance.
+
+    Parameters
+    ----------
+    exec_algorithm_path : str
+        The fully qualified name of the execution algorithm class.
+    config_path : str
+        The fully qualified name of the config class.
+    config : dict[str, Any]
+        The execution algorithm configuration.
+    """
+
+    exec_algorithm_path: str
+    config_path: str
+    config: dict[str, Any]
+class ExecAlgorithmFactory:
+    """
+    Provides execution algorithm creation from importable configurations.
+    """
+
+    @staticmethod
+    def create(config: ImportableExecAlgorithmConfig):
+        """
+        Create an execution algorithm from the given configuration.
+
+        Parameters
+        ----------
+        config : ImportableExecAlgorithmConfig
+            The configuration for the building step.
+
+        Returns
+        -------
+        ExecAlgorithm
+
+        Raises
+        ------
+        TypeError
+            If `config` is not of type `ImportableExecAlgorithmConfig`.
+
+        """
+        PyCondition.type(config, ImportableExecAlgorithmConfig, "config")
+        exec_algorithm_cls = resolve_path(config.exec_algorithm_path)
+        config_cls = resolve_path(config.config_path)
+        return exec_algorithm_cls(config=config_cls(**config.config))
+class LoggingConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for standard output and file logging for a ``NautilusKernel`` instance.
+
+    Parameters
+    ----------
+    log_level : str, default "INFO"
+        The minimum log level to write to stdout.
+        Will always write ERROR level logs to stderr (unless `bypass_logging` is True).
+    log_level_file : str, optional
+        The minimum log level to write to a log file.
+        If ``None`` then no file logging will occur.
+    log_directory : str, optional
+        The path to the log file directory.
+        If ``None`` then will write to the current working directory.
+    log_file_name : str, optional
+        The custom log file name (will use a '.log' suffix for plain text or '.json' for JSON).
+        This will override automatic naming, and no daily file rotation will occur.
+    log_file_format : str { 'JSON' }, optional
+        The log file format. If ``None`` (default) then will log in plain text.
+    log_component_levels : dict[str, LogLevel]
+        The additional per component log level filters, where keys are component
+        IDs (e.g. actor/strategy IDs) and values are log levels.
+    bypass_logging : bool, default False
+        If all logging should be bypassed.
+    """
+
+    log_level: str = "INFO"
+    log_level_file: Optional[str] = None
+    log_directory: Optional[str] = None
+    log_file_name: Optional[str] = None
+    log_file_format: Optional[str] = None
+    log_component_levels: Optional[dict[str, str]] = None
+    bypass_logging: bool = False
+
+
+class NautilusKernelConfig(NautilusConfig, frozen=True):
+    """
+    Configuration for a ``NautilusKernel`` core system instance.
+
+    Parameters
+    ----------
+    environment : Environment { ``BACKTEST``, ``SANDBOX``, ``LIVE`` }
+        The kernel environment context.
+    trader_id : str
+        The trader ID for the kernel (must be a name and ID tag separated by a hyphen).
+    cache : CacheConfig, optional
+        The cache configuration.
+    cache_database : CacheDatabaseConfig, optional
+        The cache database configuration.
+    data_engine : DataEngineConfig, optional
+        The live data engine configuration.
+    risk_engine : RiskEngineConfig, optional
+        The live risk engine configuration.
+    exec_engine : ExecEngineConfig, optional
+        The live execution engine configuration.
+    streaming : StreamingConfig, optional
+        The configuration for streaming to feather files.
+    catalog : DataCatalogConfig, optional
+        The data catalog config.
+    actors : list[ImportableActorConfig]
+        The actor configurations for the kernel.
+    strategies : list[ImportableStrategyConfig]
+        The strategy configurations for the kernel.
+    load_state : bool, default True
+        If trading strategy state should be loaded from the database on start.
+    save_state : bool, default True
+        If trading strategy state should be saved to the database on stop.
+    loop_debug : bool, default False
+        If the asyncio event loop should be in debug mode.
+    timeout_connection : PositiveFloat (seconds)
+        The timeout for all clients to connect and initialize.
+    timeout_reconciliation : PositiveFloat (seconds)
+        The timeout for execution state to reconcile.
+    timeout_portfolio : PositiveFloat (seconds)
+        The timeout for portfolio to initialize margins and unrealized PnLs.
+    timeout_disconnection : PositiveFloat (seconds)
+        The timeout for all engine clients to disconnect.
+    timeout_post_stop : PositiveFloat (seconds)
+        The timeout after stopping the node to await residual events before final shutdown.
+    """
+
+    environment: Environment
+    trader_id: str
+    instance_id: Optional[str] = None
+    cache: Optional[CacheConfig] = None
+    cache_database: Optional[CacheDatabaseConfig] = None
+    data_engine: Optional[DataEngineConfig] = None
+    risk_engine: Optional[RiskEngineConfig] = None
+    exec_engine: Optional[ExecEngineConfig] = None
+    streaming: Optional[StreamingConfig] = None
+    catalog: Optional[DataCatalogConfig] = None
+    actors: list[ImportableActorConfig] = []
+    strategies: list[ImportableStrategyConfig] = []
+    exec_algorithms: list[ImportableExecAlgorithmConfig] = []
+    load_state: bool = False
+    save_state: bool = False
+    loop_debug: bool = False
+    logging: Optional[LoggingConfig] = None
+    timeout_connection: PositiveFloat = 10.0
+    timeout_reconciliation: PositiveFloat = 10.0
+    timeout_portfolio: PositiveFloat = 10.0
+    timeout_disconnection: PositiveFloat = 10.0
+    timeout_post_stop: PositiveFloat = 10.0
+
+
+class ImportableFactoryConfig(NautilusConfig, frozen=True):
+    """
+    Represents an importable (JSON) factory config.
+    """
+
+    path: str
+
+    def create(self):
+        cls = resolve_path(self.path)
+        return cls()
+
+
+class ImportableConfig(NautilusConfig, frozen=True):
+    """
+    Represents an importable configuration (typically live data client or live execution client).
+    """
+
+    path: str
+    config: dict = {}
+    factory: Optional[ImportableFactoryConfig] = None
+
+    @staticmethod
+    def is_importable(data: dict):
+        return set(data) == {"path", "config"}
+
+    def create(self):
+        assert ":" in self.path, "`path` variable should be of the form `path.to.module:class`"
+        cls = resolve_path(self.path)
+        cfg = msgspec.json.encode(self.config)
+        return msgspec.json.decode(cfg, type=cls)
