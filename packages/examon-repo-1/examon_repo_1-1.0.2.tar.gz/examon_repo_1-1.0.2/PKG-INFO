@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: examon-repo-1
+Version: 1.0.2
+Summary: 
+Author: Jarrod Folino
+Author-email: jdfolino@icloud.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: examon-core (==1.0.4)
+Description-Content-Type: text/markdown
+
+# base questions
