@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: sociallimits
+Version: 1.0.0
+Summary: Various limits on different social media platforms
+Author-email: Matt Wisniewski <healthycrowd@mattw.life>
+License: MIT
+Project-URL: homepage, https://github.com/healthycrowd/sociallimits
+Keywords: sociallimits,social,limits,media,platform
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8.0
+License-File: LICENSE
+
