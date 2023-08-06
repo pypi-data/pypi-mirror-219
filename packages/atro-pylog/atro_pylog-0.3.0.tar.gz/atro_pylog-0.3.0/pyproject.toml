@@ -1,0 +1,21 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "atro-pylog"
+version = "0.3.0"
+description = "A simple logging library for Python. That either uses Loguru or OpenTelmetry collector (useful for local & cluster logging)."
+authors = ["Atropos <pypi.rising@atro.xyz>"]
+packages = [{ include = "atro_pylog" }]
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+rich = "*"
+opentelemetry-api = "^1.18.0"
+opentelemetry-exporter-otlp-proto-http = "^1.18.0"
+opentelemetry-sdk = "^1.18.0"
+pydantic = "^2.0.0"
+pydantic-settings = "^2.0.0"
+python-dotenv = "*"
+stackprinter = "^0.2.10"
