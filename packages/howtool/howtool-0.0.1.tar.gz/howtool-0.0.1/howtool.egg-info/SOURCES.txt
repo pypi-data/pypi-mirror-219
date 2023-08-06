@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+howtool/__init__.py
+howtool/py.typed
+howtool.egg-info/PKG-INFO
+howtool.egg-info/SOURCES.txt
+howtool.egg-info/dependency_links.txt
+howtool.egg-info/requires.txt
+howtool.egg-info/top_level.txt
+howtool/parsers/__init__.py
+howtool/parsers/module_doc_parser.py
+howtool_version/__init__.py
