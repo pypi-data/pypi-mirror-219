@@ -1,0 +1,3 @@
+[console_scripts]
+table_recognition_metric = table_recognition_metric.main:main
+
