@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: usefulgram
+Version: 0.0.0a3
+Summary: Like aiogram but more easy
+Home-page: https://github.com/Sethis/usefulgram
+License: MIT
+Author: Alexandr Bortnik
+Author-email: sambonsttt@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiogram (>=3.0.0b5,<4.0.0)
+Requires-Dist: cachetools (>=4.0.0,<5.0.0)
+Requires-Dist: pydantic (>=1.10.7,<2.0.0)
+Project-URL: Bug Tracker, https://github.com/Sethis/usefulgram/issues
+Description-Content-Type: text/markdown
+
+# Usefulgram
+
+### Немного истории 
+aiogram - прекрасный фреймворк. Однако при работе с ним я столкнулся с тем, 
+что переношу многие функции и классы из проекта в проект. Сначала, 
+для удобной транспортировки были созданы общие классы, затем это перосло
+в общую папку, а теперь - в отдельный проект. Надеюсь, что данная
+небольшая надстройка станет полезным инструментом не только мне, но  и вам
+
+### Какие изменения?
+В целом, usefulgram нельзя расценивать как что-то независимое. Это
+надстройка, собирающая в себя множество маленьких, но полезных утилит.
+Основные измения:
+- lazyediting - класс для удобного изменения сообщений в callback хендлерах
+- Builder, Row, Button и ReplyButton - классы для представления клавиатуры 
+в массивно-подобном виде
+- BasePydanticFilter - Базовый класс, несколько развитая версия
+CallbackFactory, способная на type hints и несколько более обширный список
+типов
+- TrottlingMiddleware - Класс, позволяющий не допустить спам. Немного 
+изменённая версия [данного кода](https://github.com/wakaree/simple_echo_bot/blob/main/middlewares/throttling.py)
+- StackerMiddleware - Класс, добавляющий все эти классы в функции
+
+#### Пример использования:
+В разработке
+
+### Roadmap
+- Добавить пример использования
+- Перевести все тексты в библиотеке на английский
+- Добавить документацию
+- Добавить больше комментариев в код
+- Улучшить код
