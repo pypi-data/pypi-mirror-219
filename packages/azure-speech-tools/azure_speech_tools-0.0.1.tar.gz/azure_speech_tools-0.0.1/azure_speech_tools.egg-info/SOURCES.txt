@@ -1,0 +1,13 @@
+MANIFEST.in
+setup.py
+azure_speech_tools/__init__.py
+azure_speech_tools.egg-info/PKG-INFO
+azure_speech_tools.egg-info/SOURCES.txt
+azure_speech_tools.egg-info/dependency_links.txt
+azure_speech_tools.egg-info/entry_points.txt
+azure_speech_tools.egg-info/requires.txt
+azure_speech_tools.egg-info/top_level.txt
+azure_speech_tools/tools/__init__.py
+azure_speech_tools/tools/azure_speech_tts.py
+azure_speech_tools/tools/utils.py
+azure_speech_tools/yamls/azure_speech_tts.yaml
