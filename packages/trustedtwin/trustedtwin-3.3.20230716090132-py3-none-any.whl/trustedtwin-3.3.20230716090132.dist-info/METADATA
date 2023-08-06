@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: trustedtwin
+Version: 3.3.20230716090132
+Summary: Trusted Twin Python client
+Home-page: https://gitlab.com/trustedtwin/trustedtwin-python
+Author: TrustedTwin
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (==2.31.0)
+Provides-Extra: async
+Requires-Dist: requests (==2.31.0) ; extra == 'async'
+Requires-Dist: aiohttp (==3.8.4) ; extra == 'async'
+
+TrustedTwin Python Client
+===
+
+Trusted Twin API Client version 1.+. 
+
+Local development
+---
+
+After cloning repo:
+```shell
+cd python-client
+export TRUSTED_TWIN_CORE_VER=1.0.0
+export OPEN_API_SPEC_FILE_PATH=$PATH_TO_SWAGGER_FILE
+```
+
+`TRUSTED_TWIN_CORE_VER` is variable setting library version.  
+`OPEN_API_SPEC_FILE_PATH` is variable which points to `tt_api.yaml` which is used
+for generating endpoints definitions.
+
+After exporting variables, execute commands:
+
+```shell
+make
+. load_envs.sh
+```
+
+To build library:
+```shell
+make dist
+```
+
+To clean build:
+```shell
+make clean
+```
+
+Deployment process GitLab/GitHub
+---
