@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: gitlab_arc_fs
+Version: 0.0.13.dev1
+Summary: An experimental and readonly gitlab filesystem extension for PyFilesystem2.!
+Home-page: https://git.bwcloud.uni-freiburg.de/julian.weidhase/GitlabFS
+Author: Julian Weidhase
+Author-email: julian.weidhase@rz.uni-freiburg.de
+License: MY LICENSE
+Requires-Python: >=3.8
