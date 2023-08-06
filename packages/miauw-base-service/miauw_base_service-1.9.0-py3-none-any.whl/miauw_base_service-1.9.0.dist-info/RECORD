@@ -1,0 +1,10 @@
+base_service/__init__.py,sha256=LrC7A5lLrgPG3NPuuHwZFQZXQ4ns_e_1_dvhg4jaGk4,110
+base_service/email_worker.py,sha256=OjulqxktTX6_MZhvEmgvvOYo5aClx8uwFbZjYH0dnGE,1154
+base_service/exceptions.py,sha256=-MJipgc-ZfTSyb3z9noIJLnNFvM6Ne1saqe8JQnHcMM,528
+base_service/service.py,sha256=v0QsFqwA1oWTHPS1ijwZEQWthYbxBjDGxmoNwZ2jBmA,4137
+base_service/utils.py,sha256=yPkVwzvOoNGzSf89nNPGOeMV2CupR2BkI9pyqNs0LqM,875
+base_service/worker.py,sha256=8TKppBVNVjbuNxkt4mTg3BwHzdn8iyj2oPsnxFFzvaM,2669
+miauw_base_service-1.9.0.dist-info/METADATA,sha256=naFGaoMBKbPOdhXgF8f9GKWeffRsZ2uOHJkFQfxc62A,372
+miauw_base_service-1.9.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+miauw_base_service-1.9.0.dist-info/top_level.txt,sha256=B-jAs89M5fJNZVexGYs1dy_MJYdTlnLSLeuyypo75Xk,31
+miauw_base_service-1.9.0.dist-info/RECORD,,
