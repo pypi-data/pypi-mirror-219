@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "atro-rsync"
+version = "0.0.9"
+description = "Rsync wrapper."
+authors = ["atropos <sv7n@pm.me>"]
+readme = "README.md"
+packages = [{include = "atro_rsync"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+atro-pylog= "^0.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
