@@ -1,0 +1,3 @@
+[console_scripts]
+lcapy-tk = lcapygui.scripts.lcapytk:main
+
