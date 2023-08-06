@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pychunker
+Version: 1.0.0
+Summary: Module for reading/writing chunk files.
+Home-page: https://github.com/romanin-rf/Chunker
+License: MIT
+Keywords: pychunker,chunker,chunkfile,io,file,chunk,read,write
+Author: Romanin
+Author-email: semina054@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Filesystems
+Project-URL: Repository, https://github.com/romanin-rf/Chunker
+Description-Content-Type: text/markdown
+
+# Chunker
+## Description
+Module for reading/writing chunk files.
+
+## Using
+- `exmaple.py`:
+```python
+import chunker
+
+with chunker.open("chunkfile.bin", "w") as cf:
+    cf.create_chunk("ADAT")
+    cf.create_chunk("STR_")
+    
+    cf["ADAT"].write(b'1234567890')
+    cf["STR_"].write(b'STRING')
+
+with chunker.open("chunkfile.bin") as cf:
+    print(cf.chunks)
+```
+
+- `output`:
+```python
+>>> [Chunk(name='ADAT', mode='r', size=10), Chunk(name='STR_', mode='r', size=6)]
+```
