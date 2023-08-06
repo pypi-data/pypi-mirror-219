@@ -1,0 +1,9 @@
+resotolib==3.6.1
+boto3
+requests
+botocore
+retrying
+
+[test]
+mypy
+tzlocal
