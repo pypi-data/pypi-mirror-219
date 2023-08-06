@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: odoo12-addons-oca-management-system
+Version: 12.0.20230716.0
+Summary: Meta package for oca-management-system Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 12.0
+Requires-Dist: odoo12-addon-document-page-environmental-aspect
+Requires-Dist: odoo12-addon-document-page-procedure
+Requires-Dist: odoo12-addon-document-page-quality-manual
+Requires-Dist: odoo12-addon-document-page-work-instruction
+Requires-Dist: odoo12-addon-mgmtsystem
+Requires-Dist: odoo12-addon-mgmtsystem-action
+Requires-Dist: odoo12-addon-mgmtsystem-action-efficacy
+Requires-Dist: odoo12-addon-mgmtsystem-action-template
+Requires-Dist: odoo12-addon-mgmtsystem-audit
+Requires-Dist: odoo12-addon-mgmtsystem-hazard
+Requires-Dist: odoo12-addon-mgmtsystem-manual
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-hr
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-maintenance
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-mrp
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-product
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-project
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-repair
+Requires-Dist: odoo12-addon-mgmtsystem-nonconformity-type
+Requires-Dist: odoo12-addon-mgmtsystem-partner
+Requires-Dist: odoo12-addon-mgmtsystem-quality
+Requires-Dist: odoo12-addon-mgmtsystem-review
+Requires-Dist: odoo12-addon-mgmtsystem-survey
+
+UNKNOWN
+
