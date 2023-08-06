@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ppyNotion
+Version: 0.0.1.1
+Summary: Connect to your Notion database with ease.
+Home-page: https://github.com/jirayuwat12/ppyNotion
+Author: jirayuwat b.
+Author-email: jirayuwat.work@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ppyNotion
+---
+This is library that help you to automate notion database with **ease**
+
+## How to install 
+
+```bash
+pip3 install ppyNotion
+```
