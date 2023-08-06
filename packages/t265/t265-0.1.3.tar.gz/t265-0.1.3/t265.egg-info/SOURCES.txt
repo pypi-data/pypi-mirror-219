@@ -1,0 +1,10 @@
+MANIFEST.in
+requirements.txt
+setup.py
+t265/Tracking.py
+t265/__init__.py
+t265.egg-info/PKG-INFO
+t265.egg-info/SOURCES.txt
+t265.egg-info/dependency_links.txt
+t265.egg-info/requires.txt
+t265.egg-info/top_level.txt
