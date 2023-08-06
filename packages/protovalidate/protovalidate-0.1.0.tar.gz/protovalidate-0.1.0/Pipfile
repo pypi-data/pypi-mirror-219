@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+cel-python = "*"
+protobuf = "*"
+
+[dev-packages]
+pytest = "*"
+mypy = "*"
+ruff = "*"
+types-protobuf = "*"
+black = "*"
+
+[requires]
+python_version = "3.11"
