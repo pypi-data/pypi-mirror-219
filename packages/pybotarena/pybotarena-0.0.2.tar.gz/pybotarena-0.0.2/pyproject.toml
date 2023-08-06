@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pybotarena"
+version = "0.0.2"
+authors = [
+  { name="Chung Zhi Wei", email="zhiwei_chung@sutd.edu.sg" },
+  { name="Oka Kurniawan", email="oka_kurniawan@sutd.edu.sg" },
+]
+description = "Package to control robot in PybotARena App."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
