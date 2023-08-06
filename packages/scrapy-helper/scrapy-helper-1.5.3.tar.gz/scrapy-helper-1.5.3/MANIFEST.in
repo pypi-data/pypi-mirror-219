@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+graft scrapy_helper
+
+prune tests
+prune workplace

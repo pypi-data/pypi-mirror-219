@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: scrapy-helper
+Version: 1.5.3
+Summary: scrapy helper
+Author: Zhou Ping
+Author-email: 231409@qq.com
+License: Apache 2.0
+Keywords: scrapy,spider,helper
+Classifier: Framework :: Scrapy
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Scrapy helper
+
+基于scrapy 的一些扩展
+
+
+docker build -t wisdom-env .
+
+python3 setup.py install
+
+docker-compose up -d
+docker-compose up -d --build
+
+```
+pip install scrapy-helper
+```
