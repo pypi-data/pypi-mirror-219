@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: faselunar
+Version: 0.1.1
+Summary: Librería demo
+Home-page: 
+Author: Sol troncoso
+Author-email: sol.troncoso@usach.cl
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# libreria calculadora de fases lunares
+Una pequeña librería que muestra el estado de la fase lunar
+
+### Installation
+```
+pip install calculadora-fase-lunar==0.1.0
+```
+
+### Comencemos
+
+```Python
+from faseLunar.faselunar import FaseLunar
+
+# Instancia un objeto de la clase FaseLunar
+f = FaseLunar(19, 3, 1992)
+# llama al método calcular fase de la luna
+print(f.calcular_fase())
+# llama al método calcular luz de la fase lunar
+print(f.obtener_luz())
+# llama al método emoji luna que muestra un emoji con la fase de la luna
+f.emoji_luna()
+
+```
