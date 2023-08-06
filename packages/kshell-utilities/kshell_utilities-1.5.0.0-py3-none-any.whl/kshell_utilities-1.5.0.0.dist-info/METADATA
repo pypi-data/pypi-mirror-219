@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: kshell-utilities
+Version: 1.5.0.0
+Summary: Handy utilities for handling nuclear shell model calculations from KSHELL
+Home-page: https://github.com/GaffaSnobb/kshell-utilities
+Author: ['Jon Kristian Dahl', 'Johannes Heines']
+Author-email: jonkd@uio.no
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Physics
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: numba
+Requires-Dist: vum
+
