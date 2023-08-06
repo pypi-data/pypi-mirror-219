@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: testmedium
+Version: 2.0.0
+Summary: A sample Python project
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE.txt
+Requires-Dist: mysql-connector-python
+
+#Sample Project
