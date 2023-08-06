@@ -1,0 +1,30 @@
+git:
+  depth: 1
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      dist: xenial
+      language: python
+      python: "3.6"
+    - os: osx
+      language: generic
+      addons:
+        homebrew:
+          packages:
+            - llvm
+            - boost
+  allow_failures:
+    - python: "3.6"
+before_install:
+  - pip3 install --upgrade pip
+install:
+  - pip3 install cython
+  - pip3 install numpy scipy
+  - pip3 install coveralls
+  - pip3 install .
+# command to run tests
+script:
+  - coverage run --source ./ -m unittest discover unittest/ -p "*" -v
+after_success:
+  - coveralls

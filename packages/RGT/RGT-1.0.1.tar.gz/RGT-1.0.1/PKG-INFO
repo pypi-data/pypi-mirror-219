@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: RGT
+Version: 1.0.1
+Summary: Toolkit to perform regulatory genomics data analysis
+Home-page: https://reg-gen.readthedocs.io
+Download-URL: https://github.com/CostaLab/reg-gen/archive/1.0.1.zip
+Author: Zhijian Li, Eduardo G. Gusmao, Manuel Allhoff, Joseph Chao-Chung Kuo, Fabio Ticconi, Ivan G. Costa
+Author-email: software@costalab.org
+License: GPL
+Keywords: ChIP-seq,ATAC-seq,DNase-seq,Peak Calling,Motif Discovery,Motif Enrichment,HMM
+Platform: linux
+Platform: linux2
+Platform: darwin
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+License-File: LICENSE
