@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "woofy"
+version = "1.0.1"
+description = "🐶 An unofficial The Dog API wrapper for Python"
+license = "MIT"
+authors = ["elaresai <elaresai@gmail.com>"]
+maintainers = ["elaresai <elaresai@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/elaresai/woofy"
+repository = "https://github.com/elaresai/woofy"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.8",
+
+    "Topic :: Software Development :: Libraries",
+]
+packages = [{ include = "woofy", from = "src" }]
+
+
+[tool.poetry.dependencies]
+python = ">=3.8.0,<3.12"
+attrs = "^23.1.0"
+msgspec = "^0.16.0"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
