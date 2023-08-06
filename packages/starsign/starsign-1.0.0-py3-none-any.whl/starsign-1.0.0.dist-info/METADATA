@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: starsign
+Version: 1.0.0
+Summary: StarSign: more fun than normal horoscopes!
+Home-page: https://github.com/richardson-t/starsign
+Keywords: Zodiac Star Fun Horoscope
+License-File: LICENSE
+Requires-Dist: pytz
+Requires-Dist: numpy
+Requires-Dist: astropy
+Requires-Dist: datetime
+Requires-Dist: astroquery
+Requires-Dist: timezonefinder
+
