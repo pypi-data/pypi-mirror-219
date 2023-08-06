@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: saracenpypacks
+Version: 1.1
+Author: Saracen Rhue
+Author-email: 
+Keywords: python,db
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: pymongo
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: pick
+Requires-Dist: pyyaml
+Requires-Dist: setuptools
+Requires-Dist: wheel
+Requires-Dist: twine
+Requires-Dist: codecs
+Requires-Dist: requests
+Requires-Dist: selenium
+Requires-Dist: beautifulsoup4
+Requires-Dist: pyautogui
+Requires-Dist: pygame
+
+
+# saracenpypacks
