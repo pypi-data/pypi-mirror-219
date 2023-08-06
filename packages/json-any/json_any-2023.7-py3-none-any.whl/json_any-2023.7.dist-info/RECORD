@@ -1,0 +1,16 @@
+json_any/__init__.py,sha256=b2Ba0lGLSw9kosZMka06mquDtDzlzjCUOtKJ1C4jS04,1749
+json_any/constant.py,sha256=QCc3DgQkAQoScLMM-toARyc7OZgxpVCG2I71qoQ93Q8,1892
+json_any/json_to_object.py,sha256=q4sQkL3TW_GkEUSeFqmWkDYSDx9UR5Xplyb2zMTIbag,11552
+json_any/object_to_json.py,sha256=PA5dcvhw67H_zSxAWYSCcm2CvP6SeKN-mcMrnGxnIC4,12704
+json_any/version.py,sha256=ua5M7BFjtoJO9IYELo3SmnfqVB56fMOSSGAhb-kzurc,1575
+json_any/catalog/module.py,sha256=BsMn5OszJ-ZrtegtxNbJDFpBrajqelXZQ-pA307s3mM,2192
+json_any/catalog/type.py,sha256=2daoCc2O-E8hmXh7z0Ii7D3MPhrASt-dHej6LBViQOs,4964
+json_any/extension/module.py,sha256=I_KcOgSLkPKjfIXBM0NgsfNf_Hj7mqnGE9ivJ3sxIcA,2417
+json_any/extension/numpy.py,sha256=UN5tYeVPEkScHQrQ_KDmYAdHkHX6VT0lK-ToLmiOR_M,8143
+json_any/extension/type.py,sha256=FjRCiZynbJ_UzHVAcdgxV7UcAcX0L8yQH9C1pxH2DlY,3671
+json_any/task/compression.py,sha256=9VKEhXlJeuNI_R0salfRVd5iUe7eaSpsm7RSbCzNaUw,3348
+json_any/task/storage.py,sha256=xMLZ8CY0CeYobU8E6SfUd5Rhe9vueDn8KShMmfB27cE,8258
+json_any-2023.7.dist-info/METADATA,sha256=_rJn1eGgRjwAUZeF1u4Tq_spxrdXILZv77wKf1omY_4,4220
+json_any-2023.7.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+json_any-2023.7.dist-info/top_level.txt,sha256=73iJcxIv_S7PfF2R-TtGSymeBhyzQGKt2ZdtdOBfGzU,9
+json_any-2023.7.dist-info/RECORD,,
