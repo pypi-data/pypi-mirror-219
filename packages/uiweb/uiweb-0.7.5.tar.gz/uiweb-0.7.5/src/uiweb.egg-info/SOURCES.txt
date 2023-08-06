@@ -1,0 +1,11 @@
+LICENSE
+README.MD
+pyproject.toml
+src/uiweb/__init__.py
+src/uiweb/uiweb.py
+src/uiweb/uiweb_.py
+src/uiweb.egg-info/PKG-INFO
+src/uiweb.egg-info/SOURCES.txt
+src/uiweb.egg-info/dependency_links.txt
+src/uiweb.egg-info/requires.txt
+src/uiweb.egg-info/top_level.txt

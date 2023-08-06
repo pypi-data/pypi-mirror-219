@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uiweb"
+version = "0.7.05"
+authors = [
+  { name="Dmitry Vorontsov", email="dv1555@hotmail.com" },
+]
+description = "Simple-based web-app library"
+readme = "README.MD"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "beautifulsoup4",
+  "Flask_SocketIO",
+  "requests"
+]
+
+
+[project.urls]
+"Homepage" = "http://simpleui.ru/"
+"Bug Tracker" = "https://forum.infostart.ru/forum104/topic211360/"

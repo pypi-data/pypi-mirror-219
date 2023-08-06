@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: uiweb
+Version: 0.7.5
+Summary: Simple-based web-app library
+Author-email: Dmitry Vorontsov <dv1555@hotmail.com>
+Project-URL: Homepage, http://simpleui.ru/
+Project-URL: Bug Tracker, https://forum.infostart.ru/forum104/topic211360/
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
