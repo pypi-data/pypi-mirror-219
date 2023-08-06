@@ -1,0 +1,14 @@
+__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ruppell.py,sha256=XIslSrvrovszDn5ndpdRoh0MeAKiaFRb-OKnwr8FfSE,1874
+readers/AbstractReader.py,sha256=SwQKauq008mfKkVuJc4P1IyCfx_HBiMrXkGqFuNdaME,413
+readers/DocxReader.py,sha256=Jd7kAPOBfUBSbxPe7TJyabV2fotQaPisHroIvK4sWV8,275
+readers/ImageReader.py,sha256=HpwSNrXG3bPgotXmNzGsYYOJ3Eap1Gpi4fY9mcY1AMA,495
+readers/PdfReader.py,sha256=a2ZbgiJWvacPHoQ7i0OxTB7ZE9xuphLc1MACeWZhnu0,293
+readers/__init__.py,sha256=xTP0PcU8KAwWWxc2BNBP5fCo19z-7F9tbsY0nTR40lw,53
+utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+utils/utils.py,sha256=QaXyM-xpCTrCXI9vOrlS42YnmExOiY94E8TNZNfaa50,488
+ruppell-1.0.0.dist-info/LICENSE,sha256=p38l5BXfLJEVNAEV3XD0VOk_6NeYo0bKTa-v7z2rCh4,1072
+ruppell-1.0.0.dist-info/METADATA,sha256=2xQpMUySiaWB4hD9Igq1VAOU6y_7of9Uo9l1zzM5PQw,2189
+ruppell-1.0.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ruppell-1.0.0.dist-info/top_level.txt,sha256=SifCk4VmNF9fr_9bdm8fI-Xu6ygvgW2O095DPGotKgY,15
+ruppell-1.0.0.dist-info/RECORD,,
