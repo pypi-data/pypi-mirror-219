@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+maxia_pipedrive/__init__.py
+maxia_pipedrive/consts.py
+maxia_pipedrive/data_handler.py
+maxia_pipedrive/models.py
+maxia_pipedrive/relations.py
+maxia_pipedrive/tests.py
+maxia_pipedrive.egg-info/PKG-INFO
+maxia_pipedrive.egg-info/SOURCES.txt
+maxia_pipedrive.egg-info/dependency_links.txt
+maxia_pipedrive.egg-info/requires.txt
+maxia_pipedrive.egg-info/top_level.txt
