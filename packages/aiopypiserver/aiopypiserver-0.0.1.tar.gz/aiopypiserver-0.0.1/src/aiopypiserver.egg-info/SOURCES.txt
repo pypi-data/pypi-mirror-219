@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+src/aiopypiserver/__init__.py
+src/aiopypiserver/__main__.py
+src/aiopypiserver/webserver.py
+src/aiopypiserver.egg-info/PKG-INFO
+src/aiopypiserver.egg-info/SOURCES.txt
+src/aiopypiserver.egg-info/dependency_links.txt
+src/aiopypiserver.egg-info/entry_points.txt
+src/aiopypiserver.egg-info/requires.txt
+src/aiopypiserver.egg-info/top_level.txt
+src/aiopypiserver/assets/index.html
+src/aiopypiserver/assets/list.html
+tests/test_server.py
