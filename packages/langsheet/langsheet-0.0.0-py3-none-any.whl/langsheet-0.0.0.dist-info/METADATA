@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: langsheet
+Version: 0.0.0
+Summary: Langhseet python package
+Home-page: https://github.com/nikhilkumarsingh/weather-reporter
+Author: MyTrip.AI
+Author-email: info@mytrip.ai
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+MyTrip.AI python package for Langsheet
