@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+src/palet/__init__.py
+src/palet/__main__.py
+src/palet/color.py
+src/palet.egg-info/PKG-INFO
+src/palet.egg-info/SOURCES.txt
+src/palet.egg-info/dependency_links.txt
+src/palet.egg-info/top_level.txt
+src/palet.egg-info/zip-safe
+src/palet/model/__init__.py
