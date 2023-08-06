@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: mapsrouting
+Version: 0.0.10
+Summary: Visualize map paths implemented with Python
+Home-page: https://github.com/Dongguk-MAPS/Routing-Visualization
+Author: codusl100
+Author-email: codusl100@naver.com
+Keywords: codusl100,MAPS,route visualization,python route visualization
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Requires-Dist: folium
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: osrm
+Requires-Dist: polyline
+
