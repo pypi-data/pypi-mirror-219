@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+SpotifyUtil/SpotifyUtil.py
+SpotifyUtil/__init__.py
+SpotifyUtil/config.py
+SpotifyUtil/file_reader.py
+SpotifyUtil/secret.py
+SpotifyUtil.egg-info/PKG-INFO
+SpotifyUtil.egg-info/SOURCES.txt
+SpotifyUtil.egg-info/dependency_links.txt
+SpotifyUtil.egg-info/requires.txt
+SpotifyUtil.egg-info/top_level.txt
