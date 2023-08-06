@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/invenhost_core/InvenHostCore.py
+src/invenhost_core/__init__.py
+src/invenhost_core.egg-info/PKG-INFO
+src/invenhost_core.egg-info/SOURCES.txt
+src/invenhost_core.egg-info/dependency_links.txt
+src/invenhost_core.egg-info/entry_points.txt
+src/invenhost_core.egg-info/requires.txt
+src/invenhost_core.egg-info/top_level.txt

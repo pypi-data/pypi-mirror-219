@@ -1,0 +1,41 @@
+# Copyright (c) 2023 Matthias Mair<code@mjmair.com>
+[build-system]
+requires = ["setuptools", "wheel", "pyyaml"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "invenhost-core"
+version =  "0.1.0"
+description="InvenHost integration plugin"
+readme = "README.md"
+license = {text = "UNLICENSED"}
+keywords = ["inventree", "inventree-plugin", "invenhost-core"]
+authors = [
+    {name = "Matthias Mair", email =  "code@mjmair.com"}
+]
+classifiers=[
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Plugins",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: Scientific/Engineering",
+]
+requires-python=">=3.9"
+dependencies = ['django', ]
+
+[project.optional-dependencies]
+dev = ['twine', 'setuptools']
+
+[project.urls]
+"Repository" = "https://github.com/matmair/invenhost-core"
+"Bug Tracker" = "https://github.com/matmair/invenhost-core/issues"
+
+[project.entry-points."inventree_plugins"]
+invenhost-core = "invenhost_core:InvenHostCore"
+
+[tool.setuptools.packages.find]
+where = ["src"]
