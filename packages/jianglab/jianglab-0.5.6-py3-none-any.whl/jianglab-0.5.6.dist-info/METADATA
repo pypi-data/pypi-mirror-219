@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: jianglab
+Version: 0.5.6
+Summary: A package for Jiang lab
+Home-page: https://github.com/jiang-lab-retina/jianglab.git
+Author: Jiang Zheng
+Author-email: zjiang314@gmail.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: treelib
+Requires-Dist: McsPyDataTools
+Requires-Dist: tqdm
+Requires-Dist: scipy
+Requires-Dist: gspread
+Requires-Dist: oauth2client
+Requires-Dist: xmltodict
+Requires-Dist: opencv-python
+Requires-Dist: ipython
+
