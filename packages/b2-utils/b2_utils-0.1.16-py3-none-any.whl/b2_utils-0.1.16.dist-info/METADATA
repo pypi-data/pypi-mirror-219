@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: b2-utils
+Version: 0.1.16
+Summary: A useful package provided by B2BIT
+Author-email: Felipe Sena 🏎️ <felipesena@b2bit.company>, Matheus Abdias 🐧 <matheusabdias.b2bit@gmail.com>
+Project-URL: Homepage, https://gitlab.com/b2bit.felipesena/b2-utils
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: Django (>=4.0.6)
+Requires-Dist: django-model-utils (>=4.3.1)
+Requires-Dist: djangorestframework (>=3.13.1)
+Requires-Dist: model-bakery (>=1.9.0)
+Requires-Dist: Faker (>=13.3.4)
+Requires-Dist: Pillow (>=9.4.0)
+Requires-Dist: validate-docbr (>=1.10.0)
+
+# b2-utils
+
+## Passos
+- Em caso de ser sua primeira vez publicando a lib no pipy é necessario um arquivo de configuração no home do computador com o nome .pypirc para mais informações confira o forum no click up sobre como preencher o arquivo.
+- Antes de rodar o script para publicar a lib no pip é necessario subir a versão dela no pyproject.toml.
+
+```toml
+[project]
+name = "b2-utils"
+version = "0.X.XX"
+```
+
+- Logo apos é necessario o rodar o script que compila as dependencias ./compile.sh
+- Por fim só publicar ser feliz.
