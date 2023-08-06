@@ -1,0 +1,109 @@
+class Col :
+    jd = "JDate"
+    jm = "JMonth"
+    tse_id = "TSETMC-ID"
+    tic = "Ticker"
+    btic = "BaseTicker"
+    ftic = "FirmTicker"
+    eng_ftic = "EngFirmTicker"
+    name = "Name"
+    d = "Date"
+    dt = "DateTime"
+    ahi = "AdjHigh"
+    alow = "AdjLow"
+    aopen = "AdjOpen"
+    aclose = "AdjClose"
+    vol = "Volume"
+    alast = "AdjLast"
+    is_tse_open = "Is-TSE-Open"
+    wd = "WeekDay"
+    arlo = "AdjRet-SinceLastOpenDay"
+    ar1d = "AdjRet-1WorkDay"
+    ar1dlf = "AdjRet-1WorkDay-LinearFilled"
+    is_tic_open = "IsTickerOpen"
+    ind_id = "IndexID"
+    obsd = "ObsDate"
+    close = "Close"
+    tedpix_close = "TEDPIX-Close"
+    rf_apr = "RiskFree-Rate-APR"
+    rf_d = "RiskFree-Rate-Daily"
+    tedpix_ret = "TEDPIX-Return"
+    tedpix_exss_ret = "TEDPIX-Excess-Return"
+    exss_ret = "Excess-Return"
+    get_date = 'GetDate'
+
+class CodalCol :
+    TracingNo = "TracingNo"
+    SuperVision = "SuperVision"
+    Symbol = "Symbol"
+    CompanyName = "CompanyName"
+    UnderSupervision = "UnderSupervision"
+    Title = "Title"
+    LetterCode = "LetterCode"
+    SentDateTime = "SentDateTime"
+    PublishDateTime = "PublishDateTime"
+    HasHtml = "HasHtml"
+    Url = "Url"
+    HasExcel = "HasExcel"
+    HasPdf = "HasPdf"
+    HasXbrl = "HasXbrl"
+    HasAttachment = "HasAttachment"
+    AttachmentUrl = "AttachmentUrl"
+    PdfUrl = "PdfUrl"
+    ExcelUrl = "ExcelUrl"
+    XbrlUrl = "XbrlUrl"
+    TedanUrl = "TedanUrl"
+
+class DAllCodalLetters :
+    TracingNo = "TracingNo"
+    CodalTicker = "CodalTicker"
+    CompanyName = "CompanyName"
+    LetterCode = "LetterCode"
+    Title = "Title"
+    SentDateTime = "SentDateTime"
+    PublishDateTime = "PublishDateTime"
+    UnderSupervision = "UnderSupervision"
+    SuperVision_UnderSupervision = "SuperVision.UnderSupervision"
+    SuperVision_AdditionalInfo = "SuperVision.AdditionalInfo"
+    SuperVision_Reasons = "SuperVision.Reasons"
+    IsEstimate = "IsEstimate"
+    TedanUrl = "TedanUrl"
+    HasHtml = "HasHtml"
+    Url = "Url"
+    HasAttachment = "HasAttachment"
+    AttachmentUrl = "AttachmentUrl"
+    HasExcel = "HasExcel"
+    ExcelUrl = "ExcelUrl"
+    HasPdf = "HasPdf"
+    PdfUrl = "PdfUrl"
+    HasXbrl = "HasXbrl"
+    XbrlUrl = "XbrlUrl"
+
+class CodalLetterCode :
+    MonthlySalesRep = "ن-۳۰"
+
+class CodalMonthlySalesFirmType :
+    p = "Production"
+    s = "Service"
+    b = "Bank"
+    i = "Insurance"
+    l = "Leasing"
+    r = "RealEstate"
+    a = "Agriculture"
+    f = "Financing"
+
+class DInsIndCols :
+    bdc = 'Buy-Ind-Count'
+    bsc = 'Buy-Ins-Count'
+    sdc = 'Sell-Ind-Count'
+    ssc = 'Sell-Ins-Count'
+
+    bdv = 'Buy-Ind-Vol'
+    bsv = 'Buy-Ins-Vol'
+    sdv = 'Sell-Ind-Vol'
+    ssv = 'Sell-Ins-Vol'
+
+    bdva = 'Buy-Ind-Val'
+    bsva = 'Buy-Ins-Val'
+    sdva = 'Sell-Ind-Val'
+    ssva = 'Sell-Ins-Val'
