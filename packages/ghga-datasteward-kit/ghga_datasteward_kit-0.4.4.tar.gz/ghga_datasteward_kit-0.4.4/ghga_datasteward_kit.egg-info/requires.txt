@@ -1,0 +1,6 @@
+crypt4gh==1.6
+hexkit[mongodb,s3]==0.10.0
+ghga-transpiler==1.0.3
+metldata==0.3.6
+
+[all]
