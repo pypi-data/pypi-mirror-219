@@ -1,0 +1,12 @@
+transformers>=4.30.2
+torch>=2.0.0
+sentencepiece
+protobuf
+tqdm
+
+[dev]
+pytest
+black
+jinja2
+mkdocs
+mkdocs-material
