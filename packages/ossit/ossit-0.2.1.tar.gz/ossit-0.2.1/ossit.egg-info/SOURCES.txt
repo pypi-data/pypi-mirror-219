@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+ossit/__init__.py
+ossit/api_requestor.py
+ossit/config.py
+ossit/ossit_response.py
+ossit/utils.py
+ossit.egg-info/PKG-INFO
+ossit.egg-info/SOURCES.txt
+ossit.egg-info/dependency_links.txt
+ossit.egg-info/top_level.txt
+ossit/api_resources/__init__.py
+ossit/api_resources/domain.py
+ossit/api_resources/statistic.py
