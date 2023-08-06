@@ -1,0 +1,719 @@
+{
+  "bert_mini_mrpc": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/mrpc/bert_mini",
+    "data_dir": "/tf_dataset2/datasets/mrpc_data",
+    "hf_model_name": "M-FAC/bert-mini-finetuned-mrpc",
+    "benchmark": {
+      "cmd": "bash run_bert_mini.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_mini_mrpc",
+         "dataset": "mrpc",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_mini_mrpc",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput" 
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "bert_mini_sst2": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/sst2/bert_mini",
+    "data_dir": "/tf_dataset2/datasets/sst2_data",
+    "hf_model_name": "moshew/bert-mini-sst2-distilled",
+    "benchmark": {
+      "cmd": "bash run_bert_mini.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_mini_sst2",
+         "dataset": "sst2",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_mini_sst2",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+         "max_throughput": {
+          "mode": "max_throughput",
+           "instance_num": "1,2,4,8"
+         },
+         "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+         }
+      }
+    }
+  },
+  "bert_base_mrpc": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/mrpc/bert_base",
+    "data_dir": "/tf_dataset2/datasets/mrpc_data",
+    "hf_model_name": "textattack/bert-base-uncased-MRPC",
+    "benchmark": {
+      "cmd": "bash run_bert_base.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_base_mrpc",
+         "dataset": "mrpc",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_base_mrpc",
+         "batch_size": 1,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "distilbert_base_uncased_emotion": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/emotion/distilbert_base_uncased",
+    "tokenizer_dir": "/tf_dataset2/models/deep-engine/distilbert_base_uncased/test_tokenizer",
+    "data_dir": "/tf_dataset2/datasets/emotion_data",
+    "hf_model_name": "bhadresh-savani/distilbert-base-uncased-emotion",
+    "benchmark": {
+      "cmd": "bash run_emotion.sh",
+      "params": {
+        "precision": "int8/fp32",
+        "sequence_len": 128,
+        "warm_up": 100,
+        "iteration": 1000,
+        "batch_size": 6,
+        "mode": "accuracy/throughput",
+        "model": "/tf_dataset2/models/nlp_toolkit/distilbert_base_uncased_emotion",
+        "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/distilbert_base_uncased_emotion"       
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "bert_large_squad": {
+    "working_dir": "huggingface/pytorch/question-answering/deployment/squad/bert_large",
+    "data_dir": "/tf_dataset2/models/deep-engine/bert_large",
+    "hf_model_name": "bert-large-uncased-whole-word-masking-finetuned-squad",
+    "benchmark": {
+      "cmd": "bash run_bert_large.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_large_squad",
+         "dataset": "squad",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_large_squad",
+         "precision": "int8/fp32",
+         "batch_size": 1,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "distilbert_base_uncased_sst2": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/sst2/distilbert_base_uncased",
+    "data_dir": "/tf_dataset2/datasets/sst2_data",
+    "hf_model_name": "distilbert-base-uncased-finetuned-sst-2-english",
+    "benchmark": {
+      "cmd": "bash run_distilbert_base.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/distilbert_base_uncased_sst2",
+         "dataset": "sst2",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/distilbert_base_uncased_sst2",
+         "precision": "int8/fp32",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "distilbert_base_uncased_mrpc": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/mrpc/distilbert_base_uncased",
+    "data_dir": "/tf_dataset2/datasets/mrpc_data",
+    "hf_model_name": "textattack/distilbert-base-uncased-MRPC",
+    "benchmark": {
+      "cmd": "bash run_distilbert_base.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/distilbert_base_uncased_mrpc",
+         "dataset": "mrpc",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/distilbert_base_uncased_mrpc",
+         "precision": "int8/fp32",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "minilm_l6_h384_uncased_sst2": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/sst2/minilm_l6_h384_uncased",
+    "data_dir": "/tf_dataset2/datasets/sst2_data",
+    "hf_model_name": "philschmid/MiniLM-L6-H384-uncased-sst2",
+    "benchmark": {
+      "cmd": "bash run_minilm.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/minilm_l6_h384_uncased_sst2",
+         "dataset": "sst2",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/minilm_l6_h384_uncased_sst2",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "bert_base_cased_mrpc": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/mrpc/bert_base_cased",
+    "data_dir": "/tf_dataset2/models/deep-engine/bert_base_cased_mrpc/mrpc_data",
+    "hf_model_name": "bert-base-cased-finetuned-mrpc",
+    "benchmark": {
+      "cmd": "bash run_bert_base_cased.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_base_cased_mrpc",
+         "dataset": "mrpc",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_base_cased_mrpc",
+         "batch_size": 1,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+         "instance_num": "1"
+        }
+      }
+    }
+  },
+  "roberta_base_mrpc": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/mrpc/roberta_base",
+    "data_dir": "/tf_dataset2/models/deep-engine/roberta_base_mrpc/data",
+    "hf_model_name": "textattack/roberta-base-MRPC",
+    "benchmark": {
+      "cmd": "bash run_roberta_base.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/roberta_base_mrpc",
+         "dataset": "mrpc",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/roberta_base_mrpc",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 8,
+         "iteration": 100,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "bert_mini_sparse": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/sparse/bert_mini",
+    "data_dir": "/tf_dataset2/datasets/sst2_data",
+    "hf_model_name": "Intel/bert-mini-sst2-distilled-sparse-90-1X4-block",
+    "benchmark": {
+      "cmd": "bash run_bert_mini.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/bert_mini_sst2_distilled_sparse",
+         "dataset": "sst2",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/bert_mini_sparse",
+         "batch_size": 8,
+          "sequence_len": 128,
+          "warm_up": 100,
+          "iteration": 1000,
+          "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "distilbert_base_uncased_squad_sparse": {
+    "working_dir": "huggingface/pytorch/text-classification/deployment/sparse/distilbert_base_uncased",
+    "data_dir": "/tf_dataset2/models/deep-engine/bert_large",
+    "hf_model_name": "Intel/distilbert-base-uncased-squadv1.1-sparse-80-1x4-block-pruneofa",
+    "benchmark": {
+      "cmd": "bash run_distilbert.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/distillbert_base_uncased_sparse/distilbert-base-uncased-squadv1.1-sparse-80-1x4-block-pruneofa",
+         "dataset": "squad",
+         "precision": "int8/fp32",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/distilbert_base_uncased_squad_sparse",
+         "batch_size": 8,
+         "sequence_len": 128,
+         "warm_up": 100,
+         "iteration": 1000,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "length_adaptive_dynamic": {
+    "working_dir": "huggingface/pytorch/question-answering/deployment/squad/length_adaptive_transformer",
+    "data_dir": "/tf_dataset2/models/deep-engine/bert_large",
+    "hf_model_name": "sguskin/dynamic-minilmv2-L6-H384-squad1.1",
+    "benchmark": {
+      "cmd": "bash run_LAT.sh",
+      "params": {
+         "model": "sguskin/dynamic-minilmv2-L6-H384-squad1.1",
+         "dataset": "squad",
+         "precision": "fp32/int8",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/length_adaptive_dynamic",
+         "batch_size": 8,
+         "sequence_len": 384,
+         "warm_up": 100,
+         "iteration": 1000,
+         "mode": "accuracy/throughput"
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "vit_large": {
+    "working_dir": "huggingface/pytorch/image-classification/deployment/imagenet/vit",
+    "data_dir": "/tf_dataset2/models/nlp_toolkit/vit/cached-2k-imagenet-1k-datasets",
+    "hf_model_name": "google/vit-large-patch16-224",
+    "benchmark": {
+      "cmd": "bash run_vit.sh",
+      "params": {
+        "precision": "int8/fp32",
+        "sequence_len": 128,
+        "warm_up": 100,
+        "iteration": 1000,
+        "model": "google/vit-large-patch16-224",
+        "mode": "accuracy/throughput",
+        "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/vit"      
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "vit_base": {
+    "working_dir": "huggingface/pytorch/image-classification/deployment/imagenet/vit",
+    "data_dir": "/tf_dataset2/models/nlp_toolkit/vit/cached-2k-imagenet-1k-datasets",
+    "hf_model_name": "google/vit-base-patch16-224",
+    "benchmark": {
+      "cmd": "bash run_vit.sh",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/vit-base",
+         "dataset": "imagenet-1k",
+         "precision": "fp32/int8",
+         "cache_dir": "/home/tensorflow/.cache/nlp_toolkit/vit",
+         "sequence_len": 128,
+         "mode": "accuracy/throughput",
+         "warm_up": 100,
+         "iteration": 1000,
+      }
+    },
+    "launcher": {
+      "cmd": "huggingface/pytorch/neural_engine_utils/launcher.py",
+      "params": {
+        "max_throughput": {
+          "mode": "max_throughput",
+          "instance_num": "1,2,4,8"
+        },
+        "min_latency": {
+          "mode": "min_latency",
+          "instance_num": "1"
+        }
+      }
+    }
+  },
+  "stable_diffusion_v1_4": {
+    "working_dir": "huggingface/pytorch/text-to-image/deployment/stable_diffusion",
+    "data_dir": "",
+    "hf_model_name": "CompVis/stable-diffusion-v1-4",
+    "prepare": {
+      "cmd": "bash -x export_model.sh",
+      "params": {
+         "input_model": "/tf_dataset2/models/nlp_toolkit/stable-diffusion",
+         "precision": "fp32/bf16"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_executor.py",
+      "params": {
+        "ir_path": "_ir",
+        "mode": "benchmark",
+        "input_model" : "CompVis/stable-diffusion-v1-4"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "stable_diffusion_v1_5": {
+    "working_dir": "huggingface/pytorch/text-to-image/deployment/stable_diffusion",
+    "data_dir": "",
+    "hf_model_name": "runwayml/stable-diffusion-v1-5",
+    "prepare": {
+      "cmd": "bash -x export_model.sh",
+      "params": {
+         "input_model": "/tf_dataset2/models/nlp_toolkit/stable-diffusion-v1-5",
+         "precision": "fp32/bf16"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_executor.py",
+      "params": {
+        "ir_path": "_ir",
+        "mode": "benchmark",
+        "input_model" : "runwayml/stable-diffusion-v1-5"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "stable_diffusion_v2_1": {
+    "working_dir": "huggingface/pytorch/text-to-image/deployment/stable_diffusion",
+    "data_dir": "",
+    "hf_model_name": "stabilityai/stable-diffusion-2-1",
+    "prepare": {
+      "cmd": "bash -x export_model.sh",
+      "params": {
+         "input_model": "/tf_dataset2/models/nlp_toolkit/stable-diffusion-v2-1",
+         "precision": "fp32/bf16"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_executor.py",
+      "params": {
+        "ir_path": "_ir",
+        "mode": "benchmark",
+        "input_model" : "stabilityai/stable-diffusion-2-1" 
+      }
+    },
+    "launcher": {
+    }
+  },
+  "gpt-j-6b": {
+    "working_dir": "huggingface/pytorch/text-generation/deployment",
+    "data_dir": "",
+    "hf_model_name": "EleutherAI/gpt-j-6B",
+    "prepare": {
+      "cmd": "python optimize_llm.py",
+      "params": {
+         "model": "/tf_dataset2/models/pytorch/gpt-j-6B",
+         "dtype": "fp32/bf16/int8",
+         "output_model": "ir",
+         "pt_file": "pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_llm.py",
+      "params": {
+        "max-new-tokens": "32",
+        "model_path": "ir"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "gpt-j-6b-pruned": {
+    "working_dir": "huggingface/pytorch/text-generation/deployment",
+    "data_dir": "",
+    "hf_model_name": "EleutherAI/gpt-j-6B",
+    "prepare": {
+      "cmd": "python optimize_llm.py",
+      "params": {
+         "model": "/tf_dataset2/models/pytorch/gpt-j-6B",
+         "dtype": "fp32/bf16/int8",
+         "output_model": "ir",
+         "pt_file": "pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_llm.py",
+      "params": {
+        "max-new-tokens": "32",
+        "model_path": "ir"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "llama-7b-hf": {
+    "working_dir": "huggingface/pytorch/text-generation/deployment",
+    "data_dir": "",
+    "hf_model_name": "decapoda-research/llama-7b-hf",
+    "prepare": {
+      "cmd": "python optimize_llm.py",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/llama-7b-hf",
+         "dtype": "fp32/bf16/int8",
+         "output_model": "ir",
+         "pt_file": "pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_llm.py",
+      "params": {
+        "max-new-tokens": "32",
+	      "model": "/tf_dataset2/models/nlp_toolkit/llama-7b-hf",
+        "model_path": "ir"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "dolly-v2-3b": {
+    "working_dir": "huggingface/pytorch/text-generation/deployment",
+    "data_dir": "",
+    "hf_model_name": "databricks/dolly-v2-3b",
+    "prepare": {
+      "cmd": "python optimize_llm.py",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/dolly-v2-3b",
+         "dtype": "fp32/bf16/int8",
+         "output_model": "ir",
+         "pt_file": "pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_llm.py",
+      "params": {
+        "max-new-tokens": "32",
+        "model": "/tf_dataset2/models/nlp_toolkit/dolly-v2-3b",
+        "model_path": "ir"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "gpt-neox-20b": {
+    "working_dir": "huggingface/pytorch/text-generation/deployment",
+    "data_dir": "",
+    "hf_model_name": "EleutherAI/gpt-neox-20b",
+    "prepare": {
+      "cmd": "python optimize_llm.py",
+      "params": {
+         "model": "/tf_dataset2/models/nlp_toolkit/gpt-neox-20b",
+         "dtype": "fp32/bf16/int8",
+         "output_model": "ir",
+         "pt_file": "pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_llm.py",
+      "params": {
+        "max-new-tokens": "32",
+        "model": "/tf_dataset2/models/nlp_toolkit/gpt-neox-20b",
+        "model_path": "ir"
+      }
+    },
+    "launcher": {
+    }
+  },
+  "electra_base_chinese_generator": {
+    "working_dir": "huggingface/pytorch/language-modeling/deployment/fill-mask/electra_base_chinese",
+    "data_dir": "",
+    "hf_model_name": "hfl/chinese-legal-electra-base-generator",
+    "prepare": {
+      "cmd": "python export_ir.py",
+      "params": {
+         "model_name": "/tf_dataset2/models/nlp_toolkit/chinese-legal-electra-base-generator",
+         "dtype": "fp32/bf16",
+         "output_model": "gen_ir",
+         "pt_file": "gen_model.pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_electra.py",
+      "params": {
+        "generator_model_name": "/tf_dataset2/models/nlp_toolkit/chinese-legal-electra-base-generator",
+        "generator_ir_path": "gen_ir",
+        "generator_or_discriminator": "generator",
+        "mode": "accuracy/performance",
+        "seq_len": 16,
+        "warm_up": 100,
+        "iterations": 1000
+      }
+    },
+    "launcher": {
+    }
+  },
+  "electra_base_chinese_discriminator": {
+    "working_dir": "huggingface/pytorch/language-modeling/deployment/fill-mask/electra_base_chinese",
+    "data_dir": "",
+    "hf_model_name": "hfl/chinese-electra-base-discriminator",
+    "prepare": {
+      "cmd": "python export_ir.py",
+      "params": {
+         "model_name": "/tf_dataset2/models/nlp_toolkit/chinese-electra-base-discriminator",
+         "dtype": "fp32/bf16",
+         "output_model": "dis_ir",
+         "pt_file": "dis_model.pt"
+      }
+    },
+    "benchmark": {
+      "cmd": "python run_electra.py",
+      "params": {
+        "discriminator_model_name": "/tf_dataset2/models/nlp_toolkit/chinese-electra-base-discriminator",
+        "discriminator_ir_path": "dis_ir",
+        "generator_or_discriminator": "discriminator",
+        "mode": "accuracy/performance",
+        "seq_len": 16,
+        "warm_up": 100,
+        "iterations": 1000
+      }
+    },
+    "launcher": {
+    }
+  }
+}
