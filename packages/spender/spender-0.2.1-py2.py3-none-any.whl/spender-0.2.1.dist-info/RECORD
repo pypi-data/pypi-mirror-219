@@ -1,0 +1,14 @@
+spender/__init__.py,sha256=97eD4TH45qM1MrJ5LzckzEVEzRr6yIxJPsO4hk55AN4,2995
+spender/flow.py,sha256=tUwkLvgFIMlEEqPqIpKsTKF6wcwz_lb8x0VUiySX6Vw,7570
+spender/instrument.py,sha256=aH-WJxRkahWWITUvWgaFJJuzHi6AMhzDNtsAPuC8Uzo,3933
+spender/model.py,sha256=FCmL-Bcapmfy2S-bYyKSw9RZdcCJM3Xq_11P-560cw4,16440
+spender/util.py,sha256=ivQujGyPqRzQZfeVPgvXLqDFiVCovZ_BwFffPwsjjq8,3569
+spender/data/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+spender/data/desi.py,sha256=9k0Ov2EvOqWWTTNrhNrTu0zfKN_0zNqDYRnWLInXN4Y,23672
+spender/data/emission_lines.py,sha256=yUZ6UuoDacFrxrkUotK7RglWDF1WMOrXMreLp7rj2lw,1082
+spender/data/sdss.py,sha256=cDvhB3vEdd8iTvN7da2mYc3sGh-5UXHlvi_7VcGjzLw,19391
+spender-0.2.1.dist-info/LICENSE,sha256=c5rBtDcm1qxK5vgEmJj3-1R22ZGRAUPm1fiQ5gbomzc,1082
+spender-0.2.1.dist-info/METADATA,sha256=VZQ_2PyRlYz9VpRLj5Cfy1SX53MfWKEA48M2yckMHfE,5333
+spender-0.2.1.dist-info/WHEEL,sha256=a-zpFRIJzOq5QfuhBzbhiA1eHTzNCJn8OdRvhdNX0Rk,110
+spender-0.2.1.dist-info/top_level.txt,sha256=m-KORhHHwVWPOlVJOki6UT8tqi1N3g0DTmMUgfKIkys,8
+spender-0.2.1.dist-info/RECORD,,
