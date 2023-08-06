@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: gmmvi
+Version: 1.0
+Summary: A library for learning Gaussian mixture models for variational inference
+Author: Oleg Arenz
+Author-email: oleg@holistic-robotics.de
+License: MIT
+Keywords: variational inference,machine learning
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Provides-Extra: doc
+License-File: LICENSE
+
+GMMVI: Gaussian Mixture Model Variational Inference
+===================================================
+
+The documentation is provided as `html <docs/build/html/index.html>`_ or `pdf <docs/build/latex/gmmvi.pdf>`_.
