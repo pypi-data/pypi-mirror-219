@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>serialtools.database_config module &mdash; serialtools v0.4.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
+      <link rel="stylesheet" href="_static/no-ligatures-in-code.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tab-size.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="serialtools.apps.rawsplit module" href="serialtools.apps.rawsplit.html" />
+    <link rel="prev" title="serialtools.database module" href="serialtools.database.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            serialtools
+          </a>
+              <div class="version">
+                v0.4.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="serialtools.html">serialtools package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="serialtools.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="serialtools.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="serialtools.bus.html">serialtools.bus module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialtools.database.html">serialtools.database module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">serialtools.database_config module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.DatabaseCreator"><code class="docutils literal notranslate"><span class="pre">DatabaseCreator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.Param"><code class="docutils literal notranslate"><span class="pre">Param</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.get_database"><code class="docutils literal notranslate"><span class="pre">get_database()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.database_config.integer"><code class="docutils literal notranslate"><span class="pre">integer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serialtools.html#module-serialtools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.decode.html">serialtools.apps.decode module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.dump.html">serialtools.apps.dump module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.rawsplit.html">serialtools.apps.rawsplit module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.send.html">serialtools.apps.send module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.bus.html">serialtools.bus module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.database.html">serialtools.database module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">serialtools.database_config module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.DatabaseCreator"><code class="docutils literal notranslate"><span class="pre">DatabaseCreator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.DatabaseCreator.endianness"><code class="docutils literal notranslate"><span class="pre">DatabaseCreator.endianness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.DatabaseCreator.get"><code class="docutils literal notranslate"><span class="pre">DatabaseCreator.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.DatabaseCreator.word_length_in_bits"><code class="docutils literal notranslate"><span class="pre">DatabaseCreator.word_length_in_bits</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Message.init_parser"><code class="docutils literal notranslate"><span class="pre">Message.init_parser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Message.message"><code class="docutils literal notranslate"><span class="pre">Message.message</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Message.run_parsed"><code class="docutils literal notranslate"><span class="pre">Message.run_parsed()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.Param"><code class="docutils literal notranslate"><span class="pre">Param</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Param.defined_parameters"><code class="docutils literal notranslate"><span class="pre">Param.defined_parameters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Param.init_parser"><code class="docutils literal notranslate"><span class="pre">Param.init_parser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Param.parse_allowed_values"><code class="docutils literal notranslate"><span class="pre">Param.parse_allowed_values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Param.run_parsed"><code class="docutils literal notranslate"><span class="pre">Param.run_parsed()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.Signal"><code class="docutils literal notranslate"><span class="pre">Signal</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Signal.init_parser"><code class="docutils literal notranslate"><span class="pre">Signal.init_parser()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Signal.run_parsed"><code class="docutils literal notranslate"><span class="pre">Signal.run_parsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.database_config.Signal.signals"><code class="docutils literal notranslate"><span class="pre">Signal.signals</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.get_database"><code class="docutils literal notranslate"><span class="pre">get_database()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.database_config.integer"><code class="docutils literal notranslate"><span class="pre">integer()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">serialtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="serialtools.html">serialtools package</a></li>
+      <li class="breadcrumb-item active">serialtools.database_config module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serialtools.database_config.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-serialtools.database_config">
+<span id="serialtools-database-config-module"></span><h1>serialtools.database_config module<a class="headerlink" href="#module-serialtools.database_config" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.database_config.DatabaseCreator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">DatabaseCreator</span></span><a class="headerlink" href="#serialtools.database_config.DatabaseCreator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.database_config.DatabaseCreator.endianness">
+<span class="sig-name descname"><span class="pre">endianness</span></span><a class="headerlink" href="#serialtools.database_config.DatabaseCreator.endianness" title="Permalink to this definition"></a></dt>
+<dd><p>A setting without a default value which requires the user to explicitly set a value in the config file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.DatabaseCreator.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_signals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="serialtools.database.html#serialtools.database.Database" title="serialtools.database.Database"><span class="pre">Database</span></a></span></span><a class="headerlink" href="#serialtools.database_config.DatabaseCreator.get" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.database_config.DatabaseCreator.word_length_in_bits">
+<span class="sig-name descname"><span class="pre">word_length_in_bits</span></span><a class="headerlink" href="#serialtools.database_config.DatabaseCreator.word_length_in_bits" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.database_config.Message">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">Message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigFile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.database_config.Message" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigFileArgparseCommand</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Message.init_parser">
+<span class="sig-name descname"><span class="pre">init_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Message.init_parser" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="serialtools.database_config.Message.init_parser.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#serialtools.database_config.Message.init_parser.params.parser">¶</a> – The parser to add arguments to. This is the same object like <code class="xref py py-attr docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd>
+</dl>
+<p>This is an abstract method which must be implemented by subclasses.
+Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">ArgumentParser.add_argument()</span></code> to add arguments to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.database_config.Message.message">
+<span class="sig-name descname"><span class="pre">message</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">db.MessageSpec</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#serialtools.database_config.Message.message" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Message.run_parsed">
+<span class="sig-name descname"><span class="pre">run_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.11)"><span class="pre">Namespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Message.run_parsed" title="Permalink to this definition"></a></dt>
+<dd><p>This is an abstract method which must be implemented by subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.database_config.Param">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">Param</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigFile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.database_config.Param" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigFileArgparseCommand</span></code></p>
+<p>Define a parameter that can be used in the message command.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.database_config.Param.defined_parameters">
+<span class="sig-name descname"><span class="pre">defined_parameters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">db.ByteSpec</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#serialtools.database_config.Param.defined_parameters" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Param.init_parser">
+<span class="sig-name descname"><span class="pre">init_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Param.init_parser" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="serialtools.database_config.Param.init_parser.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#serialtools.database_config.Param.init_parser.params.parser">¶</a> – The parser to add arguments to. This is the same object like <code class="xref py py-attr docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd>
+</dl>
+<p>This is an abstract method which must be implemented by subclasses.
+Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">ArgumentParser.add_argument()</span></code> to add arguments to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Param.parse_allowed_values">
+<span class="sig-name descname"><span class="pre">parse_allowed_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">allowed_values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><span class="pre">bytes</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Param.parse_allowed_values" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Param.run_parsed">
+<span class="sig-name descname"><span class="pre">run_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.11)"><span class="pre">Namespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Param.run_parsed" title="Permalink to this definition"></a></dt>
+<dd><p>This is an abstract method which must be implemented by subclasses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.database_config.Signal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">Signal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ConfigFile</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.database_config.Signal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ConfigFileArgparseCommand</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Signal.init_parser">
+<span class="sig-name descname"><span class="pre">init_parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Signal.init_parser" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="serialtools.database_config.Signal.init_parser.params.parser"></span><strong>parser</strong><a class="paramlink headerlink reference internal" href="#serialtools.database_config.Signal.init_parser.params.parser">¶</a> – The parser to add arguments to. This is the same object like <code class="xref py py-attr docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd>
+</dl>
+<p>This is an abstract method which must be implemented by subclasses.
+Use <code class="xref py py-meth docutils literal notranslate"><span class="pre">ArgumentParser.add_argument()</span></code> to add arguments to <code class="xref py py-paramref docutils literal notranslate"><span class="pre">parser</span></code>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.database_config.Signal.run_parsed">
+<span class="sig-name descname"><span class="pre">run_parsed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.11)"><span class="pre">Namespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.database_config.Signal.run_parsed" title="Permalink to this definition"></a></dt>
+<dd><p>This is an abstract method which must be implemented by subclasses.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.database_config.Signal.signals">
+<span class="sig-name descname"><span class="pre">signals</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><span class="pre">db.Signal</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#serialtools.database_config.Signal.signals" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="serialtools.database_config.get_database">
+<span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">get_database</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_signals</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="serialtools.database.html#serialtools.database.Database" title="serialtools.database.Database"><span class="pre">Database</span></a></span></span><a class="headerlink" href="#serialtools.database_config.get_database" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="serialtools.database_config.integer">
+<span class="sig-prename descclassname"><span class="pre">serialtools.database_config.</span></span><span class="sig-name descname"><span class="pre">integer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></span><a class="headerlink" href="#serialtools.database_config.integer" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="serialtools.database.html" class="btn btn-neutral float-left" title="serialtools.database module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="serialtools.apps.rawsplit.html" class="btn btn-neutral float-right" title="serialtools.apps.rawsplit module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, erzo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
