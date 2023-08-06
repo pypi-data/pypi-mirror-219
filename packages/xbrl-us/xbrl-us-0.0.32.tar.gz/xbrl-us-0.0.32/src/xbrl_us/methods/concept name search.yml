@@ -1,0 +1,60 @@
+parameters:
+  - concept.local-name
+  - concept.id
+  - concept.namespace
+  - dts.entry-point
+  - dts.hash
+  - dts.id
+  - dts.target-namespace
+fields:
+  - concept.balance-type
+  - concept.datatype
+  - concept.id
+  - concept.is-abstract
+  - concept.is-monetary
+  - concept.is-nillable
+  - concept.is-numeric
+  - concept.local-name
+  - concept.namespace
+  - concept.period-type
+  - concept.substitution
+  - dts.id
+  - dts.entry-point
+  - dts.hash
+  - dts.target-namespace
+  - concept.*
+  - label.id
+  - label.text
+  - label.lang
+  - label.role
+  - label.role-short
+  - label.*
+  - reference.id
+  - reference.role
+  - reference.role-definition
+  - reference.role-short
+  - reference.*
+  - parts.local-name
+  - parts.namespace
+  - parts.order
+  - parts.part-value
+  - parts.*
+limit:
+  - assertion
+  - concept
+  - cube
+  - dimension
+  - document
+  - dts
+  - entity
+  - fact
+  - label
+  - network
+  - reference
+  - relationship
+  - report
+sort:
+  -
+offset:
+  -
+url: /api/v1/concept/{concept.local-name}/search
