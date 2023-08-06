@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/jarfetch/__init__.py
+src/jarfetch/client.py
+src/jarfetch/data_models.py
+src/jarfetch/errors.py
+src/jarfetch.egg-info/PKG-INFO
+src/jarfetch.egg-info/SOURCES.txt
+src/jarfetch.egg-info/dependency_links.txt
+src/jarfetch.egg-info/requires.txt
+src/jarfetch.egg-info/top_level.txt
+tests/core_tests.py
+tests/manager_tests.py
