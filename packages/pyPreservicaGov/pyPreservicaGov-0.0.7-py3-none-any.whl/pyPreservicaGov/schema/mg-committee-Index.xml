@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://www.preservica.com/customindex/v1">
+	
+	<schemaName>Modern.Gov Committee</schemaName>
+	<schemaUri>https://moderngov.gov.uk/committee</schemaUri>
+	<shortName>committee</shortName>
+		
+
+    <term indexName="committeeid" displayName="Committee ID" xpath="//committee:getmeetings/committee:committee/committee:committeeid" indexType="LONG"  />
+	<term indexName="committeetitle" displayName="Committee Title" xpath="//committee:getmeetings/committee:committee/committee:committeetitle" indexType="STRING_FACET"  />
+
+</index>
+
