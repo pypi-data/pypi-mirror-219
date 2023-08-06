@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: ML-Algo
+Version: 1.2.8
+Summary: A package for calculating Series Time Data
+Author: Mr Raj
+Author-email: arunraj14092002@gmail.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: requests
+
+# ML-Algo
+
+ML-Algo is a Python package for calculating and analyzing series time data. This package provides a set of algorithms and tools to help you work with time-based data in machine learning projects.
+
+## Installation
+
+To install ML-Algo, you can use pip:
+```
+pip install ML-Algo
+```
+# Files Present 
+```
+1. DataCleaning
+2. FetchData
+3. Predictions
+4. Series_Data
+5. Series_Time
+6. TestRun
+```
+Please refer to the API documentation for detailed information on available functions and their parameters.
+Contributing
+
+We welcome contributions from the community to enhance ML-Algo. If you want to contribute, please follow these guidelines:
+
+    Fork the repository and clone it locally.
+    Create a new branch for your feature or bug fix.
+    Make your changes and ensure that the code passes all tests.
+    Write tests for any new functionality you add.
+    Commit your changes and push them to your fork.
+    Submit a pull request, describing your changes in detail.
+
+Please ensure that you adhere to the code style and format used in the project.
+License
+
+ML-Algo is licensed under the MIT License. See the LICENSE file for more information.
+Contact
+
+`Changes Made as 14/07/2023 at 10:57am`
+
+If you have any questions, suggestions, or issues, please feel free to reach out to the project maintainer, Arunraj, at <a href="mailto:srvnn_arunraj@gmail.com." target="_new">srvnn_arunraj@gmail.com.</a>
+
+<a href="https://pypi.org/project/ml-algo/" target="_new"><img src="https://img.shields.io/pypi/v/ml-algo.svg" alt="PyPI Version"></a>
