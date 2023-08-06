@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: onqlave-python-sdk-pilot
+Version: 0.0.2
+Summary: A SDK to use the encryption service provided by The Onqlave Platform
+Home-page: https://github.com/onqlavelabs/onqlave-python/tree/dev
+Author: Onqlave Pty
+Author-email: dc@onqlave.com
+Keywords: encryption
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
