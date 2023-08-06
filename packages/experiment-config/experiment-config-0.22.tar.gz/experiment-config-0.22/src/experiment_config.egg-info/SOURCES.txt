@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+setup.py
+src/experiment_config.egg-info/PKG-INFO
+src/experiment_config.egg-info/SOURCES.txt
+src/experiment_config.egg-info/dependency_links.txt
+src/experiment_config.egg-info/requires.txt
+src/experiment_config.egg-info/top_level.txt
+src/expfig/__init__.py
+src/expfig/fig.py
+src/expfig/namespacify.py
+src/expfig/logging/__init__.py
+src/expfig/logging/log_dir.py
+src/expfig/logging/logger.py
