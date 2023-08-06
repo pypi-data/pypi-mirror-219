@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+apifoncier/__init__.py
+apifoncier/cartofriches.py
+apifoncier/config.py
+apifoncier/dv3f.py
+apifoncier/dvf_opendata.py
+apifoncier/exceptions.py
+apifoncier/utils.py
+apifoncier.egg-info/PKG-INFO
+apifoncier.egg-info/SOURCES.txt
+apifoncier.egg-info/dependency_links.txt
+apifoncier.egg-info/requires.txt
+apifoncier.egg-info/top_level.txt
