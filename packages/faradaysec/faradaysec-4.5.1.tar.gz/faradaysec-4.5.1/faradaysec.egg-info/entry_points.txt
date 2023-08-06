@@ -1,0 +1,3 @@
+[console_scripts]
+faraday-manage = faraday.manage:cli
+faraday-server = faraday.start_server:main
