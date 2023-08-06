@@ -1,0 +1,224 @@
+import logging
+log = logging.getLogger(__name__)
+
+import numpy as np
+
+from enaml.workbench.api import Extension, ExtensionPoint
+from enaml.workbench.core.api import Command
+
+from psi.controller.api import ExperimentEvent
+from psi.core.enaml.api import ExperimentManifest
+from psi.experiment.api import Preferences
+
+from .plugin import ContextPlugin
+from .symbol import ImportedSymbol, Function
+from .context_item import ContextGroup
+
+from ..util import rpc
+
+
+PLUGIN_ID = 'psi.context'
+
+
+def changes_pending(event):
+    plugin = event.workbench.get_plugin(PLUGIN_ID)
+    return plugin.changes_pending
+
+
+def apply_changes(event):
+    context = event.workbench.get_plugin(PLUGIN_ID)
+    context.apply_changes()
+
+
+def revert_changes(event):
+    context = event.workbench.get_plugin(PLUGIN_ID)
+    context.revert_changes()
+
+
+def initialize(event):
+    controller = event.workbench.get_plugin('psi.controller')
+    context = event.workbench.get_plugin(PLUGIN_ID)
+    cycles = event.parameters.get('cycles', np.inf)
+    selector = event.parameters.get('selector', None)
+    context.apply_changes(cycles=cycles)
+    context.next_setting(selector=selector)
+    context.initialized = True
+    controller.invoke_actions('context_initialized')
+
+
+def next_setting(event):
+    controller = event.workbench.get_plugin('psi.controller')
+    context = event.workbench.get_plugin(PLUGIN_ID)
+    p = event.parameters
+    try:
+        context.next_setting(selector=p['selector'])
+        controller.invoke_actions('context_next_setting')
+    except StopIteration:
+        controller.invoke_actions('context_complete')
+
+
+enamldef ContextManifest(ExperimentManifest): manifest:
+    '''Manifest for the plugin handling the sequence selector
+    '''
+    id = PLUGIN_ID
+    factory = ContextPlugin
+
+    ExtensionPoint:
+        id = 'selectors'
+
+    ExtensionPoint:
+        id = 'items'
+
+    ExtensionPoint:
+        id = 'symbols'
+
+    Extension:
+        id = PLUGIN_ID + '.default_symbols'
+        point = 'psi.context.symbols'
+        ImportedSymbol:
+            name = 'np'
+            module = 'numpy'
+        ImportedSymbol:
+            name = 'sp'
+            module = 'scipy'
+        Function:
+            name = 'db'
+            function = lambda x: 20*np.log10(x)
+        Function:
+            name = 'dbi'
+            function = lambda x: 10**(x/20)
+        Function:
+            name = 'imul'
+            function = lambda x, y: np.round(np.asarray(x)/y) * y
+        Function:
+            name = 'fs'
+            function = lambda name: controller.get_output(name).fs
+
+    Extension:
+        id = 'commands'
+        point = 'enaml.workbench.core.commands'
+        Command:
+            id = PLUGIN_ID + '.get_value'
+            handler = rpc(PLUGIN_ID, 'get_value')
+        Command:
+            id = PLUGIN_ID + '.set_value'
+            handler = rpc(PLUGIN_ID, 'set_value')
+        Command:
+            id = PLUGIN_ID + '.get_values'
+            handler = rpc(PLUGIN_ID, 'get_values')
+        Command:
+            id = PLUGIN_ID + '.apply_changes'
+            handler = apply_changes
+        Command:
+            id = PLUGIN_ID + '.initialize'
+            handler = initialize
+        Command:
+            id = PLUGIN_ID + '.revert_changes'
+            handler = revert_changes
+        Command:
+            id = PLUGIN_ID + '.value_changed'
+            handler = rpc(PLUGIN_ID, 'value_changed')
+        Command:
+            id = PLUGIN_ID + '.next_setting'
+            handler = next_setting
+        Command:
+            id = PLUGIN_ID + '.get_parameters'
+            handler = rpc(PLUGIN_ID, 'get_parameters')
+        Command:
+            id = PLUGIN_ID + '.changes_pending'
+            handler = changes_pending
+        Command:
+            id = PLUGIN_ID + '.unique_values'
+            handler = rpc(PLUGIN_ID, 'unique_values')
+
+    Extension:
+        id = 'context_actions'
+        point = 'psi.controller.actions'
+        ExperimentEvent:
+            name = 'context_complete'
+        ExperimentEvent:
+            name = 'context_initialized'
+        ExperimentEvent:
+            name = 'context_next_setting'
+
+    Extension:
+        id = 'preferences'
+        point = 'psi.experiment.preferences'
+        rank = 100
+        Preferences:
+            name = 'context'
+            get_preferences => (workbench):
+                plugin = workbench.get_plugin(manifest.id)
+
+                # Build the context item state
+                parameter_state = {}
+                for i in plugin.context_items.values():
+                    if not i.editable:
+                        continue
+                    group_state = parameter_state.setdefault(i.parent.name, {})
+                    group_state[i.name] = i.get_preferences()
+
+                # Build the selector state
+                selector_state = {}
+                for s in plugin.selectors.values():
+                    if s.persist_settings:
+                        selector_state[s.name] = s.get_preferences()
+
+                # Build the meta state
+                meta_state = {}
+                for m in plugin.context_meta.values():
+                    meta_state[m.name] = [v.name for v in m.values]
+
+                return dict(parameters=parameter_state,
+                            selectors=selector_state,
+                            meta=meta_state)
+
+            set_preferences => (workbench, preferences):
+                plugin = workbench.get_plugin(manifest.id)
+                parameter_state = preferences['parameters']
+                selector_state = preferences['selectors']
+                meta_state = preferences['meta']
+
+                # We flatten the context group -> context item hierarchy here.
+                # Since context item names must be globally unique even if
+                # they're organized by context group, this allows us to move
+                # items between groups without having to migrate saved
+                # settings.
+                item_states = {}
+                for group_state in parameter_state.values():
+                    for k, v in group_state.items():
+                        if k in item_states:
+                            raise ValueError(f'Duplicate item in settings "{k}"')
+                        item_states[k] = v
+
+                log.debug('Setting context item states')
+                for item in plugin.context_items.values():
+                    if not item.editable:
+                        continue
+                    if item.name not in item_states:
+                        log.info('Could not find context item %s in saved state', item.name)
+                    item.set_preferences(item_states.get(item.name, {}))
+
+                log.debug('Setting selector states')
+                for selector in plugin.selectors.values():
+                    if not selector.persist_settings:
+                        continue
+                    try:
+                        state = selector_state.get(selector.name, {})
+                        selector.set_preferences(state)
+                    except AttributeError as e:
+                        log.error(f'Unable to set saved state for selector {selector.name}')
+
+                log.debug('Setting meta states')
+                for meta in plugin.context_meta.values():
+                    state = meta_state.get(meta.name, {})
+                    items = [plugin.context_items[n] for n in state \
+                             if n in plugin.context_items]
+                    try:
+                        # This is a hack. By forcing a getattr of meta.values,
+                        # we force a creation event. Then, when we assign items
+                        # we can force a change notification.
+                        meta.values
+                        meta.values = items
+                    except Exception as e:
+                        log.exception(e)

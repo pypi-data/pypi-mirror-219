@@ -1,0 +1,14 @@
+channels:
+    - defaults
+      
+dependencies:
+    - python=3.9
+    - sphinx
+    - pip
+    - enaml
+    - pandas
+    - pyqtgraph
+    - pip:
+      - sphinx_rtd_theme
+      - pygments-enaml
+      - git+https://github.com/psiexperiment/psiaudio.git

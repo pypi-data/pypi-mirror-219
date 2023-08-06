@@ -1,0 +1,115 @@
+from enaml.core.api import Conditional
+from enaml.workbench.api import Extension
+
+from psi.controller.api import (EpochOutput, EpochOutputManifest,
+                                get_hw_ai_choices, get_hw_ao_choices,
+                                ContinuousInput, QueuedEpochOutput,
+                                QueuedEpochOutputManifest)
+from psi.core.enaml.api import PSIManifest
+from psi.context.api import ContextGroup, ContextRow, EnumParameter, Parameter
+
+
+################################################################################
+# Subclasses of Output that allow for sepcifying channel settings
+################################################################################
+enamldef OutputChannelExtension(Extension): ext:
+
+    attr manifest
+    id = manifest.id + '.context'
+    point = 'psi.context.items'
+
+    EnumParameter:
+        name = ext.manifest.contribution.name + '_channel'
+        label = ext.manifest.contribution.label + ' channel'
+        compact_label = 'ao'
+        choices = get_hw_ao_choices(workbench)
+        selected = next(iter(get_hw_ao_choices(workbench)))
+        scope = 'experiment'
+        group_name << manifest.contribution.group_name
+
+
+enamldef EpochChannelOutput(EpochOutput):
+
+    name = 'output'
+    label = 'Output'
+    configurable = False
+    target_name = getattr(C, f'{name}_channel')
+    attr group_name = 'hardware_settings'
+
+
+enamldef EpochChannelOutputManifest(EpochOutputManifest): manifest:
+
+    OutputChannelExtension:
+        manifest = manifest
+
+
+enamldef QueuedEpochChannelOutput(QueuedEpochOutput):
+
+    name = 'output'
+    label = 'Output'
+    configurable = False
+    target_name = getattr(C, f'{name}_channel')
+    attr group_name = 'hardware_settings'
+
+
+enamldef QueuedEpochChannelOutputManifest(QueuedEpochOutputManifest): manifest:
+
+    OutputChannelExtension:
+        manifest = manifest
+
+
+################################################################################
+# Subclasses of ContinuousInput that allow for specifying channel settings
+################################################################################
+enamldef ChannelInput(ContinuousInput):
+
+    attr show_gain_setting = True
+    attr group_name = 'hardware_settings'
+    name = 'input'
+    label = 'Input'
+
+    source_name << getattr(C, f'{name}_channel')
+    source ::
+        if self.show_gain_setting:
+            channel.gain = getattr(C, f'{name}_input_gain')
+
+
+enamldef ChannelInputManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.context'
+        point = 'psi.context.items'
+
+        Conditional:
+            condition << not manifest.contribution.show_gain_setting
+
+            EnumParameter:
+                name = f'{manifest.contribution.name}_channel'
+                label = f'{manifest.contribution.label} channel'
+                choices = get_hw_ai_choices(workbench)
+                selected = next(iter(get_hw_ai_choices(workbench)))
+                scope = 'experiment'
+                group_name << manifest.contribution.group_name
+
+        Conditional:
+            condition << manifest.contribution.show_gain_setting
+
+            ContextRow:
+                name = f'{manifest.contribution.name}_channel_settings'
+                fmt = [f'{manifest.contribution.label} channel', channel,
+                       'with', gain, 'dB gain']
+                group_name << manifest.contribution.group_name
+
+                EnumParameter: channel:
+                    name = f'{manifest.contribution.name}_channel'
+                    label = f'{manifest.contribution.label} channel'
+                    choices = get_hw_ai_choices(workbench)
+                    selected = next(iter(get_hw_ai_choices(workbench)))
+                    scope = 'experiment'
+
+                Parameter: gain:
+                    name = f'{manifest.contribution.name}_input_gain'
+                    label = f'{manifest.contribution.label} input gain (dB)'
+                    dtype = 'float64'
+                    default = 40
+                    scope = 'experiment'
