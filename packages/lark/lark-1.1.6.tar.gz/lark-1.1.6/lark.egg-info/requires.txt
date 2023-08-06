@@ -1,0 +1,12 @@
+
+[atomic_cache]
+atomicwrites
+
+[interegular]
+interegular<0.4.0,>=0.3.1
+
+[nearley]
+js2py
+
+[regex]
+regex
