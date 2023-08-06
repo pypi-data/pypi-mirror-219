@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: shrt
+Version: 0.2.0
+Summary: Shorten URLs
+Home-page: https://gitlab.com/uda/shrt
+License: MIT
+Author: Yehuda Deutsch
+Author-email: yeh@uda.co.il
+Maintainer: Yehuda Deutsch
+Maintainer-email: yeh@uda.co.il
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: cache
+Requires-Dist: SQLAlchemy (>=1.4.40,<2.0.0)
+Requires-Dist: databases[aiosqlite] (>=0.7.0,<0.8.0)
+Requires-Dist: fastapi-jinja (>=0.2.0,<0.3.0)
+Requires-Dist: fastapi[all] (>=0.99.0,<0.100.0)
+Requires-Dist: redis (>=4.6.0,<5.0.0) ; extra == "cache"
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Requires-Dist: typer (>=0.9.0,<0.10.0)
+Project-URL: Bug Tracker, https://gitlab.com/uda/shrt/-/issues
+Project-URL: Repository, https://gitlab.com/uda/shrt
+Description-Content-Type: text/markdown
+
+# SHRT - Shortened URL service
+
+An MVP to serve shortened URLs
+
+## Usage
+
+Serve using `uvicorn` by running
+
+```shell
+uvicorn --host=0.0.0.0 shrt.web:app
+```
+
+Manage URLs from the CLI
+
+```shell
+# List URLs
+shrt url list
+# Create a random short path
+shrt url add https://x59.us
+# Create a custom short path
+shrt url add https://x59.co --path x59
+# Create a new short path, even if the target exists in the DB
+shrt url add https://x59.co --create-new
+# Get details for a given short path
+shrt url get x59
+# Delete a given short path
+shrt url delete x59
+```
+
