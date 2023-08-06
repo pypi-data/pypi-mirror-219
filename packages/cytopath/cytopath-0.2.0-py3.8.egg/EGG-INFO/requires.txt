@@ -1,0 +1,7 @@
+scvelo>=0.1.25
+joblib
+fastdtw
+hausdorff
+scikit-learn>=1.3.0
+tqdm
+numba
