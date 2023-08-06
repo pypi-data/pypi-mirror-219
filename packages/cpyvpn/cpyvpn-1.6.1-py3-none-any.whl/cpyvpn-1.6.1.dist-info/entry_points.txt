@@ -1,0 +1,3 @@
+[console_scripts]
+cp_client = cpyvpn.client:main
+cpga = cpyvpn.ma:main
