@@ -1,0 +1,12 @@
+pyyaml
+yamlpath
+requests
+GitPython
+PyGithub
+
+[dev]
+setuptools
+wheel
+
+[test]
+coverage
