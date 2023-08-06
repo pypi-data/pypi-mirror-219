@@ -1,0 +1,2 @@
+[console_scripts]
+mp_mpt2trace = microprobe.definitions.power.tools.mp_mpt2trace:main
