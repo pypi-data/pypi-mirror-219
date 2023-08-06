@@ -1,0 +1,12 @@
+click
+cryptography
+distro
+jinja2
+progress
+propertree
+pyyaml
+searchkit>=0.2.7
+simplejson
+
+[:python_version >= "3.8"]
+importlib-metadata
