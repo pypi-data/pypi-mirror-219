@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: stackviz
+Version: 0.0.18
+Summary: Quick development framework for visualization dashboards based on Python
+Home-page: https://github.com/cador/stackviz
+Author: Haolin You
+Author-email: cador.ai@aliyun.com
+License-File: LICENSE
+Requires-Dist: ipython
+
