@@ -1,0 +1,104 @@
+.li {
+    layout: horizontal;
+    height: 5;
+    margin: 0 2;
+    min-width: 50;
+    padding: 0 1;
+    border: round gray;
+}
+
+.li.running {
+    border: round greenyellow;
+}
+
+ResponsiveGrid Grid {
+    grid-rows: 5;
+    grid-gutter: 0;
+}
+
+Footer {
+    background: $background-lighten-2;
+}
+
+Footer .footer--description {
+    background: transparent;
+}
+
+.footer--key {
+    background: $primary-background-lighten-2;
+}
+
+.footer--highlight {
+    background: $background-lighten-3;
+}
+
+.footer--highlight-key {
+    background: $primary-background-lighten-3;
+}
+
+.container-info {
+    width: 1fr;
+}
+
+.stats-text {
+    width: 1fr;
+}
+
+ReactiveString.cpu {
+    width: 12;
+    height: 1;
+}
+
+ReactiveString.mem {
+    width: 1fr;
+    height: 1;
+}
+
+CustomButton {
+    height: 3;
+    padding: 1 2;
+    width: auto;
+}
+
+CustomButton:hover {
+    text-style: bold;
+}
+
+StatusButtons {
+    width: 35;
+}
+
+LogsButton {
+    width: 10;
+}
+
+RestartButton {
+    width: 14;
+}
+
+StartStopButton {
+    width: 11;
+}
+
+TabPane {
+    height: 100%;
+}
+
+#header {
+    dock: top;
+    height: 3;
+}
+
+HeaderClock {
+    height: 3;
+    background: transparent;
+}
+
+.container-name {
+    width: 1fr;
+    height: 1;
+}
+
+.bold {
+    text-style: bold;
+}
