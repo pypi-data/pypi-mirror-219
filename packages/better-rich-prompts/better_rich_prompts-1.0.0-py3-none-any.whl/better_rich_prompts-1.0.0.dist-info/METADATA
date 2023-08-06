@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: better-rich-prompts
+Version: 1.0.0
+Summary: Improved prompts for rich.
+Home-page: https://github.com/EwenLo/better-rich-prompts
+License: MIT
+Author: Ewen Lorimer
+Author-email: ewen@ewenlorimer.ca
+Requires-Python: >=3.7.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Framework :: IPython
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Provides-Extra: jupyter
+Requires-Dist: rich (>=3.3.2)
+Project-URL: Documentation, https://github.com/EwenLo/better-rich-prompts/
+Description-Content-Type: text/markdown
+
+[![Supported Python Versions](https://img.shields.io/pypi/pyversions/better-rich-prompts/0.0.1)](https://pypi.org/project/better-rich-prompts/) [![PyPI version](https://badge.fury.io/py/better-rich-prompts.svg)](https://badge.fury.io/py/better-rich-prompts)
+
+[![Downloads](https://pepy.tech/badge/better-rich-prompts/month)](https://pepy.tech/project/better-rich-prompts)
+
+
+[English readme](https://github.com/EwenLo/better-rich-prompts/blob/master/README.md)
+
+better-rich-prompts is a Python extension library for [Rich](https://github.com/Textualize/rich).
+
+This [Library](https://rich.readthedocs.io/en/latest/) makes it easy to use lists and dictionaries as choices for `prompt.ask` .
+
+## Compatibility
+This library should work 
+## Installing
+```sh
+python -m pip install better-rich-prompts
+```
+
+## Using List Prompt
+
+### Example 1 - Using list of dictionaries
+```python
+from better_rich_prompts.prompt import ListPrompt
+
+choices = [
+    {"name": "english", "language_code": "en"},
+    {"name": "spanish", "language_code": "es"},
+    {"name":"french","language_code":"fr"},
+]
+ListPrompt.ask("Select a language", choices, choice_key="name")
+```
+![ListPrompt Example](https://github.com/EwenLo/better-rich-prompts/raw/master/imgs/list_prompt_ex1.png)
+
+### Example 2 - Using list of strings
+```python
+from better_rich_prompts.prompt import ListPrompt
+
+choices = ["en", "es", "fr"]
+ListPrompt.ask("Select a language", choices,default="en")
+```
+![ListPrompt Example](https://github.com/EwenLo/better-rich-prompts/raw/master/imgs/list_prompt_ex2.png)
+
+### Example 3 - Using list of custom objects
+```python
+from better_rich_prompts.prompt import ListPrompt
+
+class Language:
+    def __init__(self, name, code):
+        self.name = name
+        self.code = code
+
+
+choices = [
+    Language("english", "en"),
+    Language("spanish", "es"),
+    Language("french", "fr"),
+]
+ListPrompt.ask(
+    "Select a language", choices, default="en", choice_key=lambda c: c.code
+)
+```
+![ListPrompt Example](https://github.com/EwenLo/better-rich-prompts/raw/master/imgs/list_prompt_ex3.png)
+
+## Using Dict Prompt
+```python
+from better_rich_prompts.prompt import DictPrompt
+
+choices = {"en":"english","es":"spanish","fr":"french"}
+DictPrompt.ask("Select a language", choices)
+```
+![ListPrompt Example](https://github.com/EwenLo/better-rich-prompts/raw/master/imgs/dict_prompt_ex1.png)
+
