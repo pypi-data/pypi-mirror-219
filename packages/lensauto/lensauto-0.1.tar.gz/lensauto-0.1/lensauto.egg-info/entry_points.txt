@@ -1,0 +1,2 @@
+[console_scripts]
+lensauto = lensauto.cli:main
