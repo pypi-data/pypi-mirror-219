@@ -1,0 +1,3 @@
+[console_scripts]
+nltk_download_script=bin.downloads:download_nltk_req
+
