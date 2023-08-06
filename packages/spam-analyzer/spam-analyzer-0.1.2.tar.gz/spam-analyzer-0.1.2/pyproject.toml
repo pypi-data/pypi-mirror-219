@@ -1,0 +1,65 @@
+[project]
+name = "spam-analyzer"
+authors = [
+    {name = "Matteo Spanio", email = "matteo.spanio97@gmail.com"},
+]
+description = "A simple email analyzer"
+readme = "README.md"
+dynamic = ["dependencies", "version"]
+requires-python = ">=3.10"
+keywords = ["spam", "spam-analyzer", "cybersecurity"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+[tool.setuptools.package-data]
+spamanalyzer = ["*.yaml", "*.txt", "*/*.yaml", "*/*.txt"]
+
+[project.scripts]
+spam-analyzer = "spamanalyzer.cli.run:main"
+
+[tool.setuptools]
+include-package-data = true
+
+[project.urls]
+"homepage" = "http://matteospanio.me/spam-analyzer/"
+"repository" = "https://github.com/matteospanio/spam-analyzer"
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}
+version = { attr = "spamanalyzer.__version__" }
+
+[tool.setuptools.packages]
+find = {}
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+relative_files = true
+
+[tool.yapf]
+blank_line_before_nested_class_or_def = true
+column_limit = 88
+
+[tool.pylint]
+max-line-length = 88
+disable = [
+    "C0103", # (invalid-name)
+    "C0114", # (missing-module-docstring)
+    "C0115", # (missing-class-docstring)
+    "C0116", # (missing-function-docstring)
+    "R0903", # (too-few-public-methods)
+    "R0913", # (too-many-arguments)
+    "W0105", # (pointless-string-statement)
+]

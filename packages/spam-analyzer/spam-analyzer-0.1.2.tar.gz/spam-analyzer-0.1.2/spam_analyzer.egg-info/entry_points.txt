@@ -1,0 +1,2 @@
+[console_scripts]
+spam-analyzer = spamanalyzer.cli.run:main
