@@ -1,0 +1,2 @@
+[console_scripts]
+xoa = xoa.cli:main
