@@ -1,0 +1,5 @@
+ERROR_NOT_DATABASE  = 'Not a database!'
+ERROR_NOT_LIST      = 'Not a List!'
+ERROR_NOT_PAGE      = 'Not a Page!'
+ERROR_PROPERTY_NOT_EXISTS = 'This property does not exists'
+ERROR_POST_API      = 'Post ERROR to API'
