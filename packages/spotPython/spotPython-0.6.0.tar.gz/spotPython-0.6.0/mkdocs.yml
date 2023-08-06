@@ -1,0 +1,29 @@
+site_name: spotPython
+site_url: https://github.com/sequential-parameter-optimization/spotPython
+repo_url: https://github.com/sequential-parameter-optimization/spotPython/tree/main
+nav:
+- Home: index.md
+- Documentation: hyperparameter-tuning-cookbook.md
+- Download: download.md
+- Examples: examples.md
+- Code Reference: reference/
+- About: about.md
+theme:
+  name: material
+  favicon: img/favicon.png
+  logo: img/spotLogo.png
+plugins:
+    - search:
+    - gen-files:
+        scripts:
+        - docs/gen_ref_pages.py
+    - literate-nav:
+        nav_file: SUMMARY.md
+    - section-index
+watch:
+    - src/spotPython
+markdown_extensions:
+    - smarty
+    - toc:
+        permalink: True
+    - sane_lists
