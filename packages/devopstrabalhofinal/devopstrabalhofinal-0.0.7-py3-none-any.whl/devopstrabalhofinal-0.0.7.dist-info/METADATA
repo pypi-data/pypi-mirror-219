@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: devopstrabalhofinal
+Version: 0.0.7
+Summary: Código de Comando: Saudação
+Author-email: João Victor Milagres Guimarães <1398500@sga.pucminas.br>, Allan da Silveira e Silva <1405224@sga.pucminas.br>, Felipe Ferreira Alexandre <1386198@sga.pucminas.br>, Gabriel Murta Pimenta <1286408@sga.pucminas.br>
+Project-URL: Homepage, https://github.com/jvmg96/devops_trabalho
+Project-URL: Bug Tracker, https://github.com/jvmg96/devops_trabalho/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Unidecode (==1.3.6)
+Requires-Dist: pytest (==7.3.2)
+Requires-Dist: flake8 (==6.0.0)
+Requires-Dist: build
+Requires-Dist: twine
+
+# Trabalho Final - DevOps
+
+Código Comando: Saudação
+
+## Grupo:
+João Victor Milagres Guimarães
+
+Allan da Silveira e Silva
+
+Felipe Ferreira Alexandre
+
+Gabriel Murta Pimenta
