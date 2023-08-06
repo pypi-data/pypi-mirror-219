@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+setup.py
+mad8_pandas.egg-info/PKG-INFO
+mad8_pandas.egg-info/SOURCES.txt
+mad8_pandas.egg-info/dependency_links.txt
+mad8_pandas.egg-info/requires.txt
+mad8_pandas.egg-info/top_level.txt
+pand8/__init__.py
+pand8/extras.py
+pand8/handler.py
