@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: search-me
+Version: 3.1.0
+Summary: Search in Google, Bing, Brave, Mojeek, Moose, Yahoo, Searx
+Home-page: https://bit.ly/bitbucket-search-me
+Download-URL: https://bit.ly/search-me-dwnld
+Author: Michael R. Kisel
+Author-email: deploy-me@yandex.ru
+Maintainer: Michael R. Kisel <deploy-me@yandex.ru>
+Maintainer-email: deploy-me@yandex.ru
+License: MIT
+Keywords: google,bing,brave,mojeek,moose,yahoo,searx,async,async search,aiohttp,web search,async scraper,osint
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: AsyncIO
+Classifier: Framework :: aiohttp
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: File Formats :: JSON
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Sociology
+Classifier: Topic :: Software Development
+Requires-Python: <4,>=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<p align="center">
+    <a href="https://bit.ly/search--me"><img src="https://bit.ly/sm-logo" alt="SEARCH-ME"></a>
+</p>
+<p align="center">
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/v/search-me.svg?style=flat-square&logo=appveyor" alt="Version"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/l/search-me.svg?style=flat-square&logo=appveyor&color=blueviolet" alt="License"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/pyversions/search-me.svg?style=flat-square&logo=appveyor" alt="Python"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/status/search-me.svg?style=flat-square&logo=appveyor" alt="Status"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/format/search-me.svg?style=flat-square&logo=appveyor&color=yellow" alt="Format"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/pypi/wheel/search-me.svg?style=flat-square&logo=appveyor&color=red" alt="Wheel"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://img.shields.io/bitbucket/pipelines/deploy-me/search-me/master?style=flat-square&logo=appveyor" alt="Build"></a>
+    <a href="https://pypi.org/project/search-me"><img src="https://bit.ly/sm-cov" alt="Coverage"></a>
+    <a href="https://pepy.tech/project/search-me"><img src="https://static.pepy.tech/personalized-badge/search-me?period=total&units=international_system&left_color=grey&right_color=blue&left_text=Downloads" alt="Downloads"></a>
+    <br><br><br>
+</p>
+
+# SEARCH-ME
+
+Search in Google, Bing, Brave, Mojeek, Moose, Yahoo, Searx. See more in [documentation](https://deploy-me.bitbucket.io/search-me/index.html)
+
+## INSTALL
+
+```bash
+pip install search-me
+```
+
+## USAGE
+
+```python
+import asyncio
+import logging
+import itertools
+import aiohttp
+from search_me import Google, Bing, Brave, Mojeek, Moose, Yahoo, Searx
+
+
+logging.basicConfig(level=logging.DEBUG)
+
+s, b, g = Searx(retry=10), Brave(), Google()
+
+
+async def main():
+    async with aiohttp.ClientSession(
+        timeout=aiohttp.ClientTimeout(total=30),
+        headers={"User-Agent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:65.0) Gecko/20100101 Firefox/65.0"}
+        ) as session:
+            results = await asyncio.gather(
+                s.search(session=session, q="社會信用體系"),
+                b.search(session=session, q="python 3.12"),
+                g.search(session=session, q="0x0007ee")
+                )
+            for x in itertools.chain(*results):
+                print(x)
+
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
+```

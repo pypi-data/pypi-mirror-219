@@ -1,0 +1,65 @@
+[tool.poetry]
+name = "search-me"
+version = "3.1.0"
+description = "Search in Google, Bing, Brave, Mojeek, Moose, Yahoo, Searx"
+license = "MIT"
+authors = ["Michael R. Kisel <deploy-me@yandex.ru>"]
+maintainers = ["Michael R. Kisel <deploy-me@yandex.ru>"]
+readme = "README.md"
+homepage = "https://bit.ly/bitbucket-search-me"
+documentation = "https://bit.ly/search-me-docs"
+keywords = ["google", "bing", "brave", "mojeek", "moose", "yahoo", "searx", "async", "async search", "aiohttp", "web search", "async scraper", "osint"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: AsyncIO",
+    "Framework :: aiohttp",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: File Formats :: JSON",
+    "Topic :: Home Automation",
+    "Topic :: Internet",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Sociology",
+    "Topic :: Software Development"
+]
+packages = [{include = "search_me"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+aiohttp = "3.8.4"
+pandas = "2.0.2"
+cryptography = "41.0.1"
+bs4 = "0.0.1"
+jmespath = "1.0.1"
+tabulate = "0.9.0"
+importlib_resources = "*"
+
+[tool.poetry.dev-dependencies]
+pytest-asyncio = "0.21.0"
+pytest-cov = "4.1.0"
+coverage-badge = "*"
+pylint = "2.17.4"
+pdoc3 = "*"
+twine = "*"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+omit = ["test_*", "fixtures.py", "exceptions.py", "osint.py", "services.py"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
