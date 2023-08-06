@@ -1,0 +1,50 @@
+[package]
+name = "prompt-graph-sdk"
+version = "0.1.4"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "prompt_graph_sdk"
+crate-type = ["cdylib", "lib"]
+bench = false
+
+[features]
+python = []
+nodejs = []
+
+
+# https://chat.openai.com/c/52edc960-dc19-4df7-b36f-30caad9c1905
+[dependencies]
+protobuf = "3.2.0"
+sqlparser = "0.34.0"
+# we do not enable wasm-bindgen serde-serialize because it causes this issue https://github.com/rustwasm/wasm-bindgen/pull/3031
+# serde-wasm-bindgen should be used instead
+
+prompt-graph-exec = { path = "local_dependencies/prompt-graph-exec", version = "0.1.0" }
+prompt-graph-core = { path = "local_dependencies/prompt-graph-core", version = "0.1.0" }
+wasm-bindgen = {version = "0.2.86", features = []}
+handlebars = "4.3.7"
+anyhow = { version = "1.0", default-features = false }
+indoc = "1.0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde-wasm-bindgen = "0.4"
+serde_json = "1.0.96"
+pyo3 = { version = "0.18.3", features = ["extension-module"] }
+pyo3-asyncio = { version = "0.18", features = ["attributes", "tokio-runtime"] }
+pyo3-log = "0.8.2"
+tonic = "0.9"
+prost = "0.11"
+tokio = { version = "1", features = ["full"] }
+env_logger = "0.10.0"
+log = "0.4.16"
+futures = "0.3.15"
+
+[dependencies.neon]
+version = "0.10.1"
+default-features = false
+features = ["napi-6"]
+
+[build-dependencies]
+tonic-build = "0.9.2"
+pyo3-build-config = "0.19.1"

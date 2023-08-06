@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+// The base Type message from which specific types derive
+message Type {
+  string name = 1; // The name of the type
+  TypeKind kind = 2; // The kind of the type
+  optional string description = 3; // Description for the type
+
+  // Field details for Object, Interface and Union types
+  repeated Field fields = 4;
+
+  // Used for ENUM type
+  repeated string enumValues = 5;
+
+  // Used for INPUT_OBJECT type
+  repeated TypeInputValue inputFields = 6;
+}
+
+// Represents the kind of the Type
+enum TypeKind {
+  SCALAR = 0; // Primitive type
+  OBJECT = 1; // Object type
+  INTERFACE = 2; // Interface type
+  UNION = 3; // Union type
+  ENUM = 4; // Enum type
+  INPUT_OBJECT = 5; // Input object type
+  LIST = 6; // List type
+  NON_NULL = 7; // Non-Null type
+}
+
+// Represents a field in an object or interface type
+message Field {
+  string name = 1; // The name of the field
+  optional string description = 2; // Description of the field
+  Type type = 3; // The type of the field
+  repeated TypeInputValue args = 4; // Arguments for the field (if any)
+}
+
+// Represents an input value
+message TypeInputValue {
+  string name = 1; // The name of the input value
+  optional string description = 2; // Description of the input value
+  Type type = 3; // The type of the input value
+  optional string defaultValue = 4; // Default value of the input value (if any)
+}
