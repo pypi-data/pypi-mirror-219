@@ -1,0 +1,13 @@
+pyyaml
+
+[all]
+pyyaml
+kubernetes
+fluxoperator
+requests
+pytest>=4.6.2
+
+[kubernetes]
+kubernetes
+fluxoperator
+requests
