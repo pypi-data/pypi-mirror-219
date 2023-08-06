@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: daisyfl
+Version: 0.4.9
+Summary: Daisy - A Hierarchical Friendly Federated Learning Framework For Edge Computing
+Home-page: https://github.com/Intelligent-Systems-Lab/daisy
+License: Apache-2.0
+Author: tcfwbper
+Author-email: b05208031@ntu.edu.tw
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Provides-Extra: simulation
+Requires-Dist: Flask (>=2.2.2,<3.0.0)
+Requires-Dist: cryptography (>=38.0.4,<39.0.0)
+Requires-Dist: dataclasses-json (>=0.5.7,<0.6.0)
+Requires-Dist: grpcio (>=1.43.0,<2.0.0)
+Requires-Dist: importlib-metadata (>=4.0.0,<5.0.0); python_version < "3.8"
+Requires-Dist: iterators (>=0.0.2,<0.0.3)
+Requires-Dist: numpy (>=1.21.0,<2.0.0)
+Requires-Dist: protobuf (>=3.19.0,<4.0.0)
+Requires-Dist: pycryptodome (>=3.16.0,<4.0.0)
+Requires-Dist: ray[default] (>=2.0.0,<2.1.0); extra == "simulation"
+Project-URL: Documentation, https://github.com/Intelligent-Systems-Lab/daisy/tree/main/doc/daisy
+Project-URL: Repository, https://github.com/Intelligent-Systems-Lab/daisy
+Description-Content-Type: text/markdown
+
+# Daisy - A Hierarchical Friendly Federated Learning Framework For Edge Computing
+
+
+## dev mode (virtual environment)
+### 1. clone the source code
+```
+git clone https://github.com/Intelligent-Systems-Lab/daisy
+```
+### 2. build up environment
+prepare and activate your virtual environment (python=3.8^)
+```
+cd daisy
+./dev/bootstrap.sh
+```
+### develop<br>
+### setup examples
+don't overwrite daisyfl dependency in this step.<br>
+```
+cd <example_path>
+pip install <pkgs_for_your_example>
+```
+### 5. run examples
+
+## dev mode (docker)
+### 1. clone the source code
+```
+git clone https://github.com/Intelligent-Systems-Lab/daisy
+```
+### 2. build up environment
+```
+docker run -it -v <daisy_source_code>:/root/daisy tcfwbper/daisyfl-dev:<version_tag> /bin/bash
+```
+### 3. develop<br>
+### 4. setup examples<br>
+don't overwrite daisyfl dependency in this step.<br>
+```
+docker attach <container_id>
+```
+```
+cd <example_path> && conda activate daisy
+pip install <pkgs_for_your_example>
+```
+### 5. run examples
+
+## user mode
+### 1. install daisyfl
+```
+pip install <daisyfl_version>
+```
+### 2. setup examples
+```
+pip install <pkgs_for_your_example>
+```
+### 3. run examples
