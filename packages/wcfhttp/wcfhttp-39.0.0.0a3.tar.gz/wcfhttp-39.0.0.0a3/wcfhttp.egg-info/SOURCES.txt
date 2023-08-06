@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+wcfhttp/__init__.py
+wcfhttp/core.py
+wcfhttp/main.py
+wcfhttp.egg-info/PKG-INFO
+wcfhttp.egg-info/SOURCES.txt
+wcfhttp.egg-info/dependency_links.txt
+wcfhttp.egg-info/entry_points.txt
+wcfhttp.egg-info/requires.txt
+wcfhttp.egg-info/top_level.txt
