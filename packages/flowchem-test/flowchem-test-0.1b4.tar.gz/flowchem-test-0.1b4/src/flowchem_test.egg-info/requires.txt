@@ -1,0 +1,6 @@
+flowchem
+
+[dev]
+mypy
+black
+ruff
