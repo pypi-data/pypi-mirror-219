@@ -1,0 +1,87 @@
+[project]
+name = "aaa1111"
+description = "An Api for Automatic1111"
+authors = [
+    { name = "Bingsu", email = "ks2515@naver.com" },
+]
+dependencies = [
+    "httpx",
+    "aiofile",
+    "pillow>=9.4.0",
+    "orjson",
+    "rtoml",
+    "ruamel.yaml",
+    "pyjson5",
+    "beartype",
+    "typing-extensions",
+    "python-ulid",
+    "rich",
+    "typer>=0.9.0",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+dynamic = []
+version = "0.1.0.dev6"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+repository = "https://github.com/Bing-su/AAA1111"
+
+[project.scripts]
+txt2img = "aaa1111.__main__:app_txt2img"
+img2img = "aaa1111.__main__:app_img2img"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black",
+    "ruff",
+    "pre-commit",
+    "ipywidgets",
+]
+test = [
+    "pytest",
+    "python-dotenv",
+]
+
+[tool.pdm.version]
+source = "file"
+path = "aaa1111/__version__.py"
+
+[tool.ruff]
+select = [
+    "A",
+    "B",
+    "C4",
+    "C90",
+    "E",
+    "EM",
+    "F",
+    "FA",
+    "I001",
+    "ISC",
+    "N",
+    "PIE",
+    "PT",
+    "RET",
+    "RUF",
+    "SIM",
+    "UP",
+    "W",
+]
+ignore = [
+    "B008",
+    "B905",
+    "E501",
+    "FA100",
+]
+unfixable = [
+    "F401",
+]
