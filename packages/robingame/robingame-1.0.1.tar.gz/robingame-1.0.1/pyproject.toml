@@ -1,0 +1,48 @@
+[project]
+name = "robingame"
+version = "1.0.1"
+description = "Object-oriented tools for Pygame projects"
+readme = "README.md"
+authors = [{ name = "Robin Neville", email = "robin.m.neville@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["pygame", "OOP"]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy >=1.0.0",
+    "pygame >=2.5.0",
+]
+
+[project.urls]
+Homepage = " https://github.com/binnev/robingame"
+Bug_Tracker = "https://github.com/binnev/robingame/issues"
+
+[tool.setuptools.packages.find]
+include = ["robingame*"]
+
+[tool.black]
+line-length = 100
+
+[tool.pytest.ini_options]
+addopts = "-p no:cacheprovider --cov --cov-fail-under=70 --cov-report term-missing:skip-covered"
+testpaths = ["tests"]
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version_files = [
+    "pyproject.toml:version",
+    "robingame/__init__.py:__version__",
+]
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+major_version_zero = false
+
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
