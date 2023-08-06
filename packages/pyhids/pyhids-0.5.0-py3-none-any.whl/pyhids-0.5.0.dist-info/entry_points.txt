@@ -1,0 +1,5 @@
+[console_scripts]
+pyhids-genBase=pyhids.genBase:main
+pyhids-genKeys=pyhids.genKeys:main
+pyhids-run=pyhids.pyHIDS:main
+
