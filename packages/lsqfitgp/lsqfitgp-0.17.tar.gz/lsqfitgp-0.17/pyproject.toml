@@ -1,0 +1,58 @@
+# lsqfitgp/pyproject.toml
+#
+# Copyright (c) 2023, Giacomo Petrillo
+#
+# This file is part of lsqfitgp.
+#
+# lsqfitgp is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# lsqfitgp is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with lsqfitgp.  If not, see <http://www.gnu.org/licenses/>.
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lsqfitgp"
+authors = [
+  { name="Giacomo Petrillo", email="info@giacomopetrillo.com" },
+]
+description = "A general purpose Gaussian process regression module"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Development Status :: 3 - Alpha",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+]
+dependencies = [
+    'numpy>=1.20', # first version with broadcast_shapes
+    'scipy>=1.5', # oldest supported by jax
+    'jax==0.4.6', # first with optimized vectorize (for BART), last to support old jit implementation
+    'jaxlib==0.4.6',
+    'gvar>=11.10.1,!=11.11.3', # 11.10.1 first supporting gvar.gvar(x, cov) with readonly cov, 11.11.3 gives problems to lsqfit
+]
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "lsqfitgp.__version__"}
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["pyenv*", "playground*", "examples*", "tests*", "docs*"]
+namespaces = false
+
+[project.urls]
+"Homepage" = "https://github.com/Gattocrucco/lsqfitgp"
+"Bug Tracker" = "https://github.com/Gattocrucco/lsqfitgp/issues"
