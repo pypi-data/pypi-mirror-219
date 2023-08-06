@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "cafram"
+version = "0.2.0a0"
+description = "Config as Framework"
+authors = ["mrjk"]
+license = "GPL"
+readme = "README.md"
+packages = [{ include = "cafram" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+jsonschema = "^4.16.0"
+"ruamel.yaml" = "^0.17.21"
+sh = "^1.14.3"
+python-log-indenter = "^0.9"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+behave = "^1.2.6"
+pylint = "^2.15.3"
+isort = "^5.12.0"
+
+# Pytest
+pytest = "^7.0.0"
+pytest-clarity = "^1.0.1"
+pytest-notification = "^0.2.0"
+pytest-regressions = "^2.4.1"
+pytest-watcher = "^0.2.6"
+pytest-cov = "^3.0.0"
+
+# MyPy
+mypy = "^1.4.1"
+types-pyyaml = "^6.0.12.10"
+types-jsonschema = "^4.17.0.9"
+
+
+[tool.poetry.group.doc.dependencies]
+sphinx = "^6.2.0"
+sphinx-tabs = "^3.4.1"
+sphinx-rtd-theme = "^1.2.2"
+sphinx-autobuild = "^2021.3.14"
+sphinx-exec-code = "^0.10"
+nbsphinx = "^0.9.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+cafram = "cafram"
+
+
+# Pylint configuration
+# ----------------------
+# See: pylintrc
+
+# Pytest configuration
+# ----------------------
+# Completely skipped if pytest.ini is present !
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "WARNING"
+#log_cli_level = "NOTSET"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+  "ignore::_pytest.warning_types.PytestDeprecationWarning"
+]
+
+
+[tool.isort]
+profile = "black"
+src_paths = ["cafram", "tests"]
+
