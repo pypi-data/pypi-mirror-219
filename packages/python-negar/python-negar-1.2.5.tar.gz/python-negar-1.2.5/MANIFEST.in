@@ -1,0 +1,6 @@
+include README.md
+include AUTHORS
+include *.txt
+include negar/logo.png
+include negar/data/*.dat
+recursive-include docs *.txt
