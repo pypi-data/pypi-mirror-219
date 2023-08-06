@@ -1,0 +1,3 @@
+[console_scripts]
+gpyt=gpyt.__main__:main
+
