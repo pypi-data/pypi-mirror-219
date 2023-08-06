@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: flowchem-test
+Version: 0.1b2
+Summary: Add support for test devices in flowchem.
+Author-email: Dario Cambié <2422614+dcambie@users.noreply.github.com>
+Maintainer-email: Dario Cambié <2422614+dcambie@users.noreply.github.com>
+License: MIT
+Project-URL: repository, https://github.com/cambiegroup/flowchem-test
+Keywords: chemistry,automation,laboratory,testing
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# flowchem-test
+
+Add test-devices to [flowchem](https://github.com/cambiegroup/flowchem) and serves as an example of how to add support
+to new devices via plugins.
