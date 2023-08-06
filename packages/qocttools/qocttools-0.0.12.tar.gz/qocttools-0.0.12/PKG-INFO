@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: qocttools
+Version: 0.0.12
+Summary: "A set of tools to do quantum optimal control calculations"
+Home-page: https://qocttools.readthedocs.io/
+Author: Alberto Castro
+Author-email: alberto.castro.barrigon@gmail.com
+License: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+
+qocttools is a python package that implements quantum
+optimal control theory (QOCT). 
+
+You may download it from its `gitlab page <https://gitlab.com/acbarrigon/qocttools>`_.
+Documentation `here <https://qocttools.readthedocs.io/>`_.
+
+It solves typical optimization problems defined on generic quantum systems. These
+may be closed (described by the Schrödinger equation) or open (described by Lindblad's equation).
+It relies heavily on the `QuTiP <https://qutip.org/>`_ program to handle internally
+the quantum objects representation, manipulation, etc., and on the `nlopt <https://nlopt.readthedocs.io/en/latest/>`_
+library for function optimization algorithms.
