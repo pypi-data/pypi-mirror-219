@@ -1,0 +1,56 @@
+#!/bin/bash -f
+
+set -eo pipefail
+
+source ${ZCFD_HOME:?"ZCFD_HOME has not been set. Please set it and run this script again"}/activate
+
+if [ -z ${OVERRIDE+x} ]; then
+
+
+if [ ! -z ${PROBLEM+x}]; then
+    if [ -z ${MESH+x}]; then
+        echo "Legacy nomenclature (PROBLEM not MESH) used. Setting MESH=PROBLEM."
+        MESH=${PROBLEM}
+    else
+        echo "Both PROBLEM and MESH set. MESH is the environment variable which will be used."
+    fi
+fi
+
+: ${MESH:?"MESH is not set. Please set it and run this script again"}
+: ${CASE:?"CASE is not set. Please set it and run this script again"}
+
+OLDIFS=${IFS:-}
+IFS=":"
+set ${MESH}
+count=$#
+set ${CASE}
+
+if [ ! $count -eq $# ]; then
+    echo "Length of MESH and CASE is not the same. Please check that the variables have the same number of entries."
+    exit 1
+fi
+IFS=${OLDIFS}
+
+ZCFDARGS="-p ${MESH//:/ } -c ${CASE//:/ }"
+REDIRECT_NAME="${CASE%%:*}_log"
+
+else
+
+ZCFDARGS="-f ${OVERRIDE}"
+REDIRECT_NAME="${OVERRIDE}_log"
+
+if [ ! -z ${MESH+x} ]; then
+    echo "WARNING: \${MESH} is set - this is ignored if \${OVERRIDE} is also set"
+fi
+
+if [ ! -z ${CASE+x} ]; then
+    echo "WARNING: \${CASE} is set - this is ignored if \${OVERRIDE} is also set"
+fi
+
+fi
+
+$ZCFD_HOME/run_zcfd --ntask ${NUM_TASKS:?"NUM_TASKS is not set. Please set this and run again"} --tpn ${TASKS_PER_NODE:?"TASKS_PER_NODE is not set. Please set this and run again"} ${ZCFDARGS} >& ${REDIRECT_NAME}
+
+exitcode=$?
+
+exit $exitcode
