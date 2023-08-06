@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+hashlistdict/README.MD
+hashlistdict/__init__.py
+hashlistdict/requirements.txt
+hashlistdict/thirdparty.json
+hashlistdict.egg-info/PKG-INFO
+hashlistdict.egg-info/SOURCES.txt
+hashlistdict.egg-info/dependency_links.txt
+hashlistdict.egg-info/requires.txt
+hashlistdict.egg-info/top_level.txt
