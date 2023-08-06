@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: yock
+Version: 0.0.18
+Summary: Yock is a solution of cross platform to compose distributed build stream.
+Home-page: https://github.com/Ansurfen/yock
+Author: ansurfen
+Author-email: axf593161@gmail.com
+Keywords: package-manager,distributed-systems,build-tool,lua
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
