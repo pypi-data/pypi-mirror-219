@@ -1,0 +1,2 @@
+[console_scripts]
+owlery = owlery.cli:main

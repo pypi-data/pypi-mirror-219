@@ -1,0 +1,27 @@
+version: "3.6"
+services:
+  imap:
+    image: dovecot/dovecot:latest
+    ports:
+      - "143"
+      - "465"
+      - "587"
+      - "993"
+    volumes:
+      - ./dovecot.conf:/etc/dovecot/dovecot.conf:ro
+    restart: unless-stopped
+  pop3:
+    image: dovecot/dovecot:latest
+    ports:
+      - "110"
+      - "143"
+      - "995"
+    volumes:
+      - ./dovecot.conf:/etc/dovecot/dovecot.conf:ro
+    restart: unless-stopped
+  smtp:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025"
+      - "8025"
+    restart: unless-stopped
