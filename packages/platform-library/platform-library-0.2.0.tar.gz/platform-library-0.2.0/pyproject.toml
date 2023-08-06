@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "platform-library"
+version = "0.2.0"
+authors = [
+  { name="Artyom Vakilov" },
+]
+
+description = "A library for easy developing Platform"
+readme = "README-public.md"
+license = { file="LICENSE" }
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "PyJWT == 2.7.0",
+    "requests == 2.31.0",
+    "opentelemetry-exporter-otlp == 1.19.0"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["README.md"]
