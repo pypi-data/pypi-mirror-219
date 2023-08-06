@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/pyfang/__init__.py
+src/pyfang/attributes.py
+src/pyfang/baseStyle copy.py
+src/pyfang/base_style.py
+src/pyfang/component.py
+src/pyfang/tags.py
+src/pyfang.egg-info/PKG-INFO
+src/pyfang.egg-info/SOURCES.txt
+src/pyfang.egg-info/dependency_links.txt
+src/pyfang.egg-info/requires.txt
+src/pyfang.egg-info/top_level.txt
