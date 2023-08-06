@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: wiggler-studiorabota
+Version: 0.0.20
+Summary: WiggleR - Desktop research unit for making controlled experiments
+Author: Vincent Kranendonk
+Project-URL: Homepage, https://github.com/studiorabota/wiggle-bin
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi[all] (<0.69.0,>=0.68.0)
+Requires-Dist: python-crontab (<4.0.0,>=3.0.0)
+
+# WiggleR
+
+WiggleR is a desktop research unit for making controlled experiments with worms.
