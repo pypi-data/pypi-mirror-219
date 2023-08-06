@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+git_pr/__init__.py
+git_pr/git_pr.py
+gitprprod.egg-info/PKG-INFO
+gitprprod.egg-info/SOURCES.txt
+gitprprod.egg-info/dependency_links.txt
+gitprprod.egg-info/entry_points.txt
+gitprprod.egg-info/requires.txt
+gitprprod.egg-info/top_level.txt
