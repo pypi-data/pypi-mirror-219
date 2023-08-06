@@ -1,0 +1,14 @@
+Steps:
+1) Update Readme with new version
+2) Update Changelog
+3) Update setup
+4) Push
+5) Github Release
+6) PyPi release 
+    >> pipenv shell
+    Build pypi package cmd:
+    >> python setup.py bdist_wheel sdist
+    Check it:
+    >> twine check dist/*
+    Publish pypi package to test:
+    >> twine upload -r testpypi dist/*
