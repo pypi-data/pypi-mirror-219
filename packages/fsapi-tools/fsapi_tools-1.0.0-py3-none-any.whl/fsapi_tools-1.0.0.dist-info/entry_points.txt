@@ -1,0 +1,4 @@
+[console_scripts]
+fsapi-net = fsapi.netremote.cli:main
+fsapi-xdr = fsapi.ecmascript.cli:main
+isutool = fsapi.isu.cli:main
