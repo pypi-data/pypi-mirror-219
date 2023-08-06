@@ -1,0 +1,21 @@
+[project]
+name = "trattoria-core"
+version = "0.4.6"
+description = "The heart of the trattoria library."
+authors = [{email = "dev+github@maxwellrules.com", name = "Guillem Ballesteros"}]
+license = "MIT"
+requires-python = ">=3.8,<3.12"
+dependencies = ["numpy>=1.20"]
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[tool.maturin]
+features = ["pyo3/extension-module"]
+
+[project.urls]
+homepage = "https://www.github.com/GCBallesteros/trattoria-core"
+
+[package.metadata.maturin]
+classifier = ["Programming Language :: Python", "Topic :: Scientific/Engineering", "Topic :: Scientific/Engineering :: Physics"]
