@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+rotarypi/__init__.py
+rotarypi/dialconfig.py
+rotarypi/dialdata.py
+rotarypi/rotaryreader.py
+rotarypi.egg-info/PKG-INFO
+rotarypi.egg-info/SOURCES.txt
+rotarypi.egg-info/dependency_links.txt
+rotarypi.egg-info/requires.txt
+rotarypi.egg-info/top_level.txt
