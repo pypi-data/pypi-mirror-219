@@ -1,0 +1,176 @@
+Metadata-Version: 2.1
+Name: dashvector
+Version: 0.0.13
+Summary: DashVector Client Python Sdk Library
+Home-page: https://github.com/alibaba/proxima
+Author: Alibaba
+Author-email: dashvector@alibaba-inc.com
+License: Apache 2.0
+Platform: Posix; MacOS X; Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: grpcio (>=1.22.0)
+Requires-Dist: protobuf (<4.0.0,>=3.8.0)
+Requires-Dist: aiohttp (>=3.1.0)
+
+# DashVector Client Python Library
+
+DashVector provides fully-managed, serverless, scalable vector-database service for building various machine learning applications. The DashVector client SDK is your gateway to access the DashVector service.
+
+## Installation
+To install the DashVector client Python SDK, simply run:
+```shell
+pip install dashvector
+```
+
+## QuickStart
+You can use `Client` api to communicate with DashVector service.
+
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+```
+
+## Sample Code
+
+### Create a Collection
+`Client` host various `Collection` APIs for interacting with DashVector service.
+
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+client.create('YOUR-COLLECTION-NAME', dimension=4)
+```
+
+### List Collections
+
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collections = client.list()
+print(collections)
+```
+
+### Describe Collection
+
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+rsp = client.describe('YOUR-COLLECTION-NAME')
+print(rsp)
+```
+
+### Delete Collection
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+client.delete('YOUR-COLLECTION-NAME')
+```
+
+### Get a Collection Instance
+
+`Collection` provides APIs for accessing `Doc` and `Partition`
+
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+if collection:
+    print('collection:', collection)
+```
+
+### Describe Collection Statistics
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+rsp = collection.stats()
+print(rsp)
+```
+
+### Insert/Update/Upsert Docs
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+collection.upsert(('YOUR-DOC-ID', [0.1, 0.2], {'price': 100, 'type': 'dress'}))
+```
+
+### Query a Collection
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+match_docs = collection.query([0.1, 0.2, 0.3, 0.4], 
+                       topk=100, 
+                       include_vector=True)
+if match_docs:
+    for doc in match_docs:
+        print(doc)
+```
+
+### Delete Docs
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+collection.delete('YOUR-DOC-ID')
+```
+
+### Fetch Docs
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+fetch_docs = collection.fetch(['YOUR-DOC-ID1', 'YOUR-DOC-ID2'])
+if fetch_docs:
+    for doc_id in fetch_docs:
+        print(fetch_docs[doc_id])
+```
+
+### Create a Collection Partition
+```python
+import dashvector
+
+client = dashvector.Client(api_key='YOUR-DASHVECTOR-API-KEY')
+collection = client.get('YOUR-COLLECTION-NAME')
+collection.create_partition('YOUR-PARTITION-NAME')
+```
+
+## DashVector Response
+```python
+from dashvector import DashVectorCode
+
+@dataclasses
+class DashVectorResponse(object):
+    code: DashVectorCode
+    message: str
+    request_id: str
+    output: Any
+```
+
+## License
+This project is licensed under the Apache License (Version 2.0).
+
