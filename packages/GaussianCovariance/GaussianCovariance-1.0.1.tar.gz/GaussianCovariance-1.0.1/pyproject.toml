@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GaussianCovariance"
+version = "1.0.1"
+authors = [
+  { name="Alfonso Veropalumbo", email="alfonso.veropalumbo@inaf.it" },
+  { name="Elena Sarpa", email="sarpa@cppm.in2p3.fr" },
+]
+description = "Python Module to compute the covariance of two-point clustering statistics"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/veropalumbo.alfonso/gaussiancovariance/"
+"Bug Tracker" = "https://gitlab.com/veropalumbo.alfonso/gaussiancovariance/issues"

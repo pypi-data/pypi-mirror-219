@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+./GaussianCovariance/__init__.py
+./GaussianCovariance/gaussian_covariance.py
+GaussianCovariance.egg-info/PKG-INFO
+GaussianCovariance.egg-info/SOURCES.txt
+GaussianCovariance.egg-info/dependency_links.txt
+GaussianCovariance.egg-info/requires.txt
+GaussianCovariance.egg-info/top_level.txt
