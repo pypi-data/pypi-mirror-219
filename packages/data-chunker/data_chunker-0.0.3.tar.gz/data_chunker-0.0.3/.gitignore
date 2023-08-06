@@ -1,0 +1,4 @@
+training/all/*
+.git/
+**/__pycache__/
+dist/*
