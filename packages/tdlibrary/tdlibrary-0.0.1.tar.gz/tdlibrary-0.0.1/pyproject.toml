@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tdlibrary"
+version = "0.0.1"
+authors = [
+  { name="David Allen", email="da9769@princeton.edu" },
+]
+description = "A library for analyzing mouse territorial behavior"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/DaveAndHisMice/tdlibrary"
+"Bug Tracker" = "https://github.com/DaveAndHisMice/tdlibrary/issues"

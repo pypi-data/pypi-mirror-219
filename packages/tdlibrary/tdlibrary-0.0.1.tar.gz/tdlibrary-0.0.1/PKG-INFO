@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: tdlibrary
+Version: 0.0.1
+Summary: A library for analyzing mouse territorial behavior
+Project-URL: Homepage, https://github.com/DaveAndHisMice/tdlibrary
+Project-URL: Bug Tracker, https://github.com/DaveAndHisMice/tdlibrary/issues
+Author-email: David Allen <da9769@princeton.edu>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
