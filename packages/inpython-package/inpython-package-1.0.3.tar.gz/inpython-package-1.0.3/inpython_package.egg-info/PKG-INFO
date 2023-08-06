@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: inpython-package
+Version: 1.0.3
+Summary: # Infodata's IN-Tools U2Python Package
+Home-page: https://bitbucket.org/infodata-dev/inpython
+Author: infodata
+Author-email: info@infodata.lu
+License: MIT
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# README #
+
+ce projet 'inpython-package' rassemble tous les packages et modules python exploitÃ©s par Integrix .
+
+# inpython.ingarph
+package pour la gestion avec MS-Graph.
+
+### How do I get set up? ###
+
+* les bases de u2Python c.f. [wiki sys/proc/install u2ptyhon](https://wiki.infodata.lu/sys/proc/install_u2python)
+* [U2Python par RocketSoftware](https://docs.rocketsoftware.com/bundle/UniVerse_PythonUserGuide_V1134/resource/UniVerse_PythonUserGuide_V1134.pdf)
+* vÃ©rifier la version de u2Python, au TCL uv 
+```python
+>python 
+import sys
+sys.version  # ->>  '3.4.1 (default, Feb 18 2015, 13:36:51) \n[GCC 4.4.7 20120313 (Red Hat 4.4.7-3)]'
+exit()
+```
+
+### Install inPackages into U2python 
+`pip install inpython-package`
+
+
