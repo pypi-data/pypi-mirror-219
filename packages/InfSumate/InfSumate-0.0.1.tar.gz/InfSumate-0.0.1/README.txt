@@ -1,0 +1,1 @@
+Caculates geometric sums and partial sums
