@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+./TorScrape/__init__.py
+./TorScrape/instaData.py
+./TorScrape/tiktokData.py
+TorScrape/__init__.py
+TorScrape/instaData.py
+TorScrape/tiktokData.py
+torscrape.egg-info/PKG-INFO
+torscrape.egg-info/SOURCES.txt
+torscrape.egg-info/dependency_links.txt
+torscrape.egg-info/requires.txt
+torscrape.egg-info/top_level.txt
