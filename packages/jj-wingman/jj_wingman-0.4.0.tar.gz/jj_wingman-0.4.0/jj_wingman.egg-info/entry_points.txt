@@ -1,0 +1,3 @@
+[console_scripts]
+wingman-compress-weights = wingman:compress_weights
+wingman-generate-yaml = wingman:generate_yaml
