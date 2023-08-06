@@ -1,0 +1,11 @@
+LICENCE
+README.md
+setup.py
+chdev_tool.egg-info/PKG-INFO
+chdev_tool.egg-info/SOURCES.txt
+chdev_tool.egg-info/dependency_links.txt
+chdev_tool.egg-info/requires.txt
+chdev_tool.egg-info/top_level.txt
+chdev_tools/__init__.py
+chdev_tools/ang.py
+chdev_tools/numconvert.py
