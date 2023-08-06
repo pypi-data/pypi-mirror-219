@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: quantflow
+Version: 0.2.2
+Summary: quantitative analysis
+License: BSD-3-Clause
+Author: Luca
+Author-email: luca@quantmind.com
+Requires-Python: >=3.10,<3.12
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: data
+Requires-Dist: aiohttp (>=3.8.1,<4.0.0) ; extra == "data"
+Requires-Dist: numpy (>=1.22.3,<2.0.0)
+Requires-Dist: pandas (>=2.0.1,<3.0.0)
+Requires-Dist: pydantic (>=2.0.2,<3.0.0)
+Requires-Dist: scipy (>=1.10.1,<2.0.0)
+Project-URL: Documentation, https://quantmind.github.io/quantflow/
+Project-URL: Homepage, https://github.com/quantmind/quantflow
+Project-URL: Repository, https://github.com/quantmind/quantflow
+Description-Content-Type: text/markdown
+
+# Quantflow
+
+[![PyPI version](https://badge.fury.io/py/quantflow.svg)](https://badge.fury.io/py/quantflow)
+[![Python versions](https://img.shields.io/pypi/pyversions/quantflow.svg)](https://pypi.org/project/quantflow)
+[![build](https://github.com/quantmind/quantflow/actions/workflows/build.yml/badge.svg)](https://github.com/quantmind/quantflow/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/quantmind/quantflow/branch/main/graph/badge.svg?token=wkH9lYKOWP)](https://codecov.io/gh/quantmind/quantflow)
+
+Quantitative analysis and pricing tools.
+
+Documentation is available as [quantflow jupyter book](http://quantmind.github.io/quantflow/).
+
+## Installation
+
+```bash
+pip install quantflow
+```
+
+![btcvol](https://github.com/quantmind/quantflow/assets/144320/88ed85d1-c3c5-489c-ac07-21b036593214)
+
+
+## Modules
+
+* [quantflow.data](https://github.com/quantmind/quantflow/tree/main/quantflow/data) data APIs (requires `quantflow[data]`)
+* [quantflow.options](https://github.com/quantmind/quantflow/tree/main/quantflow/options) option pricing and calibration
+* [quantflow.sp](https://github.com/quantmind/quantflow/tree/main/quantflow/sp) stochastic process primitives
+
