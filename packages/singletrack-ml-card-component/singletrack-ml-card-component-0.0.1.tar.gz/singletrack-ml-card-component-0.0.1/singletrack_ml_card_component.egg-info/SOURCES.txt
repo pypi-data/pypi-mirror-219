@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+setup.py
+card_component/__init__.py
+card_component/frontend/build/asset-manifest.json
+card_component/frontend/build/bootstrap.min.css
+card_component/frontend/build/index.html
+card_component/frontend/build/static/js/main.1e267dda.js
+card_component/frontend/build/static/js/main.1e267dda.js.LICENSE.txt
+card_component/frontend/build/static/js/main.1e267dda.js.map
+singletrack_ml_card_component.egg-info/PKG-INFO
+singletrack_ml_card_component.egg-info/SOURCES.txt
+singletrack_ml_card_component.egg-info/dependency_links.txt
+singletrack_ml_card_component.egg-info/requires.txt
+singletrack_ml_card_component.egg-info/top_level.txt
