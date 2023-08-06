@@ -1,0 +1,18 @@
+* TODO Improve the code base [100%]
+** DONE IMPROVE ZE DOCSTRINGS! [4/5]
+CLOSED: [2023-07-10 Mon 15:54]
+ + [X] genome.py
+ + [X] distribution.py
+ + [X] organism.py
+ + [X] brain.py
+** DONE IMPROVE THE MESS THAT IS GRAPHICAL FILE 
+CLOSED: [2023-07-10 Mon 16:44]
+** DONE TEST ZE CODE
+CLOSED: [2023-07-10 Mon 17:05]
+** DONE Change the defaults a bit more.
+CLOSED: [2023-07-10 Mon 18:14]
+** DONE FIX MUSIC BUG
+CLOSED: [2023-07-10 Mon 18:40]
+** DONE ADD version number to the title
+CLOSED: [2023-07-10 Mon 21:41]
+** Fix the slow thing with path find/obsticle avoidance
