@@ -1,0 +1,22 @@
+attrs>=21.3.0
+click
+cli_exit_tools
+lib_detect_testenv
+oauthlib
+pprint3x
+requests
+requests_oauthlib
+
+[test]
+black
+codecov
+coloredlogs
+coverage
+flake8
+pprint3x
+pytest
+pytest-cov
+pytest-runner
+
+[test:platform_python_implementation != "PyPy"]
+mypy

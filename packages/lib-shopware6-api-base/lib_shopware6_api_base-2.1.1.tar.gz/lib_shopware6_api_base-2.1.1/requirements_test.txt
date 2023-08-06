@@ -1,0 +1,14 @@
+## Test Requirements
+## following Requirements will be installed temporarily for
+## "setup.py install test" or "pip install <package> --install-option test"
+black
+codecov
+coloredlogs
+coverage
+flake8
+mypy ; platform_python_implementation != "PyPy"
+pprint3x
+pytest
+pytest-cov
+pytest-runner
+readme_renderer
