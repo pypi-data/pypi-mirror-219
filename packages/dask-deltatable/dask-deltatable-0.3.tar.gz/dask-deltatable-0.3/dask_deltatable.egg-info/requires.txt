@@ -1,0 +1,13 @@
+dask[dataframe]
+deltalake
+fsspec
+pyarrow
+
+[dev]
+pytest
+requests
+pytest-cov>=2.10.1
+
+[s3]
+s3fs
+boto3
