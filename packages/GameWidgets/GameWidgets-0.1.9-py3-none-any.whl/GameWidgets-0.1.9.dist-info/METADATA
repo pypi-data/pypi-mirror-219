@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: GameWidgets
+Version: 0.1.9
+Summary: Make Game Easier with pygame and GameWidgets
+Home-page: https://github.com/SuperGuy123456/GameWidgets
+Author: Manomay tyagi
+Author-email: tyagimanomay57@gmail.com
+License: MIT
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pygame
+
+# GameWidgets 0.1.9
+______________
+
+Install GameWidgets by writing one of two things:
+
+*Mac*
+
+```pip3 install GameWidgets```
+___
+
+*Windows*
+
+```pip install GameWidgets```
+
+# **Updates and patches**
+______________
+**Patches for the Engine.Entity system are now fixed**
+allowing to make certain types of game objects. 
+Entities are classes meant to be inherited, not to
+be used as a standalone. To add an entity to a 
+group, there is a new group section
+___
+**Update for the Engine.Group**
+
+The group system has a new addition by making a new
+class called GroupObj, this class is for objects 
+that are not standalone images. Buttons, Inputs,
+Entities, etc. 
+___
+**Patch for Engine.Group**
+
+
+The old group class is now called GroupImg
+and supports simple images.
+# Main Update
+___
+
+The engine folder is now semi-test and can be used 
+somewhat stably for projects; as a side 
+note, the Engine folder is a rapidly changing 
+folder and so if you choose to update your version 
+proceed with the following warning: 
+Features and functions available in versions before 
+may be deprecated or discontinued, by changing the
+version, you choose to use a different version with
+therefore different files, functions, and classes.
+___
+There is a new file called manager that can now 
+handle the work of multiple lines in a draw loop,
+It requires groups in the Engine.Groups. There 
+are separated by things called layers. The higher
+the layer, the more priority is given.
+___
+
+*Manomay Tyagi @superman13456 2023 v0.1.9 GameWidgets*
+___
