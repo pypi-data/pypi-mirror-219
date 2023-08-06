@@ -1,0 +1,4 @@
+PyYAML<7,>=6.0
+
+[:python_version<"3.9"]
+importlib_resources
