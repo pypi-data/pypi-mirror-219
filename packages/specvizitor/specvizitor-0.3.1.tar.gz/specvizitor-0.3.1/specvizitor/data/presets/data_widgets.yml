@@ -1,0 +1,73 @@
+images:
+  Image Cutout:
+    data:
+      filename_keyword: full.fits
+      loader_params:
+        extname: DSCI
+    crosshair: true
+
+  Spectrum 2D:
+    position: bottom
+    relative_to: Image Cutout
+    data:
+      filename_keyword: stack.fits
+      loader_params:
+        extname: SCI
+        extver: F444W
+    container: PlotItem
+    central_axes: x
+
+  Line Map 1: &linemap_defaults
+    position: right
+    relative_to: Image Cutout
+    data:
+      filename_keyword: full.fits
+      loader_params:
+        extname: LINE
+        silent: true
+    dock_title_fmt: short
+    crosshair: true
+  Line Map 2: *linemap_defaults
+  Line Map 3: *linemap_defaults
+  Line Map 4: *linemap_defaults
+  Line Map 5: *linemap_defaults
+  Line Map 6: *linemap_defaults
+  Line Map 7: *linemap_defaults
+
+plots:
+  Redshift PDF:
+    position: right
+    relative_to: Line Map 7
+    data:
+      filename_keyword: full.fits
+    smoothing_slider:
+      visible: False
+    x_axis:
+      name: zgrid
+    y_axis:
+      name: pdf
+      scale: log
+      limits:
+        min: -3
+
+spectra:
+  Spectrum 1D:
+    position: bottom
+    relative_to: Spectrum 2D
+    data:
+      filename_keyword: 1D.fits
+      loader: specutils
+    y_axis:
+      label:
+        position: right
+    redshift_slider:
+      min_value: 0
+      max_value: 12
+      step: 0.000001
+      default_value: 6
+      name_in_catalogue: redshift
+      show_text_editor: True
+    tracked_lines:
+      Ha:
+        position: right
+        relative_to: Redshift PDF
