@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pitricks
+Version: 0.1.4a2
+Summary: a tool box
+Home-page: https://github.com/one-pyy/pitricks
+Author: pyy
+License-File: LICENSE
+Requires-Dist: regex
+Requires-Dist: rich
+Requires-Dist: nest-asyncio
+
