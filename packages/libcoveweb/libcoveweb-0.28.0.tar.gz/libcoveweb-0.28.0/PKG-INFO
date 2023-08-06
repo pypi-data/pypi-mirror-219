@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: libcoveweb
+Version: 0.28.0
+Summary: UNKNOWN
+Home-page: https://github.com/OpenDataServices/lib-cove-web
+Author: Open Data Services
+Author-email: code@opendataservices.coop
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Requires-Python: >=3.7
+Provides-Extra: test
+License-File: LICENCE.rst
+
+UNKNOWN
+
