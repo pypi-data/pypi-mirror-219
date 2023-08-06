@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: task_multiprocess
+Version: 0.0.6
+Summary: run tasks in parallel
+Home-page: 
+Author: raymond
+Author-email: lei20190123@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+run tasks in parallel,it can replace for loop to this way,easy and faster
+
+from task_multiprocess.main import generate_queue,cpu_num,common_multiprocess
+
+cpu_num = 3
+sample_list = list(range(100))[:] # [int,int,...] or [str,str,...] or ...
+q, q_size, lock, public_list = generate_queue(sample_list,num=2) # num means how many public_list do you want,you can use index to use them like public_list[0] or others
+ 
+def add(ids):
+    index = ids[0]  
+    index = int(index)
+    fun(index) # fun is an function defined by yourself
+    
+common_multiprocess(add,1,cpu_num=cpu_num,q=q, q_size=q_size, lock=lock) 
+
+
+
+-----------------------------------------------------------------------------
+new version
+
+from task_multiprocess.main import TaskMultiprocess
+TaskMultiprocess.cpu_num = 2
+tm = TaskMultiprocess()
+sample_list = list(range(1000))[:] # [int,int,...] or [str,str,...] or ...
+q, q_size, lock, public_list = tm.generate_queue(sample_list,num=2) # num means how many public_list do you want,you can use index to use them like public_list[0] or others
+
+def add(ids):
+    index = ids[0]  
+    index = int(index)
+    fun(index) # fun is an function defined by yourself
+
+tm.common_multiprocess(add,q_num=1,q=q, cpu_num=tm.cpu_num,q_size=q_size, lock=lock) 
+
+# add is a function defined by yourself \
+q_num means how many variable do you want to get each time \
+in this example only use index 0 to get one variable -> (index = ids[0]), you can also get 2,3 or more (a, b = ids[0],ids[1]), remember to replace 1 to the number you want
