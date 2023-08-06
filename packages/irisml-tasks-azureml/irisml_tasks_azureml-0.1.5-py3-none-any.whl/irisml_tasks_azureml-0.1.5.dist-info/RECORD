@@ -1,0 +1,12 @@
+irisml/azureml/__init__.py,sha256=or-l-wojntOmOzYJMlAYGmvWTMI1VESwXy2vLSiUon8,110
+irisml/azureml/azureml.py,sha256=duVlTrOqOYszpW4n1_jTyDX8YDAxV9wrcKa-HvgGycg,10619
+irisml/commands/cancel_aml.py,sha256=dNjNAKjgftn-6RfSad79_F63UaiqgkDp8pf2hHKvW_E,810
+irisml/commands/run_aml.py,sha256=bOKte8urXQv2-HV-GfRMui_TSFZNjnF5mYkssZCKV-8,3570
+irisml/tasks/add_aml_tag.py,sha256=dMCL8jDQsbUTfHlMaH-taJEaCAAM3Yz8vZ0OH9H362U,714
+irisml/tasks/run_azureml_child.py,sha256=hucYTLTiJuLDKq77BrFHStjPriUew5fPfM-Gxe3r8Pw,336
+irisml_tasks_azureml-0.1.5.dist-info/LICENSE,sha256=ws_MuBL-SCEBqPBFl9_FqZkaaydIJmxHrJG2parhU4M,1141
+irisml_tasks_azureml-0.1.5.dist-info/METADATA,sha256=SeP1ceSv4wyg3OdsnCH7Nq5diHJWYoPib9rfwrsh7LE,2126
+irisml_tasks_azureml-0.1.5.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+irisml_tasks_azureml-0.1.5.dist-info/entry_points.txt,sha256=EjnxEoXbfFD-SzRiYQ9I-WJnzlVo76gSJJB2v1vnrxQ,116
+irisml_tasks_azureml-0.1.5.dist-info/top_level.txt,sha256=-O6mZvBaJ0q2Xuea9BVCfU8n5tO5UO5aLoPn_Eos3Ao,7
+irisml_tasks_azureml-0.1.5.dist-info/RECORD,,

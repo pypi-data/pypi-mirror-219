@@ -1,0 +1,3 @@
+[console_scripts]
+irisml_cancel_aml = irisml.commands.cancel_aml:main
+irisml_run_aml = irisml.commands.run_aml:main
