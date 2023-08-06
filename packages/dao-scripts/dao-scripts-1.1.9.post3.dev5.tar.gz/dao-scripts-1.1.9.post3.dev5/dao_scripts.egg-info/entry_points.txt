@@ -1,0 +1,4 @@
+[console_scripts]
+dao-scripts = dao_analyzer.cache_scripts.main:main
+daoa-cache-scripts = dao_analyzer.cache_scripts.main:main
+daoa-server = dao_analyzer.web.app:main
