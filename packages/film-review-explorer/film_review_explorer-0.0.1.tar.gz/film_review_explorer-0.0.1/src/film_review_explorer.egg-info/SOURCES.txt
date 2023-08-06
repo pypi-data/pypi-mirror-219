@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/film_review_explorer/__init__.py
+src/film_review_explorer/dataframe_preprocessor.py
+src/film_review_explorer/topic_modeler.py
+src/film_review_explorer.egg-info/PKG-INFO
+src/film_review_explorer.egg-info/SOURCES.txt
+src/film_review_explorer.egg-info/dependency_links.txt
+src/film_review_explorer.egg-info/top_level.txt
