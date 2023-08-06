@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "khala-python-utils"
+version = "0.0.5"
+description = "@davidkhala/python-utils"
+authors = ["David Liu <david-khala@hotmail.com>"]
+readme = "README.md"
+packages = [{ include = "http_request" }, { include = "syntax" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.28.2"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
