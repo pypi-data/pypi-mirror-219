@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: meowy
+Version: 1.0.1
+Summary: 🐱 An unofficial The Cat API wrapper for Python
+Home-page: https://github.com/elaresai/meowy
+License: MIT
+Author: elaresai
+Author-email: elaresai@gmail.com
+Maintainer: elaresai
+Maintainer-email: elaresai@gmail.com
+Requires-Python: >=3.8.0,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: attrs (>=23.1.0,<24.0.0)
+Requires-Dist: msgspec (>=0.16.0,<0.17.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/elaresai/meowy
+Description-Content-Type: text/markdown
+
+# meowy
+
+🐱 An unofficial [_The Cat API_](https://thecatapi.com/) wrapper for Python
+
+# 📦 Packages
+
+## 🐍 PyPI
+
+```sh
+pip install meowy
+```
+
+# 🔎 Examples
+[_examples/basic.py_](https://github.com/elaresai/meowy/blob/main/examples/basic.py)
+```py
+import meowy
+
+
+client = meowy.Client()
+
+# Let's search for 10 images at once
+for _ in range(10):
+    print(client.images.search())
+```
+
+# ✨ Links
+
+[🐍 _PyPi_](https://pypi.org/project/meowy/)\
+[🏠 _Homepage_](https://github.com/elaresai/meowy)\
+[🐱 _Repository_](https://github.com/elaresai/meowy)
+
