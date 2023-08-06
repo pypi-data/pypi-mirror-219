@@ -1,0 +1,17 @@
+data_collect/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+data_collect/client.py,sha256=Es0oGusq4aXjKNkUQnDKHcsr-KPXKOum8zK-4T__lcU,12925
+data_collect/constants.py,sha256=wmAO65T-G4IX5gZAM22Ej3jlzpnqm87r3YXhaG1_lBk,1097
+data_collect/correlation_id.py,sha256=z-iE6Nkf-4cwsC5Y9dJkGw2PYIOXdyqRu5F_xg2Xj-A,283
+data_collect/logger.py,sha256=3KboWeowc2OPLRjmeLM1xyBzxfA50LHL7-ACma9hrvQ,7416
+data_collect/queue.py,sha256=LfBi2Xd2NbpAiJ6M4RnJAx45MObbMWvonP81ysRn0a0,5564
+data_collect/setup.py,sha256=RPvnWrL8X9LaCHCYzA3aZTo2x9e1bxMjBJGzIEBr-qo,179
+data_collect/thread.py,sha256=qSSMR9DmXc5Ln4A5qEPUDfswvtqmCM4qyY-1H24QnHk,6629
+data_collect/utils.py,sha256=gfm9m-jhcZps8h0flPt6bHDPufAALOkpNqNwbqNM7jg,1108
+data_collect/data_types/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+data_collect/data_types/blob.py,sha256=HIPbXSQ4VpyyjCw87_ey9JqsopcOEjYOgBtzKmsGl5s,535
+data_collect/data_types/image.py,sha256=YG9XmB2ybuJ_eX1RtOAN56LSFm03xdssB74ZmOmjZx8,3426
+data_collect/data_types/text.py,sha256=V19kGvMYy2HHhMYuAvUzAL-QpidCoYya8wPST-XrI4c,388
+data_collect-0.8.9.dist-info/METADATA,sha256=bk8k7aSxDPLZRi6yu7oBofuFJg2frr4O_OrjCn98jlw,700
+data_collect-0.8.9.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+data_collect-0.8.9.dist-info/top_level.txt,sha256=G8t82SYy63Yvq7C5QNmZhOyCarSqyfuoQAxz44VYyTE,13
+data_collect-0.8.9.dist-info/RECORD,,
