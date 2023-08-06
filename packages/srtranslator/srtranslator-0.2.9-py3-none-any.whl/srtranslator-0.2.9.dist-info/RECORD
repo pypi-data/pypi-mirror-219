@@ -1,0 +1,16 @@
+srtranslator/__init__.py,sha256=M5IGrMdFHjaLm9GFX7aUDH9A7S4F0Aor67zmvJOn_go,78
+srtranslator/__main__.py,sha256=6i5G6XAVZhDd7ynoOca_zMt6uwyUGqbkwvHkK1zcsJ8,2455
+srtranslator/srt_file.py,sha256=p5lcr9cIwRlOaKNdQebujIwzi6ZiEAMQdVryf7791R4,6026
+srtranslator/translators/__init__.py,sha256=w02kgVJFjvz-9Ps1HM5YIMqn3QtVqBZDCTEj_biq6_I,30
+srtranslator/translators/base.py,sha256=rwo2tW8ykRy_yvFyEV39HU4CIgIdql0-LTgS7PyLi0Y,338
+srtranslator/translators/deepl_api.py,sha256=lU1yz3pKQuefKsBVltLkKQthxm_oWRx9VN75J2OZ_5U,445
+srtranslator/translators/deepl_scrap.py,sha256=V1FFQWdpnVhTIQOWz6uK_VdxBhp28FsRyhPO7zcgauM,5476
+srtranslator/translators/deeplcli.py,sha256=He0Q0FWIJHzTJvS4RtWWT7B3HV-wFXl8KSy9OLzZmEI,303
+srtranslator/translators/deeplx.py,sha256=x4y9oI52rcNRF6cAblwOnfv2SirK7LBTjDi8M7AAwy0,1074
+srtranslator/translators/selenium_utils.py,sha256=g25ZNJdS1mzEY1VcvQ5kZh8cuPOwdnCyIUucsXQZYEc,4235
+srtranslator/translators/translatepy.py,sha256=Nc5iZ3nhHf2HYie9U3c6amsPmNXxhkawbZbhS9Ywqm0,568
+srtranslator-0.2.9.dist-info/LICENSE.md,sha256=WyQtAN1f9igUit5RsTjExH1Rtoj38o1j6qANSAu0_30,485
+srtranslator-0.2.9.dist-info/METADATA,sha256=nkFNDswt9jZYMWFHT9kf_3H2_NHvlGrJHccBJjZ_GDQ,4180
+srtranslator-0.2.9.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+srtranslator-0.2.9.dist-info/top_level.txt,sha256=O7TUuFGkbC4CPyb3hPNBH36zOr2VTz7XNfma4WjppHo,13
+srtranslator-0.2.9.dist-info/RECORD,,
