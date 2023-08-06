@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "nonblocking-logging"
+version = "0.1.1"
+description = ""
+authors = ["Ersain Dinmukhamed"]
+readme = "README.md"
+packages = [{include = "nonblocking_logging"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.31.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
