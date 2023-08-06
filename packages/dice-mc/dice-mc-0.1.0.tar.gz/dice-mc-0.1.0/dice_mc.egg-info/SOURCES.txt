@@ -1,0 +1,15 @@
+LICENSE
+NOTICE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+dice_mc/__init__.py
+dice_mc/torch.py
+dice_mc.egg-info/PKG-INFO
+dice_mc.egg-info/SOURCES.txt
+dice_mc.egg-info/dependency_links.txt
+dice_mc.egg-info/requires.txt
+dice_mc.egg-info/top_level.txt
+dice_mc/tests/__init__.py
+dice_mc/tests/test_torch.py
