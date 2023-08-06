@@ -1,0 +1,13 @@
+    <article id="{{name}}" class="{{#columns}}columns {{/columns}}{{#appendix}}appendix {{/appendix}}{{#classes}}{{.}} {{/classes}}">
+      <div class="article-body">
+    {{#columns}}
+      <h1 id="{{name}}-columns-title">{{opts.title}}</h1>
+      <section>
+    {{/columns}}
+{{& html}}
+    {{#columns}}
+      </section>
+    {{/columns}}
+      </div>
+{{& footnotes}}
+    </article>
