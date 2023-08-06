@@ -1,0 +1,9 @@
+[console_scripts]
+create_data = robust_deid.ner_datasets.dataset_creator:main
+deid_text = robust_deid.deid.text_deid:main
+fix_spans = robust_deid.ner_datasets.span_fixer:main
+load_data = robust_deid.data_processing.data_loader:main
+split_data = robust_deid.ner_datasets.dataset_splitter:main
+tag_sequence = robust_deid.sequence_tagging.sequence_tagger:main
+threshold_recall = robust_deid.sequence_tagging.recall_thresholder:main
+validation_spans = robust_deid.ner_datasets.span_validation:main
