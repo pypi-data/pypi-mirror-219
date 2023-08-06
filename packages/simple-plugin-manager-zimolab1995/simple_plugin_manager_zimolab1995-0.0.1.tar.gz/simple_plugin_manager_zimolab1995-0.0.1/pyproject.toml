@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple_plugin_manager_zimolab1995"
+version = "0.0.1"
+authors = [
+  { name="zimolab1995", email="zimolab@aliyun.com" },
+]
+description = "A simple plugin manager for python project"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://gitee.com/zimolab1995/simple_plugin_manager"
+"Bug Tracker" = "https://gitee.com/zimolab1995/simple_plugin_manager/issues"
