@@ -1,0 +1,5 @@
+[console_scripts]
+mlflow_tritonserver_cli = mlflow_tritonserver.mlflow_tritonserver_cli:cli
+
+[mlflow.deployments]
+triton = mlflow_tritonserver.deployments

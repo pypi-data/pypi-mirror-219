@@ -1,0 +1,17 @@
+mlflow<3.0,>=2.2.1
+tritonclient[all]==2.35.0
+boto3==1.28.2
+
+[dev]
+black>=22.8
+build>=0.8
+ipython>=7.16
+isort>=5.10
+pdbpp>=0.10
+pip>=21.1
+psutil~=5.1
+twine>=4.0
+
+[test]
+pytest>=5.2
+pytest-mock>=3.8.2
