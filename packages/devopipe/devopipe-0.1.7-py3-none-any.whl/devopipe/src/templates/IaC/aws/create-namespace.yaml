@@ -1,0 +1,9 @@
+resource "kubernetes_namespace" {{ namespace_name }} {
+  metadata {
+    name = "{{ namespace_name }}"
+  }
+  depends_on = [module.eks_blueprints]
+}
+
+# namespace_name = "devolink-test"
+
