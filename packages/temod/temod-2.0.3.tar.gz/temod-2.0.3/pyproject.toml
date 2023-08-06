@@ -1,0 +1,22 @@
+[build-system]
+requires = ['setuptools>=42']
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = "temod"
+version = "2.0.3"
+authors = [
+  { name="PyAxolotl", email="abdellatifzied.saada@gmail.com" },
+]
+description = "Data management abstraction layer for your python programs"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/TuburboMajus/temod"
+"Bug Tracker" = "https://github.com/TuburboMajus/temod/issues"
