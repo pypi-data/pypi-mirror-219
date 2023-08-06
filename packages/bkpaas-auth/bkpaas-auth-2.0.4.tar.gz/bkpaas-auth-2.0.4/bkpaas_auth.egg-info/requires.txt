@@ -1,0 +1,17 @@
+cryptography
+django<4.0,>=1.11
+requests
+six
+
+[dev]
+flake8==3.*,>=3.8.4
+mock==4.*,>=4.0.2
+mypy==0.*,>=0.942.0
+pytest==5.*,>=5.4.1
+pytest-django==3.*,>=3.8.0
+pytest-mock==3.*,>=3.4.0
+rope==0.*,>=0.18.0
+types-cryptography==3.*,>=3.3.19
+types-mock==4.*,>=4.0.13
+types-requests==2.*,>=2.27.16
+types-six==1.*,>=1.16.12

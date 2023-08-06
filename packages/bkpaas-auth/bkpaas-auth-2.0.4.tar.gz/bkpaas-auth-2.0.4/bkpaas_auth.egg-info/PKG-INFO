@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: bkpaas-auth
+Version: 2.0.4
+Summary: User authentication django app for blueking internal projects
+Home-page: UNKNOWN
+Author: blueking
+Author-email: blueking@tencent.com
+License: Apach License 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: <4.0,>=3.6
+Provides-Extra: dev
