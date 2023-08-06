@@ -1,0 +1,36 @@
+---
+- nodeset:
+    name: kayobe-centos8s
+    nodes:
+      - name: primary
+        label: centos-8-stream
+
+- nodeset:
+    name: kayobe-centos9s
+    nodes:
+      - name: primary
+        label: centos-9-stream
+
+- nodeset:
+    name: kayobe-rocky8
+    nodes:
+      - name: primary
+        label: rockylinux-8
+
+- nodeset:
+    name: kayobe-rocky9
+    nodes:
+      - name: primary
+        label: rockylinux-9
+
+- nodeset:
+    name: kayobe-ubuntu-focal
+    nodes:
+      - name: primary
+        label: ubuntu-focal
+
+- nodeset:
+    name: kayobe-ubuntu-jammy
+    nodes:
+      - name: primary
+        label: ubuntu-jammy
