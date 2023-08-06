@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+apmpythonpackage/__init__.py
+apmpythonpackage/apmpythonpackage.py
+middleware_apm.egg-info/PKG-INFO
+middleware_apm.egg-info/SOURCES.txt
+middleware_apm.egg-info/dependency_links.txt
+middleware_apm.egg-info/entry_points.txt
+middleware_apm.egg-info/requires.txt
+middleware_apm.egg-info/top_level.txt
