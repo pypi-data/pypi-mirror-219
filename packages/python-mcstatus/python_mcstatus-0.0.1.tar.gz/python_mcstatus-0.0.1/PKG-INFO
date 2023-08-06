@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: python-mcstatus
+Version: 0.0.1
+Summary: The unofficial python library for interacting with the mcstatus.io API.
+Project-URL: Documentation, https://github.com/Duve3/python-mcstatus#readme
+Project-URL: Issues, https://github.com/Duve3/python-mcstatus/issues
+Project-URL: Source, https://github.com/Duve3/python-mcstatus
+Author-email: Duve3 <Duv3tabest@gmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.9
+Requires-Dist: requests~=2.31.0
+Description-Content-Type: text/markdown
+
+# Python MCStatus
+
+[![PyPI - Version](https://img.shields.io/pypi/v/python-mcstatus.svg)](https://pypi.org/project/python-mcstatus)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/python-mcstatus.svg)](https://pypi.org/project/python-mcstatus)
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+
+-----
+Python MCStatus is a library which wraps around the [mcstatus.io](https://mcstatus.io) api. It is developed very similar
+to the [node-mcstatus](https://www.npmjs.com/package/node-mcstatus) npm package. It's essentially the same just ported to python.
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
+## Installation
+
+```console
+pip install python-mcstatus
+```
+
+## Usage
+### Java Status
+```python
+from python_mcstatus import JavaStatusResponse, statusJava
+
+host = 'demo.mcstatus.io'
+port = 25565
+query = True
+
+response: JavaStatusResponse = statusJava(host, port, query)  # port is optional and defaults to 25565
+# You can receive and error in the above when the response is not 200, this copies the functionality from the node library.
+```
+
+### Bedrock Status
+```python
+from python_mcstatus import BedrockStatusResponse, statusBedrock
+
+host = 'demo.mcstatus.io'
+port = 19132
+
+response: BedrockStatusResponse = statusBedrock(host, port)  # port argument is optional and defaults to 19132
+```
+
+
+## License
+
+`python-mcstatus` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
