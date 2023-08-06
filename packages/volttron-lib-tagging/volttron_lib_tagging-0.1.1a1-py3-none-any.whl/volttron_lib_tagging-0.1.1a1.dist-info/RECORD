@@ -1,0 +1,14 @@
+tagging/base/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tagging/base/base_tagging.py,sha256=7IqoZJNL1GitodlxeG4zb7oPFEX9OdIJNZJhPDYpvXQ,37162
+tagging/base/parsetab.py,sha256=UBAdB7hkjGJnun1vXTmOU1fuQ8ooGsNA8cH9ccc3Mac,6005
+tagging/data_model/categories.csv,sha256=PTbf0aMlEsNUSOv-95LdYqwt0cH-l1KNOkz9_Ma2Kw8,1793
+tagging/data_model/category_tags.txt,sha256=7I4Prz9oiav-ZK82SBaBQrQKrtPZ4B7AMRzuPu9QNT4,15336
+tagging/data_model/tag_refs.csv,sha256=A0HCivBKP9BTp8oIkfTeXsQ-pHqJIbGUb7Hi5fVTO1U,349
+tagging/data_model/tags.csv,sha256=skiNr_KEneoQGs9OlCOZ8wnXJGCX5SX1KSJAqnyA1Js,20679
+tagging/data_model/units.txt,sha256=g9T4sWea3kgCSKOdg3YHnO3yeFPvNqMOE_zXk8KgPuM,7674
+tagging/testing/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tagging/testing/integration_test_interface.py,sha256=njV1ZdksY-9PYRIqPmRWcJw0d6VjYHLUv2qfVrshOYI,21843
+tagging/testing/test_base_tagging_unit.py,sha256=xfU3VXvpdfXxl8ZUvAvkHpOPscIZ9uKdc5p_1Xq9Qt4,1111
+volttron_lib_tagging-0.1.1a1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+volttron_lib_tagging-0.1.1a1.dist-info/METADATA,sha256=hObW1aPxata3Xh5yIrd3ZjWsbWidSzHtqG1er7bIWbE,5223
+volttron_lib_tagging-0.1.1a1.dist-info/RECORD,,
