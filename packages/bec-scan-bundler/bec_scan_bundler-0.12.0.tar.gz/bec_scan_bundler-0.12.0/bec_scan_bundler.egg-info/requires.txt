@@ -1,0 +1,8 @@
+numpy
+pyyaml
+msgpack
+
+[dev]
+pytest
+pytest-random-order
+coverage
