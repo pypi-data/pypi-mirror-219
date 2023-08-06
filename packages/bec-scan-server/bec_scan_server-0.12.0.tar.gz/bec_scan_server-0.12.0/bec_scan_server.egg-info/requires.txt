@@ -1,0 +1,10 @@
+numpy
+msgpack
+pyyaml
+cytoolz
+rich
+
+[dev]
+pytest
+pytest-random-order
+coverage
