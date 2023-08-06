@@ -1,0 +1,14 @@
+HiYaPyCo
+pykeepass
+unidecode
+urllib3
+bs4
+pyvat
+cryptocode
+
+[dev]
+twine
+bumpver
+pip-tools
+pytest
+check-manifest
