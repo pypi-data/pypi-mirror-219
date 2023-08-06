@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: samus-logging
+Version: 0.1.93
+Summary: A minimal Logging-controller.
+Home-page: https://github.com/samuscodes/Samus-Logging
+Author: Samu Rabin
+Author-email: samus_codes@samusoft.net
+Maintainer: Samu Rabin
+Maintainer-email: samus_codes@samusoft.net
+License: UNKNOWN
+Download-URL: https://github.com/samuscodes/Samus-Logging
+Keywords: python,logging,logger,minimal
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+![Dependency Diagramm](plantuml/dependencies.png)
+
