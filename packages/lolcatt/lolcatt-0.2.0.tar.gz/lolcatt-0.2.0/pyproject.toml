@@ -1,0 +1,35 @@
+[tool.black]
+line-length = 100
+skip-string-normalization = true
+target-version = ['py39', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.bumpver]
+current_version = "0.2.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"setup.py" = [
+    "{version}",
+]
+"lolcatt/__init__.py" = [
+    "__version__ = '{version}'",
+]
