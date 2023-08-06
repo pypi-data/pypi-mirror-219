@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/amtflash/__init__.py
+src/amtflash/amt.py
+src/amtflash/ftdibus.py
+src/amtflash.egg-info/PKG-INFO
+src/amtflash.egg-info/SOURCES.txt
+src/amtflash.egg-info/dependency_links.txt
+src/amtflash.egg-info/requires.txt
+src/amtflash.egg-info/top_level.txt
