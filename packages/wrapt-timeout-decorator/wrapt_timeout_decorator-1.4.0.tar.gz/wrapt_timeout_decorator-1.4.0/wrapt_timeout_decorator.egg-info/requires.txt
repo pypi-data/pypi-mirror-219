@@ -1,0 +1,25 @@
+cli_exit_tools
+lib_detect_testenv
+multiprocess
+psutil
+wrapt
+
+[:sys_platform != "win32"]
+dill
+
+[:sys_platform == "win32"]
+dill!=0.3.5,!=0.3.5.1,>0.3.0
+
+[test]
+black
+codecov
+coloredlogs
+coverage
+flake8
+pytest
+pytest-cov
+pytest-runner
+readme_renderer
+
+[test:platform_python_implementation != "PyPy"]
+mypy
