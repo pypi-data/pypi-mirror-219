@@ -1,0 +1,3 @@
+[console_scripts]
+poetry=infer_pyproject.cli:main
+
