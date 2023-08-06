@@ -1,0 +1,4 @@
+include LICENSE.txt
+include README.rst
+recursive-include error_tracker/* *
+recursive-exclude error_tracker *.pyc
