@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: langchain-sql-test
+Version: 0.0.3
+Summary: 
+License: MIT
+Author: Bagatur
+Author-email: baskaryan@gmail.com
+Requires-Python: >=3.8.1,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: SQLAlchemy (>=1.4,<3)
+Requires-Dist: langchain (>=0.0.234,<0.0.235)
+Description-Content-Type: text/markdown
+
+# `langchain_sql_test`
+
+<!--- This is a LangChain project bootstrapped by [LangChain CLI](https://github.com/hwchase17/langchain). --->
+
+## Installation
+
+To install run:
+```bash
+pip install langchain_sql_test
+```
+
+## Usage
+
+<!--- Add detailed documentation on how to use this package. --->
+
+## Contributing
+
+For information on how to set up your dev environment and contribute, see [here](.github/CONTRIBUTING.md).
+
