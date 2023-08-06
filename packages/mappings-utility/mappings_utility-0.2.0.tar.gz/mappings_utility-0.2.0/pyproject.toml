@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "mappings_utility"
+version = "0.2.0"
+description = "mapping utility tool for sdmx based partial mappings"
+authors = ["Gyorgy Gyomai <gyorgy.gyomai@oecd.org>", "Abdel Aliaoui <abdel.aliaoui@oecd.org>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.5.0"
+fastapi = "^0.87.0"
+uvicorn = "^0.20.0"
+requests = "^2.28.1"
+pydantic = "^1.10.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.0"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
