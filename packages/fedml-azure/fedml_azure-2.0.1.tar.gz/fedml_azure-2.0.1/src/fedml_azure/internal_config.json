@@ -1,0 +1,11 @@
+{
+    "environment_creation":{
+        "CondaPackageEnvironment":{
+            "create_environment":{
+                                "python_version":"3.6.2",
+                                "conda_packages":["pip"],
+                                "pip_packages":["azureml-defaults", "pandas"]
+                                 }
+                        }
+                    }
+}
