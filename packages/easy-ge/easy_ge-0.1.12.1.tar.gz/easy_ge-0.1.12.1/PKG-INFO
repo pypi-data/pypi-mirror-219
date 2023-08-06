@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: easy-ge
+Version: 0.1.12.1
+Summary: A package that simplifies usage of Great Expectations tool for Data Validation.
+Home-page: https://github.com/Elsayed91/easy_ge
+Keywords: Great Expectations,data quality,data validation
+Author: Elsayed91
+Author-email: elsayed.is@outlook.com
+Requires-Python: >=3.10,<3.13
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: aws
+Provides-Extra: google
+Requires-Dist: boto3 (>=1.28.2,<2.0.0)
+Requires-Dist: fsspec (>=2023.6.0,<2024.0.0)
+Requires-Dist: gcsfs (>=2023.6.0,<2024.0.0) ; extra == "google"
+Requires-Dist: google-cloud-secret-manager (>=2.16.2,<3.0.0) ; extra == "google"
+Requires-Dist: google-cloud-storage (>=2.10.0,<3.0.0) ; extra == "google"
+Requires-Dist: great-expectations[s3] (>=0.17.4,<0.18.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: jsonschema (>=4.18.0,<5.0.0)
+Requires-Dist: pyarrow (>=12.0.1,<13.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: scipy (>=1.10.0,<2.0.0)
+Project-URL: Repository, https://github.com/Elsayed91/easy_ge
+Description-Content-Type: text/markdown
+
+
+
+A package that simplifies data validation in your pipeline by abstracting the complexity
+of Great Expectations away. Easy G.E (_pronounced ee-zee-jee-ee_) is designed for common
+use cases (in-memory and file scenarios), enabling you to set up tests in minutes without
+having to get acquainted with Great Expectations itself.
+
+to get started simply run
+```python
+pip install easy-ge # or easy-ge[google] for google backend
+```
+
+For more information and detailed instructions, check out the [GitHub
+repository](https://github.com/Elsayed91/easy_ge).
+
