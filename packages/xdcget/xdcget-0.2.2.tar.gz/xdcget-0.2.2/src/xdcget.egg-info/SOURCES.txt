@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/xdcget/__init__.py
+src/xdcget/config.py
+src/xdcget/main.py
+src/xdcget/storage.py
+src/xdcget.egg-info/PKG-INFO
+src/xdcget.egg-info/SOURCES.txt
+src/xdcget.egg-info/dependency_links.txt
+src/xdcget.egg-info/entry_points.txt
+src/xdcget.egg-info/requires.txt
+src/xdcget.egg-info/top_level.txt
+tests/test_config.py
+tests/test_main.py
+tests/test_storage.py

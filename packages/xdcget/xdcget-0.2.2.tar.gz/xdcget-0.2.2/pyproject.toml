@@ -1,0 +1,74 @@
+[project]
+name = "xdcget"
+version = "0.2.2"
+#author = "holger and team" 
+#author_email = "holger@deltachat.de"
+description = "experimental tool for collecting latest releases of webxdc apps"
+license = {text = "MPL-2.0"}
+requires-python = ">=3.10"
+readme = "README.md"
+
+scripts = {xdcget = "xdcget.main:main"}
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: POSIX",
+]
+
+
+dependencies = [
+    "requests",
+    "termcolor",
+    "toml",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "tox"]
+
+[project.urls]
+homepage = "https://codeberg.org/webxdc/xdcget"
+issues = "https://codeberg.org/webxdc/xdcget/issues"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist =
+    py3
+    lint
+
+[testenv]
+commands =
+    pytest {posargs: tests}
+passenv =
+    GITHUB_USER
+    GITHUB_TOKEN
+    CODEBERG_USER
+    CODEBERG_TOKEN
+deps =
+    pytest
+    pytest-timeout
+    pdbpp
+
+
+[testenv:lint]
+skipsdist = True
+skip_install = True
+deps =
+    ruff
+    black
+commands =
+    black --quiet --check --diff src/xdcget tests/
+    ruff src/xdcget tests/
+
+
+[pytest]
+addopts = -v -ra --strict-markers
+norecursedirs = .tox
+xfail_strict=true
+timeout = 150
+timeout_func_only = True
+markers =
+    ignored: ignore this test in default test runs, use --ignored to run.
+"""
