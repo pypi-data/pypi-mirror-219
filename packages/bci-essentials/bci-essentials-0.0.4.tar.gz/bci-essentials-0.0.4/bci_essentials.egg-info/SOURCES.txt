@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+bci_essentials/__init__.py
+bci_essentials/bci_data.py
+bci_essentials/channel_selection.py
+bci_essentials/classification.py
+bci_essentials/resting_state.py
+bci_essentials/signal_processing.py
+bci_essentials/visuals.py
+bci_essentials.egg-info/PKG-INFO
+bci_essentials.egg-info/SOURCES.txt
+bci_essentials.egg-info/dependency_links.txt
+bci_essentials.egg-info/requires.txt
+bci_essentials.egg-info/top_level.txt
