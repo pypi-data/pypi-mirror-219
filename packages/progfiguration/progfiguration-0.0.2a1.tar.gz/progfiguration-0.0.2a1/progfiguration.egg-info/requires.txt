@@ -1,0 +1,13 @@
+PyYAML
+pytz
+requests
+
+[development]
+black
+build
+mitogen
+mypy
+twine
+
+[ssh]
+mitogen
