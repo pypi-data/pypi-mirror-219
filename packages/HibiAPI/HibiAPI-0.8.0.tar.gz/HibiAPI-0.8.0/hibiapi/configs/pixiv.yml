@@ -1,0 +1,14 @@
+enabled: true
+
+# HTTP代理地址
+# 示例格式
+# proxy: { "all://": "http://127.0.0.1:1081" }
+proxy: {}
+
+account:
+  # Pixiv 登录凭证刷新令牌 (Refresh Token)
+  # 获取方法请参考: https://github.com/mixmoe/HibiAPI/issues/53
+  # 支持使用多个账户进行负载均衡, 每行一个token
+  token: ""
+
+language: zh-cn # 返回语言, 会影响标签的翻译
