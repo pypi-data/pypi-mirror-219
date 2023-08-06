@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: hmatrices
+Version: 0.1.1
+Summary: 
+Author: Luiz M. Faria
+Author-email: maltezfaria@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: juliacall (>=0.9.13,<0.10.0)
+Description-Content-Type: text/markdown
+
+# hmatrices
+
+A simple wrapper of the *Julia* library
+[HMatrices.jl](https://github.com/WaveProp/HMatrices.jl) so that can be
+easily installed and called from *Python*. It uses
+[JuliaCall](https://pypi.org/project/juliacall/) for calling *Julia* from *Python*
+
+See the `examples` folder, as well as the [HMatrices.jl
+documentation](https://waveprop.github.io/HMatrices.jl/stable/) for more
+details.
