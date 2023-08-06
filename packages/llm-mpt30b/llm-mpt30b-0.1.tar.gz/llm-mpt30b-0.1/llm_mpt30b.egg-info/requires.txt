@@ -1,0 +1,7 @@
+llm>=0.5
+ctransformers>=0.2.10
+transformers>=4.30.2
+huggingface-hub
+
+[test]
+pytest
