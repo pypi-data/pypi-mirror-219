@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: aws-ec2-auto-scaling-instance-running-scheduler
+Version: 0.2.1
+Summary: AWS EC2 AutoScaling Instance Running Scheduler
+Home-page: https://github.com/yicr/aws-ec2-auto-scaling-instance-running-scheduler.git
+Author: yicr<yicr@users.noreply.github.com>
+License: Apache-2.0
+Project-URL: Source, https://github.com/yicr/aws-ec2-auto-scaling-instance-running-scheduler.git
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AWS EC2 AutoScaling Instance Running Scheduler
+
+This is an AWS CDK Construct to make EC2 AutoScaling instance running schedule (only running while working hours(start/stop)).
+But only capacity min value is 0 for the AutoScalingGroup.
+
+## Resources
+
+This construct creating resource list.
+
+* EventBridge Scheduler execution role
+* EventBridge Scheduler
+
+## Install
+
+### TypeScript
+
+```shell
+npm install aws-ec2-auto-scaling-instance-running-scheduler
+```
+
+or
+
+```shell
+yarn add aws-ec2-auto-scaling-instance-running-scheduler
+```
+
+### Python
+
+```shell
+pip install aws-ec2-auto-scaling-instance-running-scheduler
+```
+
+## Example
+
+```shell
+npm install aws-ec2-auto-scaling-instance-running-scheduler
+```
+
+```python
+import { Ec2AutoScalingInstanceRunningScheduler } from 'aws-ec2-auto-scaling-instance-running-scheduler';
+
+new Ec2AutoScalingInstanceRunningScheduler(stack, 'Ec2AutoScalingInstanceRunningScheduler', {
+  targets: [
+    {
+      groupName: 'example-scaling-group',
+      runningDesiredCapacity: 2,
+      startSchedule: {
+        timezone: 'UTC',
+      },
+      stopSchedule: {
+        timezone: 'UTC',
+      },
+    },
+  ],
+});
+```
+
+## License
+
+This project is licensed under the Apache-2.0 License.
