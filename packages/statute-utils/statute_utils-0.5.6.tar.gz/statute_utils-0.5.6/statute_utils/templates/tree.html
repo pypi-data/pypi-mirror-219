@@ -1,0 +1,51 @@
+{%- macro summarize(node) -%}
+  {# The label class is added to style the combination of item + caption in styles.css #}
+  {%- set clean_item = node.item|default('Container')|string -%}
+  {%- if clean_item|is_hidden -%}
+    {%- if node.caption -%}
+      <strong class="label">{{node.caption}}</strong>
+    {%- endif -%}
+  {%- else -%}
+    <strong class="label">{{clean_item}}</strong>
+    {%- if node.caption -%}
+      <em class="label">{{node.caption}}</em>
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro create_branch(node) -%}
+  {{ summarize(node)}}
+  {%- if node.content -%}
+      {{node.content|trim|safe|md_to_html }} {# Needs to be safe since some unit content may have html #}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro create_branches(units) -%}
+<ul>
+  {%- for unit in units -%}
+    {% set node_id = unit.id|set_mp_slug %}{# id relevant for branch unit; this enables a hook to referenced instances  #}
+    <li id="{{node_id}}" {% if unit|is_par %}data-par="true"{% endif %}>{# data-par relevant so that this can indented via a css #}
+      {{ create_branch(unit) }}
+      {%- if unit.units -%}
+        {%- set units = unit.units|from_json -%}
+        {%- if units[0]|is_par and units|length > 1 -%}
+          {# special rule: check on the first child to determine whether it should form part of the ul tag or whether only ul to start with paragraph 2 onwards  #}
+          {{ create_branch(units[0]) }}
+          {%- set units = units[1:] -%}
+        {% endif %}
+        {{ create_branches(units) }}
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>
+{%- endmacro -%}
+
+{%- macro connect_breadcrumbs(nodes) -%}
+  <h3 class="crumbs">
+    {% for node in nodes -%}
+      <span class="crumb">
+        {{ node|crumb }}
+      </span>
+    {%- endfor %}
+  </h3>
+{%- endmacro -%}
