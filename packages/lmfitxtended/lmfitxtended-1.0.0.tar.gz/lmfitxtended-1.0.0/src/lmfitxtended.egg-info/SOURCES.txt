@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/lmfitxtend/__init__.py
+src/lmfitxtend/functions.py
+src/lmfitxtend/models.py
+src/lmfitxtended.egg-info/PKG-INFO
+src/lmfitxtended.egg-info/SOURCES.txt
+src/lmfitxtended.egg-info/dependency_links.txt
+src/lmfitxtended.egg-info/top_level.txt
