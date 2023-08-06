@@ -1,0 +1,3 @@
+[console_scripts]
+moodb2flat=lambdamoo_db.cli:moodb2flat
+
