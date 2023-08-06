@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pylib-essentials
+Version: 0.0.2
+Summary: The essentials of the experimental package of pylibs, which require minimum dependencies
+Home-page: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: cloudpickle
+
+UNKNOWN
+
