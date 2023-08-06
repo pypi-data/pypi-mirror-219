@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: aws-ssm-tool
+Version: 2023.7.13.16.45
+Summary: AWS SSM tool
+Home-page: https://github.com/Robot-Wranglers/aws-ssm-tool/
+Author: Robot-Wranglers
+License: MIT
+Project-URL: Documentation, https://github.com/Robot-Wranglers/aws-ssm-tool/
+Project-URL: Source, https://github.com/Robot-Wranglers/aws-ssm-tool/
+Project-URL: Download, https://github.com/Robot-Wranglers/aws-ssm-tool/#files
+Platform: any
+Classifier: Programming Language :: Python
+Requires-Python: >3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: click
+Requires-Dist: pyyaml
+Requires-Dist: termcolor
+Requires-Dist: coloredlogs
+Requires-Dist: boto (==2.49.0)
+Requires-Dist: boto3 (==1.17.97)
+Requires-Dist: botocore (==1.20.97)
+Provides-Extra: dev
+Requires-Dist: IPython ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: tox (==4.6.4) ; extra == 'lint'
+Provides-Extra: publish
+Requires-Dist: twine (==4.0.2) ; extra == 'publish'
+Provides-Extra: testing
+Requires-Dist: IPython ; extra == 'testing'
+Requires-Dist: tox (==4.6.4) ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: mock ; extra == 'testing'
+Requires-Dist: flake8 (==5.0.4) ; extra == 'testing'
+
+See the project README
