@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: berrydb
+Version: 1.0.1
+Summary: Connect to your BerryDB database
+Home-page: https://app.berrydb.io
+Author: BerryDB
+License: Proprietary
+Classifier: License :: Other/Proprietary License
+Description-Content-Type: text/markdown
+
+# BerryDB
+
+## Connecting to your database
+
+```python
+
+from BerryDB import BerryDB
+
+berryDb = BerryDB.connect(api_key, database_name, bucket_name)
+
+```
