@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zenbitlib"
+version = "0.0.5"
+authors = [
+  { name="zenzenwang", email="zenwang@outlook.com" },
+]
+description = "A package for quick qml learning"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/zenzen891/zenlib/"
+"Bug Tracker" = "https://github.com/zenzen891/zenlib/"
