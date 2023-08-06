@@ -1,0 +1,6 @@
+django>=4.0
+pydantic~=1.10
+
+[dev]
+pytest~=7.2
+pytest-django~=4.5
