@@ -1,0 +1,7 @@
+libtmux
+
+[dev]
+pytest
+pytest-random-order
+pytest-asyncio
+coverage
