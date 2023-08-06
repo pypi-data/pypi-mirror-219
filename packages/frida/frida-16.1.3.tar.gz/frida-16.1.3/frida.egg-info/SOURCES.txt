@@ -1,0 +1,17 @@
+COPYING
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+_frida/__init__.pyi
+_frida/py.typed
+frida/__init__.py
+frida/core.py
+frida/py.typed
+frida.egg-info/PKG-INFO
+frida.egg-info/SOURCES.txt
+frida.egg-info/dependency_links.txt
+frida.egg-info/not-zip-safe
+frida.egg-info/requires.txt
+frida.egg-info/top_level.txt
+src/_frida.c
