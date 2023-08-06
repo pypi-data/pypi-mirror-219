@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: Test-User-Generator
+Version: 1.0.0
+Summary: A Package user to create a new user. created for making test users
+Author: Gokul Dev P
+Author-email: gokuldev.p123@gmail.com
+License: MIT
+Requires-Dist: pytest
+
