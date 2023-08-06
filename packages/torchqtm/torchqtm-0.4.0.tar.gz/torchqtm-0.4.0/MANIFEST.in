@@ -1,0 +1,8 @@
+include MANIFEST.in
+
+recursive-include torchqtm *.pyx
+recursive-include torchqtm *.pxd
+include torchqtm *.pyi
+include *.c
+include *.cpp
+include README.md
