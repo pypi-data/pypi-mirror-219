@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: fleks
+Version: 2023.7.12.22.17
+Summary: Python application framework
+Home-page: https://github.com/elo-enterprises/fleks/
+Author: elo
+License: MIT
+Project-URL: Documentation, https://github.com/elo-enterprises/fleks/
+Project-URL: Source, https://github.com/elo-enterprises/fleks/
+Project-URL: Download, https://github.com/elo-enterprises/fleks/#files
+Platform: any
+Classifier: Programming Language :: Python
+Requires-Python: >3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: dev
+Provides-Extra: testing
+Provides-Extra: lint
+Provides-Extra: publish
+
+See the project README
