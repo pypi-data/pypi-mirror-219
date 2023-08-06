@@ -1,0 +1,3 @@
+[console_scripts]
+pyirecovery=pyirecovery.__main__:main
+

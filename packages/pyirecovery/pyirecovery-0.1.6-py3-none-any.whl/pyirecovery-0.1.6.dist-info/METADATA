@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pyirecovery
+Version: 0.1.6
+Summary: A CLI wrapper of pymobiledevice3 that interacts with Recovery/DFU Apple devices
+License: GPL-3.0-only
+Author: Mini-Exploit
+Author-email: miniexploitttt@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pymobiledevice3 (>=2.0.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+## pyirecovery
+A CLI wrapper of pymobiledevice3 that interacts with Recovery/DFU Apple devices
+# Installation
+* Install with PIP:
+```
+python3 -m pip install pyirecovery
+```
+* Install locally:
+```
+git clone https://github.com/Mini-Exploit/pyirecovery
+cd pyirecovery
+bash ./install.sh
+```
+# Usage
+* Run `pyirecovery` and see the usage
+
+# Credits
+* [doronz88](https://github.com/doronz88) - [pymobiledevice3](https://github.com/doronz88/pymobiledevice3)
+
