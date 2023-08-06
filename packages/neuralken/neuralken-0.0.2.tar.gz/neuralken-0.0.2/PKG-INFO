@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: neuralken
+Version: 0.0.2
+Summary: A package to create feedforward neural networks in a short amount of code
+Project-URL: Homepage, https://github.com/kendasi/neuralken
+Project-URL: Bug Tracker, https://github.com/kendasi/neuralken/issues
+Author-email: Jake StBu <jake.stbu@kendasi.com>
+License-File: LICENCE.txt
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Neuralken
+
+This is a package to create feedforward neural networks in a short amount of code.
