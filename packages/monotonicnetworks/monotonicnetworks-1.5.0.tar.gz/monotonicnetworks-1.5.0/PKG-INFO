@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: monotonicnetworks
+Version: 1.5.0
+Summary: Pytorch implementation of constrained weight operator norms for robustness and monotonicity in neural networks.
+Home-page: 
+Author: Ouail Kitouni, Niklas Nolte
+Author-email: kitouni@mit.edu, nolte@meta.com
+License: MIT
