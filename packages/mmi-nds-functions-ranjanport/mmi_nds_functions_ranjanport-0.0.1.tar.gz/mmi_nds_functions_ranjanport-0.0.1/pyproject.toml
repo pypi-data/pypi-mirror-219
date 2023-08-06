@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "mmi_nds_functions_ranjanport"
+version = "0.0.1"
+authors = [
+  { name="Aman Ranjan", email="aman.ranjan@mapmyindia.com" },
+]
+description = "mmi_nds_functions is a library used for NDS data Manipulation"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/ranjanport/nds_classic-python"
+"Bug Tracker" = "https://gitlab.com/ranjanport/nds_classic-python/-/issues"
