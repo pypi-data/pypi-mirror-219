@@ -1,0 +1,8 @@
+click
+qtoml
+pyyaml==6
+requests
+configobj
+flatten_dict
+pydantic
+certifi
