@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+dnstap_pb/__init__.py
+dnstap_pb/dnstap_pb2.py
+dnstap_pb.egg-info/PKG-INFO
+dnstap_pb.egg-info/SOURCES.txt
+dnstap_pb.egg-info/dependency_links.txt
+dnstap_pb.egg-info/requires.txt
+dnstap_pb.egg-info/top_level.txt
+tests/test_dnstap.py
