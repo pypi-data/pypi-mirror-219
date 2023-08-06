@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+rankfmc/__init__.py
+rankfmc/_rankfm.c
+rankfmc/evaluation.py
+rankfmc/rankfm.py
+rankfmc/utils.py
+rankfmc.egg-info/PKG-INFO
+rankfmc.egg-info/SOURCES.txt
+rankfmc.egg-info/dependency_links.txt
+rankfmc.egg-info/not-zip-safe
+rankfmc.egg-info/requires.txt
+rankfmc.egg-info/top_level.txt
+rankfmc/mt19937ar/mt19937ar.c
