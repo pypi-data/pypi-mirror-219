@@ -1,0 +1,2 @@
+[console_scripts]
+devpm = devpm._internal.cli.main:main

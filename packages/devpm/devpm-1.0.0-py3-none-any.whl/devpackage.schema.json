@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "JSON schema for NPM package.json files",
+  "definitions": {
+    "dependency": {
+      "description": "Dependencies are specified with a simple hash of package name to version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "osDependency": {
+      "type": "object",
+      "description": "Used to specify dependency in different os.",
+      "patternProperties": {
+        ".+": {
+          "type": "object",
+          "properties": {
+            "win32": {
+              "type": "string",
+              "description": "The dependency in win32, specified with a simple hash of package name to version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL."
+            },
+            "linux": {
+              "type": "string",
+              "description": "The dependency in linux, specified with a simple hash of package name to version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL."
+            },
+            "darwin": {
+              "type": "string",
+              "description": "The dependency in darwin, specified with a simple hash of package name to version range. The version range is a string which has one or more space-separated descriptors. Dependencies can also be identified with a tarball or git URL."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "vscodeUserSettingsItem": {
+      "type": "object",
+      "properties": {
+        
+      }
+    },
+    "preCommitRepo": {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "description": "The repo uri for pre-commit plugin. see https://pre-commit.com/hooks.html",
+          "type": "string",
+          "format": "uri"
+        },
+        "rev": {
+          "description": "The revision of the repo, see https://pre-commit.com/hooks.html",
+          "type": "string"
+        },
+        "hooks": {
+          "description": "The hooks provided by the repo, see https://pre-commit.com/hooks.html",
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The hook id, see https://pre-commit.com/hooks.html",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "gitHook": {
+      "description": "The git hooks, support commit-msg, pre-commit",
+      "type": "object",
+      "properties": {
+        "commit-msg": {
+          "description": "The commit-msg git hook.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["regexp"],
+              "description": "The hook type, regexp for regular expression"
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The pattern for type regexp"
+            },
+            "tips": {
+              "description": "The tips to show when the commit-msg test failed, used array to show multi-line.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pre-commit": {
+          "description": "The pre-commit git hook.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The pre-commit hook type, 'pre-commit' for the python pre-commit which would generate '.pre-commit-config.yaml'",
+              "enum": ["pre-commit"]
+            },
+            "repos": {
+              "description": "The repos config used to generate '.pre-commit-config.yaml'",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/preCommitRepo"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "vscodeDependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "pythonDependencies": {
+      "$ref": "#/definitions/dependency"
+    },
+    "bashDependencies": {
+      "$ref": "#/definitions/osDependency"
+    },
+    "vscodeUserSettings": {
+      "$ref": "#/definitions/dependency"
+    },
+    "gitHooks": {
+      "$ref": "#/definitions/gitHook"
+    }
+  }
+}
