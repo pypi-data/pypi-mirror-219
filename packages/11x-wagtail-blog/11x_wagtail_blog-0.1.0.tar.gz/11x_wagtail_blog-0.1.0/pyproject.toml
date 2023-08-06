@@ -1,0 +1,76 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+
+[project]
+name = "11x-wagtail-blog"
+authors = [
+    { name = "The Magnificant Nick", email = "it@11x.engineering" },
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries",
+]
+requires-python = ">=3.7"
+
+readme = { file = "README.rst", content-type = "text/x-rst" }
+keywords = [
+    "wagtail",
+    "blog",
+]
+dynamic = [ "version", "description" ]
+dependencies = [
+    "wagtail >=4.0,<6",
+]
+
+
+[project.optional-dependencies]
+doc = [
+    "sphinx",
+    "sphinx-rtd-theme",
+]
+
+test = [
+    "black",
+    "tox >=4.6.3",
+    "faker >=18.11.2",
+]
+
+github = [
+    "tox-gh-actions >=3.0",
+]
+
+
+[project.urls]
+Home = "https://github.com/11x-engineering/11x-wagtail-blog"
+Documentation = "https://11x-wagtail-blog.readthedocs.io/en/latest/"
+Source = "https://github.com/11x-engineering/11x-wagtail-blog"
+
+
+[tool.black]
+line-length = 120
+
+
+[tool.flit.module]
+name = "x11x_wagtail_blog"
+
+
+[tool.flit.sdist]
+exclude = [
+    "docs/_build/",
+    ".github/",
+    "testapp/",
+]
