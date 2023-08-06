@@ -1,0 +1,16 @@
+CHANGES
+=======
+
+1.2.12
+------
+
+* change runs-on
+* add default socket timeout to 10m, to prevent program stuck
+* fix for py37
+* fix: support splited apk
+* Update README.md
+* set screenshot to blank when screenshot is not allowed
+* fix- non frozen dataclass leads to unhashable error
+* fix app\_info version\_name pattern
+* fix back
+* change version\_name optional
