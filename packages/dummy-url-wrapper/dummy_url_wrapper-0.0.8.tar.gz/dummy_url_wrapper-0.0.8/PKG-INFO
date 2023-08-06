@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dummy_url_wrapper
+Version: 0.0.8
+Summary: This package provides the wrapping of URLs for not exposing to clients
+Home-page: https://github.com/nk2909/Python-SDK.git
+Author: Nishant Kabariya
+Author-email: testurl@yopmail.com
+Keywords: python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
