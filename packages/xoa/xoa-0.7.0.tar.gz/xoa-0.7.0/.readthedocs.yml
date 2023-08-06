@@ -1,0 +1,25 @@
+# Required
+version: 2
+
+# Sphinx
+sphinx:
+  fail_on_warning: false
+
+# Optionally set the version of Python and requirements required to build your docs
+python:
+  system_packages: true
+  install:
+    - method: pip
+      path: .
+
+# Build
+build:
+  os: "ubuntu-20.04"
+  image: stable
+  tools:
+      python: "3.10"
+
+# Conda
+conda:
+    environment: env/environment.rtd.yml
+
