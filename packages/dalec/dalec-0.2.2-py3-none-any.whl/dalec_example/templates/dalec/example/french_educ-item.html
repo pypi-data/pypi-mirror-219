@@ -1,0 +1,13 @@
+{% extends "dalec/default/item.html" %}
+{% block item_content %}
+    <h2>{{ object.content_data.nom_etablissement }}</h2>
+    <p>
+    Cet établissement {{ object.content_data.statut_public_prive|lower }} a été créé le {{ object.creation_dt|date:"DATE_FORMAT" }}
+    dans la commune « {{ object.content_data.nom_commune }} » ({{ object.content_data.code_postal }}).<br />
+    Il se situe au {{ object.content_data.adresse_1 }} et peut accueillir {{ object.content_data.nombre_d_eleves }} élèves.
+    </p>
+    <p>
+        Coordonnées:
+        <a href="https://www.openstreetmap.org/?mlat={{ object.content_data.position.lat }}&amp;mlon={{ object.content_data.position.lon }}#map={{ object.content_data.position.lat }}/{{ object.content_data.position.lon }}">{{ object.content_data.position.lat }} / {{ object.content_data.position.lon }}</a>
+    </p>
+{% endblock %}
