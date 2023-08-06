@@ -1,0 +1,2 @@
+[console_scripts]
+fbn = fbn.__main__:main
