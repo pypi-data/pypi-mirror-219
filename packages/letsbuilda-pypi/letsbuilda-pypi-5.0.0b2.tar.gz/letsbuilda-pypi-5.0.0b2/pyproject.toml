@@ -1,0 +1,69 @@
+[project]
+name = "letsbuilda-pypi"
+version = "5.0.0b2"
+description = "A wrapper for PyPI's API and RSS feed"
+authors = [
+    { name = "Bradley Reynolds", email = "bradley.reynolds@darbia.dev" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11.4"
+dependencies = [
+    "requests",
+    "xmltodict",
+]
+
+[project.urls]
+repository = "https://github.com/letsbuilda/letsbuilda-pypi/"
+documentation = "https://docs.letsbuilda.dev/letsbuilda-pypi/"
+
+[project.optional-dependencies]
+async = [
+    "aiohttp",
+]
+dev = [
+    "pre-commit",
+    "black",
+    "ruff",
+]
+tests = [
+    "pytest",
+
+    # from async extra
+    "aiohttp",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "sphinx-autoapi",
+    "releases",
+    "toml",
+
+    # from async extra
+    "aiohttp",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+target-version = ["py311"]
+line-length = 120
+
+[tool.ruff]
+select = ["ALL"]
+ignore = [
+  "PLC0414", # (Import alias does not rename original package) - Re-exporting
+]
+target-version = "py311"
+line-length = 120
+
+[tool.ruff.isort]
+known-first-party = ["letsbuilda.pypi"]
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.pytest.ini_options]
+addopts = "tests -r a -v --doctest-modules src"
