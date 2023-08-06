@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+multipoles/__init__.py
+multipoles/expansion.py
+multipoles.egg-info/PKG-INFO
+multipoles.egg-info/SOURCES.txt
+multipoles.egg-info/dependency_links.txt
+multipoles.egg-info/requires.txt
+multipoles.egg-info/top_level.txt
