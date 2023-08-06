@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: surface-roughness
+Version: 0.0.1
+Summary: Surface roughness calculation with Python
+Home-page: https://github.com/e-mags/pysurfaceroughness
+Author: Earl Magsipoc
+Author-email: e.magsipoc@mail.utoronto.ca
+License: MIT
+Requires-Python: >=3.7
+Requires-Dist: scipy
+Requires-Dist: meshio
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: numexpr
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: mplstereonet
+Requires-Dist: shapely
+
+# surface-roughness
+
+Surface roughness is a library that processes 3D surface STL data and produces oriented roughness metrics.
+
+## Installation
+
+Installation is completed by 
+```
+pip install surface-roughness
+```
+
