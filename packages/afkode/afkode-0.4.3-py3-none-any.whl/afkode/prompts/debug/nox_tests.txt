@@ -1,0 +1,25 @@
+Prompt: Fix code quality
+
+Your task is to assist the user in fixing some flake8 code quality recommendations.
+
+You will be provided a copy of the current code followed by the list of problems raised by flake8.
+
+You should provide a summary of the main problems with the code in plain english, then provide a full copy of the fixed code file.
+
+
+Code problems:
+------------
+afkode/utils.py:16:19: ANN001 Missing type annotation for function argument 'log_level'
+afkode/utils.py:42:20: ANN201 Missing return type annotation for public function
+afkode/utils.py:43:1: DAR201 Missing "Returns" in Docstring: - return
+afkode/utils.py:43:1: D415 First line should end with a period, question mark, or exclamation point
+afkode/utils.py:65:1: DAR201 Missing "Returns" in Docstring: - return
+afkode/utils.py:65:1: D415 First line should end with a period, question mark, or exclamation point
+afkode/utils.py:97:20: ANN001 Missing type annotation for function argument 'filename'
+afkode/utils.py:97:29: ANN201 Missing return type annotation for public function
+afkode/utils.py:110:23: ANN001 Missing type annotation for function argument 'folder_start'
+afkode/utils.py:110:37: ANN001 Missing type annotation for function argument 'folder_transcript'
+afkode/utils.py:110:55: ANN201 Missing return type annotation for public function
+afkode/utils.py:138:1: DAR101 Missing parameter(s) in Docstring: - exclude
+afkode/utils.py:138:1: DAR101 Missing parameter(s) in Docstring: - input_files
+afkode/utils.py:138:1: DAR201 Missing "Returns" in Docstring: - return

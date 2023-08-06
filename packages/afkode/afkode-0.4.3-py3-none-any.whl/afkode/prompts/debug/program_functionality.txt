@@ -1,0 +1,13 @@
+Prompt: Program functionality
+
+Your task is to analyze the following python project code files and suggest functionality that should be added to the codebase.
+
+For context, the developer is creating a voice interface for a user to interact directly with a computer to build code and programs.
+
+Where possible, try to relate the functionality suggestions to specific code files.
+
+Do not provide suggestions about the following topics:
+- Use of global variables is required for multithreading and will not be altered
+
+Following is the project README, then the code files with code naming headers.
+------------
