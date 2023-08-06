@@ -1,0 +1,29 @@
+{% extends 'bill/update_quote.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans billnumber=bill.bill_number %}Bill #{{ billnumber }}{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block mention_panel %}
+  <label for="quote_mentions">{% trans %}Quote mentions{% endtrans %}</label>
+  <textarea name="quote_mentions" id="quote_mentions" rows="5" disabled>{{ bill.quote_mentions or '' }}</textarea>
+  <label for="bill_mentions">{% trans %}Bill mentions{% endtrans %}</label>
+  <textarea name="bill_mentions" id="bill_mentions" rows="5" disabled>{{ bill.bill_mentions or '' }}</textarea>
+{% endblock %}
+
+{% block actions %}
+  <div class="actions">
+    {% if bill.quote_number %}
+      <a href="{{ url_for('bill.view_quote_pdf', id=bill['id']) }}">{% trans %}View quote{% endtrans %}</a>
+      <a href="{{ url_for('bill.send_quote_email', id=bill['id']) }}">{% trans %}Send quote email{% endtrans %}</a>
+    {% endif %}
+    <a href="{{ url_for('bill.view_bill_pdf', id=bill['id']) }}">{% trans %}View bill{% endtrans %}</a>
+    <a href="{{ url_for('bill.send_bill_email', id=bill['id']) }}">{% trans %}Send bill email{% endtrans %}</a>
+    {% if not bill.paid %}
+      <form action="{{ url_for('bill.mark_paid', id=bill['id']) }}" method="post">
+        <input type="submit" value="{% trans %}Mark as paid{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+    {% endif %}
+  </div>
+{% endblock %}

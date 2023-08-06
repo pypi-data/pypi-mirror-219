@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Finish draft{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <div class="flex-align">
+    <div>
+      <p>
+        {% trans %}Create a quote first, then create a bill later.{% endtrans %}
+      </p>
+      <form action="{{ url_for('bill.create_quote', id=bill['id']) }}" method="post">
+        <input type="submit" value="{% trans %}Create quote{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+    </div>
+    <div>
+      <p>
+        {% trans %}Create a bill now, but you can't create a quote later.{% endtrans %}
+      </p>
+      <form action="{{ url_for('bill.create_bill', id=bill['id']) }}" method="post">
+        <input type="submit" value="{% trans %}Create bill{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+    </div>
+  </div>
+  <a href="{{ url_for('bill.update', id=bill['id'], _anchor="bill_rows") }}">{% trans %}Return{% endtrans %}</a>
+{% endblock %}

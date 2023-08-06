@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}New Client{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="label">{% trans %}Label{% endtrans %}</label>
+    <input name="label" id="label"
+      placeholder="{% trans %}Ex: John Doe{% endtrans %}" title="{% trans %}Ex: John Doe{% endtrans %}"
+      value="{{ request.form['label'] }}" required autofocus>
+    <label for="email">{% trans %}Email{% endtrans %}</label>
+    <input name="email" id="email"
+      placeholder="{% trans %}Ex: John Doe <contact@john-doe.com>{% endtrans %}" title="{% trans %}Ex: John Doe <contact@john-doe.com>{% endtrans %}"
+      value="{{ request.form['email'] }}">
+    <label for="address">{% trans %}Address{% endtrans %}</label>
+    <textarea name="address" id="address" rows="6"
+      placeholder="{% trans %}Ex: John Doe
+221 B Baker street,
+London, United Kingdom
+SIREN: 508 102 811{% endtrans %}" title="{% trans %}Ex: John Doe
+221 B Baker street,
+London, United Kingdom
+SIREN: 508 102 811{% endtrans %}"
+      >{{ request.form['address'] }}</textarea>
+    <input type="submit" value="Save">
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}

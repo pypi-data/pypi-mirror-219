@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}New Product{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="label">{% trans %}Label{% endtrans %}</label>
+    <input name="label" id="label"
+      placeholder="{% trans %}Ex: Consulting day{% endtrans %}" title="{% trans %}Ex: Consulting day{% endtrans %}"
+      value="{{ request.form['label'] }}" required autofocus maxlength="120">
+    <label for="price">{% trans %}Price{% endtrans %}</label>
+    <input name="price" id="price"
+      placeholder="{% trans %}Ex: 499.99{% endtrans %}" title="{% trans %}Ex: 499.99{% endtrans %}"
+      value="{{ request.form['price'] }}"
+      type="number" step="0.01" required>
+    <label for="tax_rate">{% trans %}Tax rate{% endtrans %}</label>
+    <input name="tax_rate" id="tax_rate"
+      placeholder="{% trans %}Ex: 20.0{% endtrans %}" title="{% trans %}Ex: 20.0{% endtrans %}"
+      value="{{ request.form['tax_rate'] }}"
+      type="number" step="0.01" max="100" min="0" required>
+    <input type="submit" value="{% trans %}Save{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}

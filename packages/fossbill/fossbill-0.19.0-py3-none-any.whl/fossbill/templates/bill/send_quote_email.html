@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Send quote email{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="email">{% trans %}Email{% endtrans %}</label>
+    <input name="email" id="email" value="{{ request.form['email'] or client.email }}" autofocus>
+    <label for="subject">{% trans %}Subject{% endtrans %}</label>
+    <input name="subject" id="subject" value="{{ request.form['subject'] or default_subject }}">
+    <label for="body">{% trans %}Body{% endtrans %}</label>
+    <textarea name="body" id="body" rows=6>{{ request.form['body'] or default_body }}</textarea>
+    <input type="submit" value="Send">
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}
