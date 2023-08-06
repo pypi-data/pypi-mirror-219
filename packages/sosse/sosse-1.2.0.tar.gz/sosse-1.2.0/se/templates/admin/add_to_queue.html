@@ -1,0 +1,71 @@
+{% extends "admin/base.html" %}
+{% block content %}
+    <form method="post" action="{% url 'admin:queue_confirm' %}">
+        {% csrf_token %}
+        {{ form.url.errors }}
+        {{ form.url.label_tag }} {{ form.url }}
+        {% if form.url.help_text %}
+            <p class="help">{{ form.url.help_text|safe }}</p>
+        {% endif %}
+
+        {% if crawl_policy %}
+            <input type="submit" name="action" value="Refresh">
+
+            <p>
+                This URL will be crawled with policy <a href="{% url 'admin:se_crawlpolicy_change' crawl_policy.id %}">{{ crawl_policy }}</a>:
+            </p>
+            <ul>
+                {% if crawl_policy.condition == CrawlPolicy.CRAWL_ALL %}
+                    <li>All URL matching the policy regexp will be crawled</li>
+                    {% if crawl_policy.crawl_depth > 1 %}
+                        <li>The crawler will recurse {{ crawl_policy.crawl_depth }} time{{ crawl_policy.crawl_depth|pluralize:'s' }} into URL when matching policies "Depending on depth"</li>
+                    {% endif %}
+                {% elif crawl_policy.condition == CrawlPolicy.CRAWL_ON_DEPTH %}
+                    <li>The crawler will recurse into linked pages depending on depth</li>
+                {% else %}
+                    <li>Only this URL will be crawled</li>
+                {% endif %}
+                <li>
+                    {% if crawl_policy.default_browse_mode == DomainSetting.BROWSE_DETECT %}
+                        A browser will be used if necessary
+                    {% elif crawl_policy.default_browse_mode == DomainSetting.BROWSE_SELENIUM %}
+                        A browser will be used
+                    {% else %}
+                        No browser will be used
+                    {% endif %}
+                </li>
+                {% if crawl_policy.condition == CrawlPolicy.CRAWL_ALL %}
+                    <li>
+                        {% if crawl_policy.recrawl_mode == CrawlPolicy.RECRAWL_NONE %}
+                            Crawled only once
+                        {% elif crawl_policy.recrawl_mode == CrawlPolicy.RECRAWL_CONSTANT %}
+                            Crawled every {{ recrawl_every }}
+                        {% else %}
+                            Recrawling will adapt from every {{ recrawl_min }} to every {{ recrawl_max }}
+                        {% endif %}
+                    </li>
+                {% endif %}
+                {% if crawl_policy.take_screenshots %}
+                    <li>Screenshots of pages will be saved</li>
+                {% endif %}
+            </ul>
+            <p>
+                <a href="{% url 'admin:se_crawlpolicy_add' %}?url_regex={{ url|urlencode }}">Create a new policy</a>
+            </p>
+
+            {% if crawl_policy.condition == CrawlPolicy.CRAWL_ON_DEPTH %}
+                {{ form.crawl_depth.errors }}
+                {{ form.crawl_depth.label_tag }} {{ form.crawl_depth }}
+                {% if form.crawl_depth.help_text %}
+                    <small><p class="help">{{ form.crawl_depth.help_text|safe }}</p></small>
+                {% endif %}
+            {% endif %}
+            <input type="hidden" name="confirmation" value="1">
+            <p>
+                <input type="submit" name="action" value="Confirm">
+            </p>
+        {% else %}
+            <input type="submit" name="action" value="Check and queue">
+        {% endif %}
+    </form>
+{% endblock %}
