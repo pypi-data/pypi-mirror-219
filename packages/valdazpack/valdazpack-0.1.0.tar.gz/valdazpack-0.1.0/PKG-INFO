@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: valdazpack
+Version: 0.1.0
+Summary: DAZ Package Validator
+License: MIT
+Author: Omni Flux
+Author-email: omniflux@omniflux.com
+Requires-Python: >=3.11.4,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Private :: Do Not Upload
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Requires-Dist: Pillow (>=10.0.0,<11.0.0)
+Requires-Dist: fs.dimzipfs (>=0.1.0,<0.2.0)
+Requires-Dist: fs.wrapcifs (>=0.1.0,<0.2.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: jsonpath-ng (>=1.5.3,<2.0.0)
+Requires-Dist: jsonschema[format] (>=4.18.3,<5.0.0)
+Requires-Dist: lxml (>=4.9.3,<5.0.0)
+Description-Content-Type: text/x-rst
+
+
