@@ -1,0 +1,3 @@
+[console_scripts]
+softnanotools = softnanotools.cli:main
+softnanotools.generate = softnanotools.generate.cli:main
