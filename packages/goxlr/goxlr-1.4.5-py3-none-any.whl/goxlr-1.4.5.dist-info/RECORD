@@ -1,0 +1,17 @@
+goxlr/__init__.py,sha256=6gor7t_mEF9mIfC8q8PNg9CNoheQgupJCkuRkWz7dng,60
+goxlr/_version.py,sha256=Fv2JHnR-ADpzdVitwHAsUrkhe-BpoDkmx7MxtXxlm1k,22
+goxlr/error.py,sha256=-T9sKrc3CiMhYP7Cef2ZHXJS-mKsxm1rugWa29yqkGI,357
+goxlr/socket.py,sha256=P9pIQIuTi93w2zYmfEzYkp8CW8ogW8S1M7eCwRy4nCM,8681
+goxlr/commands/__init__.py,sha256=wkvHBPx0Mc_qCtJ1cInfsMETgV56SP9lKmew52fjsYA,103
+goxlr/commands/daemon.py,sha256=qK9ZfOeokp_ySp3vRr7twmWTNaC_G9FUfdTvysyuKyk,1403
+goxlr/commands/goxlr.py,sha256=eKFgJp7rjyBlzOE_wQiIAUE2Cej0B18uaj25jmlHmSQ,26580
+goxlr/commands/status.py,sha256=HXGqu61H5_EeKgR8sUAXVZA78-6WcPlJAJzEjHtjXqk,23933
+goxlr/types/__init__.py,sha256=mOaxGXQkTXpmhBQ_ArPh6oQxed5GHGIayRf9VFj4fm8,43
+goxlr/types/enums.py,sha256=-dkLG3rnEnpYPfIYsOogxeBOMyXXXEXy8EIr07Yrt64,11218
+goxlr/types/models.py,sha256=iufNfdbUM_yivfOPBAKLfPRK0IQbdsXWJNO-yZAvWA0,22890
+goxlr-1.4.5.dist-info/LICENSE-3RD-PARTY.txt,sha256=XGozVrdmgfZ7t9sKlUoy36CDM7j-EkK3LTsTB4GK3uE,1115
+goxlr-1.4.5.dist-info/LICENSE.txt,sha256=tIGmqskIW2D-V0YRWc-FM8NHAANfGOiZjdq5j1P4vL8,1069
+goxlr-1.4.5.dist-info/METADATA,sha256=rTqDXJp2gSfmXCnv1wwOz3dfOsw91FdEPUyXdX21aMI,2492
+goxlr-1.4.5.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+goxlr-1.4.5.dist-info/top_level.txt,sha256=dbD2tzzNF-Sm7RjyarJ626DaIOkQw4e_RfsFeb9e8Eg,6
+goxlr-1.4.5.dist-info/RECORD,,
