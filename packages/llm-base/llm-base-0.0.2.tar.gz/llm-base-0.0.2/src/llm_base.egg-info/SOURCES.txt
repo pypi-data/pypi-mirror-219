@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/gpt/__init__.py
+src/gpt/openai/__init__.py
+src/gpt/openai/chat_completion.py
+src/llm_base.egg-info/PKG-INFO
+src/llm_base.egg-info/SOURCES.txt
+src/llm_base.egg-info/dependency_links.txt
+src/llm_base.egg-info/requires.txt
+src/llm_base.egg-info/top_level.txt
