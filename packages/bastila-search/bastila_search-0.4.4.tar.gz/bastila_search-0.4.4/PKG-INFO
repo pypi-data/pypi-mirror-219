@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: bastila_search
+Version: 0.4.4
+Summary: A python script that catches commits that introduce predefined deprecated patterns
+Home-page: https://github.com/GetBastila/bastila-hook
+Author: Bastila
+Author-email: hello@bastila.app
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+## Bastila
+
+### Installation Instructions
+
+1. Install the package `pip install bastila-search`
+2. Create a precommit file `touch .git/hooks/pre-commit`
+3. Add execute access to that file `chmod +x .git/hooks/pre-commit`
+4. Add the script to your pre-commit file
+
+```
+#!/bin/sh
+bastila_run
+```
