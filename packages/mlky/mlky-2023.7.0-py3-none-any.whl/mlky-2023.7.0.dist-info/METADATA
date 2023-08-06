@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: mlky
+Version: 2023.7.0
+Summary: Machine Learning key utilities
+Author: James Montgomery
+Author-email: J.Montgomery@jpl.nasa.gov
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: PyYAML
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+
+# MLky
+
+Because it's the only Way.
+
+# What is MLky?
+
+**M**achine **M**earning **k**e**y** Utilities
