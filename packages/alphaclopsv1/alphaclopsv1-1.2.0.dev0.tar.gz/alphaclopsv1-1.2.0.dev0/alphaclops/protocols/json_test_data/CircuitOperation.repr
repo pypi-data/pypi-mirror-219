@@ -1,0 +1,54 @@
+[alphaclops.CircuitOperation(circuit=alphaclops.FrozenCircuit([
+    alphaclops.Moment(
+        alphaclops.H(alphaclops.LineQubit(0)),
+        alphaclops.H(alphaclops.LineQubit(1)),
+        alphaclops.H(alphaclops.LineQubit(2)),
+        alphaclops.H(alphaclops.LineQubit(3)),
+        alphaclops.H(alphaclops.LineQubit(4)),
+    ),
+    alphaclops.Moment(
+        alphaclops.MeasurementGate(5, '0,1,2,3,4', ()).on(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2), alphaclops.LineQubit(3), alphaclops.LineQubit(4)),
+    ),
+]),
+repetition_ids=['0'],
+measurement_key_map={'0,1,2,3,4': 'mixed_state'}),
+alphaclops.CircuitOperation(circuit=alphaclops.FrozenCircuit([
+    alphaclops.Moment(
+        alphaclops.S(alphaclops.LineQubit(0)),
+    ),
+]),
+repetitions=-2,
+repetition_ids=['a', 'b'],
+qubit_map={alphaclops.LineQubit(0): alphaclops.LineQubit(1)}),
+alphaclops.CircuitOperation(circuit=alphaclops.FrozenCircuit([
+    alphaclops.Moment(
+        alphaclops.S(alphaclops.LineQubit(0)),
+    ),
+]),
+repetitions=-2,
+parent_path=('outer', 'inner'),
+repetition_ids=['a', 'b'],
+qubit_map={alphaclops.LineQubit(0): alphaclops.LineQubit(1)},
+use_repetition_ids=True),
+alphaclops.CircuitOperation(circuit=alphaclops.FrozenCircuit([
+    alphaclops.Moment(
+        (alphaclops.X**sympy.Symbol('theta')).on(alphaclops.LineQubit(0)),
+    ),
+]),
+param_resolver={sympy.Symbol('theta'): 1.5},
+use_repetition_ids=False),
+alphaclops.CircuitOperation(circuit=alphaclops.FrozenCircuit([
+    alphaclops.Moment(
+        alphaclops.H(alphaclops.LineQubit(0)),
+        alphaclops.H(alphaclops.LineQubit(1)),
+        alphaclops.H(alphaclops.LineQubit(2)),
+        alphaclops.H(alphaclops.LineQubit(3)),
+        alphaclops.H(alphaclops.LineQubit(4)),
+    ),
+    alphaclops.Moment(
+        alphaclops.MeasurementGate(5, '0,1,2,3,4', ()).on(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2), alphaclops.LineQubit(3), alphaclops.LineQubit(4)),
+    ),
+]),
+use_repetition_ids=False,
+repeat_until=alphaclops.KeyCondition(key=alphaclops.MeasurementKey('0,1,2,3,4')),
+)]

@@ -1,0 +1,1 @@
+alphaclops.ClassicallyControlledOperation(alphaclops.Y.on(alphaclops.NamedQubit('target')), [alphaclops.KeyCondition(key=alphaclops.MeasurementKey('a')), alphaclops.KeyCondition(key=alphaclops.MeasurementKey('b'))])

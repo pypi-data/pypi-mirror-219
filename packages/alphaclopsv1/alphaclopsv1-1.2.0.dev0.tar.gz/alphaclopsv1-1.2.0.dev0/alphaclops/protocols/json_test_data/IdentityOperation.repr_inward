@@ -1,0 +1,4 @@
+[
+alphaclops.IdentityGate(2).on(alphaclops.LineQubit(0), alphaclops.LineQubit(1)),
+alphaclops.IdentityGate(5).on(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2), alphaclops.LineQubit(3), alphaclops.LineQubit(4))
+]

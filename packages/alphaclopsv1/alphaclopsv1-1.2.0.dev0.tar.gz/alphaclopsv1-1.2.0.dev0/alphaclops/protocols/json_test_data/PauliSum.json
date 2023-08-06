@@ -1,0 +1,67 @@
+{
+  "alphaclops_type": "PauliSum",
+  "items": [
+    [
+      [
+        [
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 0
+          },
+          {
+            "alphaclops_type": "_PauliX",
+            "exponent": 1.0,
+            "global_shift": 0.0
+          }
+        ],
+        [
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 1
+          },
+          {
+            "alphaclops_type": "_PauliX",
+            "exponent": 1.0,
+            "global_shift": 0.0
+          }
+        ]
+      ],
+      {
+        "alphaclops_type": "complex",
+        "real": 1.0,
+        "imag": 0.0
+      }
+    ],
+    [
+      [
+        [
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 0
+          },
+          {
+            "alphaclops_type": "_PauliY",
+            "exponent": 1.0,
+            "global_shift": 0.0
+          }
+        ],
+        [
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 1
+          },
+          {
+            "alphaclops_type": "_PauliY",
+            "exponent": 1.0,
+            "global_shift": 0.0
+          }
+        ]
+      ],
+      {
+        "alphaclops_type": "complex",
+        "real": 0.0,
+        "imag": 1.0
+      }
+    ]
+  ]
+}

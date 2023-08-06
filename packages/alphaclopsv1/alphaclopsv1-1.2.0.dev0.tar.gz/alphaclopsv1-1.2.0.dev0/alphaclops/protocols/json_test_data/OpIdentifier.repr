@@ -1,0 +1,4 @@
+alphaclops.devices.noise_utils.OpIdentifier(
+    alphaclops.ops.common_gates.XPowGate,
+    alphaclops.LineQubit(1)
+)

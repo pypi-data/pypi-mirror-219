@@ -1,0 +1,44 @@
+[
+  {
+    "alphaclops_type": "CZTargetGateset",
+    "atol": 1e-06,
+    "allow_partial_czs": false
+  },
+  {
+    "alphaclops_type": "CZTargetGateset",
+    "atol": 1e-08,
+    "allow_partial_czs": true
+  },
+  {
+    "alphaclops_type": "CZTargetGateset",
+    "atol": 1e-06,
+    "allow_partial_czs": true,
+    "additional_gates": [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": {
+          "alphaclops_type": "ISwapPowGate",
+          "exponent": 0.5,
+          "global_shift": 0.0
+        },
+        "name": "Instance GateFamily: ISWAP**0.5",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `g == ISWAP**0.5`",
+        "ignore_global_phase": true
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "XPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.XPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.XPowGate)`",
+        "ignore_global_phase": true
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "ZPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.ZPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.ZPowGate)`",
+        "ignore_global_phase": true
+      }
+    ]
+  }
+]

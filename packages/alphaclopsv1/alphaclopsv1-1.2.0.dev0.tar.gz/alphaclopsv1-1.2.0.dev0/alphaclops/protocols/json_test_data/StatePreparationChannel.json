@@ -1,0 +1,26 @@
+{
+  "alphaclops_type": "StatePreparationChannel",
+  "target_state": [
+    {
+      "alphaclops_type": "complex",
+      "real": 1.0,
+      "imag": 0.0
+    },
+    {
+      "alphaclops_type": "complex",
+      "real": 0.0,
+      "imag": 0.0
+    },
+    {
+      "alphaclops_type": "complex",
+      "real": 0.0,
+      "imag": 0.0
+    },
+    {
+      "alphaclops_type": "complex",
+      "real": 0.0,
+      "imag": 0.0
+    }
+  ],
+  "name": "StatePrepare"
+}

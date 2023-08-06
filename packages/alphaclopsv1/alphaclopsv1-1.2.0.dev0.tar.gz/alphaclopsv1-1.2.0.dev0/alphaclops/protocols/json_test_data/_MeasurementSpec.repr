@@ -1,0 +1,1 @@
+alphaclops.work._MeasurementSpec(max_setting=alphaclops.work.InitObsSetting(init_state=alphaclops.ProductState({alphaclops.LineQubit(0): alphaclops.Z.basis[+1], alphaclops.LineQubit(1): alphaclops.Z.basis[+1]}), observable=(alphaclops.X(alphaclops.LineQubit(0))*alphaclops.Y(alphaclops.LineQubit(1)))), circuit_params={'beta': 0.123, 'gamma': 0.456})

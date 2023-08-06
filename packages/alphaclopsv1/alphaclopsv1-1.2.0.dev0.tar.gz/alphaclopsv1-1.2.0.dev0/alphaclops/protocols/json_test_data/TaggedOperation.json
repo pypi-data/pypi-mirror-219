@@ -1,0 +1,24 @@
+{
+  "alphaclops_type": "TaggedOperation",
+  "sub_operation":
+  {
+    "alphaclops_type": "SingleQubitPauliStringGateOperation",
+    "pauli":
+    {
+      "alphaclops_type": "_PauliX",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    "qubit": {
+      "alphaclops_type": "NamedQubit",
+      "name": "q1"
+    }
+  },
+  "tags":
+  [
+    "tag1",
+    {
+      "alphaclops_type": "VirtualTag"
+    }
+  ]
+}

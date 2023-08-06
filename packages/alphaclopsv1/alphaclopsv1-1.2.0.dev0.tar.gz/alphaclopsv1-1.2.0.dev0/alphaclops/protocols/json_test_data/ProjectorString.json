@@ -1,0 +1,17 @@
+{
+  "alphaclops_type": "ProjectorString",
+  "projector_dict": [
+    [
+      {
+        "alphaclops_type": "NamedQubit",
+        "name": "q0"
+      },
+      0
+    ]
+  ],
+  "coefficient": {
+    "alphaclops_type": "complex",
+    "real": 20.160913,
+    "imag": 0.0
+  }
+}

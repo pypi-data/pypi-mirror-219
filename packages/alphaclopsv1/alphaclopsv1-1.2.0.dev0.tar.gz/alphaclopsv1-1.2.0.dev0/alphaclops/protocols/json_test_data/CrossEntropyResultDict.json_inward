@@ -1,0 +1,68 @@
+{
+  "alphaclops_type": "CrossEntropyResultDict",
+  "results": [
+    [
+      [
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 0
+        },
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 1
+        }
+      ],
+      {
+        "alphaclops_type": "CrossEntropyResult",
+        "data": [
+          [
+            2,
+            0.9
+          ],
+          [
+            4,
+            0.5
+          ]
+        ],
+        "repetitions": 1000,
+        "purity_data": null
+      }
+    ],
+    [
+      [
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 2
+        },
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 3
+        }
+      ],
+      {
+        "alphaclops_type": "CrossEntropyResult",
+        "data": [
+          [
+            2,
+            0.8
+          ],
+          [
+            4,
+            0.4
+          ]
+        ],
+        "repetitions": 1000,
+        "purity_data": [
+          [
+            2,
+            0.7
+          ],
+          [
+            4,
+            0.3
+          ]
+        ]
+      }
+    ]
+  ]
+}

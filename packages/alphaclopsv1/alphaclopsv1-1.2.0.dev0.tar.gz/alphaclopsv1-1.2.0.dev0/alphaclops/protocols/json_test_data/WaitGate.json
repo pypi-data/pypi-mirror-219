@@ -1,0 +1,7 @@
+{
+  "alphaclops_type": "WaitGate",
+  "duration": {
+    "alphaclops_type": "Duration",
+    "picos": 10000
+  }
+}

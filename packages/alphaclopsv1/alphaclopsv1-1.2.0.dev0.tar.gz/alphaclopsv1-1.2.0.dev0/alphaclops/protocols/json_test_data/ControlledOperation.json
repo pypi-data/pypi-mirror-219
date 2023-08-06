@@ -1,0 +1,77 @@
+[
+  {
+    "alphaclops_type": "ControlledOperation",
+    "controls": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      }
+    ],
+    "control_values": {
+      "alphaclops_type": "ProductOfSums",
+      "data": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "sub_operation": {
+      "alphaclops_type": "SingleQubitPauliStringGateOperation",
+      "pauli": {
+        "alphaclops_type": "_PauliY",
+        "exponent": 1.0,
+        "global_shift": 0.0
+      },
+      "qubit": {
+        "alphaclops_type": "NamedQubit",
+        "name": "target"
+      }
+    }
+  },
+  {
+    "alphaclops_type": "ControlledOperation",
+    "controls": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      }
+    ],
+    "control_values": {
+      "alphaclops_type": "SumOfProducts",
+      "data": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "name": "xor"
+    },
+    "sub_operation": {
+      "alphaclops_type": "SingleQubitPauliStringGateOperation",
+      "pauli": {
+        "alphaclops_type": "_PauliY",
+        "exponent": 1.0,
+        "global_shift": 0.0
+      },
+      "qubit": {
+        "alphaclops_type": "NamedQubit",
+        "name": "target"
+      }
+    }
+  }
+]

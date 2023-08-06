@@ -1,0 +1,5 @@
+[
+    alphaclops.MeasurementKey(name="key"),
+    alphaclops.MeasurementKey(path=('outer',), name='key'),
+    alphaclops.MeasurementKey(path=('nested', 'path'), name='key'),
+]

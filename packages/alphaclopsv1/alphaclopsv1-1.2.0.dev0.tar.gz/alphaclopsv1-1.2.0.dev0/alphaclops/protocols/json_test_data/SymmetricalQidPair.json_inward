@@ -1,0 +1,13 @@
+{
+  "alphaclops_type": "SymmetricalQidPair",
+  "qids": [
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 0
+    },
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 1
+    }
+  ]
+}

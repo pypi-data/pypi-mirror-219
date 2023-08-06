@@ -1,0 +1,18 @@
+[
+    alphaclops.CZTargetGateset(atol=1e-06, allow_partial_czs=False, additional_gates=[]),
+    alphaclops.CZTargetGateset(atol=1e-08, allow_partial_czs=True, additional_gates=[]),
+    alphaclops.CZTargetGateset(
+        atol=1e-06,
+        allow_partial_czs=True,
+        additional_gates=[
+            (alphaclops.ISWAP**0.5),
+            alphaclops.ops.common_gates.XPowGate,
+            alphaclops.GateFamily(
+                gate=alphaclops.ops.common_gates.ZPowGate,
+                ignore_global_phase=True,
+                tags_to_accept=frozenset(),
+                tags_to_ignore=frozenset(),
+            ),
+        ],
+    ),
+]

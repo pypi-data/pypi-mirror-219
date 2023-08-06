@@ -1,0 +1,114 @@
+[
+  {
+    "alphaclops_type": "pandas.DataFrame",
+    "data": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        4,
+        5,
+        6
+      ]
+    ],
+    "columns": {
+      "alphaclops_type": "pandas.Index",
+      "data": [
+        "x",
+        "y",
+        "z"
+      ],
+      "name": null
+    },
+    "index": {
+      "alphaclops_type": "pandas.Index",
+      "data": [
+        2,
+        5
+      ],
+      "name": null
+    }
+  },
+  {
+    "alphaclops_type": "pandas.DataFrame",
+    "data": [
+      [
+        11,
+        21.0
+      ],
+      [
+        12,
+        22.0
+      ],
+      [
+        13,
+        23.0
+      ]
+    ],
+    "columns": {
+      "alphaclops_type": "pandas.Index",
+      "data": [
+        "a",
+        "b"
+      ],
+      "name": null
+    },
+    "index": {
+      "alphaclops_type": "pandas.Index",
+      "data": [
+        1,
+        2,
+        3
+      ],
+      "name": "test"
+    }
+  },
+  {
+    "alphaclops_type": "pandas.DataFrame",
+    "data": [
+      [
+        11,
+        21.0
+      ],
+      [
+        12,
+        22.0
+      ],
+      [
+        13,
+        23.0
+      ]
+    ],
+    "columns": {
+      "alphaclops_type": "pandas.Index",
+      "data": [
+        "a",
+        "b"
+      ],
+      "name": "c"
+    },
+    "index": {
+      "alphaclops_type": "pandas.MultiIndex",
+      "tuples": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "names": [
+        "x",
+        "y"
+      ]
+    }
+  }
+]

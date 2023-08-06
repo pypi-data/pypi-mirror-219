@@ -1,0 +1,1 @@
+alphaclops.TaggedOperation(alphaclops.X.on(alphaclops.NamedQubit('q1')), 'tag1', alphaclops.ops.VirtualTag())

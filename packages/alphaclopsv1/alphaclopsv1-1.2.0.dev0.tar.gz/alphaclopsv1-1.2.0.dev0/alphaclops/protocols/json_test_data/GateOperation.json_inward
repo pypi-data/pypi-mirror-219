@@ -1,0 +1,102 @@
+[
+  {
+    "alphaclops_type": "GateOperation",
+    "gate": {
+      "alphaclops_type": "CCXPowGate",
+      "exponent": 1,
+      "global_shift": 0.0
+    },
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 2
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "GateOperation",
+    "gate": {
+      "alphaclops_type": "CCZPowGate",
+      "exponent": 1,
+      "global_shift": 0.0
+    },
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 2
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "GateOperation",
+    "gate": {
+      "alphaclops_type": "CNotPowGate",
+      "exponent": 1,
+      "global_shift": 0.0
+    },
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "GateOperation",
+    "gate": {
+      "alphaclops_type": "CSwapGate"
+    },
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 2
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "GateOperation",
+    "gate": {
+      "alphaclops_type": "CZPowGate",
+      "exponent": 1,
+      "global_shift": 0.0
+    },
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,2 @@
+[alphaclops.ControlledOperation(sub_operation=alphaclops.Y(alphaclops.NamedQubit('target')),control_values=alphaclops.ProductOfSums(((0,), (1,))),controls=(alphaclops.LineQubit(0), alphaclops.LineQubit(1))), alphaclops.ControlledOperation(sub_operation=alphaclops.Y(alphaclops.NamedQubit('target')),control_values=alphaclops.SumOfProducts(((0, 1), (1, 0)) , name="xor"),controls=(alphaclops.LineQubit(0), alphaclops.LineQubit(1)))]
+

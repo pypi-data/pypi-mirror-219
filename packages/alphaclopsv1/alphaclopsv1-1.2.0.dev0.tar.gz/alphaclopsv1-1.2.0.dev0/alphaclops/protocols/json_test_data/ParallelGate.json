@@ -1,0 +1,9 @@
+{
+  "alphaclops_type": "ParallelGate",
+  "sub_gate": {
+    "alphaclops_type": "_PauliX",
+    "exponent": 1.0,
+    "global_shift": 0.0
+  },
+  "num_copies": 4
+}

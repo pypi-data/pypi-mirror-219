@@ -1,0 +1,1 @@
+alphaclops.SympyCondition(sympy.GreaterThan(sympy.Symbol('a'), sympy.Symbol('b')))

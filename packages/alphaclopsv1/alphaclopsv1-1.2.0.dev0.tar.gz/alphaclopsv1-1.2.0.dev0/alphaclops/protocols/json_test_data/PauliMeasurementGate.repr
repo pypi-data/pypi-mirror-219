@@ -1,0 +1,6 @@
+[
+    alphaclops.PauliMeasurementGate((alphaclops.X, alphaclops.Y, alphaclops.Z), alphaclops.MeasurementKey(name='key')),
+    alphaclops.PauliMeasurementGate(alphaclops.DensePauliString("XYZ"), alphaclops.MeasurementKey(path=('p', 'q'), name='key')),
+    alphaclops.PauliMeasurementGate(alphaclops.DensePauliString("XYZ", coefficient=-1), alphaclops.MeasurementKey(name='key')),
+]
+

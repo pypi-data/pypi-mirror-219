@@ -1,0 +1,2 @@
+[alphaclops.ControlledGate(sub_gate=alphaclops.Y, control_values=alphaclops.ProductOfSums(((0,), (1,))),control_qid_shape=(3, 2)), alphaclops.ControlledGate(sub_gate=alphaclops.Y, control_values=alphaclops.SumOfProducts(((0, 1), (1, 0)) , name="xor"),control_qid_shape=(3, 2))]
+

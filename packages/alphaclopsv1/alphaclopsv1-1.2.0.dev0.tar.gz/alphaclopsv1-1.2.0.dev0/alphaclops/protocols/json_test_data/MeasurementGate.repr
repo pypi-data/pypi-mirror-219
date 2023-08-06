@@ -1,0 +1,6 @@
+[
+    alphaclops.MeasurementGate(3, 'z', ()),
+    alphaclops.MeasurementGate(3, 'z', (True, False, True)),
+    alphaclops.MeasurementGate(3, alphaclops.MeasurementKey(path=('a', 'b'), name='z'), (True, False), qid_shape=(1, 2, 3)),
+    alphaclops.MeasurementGate(3, alphaclops.MeasurementKey(name='a'), (True, False), qid_shape=(1, 2, 3), confusion_map={(1,): np.array([[0, 1], [1, 0]], dtype=np.int64)}),
+]

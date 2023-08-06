@@ -1,0 +1,212 @@
+{
+  "alphaclops_type": "GridDeviceMetadata",
+  "qubit_pairs": [
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 1
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 0
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 2
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 1
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 2
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 2
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 1
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 2
+      }
+    ]
+  ],
+  "gateset": {
+    "alphaclops_type": "Gateset",
+    "gates": [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "XPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.XPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.XPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "YPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.YPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.YPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "ZPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.ZPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.ZPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      }
+    ],
+    "name": null,
+    "unroll_circuit_op": true
+  },
+  "gate_durations": [
+    [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "XPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.XPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.XPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      },
+      {
+        "alphaclops_type": "Duration",
+        "picos": 1000
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "YPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.YPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.YPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      },
+      {
+        "alphaclops_type": "Duration",
+        "picos": 1
+      }
+    ],
+    [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "ZPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.ZPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.ZPowGate)`",
+        "ignore_global_phase": true,
+        "tags_to_accept": [],
+        "tags_to_ignore": []
+      },
+      {
+        "alphaclops_type": "Duration",
+        "picos": 1
+      }
+    ]
+  ],
+  "all_qubits": [
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 0,
+      "col": 0
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 0,
+      "col": 1
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 0,
+      "col": 2
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 1,
+      "col": 1
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 1,
+      "col": 2
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 9,
+      "col": 9
+    },
+    {
+      "alphaclops_type": "TensorCircuit",
+      "row": 10,
+      "col": 10
+    }
+  ]
+}

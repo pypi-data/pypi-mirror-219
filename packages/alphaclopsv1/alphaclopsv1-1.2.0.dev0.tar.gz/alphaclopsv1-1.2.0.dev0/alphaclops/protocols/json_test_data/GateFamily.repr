@@ -1,0 +1,6 @@
+[
+    alphaclops.GateFamily(gate=alphaclops.ops.common_gates.XPowGate, ignore_global_phase=True, tags_to_accept=frozenset(), tags_to_ignore=frozenset()),
+    alphaclops.GateFamily(gate=alphaclops.X, name="XFamily", description="Just the X gate.", ignore_global_phase=False, tags_to_accept=frozenset(), tags_to_ignore=frozenset()),
+    alphaclops.GateFamily(gate=alphaclops.ops.common_gates.ZPowGate, ignore_global_phase=True, tags_to_accept=frozenset({'physical_z'}), tags_to_ignore=frozenset()),
+    alphaclops.GateFamily(gate=alphaclops.ops.common_gates.ZPowGate, ignore_global_phase=True, tags_to_accept=frozenset(), tags_to_ignore=frozenset({'physical_z'})),
+]

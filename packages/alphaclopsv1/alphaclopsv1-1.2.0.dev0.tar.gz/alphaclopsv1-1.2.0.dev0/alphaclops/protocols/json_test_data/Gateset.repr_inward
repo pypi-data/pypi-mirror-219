@@ -1,0 +1,16 @@
+[
+    alphaclops.Gateset(
+        alphaclops.ops.common_gates.YPowGate,
+        alphaclops.AnyUnitaryGateFamily(num_qubits=2),
+        alphaclops.X,
+        alphaclops.GlobalPhaseGate,
+        unroll_circuit_op=True,
+    ),
+    alphaclops.Gateset(
+        alphaclops.X,
+        alphaclops.ops.common_gates.YPowGate,
+        alphaclops.AnyUnitaryGateFamily(num_qubits=2),
+        name="Custom Name",
+        unroll_circuit_op=False,
+    ),
+]

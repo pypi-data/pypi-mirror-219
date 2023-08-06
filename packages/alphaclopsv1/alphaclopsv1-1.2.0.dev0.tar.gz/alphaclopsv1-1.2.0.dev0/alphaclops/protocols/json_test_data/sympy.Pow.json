@@ -1,0 +1,41 @@
+[
+  {
+    "alphaclops_type": "sympy.Pow",
+    "args": [
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "s"
+      },
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "t"
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "sympy.Pow",
+    "args": [
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "s"
+      },
+      {
+        "alphaclops_type": "sympy.Integer",
+        "i": 2
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "sympy.Pow",
+    "args": [
+      {
+        "alphaclops_type": "sympy.Integer",
+        "i": 2
+      },
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "s"
+      }
+    ]
+  }
+]

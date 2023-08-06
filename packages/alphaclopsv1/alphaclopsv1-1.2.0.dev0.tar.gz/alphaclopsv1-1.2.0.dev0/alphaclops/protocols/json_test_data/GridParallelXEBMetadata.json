@@ -1,0 +1,119 @@
+[
+  {
+    "alphaclops_type": "GridParallelXEBMetadata",
+    "qubits": [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 1
+      }
+    ],
+    "two_qubit_gate": {
+      "alphaclops_type": "ISwapPowGate",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    "num_circuits": 10,
+    "repetitions": 10000,
+    "cycles": [
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "layers": [
+      {
+        "alphaclops_type": "GridInteractionLayer",
+        "col_offset": 0,
+        "vertical": true,
+        "stagger": true
+      },
+      {
+        "alphaclops_type": "GridInteractionLayer",
+        "col_offset": 1,
+        "vertical": true,
+        "stagger": true
+      }
+    ],
+    "seed": 1234
+  },
+  {
+    "alphaclops_type": "GridParallelXEBMetadata",
+    "qubits": [
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 0,
+        "col": 2
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 0
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 1
+      },
+      {
+        "alphaclops_type": "TensorCircuit",
+        "row": 1,
+        "col": 2
+      }
+    ],
+    "two_qubit_gate": {
+      "alphaclops_type": "CZPowGate",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    "num_circuits": 50,
+    "repetitions": 1000,
+    "cycles": [
+      3,
+      6,
+      9,
+      12
+    ],
+    "layers": [
+      {
+        "alphaclops_type": "GridInteractionLayer",
+        "col_offset": 1,
+        "vertical": false,
+        "stagger": true
+      },
+      {
+        "alphaclops_type": "GridInteractionLayer",
+        "col_offset": 0,
+        "vertical": false,
+        "stagger": true
+      }
+    ],
+    "seed": null
+  }
+]

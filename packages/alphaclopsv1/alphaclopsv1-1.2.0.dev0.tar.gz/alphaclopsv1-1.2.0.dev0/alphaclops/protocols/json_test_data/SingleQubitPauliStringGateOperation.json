@@ -1,0 +1,12 @@
+{
+  "alphaclops_type": "SingleQubitPauliStringGateOperation",
+  "pauli": {
+    "alphaclops_type": "_PauliX",
+    "exponent": 1,
+    "global_shift": 0.0
+  },
+  "qubit": {
+    "alphaclops_type": "LineQubit",
+    "x": 0
+  }
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "alphaclops_type": "PauliMeasurementGate",
+    "observable": {
+      "alphaclops_type": "DensePauliString",
+      "pauli_mask": [
+        1,
+        2,
+        3
+      ],
+      "coefficient": {
+        "alphaclops_type": "complex",
+        "real": 1.0,
+        "imag": 0.0
+      }
+    },
+    "key": "key"
+  },
+  {
+    "alphaclops_type": "PauliMeasurementGate",
+    "observable": {
+      "alphaclops_type": "DensePauliString",
+      "pauli_mask": [
+        1,
+        2,
+        3
+      ],
+      "coefficient": {
+        "alphaclops_type": "complex",
+        "real": 1.0,
+        "imag": 0.0
+      }
+    },
+    "key": "p:q:key"
+  },
+  {
+    "alphaclops_type": "PauliMeasurementGate",
+    "observable": {
+      "alphaclops_type": "DensePauliString",
+      "pauli_mask": [
+        1,
+        2,
+        3
+      ],
+      "coefficient": {
+        "alphaclops_type": "complex",
+        "real": -1.0,
+        "imag": 0.0
+      }
+    },
+    "key": "key"
+  }
+]

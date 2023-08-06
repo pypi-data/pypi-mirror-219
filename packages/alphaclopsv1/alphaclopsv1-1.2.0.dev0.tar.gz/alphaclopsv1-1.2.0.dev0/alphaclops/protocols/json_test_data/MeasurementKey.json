@@ -1,0 +1,17 @@
+[
+  {
+    "alphaclops_type": "MeasurementKey",
+    "name": "key",
+    "path": []
+  },
+  {
+    "alphaclops_type": "MeasurementKey",
+    "name": "key",
+    "path": ["outer"]
+  },
+  {
+    "alphaclops_type": "MeasurementKey",
+    "name": "key",
+    "path": ["nested", "path"]
+  }
+]

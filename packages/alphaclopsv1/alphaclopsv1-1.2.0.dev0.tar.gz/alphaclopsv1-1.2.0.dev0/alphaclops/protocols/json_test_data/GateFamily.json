@@ -1,0 +1,40 @@
+[
+  {
+    "alphaclops_type": "GateFamily",
+    "gate": "XPowGate",
+    "name": "Type GateFamily: alphaclops.ops.common_gates.XPowGate",
+    "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.XPowGate)`",
+    "ignore_global_phase": true
+  },
+  {
+    "alphaclops_type": "GateFamily",
+    "gate": {
+      "alphaclops_type": "_PauliX",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    "name": "XFamily",
+    "description": "Just the X gate.",
+    "ignore_global_phase": false
+  },
+  {
+    "alphaclops_type": "GateFamily",
+    "gate": "ZPowGate",
+    "name": "Type GateFamily: alphaclops.ops.common_gates.ZPowGate",
+    "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.ZPowGate)`\nAccepted tags: ['physical_z']",
+    "ignore_global_phase": true,
+    "tags_to_accept": [
+      "physical_z"
+    ]
+  },
+  {
+    "alphaclops_type": "GateFamily",
+    "gate": "ZPowGate",
+    "name": "Type GateFamily: alphaclops.ops.common_gates.ZPowGate",
+    "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.ZPowGate)`\nIgnored tags: ['physical_z']",
+    "ignore_global_phase": true,
+    "tags_to_ignore": [
+      "physical_z"
+    ]
+  }
+]

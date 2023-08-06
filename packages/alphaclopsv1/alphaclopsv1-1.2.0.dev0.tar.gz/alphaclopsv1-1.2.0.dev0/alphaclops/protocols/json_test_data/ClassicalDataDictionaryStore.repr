@@ -1,0 +1,4 @@
+[
+    alphaclops.ClassicalDataDictionaryStore(_records={alphaclops.MeasurementKey('m'): [[0, 1]]}, _measured_qubits={alphaclops.MeasurementKey('m'): [[alphaclops.LineQubit(0), alphaclops.LineQubit(1)]]}, _channel_records={alphaclops.MeasurementKey('c'): [3]}, _measurement_types={alphaclops.MeasurementKey('m'): alphaclops.MeasurementType.MEASUREMENT, alphaclops.MeasurementKey('c'): alphaclops.MeasurementType.CHANNEL}),
+    alphaclops.ClassicalDataDictionaryStore(),
+]

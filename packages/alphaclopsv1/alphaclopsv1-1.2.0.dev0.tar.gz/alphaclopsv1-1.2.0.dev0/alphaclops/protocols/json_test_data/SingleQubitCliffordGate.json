@@ -1,0 +1,24 @@
+{
+  "alphaclops_type": "SingleQubitCliffordGate",
+  "n": 1,
+  "rs": [
+    false,
+    false
+  ],
+  "xs": [
+    [
+      true
+    ],
+    [
+      false
+    ]
+  ],
+  "zs": [
+    [
+      false
+    ],
+    [
+      true
+    ]
+  ]
+}

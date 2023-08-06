@@ -1,0 +1,317 @@
+{
+  "alphaclops_type": "_ContextualSerialization",
+  "object_dag": [
+    {
+      "alphaclops_type": "_SerializedContext",
+      "key": 1,
+      "obj": {
+        "alphaclops_type": "FrozenCircuit",
+        "moments": [
+          {
+            "alphaclops_type": "Moment",
+            "operations": [
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "HPowGate",
+                  "exponent": 1.0,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 0
+                  }
+                ]
+              },
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "HPowGate",
+                  "exponent": 1.0,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 1
+                  }
+                ]
+              },
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "HPowGate",
+                  "exponent": 1.0,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 2
+                  }
+                ]
+              },
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "HPowGate",
+                  "exponent": 1.0,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 3
+                  }
+                ]
+              },
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "HPowGate",
+                  "exponent": 1.0,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 4
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "alphaclops_type": "Moment",
+            "operations": [
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "MeasurementGate",
+                  "num_qubits": 5,
+                  "key": "0,1,2,3,4",
+                  "invert_mask": []
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 0
+                  },
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 1
+                  },
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 2
+                  },
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 3
+                  },
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 4
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "alphaclops_type": "_SerializedContext",
+      "key": 2,
+      "obj": {
+        "alphaclops_type": "FrozenCircuit",
+        "moments": [
+          {
+            "alphaclops_type": "Moment",
+            "operations": [
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "ZPowGate",
+                  "exponent": 0.5,
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "alphaclops_type": "_SerializedContext",
+      "key": 3,
+      "obj": {
+        "alphaclops_type": "FrozenCircuit",
+        "moments": [
+          {
+            "alphaclops_type": "Moment",
+            "operations": [
+              {
+                "alphaclops_type": "GateOperation",
+                "gate": {
+                  "alphaclops_type": "XPowGate",
+                  "exponent": {
+                    "alphaclops_type": "sympy.Symbol",
+                    "name": "theta"
+                  },
+                  "global_shift": 0.0
+                },
+                "qubits": [
+                  {
+                    "alphaclops_type": "LineQubit",
+                    "x": 0
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    [
+      {
+        "alphaclops_type": "CircuitOperation",
+        "circuit": {
+          "alphaclops_type": "_SerializedKey",
+          "key": 1
+        },
+        "repetitions": 1,
+        "qubit_map": [],
+        "measurement_key_map": {
+          "0,1,2,3,4": "mixed_state"
+        },
+        "param_resolver": {
+          "alphaclops_type": "ParamResolver",
+          "param_dict": []
+        },
+        "parent_path": [],
+        "repetition_ids": [
+          "0"
+        ]
+      },
+      {
+        "alphaclops_type": "CircuitOperation",
+        "circuit": {
+          "alphaclops_type": "_SerializedKey",
+          "key": 2
+        },
+        "repetitions": -2,
+        "qubit_map": [
+          [
+            {
+              "alphaclops_type": "LineQubit",
+              "x": 0
+            },
+            {
+              "alphaclops_type": "LineQubit",
+              "x": 1
+            }
+          ]
+        ],
+        "measurement_key_map": {},
+        "param_resolver": {
+          "alphaclops_type": "ParamResolver",
+          "param_dict": []
+        },
+        "parent_path": [],
+        "repetition_ids": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "alphaclops_type": "CircuitOperation",
+        "circuit": {
+          "alphaclops_type": "_SerializedKey",
+          "key": 2
+        },
+        "repetitions": -2,
+        "qubit_map": [
+          [
+            {
+              "alphaclops_type": "LineQubit",
+              "x": 0
+            },
+            {
+              "alphaclops_type": "LineQubit",
+              "x": 1
+            }
+          ]
+        ],
+        "measurement_key_map": {},
+        "param_resolver": {
+          "alphaclops_type": "ParamResolver",
+          "param_dict": []
+        },
+        "parent_path": ["outer", "inner"],
+        "repetition_ids": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "alphaclops_type": "CircuitOperation",
+        "circuit": {
+          "alphaclops_type": "_SerializedKey",
+          "key": 3
+        },
+        "repetitions": 1,
+        "qubit_map": [],
+        "measurement_key_map": {},
+        "param_resolver": {
+          "alphaclops_type": "ParamResolver",
+          "param_dict": [
+            [
+              {
+                "alphaclops_type": "sympy.Symbol",
+                "name": "theta"
+              },
+              1.5
+            ]
+          ]
+        },
+        "parent_path": [],
+        "repetition_ids": null,
+        "use_repetition_ids": false
+      },
+      {
+        "alphaclops_type": "CircuitOperation",
+        "circuit": {
+          "alphaclops_type": "_SerializedKey",
+          "key": 1
+        },
+        "repetitions": 1,
+        "qubit_map": [],
+        "measurement_key_map": {},
+        "param_resolver": {
+          "alphaclops_type": "ParamResolver",
+          "param_dict": []
+        },
+        "parent_path": [],
+        "repetition_ids": null,
+        "use_repetition_ids": false,
+        "repeat_until": {
+          "alphaclops_type": "KeyCondition",
+          "key": {
+            "alphaclops_type": "MeasurementKey",
+            "name": "0,1,2,3,4",
+            "path": []
+          },
+          "index": -1
+        }
+      }
+    ]
+  ]
+}
