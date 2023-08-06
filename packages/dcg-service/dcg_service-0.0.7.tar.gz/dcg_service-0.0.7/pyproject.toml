@@ -1,0 +1,21 @@
+[project]
+name = "dcg_service"
+version = "0.0.7"
+authors = [
+  { name="Aman Kumar", email="amankumar@zapbuild.com" },
+]
+description = "Package for DCG DOT Compliance Group, used for flask based projects."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirement.txt"]}
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
