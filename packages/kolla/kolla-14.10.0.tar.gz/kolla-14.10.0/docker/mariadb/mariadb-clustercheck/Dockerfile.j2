@@ -1,0 +1,23 @@
+FROM {{ namespace }}/{{ infra_image_prefix }}mariadb-base:{{ tag }}
+LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build_date }}"
+
+{% block mariadb_clustercheck_header %}{% endblock %}
+
+{% import "macros.j2" as macros with context %}
+
+{% if not base_distro_tag.startswith('stream9') and not base_distro == 'rocky' %}
+
+{% set mariadb_clustercheck_packages = [
+    'xinetd'
+] %}
+
+{{ macros.install_packages(mariadb_clustercheck_packages | customizable("packages")) }}
+
+{% endif %}
+
+COPY extend_start.sh /usr/local/bin/kolla_extend_start
+
+RUN chmod 644 /usr/local/bin/kolla_extend_start
+
+{% block mariadb_clustercheck_footer %}{% endblock %}
+{% block footer %}{% endblock %}
