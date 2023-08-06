@@ -1,0 +1,2 @@
+[console_scripts]
+cardtool = cardtool.command.main_group:cli_card

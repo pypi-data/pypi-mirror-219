@@ -1,0 +1,52 @@
+# This workflow will upload a Python Package using Twine when a release is created
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python#publishing-to-package-registries
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Publish TestPyPI
+
+on:
+  push:
+    branches:
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade build twine tox
+    - name: Validate project (Unit tests)
+      run: |
+        make validate
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v3
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    - name: Build package
+      run: python -m build
+    - name: Publish to TestPyPI
+      if: ${{ github.ref == 'refs/heads/develop' }}
+      shell: bash
+      env:
+        TEST_PYPI_USERNAME: ${{ secrets.TEST_PYPI_USERNAME }}
+        TEST_PYPI_API_KEY: ${{ secrets.TEST_PYPI_API_KEY }}
+      run: |
+        twine upload --repository testpypi dist/* -u "$TEST_PYPI_USERNAME" -p "$TEST_PYPI_API_KEY"

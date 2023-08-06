@@ -1,0 +1,130 @@
+{
+  "$id": "https://d4n13l-4lf4.com/card-config.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CardConfig",
+  "description": "A card generation configuration file",
+  "type": "object",
+  "additionalProperties": false,
+  "definitions": {
+    "transaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "amount": {
+          "type": "number"
+        },
+        "other_amount": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["charge", "balance", "cash", "credit voucher", "void"]
+        },
+        "currency": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^[0-9]{6}$"
+        },
+        "counter": {
+          "type": "integer"
+        }
+      },
+      "required": ["amount", "type", "currency", "date", "counter"]
+    },
+    "key": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "bdk": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{32}$"
+        },
+        "ksn": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{20}$"
+        }
+      },
+      "required": ["bdk", "ksn"]
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "pan": {
+          "type": "string",
+          "pattern": "^[0-9]{16,19}$"
+        },
+        "pin": {
+          "type": "string",
+          "pattern": "^[0-9]{4,6}$"
+        },
+        "service_code": {
+          "type": "string",
+          "pattern": "^[0-9]{3}$"
+        },
+        "expiry_month": {
+          "type": "string",
+          "pattern": "^[0-9]{2}$"
+        },
+        "expiry_year": {
+          "type": "string",
+          "pattern": "^[0-9]{2}$"
+        },
+        "cardholder_name": {
+          "type": "string",
+          "pattern": "[A-Za-z]{2,26}"
+        },
+        "sequence_number": {
+          "type": "integer"
+        },
+        "brand": {
+          "type": "string",
+          "enum": ["Visa", "Mastercard", "Carnet"]
+        }
+      },
+      "required": ["pan", "pin", "service_code", "expiry_month", "expiry_year", "brand"]
+    },
+    "terminal": {
+      "type": "object",
+      "properties": {
+        "country": {
+          "type": "string"
+        }
+      },
+      "required": ["country"]
+    }
+  },
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "terminal": {
+      "$ref": "#/definitions/terminal"
+    },
+    "key": {
+      "additionalProperties": false,
+      "properties": {
+        "shared": {
+          "$ref": "#/definitions/key"
+        }
+      }
+    },
+    "transaction": {
+      "$ref": "#/definitions/transaction"
+    },
+    "cards": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/card"
+      },
+      "minItems": 1,
+      "maxItems": 100
+    }
+  },
+  "required": ["terminal", "transaction", "key", "cards", "version"]
+}

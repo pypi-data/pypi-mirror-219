@@ -1,0 +1,29 @@
+!CardConfig
+version: "0.1"
+terminal:
+  !Terminal
+  country: MEX
+key:
+  shared:
+    !Key
+    bdk: 0123456789ABCDEFFEDCBA9876543210
+    ksn: FFFF4545450000100002
+transaction:
+  !Transaction
+  type: charge
+  amount: 10.2
+  other_amount: 10.23
+  currency: USD
+  date: "220125"
+cards:
+  - !Card
+    label: "Test"
+    pan: "5477820000001234"
+    pin: "1234"
+    brand: "Mastercard"
+    cardholder_name: Test 1
+    expiry_month: "12"
+    expiry_year: "24"
+    service_code: "201"
+    sequence_number: 1
+

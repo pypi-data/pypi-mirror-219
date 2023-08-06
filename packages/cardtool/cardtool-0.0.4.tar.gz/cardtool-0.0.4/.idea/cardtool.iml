@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/build" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/htmlcov" />
+      <excludeFolder url="file://$MODULE_DIR$/src/cardtool.egg-info" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/src/cardtool/command" />
+        <option value="$MODULE_DIR$/tests/cardtool/command" />
+        <option value="$MODULE_DIR$/tests/cardtool/dukpt" />
+        <option value="$MODULE_DIR$/tests/helper" />
+        <option value="$MODULE_DIR$/tests/cardtool" />
+        <option value="$MODULE_DIR$/src/cardtool" />
+        <option value="$MODULE_DIR$/src/cardtool/dukpt" />
+      </list>
+    </option>
+  </component>
+</module>
