@@ -1,0 +1,11 @@
+MANIFEST.in
+setup.py
+version.txt
+fiftyone_location/__init__.py
+fiftyone_location/location_cloud.py
+fiftyone_location/location_pipelinebuilder.py
+fiftyone_location.egg-info/PKG-INFO
+fiftyone_location.egg-info/SOURCES.txt
+fiftyone_location.egg-info/dependency_links.txt
+fiftyone_location.egg-info/requires.txt
+fiftyone_location.egg-info/top_level.txt
