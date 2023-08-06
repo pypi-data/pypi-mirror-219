@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: pzSQL
+Version: 0.0.7.7
+Summary: Wrapper around psycopg2
+Home-page: https://github.com/jrey999/pzSQL
+Author: John Reynolds
+Author-email: reynoldsjohngreg@gmail.com
+Keywords: postgres,psycopg2
