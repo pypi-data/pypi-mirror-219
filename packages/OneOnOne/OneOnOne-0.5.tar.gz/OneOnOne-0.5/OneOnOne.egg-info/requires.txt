@@ -1,0 +1,11 @@
+wget
+numpy
+pandas
+tensorflow
+datetime
+keras==1.2.2
+torch
+tensorflow_datasets==4.9.2
+scipy==1.10.1
+pickle
+tqdm==4.65.0
