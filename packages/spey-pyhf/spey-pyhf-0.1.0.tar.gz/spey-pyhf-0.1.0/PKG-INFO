@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: spey-pyhf
+Version: 0.1.0
+Summary: pyhf plugin for spey interface
+Home-page: https://github.com/SpeysideHEP/spey-pyhf
+Download-URL: https://github.com/SpeysideHEP/spey-pyhf/archive/refs/tags/v0.1.0.tar.gz
+Author: Jack Y. Araz
+Author-email: jack.araz@durham.ac.uk
+License: MIT
+Project-URL: Bug Tracker, https://github.com/SpeysideHEP/spey-pyhf/issues
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: jax
+Provides-Extra: doc
+License-File: LICENSE
+
+# spey-pyhf
+
+``pyhf`` plugin for spey interface. This plug-in can be installed via
+
+```bash
+pip install spey-pyhf
+```
+
+command. Once installed ``spey`` interface will be able to automatically detect it.
+For details on usage please see the online documentation.
