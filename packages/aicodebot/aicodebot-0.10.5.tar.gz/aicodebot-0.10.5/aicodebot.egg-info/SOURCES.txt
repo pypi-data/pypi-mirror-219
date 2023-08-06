@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+aicodebot/__init__.py
+aicodebot/cli.py
+aicodebot/coder.py
+aicodebot/config.py
+aicodebot/helpers.py
+aicodebot/prompts.py
+aicodebot.egg-info/PKG-INFO
+aicodebot.egg-info/SOURCES.txt
+aicodebot.egg-info/dependency_links.txt
+aicodebot.egg-info/entry_points.txt
+aicodebot.egg-info/requires.txt
+aicodebot.egg-info/top_level.txt
