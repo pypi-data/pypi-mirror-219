@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: httpackage
+Version: 1.0.1
+Summary: Fixed description, old version yanked.
+Author: PyModuleDev
+Author-email: pxcom@mail.com
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# httpackage: Python HTTP Server Module
+
+## Overview
+
+httpackage is a Python module that provides a simple HTTP server implementation. It allows you to define routes and corresponding handler functions, making it easy to create basic web applications or APIs. The module is distributed under the Apache License 2.0, giving you the freedom to use, modify, and distribute the code.
+
+## License
+
+httpackage is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). You can find a copy of the license in the [LICENSE](https://chat.openai.com/LICENSE) file.
+
+## Installation
+
+httpackage does not require any special installation steps. Simply run `pip install httpackage` in your python terminal and start using it.
+
+## Usage
+
+The module provides the `server` class, which you can use to create an HTTP server. Below is an example of how to use the `server` class:
+
+```
+from httpackage import server
+
+# Create an instance of the server
+app = server()
+
+# Define routes using the `site` decorator
+@app.site('/')
+def home():
+    return 'Hello, world!'
+
+@app.site('/about')
+def about():
+    return 'This is the about page.'
+
+# Run the server
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080)
+
+```
+
+In the above example, we create a simple web application with two routes ('/' and '/about'). The `home` and `about` functions are the handlers for each route, which return the respective response.
+
+## API
+
+### class server
+
+#### `__init__(self)`
+
+Create an instance of the HTTP server.
+
+#### `site(self, path)`
+
+A decorator function used to define routes and their corresponding handler functions.
+
+* `path`: The URL path for the route.
+
+#### `serve(self, environ, start_response)`
+
+A method to handle incoming HTTP requests.
+
+* `environ`: The WSGI environment dictionary containing request details.
+* `start_response`: A callback function to begin the HTTP response.
+
+#### `run(self, host='localhost', port=8080)`
+
+Start the HTTP server and begin serving requests.
+
+* `host`: The hostname or IP address on which the server will listen.
+* `port`: The port number on which the server will listen.
+
+## Support
+
+For any questions or concerns, please contact [support@example.com](mailto:support@example.com).
