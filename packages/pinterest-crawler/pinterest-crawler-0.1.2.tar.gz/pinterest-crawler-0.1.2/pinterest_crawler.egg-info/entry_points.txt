@@ -1,0 +1,2 @@
+[console_scripts]
+pinterest-crawler = pinterest_crawler.pinterest_crawler:main
