@@ -1,0 +1,3 @@
+[console_scripts]
+brownian=brownian_stock.main:main
+
