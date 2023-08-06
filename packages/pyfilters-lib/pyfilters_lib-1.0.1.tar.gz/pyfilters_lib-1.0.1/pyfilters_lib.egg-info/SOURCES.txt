@@ -1,0 +1,12 @@
+README.md
+setup.py
+filters_lib/__init__.py
+filters_lib/filter_types.py
+filters_lib/filters_sdk.py
+filters_lib/sample.py
+filters_lib/libs/windows-x64/filters.dll
+filters_lib/libs/windows-x86/filters.dll
+pyfilters_lib.egg-info/PKG-INFO
+pyfilters_lib.egg-info/SOURCES.txt
+pyfilters_lib.egg-info/dependency_links.txt
+pyfilters_lib.egg-info/top_level.txt
