@@ -1,0 +1,11 @@
+pyyaml
+
+[docs]
+sphinx>=4.0.0
+numpydoc
+pytest
+cloudpickle
+
+[test]
+pytest
+cloudpickle
