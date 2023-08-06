@@ -1,0 +1,9 @@
+libdir=/project/_skbuild/linux-x86_64-3.8/cmake-install/lib64
+includedir=/project/_skbuild/linux-x86_64-3.8/cmake-install/include
+
+Name: FlatBuffers
+Description: Memory Efficient Serialization Library
+Version: 23.1.21
+
+Libs: -L${libdir} -lflatbuffers
+Cflags: -I${includedir}
