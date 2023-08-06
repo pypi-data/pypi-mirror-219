@@ -1,0 +1,16 @@
+algebra_with_sympy/__init__.py,sha256=uaI0dHbCQA4FTaCbYYsWg6IZliEJJu36RQkmGabEV5s,914
+algebra_with_sympy/algebraic_equation.py,sha256=jll2KJ3LicxioK8OEJpiO_kVMI3u5QnNyRzbLsW5P4Y,48033
+algebra_with_sympy/preparser.py,sha256=GXpcZYDTNvrmaKDXZn9ZabVa2uIHWsqbpH7RwBrQEc0,3692
+algebra_with_sympy/version.py,sha256=fc2AsGF4Urrh0cmbpIEfUUbFgmYbEo6-dut1h-gaBms,22
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/algebraic_equation.py,sha256=EmYpN_U8ZkQliWKKRLTP1k8PPlJBHZSZX2rMBbr6a84,28988
+tests/test_algebraic_equation.py,sha256=ni-MKTWLozeeRq0USFlvCkyVxzg03XVx_hfa5HJ3gNs,14646
+tests/test_extension_of_sympy_functions.py,sha256=moVgflTnXtqs445uQoh4Q1P-nPJv9_WB2iKmiHy6M0c,4942
+tests/test_numerics.py,sha256=9GUNLcXsHJt43-dbwqk_uAGc-Qr727VQC6ZSzc6mJuo,1492
+tests/test_preparser.py,sha256=hrlIN8gD3LrXgULDwZEQEom7neIUvWAf8dh8ugWLpds,2276
+Algebra_with_SymPy-0.12.0.dist-info/.~lock.In process discussion comment.odt#,sha256=42u-BaQVKKzu8fGC7nz4W4MvuozUweqGI6IV5O9cGhY,92
+Algebra_with_SymPy-0.12.0.dist-info/In process discussion comment.odt,sha256=VksQpMeYGCmWsc669TNRpQ0XZLW5ePHMusyH3qTA5fg,13120
+Algebra_with_SymPy-0.12.0.dist-info/METADATA,sha256=BR5elCWP4CvHreqZuppViE0gjSwaRzdYZDyCtwWI4Xg,11460
+Algebra_with_SymPy-0.12.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+Algebra_with_SymPy-0.12.0.dist-info/top_level.txt,sha256=3zVQAaISpCU1X1GoeAVuRQHEzKB9Vb8KLIZVvPx3tdc,25
+Algebra_with_SymPy-0.12.0.dist-info/RECORD,,
