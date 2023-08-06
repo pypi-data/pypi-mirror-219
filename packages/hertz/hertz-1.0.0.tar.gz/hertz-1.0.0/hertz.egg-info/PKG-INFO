@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: hertz
+Version: 1.0.0
+Summary: A simple, standard, and handy way to represent Hertz, kHz, GHz, etc
+Home-page: https://github.com/Yook74/hertz
+Author: Andrew Blomenberg
+Author-email: andrewBlomen@gmail.com
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+License-File: LICENSE
