@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: flake8-eol
+Version: 0.0.2
+Summary: Flake8 plugin to enforce EOL consistency
+Home-page: https://github.com/claudioscheer/flake8-eol
+Author: Claudio Scheer
+Author-email: claudioscheer@protonmail.com
+Keywords: flake8,eol,line endings
+Classifier: Framework :: Flake8
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: flake8
+
+# flake8-eol
+
+Flake8 plugin to enforce EOL consistency.
