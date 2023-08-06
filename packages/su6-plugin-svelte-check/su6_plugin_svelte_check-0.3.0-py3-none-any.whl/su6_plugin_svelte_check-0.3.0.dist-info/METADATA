@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: su6-plugin-svelte-check
+Version: 0.3.0
+Summary: Svelte-check plugin for `su6`
+Project-URL: Documentation, https://github.com/robinvandernoord/su6-plugin-svelte-check#readme
+Project-URL: Issues, https://github.com/robinvandernoord/su6-plugin-svelte-check/issues
+Project-URL: Source, https://github.com/robinvandernoord/su6-plugin-svelte-check
+Author-email: Robin van der Noord <robinvandernoord@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: su6>=1.6.0
+Provides-Extra: dev
+Requires-Dist: su6[all]; extra == 'dev'
+Description-Content-Type: text/markdown
+
+# su6-plugin-svelte-check
+
+Plugin for [su6](https://github.com/trialandsuccess/su6) that adds `svelte-check` functionality.
+
+## License
+
+`su6-plugin-svelte-check` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
