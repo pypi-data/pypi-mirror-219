@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2023 OpenSynergy Indonesia
+     Copyright 2023 PT. Simetri Sinergi Indonesia
+     License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl). -->
+<odoo>
+<record id="fleet_vehicle_view_search" model="ir.ui.view">
+    <field name="name">fleet_vehicle - search</field>
+    <field name="model">fleet_vehicle</field>
+    <field
+            name="inherit_id"
+            ref="ssi_master_data_mixin.mixin_master_data_view_search"
+        />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data />
+    </field>
+</record>
+
+<record id="fleet_vehicle_view_tree" model="ir.ui.view">
+    <field name="name">fleet_vehicle -tree</field>
+    <field name="model">fleet_vehicle</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_tree" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="fleet_vehicle_view_form" model="ir.ui.view">
+    <field name="name">fleet_vehicle - form</field>
+    <field name="model">fleet_vehicle</field>
+    <field name="inherit_id" ref="ssi_master_data_mixin.mixin_master_data_view_form" />
+    <field name="mode">primary</field>
+    <field name="arch" type="xml">
+        <data>
+        </data>
+    </field>
+</record>
+
+<record id="fleet_vehicle_action" model="ir.actions.act_window">
+    <field name="name">Vehicles</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">fleet_vehicle</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem
+        id="fleet_vehicle_menu"
+        name="Vehicles"
+        parent="menu_vehicle_root_configuration"
+        action="fleet_vehicle_action"
+        groups="fleet_vehicle_group"
+        sequence="110"
+    />
+
+</odoo>
