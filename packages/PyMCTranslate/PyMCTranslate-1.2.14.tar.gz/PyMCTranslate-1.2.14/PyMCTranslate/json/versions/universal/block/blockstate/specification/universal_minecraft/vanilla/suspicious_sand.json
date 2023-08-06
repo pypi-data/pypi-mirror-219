@@ -1,0 +1,18 @@
+{
+    "properties": {
+        "dusted": [
+            "\"0\"",
+            "\"1\"",
+            "\"2\"",
+            "\"3\""
+        ],
+        "hanging": [
+            "\"false\"",
+            "\"true\""
+        ]
+    },
+    "defaults": {
+        "dusted": "\"0\"",
+        "hanging": "\"false\""
+    }
+}
