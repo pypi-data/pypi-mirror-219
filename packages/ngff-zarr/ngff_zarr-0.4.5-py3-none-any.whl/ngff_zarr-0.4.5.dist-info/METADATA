@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: ngff-zarr
+Version: 0.4.5
+Project-URL: Documentation, https://github.com/thewtex/ngff-zarr#readme
+Project-URL: Issues, https://github.com/thewtex/ngff-zarr/issues
+Project-URL: Source, https://github.com/thewtex/ngff-zarr
+Author-email: Matt McCormick <matt.mccormick@kitware.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: dask[array]
+Requires-Dist: numpy
+Requires-Dist: platformdirs
+Requires-Dist: psutil; sys_platform != 'emscripten'
+Requires-Dist: rich
+Requires-Dist: typing-extensions
+Requires-Dist: zarr
+Provides-Extra: cli
+Requires-Dist: dask-image; extra == 'cli'
+Requires-Dist: dask[distributed]; extra == 'cli'
+Requires-Dist: imagecodecs; extra == 'cli'
+Requires-Dist: imageio; extra == 'cli'
+Requires-Dist: itk-filtering>=5.3.0; extra == 'cli'
+Requires-Dist: itk-io>=5.3.0; extra == 'cli'
+Requires-Dist: tifffile; extra == 'cli'
+Provides-Extra: dask-image
+Requires-Dist: dask-image; extra == 'dask-image'
+Provides-Extra: itk
+Requires-Dist: itk-filtering>=5.3.0; extra == 'itk'
+Provides-Extra: test
+Requires-Dist: itk-filtering>=5.3.0; extra == 'test'
+Requires-Dist: itk-io>=5.3.0; extra == 'test'
+Requires-Dist: itkwasm; extra == 'test'
+Requires-Dist: pooch; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: tifffile; extra == 'test'
+Description-Content-Type: text/markdown
+
+# ngff-zarr
+
+[![PyPI - Version](https://img.shields.io/pypi/v/ngff-zarr.svg)](https://pypi.org/project/ngff-zarr)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/ngff-zarr.svg)](https://pypi.org/project/ngff-zarr)
+[![Test](https://github.com/thewtex/ngff-zarr/actions/workflows/test.yml/badge.svg)](https://github.com/thewtex/ngff-zarr/actions/workflows/test.yml)
+[![DOI](https://zenodo.org/badge/541840158.svg)](https://zenodo.org/badge/latestdoi/541840158)
+[![Documentation Status](https://readthedocs.org/projects/ngff-zarr/badge/?version=latest)](https://ngff-zarr.readthedocs.io/en/latest/?badge=latest)
+
+-----
+
+A lean and kind Open Microscopy Environment (OME) Next Generation File Format (NGFF) Zarr implementation.
+
+## Features
+
+- Minimal dependencies
+- Work with arbitrary Zarr store types
+- Lazy, parallel, and web ready -- no local filesystem required
+- Process extremely large datasets
+- Multiple downscaling methods
+- Supports Python>=3.7
+- Implements version 0.4 of the [OME-Zarr
+NGFF specification](https://github.com/ome/ngff)
+
+## Installation
+
+To install the command line interface (CLI):
+
+```console
+pip install 'ngff-zarr[cli]'
+```
+
+## Documentation
+
+More information an command line usage, the Python API, library features, and how to contribute can be found in [our documentation](https://ngff-zarr.readthedocs.io/).
+
+## See also
+
+- [ome-zarr-py](https://github.com/ome/ome-zarr-py)
+- [multiscale-spatial-image](https://github.com/spatial-image/multiscale-spatial-image)
+
+## License
+
+`ngff-zarr` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
