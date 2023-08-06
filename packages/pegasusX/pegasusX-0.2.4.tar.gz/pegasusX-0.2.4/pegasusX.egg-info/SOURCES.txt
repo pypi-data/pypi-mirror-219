@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+pegasus/__init__.py
+pegasus/embedding_functions.py
+pegasus/errors.py
+pegasus/main.py
+pegasus/types.py
+pegasusX.egg-info/PKG-INFO
+pegasusX.egg-info/SOURCES.txt
+pegasusX.egg-info/dependency_links.txt
+pegasusX.egg-info/requires.txt
+pegasusX.egg-info/top_level.txt
