@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: kaar-gpt
+Version: 0.0.1
+Summary: OpenAI API wrapper
+Project-URL: Documentation, https://github.com/kaar/gpt#readme
+Project-URL: Issues, https://github.com/kaar/gpt/issues
+Project-URL: Source, https://github.com/kaar/gpt
+Author-email: Caspar Nettelbladt <caspar.n@gmail.com>
+License-Expression: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# LLM Base
+
+## Install
+```
+pip install llm-base
+```
+
+## Usage
+```python
+from llm_base import openai
+from llm_base.openai import ...
+```
