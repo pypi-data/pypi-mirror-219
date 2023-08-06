@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+whoi_uwapm/__init__.py
+whoi_uwapm/bellhopcxx
+whoi_uwapm/uwapm.py
+whoi_uwapm.egg-info/PKG-INFO
+whoi_uwapm.egg-info/SOURCES.txt
+whoi_uwapm.egg-info/dependency_links.txt
+whoi_uwapm.egg-info/requires.txt
+whoi_uwapm.egg-info/top_level.txt
