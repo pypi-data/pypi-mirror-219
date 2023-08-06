@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: px-recount
+Version: 3.11.0rc2
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Summary: storescp series file counter for pypx "RE" mode.
+License: MIT
+Requires-Python: >=3.8
+Project-URL: Source Code, https://github.com/FNNDSC/pypx/
