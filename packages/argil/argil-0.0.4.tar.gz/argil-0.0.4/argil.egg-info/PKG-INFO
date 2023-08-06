@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: argil
+Version: 0.0.4
+Summary: SDK for the Argil API
+Home-page: https://github.com/argildotai/argil-sdk-python
+Author: Brivael Le Pogam
+Author-email: briva@argil.ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENCE.md
+
+\n# Argil SDK for Python
+
+This is the Python SDK for the Argil API. It provides a convenient way to interact with the Argil's API from Python applications.
+
+## Installation
+
+You can install the SDK with pip:
+
+```bash
+pip install argil
+```
+
+## Usage
+
+Here's an example of how to use the SDK:
+
+```
+from argil import ArgilSdk
+
+argilSdk = ArgilSdk('ARGIL_API_KEY')
+
+# Run a workflow
+response = argilSdk.workflows.run(WORKFLOW_ID, { 'input': {INPUT_OBJECT} })
+print(response)
+
+# List workflow runs
+response = argilSdk.workflowRuns.list()
+print(response)
+
+# Get a specific workflow run
+response = argilSdk.workflowRuns.get(WORKFLOWRUN_ID)
+print(response)
+```

@@ -1,0 +1,14 @@
+LICENCE.md
+MANIFEST.in
+README.md
+setup.py
+argil/__init__.py
+argil/config.json
+argil/types.py
+argil/workflowRuns.py
+argil/workflows.py
+argil.egg-info/PKG-INFO
+argil.egg-info/SOURCES.txt
+argil.egg-info/dependency_links.txt
+argil.egg-info/requires.txt
+argil.egg-info/top_level.txt
