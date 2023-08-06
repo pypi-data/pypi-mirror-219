@@ -1,0 +1,30 @@
+from heaserver.service.testcase.dockermongo import DockerMongoManager
+from heaserver.service.testcase.mockaws import MockS3Manager, MockS3WithMongo
+
+from heaserver.service.db.aws import S3Manager, S3WithMongo
+
+
+class MockS3WithDockerMongoManager(MockS3Manager, DockerMongoManager):
+    """
+    Database manager for mocking AWS S3 buckets with moto. Mark test fixture data that is managed in S3 buckets with
+    this database manager in unit test environments. Furthermore, connections to boto3/moto clients normally require
+    access to the registry and volume microservices. This database manager mocks those connections. Mark
+    component, volume, and filesystem test collections with this database manager to make them available in unit
+    testing environments. This class is not designed to be subclassed.
+    """
+
+    def get_database(self) -> MockS3WithMongo:
+        return MockS3WithMongo(config=self.config)
+
+    @classmethod
+    def database_types(self) -> list[str]:
+        return ['system|awss3', 'system|mongo']
+
+
+class S3WithDockerMongoManager(S3Manager, DockerMongoManager):
+    def get_database(self) -> S3WithMongo:
+        return S3WithMongo(config=self.config)
+
+    @classmethod
+    def database_types(self) -> list[str]:
+        return ['system|awss3', 'system|mongo']
