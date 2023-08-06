@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: oda_api
+Version: 1.1.39
+Summary: API plugin  for CDCI online data analysis
+Author: Andrea Tramacere, Volodymyr Savchenko
+Author-email: contact@odahub.io
+Requires-Python: >=2.7
+Provides-Extra: test
+Provides-Extra: extra-test
+Provides-Extra: gw
+License-File: LICENSE.rst
