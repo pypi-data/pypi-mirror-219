@@ -1,0 +1,11 @@
+---
+- name: Ensure firewall is configured
+  hosts: seed-hypervisor:seed:overcloud:infra-vms
+  tags:
+    - config
+    - firewall
+  tasks:
+    - name: Configure firewalld
+      include_role:
+        name: "firewalld"
+
