@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+quaeso/__init__.py
+quaeso/__main__.py
+quaeso/colorizer.py
+quaeso/formatter.py
+quaeso/reader.py
+quaeso/writer.py
+quaeso/yeet.py
+quaeso.egg-info/PKG-INFO
+quaeso.egg-info/SOURCES.txt
+quaeso.egg-info/dependency_links.txt
+quaeso.egg-info/entry_points.txt
+quaeso.egg-info/requires.txt
+quaeso.egg-info/top_level.txt
