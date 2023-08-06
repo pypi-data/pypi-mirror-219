@@ -1,0 +1,2 @@
+[console_scripts]
+create_wheel = create_wheel:create_wheel_function
