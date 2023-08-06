@@ -1,0 +1,210 @@
+Metadata-Version: 2.1
+Name: RapidMangaDL
+Version: 0.0.21
+Summary: Swiftly download manga from multiple sources.
+Home-page: https://github.com/shhossain/RapidMangaDL
+Author: sifat
+Author-email: hossain0338@gmail.com
+License: MIT
+Project-URL: Documentation, https://github.com/shhossain/RapidMangaDL
+Project-URL: Issue Tracker, https://github.com/shhossain/RapidMangaDL/issues
+Project-URL: Source Code, https://github.com/shhossain/RapidMangaDL
+Keywords: manga downloader
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: Software Development :: Widget Sets
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: reportlab (>=4.0.4)
+Requires-Dist: img2pdf (>=0.4.0)
+Requires-Dist: PyPDF2 (>=3.0.1)
+Requires-Dist: pillow
+Requires-Dist: fake-headers
+Requires-Dist: aiofiles
+Requires-Dist: tqdm
+Requires-Dist: aiohttp
+Requires-Dist: BeautifulSoup4
+Requires-Dist: colorama
+Requires-Dist: flask
+Requires-Dist: ebooklib
+Requires-Dist: fuzzywuzzy
+Requires-Dist: questionary
+Requires-Dist: cloudscraper (>=1.2.71)
+Requires-Dist: python-Levenshtein
+Requires-Dist: nest-asyncio
+Requires-Dist: pytimedinput (>=2.0.1)
+
+# RapidMangaDL (Manga Downloader)
+
+RapidMangaDL is a Python package that allows you to swiftly download manga from various sources. It offers multiple ways to interact with the application, including a Command Line Interface (CLI) and an Interactive CLI with a text-based prompt. Additionally, it comes with a web-based GUI to provide a user-friendly experience.
+[Suppoted Sources](/sources.md)
+
+## Installation
+
+To install Manga Downloader, you can use `pip`:
+
+```bash
+pip install RapidMangaDL
+```
+
+# Features
+
+Download manga from multiple sources with great speed.
+Three different ways to interact with the application: CLI, Interactive CLI, and Web-based GUI.
+Select specific chapters or a custom range for downloading.
+Choose between downloading the manga in EPUB or PDF format.
+Customize the quality of the images (10 to 100).
+
+# Interactive CLI
+
+The Interactive CLI mode provides a user-friendly prompt to search for a manga, select chapters, specify the format, and set image quality.
+
+To start the Interactive CLI mode, simply run:
+
+```bash
+manga-dl
+```
+
+Here's a quick demo:
+
+![CLI](https://github.com/shhossain/RapidMangaDL/raw/main/cli.gif)
+
+# Web-based GUI
+
+The Web-based GUI offers a graphical interface to interact with the application. You can easily search for manga, select chapters, and initiate downloads.
+
+To start the server, run:
+
+```bash
+manga-dl gui
+```
+
+Here's a sneak peek:
+
+![WEB DEMO](https://github.com/shhossain/RapidMangaDL/raw/main/web_gui.gif)
+
+To share create a shareable link, you can use the `--share` flag:
+
+```bash
+manga-dl gui --share
+```
+
+# Command Line Interface (CLI)
+
+The CLI mode allows you to interact with the application using command-line arguments. Here's an example of how you can use it:
+
+```bash
+manga-dl cli -m https://manganato.com/manga-az963307 -c 1-10 -f epub -q 90
+```
+
+You can use the Command Line Interface (CLI) with arguments to initiate a download. Here's a breakdown of the available options:
+
+```bash
+usage: manga-dl [-h] [-s QUERY] [-m MANGA] [-c CHAPTERS] [-ex EXCLUDE] [-f {epub,pdf}] [-q QUALITY] [--host HOST] [-p PORT] [-l {DEBUG,INFO,WARNING,ERROR,CRITICAL}] [mode]
+
+positional arguments:
+  mode                  Mode to run (choices: gui, prompt, cli)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s QUERY, --query QUERY
+                        Search for a manga
+  -m MANGA, --manga MANGA
+                        Manga to download (Examples: -m https://manganato.com/manga-az963307 -m manga-id -m id -m manga-title (not reliable))
+  -c CHAPTERS, --chapters CHAPTERS
+                        Chapters to download (Examples: -c 1-10 -c 1,2,3 -c 1-10, 20-30 -c 1-10, 20-30, 40, 50, 60-70)
+  -ex EXCLUDE, --exclude EXCLUDE
+                        Chapters to exclude (Examples: -ex 1-10 -ex 1,2,3 -ex 1-10, 20-30 -ex 1-10, 20-30, 40, 50, 60-70)
+  -f {epub,pdf}, --format {epub,pdf}
+                        Format to download (choices: epub, pdf)
+  -q QUALITY, --quality QUALITY
+                        Quality of images (10-100)
+  --host HOST           Host address of the server (default: 127.0.0.1)
+  -p PORT, --port PORT  Port of the server (default: 80)
+  -l {DEBUG,INFO,WARNING,ERROR,CRITICAL}, --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
+                        Set the log level (choices: DEBUG, INFO, WARNING, ERROR, CRITICAL)
+```
+
+# Python API
+
+You can also use the Python API to interact with the application.
+
+Selecting a manga
+
+```python
+from manga_dl import Manga
+
+manga = Manga("https://manganato.com/manga-az963307")
+manga.set_info()
+
+print(manga.title)
+print(manga.author)
+print(manga.description)
+
+```
+
+Selecting from search results
+
+```python
+
+mangas = Manga.search("one piece")
+manga = mangas[0]
+manga.set_info()
+
+print(manga.title)
+```
+
+Selecting chapters
+
+```python
+
+manga.select_chapters("1-10")
+# or
+manga.select_chapters("1,2,3,4,5,6,7,8,9,10")
+# or
+manga.select_chapters("1-10, 20-30, 40, 50, 60-70")
+# or
+managa.select_chapters("Chapter 1, Chapter 2")
+# or
+managa.select_chapters("https://manganato.com/manga-az963307/chapter-1-https://manganato.com/manga-az963307/chapter-2")
+
+# exclude chapters
+manga.select_chapters("1-10", exclude="5") # same rules apply for exclude
+```
+
+Downloading
+
+```python
+manga.create_epub()
+# or
+manga.create_pdf()
+
+# specify quality
+manga.create_epub(quality=70) # Default is 85(unchangable)
+
+# specify output directory
+manga.create_epub(path="C:/Users/username/Desktop")
+```
+
+Luanching the server
+
+```python
+from manga_dl import app
+
+app.run()
+# or
+app.run(host="localhost", port=80) # app is a Flask app
+```
