@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+righty/__init__.py
+righty/info.py
+righty.egg-info/PKG-INFO
+righty.egg-info/SOURCES.txt
+righty.egg-info/dependency_links.txt
+righty.egg-info/requires.txt
+righty.egg-info/top_level.txt
