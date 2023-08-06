@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: personio-client-api
+Version: 0.1.0
+Summary: Personio client api
+Author: Paweł Karbowniczek
+License: MIT
+Requires-Dist: requests
+

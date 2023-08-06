@@ -1,0 +1,2 @@
+class PersonioClient(Exception):
+    pass
