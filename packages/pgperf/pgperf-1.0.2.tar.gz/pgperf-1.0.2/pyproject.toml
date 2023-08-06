@@ -1,0 +1,108 @@
+
+[tool.hatch]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/pgperf/__version__.py"
+
+[tool.hatch.envs.dev]
+extra-dependencies = [
+  "ruff",
+  "ipdb",
+  "deptry",
+  "bpython",
+  "autopep8",
+  "flake8",
+  "black",
+  "isort",
+  "deptry",
+]
+[[tool.hatch.envs.dev.matrix]]
+python = ["3.10", "3.11"]
+[tool.hatch.envs.dev.scripts]
+check_flake = "flake8 ./src/pgperf"
+check_black = "black --check --diff ./src/pgperf"
+check_isort = "isort --check-only --diff ."
+check_ruff = "ruff check ./src/pgperf"
+check_deptry = "deptry ./src/pgperf"
+
+
+[tool.hatch.envs.test]
+extra-dependencies = [
+  "coverage",
+  "pytest",
+  "pytest-cov",
+  "pytest-mock",
+]
+[tool.hatch.envs.test.scripts]
+run_pytest = "pytest ./tests"
+run_coverage = "coverage run -m pytest ./tests"
+show_coverage = "coverage report -m"
+[[tool.hatch.envs.test.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+
+
+[tool.hatch.envs.docs]
+detached = true
+extra-dependencies = [
+  "mkdocs",
+  "mkdocs-typer",
+  "mkdocstrings",
+  "mkdocs-material",
+  "mkdocs-minify-plugin",
+  "mkdocs-git-revision-date-localized-plugin",
+  "mkdocs-git-authors-plugin",
+  "mkdocs-table-reader-plugin",
+  "mkdocs-img2fig-plugin",
+  "mknotebooks",
+  "mkdocs-awesome-pages-plugin",
+  "mkdocs-enumerate-headings-plugin",
+  "mkdocs-print-site-plugin",
+  "mkgendocs",
+]
+
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve --dev-addr localhost:8000"
+
+[[tool.hatch.envs.docs.matrix]]
+python = ["3.11"]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.poetry.scripts]
+pgperf = 'pgperf.main:app'
+
+[project]
+name = "pgperf"
+dynamic = ["version"]
+readme = "README.md"
+requires-python = ">=3.8"
+license = "GPL-3.0-or-later"
+authors = [
+  { name = "Aldo A. Villagra B.", email = "aldovillagra@gmail.com" },
+]
+classifiers = [
+  "Topic :: Database", "Environment :: Console",
+]
+Documentation = ""
+dependencies = [
+  "omegaconf",
+  "pandas[all]",
+  "SQLAlchemy",
+  "psycopg2",
+  "Jinja2",
+  "XlsxWriter",
+  "typer[all]",
+]
+[project.urls]
+Documentation = "https://aldovillagra.github.io/pgperf/"
+"Source code" = "https://github.com/aldovillagra/pgperf/"
+"Bug Tracker" = "https://github.com/aldovillagra/pgperf/issues"
+homepage = "https://github.com/aldovillagra/pgperf"
+[project.scripts]
+pgperf = "pgperf.pgperf:app"
