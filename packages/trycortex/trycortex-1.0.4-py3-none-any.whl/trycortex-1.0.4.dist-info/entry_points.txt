@@ -1,0 +1,3 @@
+[console_scripts]
+cortex=cortex.cli.cli:cortex
+
