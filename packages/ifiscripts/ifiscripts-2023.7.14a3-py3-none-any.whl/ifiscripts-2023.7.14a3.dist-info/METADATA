@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: ifiscripts
+Version: 2023.7.14a3
+Summary: Scripts for processing moving image material in the Irish Film Institute/Irish Film Archive
+Author: Kieran O'Leary
+Author-email: Kieran O'Leary <kieran.o.leary@gmail.com>
+Maintainer: Yazhou He
+Maintainer-email: Yazhou He <yhe@irishfilm.ie>
+License: MIT
+Project-URL: Homepage, https://github.com/Irish-Film-Institute/IFIscripts
+Project-URL: Bug Tracker, https://github.com/Irish-Film-Institute/IFIscripts/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: lxml
+Requires-Dist: bagit
+Requires-Dist: dicttoxml
+Requires-Dist: future
+Requires-Dist: clairmeta
+
+## Detailed documentation is available here: http://ifiscripts.readthedocs.io/en/latest/index.html
+
+# Building the docs
+
+* Install Sphinx (http://www.writethedocs.org/guide/tools/sphinx/)
+* Install the `sphinx-rtd-theme`  with `sudo pip install sphinx_rtd_theme`
+* `cd` into the `docs` directory
+* run `make` to get the list of options
+* `make html` will produce html builds in the `_build` directory.
+* If you wish to build the lovely PDF output, you may have to install `texlive-latex`. installing the basic package resulted in failed builds, but the following command on Ubuntu 16.04 produced a PDF file: `$ sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended latexmk`. A more limited install may be sufficient, but I will need to test this further.
+* Once `texlive` has been installed, `make latexpdf` should produce a PDF in the `_build` directory.
+* `make clean` will remove all files from your `build` directory.
+
