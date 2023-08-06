@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: demandcurve
+runtime: onnx
+sha: 041d88e9b56300a7b637b5023034a51306efa3e4ec92293fcaf7fec8c04a76fe
+tensor_fields:
+- tensor
+version: '0'

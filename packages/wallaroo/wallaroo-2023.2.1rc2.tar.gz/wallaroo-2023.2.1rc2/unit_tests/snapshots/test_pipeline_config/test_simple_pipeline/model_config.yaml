@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: ccfraud_keras
+runtime: onnx
+sha: ccfraud_sha
+tensor_fields:
+- tensor
+version: keras

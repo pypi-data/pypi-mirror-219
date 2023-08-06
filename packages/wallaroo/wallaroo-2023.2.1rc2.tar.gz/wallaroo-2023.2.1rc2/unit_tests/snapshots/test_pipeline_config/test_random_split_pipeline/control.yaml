@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: aloha-cnn-lstm.zip
+runtime: tensorflow
+sha: b56693acac64fc8160012cc67dbca9a181ce36be1bebbdf70880d3330e0e2c16
+tensor_fields:
+- tensor
+version: '0'

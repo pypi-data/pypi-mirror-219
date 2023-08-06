@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: experiment
+runtime: onnx
+sha: 5cfc521f6ce9e99231348830ea62515685054c4e6877d127448a883893f5325b
+tensor_fields:
+- tensor
+version: '0'

@@ -1,0 +1,14 @@
+id: test
+steps:
+- MetaValueSplit:
+    control:
+      name: keras_ccfraud
+      sha: c821a510e6670115b3886a421573db921daccd1a654438c50eef7b3ad539ca41
+      version: '0'
+    routes:
+      gold:
+        name: experiment
+        sha: 5cfc521f6ce9e99231348830ea62515685054c4e6877d127448a883893f5325b
+        version: '0'
+    split_key: card_type
+version: test

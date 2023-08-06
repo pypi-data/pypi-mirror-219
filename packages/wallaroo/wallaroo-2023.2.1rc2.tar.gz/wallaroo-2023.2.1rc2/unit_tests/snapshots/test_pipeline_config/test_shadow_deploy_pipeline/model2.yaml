@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: ccfraudxgb
+runtime: onnx
+sha: 2f6b2ca8d1ab4ef1067bce86f8cfbd23d7662d1df23af73e06bfacf421f24628
+tensor_fields:
+- tensor
+version: '0'

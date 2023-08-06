@@ -1,0 +1,7 @@
+filter_threshold: 1.0e-07
+name: ccfraudrf
+runtime: onnx
+sha: c181a57fc032c9fa578027bd6996e46f87b2b61e11561e24c113ea971d6f8a50
+tensor_fields:
+- tensor
+version: '0'

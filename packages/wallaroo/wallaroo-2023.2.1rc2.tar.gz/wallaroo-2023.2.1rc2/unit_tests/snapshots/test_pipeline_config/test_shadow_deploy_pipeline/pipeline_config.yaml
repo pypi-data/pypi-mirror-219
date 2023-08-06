@@ -1,0 +1,18 @@
+id: test
+steps:
+- ModelInference:
+    models:
+    - name: keras_ccfraud
+      sha: c821a510e6670115b3886a421573db921daccd1a654438c50eef7b3ad539ca41
+      version: '0'
+    - name: ccfraudxgb
+      sha: 2f6b2ca8d1ab4ef1067bce86f8cfbd23d7662d1df23af73e06bfacf421f24628
+      version: '0'
+    - name: ccfraudrf
+      sha: c181a57fc032c9fa578027bd6996e46f87b2b61e11561e24c113ea971d6f8a50
+      version: '0'
+- AuditResults:
+    from: 1
+    to: null
+- MultiOut: {}
+version: test
