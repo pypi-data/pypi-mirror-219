@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ec_ecology_toolbox
+Version: 0.0.8
+Summary: Tools to analyze the ecology of evolutionary algorithms
+Home-page: https://github.com/emilydolson/ec_ecology_toolbox
+Author: Emily Dolson
+Author-email: emilyldolson@gmail.com
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
+License-File: LICENSE
+
+Tools to analyze the ecology of evolutionary algorithms
