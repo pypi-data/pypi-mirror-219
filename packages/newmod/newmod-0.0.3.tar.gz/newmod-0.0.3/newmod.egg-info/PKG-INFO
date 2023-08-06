@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: newmod
+Version: 0.0.3
+Summary: Pyromod Custom, Experimental Noel
+Home-page: https://github.com/jokokendi/pyromod
+Author: jokokendi
+Author-email: ajual7832@gmail.com
+License: GPLv3
+Download-URL: https://github.com/jokokendi/xmode/archive/v0.0.3.zip
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: COPYING
+License-File: COPYING.lesser
+License-File: NOTICE
+
+# newmod
+A monkeypatcher add-on for Newgram
+
+## Introduction
+newmod is a compilation of utils i developed for extend my personal use of Newgram. Then i started to use it and more bots and now i published it to make it easier to be installed in new projects.
+It works *together* with newgram, this is *not* a fork nor modded version. It does monkey patching to add features to Newgram classes.
+
+IMPORTANT: you should have installed asyncio newgram.
+
+## Usage
+Import `newmod` at least one time in your script, so you'll be able to use modified newgram in all files of the same proccess. Example:
+```python
+# config.py
+import newmod.listen
+from newgram import Client
+
+app = Client('my_session')
+```
+```python
+# any other .py
+from config import app
+# no need to import newmod again, newgram is already monkeypatched globally (at the same proccess)
+```
+
+I separated the patches between packages to allow you to import only what you want. The `__init__.py` of each package does the monkeypatch automatically as soon as they are imported (except for `newmod.helpers`, which provides classes and functions that should be explicitely imported).
+
+### `newmod.listen`
+Just import it, it will automatically do the monkeypatch and you'll get these new methods:
+- `await newgram.Client.listen(chat_id, filters=None, timeout=30)`
+Awaits for a new message in the specified chat and returns it
+You can pass Update Filters to the filters parameter just like you do for the update handlers. e.g. `filters=filters.photo & filters.bot`
+
+- `await newgram.Client.ask(text, chat_id, filters=None, timeout=30)`
+Same of `.listen()` above, but sends a message before awaiting
+You can pass custom parameters to its send_message() call. Check the example below.
+
+- The bound methods `Chat.listen`, `User.listen`, `Chat.ask` and `User.ask`
+
+Example:
+```python
+from newmod import listen # or import newmod.listen
+from newgram import Client
+client = Client(...)
+...
+    answer = await client.ask(chat_id, '*Send me your name:*', parse_mode='Markdown')
+    await client.send_message(chat_id, f'Your name is: {answer.text}')    
+```
+
+### `newmod.filters`
+Import it and the following Update Filters will be monkeypatched to `newgram.filters`:
+
+- `filters.dice`
+A dice message.
+
+### Copyright & License
+This project may include snippets of Newgram code
+- Newgram - Telegram MTProto API Client Library for Python. Copyright (C) 2017-2020 Dan <<https://github.com/delivrance>>
+
+Licensed under the terms of the [GNU Lesser General Public License v3 or later (LGPLv3+)](COPYING.lesser)
+
+
