@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: idealforms
+Version: 0.0.14
+Summary: Some charts I prepared earlier
+Project-URL: Homepage, https://github.com/ilmcconnell/idealforms
+Project-URL: Bug Tracker, https://github.com/ilmcconnell/idealforms/issues
+Author-email: Iain McConnell <buckler_08_matador@icloud.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: matplotlib>=3.5
+Requires-Dist: numpy>=1.21
+Provides-Extra: tests
+Requires-Dist: flake8>=3.9; extra == 'tests'
+Requires-Dist: mock>=4.0; extra == 'tests'
+Requires-Dist: mypy>=0.910; extra == 'tests'
+Requires-Dist: pytest-cov>=2.0; extra == 'tests'
+Requires-Dist: pytest>=6.0; extra == 'tests'
+Requires-Dist: tox>=3.24; extra == 'tests'
+Description-Content-Type: text/markdown
+
+# Ideal Forms
+## "Some charts I prepared earlier."
+Matplotlib charts formatted according to [The Data Visualization Catalogue](https://datavizcatalogue.com/).
+
+## Install
+```pip install idealforms```
+
+## Bar
+```python
+from idealforms.bar import bar
+from idealforms.formatters import money_formatter
+
+categorical_data = dict(apples=500000,
+                        oranges=1200000,
+                        mangos=2200005)
+
+fig, ax = bar(categorical_data,
+              x_label='revenue',
+              y_label='fruit',
+              title='Fruit Revenue',
+              formatter=money_formatter)
+```
+![ideal bar chart image](./docs/demo_fig.png)
+
+
+## Pie
+```python
+import matplotlib.pyplot as plt
+from idealforms.pie import pie
+from collections import Counter
+my_pi = "3.1415926535897"
+pi_digits_count = Counter(str(my_pi).replace('.',''))
+
+fig, ax = pie(
+    pi_digits_count, 
+    title='Py Pi Pie', 
+    reverse_color_order=True,
+    largest_color='xkcd:macaroni and cheese',
+    figsize=(4,4)
+)
+plt.show()
+```
+![ideal pie chart image](./docs/demo_pie.png)

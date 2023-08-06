@@ -1,0 +1,77 @@
+[project]
+name = "idealforms"
+authors = [
+  { name="Iain McConnell", email="buckler_08_matador@icloud.com" },
+]
+description = "Some charts I prepared earlier"
+dynamic = ['version']
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  'matplotlib >= 3.5',
+  'numpy >= 1.21',
+]
+
+[project.urls]
+"Homepage" = "https://github.com/ilmcconnell/idealforms"
+"Bug Tracker" = "https://github.com/ilmcconnell/idealforms/issues"
+
+[project.optional-dependencies]
+tests = [
+  'pytest>=6.0',
+  'pytest-cov>=2.0',
+  'mock>=4.0',
+  'mypy>=0.910',
+  'flake8>=3.9',
+  'tox>=3.24',
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = [
+  "src/idealforms/*.py",
+  "/tests",
+]
+
+[tool.hatch.version]
+path = "src/idealforms/__about__.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+  "/docs",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/idealforms"]
+
+[tool.pytest.ini_options]
+addopts = '--cov=idealforms'
+testpaths = [
+    'tests',
+]
+
+[flake8]
+max-line-length=160
+
+[tool.mypy]
+mypy_path = 'src'
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
