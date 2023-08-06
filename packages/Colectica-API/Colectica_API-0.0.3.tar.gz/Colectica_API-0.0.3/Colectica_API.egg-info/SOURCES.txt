@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+Colectica_API.egg-info/PKG-INFO
+Colectica_API.egg-info/SOURCES.txt
+Colectica_API.egg-info/dependency_links.txt
+Colectica_API.egg-info/requires.txt
+Colectica_API.egg-info/top_level.txt
+colectica_api/__init__.py
+colectica_api/api.py
+colectica_api/colectica.py
+colectica_api/test_items.py
