@@ -1,0 +1,13 @@
+chroma_migrate/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+chroma_migrate/__main__.py,sha256=15WWBXFtrep8tMGYtZt6Pr4orlnA0CF1bYRgBQX2FJE,80
+chroma_migrate/cli.py,sha256=PJ8LJtJ_AJemDw-uodz6Tc52PDskqcyOCYWxHoK6cm4,8422
+chroma_migrate/import_chromadb.py,sha256=rTu1jhPDUDWM2-kaRaEGTTIOAKzOaNSDB88jAPAz6DY,2382
+chroma_migrate/import_clickhouse.py,sha256=S1cN9iQ69nj6PZRMIaAucMhzm4BLS2r-cOuk4vhiISQ,2409
+chroma_migrate/import_duckdb.py,sha256=gObZvRcseXs8OYaahkDkcaNS1uRpEoXOQFVk6sgSQ-I,3031
+chroma_migrate/utils.py,sha256=FmhoK7a4c_Z4as_dJjW-vo3lshzMIcNaOiUUxCUvNiw,846
+chroma_migrate-0.0.2.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+chroma_migrate-0.0.2.dist-info/METADATA,sha256=mQ_TvJIoVdgXciO_7hZa75LypFf6Lj7RnVLLDIgGbEE,3357
+chroma_migrate-0.0.2.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+chroma_migrate-0.0.2.dist-info/entry_points.txt,sha256=oH5PV7MRZKpP55njAr6Sg7bI9wxcY0ZQG2kzhibCBks,62
+chroma_migrate-0.0.2.dist-info/top_level.txt,sha256=mtPQobHnG42ztxSCJUm8AXndBHpqvAUP3lf9xSlNqPI,15
+chroma_migrate-0.0.2.dist-info/RECORD,,
