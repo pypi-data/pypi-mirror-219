@@ -1,0 +1,4 @@
+include *requirements.txt
+include LICENSE
+include pytest.ini
+include conftest.py
