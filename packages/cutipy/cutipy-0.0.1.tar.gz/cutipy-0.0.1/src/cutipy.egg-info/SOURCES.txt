@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/cutipy/__init__.py
+src/cutipy/example.py
+src/cutipy.egg-info/PKG-INFO
+src/cutipy.egg-info/SOURCES.txt
+src/cutipy.egg-info/dependency_links.txt
+src/cutipy.egg-info/top_level.txt
