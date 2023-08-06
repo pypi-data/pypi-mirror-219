@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: timezoneutils
+Version: 0.1.0
+Summary: Package For timezoneutils
+Author: GOH YU HAN
+Author-email: gohyuhan123456@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: certifi (==2023.5.7)
+Requires-Dist: cffi (==1.15.1)
+Requires-Dist: charset-normalizer (==3.2.0)
+Requires-Dist: click (==8.1.5)
+Requires-Dist: decorator (==5.1.1)
+Requires-Dist: future (==0.18.3)
+Requires-Dist: geocoder (==1.38.1)
+Requires-Dist: h3 (==3.7.6)
+Requires-Dist: idna (==3.4)
+Requires-Dist: numpy (==1.25.1)
+Requires-Dist: pycparser (==2.21)
+Requires-Dist: python-dotenv (==1.0.0)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: ratelim (==0.1.6)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: timezonefinder (==6.2.0)
+Requires-Dist: urllib3 (==2.0.3)
+
+Python Package for timezoneutils including but not limit to converting timezone, calculate timezone difference, timezone offset, get timezone info (including which country use this timezone), check is the timezone DST, check the DST start and end date for a particular year or current year by default. Middleware to get timezone and related info like country using public ip address from request
+
+Change logs:
+v 0.0.1 - initial release (alpha version)
+v 0.1.0 - fixed bug for timezone_middleware where ip_address is None (local development). (alpha version)
