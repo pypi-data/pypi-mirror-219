@@ -1,0 +1,145 @@
+# SPDX-License-Identifier: MIT
+
+[build-system]
+# never uppercap requirements unless we have evidence it won't work https://iscinumpy.dev/post/bound-version-constraints/ 
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]  # beware if using setuptools: setup.py still gets executed, and even if pyproject.toml fields take precedence, if there is any code error in setup.py, building will fail!
+name = "webactogram"  # renamed from online-actogram according to PEP 423 https://peps.python.org/pep-0423/#pick-meaningful-names
+version = "0.3.1"  # see PEP 440 https://peps.python.org/pep-0440/#pre-releases and https://packaging.python.org/en/latest/guides/single-sourcing-package-version/
+description = "Actogram from browsers history, may help to screen sleep-wake patterns & disorders!"
+authors = [
+    {name = "Stephen Karl Larroque", email = "LRQ3000@gmail.com"},
+    ]
+maintainers = [
+    {name = "Stephen Karl Larroque", email = "LRQ3000@gmail.com"},
+    ]
+requires-python = ">=3.7"
+license = {text = "MIT License"} # { file = "LICENSE" }
+keywords = ["actogram", "sleep", "pattern", "activity", "graph", "browser", "internet", "online", "actigraphy"]
+classifiers = [
+    'Development Status :: 4 - Beta',
+    'License :: OSI Approved :: MIT License',
+    'Environment :: Console',
+	'Operating System :: MacOS :: MacOS X',
+	'Operating System :: Microsoft :: Windows',
+	'Operating System :: POSIX',
+	'Operating System :: POSIX :: Linux',
+    'Intended Audience :: End Users/Desktop',
+	'Intended Audience :: Healthcare Industry',
+	'Intended Audience :: Science/Research',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: Implementation :: PyPy',
+	'Topic :: Internet :: Log Analysis',
+	'Topic :: Internet :: WWW/HTTP :: Browsers',
+	'Topic :: Scientific/Engineering :: Bio-Informatics',
+	'Topic :: Scientific/Engineering :: Medical Science Apps.',
+]
+dependencies = [
+	"matplotlib",
+	"numpy",
+	"pandas",
+	"scipy",
+]
+
+[project.urls]
+Homepage = "https://github.com/Circadiaware/webactogram"
+Documentation = "https://github.com/Circadiaware/webactogram/blob/master/README.md"
+"Source" = "https://github.com/Circadiaware/webactogram"
+Tracker = "https://github.com/Circadiaware/webactogram/issues"
+Download = "https://github.com/Circadiaware/webactogram/releases"
+Changelog = "https://allmychanges.com/p/python/webactogram/"
+
+[project.optional-dependencies]
+test = [  # minimum dependencies to run tests
+    "pytest",
+    "pytest-cov",
+]
+testmeta = [  # dependencies to test meta-data and build locally
+    "build",
+    "twine",
+    "validate-pyproject",
+]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.scripts]
+webactogram = "webactogram.webactogram:main"
+
+#[tool.setuptools]
+#package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+# IMPORTANT: systematically delete `src/<project.name>.egg-info` folder before rebuilding, otherwise the list of included files will not get updated (it's in `SOURCES.txt` file in this folder)
+where = ["src"]
+include = ["webactogram*"]
+#namespaces = true  # already the default
+
+[tool.setuptools.package-data]
+# Check the <mypkg>.egg-info/SOURCES.txt file generated after a `build` or `pip install` to check if the following files are correctly included in the sdist.
+# Check also the list of files included by default: https://packaging.python.org/en/latest/guides/using-manifest-in/
+"*" = [
+    "LICENSE*",
+    "README*",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "-ra",
+    "--strict-markers",
+]
+xfail_strict = true
+testpaths = "tests"  # default path to look for tests if nothing is specified in commandline
+filterwarnings = [
+    "once::Warning",
+]
+required_plugins = "pytest-cov"
+
+[tool.coverage.run]
+branch = true
+relative_files = true
+include = [
+    "*/webactogram/*.py",
+    ]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.report]  # Beware: you need to delete .coveragerc if you have one, otherwise .coveragerc will take precedence!
+show_missing = true
+include = [
+    "*/webactogram/*.py",
+]
+omit = [
+    "*/python?.?/*",
+    "*/site-packages/nose/*",
+    "*/opt/python/pypy*",
+    "*/tests/*",
+]
+exclude_lines = [
+    # a more strict default pragma
+    "\\# pragma: no cover\\b",
+
+    # allow defensive code
+    "^\\s*raise AssertionError\\b",
+    "^\\s*raise NotImplementedError\\b",
+    "^\\s*return NotImplemented\\b",
+    "^\\s*raise$",
+
+    # typing-related code
+    "^if (False|TYPE_CHECKING):",
+    ": \\.\\.\\.(\\s*#.*)?$",
+    "^ +\\.\\.\\.$",
+    "-> ['\"]?NoReturn['\"]?:",
+]

@@ -1,0 +1,8 @@
+# Licence
+include LICENCE
+
+# Documentation
+include README.md
+
+# Miscellaneous
+include Makefile
