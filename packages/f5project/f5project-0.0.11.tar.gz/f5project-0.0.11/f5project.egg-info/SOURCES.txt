@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+f5project/__init__.py
+f5project.egg-info/PKG-INFO
+f5project.egg-info/SOURCES.txt
+f5project.egg-info/dependency_links.txt
+f5project.egg-info/entry_points.txt
+f5project.egg-info/requires.txt
+f5project.egg-info/top_level.txt
+f5project/create_f5project/__init__.py
