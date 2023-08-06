@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: runner1c
+Version: 0.59
+Summary: утилита для запуска 1С
+Home-page: https://github.com/vakulenkoalex/runner1c/
+Author: Vakulenko Aleksei
+License: BSD
+Platform: win32
+Requires-Python: >=3.5
+License-File: LICENSE
