@@ -1,0 +1,7 @@
+lmfit
+numpy
+
+[dev]
+pytest
+pytest-random-order
+coverage
