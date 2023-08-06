@@ -1,0 +1,3 @@
+[pdm]
+pdm-packer = pdm_packer:plugin
+
