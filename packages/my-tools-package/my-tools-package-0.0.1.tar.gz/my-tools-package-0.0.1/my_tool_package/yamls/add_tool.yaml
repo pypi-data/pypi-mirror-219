@@ -1,0 +1,12 @@
+my_tool_package.tools.add_tool.add_tool:
+  function: add_tool
+  inputs:
+    a:
+      type:
+      - int
+    b:
+      type:
+      - int
+  module: my_tool_package.tools.add_tool
+  name: add_tool
+  type: python
