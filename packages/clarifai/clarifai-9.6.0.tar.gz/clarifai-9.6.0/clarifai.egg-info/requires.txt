@@ -1,0 +1,3 @@
+clarifai-grpc>=9.6.0
+tritonclient==2.34.0
+packaging
