@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+jumpavg/__init__.py
+jumpavg/avg_stdev_stats.py
+jumpavg/bit_counting_group.py
+jumpavg/bit_counting_group_list.py
+jumpavg/bit_counting_stats.py
+jumpavg/classify.py
+jumpavg/m.py
+jumpavg.egg-info/PKG-INFO
+jumpavg.egg-info/SOURCES.txt
+jumpavg.egg-info/dependency_links.txt
+jumpavg.egg-info/top_level.txt
