@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+EnergyDataModel/__init__.py
+EnergyDataModel/_modidx.py
+EnergyDataModel/core.py
+EnergyDataModel.egg-info/PKG-INFO
+EnergyDataModel.egg-info/SOURCES.txt
+EnergyDataModel.egg-info/dependency_links.txt
+EnergyDataModel.egg-info/entry_points.txt
+EnergyDataModel.egg-info/not-zip-safe
+EnergyDataModel.egg-info/requires.txt
+EnergyDataModel.egg-info/top_level.txt
