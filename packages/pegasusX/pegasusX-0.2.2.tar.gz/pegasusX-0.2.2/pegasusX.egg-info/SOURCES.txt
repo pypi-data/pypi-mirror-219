@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+pegasus/__init__.py
+pegasus/main.py
+pegasus/oceandb/__init__.py
+pegasus/oceandb/config.py
+pegasus/oceandb/errors.py
+pegasus/oceandb/api/__init__.py
+pegasus/oceandb/api/types.py
+pegasus/oceandb/utils/__init__.py
+pegasus/oceandb/utils/embedding_functions.py
+pegasusX.egg-info/PKG-INFO
+pegasusX.egg-info/SOURCES.txt
+pegasusX.egg-info/dependency_links.txt
+pegasusX.egg-info/requires.txt
+pegasusX.egg-info/top_level.txt
