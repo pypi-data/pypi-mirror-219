@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+spmp/__init__.py
+spmp/__main__.py
+spmp/_version.py
+spmp/naming_convention.py
+spmp.egg-info/PKG-INFO
+spmp.egg-info/SOURCES.txt
+spmp.egg-info/dependency_links.txt
+spmp.egg-info/entry_points.txt
+spmp.egg-info/requires.txt
+spmp.egg-info/top_level.txt
+tests/test_satelliteimage.py
