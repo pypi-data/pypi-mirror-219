@@ -1,0 +1,30 @@
+
+[build-system]
+  build-backend = "setuptools.build_meta"
+  requires = ["setuptools >= 61.0"]
+
+[project]
+  classifiers = ["Development Status :: 4 - Beta", "Programming Language :: Python :: 3", "License :: OSI Approved :: Apache Software License", "Operating System :: OS Independent", "Intended Audience :: Developers", "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Content Management System"]
+  dependencies = ["requests < 3", "requests_toolbelt", "setuptools", "kubernetes", "zipfile36", "suds"]
+  description = "A Python library to interact with Opentext Extended ECM REST API"
+  keywords = ["opentext", "extendedecm", "contentserver", "otds", "appworks", "archivecenter"]
+  name = "pyxecm"
+  readme = "README.md"
+  requires-python = ">=3.10"
+  version = "0.1.1"
+
+  [[project.authors]]
+    email = "kgatzweiler@opentext.com"
+    name = "Kai Gatzweiler"
+
+  [[project.authors]]
+    email = "mdiefenb@opentext.com"
+    name = "Dr. Marc Diefenbruch"
+
+  [project.urls]
+    Homepage = "https://ecm.glpages.otxlab.net/pyxecm/"
+
+[tool]
+
+  [tool.setuptools]
+    packages = ["pyxecm"]
