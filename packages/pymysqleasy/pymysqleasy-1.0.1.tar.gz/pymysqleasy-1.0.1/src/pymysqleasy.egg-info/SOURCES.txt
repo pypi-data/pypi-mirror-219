@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/pymysqleasy/MysqlDB.py
+src/pymysqleasy/__init__.py
+src/pymysqleasy.egg-info/PKG-INFO
+src/pymysqleasy.egg-info/SOURCES.txt
+src/pymysqleasy.egg-info/dependency_links.txt
+src/pymysqleasy.egg-info/top_level.txt

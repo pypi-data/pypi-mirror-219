@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pymysqleasy
+Version: 1.0.1
+Summary: mysql crud exends
+Home-page: https://github.com/duerhong/py-mysql-easy
+Author: duer
+Author-email: 1186969412@qq.com
+Project-URL: Bug Tracker, https://github.com/duerhong/py-mysql-easy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
