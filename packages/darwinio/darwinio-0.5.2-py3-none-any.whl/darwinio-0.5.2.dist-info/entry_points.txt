@@ -1,0 +1,2 @@
+[console_scripts]
+darwinio = darwinio.__main__:cli
