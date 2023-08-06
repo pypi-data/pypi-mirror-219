@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+stactask/__init__.py
+stactask/asset_io.py
+stactask/exceptions.py
+stactask/py.typed
+stactask/task.py
+stactask/utils.py
+stactask.egg-info/PKG-INFO
+stactask.egg-info/SOURCES.txt
+stactask.egg-info/dependency_links.txt
+stactask.egg-info/not-zip-safe
+stactask.egg-info/requires.txt
+stactask.egg-info/top_level.txt
