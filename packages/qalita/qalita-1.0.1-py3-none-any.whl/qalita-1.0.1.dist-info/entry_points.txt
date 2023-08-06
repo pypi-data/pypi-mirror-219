@@ -1,0 +1,3 @@
+[console_scripts]
+qalita=qalita.cli:cli
+
