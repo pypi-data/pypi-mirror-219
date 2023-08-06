@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: ARIclicker
+Version: 2.0.1
+Summary: The best autoclicker in minecraft!
+Home-page: UNKNOWN
+Author: LIN,Zhe
+Author-email: 2081812728@qq.com
+License: MIT
+Description:   # **--ARIclicker--** # 
+        
+        
+        ## Runtime Dependencies ##
+        * python>=3.0
+        
+        
+        
+        ## Requires ##
+        * pynput
+        ## Installation ##
+        `
+        pip install ARIclicker
+        `
+        
+        ## Function ##
+        * `def autoclick(start_stop_key_character, end_key_character, button,delay_min, delay_max) `
+        
+        
+        
+        ## Attention ##
+        * This clicker can reduce the risk of banning to a certain extent, but it does not mean that it can guarantee that it will not be banned!
+        
+        * Please do not turn on the clicker for a long time! otherwise it may cause some impact on the hardware, in addition, it may increase the risk of banning!
+        
+        
+        
+        ### have fun ~ ###
+        <br><br>
+        
+        
+        ## Change log ##
+        
+        
+         ### **2.0.1**  (2023/7/17): ###
+         * Fixed several bugs
+         * Remove the "autopress" function
+        
+Keywords: autoclicker,minecraft-auto
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires: pynput
+Description-Content-Type: text/markdown
