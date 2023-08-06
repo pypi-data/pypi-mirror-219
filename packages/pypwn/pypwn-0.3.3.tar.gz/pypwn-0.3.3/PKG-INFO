@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pypwn
+Version: 0.3.3
+Summary: pwnlib wrappers for CTFs
+Author-email: lim8en1 <lim8en1@proton.me>
+Project-URL: Homepage, https://github.com/lim8en1/pypwn
+Project-URL: Bug Tracker, https://github.com/lim8en1/pypwn/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pypwn
+A better approach to solving binary exploitation CTFs
