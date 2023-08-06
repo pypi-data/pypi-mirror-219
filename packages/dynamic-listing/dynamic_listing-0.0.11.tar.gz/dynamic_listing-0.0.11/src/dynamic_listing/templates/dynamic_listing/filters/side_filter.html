@@ -1,0 +1,19 @@
+{% load i18n %}
+
+{% if filter %}
+  <div class="card card-flush">
+    <div class="px-7 py-5">
+      {% if request.GET|length > 0 %}
+        <a href="#"
+           class="text-primary bold" data-reset-filters="true">
+          {% trans "Clear Filters" %}</a>
+        <div class="separator mb-3"></div>
+      {% endif %}
+      {% for field in filter %}
+        {% if field.type == 'filter' %}
+          {% include field.template_name with attrs=field.attrs %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

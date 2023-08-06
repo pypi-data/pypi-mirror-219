@@ -1,0 +1,13 @@
+<td>{{ item.id }}</td>
+
+<td class="text-start">{{ item.title }}</td>
+
+<td class="text-center">
+  {{ item.content|truncatechars:60 }}
+</td>
+
+<td class="text-center">{{ item.category.name }}</td>
+
+<td class="text-center">
+  {{ item.tags.all }}
+</td>
