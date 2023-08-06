@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: scratchrequest
+Version: 0.6.0
+Summary: An Scratch API Wrapper for scratch.mit.edu
+Home-page: https://github.com/programordie2/scratchrequest
+Author: programORdie
+Author-email: 
+Keywords: scratch api,scratchrequest,scratch api python,scratch python,scratch for python,scratch,scratch cloud,scratch cloud variables,scratch bot
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: websocket-client
+Requires-Dist: requests
+
+Hi
