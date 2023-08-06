@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyexifwrangle
+Version: 0.1.1
+Summary: A helper package for wrangling image EXIF data
+Home-page: https://github.com/stephaniereinders/pyexifwrangle
+Author: Stephanie Reinders
+Author-email: reinders.stephanie@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Provides-Extra: dev
