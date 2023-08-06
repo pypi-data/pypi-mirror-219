@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: zvm
+Version: 6.0.0
+Summary: A virtual stack machine that executes Python code based on instructions provided in a JSON file.
+Home-page: https://github.com/ieg-tech/zvm.git
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: develop
+Requires-Dist: flake8 ; extra == 'develop'
+Requires-Dist: pytest ; extra == 'develop'
+Provides-Extra: docs
+Requires-Dist: mkdocs ; extra == 'docs'
+Requires-Dist: mkdocstrings[python] ; extra == 'docs'
+Requires-Dist: mkdocs-terminal ; extra == 'docs'
+
+# ZVM
+
+## Installation
+Run the following command for a minimal ZVM install.
+```console
+liam:~$ pip install git+https://github.com/LiamBindle/ZVM.git
+```
+
+If you are working on a ZVM extension, you might want the `develop` and `docs` extras.
+```console
+liam:~$ pip install "git+https://github.com/LiamBindle/ZVM.git#egg=zvm[develop,docs]"
+```
+
+## Documentation
+Do the following to generate the documentation (and open the live link):
+```console
+liam:~$ cd ~/zvm
+liam:~$ mkdocs serve
+INFO     -  Building documentation...
+INFO     -  Cleaning site directory
+INFO     -  Documentation built in 0.08 seconds
+INFO     -  [09:05:15] Watching paths for changes: 'docs', 'mkdocs.yml'
+INFO     -  [09:05:15] Serving on http://127.0.0.1:8000/
+```
