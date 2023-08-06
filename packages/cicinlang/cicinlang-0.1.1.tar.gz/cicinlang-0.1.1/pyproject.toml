@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cicinlang"
+version = "0.1.1"
+description = "A general purpose, procedural, interpreted programming language made using Python"
+authors = ["Farhan Tajwar Romit <tajwarfarhan48@gmail.com>"]
+readme = "README.md"
+packages = [{include = "cicinlang"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.scripts]
+cicinlang = "cicinlang.entry:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
