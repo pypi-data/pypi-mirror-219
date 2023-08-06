@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: instagrader
+Version: 0.0.9
+Summary: Jupyter notebook in-line auto-grader
+Author-email: Team EXII <root@teamexii.com>
+Project-URL: Homepage, https://github.com/teamexii/instragrader
+Project-URL: Bug Tracker, https://github.com/teamexii/instragrader/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
