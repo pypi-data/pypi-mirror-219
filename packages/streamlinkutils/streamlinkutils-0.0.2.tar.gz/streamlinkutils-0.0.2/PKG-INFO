@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: streamlinkutils
+Version: 0.0.2
+Summary: This module adds extra utilities to Streamlink's API. I am in no way connected with Streamlink.
+Author: Parrot Developers
+Author-email: redacted@example.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: streamlink (>=2.4.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Streamlink Utils
+
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+**Streamlink Utils** is a module that extends the functionality of Streamlink's API by adding extra utilities. This module is developed by the Parrot Developers, an independent team passionate about enhancing the streaming experience.
+
+## Features
+
+- **Feature 1:** 
+  Description of the first feature goes here.
+
+- **Feature 2:** 
+  Description of the second feature goes here.
+
+- **Feature 3:** 
+  Description of the third feature goes here.
+
+## Installation
+
+1. Make sure you have Streamlink installed. You can find the installation instructions [here](https://streamlink.github.io/install.html).
+
+2. Install the Streamlink Utils module using pip:
+
+```bash
+pip install streamlink-utils
+```
+
+## Usage
+
+To use the Streamlink Utils module in your project, follow these steps:
+
+1. Import the module into your code:
+
+```python
+import streamlink_utils
+```
+
+2. Use the various utilities provided by the module to enhance your streaming application. Here's an example:
+
+```python
+# Example code snippet
+streamlink_utils.some_utility_function()
+```
+
+3. Continue implementing your application with the added benefits of Streamlink Utils!
+
+## Contributing
+
+We welcome contributions from the community to improve Streamlink Utils. If you encounter any issues or have suggestions for new features, please open an issue on the [GitHub repository](https://github.com/parrotdevelopers/streamlink-utils).
+
+If you would like to contribute code, follow these steps:
+
+1. Fork the repository and clone it to your local machine.
+
+2. Create a new branch for your feature or bug fix.
+
+3. Make your changes and test them thoroughly.
+
+4. Commit your changes with clear and concise commit messages.
+
+5. Push your changes to your forked repository.
+
+6. Open a pull request on the main repository, describing your changes and the problem they solve.
+
+7. We will review your pull request and provide feedback as soon as possible.
+
+Thank you for contributing!
+
+## License
+
+This project is licensed under the [MIT License](LICENSE). Please see the [LICENSE](LICENSE) file for more details.
+
+## Disclaimer
+
+This module is developed by the Parrot Developers and is in no way affiliated or connected with Streamlink.
