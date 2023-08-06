@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+setup.py
+reata/__futures__.py
+reata/__init__.py
+reata/client.py
+reata/schema.py
+reata.egg-info/PKG-INFO
+reata.egg-info/SOURCES.txt
+reata.egg-info/dependency_links.txt
+reata.egg-info/requires.txt
+reata.egg-info/top_level.txt
