@@ -1,0 +1,6 @@
+salure-helpers-mysql>=1
+salure-helpers-salureconnect>=1
+salure-helpers-mandrill>=0
+salure-helpers-salure_functions>=0
+pandas<=1.35,>=1
+requests<=3,>=2
