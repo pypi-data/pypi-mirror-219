@@ -1,0 +1,22 @@
+mutation InsertPipelinePublish(
+    $pipeline_version_id: bigint!,
+    $status: String = "pending_publish",
+    $created_by: String = "",
+
+) {
+  insert_pipeline_publish_one(object: {
+    pipeline_version_id: $pipeline_version_id,
+    status: $status,
+    created_by: $created_by
+  }) {
+    id
+    pipeline_version_id
+    status
+    created_at
+    updated_at
+    created_by
+    pipeline_url
+    engine_url
+    chart_url
+  }
+}

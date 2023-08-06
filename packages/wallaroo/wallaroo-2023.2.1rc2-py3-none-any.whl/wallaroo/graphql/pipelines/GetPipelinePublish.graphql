@@ -1,0 +1,13 @@
+query GetPipelinePublish($id: bigint!) {
+  pipeline_publish_by_pk(id: $id) {
+    created_at
+    created_by
+    id
+    pipeline_version_id
+    status
+    updated_at
+    pipeline_url
+    engine_url
+    chart_url
+  }
+}
