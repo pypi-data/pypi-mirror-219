@@ -1,0 +1,2 @@
+[console_scripts]
+slide-add-voice = pptx_tools.apps.slide_add_voice:main
