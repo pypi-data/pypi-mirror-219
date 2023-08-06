@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: marlowe
+Version: 0.1.1
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: marlowe-rs bindings for using cardano marlowe in python
+Requires-Python: >=3.7
