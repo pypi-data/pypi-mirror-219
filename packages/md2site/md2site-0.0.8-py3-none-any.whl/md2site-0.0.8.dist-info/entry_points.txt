@@ -1,0 +1,3 @@
+[console_scripts]
+md2site=md2site.generator:generate
+
