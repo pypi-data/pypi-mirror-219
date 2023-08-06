@@ -1,0 +1,8 @@
+{
+  "domain": "my",
+  "name": "My Smart Home Controller (The Next Generation)",
+  "documentation": "https://www.home-assistant.io/integrations/my",
+  "dependencies": ["frontend"],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

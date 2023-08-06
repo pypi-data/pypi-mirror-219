@@ -1,0 +1,263 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "auf Gandalf bereitstellen",
+            "type": "shell",
+            "command": "script/deploy.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Develop Frontend",
+            "type": "shell",
+            "command": "nodejs/frontend/script/develop",
+            "problemMatcher": {
+                "owner": "ha-build",
+                "source": "ha-build",
+                "fileLocation": "absolute",
+                "severity": "error",
+                "pattern": [
+                    {
+                        "regexp": "(SyntaxError): (.+): (.+) \\((\\d+):(\\d+)\\)",
+                        "severity": 1,
+                        "file": 2,
+                        "message": 3,
+                        "line": 4,
+                        "column": 5
+                    }
+                ],
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "Changes detected. Starting compilation",
+                    "endsPattern": "Build done @"
+                }
+            },
+            "isBackground": true,
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        },
+        {
+            "label": "Frontend generieren",
+            "type": "shell",
+            "command": "nodejs/frontend/script/build_frontend",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Mit Black formatieren",
+            "type": "shell",
+            "command": "script/run-in-env.sh black --fast smart_home_tng/ tests/",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "format source code",
+            "type": "shell",
+            "command": "script/run-in-env.sh black --fast ${file}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Pre-Commit Tests ausführen",
+            "type": "shell",
+            "command": "script/run-in-env.sh pre-commit run",
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Mit Bandit überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh bandit -qr --format=custom -c=tests/bandit.yaml custom_components/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Mit Codespell überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh codespell custom_components/ tests/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Mit Flake8 überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh flake8 custom_components/ tests/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Mit Mypy überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh mypy custom_components/ tests/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Sortierung der Imports überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh isort custom_components/ tests/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Imports sortieren",
+            "type": "shell",
+            "command": "script/run-in-env.sh isort ${file}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Implementierung überprüfen",
+            "type": "shell",
+            "command": "script/run-in-env.sh pytest tests/",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "script/run-in-env.sh pylint --rcfile=.pylint smart_home_tng/ script/ tests/",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "script/run-in-env.sh pylint --rcfile=.pylint ${file}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "YAMLint",
+            "type": "shell",
+            "command": "script/run-in-env.sh yamllint ${file}",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Rechtschreibung (aktuelle Datei)",
+            "type": "shell",
+            "command": "typos ${file}",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Rechtschreibprüfung",
+            "type": "shell",
+            "command": "typos",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ],
+}
