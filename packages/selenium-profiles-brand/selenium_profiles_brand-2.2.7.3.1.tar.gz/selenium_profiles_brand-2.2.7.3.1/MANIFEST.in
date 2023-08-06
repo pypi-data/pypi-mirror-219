@@ -1,0 +1,9 @@
+include pyproject.toml
+include *.md
+include LICENSE.md
+recursive-include tests test*.py
+graft src/selenium_profiles_brand/js
+graft src/selenium_profiles_brand/profiles
+graft src/selenium_profiles_brand/files/proxy_extension
+graft src/selenium_profiles_brand/files/tmp/proxy_extension
+
