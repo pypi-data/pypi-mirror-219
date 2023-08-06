@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: easier-python-client
+Version: 0.1.3
+Summary: The EASIER Data Initiative Python IPFS Client
+Home-page: UNKNOWN
+Author: The EASIER Data Initiative
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ipfsspec
+Requires-Dist: fsspec
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: beautifulsoup4
+Requires-Dist: pystac-client
+
+# The EASIER Data Initiative's Python Client
+
+### Features
+
+* Simple CID Data Retrieval
+* CID CSV To Dataframe Object
+* Querying EASIER STAC API by Bounding Box
+  * Single Band Retrieval
+  * Multi Band Retrieval
+
+### Installation
+
+The client can be installed through pip
+
+```bash
+$ pip install easier-python-client
+```
+
+### Language Support
+
+The client currently supports Python versions 3+
+
+## Usage
+
+### Create a client object
+
+WIP
+
+
