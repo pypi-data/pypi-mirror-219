@@ -1,0 +1,2 @@
+[console_scripts]
+holybible = holy_bible.__main__:main
