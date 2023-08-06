@@ -1,0 +1,15 @@
+attrs
+cattrs
+click
+ndjson
+requests
+rich
+
+[test]
+pytest
+pytest-cov
+responses
+
+[typing]
+mypy
+types-requests
