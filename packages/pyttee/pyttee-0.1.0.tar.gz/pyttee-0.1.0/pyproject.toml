@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "pyttee"
+version = "0.1.0"
+description = "PYThon TEmplate Engine (pyttee) - simple, zero-dependecy, list-oriented html template engine for python"
+authors = ["Lily Appely <lappely@yahoo.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">3.10"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+html-to-json = "^2.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
