@@ -1,0 +1,12 @@
+mlflow_tritonserver/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mlflow_tritonserver/__version__.py,sha256=LGVQyDsWifdACo7qztwb8RWWHds1E7uQ-ZqD8SAjyw4,22
+mlflow_tritonserver/config.py,sha256=UzVLW4zeqzUraorUVwSUmu76ES_NiPxIgfvD_dr5yzs,4285
+mlflow_tritonserver/deployments.py,sha256=fRxNj4eJBtfSVVwZTxLbJ-gPUqdrrgNHyGY_2GutpsA,22220
+mlflow_tritonserver/mlflow_tritonserver_cli.py,sha256=6ovexF3nSLZwAFEObKDoU0nRXP_yNgXZeLPwvG9MTXM,2090
+mlflow_tritonserver/triton_flavor.py,sha256=g_onLrrkjLMoSSEYtGr-P3o32ERSYf_SZ7s1Tyb_8mQ,2903
+mlflow_tritonserver-1.1.0.dist-info/LICENSE,sha256=zE1N4JILDTkSIDtdmqdnKKxKEQh_VdqeoAV2230eNOI,10141
+mlflow_tritonserver-1.1.0.dist-info/METADATA,sha256=fX48jO0rOIwYGP2pSySlkXOd7mSRbRiHxXyj6OO5oJM,9152
+mlflow_tritonserver-1.1.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+mlflow_tritonserver-1.1.0.dist-info/entry_points.txt,sha256=RKfvu7-pdrFvgZHGktHRxQOPiUXUoAVgic4j8cgCeDs,155
+mlflow_tritonserver-1.1.0.dist-info/top_level.txt,sha256=CSos-BI41WXdR5F_NW2_cd4FKy6HW6UdeIZP7QJVxdM,20
+mlflow_tritonserver-1.1.0.dist-info/RECORD,,
