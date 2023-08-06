@@ -1,0 +1,3 @@
+include ml4s/VERSION
+include documentation/Package_Info.md
+recursive-include ml4s/backend/tf/cuda/build *
