@@ -1,0 +1,8 @@
+{% extends "django_htcpcp_tea/base_error.html" %}
+
+{% block error_title %}400 Bad Request{% endblock %}
+
+{% block error_body %}
+    <p>The operator of the coffee pot could not understand the request.</p>
+    <p> Reason: {{ error_reason }}</p>
+{% endblock %}
