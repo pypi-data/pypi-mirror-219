@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: utilsd
+Version: 0.0.18.post0
+Summary: Common utils for deep learning.
+Home-page: https://github.com/ultmaster/utilsd
+Author: Yuge Zhang
+Author-email: scottyugochang@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: addict (>=2.4.0)
+Requires-Dist: click (>=7.0)
+Requires-Dist: numpy (>=1.18.0)
+Requires-Dist: pyyaml (>=5.4.1)
+Requires-Dist: yapf (>=0.31.0)
+Requires-Dist: typeguard (<3.0,>=2.13)
+Requires-Dist: numpy (<1.22) ; python_version < "3.8"
+Requires-Dist: typing-extensions (>=3.7) ; python_version < "3.8"
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: nbsphinx ; extra == 'docs'
+Requires-Dist: pydata-sphinx-theme ; extra == 'docs'
+Requires-Dist: ipython ; extra == 'docs'
+Provides-Extra: full
+Requires-Dist: torch (>=1.7.1) ; extra == 'full'
+
+# Common utils for deep learning
+
+[![build](https://github.com/ultmaster/utilsd/actions/workflows/python-test.yml/badge.svg)](https://github.com/ultmaster/utilsd/actions/workflows/python-test.yml) [![codecov](https://codecov.io/gh/ultmaster/utilsd/branch/master/graph/badge.svg?token=CKMH54LMRM)](https://codecov.io/gh/ultmaster/utilsd) [![Documentation Status](https://readthedocs.org/projects/utilsd/badge/?version=latest)](https://utilsd.readthedocs.io/en/latest/?badge=latest)
+
+Documentation: https://utilsd.readthedocs.io/en/stable/
+
+```
+pip install utilsd
+```
+
+### What is utilsd?
+
+I'm collecting *common utils* that are used in at least 2 of the projects I have been working on. I expect most of the utils are in the corner of logging, experiment setup, config management, log analysis, and etc. As I almost always use PyTorch and most of the projects are featuring vision tasks, it will be built upon PyTorch.
+
+### Why it is named utilsd?
+
+To join the D-universe that is powered by several ambitious system researchers.
+
+### Is it a stable toolkit I can use?
+
+Not really. It is still a draft and being tested against multiple internal projects. I will try to write documentation for this project within a couple of months (or give up on it forever).
