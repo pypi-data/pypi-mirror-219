@@ -1,0 +1,151 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tootbot"
+description = "A Python bot that looks up posts from specified subreddits and automatically posts them on Mastodon"
+readme = "README.rst"
+authors = [
+  { name = "marvin8", email = "marvin8@tuta.io" },
+]
+requires-python = ">=3.8"
+license = {text = "AGPL-3.0-or-later"}
+dynamic = ["version"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop"
+]
+
+dependencies = [
+    "imgurpython>=1.1.7",
+    "arrow>=1.2.3",
+    "python-magic>=0.4.27",
+    "asyncpraw>=7.7.1",
+    "outdated>=0.2.2",
+    "tqdm>=4.65.0",
+    "aiosqlite>=0.17.0",
+    "yt-dlp>=2023.7.6",
+    "minimal-activitypub>=0.5.5",
+]
+[project.optional-dependencies]
+doc = [
+    "Sphinx>=6.2.1",
+    "python-docs-theme>=2023.5",
+    "sphinx-rtd-theme>=1.2.2",
+]
+dev = [
+    "pre-commit>=3.3.3",
+    "black>=23.7.0",
+    "mypy>=1.4.1",
+    "safety>=2.3.4",
+    "pip-audit>=2.6.0",
+    "types-aiofiles>=23.1.0.4",
+    "interrogate>=1.5.0",
+    "ruff>=0.0.278",
+    "flit>=3.9.0",
+]
+
+[project.scripts]
+tootbot = "tootbot.app:start_main"
+tootbot_create_config = "tootbot.create_config:create"
+tootbot_debug_submission = "tootbot.debug:start_debug_single_submission"
+
+[project.urls]
+Changelog = "https://codeberg.org/MarvinsMastodonTools/tootbot/src/branch/main/CHANGELOG.rst"
+Wiki = "https://codeberg.org/MarvinsMastodonTools/tootbot/wiki"
+"Bug Tracker" = "https://codeberg.org/MarvinsMastodonTools/tootbot/issues"
+homepage = "https://codeberg.org/MarvinsMastodonTools/tootbot"
+repository = "https://codeberg.org/MarvinsMastodonTools/tootbot"
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = false
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+ignore-nested-functions = false
+ignore-nested-classes = true
+ignore-setters = false
+fail-under = 95
+exclude = ["setup.py", "docs", "build"]
+ignore-regex = ["^get$", "^mock_.*", ".*BaseClass.*"]
+# possible values: 0 (minimal output), 1 (-v), 2 (-vv)
+verbose = 2
+quiet = false
+whitelist-regex = []
+color = true
+omit-covered-files = false
+generate-badge = "."
+badge-format = "svg"
+
+[tool.mypy]
+mypy_path = "src"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
+
+[tool.ruff]
+select = ["ARG", "B", "C4", "C90", "D", "E", "ERA", "F", "I", "PL", "RUF", "S", "UP", "W"]
+ignore = ["D203", "D205", "D213"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "I", "UP"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+# Same as Black.
+line-length = 120
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.8.
+target-version = "py38"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.isort]
+force-single-line = true
+
+[tool.scriv]
+categories = "Breaking, Added, Changed, Deprecated, Removed, Fixed, Security"
+format = "rst"
+version = "literal: src/tootbot/__init__.py: __version__"
