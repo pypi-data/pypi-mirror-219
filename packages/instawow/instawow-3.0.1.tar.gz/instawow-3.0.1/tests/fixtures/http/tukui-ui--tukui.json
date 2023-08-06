@@ -1,0 +1,24 @@
+{
+  "id": -1,
+  "slug": "tukui",
+  "author": "Tukz",
+  "name": "Tukui",
+  "url": "https://api.tukui.org/v1/download/tukui/foo",
+  "version": "20.37",
+  "changelog_url": "https://api.tukui.org/v1/changelog/tukui",
+  "ticket_url": "https://github.com/tukui-org/Tukui/issues",
+  "git_url": "https://github.com/tukui-org/Tukui",
+  "patch": [
+    "10.1.0",
+    "1.14.3",
+    "3.4.1"
+  ],
+  "last_update": "2023-05-08",
+  "web_url": "https://tukui.org/tukui",
+  "donate_url": "http://tukui.org/support",
+  "small_desc": "Minimalistic and lightweight World of Warcraft user interface.",
+  "screenshot_url": "https://storage.tukui.org/tukui.jpg",
+  "directories": [
+    "Tukui"
+  ]
+}
