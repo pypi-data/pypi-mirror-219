@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: LIFR
+Version: 0.0.5
+Summary: this package allows the user to connect with the LIFR model
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Author-email: Raphael Scott <raphael.scott06@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.1
+Description-Content-Type: text/markdown
+
+#LIFR
+Ce module permet de générer une réponse en se basant sur une base de données de texte fournie et un début de réponse donné. Le résultat peut être une nouvelle phrase ou une réponse qui s'adapte aux données mathématiques fournies.

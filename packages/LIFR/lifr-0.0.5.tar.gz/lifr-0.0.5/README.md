@@ -1,0 +1,2 @@
+#LIFR
+Ce module permet de générer une réponse en se basant sur une base de données de texte fournie et un début de réponse donné. Le résultat peut être une nouvelle phrase ou une réponse qui s'adapte aux données mathématiques fournies.
