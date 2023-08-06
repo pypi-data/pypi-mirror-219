@@ -1,0 +1,3 @@
+[console_scripts]
+middleware-bootstrap = opentelemetry.instrumentation.bootstrap:run
+middleware-instrument = opentelemetry.instrumentation.auto_instrumentation:run
