@@ -1,0 +1,28 @@
+[run]
+data_file = tests/coverage/.coverage
+branch = True
+parallel = True
+source =
+    userpath
+    tests
+omit =
+    userpath/__main__.py
+    userpath/cli.py
+
+[paths]
+userpath =
+   userpath
+   /home/userpath/userpath
+   c:\*\userpath\userpath
+tests =
+   tests
+   /home/userpath/tests
+   c:\*\userpath\tests
+
+[report]
+exclude_lines =
+    no cov
+    no qa
+    noqa
+    pragma: no cover
+    if __name__ == .__main__.:
