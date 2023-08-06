@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: sandi-connector
+Version: 0.0.1
+Summary: Library for connecting devices to the SANDI project
+Home-page: https://github.com/C-SESLAB/sandi-connector
+Author: Luis Gonzalez
+Author-email: luis.gonzalez.pi@usach.cl
+Keywords: mqtt websocket library
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+SANDI connect is a python library available from pypi, which allows the connection of a PMU or device that allows the transmission of data under the IEEE C37.118 standard.
