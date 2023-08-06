@@ -1,0 +1,34 @@
+[project]
+name = "KaiheilaCardBuilder-M"
+version = "1.3.0"
+description = "一个构建开黑啦卡片的工具"
+authors = [
+    { name = "DancingSnow", email = "1121149616@qq.com" },
+    { name = "kexue", email = "xana278@foxmail.com" },
+]
+dependencies = []
+requires-python = ">=3.10"
+readme = "README.md"
+
+[project.license]
+file = "LICENSE"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.isort]
+profile = "black"
+line_length = 88
+length_sort = true
+skip_gitignore = true
+force_sort_within_sections = true
+src_paths = [
+    "plugins",
+    "utils",
+]
+extra_standard_library = [
+    "typing_extensions",
+]
