@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: scancodeio
+Version: 32.4.0
+Summary: Automate software composition analysis pipelines
+Home-page: https://github.com/nexB/scancode.io
+Author: nexB Inc.
+Author-email: info@aboutcode.org
+License: Apache-2.0
+Keywords: open source,scan,license,package,dependency,copyright,filetype,author,extract,licensing,scancode,scanpipe,docker,rootfs,vm,virtual machine,pipeline,code analysis,container
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Legal Industry
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+License-File: LICENSE
+License-File: NOTICE
+License-File: scan.NOTICE
+Requires-Dist: importlib-metadata (==6.1.0)
+Requires-Dist: Django (==4.2.3)
+Requires-Dist: django-environ (==0.10.0)
+Requires-Dist: django-crispy-forms (==2.0)
+Requires-Dist: crispy-bootstrap3 (==2022.1)
+Requires-Dist: django-filter (==23.2)
+Requires-Dist: djangorestframework (==3.14.0)
+Requires-Dist: psycopg (==3.1.9)
+Requires-Dist: django-probes (==1.7.0)
+Requires-Dist: rq (==1.15.1)
+Requires-Dist: django-rq (==2.8.1)
+Requires-Dist: redis (==4.6.0)
+Requires-Dist: gunicorn (==20.1.0)
+Requires-Dist: container-inspector (==32.0.1)
+Requires-Dist: scancode-toolkit[packages] (==32.0.5rc3)
+Requires-Dist: extractcode[full] (==31.0.0)
+Requires-Dist: commoncode (==31.0.2)
+Requires-Dist: python-inspector (==0.9.7)
+Requires-Dist: aboutcode-toolkit (==8.0.0)
+Requires-Dist: XlsxWriter (==3.1.2)
+Requires-Dist: openpyxl (==3.1.2)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: pyinstrument (==4.5.0)
+Requires-Dist: jsonschema (==4.17.3)
+Requires-Dist: cyclonedx-python-lib (==3.1.5)
+Requires-Dist: hoppr-cyclonedx-models (==0.4.10)
+Requires-Dist: fontawesomefree (==6.4.0)
+Requires-Dist: fetchcode-container (==1.2.3.210512) ; sys_platform == "linux"
+Provides-Extra: dev
+Requires-Dist: flake8 (==6.0.0) ; extra == 'dev'
+Requires-Dist: black (==23.3.0) ; extra == 'dev'
+Requires-Dist: isort (==5.12.0) ; extra == 'dev'
+Requires-Dist: doc8 (==0.11.2) ; extra == 'dev'
+Requires-Dist: pydocstyle (==6.3.0) ; extra == 'dev'
+Requires-Dist: django-debug-toolbar (==4.1.0) ; extra == 'dev'
+Requires-Dist: Sphinx (==5.0.2) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (==1.0.0) ; extra == 'dev'
+Requires-Dist: sphinx-rtd-dark-mode (==1.2.4) ; extra == 'dev'
+Requires-Dist: sphinxcontrib-django (==2.2) ; extra == 'dev'
+Requires-Dist: bumpver (==2023.1124) ; extra == 'dev'
+Requires-Dist: twine (==4.0.2) ; extra == 'dev'
+
+ScanCode.io
+===========
+
+ScanCode.io is a server to script and automate software composition analysis
+with ScanPipe pipelines.
+
+First application is for Docker container and VM composition analysis.
+
+Getting started
+---------------
+
+The ScanCode.io documentation is available here: https://scancodeio.readthedocs.org/
+
+If you have questions that are not covered by our
+`Documentation <https://scancodeio.readthedocs.io/en/latest/faq.html>`_ or
+`FAQs <https://scancodeio.readthedocs.io/en/latest/faq.html>`_,
+please ask them in `Discussions <https://github.com/nexB/scancode.io/discussions>`_.
+
+If you want to contribute to ScanCode.io, start with our
+`Contributing <https://scancodeio.readthedocs.io/en/latest/contributing.html>`_ page.
+
+Build and tests status
+----------------------
+
++------------+-------------------+
+| **Tests**  | **Documentation** |
++============+===================+
+| |ci-tests| |    |docs-rtd|     |
++------------+-------------------+
+
+License
+-------
+
+SPDX-License-Identifier: Apache-2.0
+
+The ScanCode.io software is licensed under the Apache License version 2.0.
+Data generated with ScanCode.io is provided as-is without warranties.
+ScanCode is a trademark of nexB Inc.
+
+You may not use this software except in compliance with the License.
+You may obtain a copy of the License at: http://apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+Data Generated with ScanCode.io is provided on an "AS IS" BASIS, WITHOUT WARRANTIES
+OR CONDITIONS OF ANY KIND, either express or implied. No content created from
+ScanCode.io should be considered or used as legal advice. Consult an Attorney
+for any legal advice.
+
+
+.. |ci-tests| image:: https://github.com/nexB/scancode.io/actions/workflows/ci.yml/badge.svg?branch=main
+    :target: https://github.com/nexB/scancode.io/actions/workflows/ci.yml
+    :alt: CI Tests Status
+
+.. |docs-rtd| image:: https://readthedocs.org/projects/scancodeio/badge/?version=latest
+    :target: https://scancodeio.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Build Status
