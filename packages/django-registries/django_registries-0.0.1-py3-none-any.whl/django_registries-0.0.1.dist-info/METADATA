@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: django-registries
+Version: 0.0.1
+Summary: django-registries is a structured way to create registries of implementations.
+Project-URL: Documentation, https://django-registries.readthedocs.io/
+Project-URL: Issues, https://github.com/valberg/django-registries/issues
+Project-URL: Source, https://github.com/valberg/django-registries
+Author-email: Víðir Valberg Guðmundsson <valberg@orn.li>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.10
+Requires-Dist: django>=3.2
+Description-Content-Type: text/markdown
+
+# Django Registries
+
+[![Tests](https://github.com/valberg/django-registries/actions/workflows/test.yml/badge.svg)](https://github.com/valberg/django-registries/actions/workflows/test.yml)
+[![Documentation](https://readthedocs.org/projects/django-registries/badge/?version=latest)](https://django-registries.readthedocs.io/en/latest/?badge=latest)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/valberg/django-registries/main.svg)](https://results.pre-commit.ci/latest/github/valberg/django-registries/main)
+[![PyPI - Version](https://img.shields.io/pypi/v/django-registries.svg)](https://pypi.org/project/django-registries)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/django-registries.svg)](https://pypi.org/project/django-registries)
+
+-----
+
+**django-registries** is a structured way to create registries of implementations.
+
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install django-registries
+```
+
+## Development
+
+```console
+git clone
+cd django-registries
+pip install hatch
+hatch run tests:cov
+hatch run tests:typecheck
+```
+
+## License
+
+`django-registries` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
