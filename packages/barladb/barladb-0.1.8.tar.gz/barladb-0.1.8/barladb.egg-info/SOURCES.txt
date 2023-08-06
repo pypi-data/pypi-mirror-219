@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+barladb/classes.py
+barladb/config.py
+barladb/db.py
+barladb.egg-info/PKG-INFO
+barladb.egg-info/SOURCES.txt
+barladb.egg-info/dependency_links.txt
+barladb.egg-info/not-zip-safe
+barladb.egg-info/top_level.txt
