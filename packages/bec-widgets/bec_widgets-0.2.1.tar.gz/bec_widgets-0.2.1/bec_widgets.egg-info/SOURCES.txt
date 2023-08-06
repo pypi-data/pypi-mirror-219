@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+./bec_widgets/__init__.py
+./bec_widgets/cli.py
+./bec_widgets/config_plotter.py
+./bec_widgets/scan_plot.py
+./bec_widgets/scan_plot_plugin.py
+bec_widgets.egg-info/PKG-INFO
+bec_widgets.egg-info/SOURCES.txt
+bec_widgets.egg-info/dependency_links.txt
+bec_widgets.egg-info/requires.txt
+bec_widgets.egg-info/top_level.txt
