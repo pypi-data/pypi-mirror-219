@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: adbench
+Version: 0.1.0
+Summary: Python package of ADBench
+Home-page: https://github.com/Minqi824/ADBench
+Author: Minqi Jiang
+Author-email: <jiangmq95@163.com>
+Keywords: anomaly detection,outlier detection,tabular data,benchmark
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: pyod (==1.0.0)
+Requires-Dist: rtdl
+Requires-Dist: scikit-learn
+Requires-Dist: torch
+Requires-Dist: keras
+Requires-Dist: tensorflow
+Requires-Dist: delu
+Requires-Dist: lightgbm
+Requires-Dist: xgboost
+Requires-Dist: catboost
+Requires-Dist: copulas
+Requires-Dist: combo
+Requires-Dist: barbar
+Requires-Dist: fsspec
+
+Python package of ADBench: Anomaly detection benchmark. Fast implementation of the large experiments in ADBench and your customized AD algorithm.
