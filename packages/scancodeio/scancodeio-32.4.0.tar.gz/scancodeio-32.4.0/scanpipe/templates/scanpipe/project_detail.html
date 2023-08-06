@@ -1,0 +1,154 @@
+{% extends "scanpipe/base.html" %}
+{% load static humanize %}
+
+{% block title %}ScanCode.io: {{ project.name }}{% endblock %}
+
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'billboard-3.0.1-datalab.min.css' %}" crossorigin="anonymous" />
+{% endblock %}
+
+{% block content %}
+  <div class="container is-max-widescreen">
+    {% include 'scanpipe/includes/navbar_header.html' %}
+    <div class="mx-5 mb-2">{% include 'scanpipe/includes/messages.html' %}</div>
+
+    <section class="is-flex is-justify-content-space-between mx-5 mb-2">
+      <div>
+        <nav class="breadcrumb has-succeeds-separator is-medium mb-1" aria-label="breadcrumbs">
+          <ul>
+            <li>
+              <a href="{% url 'project_list' %}" class="has-text-grey">Projects</a>
+            </li>
+            <li class="is-active">
+              <a href="#" aria-current="page">{{ project.name }}</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="subtitle is-size-6">
+          <span class="has-text-grey">
+            <span title="{{ project.created_date|date:'N j, Y, P T' }}">
+              Created {{ project.created_date|naturaltime }}
+            </span>
+          </span>
+        </div>
+      </div>
+      <div>
+        <a href="{% url 'project_settings' project.slug %}" class="button is-smaller is-info is-outlined">
+          <span class="icon is-small">
+            <i class="fa-solid fa-sliders-h"></i>
+          </span>
+          <span>Settings</span>
+        </a>
+        <a href="{% url 'project_add' %}" class="button is-smaller is-link">New Project</a>
+      </div>
+    </section>
+
+    <hr class="mx-5 mt-0">
+    {% include "scanpipe/includes/project_summary_level.html" with project=project title_class="title" only %}
+
+    <section class="pt-0 mx-5">
+      {% if project.resource_count or project.package_count %}
+        {% include "scanpipe/includes/project_downloads.html" with project=project only %}
+      {% elif not pipeline_runs %}
+        <article class="message is-warning">
+          <div class="message-body">
+            <p class="block">
+              <i class="fa-solid fa-info-circle mr-1"></i>
+              Add
+              {% if not inputs_with_source %}<strong>Inputs</strong>{% endif %}
+              and execute a <strong>pipeline</strong> to generate some results.
+            </p>
+          </div>
+        </article>
+      {% endif %}
+
+      <div class="columns">
+        <div class="column">
+          {% include "scanpipe/includes/project_inputs.html" %}
+        </div>
+        <div class="column">
+          {% include "scanpipe/includes/project_pipelines.html" %}
+        </div>
+      </div>
+
+      {% if codebase_root or resource_status_summary %}
+        <div class="columns">
+          {% if codebase_root %}
+            <div class="column">
+              <div hx-get="{% url 'project_codebase' project.slug %}" hx-trigger="load">
+                <i class="fa-solid fa-spinner fa-pulse" aria-hidden="true"></i>
+              </div>
+            </div>
+          {% endif %}
+          {% if resource_status_summary %}
+            <div class="column is-half">
+              {% include "scanpipe/includes/resource_status_summary.html"  %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if project.extra_data %}
+        <article id="project-extra-data" class="panel is-info">
+          <p class="panel-heading py-2 is-size-6">
+            Project data
+          </p>
+          <div class="panel-block p-0 is-more is-more-clipped">
+            <button class="button is-small is-more-show">
+              <span class="icon">
+                <i class="fa-solid fa-expand"></i>
+              </span>
+              <strong>Show all</strong>
+            </button>
+            <figure class="highlight border-bottom-radius">
+              <pre class="language-yaml"><code class="p-3 pb-5">{{ extra_data_yaml }}</code></pre>
+            </figure>
+          </div>
+        </article>
+      {% endif %}
+
+      {% if license_clarity or scan_summary %}
+        <div class="columns">
+          {% if license_clarity %}
+            <div class="column is-two-fifths">
+              {% include "scanpipe/includes/license_clarity_panel.html" %}
+            </div>
+          {% endif %}
+          {% if scan_summary %}
+            <div class="column">
+              {% include "scanpipe/includes/scan_summary_panel.html" %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </section>
+
+    {% if project.resource_count or project.package_count %}
+      <section id="charts" class="mx-5 pt-5" hx-get="{% url 'project_charts' project.slug %}?file-filter={{ file_filter }}" hx-trigger="load">
+        <i class="fa-solid fa-spinner fa-pulse" aria-hidden="true"></i>
+        Loading the charts...
+      </section>
+    {% endif %}
+  </div>
+
+  {% include 'scanpipe/includes/run_modal.html' %}
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'billboard-3.0.1.pkgd.min.js' %}" crossorigin="anonymous"></script>
+  <script>
+    hljs.highlightAll();
+
+    onSubmitOverlay = function (selector) {
+      let element = document.querySelector(selector);
+      if (element) {
+        element.addEventListener("submit", function() {
+          displayOverlay();
+        });
+      }
+    };
+
+    onSubmitOverlay("#add-pipeline-modal form");
+    onSubmitOverlay("#add-inputs-modal form");
+  </script>
+{% endblock %}
