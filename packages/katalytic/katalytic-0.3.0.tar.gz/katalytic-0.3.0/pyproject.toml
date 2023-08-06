@@ -1,0 +1,64 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[tool.pdm.build]
+includes = [
+    "src",
+]
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+
+[project]
+name = "katalytic"
+version = "0.3.0"
+description = "We'll take care of the boilerplate, so you can focus on your problems."
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Filesystems",
+    "Topic :: System :: Systems Administration",
+    "Topic :: Text Processing",
+    "Topic :: Utilities",
+]
+keywords = [
+    "automation",
+    "high-level",
+    "metaprogramming",
+]
+authors = [
+    { name = "Valentin Neagu", email = "vali19th@protonmail.com" },
+]
+requires-python = ">=3.6"
+dependencies = []
+
+[project.license]
+file = "LICENSE.txt"
+
+[project.optional-dependencies]
+all = [
+    "katalytic-images>=0.1.0",
+]
+dev = [
+    "pytest",
+    "pytest-cov",
+    "pytest-clarity",
+    "pytest-randomly",
+]
+
+[project.urls]
+Changelog = "https://gitlab.com/katalytic/katalytic/-/blob/main/CHANGELOG.md"
+Homepage = "https://gitlab.com/katalytic/katalytic.git"
+Repository = "https://gitlab.com/katalytic/katalytic.git"
