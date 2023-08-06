@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: jzx-env
+Version: 0.0.1
+Summary: A OpenAI Gym Env for jzx
+Description-Content-Type: text/markdown
+Requires-Dist: gym
+
