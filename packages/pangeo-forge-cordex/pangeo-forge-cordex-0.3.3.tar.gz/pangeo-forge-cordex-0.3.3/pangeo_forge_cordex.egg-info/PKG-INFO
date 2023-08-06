@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pangeo-forge-cordex
+Version: 0.3.3
+Summary: "Using queries to the ESGF API to generate urls and keyword arguments for receipe generation in pangeo-forge"
+Home-page: https://github.com/euro-cordex/pangeo-forge-cordex
+Maintainer: Lars Buntemeyer
+Maintainer-email: lars.buntemeyer@hereon.de
+License: MIT
+Keywords: pangeo,data,esgf
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pangeo-forge-cordex
+
+[![github CI](https://github.com/euro-cordex/pangeo-forge-cordex/actions/workflows/ci.yaml/badge.svg)](https://github.com/euro-cordex/pangeo-forge-cordex/actions/workflows/ci.yaml)
+[![PyPI version](https://badge.fury.io/py/pangeo-forge-cordex.svg)](https://badge.fury.io/py/pangeo-forge-cordex)
+
+Pangeo force recipe creation for CORDEX datasets.
