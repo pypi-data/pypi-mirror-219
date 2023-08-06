@@ -1,0 +1,5 @@
+[console_scripts]
+gerar_tabela_sac = tabela_sac.cli:gerar_tabela_sac
+
+[nbdev]
+tabela_sac = tabela_sac._modidx:d
