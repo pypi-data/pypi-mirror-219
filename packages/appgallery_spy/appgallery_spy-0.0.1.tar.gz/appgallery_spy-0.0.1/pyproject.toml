@@ -1,0 +1,102 @@
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 120
+
+[tool.pytest.ini_options]
+addopts = "--ignore=test_build.py"
+
+[tool.coverage.run]
+branch = true
+source = ["appgallery_spy", "tests"]
+omit = ["tests/fixtures/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "def __str__",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+  "if typing.TYPE_CHECKING:"
+]
+
+[build-system]
+# Minimum requirements for the build system to execute.
+requires = ["flit_core >=3.2,<4"]
+# identifies the entry point to the build backend object, using the dotted path as a string.
+build-backend = "flit_core.buildapi"
+
+[tool.flit.module]
+name = "appgallery_spy"
+
+[tool.flit.sdist]
+exclude = ["tests/"]
+
+# project’s core metadata
+[project]
+name = "appgallery_spy"
+authors = [
+    { name = "0xsirsaif", email = "sirsaif99@gmail.com" }
+]
+description = "appgallery_spy - Huauwi AppGallery Crawler"
+readme = "README.md"
+# This clearly delineates which metadata is purposefully unspecified and expected to stay unspecified
+# compared to being provided via tooling later on.
+dynamic = ["version"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Security :: Cryptography",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "typer >= 0.9.0",
+    "fastapi >= 0.98.0",
+    "uvicorn[standard] >= 0.22.0",
+    "pymongo >= 4.4.1",
+    "httpx >= 0.24.1",
+    "beautifulsoup4 >= 4.12.2"
+]
+
+[project.scripts]
+appgallery_crawler = "appgallery_spy.cli:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "isort",
+    "black",
+    "mypy",
+    "codecov",
+    "pytest-cov",
+    "flit",
+    "bumpversion",
+]
+
+[project.urls]
+Documentation = "https://github/0xsirsaif/appgallery_spy"
+
+[tool.ruff]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    # "I",  # isort
+    "C",  # flake8-comprehensions
+    "B",  # flake8-bugbear
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+    "C901",  # too complex
+]
