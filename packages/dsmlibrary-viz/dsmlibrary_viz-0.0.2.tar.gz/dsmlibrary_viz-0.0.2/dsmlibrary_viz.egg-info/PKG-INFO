@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: dsmlibrary-viz
+Version: 0.0.2
+Summary: A simple way to use Dataset. for dsm
+Home-page: https://github.com/storemesh/dsmlibrary-viz
+Author: DigitalStoreMesh Co.,Ltd
+Author-email: contact@storemesh.com
+License: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# dsmlibrary-viz
+
+- install 
+```
+pip install dsmlibrary-viz
+```
+
+- use
+```python
+from dsmlibrary_viz.data_viz import DataViz
+
+dataviz = DataViz(
+    token="<token>",
+    dataplatform_api_uri="<dataplatform_api_uri>", 
+    object_storage_uri="<object_storage_uri>"
+)
+
+data = dataviz.query(
+"""
+    SELECT * FROM 'DISCOVERY:<FILE_ID>'
+""" 
+)
+print(data)
+```
