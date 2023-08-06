@@ -1,0 +1,3 @@
+[console_scripts]
+azure-openai-tr=azure_openai_tr.__main__:app
+
