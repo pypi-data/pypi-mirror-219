@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: codeboxapi
+Version: 0.0.5
+Summary: CodeBox is the simplest cloud infrastructure for your LLM Apps and Services.
+License: MIT
+Author: Shroominic
+Author-email: pleurae-berets.0u@icloud.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: image-support
+Requires-Dist: aiohttp (>=3.8.4,<4.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: websockets (>=11.0.3,<12.0.0)
+Description-Content-Type: text/markdown
+
+# CodeBox
+
+CodeBox is the simplest cloud infrastructure for your LLM Apps and Services.
+It allows you to run python code in an isolated/sandboxed environment.
+Additionally, it provides simple fileIO (and vector database support coming soon).
+
+## Installation
+
+You can install CodeBox with pip:
+
+```bash
+pip install codeboxapi
+```
+
+## Usage
+
+```python
+import codeboxapi as cb
+
+cb.set_api_key("your-api-key")
+# or put your api key inside the .env file
+# CODEBOX_API_KEY=your-api-key
+
+# create and startup
+codebox = CodeBox()
+codebox.start()
+
+# check if it's running
+print(codebox.status() == "running")
+
+# run some code
+result = codebox.run("print('Hello, World!')")
+
+# print the result
+print(result)
+
+codebox.stop()
+```
+
+## Where to get your api-key?
+
+CodeBox is currently in early development just write me an email and I send you a key for testing :)
+
+
+## Contributing
+
+Feel free to contribute to this project.
+You can open an issue or submit a pull request.
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contact
+
+You can contact me at [pleurae-berets.0u@icloud.com](mailto:pleurae-berets.0u@icloud.com)
+
