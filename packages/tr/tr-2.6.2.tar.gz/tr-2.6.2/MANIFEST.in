@@ -1,0 +1,9 @@
+include tr/README.md
+include tr/*.txt
+
+recursive-include tr *.bin*
+recursive-include tr *.onnx*
+recursive-include tr *.so.*
+recursive-include tr *.so
+recursive-include tr *.dll.*
+recursive-include tr *.dll
