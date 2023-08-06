@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: clashbyte
+Version: 0.0.2
+Home-page: https://github.com/QIN2DIM/ClashByte
+Author: QIN2DIM
+Author-email: yaoqinse@gmail.com
+License: MIT
+Keywords: clashbyte,clash,clash-meta,clashapi
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: loguru (>=0.7.0)
+Requires-Dist: httpx (>=0.24.1)
+Provides-Extra: dev
+Requires-Dist: nox ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: black ; extra == 'test'
+
+# ClashByte
+Clash &amp; Clash.Meta 外部控制的 Python 实现
+
+## Get started
+
+1. Install package
+
+   ```bash
+   pip install -U clashbyte
+   ```
+
+2. hello world
+
+   ```python
+   from clashbyte import ClashMetaAPI
+   
+   CONTROLLER_URL = "http://127.0.0.1:9090"
+   
+   if __name__ == '__main__':
+       clash = ClashMetaAPI.from_secret(controller_url=CONTROLLER_URL)
+       if clash.is_alive:
+           print(f"{clash.version=}")
+   ```
+
+   
