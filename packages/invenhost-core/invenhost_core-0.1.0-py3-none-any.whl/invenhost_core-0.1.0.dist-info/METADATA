@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: invenhost-core
+Version: 0.1.0
+Summary: InvenHost integration plugin
+Author-email: Matthias Mair <code@mjmair.com>
+License: UNLICENSED
+Project-URL: Repository, https://github.com/matmair/invenhost-core
+Project-URL: Bug Tracker, https://github.com/matmair/invenhost-core/issues
+Keywords: inventree,inventree-plugin,invenhost-core
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: django
+Provides-Extra: dev
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+
+# invenhost-core
+
+InvenHost core integration plugin.
+This plugin is required as a dependency for all other InvenHost plugins. It provides licensing and metrics functionality reuqired to fully use InvenHost plugins.
+
+## Setup
+
+1. Install
+Install this plugin in the webinterface with the packagename `invenhost-core`
+
+2. Enable
+Enable the plugin in the plugin settings. You need to be signed in as a superuser for this.
+**The server will restart if you enable the plugin**
+
+3. Configure
+// # TODO add configuration instructions
+
+## License
+This project is provided as part of InvenHost services. It follows the same license as the main InvenHost project. All rights are reserved.
+(c) Copyright 2023 Matthias Mair, all rights reserved.
+
+## Contributing
+This project is not open for contributions. If you want to contribute, please contact me on code@mjmair.com.
