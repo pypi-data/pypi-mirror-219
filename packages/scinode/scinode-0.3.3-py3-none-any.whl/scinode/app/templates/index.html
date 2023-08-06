@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="row row-content">
+  <div class="col col-sm-8">
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          <a href="/nodetree_editor" class="btn btn-sq btn-primary">
+            <i class="fa fa-plus fa-3x"></i><br />
+            New Nodetree <br />
+          </a>
+          <a href="/nodetrees/importer" class="btn btn-sq btn-success">
+            <i class="fa fa-file-import fa-3x"></i><br />
+            Import Nodetree <br />
+          </a>
+          <a href="/nodetrees/exporter" class="btn btn-sq btn-success">
+            <i class="fa fa-file-export fa-3x"></i><br />
+            Export Nodetree <br />
+          </a>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>
+          <a href="/components/editor" class="btn btn-sq btn-primary">
+            <i class="fa fa-plus fa-3x"></i><br />
+            New Component<br />
+          </a>
+          <a href="/components/importer" class="btn btn-sq btn-success">
+            <i class="fa fa-file-import fa-3x"></i><br />
+            Import Component<br />
+          </a>
+          <a href="/components/exporter" class="btn btn-sq btn-success">
+            <i class="fa fa-file-export fa-3x"></i><br />
+            Export Component<br />
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col col-sm-4">
+    <div class="card">
+      <h3 class="card-header bg-primary">Statistics</h3>
+      <div class="card-body">
+        <dl class="row">
+          <dt class="col-6">Nodetrees</dt>
+          <dd class="col-6">{{nodetreeTotal}}</dd>
+          <dt class="col-6">Nodes</dt>
+          <dd class="col-6">{{nodeTotal}}</dd>
+          <dt class="col-6">Datas</dt>
+          <dd class="col-6">{{dataTotal}}</dd>
+          <dt class="col-6">Components</dt>
+          <dd class="col-6">{{componentTotal}}</dd>
+          <dt class="col-6">Templates</dt>
+          <dd class="col-6">{{templateTotal}}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

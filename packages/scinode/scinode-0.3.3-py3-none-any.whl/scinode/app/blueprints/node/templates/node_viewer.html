@@ -1,0 +1,71 @@
+{% extends "base_editor.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css"></link>
+{% endblock %}
+
+{% block content %}
+<div class="row row-content">
+    <h2>Node</h2>
+    <div>
+        <label>Attributes</label>
+        <pre class='node-content' id="name"></pre>
+    </div>
+    <div>
+        <label>Executor</label>
+        <pre class='node-content' id="executor"></pre>
+    </div>
+    <div>
+        <label>args</label>
+        <pre class='node-content' id="args"></pre>
+    </div>
+    <div>
+        <label>kwargs</label>
+        <pre class='node-content' id="kwargs"></pre>
+    </div>
+    <div>
+        <label>Results</label>
+        <pre class='node-content' id="results"></pre>
+    </div>
+    <div>
+        <label>Data</label>
+        <pre class='node-content' id="data"></pre>
+    </div>
+    <div>
+        <label>Input Sockets</label>
+        <pre class='node-content' id="inputs"></pre>
+    </div>
+    <div>
+        <label>Output Sockets</label>
+        <pre class='node-content' id="outputs"></pre>
+    </div>
+    <div>
+        <label>Error</label>
+        <pre class='node-content' id="error"></pre>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var node_data = {{ node_data | tojson | safe }}
+    var attributes = {'name': node_data['identifier'],
+            'id': node_data['id'],
+            'index': node_data['index'],
+            'uuid': node_data['uuid'],
+            'state': node_data['state'],
+            'action': node_data['action'],
+            }
+    document.getElementById("name").innerHTML = JSON.stringify(attributes, undefined, 2);
+    document.getElementById("executor").textContent = JSON.stringify(node_data['executor'], undefined, 2);
+    document.getElementById("args").textContent = JSON.stringify(node_data['metadata']['args'], undefined, 2);
+    document.getElementById("kwargs").textContent = JSON.stringify(node_data['metadata']['kwargs'], undefined, 2);
+    document.getElementById("results").textContent = JSON.stringify(node_data['results'], undefined, 2);
+    document.getElementById("data").textContent = JSON.stringify(node_data['data'], undefined, 2);
+    document.getElementById("inputs").textContent = JSON.stringify(node_data['inputs'], undefined, 2);
+    document.getElementById("outputs").textContent = JSON.stringify(node_data['outputs'], undefined, 2);
+    document.getElementById("error").textContent = node_data['error'];
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+{% endblock %}

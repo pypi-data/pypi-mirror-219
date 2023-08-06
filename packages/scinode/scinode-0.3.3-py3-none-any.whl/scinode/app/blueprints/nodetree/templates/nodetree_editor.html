@@ -1,0 +1,79 @@
+{% extends "base_editor.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.css">
+{% endblock %}
+
+{% block content %}
+
+{% include "tab.html" %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var nodetree_data = {{ nodetree_data | tojson | safe }};
+    // console.log(nodetree_data);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete@1.5.0/build/rete.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-vue-render-plugin@0.5.2/build/vue-render-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-connection-plugin@0.9.0/build/connection-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alight@0.14.1/alight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-context-menu-plugin@0.5.2/build/context-menu-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-area-plugin@0.2.1/build/area-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-comment-plugin@0.3.0/build/comment-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-history-plugin@0.1.0/build/history-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-connection-mastery-plugin@0.1.0/build/connection-mastery-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-minimap-plugin@0.3.1/build/minimap-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-auto-arrange-plugin@0.4.0/build/auto-arrange-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-comment-plugin@0.3.0/build/comment-plugin.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+<script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/uuid4@2.0.3/browser.min.js"></script>
+<script src="https://cdn.rawgit.com/arose/ngl/v2.0.0-dev.31/dist/ngl.js"></script>
+
+<script src="{{ url_for('static', filename='scinode_components.js')}}"></script>
+<script src="{{ url_for('static', filename='scinode_editor.js')}}"></script>
+
+
+
+<script src="{{ url_for('static', filename='json_components.js')}}"></script>
+<script src="{{ url_for('static', filename='init_editor.js')}}"></script>
+
+<script src="{{ url_for('static', filename="sockets/app_sockets.js") }}"></script>
+<script src="{{ url_for('static', filename="controls/app_controls.js") }}"></script>
+<script src="{{ url_for('static', filename="components/app_components.js") }}"></script>
+
+{% for socket in sockets %}
+<script src="{{ url_for('static', filename="sockets/"+socket) }}"></script>
+{% endfor %}
+{% for control in controls %}
+<script src="{{ url_for('static', filename="controls/"+control) }}"></script>
+{% endfor %}
+{% for component in components %}
+<script src="{{ url_for('static', filename="components/"+component) }}"></script>
+{% endfor %}
+
+
+
+<script src="{{ url_for('static', filename='nodetree_editor.js')}}"></script>
+<script src="{{ url_for('static', filename='nodetree_node_table.js')}}"></script>
+
+<script>
+  $(document).ready(function () {
+      $('#stateSwitchCheck').on('change', function () {
+        setStateColor();
+      });
+      // I want to run the refreshNodetree() function every five seconds. Please want the code below.
+      setInterval(function () {
+        refreshNodeState();
+      }, 2000);
+  });
+</script>
+{% endblock %}
