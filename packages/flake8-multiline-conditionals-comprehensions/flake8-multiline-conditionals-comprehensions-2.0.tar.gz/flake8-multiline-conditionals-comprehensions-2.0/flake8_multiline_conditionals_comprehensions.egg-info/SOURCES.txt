@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+flake8_multiline_conditionals_comprehensions/__init__.py
+flake8_multiline_conditionals_comprehensions/mcc_checker.py
+flake8_multiline_conditionals_comprehensions.egg-info/PKG-INFO
+flake8_multiline_conditionals_comprehensions.egg-info/SOURCES.txt
+flake8_multiline_conditionals_comprehensions.egg-info/dependency_links.txt
+flake8_multiline_conditionals_comprehensions.egg-info/entry_points.txt
+flake8_multiline_conditionals_comprehensions.egg-info/not-zip-safe
+flake8_multiline_conditionals_comprehensions.egg-info/top_level.txt
