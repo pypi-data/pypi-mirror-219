@@ -1,0 +1,2 @@
+[psychopy.sound.transcribe]
+WhisperTranscriber = psychopy_whisper:WhisperTranscriber
