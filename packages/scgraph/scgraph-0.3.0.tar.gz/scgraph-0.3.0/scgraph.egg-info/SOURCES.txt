@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+scgraph/__init__.py
+scgraph/core.py
+scgraph/utils.py
+scgraph.egg-info/PKG-INFO
+scgraph.egg-info/SOURCES.txt
+scgraph.egg-info/dependency_links.txt
+scgraph.egg-info/top_level.txt
+scgraph/data/__init__.py
+scgraph/data/example.py
+scgraph/data/marnet.py
