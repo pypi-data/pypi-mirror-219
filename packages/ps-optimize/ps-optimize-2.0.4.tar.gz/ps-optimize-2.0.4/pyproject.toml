@@ -1,0 +1,25 @@
+[project]
+name = "ps-optimize"
+version = "2.0.4"
+authors = [
+  { name="Yuen Shing Yan Hindy", email="yuenshingyan@gmail.com" },
+]
+description = "PSO meet hyperparameter tuning."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yuenshingyan/ps-opt"
+"Bug Tracker" = "https://github.com/yuenshingyan/ps-opt/issues"
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
