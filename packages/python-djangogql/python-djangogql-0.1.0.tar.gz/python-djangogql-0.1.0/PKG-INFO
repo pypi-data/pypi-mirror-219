@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: python-djangogql
+Version: 0.1.0
+Summary: A Django app to build graphql APIs
+Home-page: https://github.com/felipevisu/djangogql
+Author: Felipe Faria
+Author-email: felipevisu@gmail.com
+License: MIT
+Keywords: api graphql graphene django
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.1
+Classifier: Framework :: Django :: 4.2
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+# DjangoGQL
+
+DjangoGQL is an open-source library that provides seamless integration between Django, a high-level Python web framework, and Graphene, a library for building GraphQL APIs. The library allows developers to create GraphQL APIs in Django quickly and efficiently while maintaining a high level of performance.
+
