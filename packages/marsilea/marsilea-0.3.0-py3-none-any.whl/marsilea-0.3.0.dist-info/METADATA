@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: marsilea
+Version: 0.3.0
+Summary: Create x-layout visualization
+Author: Zhihang Zheng
+Author-email: Mr-Milk <yb97643@um.edu.mo>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib>=3.6
+Requires-Dist: seaborn
+Requires-Dist: scipy
+Requires-Dist: legendkit
+Requires-Dist: platformdirs
+Requires-Dist: ruff ; extra == "dev"
+Requires-Dist: icecream ; extra == "dev"
+Requires-Dist: python-hmr ; extra == "dev"
+Requires-Dist: pytest ; extra == "dev"
+Requires-Dist: scikit-learn ; extra == "dev"
+Requires-Dist: sphinx ; extra == "dev"
+Requires-Dist: numpydoc ; extra == "dev"
+Requires-Dist: sphinx_design ; extra == "dev"
+Requires-Dist: pydata-sphinx-theme ; extra == "dev"
+Requires-Dist: sphinx-copybutton ; extra == "dev"
+Project-URL: Home, https://github.com/marsilea/marsilea
+Provides-Extra: dev
+
+<p align="center">
+    <img src="https://github.com/Marsilea-viz/marsilea/raw/main/img/banner-blue.jpg#gh-light-mode-only" width="500">
+    <img src="https://github.com/Marsilea-viz/marsilea/raw/main/img/banner-dark.jpg#gh-dark-mode-only" width="500">
+</p>
+
+[![Documentation Status](https://img.shields.io/readthedocs/marsilea?color=57B77E&logo=readthedocs&logoColor=white&style=flat-square)](https://marsilea.readthedocs.io/en/stable)
+![pypi version](https://img.shields.io/pypi/v/marsilea?color=0098FF&logo=python&logoColor=white&style=flat-square)
+
+❗We are in beta, API may change and bugs expected
+
+### Create x-layout visualization!
+
+[Read Documentation](https://marsilea.readthedocs.io/)
+
+
+### Installation
+
+```shell
+pip install marsilea
+```
+
