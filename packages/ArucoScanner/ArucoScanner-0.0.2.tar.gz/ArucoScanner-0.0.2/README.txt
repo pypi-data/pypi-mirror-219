@@ -1,0 +1,1 @@
+Simplifies the usage of the cv2 aruco library

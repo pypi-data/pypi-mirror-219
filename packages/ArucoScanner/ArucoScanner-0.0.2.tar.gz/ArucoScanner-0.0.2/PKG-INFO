@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ArucoScanner
+Version: 0.0.2
+Summary: Simplicity for Aruco code
+Home-page: https://pypi.org/project/ArduinoScanner/
+Author: Julien Serbanescu
+Author-email: julien.serbanescu@gmail.com
+License: MIT
+Keywords: aruco
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+Simplifies the usage of the cv2 aruco library
+
