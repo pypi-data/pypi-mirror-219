@@ -1,0 +1,15 @@
+language: python
+python:
+- '3.6'
+install:
+- pip install codecov coverage requests_mock nose_parameterized
+script: nosetests --with-coverage --cover-package=wdlgen
+deploy:
+  provider: pypi
+  user: illusional
+  password:
+    secure: ViWvIfNBakCmVmFOxmZgSUTB6/NuObbnx4luSqALy1HBT3d08FAPWqaIZ2VO0W1Pdp2+24AwHC49jZC+2ehYrc3jOWr/x7LdxdOo204O/DYMffTXQUhvnrsJ0Z49c2P6UbmrlSVYfCf/+FzhNdDMDCxYuF3gxGUoSALkNJlXSbrswqSKr9Jx7tcJRCPA11ASA8o4NmseSLnVZoSSAS6Qn2/tvotN/OABcwdJzOKvRxlBJYBQZ3Il6cwYiSr1ODklzayGlH3H0AfRmLjh01ie+AuHkTRB6SgVbEmTFANj9kPn3n3vKiKvxsf2j4EsfoHpxhGf3h4hwqE4mOdjR48Y09nXKXj3LS1C0UHFbGNRw1J9Vr7JU3KV71FeIADNq2an1oqZMd9YkqmPblXY0u8YgxBms8NsSxIrKh7m0NgItxB6RGXVZvZQ/ZST6kvZz8IPv9adWnDTh6fibu4riThcaNoLPYq6B43P0yNzvJk627iv4M2cRJBHutmrqQQCu4gUbb6OKkW6GnAGtnmg72lbHwodWfI5wiIrmJh7912C3jyRWFowBiP5WS/1vZw9zfedri6G3jz/lb/gusBckC8lPPsoirwazHxgJs6T2/f6dHIEnsPqAwy6xx5d44tjLQwKA6NJOh5y6VvsleICsqsO9Y1A1xzpUUFYI+843akQGts=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: PMCC-BioinformaticsCore/python-wdlgen
