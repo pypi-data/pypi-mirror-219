@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+./mypermobil/__init__.py
+./mypermobil/const.py
+./mypermobil/mypermobil.py
+mypermobil/__init__.py
+mypermobil/const.py
+mypermobil/mypermobil.py
+mypermobil.egg-info/PKG-INFO
+mypermobil.egg-info/SOURCES.txt
+mypermobil.egg-info/dependency_links.txt
+mypermobil.egg-info/requires.txt
+mypermobil.egg-info/top_level.txt

@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: mypermobil
+Version: 0.1.5
+Summary: A Python wrapper for the MyPermobil API
+Home-page: https://github.com/IsakNyberg/MyPermobil-API
+Author: Isak Nyberg
+Author-email: isak@nyberg.dev
+License: MIT
+Project-URL: Bug Tracker, https://github.com/IsakNyberg/MyPermobil-API/issues
+Project-URL: repository, https://github.com/IsakNyberg/MyPermobil-API
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# MyPermobil-API
+
+## Description
+
+This is a subset of the MyPermobil API, originally published to be used with HomeAssistant.
+
+## Installation
+
+The package is available on [pypi.org](https://pypi.org/project/mypermobil/) and installed with the command
+
+    python -m pip install mypermobil 
+
+It can also be manually installed by
+
+    git clone  https://github.com/IsakNyberg/mypermobil.git
+    cd mypermobil
+    python -m pip install .
+
+# REST API
+
+This API is a REST API that uses JSON as the data format. For most requests, the API requires an authentication token. The token is sent in the header of the request. The token can be created with the code in the example folder.
+
+## Endpoints
+
+Supported endpoints are listed in the const.py, custom endpoints are also possible as arguments to the get and post methods.
+The available endpoints are:
+
+    GET regions
+    POST applicationlinks
+    POST applicationauthentications
+    GET battery-info
+    GET voiceaccess/dailyusage
+    GET voiceaccess/chargetime
+    GET voiceaccess/chairstatus
+    GET voiceaccess/usagerecords
