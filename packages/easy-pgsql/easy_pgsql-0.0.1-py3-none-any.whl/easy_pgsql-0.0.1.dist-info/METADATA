@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: easy-pgsql
+Version: 0.0.1
+Summary: An async package that makes database handling extremely easy!
+Author: Cannonball Chris
+Author-email: cannonballchris8@gmail.com
+Keywords: db,bot,discord bot,database,postgresql,asyncpg,async,pgutils,nosql
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: asyncpg
+
+This is a package that makes it really easy and convenient to handle postgresql database in python. It uses asyncpg to handle all database related work.
