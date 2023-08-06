@@ -1,0 +1,10 @@
+README.rst
+setup.cfg
+setup.py
+league_ranker/__init__.py
+league_ranker/py.typed
+league_ranker.egg-info/PKG-INFO
+league_ranker.egg-info/SOURCES.txt
+league_ranker.egg-info/dependency_links.txt
+league_ranker.egg-info/top_level.txt
+league_ranker.egg-info/zip-safe
