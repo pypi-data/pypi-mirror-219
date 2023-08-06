@@ -1,0 +1,17 @@
+# Files created during local development.
+*.py[ocd]
+*.sqlite3
+
+# Directories created during local development
+__pycache__/
+.tox/
+
+# Local development environment directories.
+.idea/
+.local/
+.v/
+
+# Build output.
+dist/
+docs/_build/
+*.egg-info/

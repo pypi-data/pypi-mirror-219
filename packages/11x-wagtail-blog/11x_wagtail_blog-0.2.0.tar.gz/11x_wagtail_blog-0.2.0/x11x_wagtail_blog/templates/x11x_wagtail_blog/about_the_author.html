@@ -1,0 +1,6 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+<div class="about-the-author">
+<{{ heading }}>{{ author_full_name }}</{{ heading }}>
+{% if avatar %}<img alt="avatar" src="{{ avatar.url }}"/>{% endif %}
+{{ body | richtext}}
+</div>
