@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "sport-activities-features-gui"
+version = "0.2.1"
+description = "GUI for sport-activities-features package"
+authors = [
+    "otiv33 <vito.abeln@gmail.com>",
+    "garyjellyarms <Reyzo.P@gmail.com>",
+    "Mtvrt123 <mlinaricnejc@gmail.com>",
+    "firefly-cpp <iztok@iztok-jr-fister.eu>"
+]
+keywords = ['computational intelligence', 'cycling', 'data mining', 'datasets', 'gpx', 'optimization', 'sport activities', 'tcx']
+homepage = "https://github.com/firefly-cpp/sport-activities-features-gui"
+repository = "https://github.com/firefly-cpp/sport-activities-features-gui"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sport-activities-features = "^0.3.13"
+QtAwesome = "^1.2.1"
+PyQt6 = "^6.5.1"
+sip = "^6.7.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+sport-activities-features-gui = 'sport_activities_features_gui.main:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
