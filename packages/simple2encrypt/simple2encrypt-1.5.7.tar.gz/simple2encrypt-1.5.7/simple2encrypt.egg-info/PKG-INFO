@@ -1,0 +1,254 @@
+Metadata-Version: 2.1
+Name: simple2encrypt
+Version: 1.5.7
+Summary: Utility functions for encryption and file operations
+Home-page: https://github.com/nhman-python/crypto-utils
+Author: nhman-python
+Author-email: wbgblfix@duck.com
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+---
+
+# simple2encrypt
+
+`simple2encrypt` is a Python library that provides utility functions for encryption and file operations. It includes 
+functionalities for encrypting and decrypting data using the AES algorithm, generating encryption keys, reading and 
+writing binary data from/to files, and handling user input.
+
+## Installation
+
+You can install `simple2encrypt` using `pip`:
+
+```
+pip install simple2encrypt
+```
+
+## Usage
+
+The `simple2encrypt` library offers the following functions for encryption, decryption, and file operations:
+
+### **SubFolder** Encryption/Decryption
+
+The library provides two functions for encrypting and decrypting files within a specified folder using the AES encryption algorithm. The encryption and decryption are performed on each file within the folder and its subfolders.
+
+#### `encrypt_walk_dirs(folder_path: str, key: bytes, extension: str = '.enc') -> None`
+
+Walks through the specified folder path and encrypts all files using the provided AES key.
+
+- `folder_path` (str): The absolute folder path to walk on and encrypt files within.
+- `key` (bytes): The AES key used for encryption.
+- `extension` (str): Optional. The extension to add to the new encrypted file. Defaults to '.enc'.
+
+**Raises:**
+
+- `PermissionError`: If there is a permission error while accessing or modifying files.
+- `FileExistsError`: If a file with the new name already exists in the destination.
+- `FileNotFoundError`: If the specified file is not found.
+- `ValueError`: If there is an error in the provided data or key.
+
+** Example Usage: **
+```
+# Example usage of encrypt_walk_dirs function
+folder_path = '/my_secret/folder'  # Path to the folder containing files to be encrypted
+key = b'mysecretpassword'  # Encryption key need to be in this length [16, 24, 32] bit
+
+encrypt_walk_dirs(folder_path, key)
+print("Folder encryption completed.")
+
+```
+#### `decrypt_walk_dirs(folder_path: str, key: bytes) -> None`
+
+Walks through the specified folder path and decrypts all files using the provided AES key.
+
+- `folder_path` (str): The absolute folder path to walk on and decrypt files within.
+- `key` (bytes): The AES key used for decryption.
+
+**Raises:**
+
+- `PermissionError`: If there is a permission error while accessing or modifying files.
+- `FileExistsError`: If a file with the new name already exists in the destination.
+- `FileNotFoundError`: If the specified file is not found.
+- `ValueError`: If there is an error in the provided data or key.
+
+** Example Usage: **
+```
+# Example usage of decrypt_walk_dirs function
+folder_path = '/my_secret/folder'  # Path to the folder containing files to be decrypted
+key = b'mysecretpassword'  # Decryption key need to be in this length [16, 24, 32] bit
+
+decrypt_walk_dirs(folder_path, key)
+print("Folder decryption completed.")
+
+```
+
+### Folder Encryption/Decryption
+
+Encrypts all files within a given folder.
+
+```
+def folder_encrypt(folder_path: str, key: bytes, add_extension: str = '.enc') -> None:
+```
+
+- `folder_path` (str): The path to the folder containing the files to be encrypted.
+- `key` (bytes): The key used for encryption.
+- `add_extension` (str): Optional. The extension to add to the end of the encrypted files. Defaults to '.enc'.
+
+** Example Usage: **
+```
+# Example usage of folder_encrypt function
+folder_path = '/my_secret/folder'  # Path to the folder containing files to be encrypted
+key = b'mysecretpassword'  # Encryption key need to be in this length [16, 24, 32] bit
+
+folder_encrypt(folder_path, key)
+print("Folder encryption completed.")
+```
+### folder_decrypt
+
+Decrypts all files within a given folder.
+
+```
+def folder_decrypt(folder_path: str, key: bytes) -> None:
+
+```
+
+- `folder_path` (str): The path to the folder containing the files to be decrypted.
+- `key` (bytes): The key used for decryption.
+
+** Example Usage: **
+```
+folder_path = '/my_secret/folder'  # Path to the folder containing files to be decrypted
+key = b'mysecretpassword'  # Decryption key need to be in this length [16, 24, 32] bit
+
+folder_decrypt(folder_path, key)
+print("Folder decryption completed.")
+```
+These functions traverse through the specified folder path and perform encryption or decryption on all files within the folder. The `folder_encrypt` function encrypts the files using the provided key and adds an optional extension to the encrypted files. The `folder_decrypt` function decrypts the files using the provided key and removes any file extensions.
+
+Both functions raise a `ValueError` if the provided folder path is not a directory.
+
+### ** Other Utility Functions **
+
+
+#### `delete_extension(file_path: str) -> str`
+
+Removes the file extension from the given file path and returns the resulting filename without the extension.
+
+- `file_path` (str): The path of the file with an extension.
+
+** Example Usage: **
+```
+path = '/my_secret/folder/file.txt.enc'  # File path with extension
+file_name = delete_extension(path)
+print("File name without extension:", file_name)
+# output /my_secret/folder/file.txt
+```
+
+#### `generate_key(password: str, length: int) -> bytes`
+
+Generates an encryption key based on the provided password and length.
+
+- `password` (str): The password for key generation.
+- `length` (int): The length of the key (choose from [16, 24, 32]).
+
+** Example Usage: **
+```
+password = 'mysecretpassword'  # Password for key generation
+key = generate_key(password, length=32)
+print("Generated key:", key)
+write_binary('new-key.bin', key)
+```
+
+#### `read_binary(file_path: str) -> bytes`
+
+Reads binary data from the specified file and returns it as bytes.
+
+- `file_path` (str): The path of the file to read.
+
+** Example Usage: **
+```
+file_path = '/new-key.bin'  # Path of the file to read
+data = read_binary(file_path)
+print("Read data:", data)
+```
+
+#### `write_binary(file_path: str, data: bytes) -> None`
+
+Writes the given binary data to the specified file.
+
+- `file_path` (str): The path of the file to write.
+- `data` (bytes): The binary data to write.
+
+** Example Usage: **
+```
+file_path = '/new-key.bin'  # Path of the file to write
+data = write_binary(file_path, data)
+print("Write data:", data)
+print("Data written to file successfully.")
+```
+
+#### `custom_input(question: str) -> str`
+
+Prompts the user with the provided question and returns their input as a string.
+
+- `question` (str): The question to ask the user.
+
+** Example Usage: **
+```
+question = "Enter your name: "
+user_name = custom_input(question)
+print("User name:", user_name)
+```
+
+### Command-Line Interface
+
+The library also provides a command-line interface (CLI) for creating a new encryption key and performing file encryption and decryption.
+
+
+#### Creating Encryption Key (Command Line)
+
+To create a new encryption key file based on a provided password, use the following command:
+
+```
+aes-key [file_name] [secret_password]
+```
+
+This command will create a new encryption key file with the specified `file_name` and `secret_password`. The resulting key file will be saved as `key.bin` by default.
+
+
+#### Encrypting Files (Command Line)
+
+To encrypt a file using an encryption key, use the following command:
+
+```
+aes-encrypt [file_path] [key_path]
+```
+
+This command will encrypt the file at `file_path` using the encryption key at `key_path`. The encrypted file will be created with the same name as the original file and an added extension.
+
+
+#### Decrypting Files (Command Line)
+
+To decrypt an encrypted file using an encryption key, use the following command:
+
+```
+aes-decrypt [file_path] [key_path]
+```
+
+This command will decrypt the encrypted file at `file_path` using the encryption key at `key_path`. The decrypted 
+file will replace the original encrypted file.
+
+**Note:** Ensure that the necessary file paths and encryption keys are provided for the command-line interface to work correctly.
+
+## Version
+
+The current version of `simple2encrypt` is 1.5.7
+
+## License
+
+This library is distributed under the MIT License. See the [LICENSE](https://github.com/nhman-python/crypto-utils/blob/main/LICENSE) file for more information.
+
+---
+
