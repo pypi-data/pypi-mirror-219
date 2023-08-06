@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: qalita
+Version: 1.0.0
+Summary: Qalita Command line Tool
+Author: Armand LEOPOLD
+Author-email: armand.leopold@qalita.io
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: loguru (>=0.7.0,<0.8.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Description-Content-Type: text/markdown
+
+# QALITA Command Line Interface
+
+## Installation
+
+`pip install qalita`
+
+## Usage
+
+```bash
+Usage: qalita [OPTIONS] COMMAND [ARGS]...
+
+  QALITA Command Line Interface
+```
+
+## Documentation
+
+If you want more informations about how to use the qalita cli, please refer to the qalita documentation on your local qalita application page.
+
+> [Help & Docs] > Documentation > CLI
+
