@@ -1,0 +1,17 @@
+CONNECTION_NOTES.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/decora_bleak/__init__.py
+src/decora_bleak/cmd.py
+src/decora_bleak/const.py
+src/decora_bleak/decora_bleak.py
+src/decora_bleak/models.py
+src/decora_bleak.egg-info/PKG-INFO
+src/decora_bleak.egg-info/SOURCES.txt
+src/decora_bleak.egg-info/dependency_links.txt
+src/decora_bleak.egg-info/entry_points.txt
+src/decora_bleak.egg-info/requires.txt
+src/decora_bleak.egg-info/top_level.txt
