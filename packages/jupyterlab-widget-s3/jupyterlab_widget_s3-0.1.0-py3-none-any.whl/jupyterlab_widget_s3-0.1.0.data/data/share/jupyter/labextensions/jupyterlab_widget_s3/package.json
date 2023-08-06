@@ -1,0 +1,209 @@
+{
+  "name": "jupyterlab_widget_s3",
+  "version": "0.1.0",
+  "description": "Jupyterlab 插件",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3",
+  "bugs": {
+    "url": "http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "dfc",
+    "email": "me@test.com"
+  },
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}",
+    "schema/*.json"
+  ],
+  "main": "src/main.ts",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "repository": {
+    "type": "git",
+    "url": "http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3.git"
+  },
+  "scripts": {
+    "python-build": "jlpm clean:all && python -m build",
+    "build": "jlpm build:labextension:dev",
+    "build:prod": "jlpm clean && cross-env ENV=pro jlpm build:labextension",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "clean": "jlpm clean:lib",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:lintcache": "rimraf .eslintcache .stylelintcache",
+    "clean:labextension": "rimraf jupyterlab_widget_s3/labextension jupyterlab_widget_s3/_version.py",
+    "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
+    "eslint": "jlpm eslint:check --fix",
+    "eslint:check": "eslint . --cache --ext .ts,.tsx",
+    "install:extension": "jlpm build",
+    "lint": "jlpm stylelint && jlpm prettier && jlpm eslint",
+    "lint:check": "jlpm stylelint:check && jlpm prettier:check && jlpm eslint:check",
+    "prettier": "jlpm prettier:base --write --list-different",
+    "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
+    "prettier:check": "jlpm prettier:base --check",
+    "stylelint": "jlpm stylelint:check --fix",
+    "stylelint:check": "stylelint --cache \"style/**/*.css\"",
+    "watch": "run-p watch:labextension",
+    "watch:labextension": "jupyter labextension watch ."
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^3.2.5",
+    "@jupyterlab/settingregistry": "^3.2.5",
+    "@jupyterlab/coreutils": "^5.1.0",
+    "@jupyterlab/services": "^6.1.0",
+    "@jupyterlab/docmanager": "^3.2.5",
+    "@jupyterlab/filebrowser": "^3.2.5",
+    "vue": "^2.7.14",
+    "ant-design-vue": "1.7.8",
+    "base64-js": "^1.2.3"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mkdirp": "^1.0.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-standard": "~24.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "^5.1.3",
+    "svg-url-loader": "^8.0.0",
+    "ts-loader": "^9.4.3",
+    "cross-env": "^7.0.3",
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
+    "mini-css-extract-plugin": "^2.7.5",
+    "vue-loader": "15.10.1",
+    "vue-style-loader": "^4.1.3",
+    "vue-template-compiler": "^2.7.14"
+  },
+  "sideEffects": [
+    "style/*.css",
+    "style/index.js"
+  ],
+  "styleModule": "style/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "jupyterlab": {
+    "disabledExtensions": [
+      "jupyterlab_s3_browser:drive"
+    ],
+    "discovery": {
+      "server": {
+        "managers": [
+          "pip"
+        ],
+        "base": {
+          "name": "jupyterlab_widget_s3"
+        }
+      }
+    },
+    "extension": true,
+    "outputDir": "jupyterlab_widget_s3/labextension",
+    "schemaDir": "schema",
+    "webpackConfig": "./webpack.config.js",
+    "_build": {
+      "load": "static\\remoteEntry.1bbb7f7a74d952cdfdb4.js",
+      "extension": "./extension",
+      "style": "./style"
+    }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "**/*.d.ts",
+    "style/index.js",
+    "webpack.config.js"
+  ],
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "tsconfig.json",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "env": {
+      "node": true,
+      "commonjs": true
+    },
+    "rules": {
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "interface",
+          "format": [
+            "PascalCase"
+          ],
+          "custom": {
+            "regex": "^I[A-Z]",
+            "match": true
+          }
+        }
+      ],
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          "args": "none"
+        }
+      ],
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-namespace": "off",
+      "@typescript-eslint/no-use-before-define": "off",
+      "@typescript-eslint/quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true,
+          "allowTemplateLiterals": false
+        }
+      ],
+      "curly": [
+        "error",
+        "all"
+      ],
+      "eqeqeq": "error",
+      "prefer-arrow-callback": "error"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "auto"
+  },
+  "stylelint": {
+    "extends": [
+      "stylelint-config-recommended",
+      "stylelint-config-standard",
+      "stylelint-prettier/recommended"
+    ],
+    "rules": {
+      "property-no-vendor-prefix": null,
+      "selector-no-vendor-prefix": null,
+      "value-no-vendor-prefix": null
+    }
+  }
+}

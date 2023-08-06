@@ -1,0 +1,149 @@
+Metadata-Version: 2.1
+Name: jupyterlab_widget_s3
+Version: 0.1.0
+Summary: Jupyterlab 插件
+Project-URL: Homepage, http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3
+Project-URL: Bug Tracker, http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3/issues
+Project-URL: Repository, http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/jupyterlab_widget_s3.git
+Author-email: dfc <me@test.com>
+License: BSD 3-Clause License
+        
+        Copyright (c) 2023, dfc
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 3
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Requires-Dist: jupyter-server<3,>=1.21
+Description-Content-Type: text/markdown
+
+# Jupyterlab 插件模板
+
+根据改项目模板创建 jupyterlab 插件，从 [官方插件模板](https://github.com/jupyterlab/extension-cookiecutter-ts) 修改而来。
+
+## 环境
+
+使用 conda 创建或激活现有虚拟环境
+
+```shell
+# 创建虚拟环境
+conda create -n dev --override-channels --strict-channel-priority -c conda-forge -c nodefaults jupyterlab==3.2.5 jupyter-packaging
+
+# 激活虚拟环境
+conda activate dev
+```
+
+## 安装
+
+```shell
+pip install cookiecutter
+```
+
+## 使用
+
+```shell
+cookiecutter http://gitlab.dfc.com:8091/zhangzhipeng/extension-cookiecutter-ts.git
+```
+
+## 交互选项
+
+- kind
+  - frontend 前端插件
+  - server 前后端插件
+  - theme 主题插件
+- author_name 作者姓名
+- author_email 作者邮箱
+- labextension_name 插件名称
+- python_name 作为 python 插件时的名称
+- project_short_description 插件简短描述
+- vue 是否启用 vue
+- sass 是否启用 sass
+- has_settings 是否启用用户设置 json 配置文件
+- has_binder 是否设置 [binder](https://mybinder.readthedocs.io/en/latest/)
+- test 是否需要测试模块
+- repository 版本控制仓库地址
+
+## 安装项目
+
+```shell
+pip install -e .
+```
+
+## 构建项目
+
+```shell
+jlpm run build
+```
+
+## 建立软链接
+
+热更新开发需要用到这个
+
+```shell
+# 建立软链接需要用到高于3.2.5版本的jupyterlab
+pip install jupyterlab==3.6.1
+
+# 建立软链接
+jupyter labextension develop --overwrite .
+
+# 切回3.2.5版本的jupyterlab，因为目前客户的jupyterlab版本为3.2.5
+pip install jupyterlab==3.2.5
+```
+
+## 热更新
+
+```shell
+jlpm run watch
+```
+
+## 打包
+
+```shell
+jlpm python-build
+```
+
+## 安装
+```shell
+pip uninstall jupyterlab_widget_s3
+pip install jupyterlab_widget_s3-0.1.0-py3-node-any.whl
+```
+
+## 关于 Vue 项目的样式的问题
+目前 vue-style-loader 引入后也不生效，不知道什么原因，所以需要将样式文件独立出来，都引入到 style/index.js 中！  
+具体参考 [jupyterlab的vue插件示例](http://60.60.60.146:8091/zhuying/jupyterlab_plugins/-/tree/master/dfc_widgets_vue)
