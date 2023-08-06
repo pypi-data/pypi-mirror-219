@@ -1,0 +1,2 @@
+[console_scripts]
+pipefunc-launcher = pipefunc._server_support.launcher:main
