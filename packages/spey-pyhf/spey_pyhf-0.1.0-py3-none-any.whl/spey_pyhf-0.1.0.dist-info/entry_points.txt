@@ -1,0 +1,3 @@
+[spey.backend.plugins]
+pyhf = spey_pyhf.interface:FullStatisticalModel
+pyhf.uncorrelated_background = spey_pyhf.interface:UncorrelatedBackground
