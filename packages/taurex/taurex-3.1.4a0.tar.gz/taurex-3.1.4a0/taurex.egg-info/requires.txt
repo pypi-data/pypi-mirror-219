@@ -1,0 +1,13 @@
+numpy
+configobj
+scipy
+numba
+astropy
+numexpr
+pybtex
+nestle
+h5py
+tabulate
+
+[Plot]
+matplotlib
