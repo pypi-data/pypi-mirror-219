@@ -1,0 +1,55 @@
+[tool.poetry]
+name = "data-pyetl"
+version = "1.0.27"
+description = "Data Pyetl is an python approach to extract and load data from a source to a database"
+authors = ["MacSoares <macario.junior@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.4.1"
+numpy = "^1.22.3"
+SQLAlchemy = "^1.4.32"
+requests = "^2.27.1"
+pyodbc = "^4.0.32"
+ipython = "^8.1.1"
+pytz = "^2021.3"
+urllib3 = "^1.26.9"
+PyMySQL = "^1.0.2"
+psycopg2-binary = "^2.9.3"
+fdb = "^2.0.2"
+cx-Oracle = "^8.3.0"
+requests-mock = "^1.9.3"
+pytest-cov = "^3.0.0"
+flake8 = "^4.0.1"
+openpyxl = "^3.0.9"
+lxml = "^4.8.0"
+odfpy = "^1.4.1"
+xlrd = "^2.0.1"
+fastparquet = "^2023.7.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = ["--cov=data_pyetl"]
+filterwarnings = "ignore::RuntimeWarning"
+testpaths = ["tests"]
+
+[tool.coverage.paths]
+source = ["data_pyetl"]
+
+[tool.coverage.run]
+branch = true
+source = ["data_pyetl"]
+omit = ["data_pyetl/loggin.py"]
+
+[tool.coverage.html]
+directory = "coverage"
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
