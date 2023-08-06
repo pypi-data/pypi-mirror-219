@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+LongNet/__init__.py
+LongNet/attend.py
+LongNet/attention.py
+LongNet/model.py
+LongNet/training.py
+LongNet/utils.py
+LongNet.egg-info/PKG-INFO
+LongNet.egg-info/SOURCES.txt
+LongNet.egg-info/dependency_links.txt
+LongNet.egg-info/requires.txt
+LongNet.egg-info/top_level.txt
+test/test.py
