@@ -1,0 +1,3 @@
+[console_scripts]
+protomodel=protomodel.__main__:main
+
