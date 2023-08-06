@@ -1,0 +1,2 @@
+[console_scripts]
+manga-dl = manga_dl.main:main
