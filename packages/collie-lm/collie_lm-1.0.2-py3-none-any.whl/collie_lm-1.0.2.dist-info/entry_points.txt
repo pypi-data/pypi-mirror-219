@@ -1,0 +1,2 @@
+[console_scripts]
+collie = collie_cli.collie_cli:main
