@@ -1,0 +1,11 @@
+from setuptools import setup
+
+setup(
+    name='banking_system',
+    version='1.0.2',
+    author='Kunal Kumar',
+    description='A simple banking management system package',
+    long_description_content_type="text/markdown",
+    packages=['banking_system'],
+    install_requires=[],  # Add dependencies if any
+)
