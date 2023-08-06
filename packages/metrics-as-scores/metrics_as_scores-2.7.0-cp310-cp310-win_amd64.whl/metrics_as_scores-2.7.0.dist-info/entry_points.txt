@@ -1,0 +1,3 @@
+[console_scripts]
+mas=metrics_as_scores.cli.Cli:cli
+
