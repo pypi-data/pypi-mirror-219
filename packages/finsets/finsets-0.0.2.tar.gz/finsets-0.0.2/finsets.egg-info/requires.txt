@@ -1,0 +1,9 @@
+fastcore
+pandas
+numpy
+psycopg2-binary
+sqlalchemy<2
+estout
+pandasmore
+
+[dev]

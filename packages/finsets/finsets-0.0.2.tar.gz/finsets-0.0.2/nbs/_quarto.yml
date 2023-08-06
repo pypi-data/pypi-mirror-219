@@ -1,0 +1,34 @@
+project:
+  type: website
+
+format:
+  html:
+    theme: zephyr
+    css: styles.css
+    toc: true
+    page-layout: full
+    link-external-newwindow: true
+    grid:
+      sidebar-width: 400px
+
+website:
+  twitter-card: true
+  open-graph: true
+  repo-actions: [issue]
+  navbar:
+    background: primary
+    search: true
+  sidebar:
+    style: docked
+    contents:
+      - text: "Getting Started"
+        href: index.ipynb
+      - section: FRED
+        contents: 00_fred/*
+      - section: WRDS
+        contents: 01_wrds/*
+      - section: Papers
+        contents: 02_papers/*    
+
+
+metadata-files: [nbdev.yml, sidebar.yml]
