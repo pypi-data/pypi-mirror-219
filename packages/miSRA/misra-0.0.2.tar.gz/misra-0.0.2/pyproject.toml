@@ -1,0 +1,30 @@
+[build-system]
+requires = ["flit_core>=3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "miSRA"
+version = "0.0.2"
+authors = [
+  { name="Michael Hackenberg", email="hackenberg@go.ugr.es" },
+  { name="Ernesto Aparicio", email="eaparicioeaparicio@gmail.com" },
+]
+description = "A command-line interface to the miSRA API. It allow to remotely query over 90,000 miRNA-seq samples from the Sequence Read Archive"
+readme = "README.md"
+requires-python = ">=3.7.0"
+dependencies = [
+    "requests",
+    ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/bioinfoUGR/miSRA"
+"Bug Tracker" = "https://github.com/bioinfoUGR/miSRA/issues"
+
+[project.scripts]
+miSRA = "miSRA.miSRA:main"
+
