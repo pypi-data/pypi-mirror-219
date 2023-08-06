@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ContactApi
+Version: 0.0.1
+Summary: Just a demo project
+Keywords: flask,project
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# fastapi
+
+# Environment Variables
+
+DATABASE_URL = "postgresql://postgres:password@localhost:5432"
