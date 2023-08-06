@@ -1,0 +1,26 @@
+[project]
+name = "kaisia"
+version = "0.0.3"
+authors = [
+  { name="Rostislav Bagrov", email="bagrov.rostislav@gmail.com" },
+]
+dependencies = [
+    "google-cloud-bigquery",
+]
+description = "GCP Big Query Migration helper"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.scripts]
+kaisia = "kaisia.main:main"
+
+[project.urls]
+"Homepage" = "https://github.com/rbagrov/GBQM"
+"Bug Tracker" = "https://github.com/rbagrov/GBQM/issues"
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
