@@ -1,0 +1,2 @@
+[console_scripts]
+docwalker = docwalker.__main__:main

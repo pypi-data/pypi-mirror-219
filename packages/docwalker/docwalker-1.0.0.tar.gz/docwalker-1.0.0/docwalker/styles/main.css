@@ -1,0 +1,14 @@
+DirectoryTree {
+    dock: left;
+    width: 30;
+    border-right: wide $background;
+    padding: 1;
+}
+
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    padding: 0;
+}

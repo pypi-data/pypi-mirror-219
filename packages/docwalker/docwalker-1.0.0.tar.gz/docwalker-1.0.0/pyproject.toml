@@ -1,0 +1,39 @@
+[project]
+name = "docwalker"
+version = "1.0.0"
+description = "Quickly view documentation in source code in a language-agnostic way." 
+readme = "README.md"
+requires-python = ">=3.7"
+license = {file = "LICENSE"}
+keywords = ["tui", "documentation", "viewer"]
+authors = [{name = "Conner Marzen", email = "connermarzen@gmail.com" }]
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = ["textual"]
+
+[project.optional-dependencies]
+dev = ["textual-dev"]
+
+[project.scripts]
+docwalker = "docwalker.__main__:main"
+
+[tool.setuptools.package-data]
+docwalker = ["docwalker/styles/*.css"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

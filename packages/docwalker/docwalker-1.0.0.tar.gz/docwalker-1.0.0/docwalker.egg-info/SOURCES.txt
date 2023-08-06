@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+docwalker/__init__.py
+docwalker/__main__.py
+docwalker/app.py
+docwalker/cli.py
+docwalker/parser.py
+docwalker.egg-info/PKG-INFO
+docwalker.egg-info/SOURCES.txt
+docwalker.egg-info/dependency_links.txt
+docwalker.egg-info/entry_points.txt
+docwalker.egg-info/requires.txt
+docwalker.egg-info/top_level.txt
+docwalker/styles/main.css
