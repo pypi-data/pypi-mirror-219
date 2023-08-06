@@ -1,0 +1,2 @@
+[console_scripts]
+digit = digit.scripts:main

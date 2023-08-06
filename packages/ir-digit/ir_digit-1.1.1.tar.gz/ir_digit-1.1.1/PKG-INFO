@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ir_digit
+Version: 1.1.1
+Summary: digit package
+Home-page: https://master--ir-digit-redocs.netlify.app/
+Author: FKLiu
+Author-email: fkliu001@outlook.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text
+License-File: LICENSE
+
+digit package 与 digit web 配套使用，下载其digit web中的数据资源并在本地运行
