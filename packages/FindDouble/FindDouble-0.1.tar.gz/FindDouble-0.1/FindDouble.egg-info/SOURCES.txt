@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+FindDouble.egg-info/PKG-INFO
+FindDouble.egg-info/SOURCES.txt
+FindDouble.egg-info/dependency_links.txt
+FindDouble.egg-info/requires.txt
+FindDouble.egg-info/top_level.txt
+non_binary_finder/__init__.py
+non_binary_finder/find_single_stars.py
