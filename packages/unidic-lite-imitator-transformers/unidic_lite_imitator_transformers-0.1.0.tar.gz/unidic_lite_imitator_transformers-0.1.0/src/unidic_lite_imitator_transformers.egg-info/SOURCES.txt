@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/unidic_lite_imitator_transformers/__init__.py
+src/unidic_lite_imitator_transformers/config.json
+src/unidic_lite_imitator_transformers/ma_imitator.py
+src/unidic_lite_imitator_transformers/model.pth
+src/unidic_lite_imitator_transformers.egg-info/PKG-INFO
+src/unidic_lite_imitator_transformers.egg-info/SOURCES.txt
+src/unidic_lite_imitator_transformers.egg-info/dependency_links.txt
+src/unidic_lite_imitator_transformers.egg-info/requires.txt
+src/unidic_lite_imitator_transformers.egg-info/top_level.txt
