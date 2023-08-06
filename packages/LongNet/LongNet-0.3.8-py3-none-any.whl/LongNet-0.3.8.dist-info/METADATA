@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: LongNet
+Version: 0.3.8
+Summary: LongNet - Pytorch
+Home-page: https://github.com/kyegomez/LongNet
+Author: Kye Gomez
+Author-email: kye@apac.ai
+License: MIT
+Keywords: artificial intelligence,deep learning,optimizers,Prompt Engineering
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch
+Requires-Dist: einops
+Requires-Dist: torchscale
+Requires-Dist: transformers
+Requires-Dist: accelerate
+Requires-Dist: bitsandbytes
+Requires-Dist: fairscale
+Requires-Dist: timm
+Requires-Dist: dataclasses
+
