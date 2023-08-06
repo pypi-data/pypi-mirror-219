@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: loguru_utils
+Version: 0.1.0
+Author-Email: redjax <none@none.com>
+License: MIT
+Requires-Python: >=3.11
+Requires-Dist: loguru>=0.7.0
+Description-Content-Type: text/markdown
+
+# loguru_utils
