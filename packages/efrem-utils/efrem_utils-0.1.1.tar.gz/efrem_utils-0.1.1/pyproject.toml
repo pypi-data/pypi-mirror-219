@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "efrem-utils"
+version = "0.1.1"
+description = "Efrem's utilities"
+authors = ["lone_druid <enikita332@gmail.com>"]
+repository = "https://github.com/NikitaNightBot/efrem-utils"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
