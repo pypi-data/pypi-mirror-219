@@ -1,0 +1,4 @@
+# flake8: noqa: F401
+from crawler_utils.elasticsearch.dupefilter import ElasticRFPDupeFilter
+from crawler_utils.elasticsearch.items_pipeline import ElasticItemsPipeline
+from crawler_utils.elasticsearch.requests_middleware import ElasticRequestsDownloaderMiddleware
