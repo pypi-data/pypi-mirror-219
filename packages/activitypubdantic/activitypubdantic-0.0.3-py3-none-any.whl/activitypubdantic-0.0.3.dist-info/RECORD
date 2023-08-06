@@ -1,0 +1,16 @@
+activitypubdantic/__init__.py,sha256=99nw71mBzmZHSj_bbnPrh0vVrYeWPabWn6KjwZLsJG0,892
+activitypubdantic/get_class.py,sha256=dzhk1RI8GEBi0CbfSwYhanscWMvJqsNVScG6u5W36-I,12192
+activitypubdantic/get_model.py,sha256=9uXO-lx09rNCsct3et93OEZoAG0_xVxzCaedUygUgVM,5018
+activitypubdantic/models/__init__.py,sha256=qYCJuSM9TSAGPKks9pq4TWx02PRNb60i0PJzprX8rS4,1336
+activitypubdantic/models/activity.py,sha256=zXHxr_5MOeforNJ9R3Zbq9JzF4rCi3GVBDl5G0C8kh4,6267
+activitypubdantic/models/actor.py,sha256=8IskQRRy5Chn-worKej1rChzda_PwtnC0xd5xYAAZeU,4030
+activitypubdantic/models/core.py,sha256=5IqjBDie7eDR99z-iCJMX5axVvamfZTj_B3cfpKqdPU,22798
+activitypubdantic/models/link.py,sha256=7StVz_aN1dTBPsgvCu8UWhN3cKw1ySmp4RREe8P_pPg,551
+activitypubdantic/models/object.py,sha256=RRAPVFaA0za5MyQMjiRZEWdBzsGSlbZPmGxwmm4p9s0,2750
+activitypubdantic/models/_utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+activitypubdantic/models/_utils/language_types.py,sha256=eGmfISc0ZI4Oz47UJVHvvwVLIk9izcU9ZQRICIQVbmg,1165
+activitypubdantic/models/_utils/mime_types.py,sha256=3Bb9QNk1AXAyx7C3rk6FNvz0kB2kZaVsP4cjP1nasVw,2221
+activitypubdantic-0.0.3.dist-info/METADATA,sha256=50qeh2maQzthSMjXXbyUZx7HIb5b3vyp9pBQac8JL-4,10649
+activitypubdantic-0.0.3.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+activitypubdantic-0.0.3.dist-info/licenses/LICENSE,sha256=d5FWrUIdiNe3UGP3iNujX0rBEEhzG2q8Lfg8QIE5qIc,1065
+activitypubdantic-0.0.3.dist-info/RECORD,,
