@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: deepl-translator-selenium
+Version: 0.2.3
+Summary: Translate the subtitle file (*.srt) using DeepL translator, because their API is not free, this tiny tool will use selenium to open the browser and do it instead.
+Author: Keit
+License: MIT
+
+
+Install:
+`pip install deepl-translator-selenium`
+
+Usage:
+`deepl-translator-selenium --input=<input_file> --output=<output_directory> --source-language=it --target-language=en-US`
+    

@@ -1,0 +1,2 @@
+[console_scripts]
+deepl-translator-selenium = main:cli
