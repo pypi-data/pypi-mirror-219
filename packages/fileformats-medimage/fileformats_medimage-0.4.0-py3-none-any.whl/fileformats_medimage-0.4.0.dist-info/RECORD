@@ -1,0 +1,15 @@
+fileformats/medimage/__init__.py,sha256=N8HEpFSnbiacOXyMqmQDGkbG_gF2KosaBgOib4_qcC4,675
+fileformats/medimage/_version.py,sha256=QiCQVGOicQZY3DBr4tYPU9egzT1VgzOJGfLt9Q26uyU,160
+fileformats/medimage/base.py,sha256=gJpLgTOwcYcIWaA8b9r1uEGpSo-6xvlgewAR79ZP1t0,3903
+fileformats/medimage/dicom.py,sha256=BdQMHvvYOUSEEj5Kv4A47Hx_W70dJzlIqrHENN5i554,1761
+fileformats/medimage/diffusion.py,sha256=be0CMhHq-nNdx6xOIkR9tns_dRpRG9a53gZlwqigxh0,3358
+fileformats/medimage/misc.py,sha256=LUx81c8o7ob3txXV3RqmWecwe8WCtUC8up7sAjNlLgM,485
+fileformats/medimage/mrtrix.py,sha256=byvu0dfGpOkukvvdpaWtOk2tSCRA_B5_RTR4RSqRFMs,3531
+fileformats/medimage/nifti.py,sha256=icxww7TfJg9EMfOy-O8eeYhy21XO1RXOY2vc3rReAC0,2353
+fileformats/medimage/raw.py,sha256=u3KZMWYyDin5qOkm0VM3rTV6LDQLpaWrjm9I2A3Co3E,1535
+fileformats/medimage/tests/test_dicom.py,sha256=Wou6omtJN1DowGYePn4I172gqBq3HiQ5q4nRGKvBllY,475
+fileformats/medimage/tests/test_nifti.py,sha256=H8WxEKhyrmCCI5qATbGOeiVhmhSCcWl488qlwtcQb6g,475
+fileformats_medimage-0.4.0.dist-info/METADATA,sha256=tffSzr37__d9mDbcRIH8jAhG3YL6Xi-w4JXzCa9eYNw,19004
+fileformats_medimage-0.4.0.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+fileformats_medimage-0.4.0.dist-info/licenses/LICENSE,sha256=s12hb9VeRlj1uxCx7NSbKwRGyTklVA7omWbTLyMhYIs,14222
+fileformats_medimage-0.4.0.dist-info/RECORD,,
