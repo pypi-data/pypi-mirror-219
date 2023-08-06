@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: trattoria-core
+Version: 0.4.4
+Classifiers: Programming Language :: Python
+Classifiers: Topic :: Scientific/Engineering
+Classifiers: Topic :: Scientific/Engineering :: Physics
+Requires-Dist: numpy>=1.16
+Summary: PyO3 wrapper for TTTR-Toolbox
+Keywords: scientific-computing python science
+Author: Guillem Ballesteros <dev+crate@maxwellrules.com>
+Author-Email: Guillem Ballesteros <dev+crate@maxwellrules.com>
+License: MIT
