@@ -1,0 +1,6 @@
+scheduler>=0.8.4
+clickzetta-connector>=0.8.29
+docopt>=0.6.2
+pyyaml>=6.0
+
+[all]
