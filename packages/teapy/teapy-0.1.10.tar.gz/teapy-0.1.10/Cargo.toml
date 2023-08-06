@@ -1,0 +1,62 @@
+[package]
+name = "teapy"
+version = "0.1.10"
+edition = "2021"
+
+[lib]
+name = "teapy"
+crate-type = ["cdylib", "rlib"]
+
+[features]
+default = ["lazy", "window_func", "blas"]
+lazy = []
+window_func = []
+blas = ["ndarray/blas", "lazy", "stat", "lapack-sys", "intel-mkl"]
+npy = ["ndarray-npy"]
+stat = ["statrs"]
+
+# blas choices
+openblas  = ["openblas-static"]
+intel-mkl = ["intel-mkl-static"]
+
+openblas-static = ["openblas-src/static"]
+openblas-system = ["openblas-src/system"]
+
+intel-mkl-static = ["intel-mkl-src/mkl-static-lp64-seq"]
+intel-mkl-system = ["intel-mkl-src/mkl-dynamic-lp64-seq"]
+
+
+[profile.release]
+lto = true
+
+
+[dependencies]
+pyo3 = {version = "0.19.0", features = ["extension-module", "abi3-py38", "macros", "serde"]}
+numpy = "0.19"
+num = "0.4"
+libc = "0.2"
+
+rayon = "1.5"
+ahash = "0.8.2"
+regex = "1"
+chrono = {version = "0.4.23", features = ["serde"]}
+serde = { version = "1.0", features = ["derive"] }
+serde_with = {version = "3.0", features = ["chrono"]}
+
+ndarray = {features=['rayon', 'serde'], version="0.15"}
+statrs = {version = "0.16", optional=true}
+lapack-sys = {version="0.14.0", optional=true}
+ndarray-npy = {version = "0.8.1", optional=true}
+
+# ndarray-linalg = {git = "https://github.com/Teamon9161/ndarray-linalg.git", branch = "arm-cross-compile", features = ["intel-mkl-static"], optional=true}
+
+[dependencies.intel-mkl-src]
+version = "0.8.1"
+default-features = false
+optional = true
+
+[dependencies.openblas-src]
+version = "0.10.4"
+optional = true
+default-features = false
+features = ["cblas"]
