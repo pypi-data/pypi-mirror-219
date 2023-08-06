@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: ufs-pyutils
+Version: 0.1.2
+Summary: Python Toolbox of API used for UFS applications.
+Home-page: https://github.com/HenryWinterbottom-NOAA/ufs_pyutils
+Author: "Henry R. Winterbottom"
+License: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 (LGPLv2)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: netcdf4 (==1.6.2)
+Requires-Dist: numpy (==1.22.4)
+Requires-Dist: astropy (==5.2)
+Requires-Dist: bs4 (==0.0.1)
+Requires-Dist: croniter (==1.3.8)
+Requires-Dist: pyyaml (==6.0)
+Requires-Dist: boto3 (==1.24.28)
+Requires-Dist: schema (==0.7.5)
+Requires-Dist: xarray (==0.16.2)
+Requires-Dist: jinja2 (==3.1.2)
+Requires-Dist: lxml (==4.9.2)
+Requires-Dist: pytest (==7.2.0)
+Requires-Dist: pytest-order (==1.0.1)
+Requires-Dist: xmltodict (==0.13.0)
+Requires-Dist: tabulate (==0.9.0)
+Requires-Dist: rich-argparse (==1.1.1)
+Requires-Dist: globus-cli (==3.15.0)
+Requires-Dist: globus-sdk (==3.21.0)
+
+![Linux](https://img.shields.io/badge/Linux-ubuntu%7Ccentos-lightgrey)
+![Python Version](https://img.shields.io/badge/Python-3.5|3.6|3.7|3.8|3.9-blue)
+[![Code style: black](https://img.shields.io/badge/Code%20Style-black-purple.svg)](https://github.com/psf/black)
+[![Documentation Status](https://img.shields.io/badge/Documentation-latest-gree)](https://ufs-pyutils.readthedocs.io/en/latest/?badge=latest)
+
+[![Build Tests](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/buildtest.yaml/badge.svg)](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/buildtest.yaml)
+[![Unit Tests](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/unittests.yaml/badge.svg)](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/unittests.yaml)
+[![Python Coding Standards](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/pycodestyle.yaml/badge.svg)](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/pycodestyle.yaml)
+[![Container Builds](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/containers.yaml/badge.svg)](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/containers.yaml)
+[![PyPI](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/pypi.yaml/badge.svg)](https://github.com/HenryWinterbottom-NOAA/ufs_pyutils/actions/workflows/pypi.yaml)
+
+# Description
+
+The `ufs_pyutils` package contains an toolbox of APIs for various
+workflow and diagnostic tool applications. Currently this utilized by
+multiple applications derived from the [Unified Forecast
+System](https://ufscommunity.org/) (UFS). However, it is not limited
+only to the UFS and may be useful and/or applicable to other such
+packages.
+
+# Installation
+
+The `ufs_pyutils` package may be installed as follows.
+
+~~~
+user@host:$ pip install --user ufs-pyutils
+~~~
+
+The unit-tests for the available APIs may be executed as follows.
+
+~~~
+user@host:$ cd /path/to/ufs_pyutils
+user@host:$ /path/to/pytest confs
+user@host:$ /path/to/pytest ioapps
+user@host:$ /path/to/pytest tools
+user@host:$ /path/to/pytest utils
+~~~
+
+Note that the respective unit-tests require
+[pytest](https://github.com/pytest-dev/pytest) and
+[pytest-order](https://github.com/pytest-dev/pytest-order).
+
+# Documentation
+
+The API documentation can be found [here](https://ufs-pyutils.readthedocs.io/en/latest/).
