@@ -1,0 +1,12 @@
+scipy
+pandas
+matplotlib
+requests
+chaospy
+fastdtw
+
+[:platform_system != "Darwin" or platform_machine != "arm64"]
+tensorflow
+
+[:platform_system == "Darwin" and platform_machine == "arm64"]
+tensorflow-macos
