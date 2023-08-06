@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: aityping
+Version: 0.0.1
+Summary: Fuzzy type hints with AI.
+Requires-Dist: langchain
+Requires-Dist: pydantic (<2)
+
