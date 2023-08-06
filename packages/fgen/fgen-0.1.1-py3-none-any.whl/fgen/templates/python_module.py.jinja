@@ -1,0 +1,141 @@
+"""
+Python wrapper of Fortran module {{ module.name }}
+"""
+from __future__ import annotations
+
+from attrs import define
+from openscm_units import unit_registry as UR
+
+from fgen_runtime.base import (
+    FinalizableWrapperBase,
+    FinalizableWrapperBaseContext,
+    check_initialised,
+    execute_finalize_on_fail,
+)
+from {{ extension }} import {{ module.wrapper_module_name }}
+
+{% block units scoped %}
+_UNITS = {
+
+    {% for name, unit in calculator.units().items() %}
+    {# TODO: investigate why pint.wraps can't handle "dimensionless" as a unit #}
+    "{{ name }}": "{{ unit if unit != "dimensionless" else ""}}",
+    {% endfor %}
+}
+{% endblock %}
+
+@define
+class {{ calculator.name }}(FinalizableWrapperBase):
+    """
+    Wrapper around the Fortran :class:`{{ calculator.name }}`
+
+    {{ calculator.description }}
+    """
+
+    @classmethod
+    def from_new_connection(cls) -> {{ calculator.name }}:
+        model_index = {{ module.wrapper_module_name }}.get_free_instance()
+        return cls(model_index)
+
+    @check_initialised
+    def finalize(self) -> None:
+        """
+        Close the connection with the Fortran module
+        """
+        {{ module.wrapper_module_name }}.instance_finalize(self.model_index)
+        self._unitialise_model_index()
+
+
+    @classmethod
+    @UR.wraps(
+        None,
+        (
+            None,
+            {% for attr in calculator.attributes.keys() %}
+            _UNITS["{{ attr }}"],
+            {% endfor %}
+        ),
+    )
+    def from_build_args(
+        cls,
+        {% for attr_name, attr in calculator.attributes.items() %}
+        {{ attr_name }}: {{attr.python_type_as_str()}},
+        {% endfor %}
+    ) -> {{ calculator.name }}:
+        """
+        Docstrings to be handled as part of #223
+        """
+        out = cls.from_new_connection()
+
+        execute_finalize_on_fail(
+            out,
+            {{module.wrapper_module_name}}.instance_build,
+            {% for attr in calculator.attributes.keys() %}
+            {{ attr }} = {{attr }},
+            {% endfor %}
+        )
+
+        return out
+
+    {% for name, method in calculator.methods.items() %}
+    @check_initialised
+    @UR.wraps(
+        _UNITS["{{ method.returns.name }}"],
+        (
+            None,
+            {% for param_name in method.parameters.keys() %}
+            _UNITS["{{ param_name }}"],
+            {% endfor %}
+        ),
+    )
+    def {{name}}(
+        self,
+        {% for param_name, parameter in method.parameters.items() %}
+        {{ param_name }}: {{parameter.python_type_as_str()}},
+        {% endfor %}
+    ) -> {{ method.returns.python_type_as_str() }}:
+        """
+        Docstrings to be handled as part of #223
+        """
+        out = {{ module.wrapper_module_name }}.i_{{ name }}(
+            self.model_index,
+            {% for param_name in method.parameters.keys() %}
+            {{param_name}},
+            {% endfor %}
+        )
+
+        return out
+    {% endfor %}
+
+    {% for name, attribute in calculator.exposed_attributes().items() %}
+    @property
+    @check_initialised
+    @UR.wraps(
+        _UNITS["{{ name }}"],
+        (None,),
+    )
+    def {{name}}(self) -> {{ attribute.python_type_as_str() }}:
+        """
+        Docstrings to be handled as part of #223
+        """
+        return {{ module.wrapper_module_name }}.ig_{{ name }}(self.model_index)
+
+    {% endfor %}
+
+    {% block extra_fields %}{% endblock %}
+
+
+@define
+class {{ calculator.name }}Context(FinalizableWrapperBaseContext):
+    """
+    Context manager for :class:`{{ calculator.name }}`
+    """
+
+    @classmethod
+    def from_build_args(cls, *args, **kwargs) -> {{ calculator.name }}:
+        """
+        Docstrings to be handled as part of #223
+        """
+        return cls(
+            {{ calculator.name }}.from_build_args(*args, **kwargs)
+        )
