@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+syncticketstoclickup/__init__.py
+syncticketstoclickup/clickup.py
+syncticketstoclickup/main.py
+syncticketstoclickup/zendesk.py
+syncticketstoclickup/zendesk_to_clickup.py
+syncticketstoclickup.egg-info/PKG-INFO
+syncticketstoclickup.egg-info/SOURCES.txt
+syncticketstoclickup.egg-info/dependency_links.txt
+syncticketstoclickup.egg-info/requires.txt
+syncticketstoclickup.egg-info/top_level.txt
