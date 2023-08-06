@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: utilsbox
+Version: 0.0.17
+Summary: Contains useful functions and classes
+Home-page: UNKNOWN
+Author: Vikas Sanwal
+Author-email: <vikassnwl@gmail.com>
+License: UNKNOWN
+Keywords: python
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (==4.12.2)
+Requires-Dist: boto3 (==1.26.3)
+Requires-Dist: google-cloud-storage (==2.9.0)
+Requires-Dist: opencv-contrib-python (==4.7.0.72)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: scipy (==1.8.0)
+
+
+This package contains module named utils.py which contains useful functions and classes.
+
+
