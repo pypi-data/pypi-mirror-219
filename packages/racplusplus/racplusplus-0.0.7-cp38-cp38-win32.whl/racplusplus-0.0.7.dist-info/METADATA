@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: racplusplus
+Version: 0.0.7
+Summary: Reciprocal Agglomerative Clustering, optimized for speed/ parallelization in C++.
+Author-email: Porter Hunley <porterhunley@themedicalboard.net>, Daniel Frees <danielfrees@g.ucla.edu>
+Project-URL: Homepage, https://github.com/mediboard/racplusplus
+Project-URL: Bug Tracker, https://github.com/mediboard/racplusplus/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# racplusplus
+## C++ optimized python package for agglomerative clustering 
+
+<br />
+<br />
+
+**Guide: Building the wrapper package.**
+
+This package is distributed on PyPI with both sdist and an Intel Mac Wheel. Simply `python3 -m pip install racplusplus` and have fun clustering!
+
+TODO: Add docs
+
+The old build method can be found [here](oldbuild.md).
