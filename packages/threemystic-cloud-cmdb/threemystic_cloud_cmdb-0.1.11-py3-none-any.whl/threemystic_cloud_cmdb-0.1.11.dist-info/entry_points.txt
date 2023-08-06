@@ -1,0 +1,2 @@
+[console_scripts]
+3mystic_cloud_cmdb = threemystic_cloud_cmdb.cli:main
