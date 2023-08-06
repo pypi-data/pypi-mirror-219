@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: dockery
+Version: 0.8.0
+Summary: Graphical interface for Docker in your console
+Author-Email: Mariano Carrazana <marianocarrazana@gmail.com>
+License: MIT
+Project-URL: Bug tracker, https://github.com/marianocarrazana/dockery/issues
+Project-URL: Source code, https://github.com/marianocarrazana/dockery
+Requires-Python: >=3.9
+Requires-Dist: docker>=6.1.3
+Requires-Dist: textual>=0.28.0
+Requires-Dist: click>=8.1.3
+Requires-Dist: pyyaml>=6.0
+Description-Content-Type: text/markdown
+
+# dockery
+
+Graphical interface for Docker in your console
+
+[![Release](https://github.com/marianocarrazana/dockery/actions/workflows/release.yml/badge.svg)](https://github.com/marianocarrazana/dockery/actions/workflows/release.yml)
+
+![screenshot1](https://github.com/marianocarrazana/dockery/assets/17238076/2c7ead87-ede2-4834-87e6-8556740c30bd)
+
+## Installation
+
+### From pip
+
+```shell
+pip install -U dockery
+```
+
+### From source
+
+```shell
+git clone https://github.com/marianocarrazana/dockery.git
+cd dockery
+pip install -e .
+# update only:
+git pull
+```
+
+## Usage
+
+Run on your console:
+
+```shell
+dockery
+```
+
+**Warning:** you will probably need to install and run dockery as a root user, or you can add permissions to your user to run docker following [this instructions](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user).
+
+## Utils
+
+```shell
+dockery df
+dockery ps
+dockery volumes
+dockery images
+dockery networks
+dockery stats
+# Docker swarm
+dockery configs
+dockery secrets
+```
+
+You specify the format output of these commands with the parameter `--format`, e.g:
+
+```shell
+dockery df --format json
+dockery df --format yaml
+```
+
+### Get logs
+
+You can use `ΞLogs` button on the containers tabs to see the logs.
+
+Or you can use the logs command to visualize them:
+
+```shell
+dockery logs {container_name}
+```
+
+You can use the parameter `--stream` to get the logs in real time, e.g:
+
+```shel
+dockery logs {container_name} --stream
+```
+
+### **Enjoy it!**
