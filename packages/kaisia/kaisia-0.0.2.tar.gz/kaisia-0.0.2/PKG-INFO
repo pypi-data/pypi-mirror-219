@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: kaisia
+Version: 0.0.2
+Summary: GCP Big Query Migration helper
+Project-URL: Homepage, https://github.com/rbagrov/GBQM
+Project-URL: Bug Tracker, https://github.com/rbagrov/GBQM/issues
+Author-email: Rostislav Bagrov <bagrov.rostislav@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: google-cloud-bigquery
