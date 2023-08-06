@@ -1,0 +1,5 @@
+aio-pika
+psycopg[binary,pool]
+
+[dev]
+pytest
