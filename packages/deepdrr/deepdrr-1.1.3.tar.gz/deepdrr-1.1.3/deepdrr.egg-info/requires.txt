@@ -1,0 +1,14 @@
+colorlog
+numpy
+scipy
+scikit-image
+torch
+torchvision
+nibabel
+pydicom
+pynrrd
+pyvista
+pycuda
+rich
+opencv-python
+seaborn
