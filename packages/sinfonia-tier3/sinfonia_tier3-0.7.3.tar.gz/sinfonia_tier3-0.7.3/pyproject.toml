@@ -1,0 +1,104 @@
+# SPDX-FileCopyrightText: 2021-2023 Carnegie Mellon University
+# SPDX-License-Identifier: 0BSD
+
+[tool.poetry]
+name = "sinfonia-tier3"
+version = "0.7.3"
+description = "Tier 3 component of the Sinfonia system"
+authors = [
+    "Carnegie Mellon University <satya+group@cs.cmu.edu>",
+    "Jan Harkes <jaharkes@cs.cmu.edu>",
+]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cmusatyalab/sinfonia-tier3"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+]
+packages = [
+    {include = "sinfonia_tier3", from = "src"},
+]
+include = [
+    {path = "LICENSES", format = "sdist"},
+    {path = "tests", format="sdist"},
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+attrs = ">=22.1.0"
+importlib-resources = "^5.0"
+openapi-core = "^0.17.2"
+pyroute2 = "^0.7.3"
+pyyaml = "^6.0"
+requests = "^2.28.1"
+xdg = "^5.1.1"
+yarl = "^1.7.2"
+typing-extensions = "^4.4.0"
+wireguard-tools = "^0.4.1"
+wireguard4netns = "^0.1.3"
+
+[tool.poetry.scripts]
+sinfonia-tier3 = "sinfonia_tier3.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+poethepoet = "^0.16.5"
+pre-commit = "^2.16.0"
+tbump = "^6.9.0"
+
+[tool.poetry.group.test.dependencies]
+mypy = "^0.991"
+pytest = "^6.2.5"
+pytest-mock = "^3.6.1"
+requests-mock = "^1.9.3"
+types-pyyaml = "^6.0.12.2"
+types-requests = "^2.28.11.5"
+
+[tool.black]
+target-version = ["py37"]
+
+[tool.isort]
+py_version = 37
+profile = "black"
+
+[tool.mypy]
+# Ensure full coverage
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+check_untyped_defs = true
+# Restrict dynamic typing
+disallow_any_generics = true
+disallow_subclassing_any = true
+warn_return_any = true
+# Know exactly what you're doing
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+warn_unreachable = true
+show_error_codes = true
+# Explicit is better than implicit
+no_implicit_optional = true
+files = ["src", "tests"]
+
+[[tool.mypy.overrides]]
+# pytest decorators are not typed
+module = "tests.*"
+disallow_untyped_decorators = false
+
+[[tool.mypy.overrides]]
+# ignore missing type hints errors from untyped modules
+module = [
+    "pyroute2.*",
+]
+ignore_missing_imports = true
+
+[tool.poe]
+include = "tasks.toml"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
