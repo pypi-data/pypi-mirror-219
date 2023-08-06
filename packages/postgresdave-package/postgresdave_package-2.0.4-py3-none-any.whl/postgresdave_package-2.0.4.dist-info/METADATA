@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: postgresdave_package
+Version: 2.0.4
+Summary: A wrapper for simplified Postgres usage using psycopg2.
+Project-URL: Homepage, https://github.com/daveskura/postgresdave
+Project-URL: Author Linkedin, https://www.linkedin.com/in/2166883
+Author-email: Dave Skura <dskura@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: garbledave-package>=1.0.0
+Requires-Dist: psycopg2-binary>=2.9.5
+Description-Content-Type: text/markdown
+
+# postgresdave
+A simple wrapper on psycopg2 to access Postgres
+
+### install with pip
+pip install postgresdave_package
+
+### command line test
+py -m postgresdave_package.postgresdave
+
+### Quick Start Guide
+https://github.com/daveskura/postgresdave/blob/main/QuickStart.md
+
+### Methods
+https://github.com/daveskura/postgresdave/blob/main/methods.md
