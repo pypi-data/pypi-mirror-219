@@ -1,0 +1,12 @@
+include LICENSE
+include README.md
+
+global-include *.pyi
+
+# For mnemonics
+recursive-include ethrpc_accounts/hdaccount/wordlist *txt
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+prune .tox
+prune venv*
