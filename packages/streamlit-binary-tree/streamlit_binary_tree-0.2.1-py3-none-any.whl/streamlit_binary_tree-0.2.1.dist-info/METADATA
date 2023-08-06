@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: streamlit-binary-tree
+Version: 0.2.1
+Summary: Interactive Binary Tree as a Streamlit component
+Home-page: 
+Author: Abhishek Sharma
+Author-email: abhishek1995sharma@gmail.com
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+License-File: LICENSE
+Requires-Dist: streamlit (>=0.63)
+Requires-Dist: scikit-learn (>=1.3.0)
+Requires-Dist: numpy
+
+Interactive Binary Tree as a Streamlit component
