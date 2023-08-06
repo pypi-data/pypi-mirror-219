@@ -1,0 +1,4 @@
+estela>=0.0.2
+requests>=2.0.0
+estela-queue-adapter
+dynaconf
