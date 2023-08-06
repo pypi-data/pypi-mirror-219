@@ -1,0 +1,9 @@
+*.xml
+*.iml
+/mispr/gaussian/config/*
+/build/*
+/dist/*
+*.egg-info/*
+/tests/*
+**/__pycache__
+**/.DS_Store

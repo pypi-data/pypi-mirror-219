@@ -1,0 +1,31 @@
+log                 lammps.log
+# Initialization
+units				real
+boundary			p p p
+atom_style			full
+
+# Force Fields
+neighbor			$neigh_args
+neigh_modify		$neigh_modify_args
+special_bonds		$special_bonds_style $special_bonds_value
+bond_style			$bond_style $bond_style_args
+angle_style			$angle_style
+dihedral_style		$dihedral_style
+improper_style		$improper_style
+pair_style			$pair_style $pair_style_args
+pair_modify         $pair_modify_key $pair_modify_value
+kspace_style		$kspace_style $kspace_style_args
+
+read_data			$data_filename
+
+thermo				1
+thermo_style		custom step etotal pe ebond eangle edihed eimp evdwl ecoul elong press fmax fnorm
+min_style			sd
+minimize			1e-6 1000 10 10000
+min_style			cg
+minimize			1e-6 100 99990 990000
+#unfix 				1
+write_restart		$restart_finalname
+write_data 		    $data_final_filename
+
+write_dump			all custom $dump_filename id type element mol x y z mass q $dump_modify_args
