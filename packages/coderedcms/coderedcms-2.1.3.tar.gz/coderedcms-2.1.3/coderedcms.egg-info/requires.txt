@@ -1,0 +1,9 @@
+beautifulsoup4<4.12,>=4.8
+django-eventtools==1.0.*
+django-bootstrap5==22.2
+Django<4.2,>=3.2
+geocoder==1.38.*
+icalendar==4.1.*
+wagtail<4.3,>=4.0
+wagtail-cache<3,>=2.2
+wagtail-seo<3,>=2.3
