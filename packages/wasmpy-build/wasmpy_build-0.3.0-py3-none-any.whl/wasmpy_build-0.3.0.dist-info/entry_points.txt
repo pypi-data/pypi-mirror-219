@@ -1,0 +1,2 @@
+[console_scripts]
+wasmpy-build = wasmpy_build:build
