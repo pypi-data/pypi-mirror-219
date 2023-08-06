@@ -1,0 +1,50 @@
+{
+  "name": "dash_jbrowse",
+  "version": "1.2.0",
+  "description": "Dash components for JBrowse 2",
+  "repository": "GMOD/dash_jbrowse",
+  "homepage": "https://github.com/GMOD/dash_jbrowse",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "webpack --mode development --watch",
+    "validate-init": "python _validate_init.py",
+    "prepublishOnly": "npm run validate-init",
+    "build:js": "webpack --mode production",
+    "build:backends": "dash-generate-components ./src/lib/components dash_jbrowse -p package-info.json --r-prefix '' --jl-prefix ''",
+    "build:backends-activated": "(. venv/bin/activate || venv\\scripts\\activate && npm run build:py_and_r)",
+    "build": "npm run build:js && npm run build:backends",
+    "build:activated": "npm run build:js && npm run build:backends-activated"
+  },
+  "author": "Elliot Hershberg <eahershberg@gmail.com>",
+  "contributors": [
+    {
+      "name": "Teresa De Jesus Martinez",
+      "email": "tere486martinez@gmail.com"
+    },
+    {
+      "name": "Colin Diesh",
+      "email": "colin.diesh@gmail.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@jbrowse/react-circular-genome-view": "^2.1.5",
+    "@jbrowse/react-linear-genome-view": "^2.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "@plotly/dash-component-plugins": "^1.2.0",
+    "@plotly/webpack-dash-dynamic-import": "^1.2.0",
+    "babel-loader": "^9.1.2",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-docgen": "^4.0.1",
+    "react-dom": "^17.0.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^5.85.0",
+    "webpack-cli": "^5.1.1"
+  }
+}
