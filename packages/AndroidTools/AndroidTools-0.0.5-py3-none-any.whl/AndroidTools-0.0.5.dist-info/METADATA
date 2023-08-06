@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: AndroidTools
+Version: 0.0.5
+Summary: Android Tools for Python
+Home-page: https://github.com/grayrail000/PyJce
+Author: 1a
+Author-email: grayrail1x3@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# AndroidTools
+
+数据解析工具
+
+```json
+{
+    0: BYTE,
+    1: INT16,
+    2: INT32,
+    3: INT64,
+    4: FLOAT,
+    5: DOUBLE,
+    6: STRING1,
+    7: STRING4,
+    8: MAP,
+    9: LIST,
+    10: STRUCT_START,
+    11: STRUCT_END,
+    12: ZERO_TAG,
+    13: BYTES
+    }
