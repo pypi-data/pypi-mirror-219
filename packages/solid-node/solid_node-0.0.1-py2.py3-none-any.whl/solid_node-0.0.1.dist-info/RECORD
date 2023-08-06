@@ -1,0 +1,17 @@
+solid_node/__init__.py,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+solid_node/cli.py,sha256=sIOquLZ4eV8gwd_VUCAAKT_D33T0kMXNZq-LLc1FpsQ,445
+solid_node/exceptions.py,sha256=sPciF14tB6nTrL75sXZNeSVFbhhbiZZciVpo_VdC2Tw,114
+solid_node/manager.py,sha256=BpqKBNxcpnESbtjo-kWv_1VuDwZM5HTb9ntUVgWPebg,4084
+solid_node/node/__init__.py,sha256=BALJz6xqs_grJ6Gmh7ZypjCwwy9ISZUljBW7zMX8ios,291
+solid_node/node/base.py,sha256=9bvNgcCYAHq56TJ06-ImB5IF7niMQN3ugBpghFjp4Gw,6175
+solid_node/node/cq_node.py,sha256=D2P3zHyQSEBJnTpFvnsmr7-STZiNri8XuLtiTNQ1fN0,359
+solid_node/node/internal.py,sha256=lM7mYvFm-tXwn4e3SRLPJnyatMqGw2piAnmKxcEdETc,1647
+solid_node/node/leaf.py,sha256=oNd6ycvHlGHm_jj4kNMn3iPQ81RSknedlrHlo2jG4Ak,1214
+solid_node/node/solid2_node.py,sha256=qyNIVeSfQo8CiiGAeucIKrjjohXliJDDN1GxnllA57g,141
+solid_node/node/spatial.py,sha256=8W53JX2tQv9k-bXOzaFxCh1ebfq22cL6SpAKK1S-jj0,814
+solid_node-0.0.1.dist-info/LICENSE,sha256=8XOKYTbN-gBB-ywP4tdJUvBE2gjLAoCF7vR_N88phYA,907
+solid_node-0.0.1.dist-info/METADATA,sha256=7-KkuVQwTQPjAJK9iV6Edo6wLK3CzLnXs55n9-7srEw,2312
+solid_node-0.0.1.dist-info/WHEEL,sha256=a-zpFRIJzOq5QfuhBzbhiA1eHTzNCJn8OdRvhdNX0Rk,110
+solid_node-0.0.1.dist-info/entry_points.txt,sha256=KLirUM2IMO5Btky-L44EYaqDbuPKafrlTcrC1c8xGHQ,52
+solid_node-0.0.1.dist-info/top_level.txt,sha256=aN_bn97KKEP8CCFOwW9e8tKcHltxX2cWpCF4cl0wwfA,11
+solid_node-0.0.1.dist-info/RECORD,,
