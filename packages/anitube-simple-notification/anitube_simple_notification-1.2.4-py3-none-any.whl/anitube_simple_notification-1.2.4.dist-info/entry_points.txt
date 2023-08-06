@@ -1,0 +1,3 @@
+[console_scripts]
+anitube-simple-notification = src.main:main
+asn = src.main:main
