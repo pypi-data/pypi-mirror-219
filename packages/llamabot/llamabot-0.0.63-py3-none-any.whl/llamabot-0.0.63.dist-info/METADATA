@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: llamabot
+Version: 0.0.63
+Requires-Python: >3.10
+Requires-Dist: openai
+Requires-Dist: langchain
+Requires-Dist: llama-index
+Requires-Dist: panel (>=1.1.0)
+Requires-Dist: jupyter-bokeh
+Requires-Dist: bokeh (>=3.1.0)
+Requires-Dist: loguru
+Requires-Dist: outlines
+Requires-Dist: pyperclip
+Requires-Dist: astor (>=0.8.1)
+Requires-Dist: python-dotenv
+Requires-Dist: typer (>=0.4.0)
+Requires-Dist: gitpython
+Requires-Dist: pyprojroot
+Requires-Dist: frozenlist
+Requires-Dist: beautifulsoup4
+Requires-Dist: rich
+Requires-Dist: pyzotero
+Requires-Dist: case-converter
+Requires-Dist: prompt-toolkit
+Provides-Extra: docs
+Requires-Dist: mkdocs-material ; extra == 'docs'
+Requires-Dist: mkdocs ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: hypothesis ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: pytest-mock ; extra == 'tests'
+
