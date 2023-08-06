@@ -1,0 +1,10 @@
+fs
+fontTools>=4.28.0
+lxml
+
+[shaper]
+youseedee>=0.3.0
+babelfont>=3.0.0a1
+
+[shaper:python_version < "3.7"]
+dataclasses
