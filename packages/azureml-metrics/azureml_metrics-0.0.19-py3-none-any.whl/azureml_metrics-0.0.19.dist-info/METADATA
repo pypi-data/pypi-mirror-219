@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: azureml-metrics
+Version: 0.0.19
+Summary: Contains the ML and non-Azure specific common code associated     with AzureML metrics.
+Home-page: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+Author: Microsoft Corp
+License: https://aka.ms/azureml-sdk-license
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.7,<4.0
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy (>=1.16.0)
+Requires-Dist: pandas (>=1.1.5)
+Requires-Dist: psutil (<6.0.0,>=5.2.2)
+Requires-Dist: pycocotools (==2.0.4)
+Requires-Dist: scipy (<=1.5.3,>=1.0.0)
+Requires-Dist: scikit-learn (<=0.24.2,>=0.19.0)
+Requires-Dist: sklearn-pandas (<=1.7.0,>=1.4.0)
+Requires-Dist: seqeval (>=1.2.2)
+Requires-Dist: nltk (>=3.8.1)
+Requires-Dist: evaluate (>=0.3.0)
+Requires-Dist: rouge-score (>=0.1.2)
+Requires-Dist: torch (>=1.13.0)
+Requires-Dist: transformers (>=4.16.0)
+Requires-Dist: openai (>=0.27.2)
+Requires-Dist: bert-score (>=0.3.13)
+Requires-Dist: tenacity (>=8.2.2)
+
+The azureml-metrics package can be used for computing supported machine learning metrics for 
+classification, regression, forecasting, translation, summarization, question answering, 
+image segmentation and object detection task types.
+
+Items marked (preview) in this article are currently in public preview. The preview version is 
+provided without a service level agreement, and it's not recommended for production workloads. 
+Certain features might not be supported or might have constrained capabilities. For more information, 
+see Supplemental Terms of Use for Microsoft Azure Previews.
+
+
+
+
