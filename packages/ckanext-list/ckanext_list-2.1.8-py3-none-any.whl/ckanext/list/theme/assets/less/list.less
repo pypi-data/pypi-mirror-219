@@ -1,0 +1,46 @@
+.list-view-item-wrapper {
+  width: 100%;
+  display: table;
+}
+
+.list-view-item {
+  display: table-row;
+  width: 100%;
+}
+
+.list-view-item-image,
+.list-view-item-content {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.list-view-item-image {
+  width: 200px;
+  border: 1px solid #eeeeee;
+  text-align: center;
+
+  &:hover {
+    border-color: #c6c9cc;
+  }
+
+  & img {
+    height: 190px;
+    width: 190px;
+    object-fit: cover;
+    object-position: 50% 0;
+    margin: 5px 0;
+  }
+}
+
+.list-view-item-content {
+  padding: 5px 10px;
+
+  & h4 {
+    margin: 0 0 15px 0;
+    font-weight: bold;
+  }
+}
+
+.controls {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,23 @@
+main-js:
+  output: ckanext-list/%(version)s_main.js
+  filter: rjsmin
+  extra:
+    preload:
+      - base/main
+      - base/ckan
+      - ckanext-reclineview/main
+  contents:
+    - scripts/list-view.js
+    - scripts/modules/list.js
+
+main-css:
+  output: ckanext-list/%(version)s_main.css
+  filters: less
+  contents:
+    - less/list.less
+
+view-controls:
+  output: ckanext-list/%(version)s_view-controls.css
+  filters: less
+  contents:
+    - less/view-controls.less
