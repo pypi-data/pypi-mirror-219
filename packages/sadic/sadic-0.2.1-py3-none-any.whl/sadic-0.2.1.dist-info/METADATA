@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: sadic
+Version: 0.2.1
+Summary: Reimplementation as a python package of the software for Simple Atom Depth Index Calculator (SADIC)
+Home-page: https://github.com/nunziati/sadic
+Author: Giacomo Nunziati
+Author-email: giacomo.nunziati.0@gmail.com
+License: GNU General Public License v3.0
+Keywords: protein atom depth
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: biopandas
+Requires-Dist: biopython
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+
+# sadic-v2
+Reimplementation of the software for Simple Atom Depth Index Calculator
