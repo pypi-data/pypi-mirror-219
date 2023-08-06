@@ -1,0 +1,2 @@
+[ckan.plugins]
+list = ckanext.list.plugin:ListPlugin

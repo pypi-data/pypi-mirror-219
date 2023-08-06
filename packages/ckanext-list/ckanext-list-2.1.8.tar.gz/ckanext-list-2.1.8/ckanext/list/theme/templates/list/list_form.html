@@ -1,0 +1,29 @@
+{% import 'macros/form.html' as form %}
+
+{% macro multiselect(name, id='', label='', options='', selected='', error='', classes=[], is_required=false) %}
+  {% set classes = (classes|list) %}
+  {% do classes.append('control-select') %}
+  {%- set extra_html = caller() if caller -%}
+  {% call form.input_block(id or name, label or name, error, classes, extra_html=extra_html, is_required=is_required) %}
+    <select id="{{ id or name }}" name="{{ name }}" multiple size="20">
+      {% for option in options %}
+        <option value="{{ option.value }}"{% if option.value in selected %} selected{% endif %}>{{ option.text or option.value }}</option>
+      {% endfor %}
+    </select>
+  {% endcall %}
+{% endmacro %}
+
+{{ form.select('title_field', label=_('Title field'), options=fields, selected=data.title_field, error=errors.title_field) }}
+<span class="form-group info-block info-inline">
+  <i class="fas fa-info"></i>
+  If the primary title field isn't available, use this field instead.
+</span>
+{{ form.select('secondary_title_field', label=_('Secondary title field'), options=fields, selected=data.secondary_title_field, error=errors.secondary_title_field) }}
+
+{{ form.select('image_field', label=_('Image field'), options=[''] + fields, selected=data.image_field, error=errors.image_field) }}
+
+{% call form.input('image_delimiter', label=_('Image list delimiter'), value=data.image_delimiter, error=errors.image_delimiter) %}
+    {{ form.info(_('If your image field is the text type and contains a series of delimited image URLs instead of just a single one enter it here'), inline=True) }}
+{% endcall %}
+
+{{ multiselect('fields', label=_('Fields'), options=fields, selected=data.fields, error=errors.fields) }}

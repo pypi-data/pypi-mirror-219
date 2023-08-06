@@ -1,0 +1,14 @@
+{% extends "dataviewer/base.html" %}
+
+{% block page %}
+    {{ super() }}
+    <div data-module="list"
+            data-module-resource="{{ h.dump_json(resource_json) }}"
+            data-module-resource-view="{{ h.dump_json(resource_view_json) }}"
+            data-module-record-url="{{ h.url_for('record.view', package_name=package.name, resource_id=resource.id, record_id='REPLACEME') }}"
+    >
+    </div>
+    {% asset 'ckanext-list/main-css' %}
+    {% asset 'ckanext-list/main-js' %}
+    {% asset 'ckanext-list/view-controls' %}
+{% endblock %}
