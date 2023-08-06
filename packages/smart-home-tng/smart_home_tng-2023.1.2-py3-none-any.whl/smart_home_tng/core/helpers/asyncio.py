@@ -1,0 +1,258 @@
+"""
+Helpers for Components of Smart Home - The Next Generation.
+
+Smart Home - TNG is a Home Automation framework for observing the state
+of entities and react to changes. It is based on Home Assistant from
+home-assistant.io and the Home Assistant Community.
+
+Copyright (c) 2022-2023, Andreas Nixdorf
+
+This program is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as
+published by the Free Software Foundation, either version 3 of
+the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public
+License along with this program.  If not, see
+http://www.gnu.org/licenses/.
+"""
+
+import asyncio
+import collections.abc
+import concurrent
+import functools
+import http.client
+import logging
+import threading
+import time
+import traceback
+import typing
+
+from ..const import Const
+
+_T = typing.TypeVar("_T")
+_R = typing.TypeVar("_R")
+_P = typing.ParamSpec("_P")
+_LOGGER: typing.Final = logging.getLogger(__name__)
+
+# pylint: disable=unused-variable
+
+
+def fire_coroutine_threadsafe(
+    coro: collections.abc.Coroutine[typing.Any, typing.Any, typing.Any],
+    loop: asyncio.events.AbstractEventLoop,
+) -> None:
+    """Submit a coroutine object to a given event loop.
+
+    This method does not provide a way to retrieve the result and
+    is intended for fire-and-forget use. This reduces the
+    work involved to fire the function on the loop.
+    """
+    ident = loop.__dict__.get("_thread_ident")
+    if ident is not None and ident == threading.get_ident():
+        raise RuntimeError("Cannot be called from within the event loop")
+
+    if not asyncio.coroutines.iscoroutine(coro):
+        raise TypeError(f"A coroutine object is required: {coro}")
+
+    def func() -> None:
+        """Handle the firing of a coroutine."""
+        asyncio.ensure_future(coro, loop=loop)
+
+    loop.call_soon_threadsafe(func)
+
+
+def run_callback_threadsafe(
+    loop: asyncio.events.AbstractEventLoop,
+    callback_func: typing.Callable[..., _T],
+    *args: typing.Any,
+) -> concurrent.futures.Future[_T]:
+    """Submit a callback object to a given event loop.
+
+    Return a concurrent.futures.Future to access the result.
+    """
+    ident = loop.__dict__.get("_thread_ident")
+    if ident is not None and ident == threading.get_ident():
+        raise RuntimeError("Cannot be called from within the event loop")
+
+    future: concurrent.futures.Future[_T] = concurrent.futures.Future()
+
+    def run_callback() -> None:
+        """Run callback and store result."""
+        try:
+            future.set_result(callback_func(*args))
+        except Exception as exc:  # pylint: disable=broad-except
+            if future.set_running_or_notify_cancel():
+                future.set_exception(exc)
+            else:
+                _LOGGER.warning("Exception on lost future: ", exc_info=True)
+
+    loop.call_soon_threadsafe(run_callback)
+
+    if hasattr(loop, Const.SHUTDOWN_RUN_CALLBACK_THREADSAFE):
+        #
+        # If the final `TheNextGeneration.async_block_till_done` in
+        # `TheNextGeneration.async_stop` has already been called, the callback
+        # will never run and, `future.result()` will block forever which
+        # will prevent the thread running this code from shutting down which
+        # will result in a deadlock when the main thread attempts to shutdown
+        # the executor and `.join()` the thread running this code.
+        #
+        # To prevent this deadlock we do the following on shutdown:
+        #
+        # 1. Set the _SHUTDOWN_RUN_CALLBACK_THREADSAFE attr on this function
+        #    by calling `shutdown_run_callback_threadsafe`
+        # 2. Call `hass.async_block_till_done` at least once after shutdown
+        #    to ensure all callbacks have run
+        # 3. Raise an exception here to ensure `future.result()` can never be
+        #    called and hit the deadlock since once `shutdown_run_callback_threadsafe`
+        #    we cannot promise the callback will be executed.
+        #
+        raise RuntimeError("The event loop is in the process of shutting down.")
+
+    return future
+
+
+def check_loop(
+    func: typing.Callable[..., typing.Any],
+    strict: bool = True,
+    advise_msg: str = None,
+) -> None:
+    """Warn if called inside the event loop. Raise if `strict` is True.
+
+    The default advisory message is 'Use `await hass.async_add_executor_job()'
+    Set `advise_msg` to an alternate message if the the solution differs.
+    """
+    try:
+        asyncio.get_running_loop()
+        in_loop = True
+    except RuntimeError:
+        in_loop = False
+
+    if not in_loop:
+        return
+
+    found_frame = None
+
+    stack = traceback.extract_stack()
+
+    if (
+        func.__name__ == "sleep"
+        and len(stack) >= 3
+        and stack[-3].filename.endswith("pydevd.py")
+    ):
+        # Don't report `time.sleep` injected by the debugger (pydevd.py)
+        # stack[-1] is us, stack[-2] is protected_loop_func, stack[-3] is the offender
+        return
+
+    for frame in reversed(stack):
+        for path in ("custom_components/", "smart_home_tng/components/"):
+            try:
+                index = frame.filename.index(path)
+                found_frame = frame
+                break
+            except ValueError:
+                continue
+
+        if found_frame is not None:
+            break
+
+    # Did not source from integration? Hard error.
+    if found_frame is None:
+        raise RuntimeError(
+            f"Detected blocking call to {func.__name__} inside the event loop. "
+            + f"{advise_msg or 'Use `await hass.async_add_executor_job()`'}; "
+            + "This is causing stability issues. Please report issue"
+        )
+
+    start = index + len(path)
+    end = found_frame.filename.index("/", start)
+
+    integration = found_frame.filename[start:end]
+
+    if path == "custom_components/":
+        extra = " to the custom component author"
+    else:
+        extra = ""
+    line = (found_frame.line or "?").strip()
+    _LOGGER.warning(
+        f"Detected blocking call to {func.__name__} inside the event loop. "
+        + f"This is causing stability issues. Please report issue {extra} "
+        + f"for {integration} doing blocking calls at {found_frame.filename[index:]}, "
+        + f"line {found_frame.lineno}: {line}"
+    )
+    if strict:
+        raise RuntimeError(
+            "Blocking calls must be done in the executor or a separate thread; "
+            + f"{advise_msg or 'Use `await hass.async_add_executor_job()`'}; "
+            + f"at {found_frame.filename[index:]}, line {found_frame.lineno}: "
+            + f"{(found_frame.line or '?').strip()}"
+        )
+
+
+def protect_loop(
+    func: typing.Callable[_P, _R], strict: bool = True
+) -> typing.Callable[_P, _R]:
+    """Protect function from running in event loop."""
+
+    @functools.wraps(func)
+    def protected_loop_func(*args: _P.args, **kwargs: _P.kwargs) -> _R:
+        check_loop(func, strict=strict)
+        return func(*args, **kwargs)
+
+    return protected_loop_func
+
+
+async def gather_with_concurrency(
+    limit: int, *tasks: typing.Any, return_exceptions: bool = False
+) -> typing.Any:
+    """Wrap asyncio.gather to limit the number of concurrent tasks.
+
+    From: https://stackoverflow.com/a/61478547/9127614
+    """
+    semaphore = asyncio.Semaphore(limit)
+
+    async def sem_task(task: collections.abc.Awaitable[typing.Any]) -> typing.Any:
+        async with semaphore:
+            return await task
+
+    return await asyncio.gather(
+        *(sem_task(task) for task in tasks), return_exceptions=return_exceptions
+    )
+
+
+def shutdown_run_callback_threadsafe(loop: asyncio.events.AbstractEventLoop) -> None:
+    """Call when run_callback_threadsafe should prevent creating new futures.
+
+    We must finish all callbacks before the executor is shutdown
+    or we can end up in a deadlock state where:
+
+    `executor.result()` is waiting for its `._condition`
+    and the executor shutdown is trying to `.join()` the
+    executor thread.
+
+    This function is considered irreversible and should only ever
+    be called when Home Assistant is going to shutdown and
+    python is going to exit.
+    """
+    setattr(loop, Const.SHUTDOWN_RUN_CALLBACK_THREADSAFE, True)
+
+
+def block_async_io() -> None:
+    """Enable the detection of blocking calls in the event loop."""
+    # Prevent urllib3 and requests doing I/O in event loop
+    http.client.HTTPConnection.putrequest = protect_loop(
+        http.client.HTTPConnection.putrequest
+    )
+
+    # Prevent sleeping in event loop. Non-strict since 2022.02
+    time.sleep = protect_loop(time.sleep, strict=False)
+
+    # Currently disabled. pytz doing I/O when getting timezone.
+    # Prevent files being opened inside the event loop
+    # builtins.open = protect_loop(builtins.open)

@@ -1,0 +1,8 @@
+{
+  "domain": "energy",
+  "name": "Energy",
+  "documentation": "https://www.home-assistant.io/integrations/energy",
+  "codeowners": ["@nixe64"],
+  "dependencies": ["websocket_api", "history", "recorder"],
+  "quality_scale": "internal"
+}

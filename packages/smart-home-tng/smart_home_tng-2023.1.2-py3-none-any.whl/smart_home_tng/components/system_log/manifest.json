@@ -1,0 +1,8 @@
+{
+  "domain": "system_log",
+  "name": "System Log",
+  "documentation": "https://www.home-assistant.io/integrations/system_log",
+  "dependencies": ["websocket_api"],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

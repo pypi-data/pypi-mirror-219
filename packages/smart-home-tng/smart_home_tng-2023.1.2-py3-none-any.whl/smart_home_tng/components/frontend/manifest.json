@@ -1,0 +1,21 @@
+{
+  "domain": "frontend",
+  "name": "Frontend for Smart Home - The Next Generation",
+  "documentation": "https://www.home-assistant.io/integrations/frontend",
+  "requirements": [],
+  "dependencies": [
+    "api",
+    "auth",
+    "config",
+    "device_automation",
+    "diagnostics",
+    "http",
+    "lovelace",
+    "onboarding",
+    "search",
+    "system_log",
+    "websocket_api"
+  ],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

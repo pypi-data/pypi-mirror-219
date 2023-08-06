@@ -1,0 +1,10 @@
+{
+  "domain": "analytics",
+  "name": "Analytics",
+  "documentation": "https://www.home-assistant.io/integrations/analytics",
+  "codeowners": ["@nixe64"],
+  "dependencies": ["api", "websocket_api"],
+  "after_dependencies": ["energy"],
+  "quality_scale": "internal",
+  "iot_class": "cloud_push"
+}
