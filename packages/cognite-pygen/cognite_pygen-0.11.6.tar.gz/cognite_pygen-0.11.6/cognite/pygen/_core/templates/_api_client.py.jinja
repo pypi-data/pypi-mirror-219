@@ -1,0 +1,55 @@
+from __future__ import annotations
+
+import getpass
+from pathlib import Path
+
+from cognite.client import ClientConfig, CogniteClient
+from cognite.client.credentials import OAuthClientCredentials
+{% for class_ in classes %}
+from ._api.{{ class_.file_name }} import {{ class_.api_class }}API{% endfor %}
+
+
+class {{ client_name }}:
+    """
+    {{ client_name }}
+
+    Generated with:
+        pygen = {{ pygen_version }}
+        cognite-sdk = {{ cognite_sdk_version }}
+        pydantic = {{ pydantic_version }}
+
+    Data Model:
+        space: {{ data_model.space }}
+        externalId: {{ data_model.external_id }}
+        version: {{ data_model.version }}
+    """
+
+    def __init__(self, config: ClientConfig | None = None):
+        client = CogniteClient(config){% for class_ in classes %}
+        self.{{ class_.client_attribute }} = {{ class_.api_class }}API(client){% endfor %}
+
+    @classmethod
+    def azure_project(
+        cls, tenant_id: str, client_id: str, client_secret: str, cdf_cluster: str, project: str
+    ) -> {{ client_name }}:
+        base_url = f"https://{cdf_cluster}.cognitedata.com/"
+        credentials = OAuthClientCredentials(
+            token_url=f"https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token",
+            client_id=client_id,
+            client_secret=client_secret,
+            scopes=[f"{base_url}.default"],
+        )
+        config = ClientConfig(
+            project=project,
+            credentials=credentials,
+            client_name=getpass.getuser(),
+            base_url=base_url,
+        )
+
+        return cls(config)
+
+    @classmethod
+    def from_toml(cls, file_path: Path | str) -> {{ client_name }}:
+        import toml
+
+        return cls.azure_project(**toml.load(file_path)["cognite"])
