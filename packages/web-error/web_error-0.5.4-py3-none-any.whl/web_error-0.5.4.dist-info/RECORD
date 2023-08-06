@@ -1,0 +1,13 @@
+web_error/__init__.py,sha256=HOsy_X08xh-fJX5OGNUtQLC0DK1x_uIBt67RZaTFDg8,44
+web_error/constant.py,sha256=yn5IXYBQX99efb2GcmnfZIBnaCCU5-Dj4yiiEtxl-zY,76
+web_error/error.py,sha256=yVfkAGI8kWHgs0TXycMv8yFxfI1viWR9jOsdc-fxrzE,1700
+web_error/handler/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+web_error/handler/aiohttp.py,sha256=_7f7vuXzpfCJQiln04SQEpjdLRUZ-4JzSA_2UbnUKsU,1268
+web_error/handler/fastapi.py,sha256=hV4yY2OdH5iih5MKNAnYengBxlH_x8YTE9Xia23seYs,2758
+web_error/handler/flask.py,sha256=w4ZQYIuwzTRq0s1RqsodS3S7Hzre9A_-fAucRrBZif8,1116
+web_error/handler/pyramid.py,sha256=WNcejYW8D9X9wTjbfGV8mlK0Z4YLkKBMMUOFzhSToD0,1528
+web_error/handler/starlette.py,sha256=WN71r28wFtlTgZ_1g4XmE682cWhQlxb4HnfG9mV1moM,3725
+web_error-0.5.4.dist-info/LICENSE,sha256=dX6lidxbITpV4rgpnZ_dj15POhb5uHlh4r9gj8YxkwI,11307
+web_error-0.5.4.dist-info/METADATA,sha256=AKxnO_BmdREhCgujwhsHd_BDheC3pS6Jgz45b8bMxdg,3740
+web_error-0.5.4.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+web_error-0.5.4.dist-info/RECORD,,
