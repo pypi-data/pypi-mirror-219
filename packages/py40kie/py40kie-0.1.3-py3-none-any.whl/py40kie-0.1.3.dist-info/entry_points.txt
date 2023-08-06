@@ -1,0 +1,2 @@
+[console_scripts]
+py40kie = src.py40kie:console_entry
