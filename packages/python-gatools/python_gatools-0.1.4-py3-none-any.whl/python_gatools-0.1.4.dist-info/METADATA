@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: python-gatools
+Version: 0.1.4
+Summary: Python utils
+Author: GD
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: python-dotenv
+Requires-Dist: colour
+Requires-Dist: treelib
+Requires-Dist: munch
+Requires-Dist: PyYAML
+
+# Python tools
