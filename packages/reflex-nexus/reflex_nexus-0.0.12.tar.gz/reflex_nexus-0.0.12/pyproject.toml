@@ -1,0 +1,69 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[metadata]
+title = "RE:Flex Nexus"
+copyright = "2023, Impulse Creations, Ltd"
+logo = "assets/favicon.ico"
+
+[tool.poetry]
+name = "reflex-nexus"
+version = "0.0.12"
+description = "RE:Flex Nexus - Universal Dance Pad Utilities"
+authors = ["Brittany Barrett <brittany.l.barrett@gmail.com>"]
+packages = [{include = "src"}]
+license = "MIT"
+readme = "README.md"
+homepage = "https://reflex.dance"
+repository = "https://github.com/ReflexCreations/Nexus"
+documentation = "https://reflex-nexus.readthedocs.io"
+
+[tool.poetry.dependencies]
+python = ">=3.10, <3.11"
+libusb_package = "*"
+PySide6 = "*"
+pyusb = "*"
+pyqtdarktheme = "*"
+QtAwesome = "*"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "*"
+sphinx_rtd_theme = "*"
+toml = "*"
+
+[tool.poetry.group.lint.dependencies]
+ruff = "*"
+
+[tool.poetry.group.build.dependencies]
+pyinstaller = "*"
+
+[tool.poetry.group.test.dependencies]
+pytest = "*"
+pytest-cov = "*"
+
+[tool.poetry.scripts]
+app = "nexus:app"
+build = "nexus:build"
+docs = "nexus:docs"
+lint = "nexus:lint"
+test = "nexus:test"
+
+[tool.ruff]
+line-length = 79
+ignore = ["ANN101", "D203", "D212"]
+select = [
+    "ANN",  # flake8-annotations
+    "B",    # flake8-bugbear
+    "C90",  # mccabe
+    "D",    # pydocstyle
+    "E",    # pycodestyle-errors
+    "F",    # pyflakes
+    "G",    # flake8-logging-format
+    "I001", # isort
+    "N",    # pep8-naming
+    "PT",   # flake8-pytest-style
+    "RUF",  # ruff-specific-rules
+    "UP",   # pyupgrade
+    "W"     # pycodestyle-warnings
+]
