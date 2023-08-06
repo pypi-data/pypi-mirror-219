@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: charmongerai
+Version: 0.1.0
+Summary: AI Characters
+Author-email: vdutts7 <me@vdutts7.com>
+Project-URL: Homepage, https://github.com/vdutts7/charmonger-ai
+Project-URL: Bug Tracker, https://github.com/vdutts7/charmonger-ai/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# 👹 CharmongerAI - Bring Your Characters to Life
+
+`CharmongerAI` illustrates the lifelike nature of LLM entities, better known as agents. 
+
+Using the `charmongerai` package, users can quickly get started creating virtual fantasies, 
+scenarios, and online conversations with their own characters.
+
+🔗 https://www.charmonger.ai/ 
