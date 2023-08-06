@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+mysqlbuilder/Builder.py
+mysqlbuilder/__init__.py
+mysqlbuilder.egg-info/PKG-INFO
+mysqlbuilder.egg-info/SOURCES.txt
+mysqlbuilder.egg-info/dependency_links.txt
+mysqlbuilder.egg-info/top_level.txt
+tests/__init__.py
