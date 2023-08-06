@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+src/template_pypackage_builder/__init__.py
+src/template_pypackage_builder.egg-info/PKG-INFO
+src/template_pypackage_builder.egg-info/SOURCES.txt
+src/template_pypackage_builder.egg-info/dependency_links.txt
+src/template_pypackage_builder.egg-info/entry_points.txt
+src/template_pypackage_builder.egg-info/requires.txt
+src/template_pypackage_builder.egg-info/top_level.txt
+src/template_pypackage_builder/types/Apache Version 2.0.txt
+src/template_pypackage_builder/types/GNU GPLv3.txt
+src/template_pypackage_builder/types/MIT License.txt
+src/template_pypackage_builder/types/Mozilla Public License 2.0.txt
+src/template_pypackage_builder/types/The Unlicense.txt
+src/template_pypackage_builder/types/user_defined.txt
