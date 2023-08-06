@@ -1,0 +1,7 @@
+coverage
+pre-commit
+pytest
+pytest-cov
+pytest-freezegun
+pytest-mock
+freezegun
