@@ -1,0 +1,21 @@
+
+# 2023-07-06 15:46:58.085572
++Please fix this error: │ /Users/arthur/brainchain/brainchain/example.py:7 in <module>                                     │
++│                                                                                                  │
++│    6 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials                       │
++│ ❱  7 from brainchain import Brainchain                                                           │
++│    8 from modal import web_endpoint                                                              │
++│                                                                                                  │
++│ /Users/arthur/brainchain/brainchain/brainchain.py:10 in <module>                                 │
++│                                                                                                  │
++│     9 from urllib.parse import quote                                                             │
++│ ❱  10 from . import SalesIntel                                                                   │
++│    11 from . import FactCheck                                                                    │
++╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
++ImportError: attempted relative import with no known parent package
+
+# 2023-07-06 15:47:31.780763
++Check __init__.py and tell me if that content should be in there
+
+# 2023-07-06 15:48:47.151447
++Look at the imports in brainchain.py and also look at __init__.py - check correctness of the imports. I am having issues with python modules and imports
