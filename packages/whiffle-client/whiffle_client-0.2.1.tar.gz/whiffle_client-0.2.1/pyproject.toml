@@ -1,0 +1,35 @@
+[project]
+name = "whiffle_client"
+description = "Python based web client to interact with Whiffle services"
+readme = "USER_README.md"
+
+license = {file = "LICENSE.txt"}
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "click~=8.0.4",
+    "PyYAML~=6.0",
+    "requests~=2.27.1",
+]
+dynamic = ["version"]
+
+[tool.setuptools]
+packages = ["whiffle_client"]
+
+[project.scripts]
+whiffle = "whiffle_client.entrypoints:whiffle"
+
+[tool.setuptools.package-data]
+whiffle_client = ["resources/whiffle_config.yaml", "resources/example_generic_params.json"]
+
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools-git-versioning"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools-git-versioning]
+enabled = true
