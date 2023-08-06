@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Job Config - {{ job.name }}</title>
+    <style>{% include "adapted.min.css" %}</style>
+    <style>{% include "details.css" %}</style>
+    <!-- ... -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.0/socket.io.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log(document.domain);
+            const socket = io.connect('http://' + document.domain + ':' + location.port);
+            socket.on('connect', () => {
+                console.log('Connected to server');
+            });
+            socket.on('NEW_LINE', data => {
+                console.log(`Received new line for job '${data.job_name}': ${data.line}`);
+                if ('{{job.name}}' === data.job_name) {
+                  const consoleLog = document.getElementById('console-log');
+                  consoleLog.innerHTML += data.line;
+                }
+            });
+
+            const clearFunc = (data) => {
+              console.log(`Terminated for job '${data.job_name}'`);
+                if ('{{job.name}}' === data.job_name) {
+                  const consoleLog = document.getElementById('console-log');
+                  consoleLog.innerHTML = '';
+                }
+                location.reload();
+            };
+
+            socket.on('STOPPED', clearFunc);
+            socket.on('ERROR', clearFunc);
+        });
+    </script>
+  </head>
+  <body>
+    <p><a href="{{ url_for('index') }}">Back to Scheduler Status</a></p>
+    <h1>{{ job.name }}</h1>
+    <h2>Current Execution</h2>
+    <pre id="console-log">{{ ''.join(job.current_execution.lines) }}</pre>
+    <div></div>
+    <h2>Past Executions</h2>
+    {% for execution in job.executions|reverse %}
+    <details class="{% if execution.return_code == 0 %}success{% else %}error{% endif %}">
+      <summary>
+        <span class="summary-title"><b>{% if execution.return_code == 0 %}SUCCESS{% else %}ERROR{% endif %}</b></span>
+        <div class="summary-chevron-up">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+        <div class="summary-chevron-down">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up"><polyline points="18 15 12 9 6 15"></polyline></svg>
+        </div>
+      </summary>
+      <pre>{{ ''.join(execution.lines) }}</pre>
+    </details>
+  {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Scheduler Status</title>
+    <style>{% include "adapted.min.css" %}</style>
+    <style>{% include "details.css" %}</style>
+  </head>
+  <body>
+    <h1>Scheduler Status</h1>
+    <p>Status: {{ "Running" if scheduler.running else "Stopped" }}</p>
+    <h2>Job Configs</h2>
+      {% for job_conf in scheduler.job_configs %}
+      <div class="job-selector">
+        <a href="{{ url_for('job_config', job_name=job_conf.name) }}">{{ job_conf.name }} / {{job_conf.next_trigger_datetime}}</a>
+      </div>
+      {% endfor %}
+  </body>
+</html>
