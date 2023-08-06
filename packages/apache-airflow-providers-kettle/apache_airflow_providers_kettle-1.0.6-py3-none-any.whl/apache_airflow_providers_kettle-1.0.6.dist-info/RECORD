@@ -1,0 +1,11 @@
+kettle_provider/__init__.py,sha256=B1jmepSaog1n_Maau-WCkdgWxzzpvLDLDkpCCD5H0bo,447
+kettle_provider/hooks/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kettle_provider/operators/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kettle_provider/operators/kettle_operator.py,sha256=QqTlLgEUno2_etOlaC3ZJh-1TB5_RoqGrXNCA1qXgiI,8590
+kettle_provider/sensors/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+apache_airflow_providers_kettle-1.0.6.dist-info/LICENSE,sha256=hNuamfge-wPfgXMjNvvVP38ySNTSjfogdg1eFXQVpts,10898
+apache_airflow_providers_kettle-1.0.6.dist-info/METADATA,sha256=0O5XQ1iDV-aDEHlxR4J12wgBu0JaQ70Z7fkaqVSDHRY,4449
+apache_airflow_providers_kettle-1.0.6.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+apache_airflow_providers_kettle-1.0.6.dist-info/entry_points.txt,sha256=2UJShwkbOzTxFm93NWS5t4TlAXgRkx82PUdQeMEFCqo,85
+apache_airflow_providers_kettle-1.0.6.dist-info/top_level.txt,sha256=6MD3owO_J2SBB5hX0e8MxfKdKSRyOMSrS6-FFjQHkwI,16
+apache_airflow_providers_kettle-1.0.6.dist-info/RECORD,,
