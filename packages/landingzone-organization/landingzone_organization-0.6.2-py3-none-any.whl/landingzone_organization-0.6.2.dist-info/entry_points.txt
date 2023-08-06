@@ -1,0 +1,3 @@
+[console_scripts]
+landingzone-organization=landingzone_organization.cli:cli
+
