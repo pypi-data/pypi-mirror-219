@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+dekeyrej_securedict.egg-info/PKG-INFO
+dekeyrej_securedict.egg-info/SOURCES.txt
+dekeyrej_securedict.egg-info/dependency_links.txt
+dekeyrej_securedict.egg-info/requires.txt
+dekeyrej_securedict.egg-info/top_level.txt
+securedict/__init__.py
+securedict/decrypt.py
+securedict/encrypt.py
+tests/test_enc_dec.py

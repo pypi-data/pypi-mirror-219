@@ -1,0 +1,1 @@
+encrypts and decrypts python dicts - values are encrpyted, keys are NOT encrypted
