@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: anyjson2csv
+Version: 0.0.4
+Summary: JSON flatten for Python
+Home-page: https://github.com/mehdiabidi/json2csv
+Author: BrainsLogic
+Author-email: info@brainslogic.com
+License: MIT
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pandas
+
+See the source for this project here: https://github.com/mehdiabidi/json2csv"
+
+(Example)
+
+from anyjson2csv.json_to_csv import convert_json_to_csv
+import json
+
+with open("listing_data_sampled.json", "r") as f:
+    json_data = json.load(f)
+
+convert_json_to_csv(json_data, "test.csv")
