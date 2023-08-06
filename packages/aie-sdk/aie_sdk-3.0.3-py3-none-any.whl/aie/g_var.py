@@ -1,0 +1,1 @@
+from aiearth.core.g_var import *
