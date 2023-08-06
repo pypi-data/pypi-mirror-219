@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: qlknn
+Version: 1.3.1
+Summary: Tools to create QuaLiKiz Quasi-linear gyrokinetic code Neural Networks
+Home-page: https://gitlab.com/Karel-van-de-Plassche/QLKNN-develop
+License: MIT
+Author: Karel-van-de-Plassche
+Author-email: karelvandeplassche@gmail.com
+Requires-Python: >=3.8,<3.12
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Provides-Extra: dataset
+Provides-Extra: nndb
+Provides-Extra: pipeline
+Provides-Extra: training
+Requires-Dist: gitpython
+Requires-Dist: ipython
+Requires-Dist: luigi ; extra == "pipeline"
+Requires-Dist: matplotlib
+Requires-Dist: netCDF4
+Requires-Dist: numexpr
+Requires-Dist: numpy
+Requires-Dist: pandas (>=0.15.2)
+Requires-Dist: peewee (>=3.0.16) ; extra == "nndb"
+Requires-Dist: poetry-dynamic-versioning[plugin] (>=0.24.0,<0.25.0)
+Requires-Dist: psycopg2 ; extra == "nndb"
+Requires-Dist: scikit-learn ; extra == "dataset"
+Requires-Dist: scipy
+Requires-Dist: tables
+Requires-Dist: tensorflow (>=2.2) ; extra == "training"
+Requires-Dist: xarray
+Project-URL: Repository, https://gitlab.com/Karel-van-de-Plassche/QLKNN-develop
+Description-Content-Type: text/markdown
+
+# QLKNN
+
+*A collection of tools to create QuaLiKiz Neural Networks.*
+
+Read the [GitLab Pages](https://qualikiz-group.gitlab.io/QLKNN-develop/) and [wiki](https://gitlab.com/qualikiz-group/QuaLiKiz/-/wikis/QLKNN/QLKNN-overview) for more information.
+
