@@ -1,0 +1,966 @@
+# -*- coding: utf-8 -*-
+# This file is auto-generated, don't edit it. Thanks.
+from typing import Dict
+from Tea.core import TeaCore
+
+from alibabacloud_tea_openapi.client import Client as OpenApiClient
+from alibabacloud_tea_openapi import models as open_api_models
+from alibabacloud_tea_util.client import Client as UtilClient
+from alibabacloud_endpoint_util.client import Client as EndpointUtilClient
+from alibabacloud_hologram20220601 import models as hologram_20220601_models
+from alibabacloud_tea_util import models as util_models
+from alibabacloud_openapi_util.client import Client as OpenApiUtilClient
+
+
+class Client(OpenApiClient):
+    """
+    *\
+    """
+    def __init__(
+        self, 
+        config: open_api_models.Config,
+    ):
+        super().__init__(config)
+        self._endpoint_rule = ''
+        self.check_config(config)
+        self._endpoint = self.get_endpoint('hologram', self._region_id, self._endpoint_rule, self._network, self._suffix, self._endpoint_map, self._endpoint)
+
+    def get_endpoint(
+        self,
+        product_id: str,
+        region_id: str,
+        endpoint_rule: str,
+        network: str,
+        suffix: str,
+        endpoint_map: Dict[str, str],
+        endpoint: str,
+    ) -> str:
+        if not UtilClient.empty(endpoint):
+            return endpoint
+        if not UtilClient.is_unset(endpoint_map) and not UtilClient.empty(endpoint_map.get(region_id)):
+            return endpoint_map.get(region_id)
+        return EndpointUtilClient.get_endpoint_rules(product_id, region_id, endpoint_rule, network, suffix)
+
+    def create_instance_with_options(
+        self,
+        request: hologram_20220601_models.CreateInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.CreateInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.auto_pay):
+            body['autoPay'] = request.auto_pay
+        if not UtilClient.is_unset(request.auto_renew):
+            body['autoRenew'] = request.auto_renew
+        if not UtilClient.is_unset(request.charge_type):
+            body['chargeType'] = request.charge_type
+        if not UtilClient.is_unset(request.cold_storage_size):
+            body['coldStorageSize'] = request.cold_storage_size
+        if not UtilClient.is_unset(request.cpu):
+            body['cpu'] = request.cpu
+        if not UtilClient.is_unset(request.duration):
+            body['duration'] = request.duration
+        if not UtilClient.is_unset(request.gateway_count):
+            body['gatewayCount'] = request.gateway_count
+        if not UtilClient.is_unset(request.instance_name):
+            body['instanceName'] = request.instance_name
+        if not UtilClient.is_unset(request.instance_type):
+            body['instanceType'] = request.instance_type
+        if not UtilClient.is_unset(request.leader_instance_id):
+            body['leaderInstanceId'] = request.leader_instance_id
+        if not UtilClient.is_unset(request.pricing_cycle):
+            body['pricingCycle'] = request.pricing_cycle
+        if not UtilClient.is_unset(request.region_id):
+            body['regionId'] = request.region_id
+        if not UtilClient.is_unset(request.resource_group_id):
+            body['resourceGroupId'] = request.resource_group_id
+        if not UtilClient.is_unset(request.storage_size):
+            body['storageSize'] = request.storage_size
+        if not UtilClient.is_unset(request.v_switch_id):
+            body['vSwitchId'] = request.v_switch_id
+        if not UtilClient.is_unset(request.vpc_id):
+            body['vpcId'] = request.vpc_id
+        if not UtilClient.is_unset(request.zone_id):
+            body['zoneId'] = request.zone_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='CreateInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/create',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.CreateInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def create_instance_with_options_async(
+        self,
+        request: hologram_20220601_models.CreateInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.CreateInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.auto_pay):
+            body['autoPay'] = request.auto_pay
+        if not UtilClient.is_unset(request.auto_renew):
+            body['autoRenew'] = request.auto_renew
+        if not UtilClient.is_unset(request.charge_type):
+            body['chargeType'] = request.charge_type
+        if not UtilClient.is_unset(request.cold_storage_size):
+            body['coldStorageSize'] = request.cold_storage_size
+        if not UtilClient.is_unset(request.cpu):
+            body['cpu'] = request.cpu
+        if not UtilClient.is_unset(request.duration):
+            body['duration'] = request.duration
+        if not UtilClient.is_unset(request.gateway_count):
+            body['gatewayCount'] = request.gateway_count
+        if not UtilClient.is_unset(request.instance_name):
+            body['instanceName'] = request.instance_name
+        if not UtilClient.is_unset(request.instance_type):
+            body['instanceType'] = request.instance_type
+        if not UtilClient.is_unset(request.leader_instance_id):
+            body['leaderInstanceId'] = request.leader_instance_id
+        if not UtilClient.is_unset(request.pricing_cycle):
+            body['pricingCycle'] = request.pricing_cycle
+        if not UtilClient.is_unset(request.region_id):
+            body['regionId'] = request.region_id
+        if not UtilClient.is_unset(request.resource_group_id):
+            body['resourceGroupId'] = request.resource_group_id
+        if not UtilClient.is_unset(request.storage_size):
+            body['storageSize'] = request.storage_size
+        if not UtilClient.is_unset(request.v_switch_id):
+            body['vSwitchId'] = request.v_switch_id
+        if not UtilClient.is_unset(request.vpc_id):
+            body['vpcId'] = request.vpc_id
+        if not UtilClient.is_unset(request.zone_id):
+            body['zoneId'] = request.zone_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='CreateInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/create',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.CreateInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def create_instance(
+        self,
+        request: hologram_20220601_models.CreateInstanceRequest,
+    ) -> hologram_20220601_models.CreateInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.create_instance_with_options(request, headers, runtime)
+
+    async def create_instance_async(
+        self,
+        request: hologram_20220601_models.CreateInstanceRequest,
+    ) -> hologram_20220601_models.CreateInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.create_instance_with_options_async(request, headers, runtime)
+
+    def delete_instance_with_options(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.DeleteInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.DeleteInstanceResponse:
+        UtilClient.validate_model(request)
+        query = {}
+        if not UtilClient.is_unset(request.region_id):
+            query['RegionId'] = request.region_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            query=OpenApiUtilClient.query(query)
+        )
+        params = open_api_models.Params(
+            action='DeleteInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/delete',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.DeleteInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def delete_instance_with_options_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.DeleteInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.DeleteInstanceResponse:
+        UtilClient.validate_model(request)
+        query = {}
+        if not UtilClient.is_unset(request.region_id):
+            query['RegionId'] = request.region_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            query=OpenApiUtilClient.query(query)
+        )
+        params = open_api_models.Params(
+            action='DeleteInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/delete',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.DeleteInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def delete_instance(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.DeleteInstanceRequest,
+    ) -> hologram_20220601_models.DeleteInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.delete_instance_with_options(instance_id, request, headers, runtime)
+
+    async def delete_instance_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.DeleteInstanceRequest,
+    ) -> hologram_20220601_models.DeleteInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.delete_instance_with_options_async(instance_id, request, headers, runtime)
+
+    def get_instance_with_options(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.GetInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='GetInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}',
+            method='GET',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.GetInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def get_instance_with_options_async(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.GetInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='GetInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}',
+            method='GET',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.GetInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def get_instance(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.GetInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.get_instance_with_options(instance_id, headers, runtime)
+
+    async def get_instance_async(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.GetInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.get_instance_with_options_async(instance_id, headers, runtime)
+
+    def list_instances_with_options(
+        self,
+        request: hologram_20220601_models.ListInstancesRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ListInstancesResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.cms_instance_type):
+            body['cmsInstanceType'] = request.cms_instance_type
+        if not UtilClient.is_unset(request.resource_group_id):
+            body['resourceGroupId'] = request.resource_group_id
+        if not UtilClient.is_unset(request.tag):
+            body['tag'] = request.tag
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='ListInstances',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ListInstancesResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def list_instances_with_options_async(
+        self,
+        request: hologram_20220601_models.ListInstancesRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ListInstancesResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.cms_instance_type):
+            body['cmsInstanceType'] = request.cms_instance_type
+        if not UtilClient.is_unset(request.resource_group_id):
+            body['resourceGroupId'] = request.resource_group_id
+        if not UtilClient.is_unset(request.tag):
+            body['tag'] = request.tag
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='ListInstances',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ListInstancesResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def list_instances(
+        self,
+        request: hologram_20220601_models.ListInstancesRequest,
+    ) -> hologram_20220601_models.ListInstancesResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.list_instances_with_options(request, headers, runtime)
+
+    async def list_instances_async(
+        self,
+        request: hologram_20220601_models.ListInstancesRequest,
+    ) -> hologram_20220601_models.ListInstancesResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.list_instances_with_options_async(request, headers, runtime)
+
+    def renew_instance_with_options(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.RenewInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.RenewInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.auto_renew):
+            body['autoRenew'] = request.auto_renew
+        if not UtilClient.is_unset(request.duration):
+            body['duration'] = request.duration
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='RenewInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/renew',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.RenewInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def renew_instance_with_options_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.RenewInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.RenewInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.auto_renew):
+            body['autoRenew'] = request.auto_renew
+        if not UtilClient.is_unset(request.duration):
+            body['duration'] = request.duration
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='RenewInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/renew',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.RenewInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def renew_instance(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.RenewInstanceRequest,
+    ) -> hologram_20220601_models.RenewInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.renew_instance_with_options(instance_id, request, headers, runtime)
+
+    async def renew_instance_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.RenewInstanceRequest,
+    ) -> hologram_20220601_models.RenewInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.renew_instance_with_options_async(instance_id, request, headers, runtime)
+
+    def restart_instance_with_options(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.RestartInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='RestartInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/restart',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.RestartInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def restart_instance_with_options_async(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.RestartInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='RestartInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/restart',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.RestartInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def restart_instance(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.RestartInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.restart_instance_with_options(instance_id, headers, runtime)
+
+    async def restart_instance_async(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.RestartInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.restart_instance_with_options_async(instance_id, headers, runtime)
+
+    def resume_instance_with_options(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ResumeInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='ResumeInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/resume',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ResumeInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def resume_instance_with_options_async(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ResumeInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='ResumeInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/resume',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ResumeInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def resume_instance(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.ResumeInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.resume_instance_with_options(instance_id, headers, runtime)
+
+    async def resume_instance_async(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.ResumeInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.resume_instance_with_options_async(instance_id, headers, runtime)
+
+    def scale_instance_with_options(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.ScaleInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ScaleInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.cold_storage_size):
+            body['coldStorageSize'] = request.cold_storage_size
+        if not UtilClient.is_unset(request.cpu):
+            body['cpu'] = request.cpu
+        if not UtilClient.is_unset(request.scale_type):
+            body['scaleType'] = request.scale_type
+        if not UtilClient.is_unset(request.storage_size):
+            body['storageSize'] = request.storage_size
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='ScaleInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/scale',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ScaleInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def scale_instance_with_options_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.ScaleInstanceRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.ScaleInstanceResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.cold_storage_size):
+            body['coldStorageSize'] = request.cold_storage_size
+        if not UtilClient.is_unset(request.cpu):
+            body['cpu'] = request.cpu
+        if not UtilClient.is_unset(request.scale_type):
+            body['scaleType'] = request.scale_type
+        if not UtilClient.is_unset(request.storage_size):
+            body['storageSize'] = request.storage_size
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='ScaleInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/scale',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.ScaleInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def scale_instance(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.ScaleInstanceRequest,
+    ) -> hologram_20220601_models.ScaleInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.scale_instance_with_options(instance_id, request, headers, runtime)
+
+    async def scale_instance_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.ScaleInstanceRequest,
+    ) -> hologram_20220601_models.ScaleInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.scale_instance_with_options_async(instance_id, request, headers, runtime)
+
+    def stop_instance_with_options(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.StopInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='StopInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/stop',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.StopInstanceResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def stop_instance_with_options_async(
+        self,
+        instance_id: str,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.StopInstanceResponse:
+        req = open_api_models.OpenApiRequest(
+            headers=headers
+        )
+        params = open_api_models.Params(
+            action='StopInstance',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/stop',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.StopInstanceResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def stop_instance(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.StopInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.stop_instance_with_options(instance_id, headers, runtime)
+
+    async def stop_instance_async(
+        self,
+        instance_id: str,
+    ) -> hologram_20220601_models.StopInstanceResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.stop_instance_with_options_async(instance_id, headers, runtime)
+
+    def update_instance_name_with_options(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNameRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.UpdateInstanceNameResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.instance_name):
+            body['instanceName'] = request.instance_name
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='UpdateInstanceName',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/instanceName',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.UpdateInstanceNameResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def update_instance_name_with_options_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNameRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.UpdateInstanceNameResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.instance_name):
+            body['instanceName'] = request.instance_name
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='UpdateInstanceName',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/instanceName',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.UpdateInstanceNameResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def update_instance_name(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNameRequest,
+    ) -> hologram_20220601_models.UpdateInstanceNameResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.update_instance_name_with_options(instance_id, request, headers, runtime)
+
+    async def update_instance_name_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNameRequest,
+    ) -> hologram_20220601_models.UpdateInstanceNameResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.update_instance_name_with_options_async(instance_id, request, headers, runtime)
+
+    def update_instance_network_type_with_options(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNetworkTypeRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.UpdateInstanceNetworkTypeResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.any_tunnel_to_single_tunnel):
+            body['anyTunnelToSingleTunnel'] = request.any_tunnel_to_single_tunnel
+        if not UtilClient.is_unset(request.network_types):
+            body['networkTypes'] = request.network_types
+        if not UtilClient.is_unset(request.v_switch_id):
+            body['vSwitchId'] = request.v_switch_id
+        if not UtilClient.is_unset(request.vpc_id):
+            body['vpcId'] = request.vpc_id
+        if not UtilClient.is_unset(request.vpc_owner_id):
+            body['vpcOwnerId'] = request.vpc_owner_id
+        if not UtilClient.is_unset(request.vpc_region_id):
+            body['vpcRegionId'] = request.vpc_region_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='UpdateInstanceNetworkType',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/network',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.UpdateInstanceNetworkTypeResponse(),
+            self.call_api(params, req, runtime)
+        )
+
+    async def update_instance_network_type_with_options_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNetworkTypeRequest,
+        headers: Dict[str, str],
+        runtime: util_models.RuntimeOptions,
+    ) -> hologram_20220601_models.UpdateInstanceNetworkTypeResponse:
+        UtilClient.validate_model(request)
+        body = {}
+        if not UtilClient.is_unset(request.any_tunnel_to_single_tunnel):
+            body['anyTunnelToSingleTunnel'] = request.any_tunnel_to_single_tunnel
+        if not UtilClient.is_unset(request.network_types):
+            body['networkTypes'] = request.network_types
+        if not UtilClient.is_unset(request.v_switch_id):
+            body['vSwitchId'] = request.v_switch_id
+        if not UtilClient.is_unset(request.vpc_id):
+            body['vpcId'] = request.vpc_id
+        if not UtilClient.is_unset(request.vpc_owner_id):
+            body['vpcOwnerId'] = request.vpc_owner_id
+        if not UtilClient.is_unset(request.vpc_region_id):
+            body['vpcRegionId'] = request.vpc_region_id
+        req = open_api_models.OpenApiRequest(
+            headers=headers,
+            body=OpenApiUtilClient.parse_to_map(body)
+        )
+        params = open_api_models.Params(
+            action='UpdateInstanceNetworkType',
+            version='2022-06-01',
+            protocol='HTTPS',
+            pathname=f'/api/v1/instances/{OpenApiUtilClient.get_encode_param(instance_id)}/network',
+            method='POST',
+            auth_type='AK',
+            style='ROA',
+            req_body_type='json',
+            body_type='json'
+        )
+        return TeaCore.from_map(
+            hologram_20220601_models.UpdateInstanceNetworkTypeResponse(),
+            await self.call_api_async(params, req, runtime)
+        )
+
+    def update_instance_network_type(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNetworkTypeRequest,
+    ) -> hologram_20220601_models.UpdateInstanceNetworkTypeResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return self.update_instance_network_type_with_options(instance_id, request, headers, runtime)
+
+    async def update_instance_network_type_async(
+        self,
+        instance_id: str,
+        request: hologram_20220601_models.UpdateInstanceNetworkTypeRequest,
+    ) -> hologram_20220601_models.UpdateInstanceNetworkTypeResponse:
+        runtime = util_models.RuntimeOptions()
+        headers = {}
+        return await self.update_instance_network_type_with_options_async(instance_id, request, headers, runtime)
