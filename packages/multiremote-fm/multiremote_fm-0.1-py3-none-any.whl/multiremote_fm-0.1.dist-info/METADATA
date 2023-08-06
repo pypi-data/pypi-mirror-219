@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: multiremote-fm
+Version: 0.1
+Summary: Library to manage files on multitype remotes - ftp, sftp, ftps, local, etc..
+Author-email: Igor Horun <snake@snake.mk.ua>
+Project-URL: Homepage, https://github.com/igorgoroun/multiremote-fm
+Project-URL: Bug Tracker, https://github.com/igorgoroun/multiremote-fm/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Multi-remote file manager
+A simple library to manage files on multi-type remotes - ftp, sftp, ftps, local, etc...
