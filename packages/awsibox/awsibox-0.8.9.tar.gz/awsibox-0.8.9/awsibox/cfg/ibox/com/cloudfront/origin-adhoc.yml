@@ -1,0 +1,15 @@
+global:
+  Condition:
+    - CloudFrontOriginAdHoc:
+        get_condition('', 'equals', 'yes', 'CloudFrontOriginAdHoc')
+  CloudFrontDistribution:
+    - IBOX_BASE:
+        DistributionConfig:
+          DefaultCacheBehavior:
+            TargetOriginId:
+              If(
+                'CloudFrontOriginAdHoc',
+                Ref('RecordSetExternal'),
+                Sub(f'${{EnvRole}}${{{IBOX_RESNAME}DnsSuffix}}.origin.%s' % cfg.HostedZoneNameEnv)
+              )
+  CloudFrontOriginAdHoc: 'no'

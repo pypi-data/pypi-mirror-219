@@ -1,0 +1,222 @@
+# vim: ft=python
+import time
+import boto3
+import os
+import logging
+import concurrent.futures
+
+# logging.basicConfig()
+logger = logging.getLogger("ECSDrainTasks")
+handler = logging.StreamHandler()
+logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+logger.propagate = False
+
+
+CLIENT_ECS = boto3.client("ecs")
+CLIENT_EC2 = boto3.client("ec2")
+CLIENT_ELBV2 = boto3.client("elbv2")
+
+
+def find_cluster(instance_id):
+    instance_tags = CLIENT_EC2.describe_tags(
+        Filters=[{"Name": "resource-id", "Values": [instance_id]}]
+    )
+    for n in instance_tags["Tags"]:
+        if n["Key"] == "ECSCluster":
+            return n["Value"]
+
+
+def find_container_instance(cluster, instance_id, status=None):
+    status_desc = ""
+    kwargs = {"cluster": cluster, "filter": f"ec2InstanceId == {instance_id}"}
+
+    if status:
+        kwargs["status"] = status
+        status_desc = f" in status {status}"
+
+    list_resp = CLIENT_ECS.list_container_instances(**kwargs)
+
+    try:
+        instance_arn = list_resp["containerInstanceArns"][0]
+        logger.info(f"Found {instance_arn}{status_desc}")
+        return instance_arn
+    except Exception:
+        logger.warning(f"No Container Instance{status_desc}")
+        return False
+
+
+def get_tasks(cluster, instance_arn, status):
+    tasks = []
+    paginator = CLIENT_ECS.get_paginator("list_tasks")
+    response_iter = paginator.paginate(
+        cluster=cluster, containerInstance=instance_arn, desiredStatus=status
+    )
+    for resp in response_iter:
+        for t in resp.get("taskArns", []):
+            tasks.append(os.path.basename(t))
+
+    logger.info(f"{len(tasks)} tasks {status} on {instance_arn}")
+
+    return tasks
+
+
+def get_tg(cluster, services):
+    tg = {}
+    service_list = list(services.keys())
+    while service_list:
+        services_sub = service_list[0:100]
+        resp = CLIENT_ECS.describe_services(cluster=cluster, services=services_sub)
+        for s in resp.get("services", []):
+            s_name = s["serviceName"]
+            for tgs in s.get("loadBalancers", []):
+                tg_name = tgs["targetGroupArn"]
+                logger.info(f"Adding TG: {tg_name}")
+                if tg_name in tg:
+                    tg[tg_name].extend(services[s_name])
+                else:
+                    tg[tg_name] = services[s_name]
+        del service_list[0:100]
+
+    return tg
+
+
+def get_tg_delay(tg):
+    resp = CLIENT_ELBV2.describe_target_group_attributes(TargetGroupArn=tg)
+
+    for n in resp.get("Attributes", []):
+        if n["Key"] == "deregistration_delay.timeout_seconds":
+            return int(n["Value"])
+
+
+def deregister_targets(tg, tg_tasks, tg_targets, tasks_to_stop):
+    targets_detail = {}
+    resp = CLIENT_ELBV2.describe_target_health(
+        TargetGroupArn=tg,
+    )
+    for t in resp.get("TargetHealthDescriptions", []):
+        t_id = t["Target"].get("Id")
+        t_port = t["Target"].get("Port")
+        if t_id and t_port:
+            targets_detail[t_id] = t_port
+
+    tg_delay = get_tg_delay(tg)
+
+    for target in tg_targets:
+        if target not in targets_detail:
+            continue
+        t_port = targets_detail.get(target)
+        # Fake port to avoid registering - to test
+        # t_port = 666
+        logger.info(f"Deregistering {target}:{t_port} on {tg}")
+        try:
+            CLIENT_ELBV2.deregister_targets(
+                TargetGroupArn=tg, Targets=[{"Id": target, "Port": t_port}]
+            )
+        except Exception as e:
+            logger.error(f"Degistering {target}:{t_port} on {tg}: {e}")
+        else:
+            for task in tg_tasks:
+                if task not in tasks_to_stop or tg_delay > tasks_to_stop[task]:
+                    tasks_to_stop[task] = tg_delay
+
+
+def process_tasks(cluster, tasks_id, instance_id):
+    services = {}
+    tg_targets = []
+    while tasks_id:
+        tasks_id_sub = tasks_id[0:100]
+        resp = CLIENT_ECS.describe_tasks(cluster=cluster, tasks=tasks_id_sub)
+        tasks = resp.get("tasks", [])
+
+        for t in tasks:
+            t_arn = t["taskArn"]
+            group = t.get("group", "")
+            if group.split(":")[0] == "service":
+                service_name = group.split(":")[1]
+                logger.info(f"Processing service {service_name} tasks")
+                if service_name in services:
+                    services[service_name].append(t_arn)
+                else:
+                    services[service_name] = [t_arn]
+            for c in t.get("containers", []):
+                for n in c.get("networkInterfaces", []):
+                    tg_targets.append(n["privateIpv4Address"])
+                for n in c.get("networkBindings", []):
+                    tg_targets.append(instance_id)
+
+        del tasks_id[0:100]
+
+    return services, set(tg_targets)
+
+
+def do_stop_tasks(cluster, delay, tasks):
+    tasks_str = "\n\t".join(tasks)
+    logger.info(f"Wait {delay}s and stop {len(tasks)} tasks:\n\t{tasks_str}")
+    # Force delay - to test
+    # delay = 2
+    time.sleep(delay)
+    for t in tasks:
+        try:
+            # skip stop - to test
+            # pass
+            CLIENT_ECS.stop_task(
+                cluster=cluster, task=t, reason="Spot cluster instance termination"
+            )
+        except Exception:
+            logger.error(f"Stopping task: {t}")
+        else:
+            logger.info(f"Stopped task: {t}")
+
+
+def stop_tasks(cluster, tasks_to_stop):
+    tasks_by_delay = {}
+    for t, d in tasks_to_stop.items():
+        if d in tasks_by_delay:
+            tasks_by_delay[d].append(t)
+        else:
+            tasks_by_delay[d] = [t]
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        for delay, tasks in tasks_by_delay.items():
+            future_to_stack = {}
+            ex_sub = executor.submit(do_stop_tasks, cluster, delay, tasks)
+            future_to_stack[ex_sub] = delay
+        for future in concurrent.futures.as_completed(future_to_stack):
+            obj = future_to_stack[future]
+            status = future.result()
+
+
+def lambda_handler(event, context):
+    instance_id = event["detail"]["instance-id"]
+    cluster = find_cluster(instance_id)
+
+    # add prefix to log messages
+    formatter = logging.Formatter(
+        fmt=f"%(levelname)s:[{instance_id}@{cluster}]:%(message)s"
+    )
+    handler.setFormatter(formatter)
+
+    instance_arn = find_container_instance(cluster, instance_id) if cluster else None
+
+    # Sleep 5 seconds to be sure that ECS Agent (ECS_ENABLE_SPOT_INSTANCE_DRAINING)
+    # have put Container Instance in Draining
+    if cluster and instance_arn:
+        time.sleep(5)
+        runnig_tasks = get_tasks(cluster, instance_arn, "RUNNING")
+        services, tg_targets = process_tasks(cluster, runnig_tasks, instance_id)
+
+        target_groups = get_tg(cluster, services)
+
+        tasks_to_stop = {}
+        for tg, tg_tasks in target_groups.items():
+            deregister_targets(tg, tg_tasks, tg_targets, tasks_to_stop)
+
+        stop_tasks(cluster, tasks_to_stop)
+
+
+# test by cmd line
+# if __name__ == "__main__":
+#    i_id = "i-078df2ddcf2ca7a99a"
+#    event = {"detail": {"instance-id": i_id}}
+#    lambda_handler(event, {})

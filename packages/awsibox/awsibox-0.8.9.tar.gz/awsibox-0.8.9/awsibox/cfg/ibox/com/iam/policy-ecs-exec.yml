@@ -1,0 +1,15 @@
+global:
+  IAMPolicy:
+    - ECSExec:
+        Roles:
+          - Ref('RoleTask')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'ssmmessages:CreateControlChannel'
+                  - 'ssmmessages:CreateDataChannel'
+                  - 'ssmmessages:OpenControlChannel'
+                  - 'ssmmessages:OpenDataChannel'
+                Effect: Allow
+                Resource: '*'

@@ -1,0 +1,94 @@
+LoadBalancerAttributesLogEnabled: &attr_log_enabled
+  Key: access_logs.s3.enabled
+  Value.IBOX_AUTO_PO:
+    AllowedValues: ['', 'true', 'false']
+    CONDITION: get_condition('', 'equals', 'true', f'{IBOX_MAPNAME}LoadBalancerAttributesLogEnabledValue')
+  Value: 'false'
+LoadBalancerAttributesLogBucket: &attr_log_bucket
+  IBOX_IF:
+    - IBOX_MAPNAME.LoadBalancerAttributesLogEnabledValue
+    - IBOX_IFVALUE
+    - Ref('AWS::NoValue')
+  Key: access_logs.s3.bucket
+  Value: Sub(cfg.BucketNameLogs)
+LoadBalancerAttributesLogPrefix: &att_log_prefix
+  IBOX_IF:
+    - IBOX_MAPNAME.LoadBalancerAttributesLogEnabledValue
+    - IBOX_IFVALUE
+    - Ref('AWS::NoValue')
+  Key: access_logs.s3.prefix
+  Value: Sub('${EnvRole}.${AWS::StackName}')
+
+Application: &app
+  LoadBalancerAttributes:
+    - LogEnabled: *attr_log_enabled
+    - LogBucket: *attr_log_bucket
+    - LogPrefix: *att_log_prefix
+    - Http2:
+        Key: routing.http2.enabled
+        Value.IBOX_AUTO_PO: {}
+        Value: 'true'
+  SecurityGroups:
+    - GetAtt('SecurityGroupLoadBalancer', 'GroupId')
+  Type: application
+
+NET: &net
+  LoadBalancerAttributes:
+    - LogEnabled: *attr_log_enabled
+    - LogBucket: *attr_log_bucket
+    - LogPrefix: *att_log_prefix
+    - CrossZone:
+        Key: load_balancing.cross_zone.enabled
+        Value: 'true'
+  Type: network
+
+ALB: &alb
+  <<: *app
+  IBOX_OUTPUT:
+    - _:
+        Condition: IBOX_TITLE
+        Value: Ref(IBOX_TITLE)
+        Export: Export(Sub('%s-${AWS::StackName}' % IBOX_TITLE))
+    - _DNS:
+        Condition: IBOX_TITLE
+        Value: GetAtt(IBOX_TITLE, 'DNSName')
+        Export: Export(Sub('%sDNS-${AWS::StackName}' % IBOX_TITLE))
+    - _FullName:
+        Condition: IBOX_TITLE
+        Value: GetAtt(IBOX_TITLE, 'LoadBalancerFullName')
+        Export: Export(Sub('%sFullName-${AWS::StackName}' % IBOX_TITLE))
+  Condition: IBOX_TITLE
+  SecurityGroups:
+    - ImportValue(f'SecurityGroup{IBOX_TITLE}')
+    - GetAtt(f'SecurityGroup{IBOX_TITLE}', 'GroupId')
+
+External: &external
+  Scheme: 'internet-facing'
+  Subnets: Split(',', ImportValue('SubnetsPublic'))
+
+Internal: &internal
+  Scheme: 'internal'
+  Subnets: Split(',', ImportValue('SubnetsPrivate'))
+
+global:
+  ElasticLoadBalancingV2LoadBalancer:
+    - EC2ApplicationExternal:
+        IBOX_ENABLED: False
+        <<: [*external, *app]
+    - EC2ApplicationInternal:
+        IBOX_ENABLED: False
+        <<: [*internal, *app]
+    - EC2NetworkExternal:
+        IBOX_ENABLED: False
+        <<: [*external, *net]
+    - EC2NetworkInternal:
+        IBOX_ENABLED: False
+        <<: [*internal, *net]
+    - ECSApplicationExternal:
+        IBOX_ENABLED: False
+        IBOX_TITLE: LoadBalancerApplicationExternal
+        <<: [*external, *alb]
+    - ECSApplicationInternal:
+        IBOX_ENABLED: False
+        IBOX_TITLE: LoadBalancerApplicationInternal
+        <<: [*internal, *alb]

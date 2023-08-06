@@ -1,0 +1,109 @@
+PoliciesLambdaECSDrainInstance: &policies_lambda_ecs_drain_instance
+  Policies:
+    - 1:
+        PolicyDocument:
+          Statement:
+            - IBOX_LIST:
+            - LifeCycle:
+                Action: 'autoscaling:CompleteLifecycleAction'
+                Effect: Allow
+                Resource: '*'
+            - ecs1:
+                Action:
+                  - 'ecs:ListContainerInstances'
+                  - 'ecs:ListTasks'
+                  - 'ecs:DescribeTasks'
+                Effect: Allow
+                Resource: '*'
+            - ecs2:
+                Action:
+                  - 'ecs:DescribeContainerInstances'
+                  - 'ecs:UpdateContainerInstancesState'
+                Effect: Allow
+                Resource: '*'
+            - sns:
+                Action: 'sns:Publish'
+                Effect: Allow
+                Resource: Ref('SNSTopicECSDrainInstance')
+            - sqs:
+                Action:
+                  - 'sqs:GetQueueAttributes'
+                  - 'sqs:ReceiveMessage'
+                  - 'sqs:SendMessage'
+                  - 'sqs:DeleteMessage*'
+                  - 'sqs:ChangeMessageVisibility*'
+                Effect: Allow
+                Resource: GetAtt('SQSQueueECSDrainInstance', 'Arn')
+            - clf:
+                Action: 'cloudformation:ListExports'
+                Effect: Allow
+                Resource: '*'
+          Version: '2012-10-17'
+        PolicyName: LambdaECSDrainInstance
+
+
+global:
+  Lambda:
+    - ECSDrainInstance:
+        IBOX_LINKED_OBJ:
+          Role:
+            Conf: *policies_lambda_ecs_drain_instance
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Gracefully drain ECS tasks from EC2 instances before the instances are terminated by autoscaling.'
+        Environment:
+          Variables:
+            - SQSQueue: Ref("SQSQueueECSDrainInstance")
+        Runtime: python3.9
+        Timeout: 29
+  LambdaEventSourceMapping:
+    - ECSDrainInstance:
+        DependsOn: 'RoleLambdaECSDrainInstance'
+        BatchSize: 1
+        EventSourceArn: GetAtt('SQSQueueECSDrainInstance', 'Arn')
+        FunctionName: Ref('LambdaECSDrainInstance')
+  IAMRole:
+    - ASGLifecycleHookECSDrainInstance:
+        Export: True
+        Principal: autoscaling.amazonaws.com
+        Policies:
+          - ASGLifecycleHookECSDrainInstance:
+              PolicyDocument:
+                Statement:
+                  - IBOX_LIST:
+                  - sns:
+                      Action: 'sns:Publish'
+                      Effect: Allow
+                      Resource: Ref('SNSTopicECSDrainInstance')
+                  - sqs:
+                      Action:
+                        - 'sqs:GetQueueUrl'
+                        - 'sqs:SendMessage'
+                      Effect: Allow
+                      Resource: GetAtt('SQSQueueECSDrainInstance', 'Arn')
+                Version: '2012-10-17'
+              PolicyName: ASGLifecycleHookECSDrainInstance
+  SNSSubscription:
+    - ECSDrainInstanceLambdaECSDrainInstance:
+        # not in use keep for history
+        IBOX_ENABLED: False
+        IBOX_SOURCE_OBJ: SNSSubscriptionLambda
+        TopicArn: Ref('SNSTopicECSDrainInstance')
+        Endpoint: GetAtt('LambdaECSDrainInstance', 'Arn')
+        Protocol: lambda
+    - ECSDrainInstanceSQSQueueECSDrainInstance:
+        IBOX_SOURCE_OBJ: SNSSubscriptionSQS
+        Endpoint: GetAtt('SQSQueueECSDrainInstance', 'Arn')
+        Protocol: sqs
+        RawMessageDelivery: True
+        TopicArn: Ref('SNSTopicECSDrainInstance')
+  SNSTopic:
+    - ECSDrainInstance:
+        Export: True
+  SQSQueue:
+    - ECSDrainInstance:
+        Export: True
+        MessageRetentionPeriod: 7200
+        VisibilityTimeout: 30

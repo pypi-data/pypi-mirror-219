@@ -1,0 +1,7 @@
+global:
+  ApiGatewayDeployment:
+    - Base:
+        IBOX_ENABLED: False
+        Condition: str(f"Deployment{IBOX_LINKED_OBJ_NAME}")
+        Description: Ref(f"Deployment{IBOX_LINKED_OBJ_INDEX}Description")
+        RestApiId: Ref("ApiGatewayRestApi")

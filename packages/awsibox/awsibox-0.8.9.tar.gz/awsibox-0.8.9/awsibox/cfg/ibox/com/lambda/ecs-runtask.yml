@@ -1,0 +1,45 @@
+PoliciesLambdaECSRunTask: &policies_iamrole_lamba_ecs_runtask
+  Policies:
+    - 1:
+        PolicyDocument:
+          Statement:
+            - IBOX_LIST:
+            - ecs:
+                Action:
+                  - 'ecs:ListContainerInstances'
+                  - 'ecs:DescribeContainerInstances'
+                Effect: Allow
+                Resource:
+                  - Sub('arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:cluster/*')
+                  - Sub('arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:container-instance/*')
+            - clf:
+                Action:
+                  - 'cloudformation:Describe*'
+                  - 'cloudformation:List*'
+                  - 'cloudformation:Get*'
+                Effect: Allow
+                Resource: '*'
+          Version: '2012-10-17'
+        PolicyName: LambdaECSRunTask
+
+
+global:
+  Output:
+    - LambdaECSRunTaskArn:
+        Value: GetAtt('LambdaECSRunTask', 'Arn')
+        Export: Export('LambdaECSRunTaskArn')
+    - RoleLambdaECSRunTask:
+        Value: Ref('RoleLambdaECSRunTask')
+        Export: Export('RoleLambdaECSRunTask')
+  Lambda:
+    - ECSRunTask:
+        IBOX_LINKED_OBJ:
+          Role:
+            Conf: *policies_iamrole_lamba_ecs_runtask
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Run ECS Task'
+        Runtime: python3.9
+        Timeout: 60

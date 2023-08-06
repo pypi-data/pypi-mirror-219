@@ -1,0 +1,34 @@
+global:
+  StackName: r-ccr-rpl
+  Parameter:
+    - Mytest:
+        Description: 'ssm test to change'
+  Output:
+    - Mytest:
+        Value: Ref('Mytest')
+  Mytest: gatto
+  CCRReplicateRegions:
+    - 'eu-west-1'
+    - 'eu-central-1'
+  IAMPolicy:
+    - LambdaCCRStackReplicator:
+        Condition: 'LambdaCCRStackReplicator'
+        Roles:
+          - Ref('RoleLambdaCCRStackReplicator')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - '*'
+                Effect: Allow
+                Resource: '*'
+  Lambda:
+    - CCRStackReplicator:
+        Architectures:
+          - arm64
+        Export: True
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Replicate Stacks'
+        Runtime: python3.9
+        Timeout: 300

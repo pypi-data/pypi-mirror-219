@@ -1,0 +1,297 @@
+IBoxLoader: !include
+  - res/s3/bucket-policies.yml
+  - res/iam/policies.yml
+
+global:
+  S3Bucket:
+    - IBOX_BASE:
+        IBOX_TITLE: Bucket.IBOX_INDEXNAME
+        IBOX_LINKED_OBJ:
+          BucketPolicy:
+            Key: S3BucketPolicy
+            Name: IBOX_INDEXNAME
+            Type: str(IBOX_INDEXNAME if hasattr(cfg, f"S3BucketPolicy{IBOX_INDEXNAME}") else "Base")
+            Conf:
+              Bucket: eval("Ref(IBOX_TITLE)")
+              IBOX_TITLE: BucketPolicy.IBOX_INDEXNAME
+              IBOX_LINKED_OBJ_NAME: getattr(cfg, f"BucketName{IBOX_INDEXNAME}")
+          IAMRole:
+            Key: IAMRole
+            Type: BucketReplica
+            Conf:
+              IBOX_RESNAME: Role.IBOX_TITLE.Replica
+              Condition: IBOX_RESNAME.Replica
+          IAMPolicy:
+            Key: IAMPolicy
+            Type: BucketReplica
+            Conf:
+              IBOX_RESNAME: IAMPolicyReplica.IBOX_TITLE
+              IBOX_LINKED_OBJ_NAME: getattr(cfg, f"BucketName{IBOX_INDEXNAME}")
+              IBOX_LINKED_OBJ_INDEX: IBOX_RESNAME
+        IBOX_CONDITION:
+          - _Cors:
+              get_condition("", "equals", "yes", f"{IBOX_RESNAME}CorsConfigurationEnabled")
+          - _Replica:
+              And(Condition(IBOX_RESNAME), get_condition("", "equals", "yes", f"{IBOX_RESNAME}ReplicationConfigurationEnabled"))
+          - _Versioning:
+              get_condition("", "not_equals", "Disabled", f"{IBOX_RESNAME}VersioningConfigurationStatus")
+        IBOX_OUTPUT:
+          - _:
+              Value: If(IBOX_RESNAME, Ref(IBOX_TITLE), Sub(getattr(cfg, f"BucketName{IBOX_INDEXNAME}")))
+        OutputValueRegion.IBOX_PCO:
+          IBOX_CONDITION:
+            - _OutputValueRegion:
+                get_condition("", "not_equals", "AWSRegion", f"{IBOX_RESNAME}OutputValueRegion")
+          IBOX_OUTPUT:
+            - _:
+                Condition: None
+                Export: Export(IBOX_TITLE)
+                Value: >-
+                  If(f"{IBOX_RESNAME}OutputValueRegion",
+                     Sub("${Region}-%s" % getattr(cfg, f"BucketName{IBOX_INDEXNAME}").replace("${AWS::Region}-", "", 1),
+                         **{"Region": get_endvalue(f"{IBOX_RESNAME}OutputValueRegion")}),
+                     If(IBOX_RESNAME, Ref(IBOX_TITLE), Sub(getattr(cfg, f"BucketName{IBOX_INDEXNAME}")))
+                  )
+        BucketName: Sub(getattr(cfg, f"BucketName{IBOX_INDEXNAME}"))
+        Create: "no"
+        CorsConfiguration:
+          Enabled: "no"
+          IBOX_IF:
+            - _Cors
+            - IBOX_IFVALUE
+            - Ref("AWS::NoValue")
+          CorsRules:
+            - 0:
+                AllowedHeaders: ["Authorization"]
+                AllowedMethods: ["GET"]
+                AllowedOrigins: ["*"]
+                MaxAge: 3000
+        LifecycleConfiguration:
+          Rules:
+            - IBOX_BASE:
+                Status.IBOX_AUTO_PO: {}
+                Status: Disabled
+        ReplicationConfiguration:
+          IBOX_IF:
+            - _Replica
+            - IBOX_IFVALUE
+            - Ref("AWS::NoValue")
+          Enabled: "no"
+          Role: GetAtt(f"Role{IBOX_TITLE}Replica", "Arn")
+          Rules:
+            - IBOX_BASE:
+                IBOX_IF:
+                  - IBOX_CURNAME.DestinationBucket
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                DeleteMarkerReplication:
+                  Status: Enabled
+                Destination:
+                  Bucket.IBOX_PCO:
+                    IBOX_PARAMETER:
+                      - IBOX_CURNAME:
+                          Description: "Replica Destination Bucket - empty for default based on Env/Roles/Region"
+                    IBOX_CONDITION:
+                      - IBOX_CURNAME:
+                          get_condition("", "not_equals", "none", IBOX_CURNAME)
+                  Bucket: none
+                  Account: IBOX_IFCONDVALUE
+                  AccessControlTranslation:
+                    IBOX_IF:
+                      - IBOX_MAPNAME.Account
+                      - IBOX_IFVALUE
+                      - Ref('AWS::NoValue')
+                    Owner: Destination
+                Filter:
+                  Prefix: ''
+                Priority: >-
+                  int(
+                    IBOX_PROPNAME if IBOX_PROPNAME.isdigit() else
+                    list(getattr(cfg, f"{IBOX_RESNAME}ReplicationConfigurationRules").keys()).index(IBOX_PROPNAME) + 1)
+                Status.IBOX_AUTO_PO: {}
+                Status: Enabled
+        VersioningConfiguration:
+          IBOX_IF:
+            - _Versioning
+            - IBOX_IFVALUE
+            - Ref("AWS::NoValue")
+          Status.IBOX_AUTO_PO:
+            AllowedValues: ["", "Enabled", "Suspended", "Disabled"]
+          Status: Disabled
+
+  S3BucketPolicy:
+    - IBOX_BASE:
+        IBOX_ENABLED: False
+        IBOX_CONDITION:
+          - _AllowAccountsReplica:
+              get_condition("", "not_equals", "none", f"{IBOX_RESNAME}AllowAccountsReplicaPrincipalAWS")
+          - _AllowAccountsRead: >-
+             Or(
+               *[Condition(f"{IBOX_RESNAME}AllowAccountsReadPrincipalAWS{n}")
+               for n in getattr(cfg, f"{IBOX_RESNAME}AllowAccountsReadPrincipalAWS")])
+          - _AllowAccountsWrite: >-
+             Or(
+               *[Condition(f"{IBOX_RESNAME}AllowAccountsWritePrincipalAWS{n}")
+               for n in getattr(cfg, f"{IBOX_RESNAME}AllowAccountsWritePrincipalAWS")])
+          - _AllowAccountsDelete: >-
+             Or(
+               *[Condition(f"{IBOX_RESNAME}AllowAccountsDeletePrincipalAWS{n}")
+               for n in getattr(cfg, f"{IBOX_RESNAME}AllowAccountsDeletePrincipalAWS")])
+          - _AllowCloudFrontOriginAccessControl: >-
+             Or(
+               *[Condition(f"{IBOX_RESNAME}AllowCloudFrontOriginAccessControlConditionDistributionID{n}")
+               for n in getattr(cfg, f"{IBOX_RESNAME}AllowCloudFrontOriginAccessControlConditionDistributionID")] +
+               [Equals("True", "False")])
+        AllowAccountsReplicaPrincipalAWS: none
+        AllowAccountsReplicaResourcePrefix.IBOX_CUSTOM_OBJ:
+          Value: >-
+            get_subvalue("arn:aws:s3:::%s/${1M}*" % getattr(cfg, f"BucketName{IBOX_INDEXNAME}"), f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+        AllowAccountsReplicaResourcePrefix:
+          1: ""
+        AllowAccountsReadPrincipalAWS.IBOX_CUSTOM_OBJ:
+          IBOX_CONDITION:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                get_condition("", "not_equals", "no", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: >-
+            If(
+              f"{IBOX_MAPNAME}{IBOX_RESNAME}",
+              "arn:aws:iam::%s:root" % get_endvalue(f"AWSAccount{IBOX_RESNAME}"),
+              Ref("AWS::NoValue"))
+        AllowAccountsReadPrincipalAWS:
+          Dev: 'no'
+          Stg: 'no'
+          Prd: 'no'
+        AllowAccountsWritePrincipalAWS.IBOX_CUSTOM_OBJ:
+          IBOX_CONDITION:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                get_condition("", "not_equals", "no", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: >-
+            If(
+              f"{IBOX_MAPNAME}{IBOX_RESNAME}",
+              "arn:aws:iam::%s:root" % get_endvalue(f"AWSAccount{IBOX_RESNAME}"),
+              Ref("AWS::NoValue"))
+        AllowAccountsWritePrincipalAWS:
+          Dev: 'no'
+          Stg: 'no'
+          Prd: 'no'
+        AllowAccountsDeletePrincipalAWS.IBOX_CUSTOM_OBJ:
+          IBOX_CONDITION:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                get_condition("", "not_equals", "no", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: >-
+            If(
+              f"{IBOX_MAPNAME}{IBOX_RESNAME}",
+              "arn:aws:iam::%s:root" % get_endvalue(f"AWSAccount{IBOX_RESNAME}"),
+              Ref("AWS::NoValue"))
+        AllowAccountsDeletePrincipalAWS:
+          Dev: 'no'
+          Stg: 'no'
+          Prd: 'no'
+        AllowCloudFrontOriginAccessControlConditionDistributionID.IBOX_CUSTOM_OBJ:
+          IBOX_PARAMETER:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                Description: Empty for mapped value - none to disable
+          IBOX_CONDITION:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                get_condition("", "not_equals", "none", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          IBOX_OUTPUT:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                Value: get_endvalue(f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: >-
+            If(
+              f"{IBOX_MAPNAME}{IBOX_RESNAME}",
+              Sub("arn:aws:cloudfront::${Account}:distribution/${DistributionID}",
+                  **{
+                    "DistributionID": get_endvalue(f"{IBOX_MAPNAME}{IBOX_RESNAME}"),
+                    "Account": get_endvalue(f"AWSAccount{IBOX_RESNAME}")}),
+              Ref("AWS::NoValue"))
+        AllowCloudFrontOriginAccessControlConditionDistributionID:
+          Own: none
+        PolicyDocument:
+          Statement:
+            - IBOX_LIST:
+            - Base:
+                Action:
+                  - "s3:GetBucketLocation"
+                Effect: Allow
+                Resource: Sub("arn:aws:s3:::%s" % IBOX_LINKED_OBJ_NAME)
+                Principal:
+                  AWS: Sub("arn:aws:iam::${AWS::AccountId}:root")
+                Sid: Base
+            - AllowReplica:
+                IBOX_IF:
+                  - IBOX_RESNAME.AllowAccountsReplica
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                Action:
+                  - "s3:ReplicateObject"
+                  - "s3:ReplicateDelete"
+                  - "s3:ObjectOwnerOverrideToBucketOwner"
+                Effect: Allow
+                Resource: getattr(cfg, f"{IBOX_RESNAME}AllowAccountsReplicaResourcePrefix")
+                Principal:
+                  AWS:
+                    - get_subvalue("arn:aws:iam::${1M}:root", f"{IBOX_RESNAME}AllowAccountsReplicaPrincipalAWS")
+                Sid: AllowReplica
+            - AllowAccountsRead:
+                IBOX_IF:
+                  - IBOX_RESNAME.AllowAccountsRead
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                Action:
+                  - 's3:ListBucket'
+                  - 's3:GetBucketLocation'
+                  - 's3:ListBucketMultipartUploads'
+                  - 's3:ListBucketVersions'
+                  - 's3:GetObject*'
+                  - 's3:ListMultipartUploadParts'
+                Effect: Allow
+                Resource:
+                  - Sub("arn:aws:s3:::%s" % IBOX_LINKED_OBJ_NAME)
+                  - Sub("arn:aws:s3:::%s/*" % IBOX_LINKED_OBJ_NAME)
+                Principal:
+                  AWS: getattr(cfg, f"{IBOX_RESNAME}AllowAccountsReadPrincipalAWS")
+                Sid: AllowAccountsRead
+            - AllowAccountsWrite:
+                IBOX_IF:
+                  - IBOX_RESNAME.AllowAccountsWrite
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                Action:
+                  - "s3:Put*"
+                Effect: Allow
+                Resource:
+                  - Sub("arn:aws:s3:::%s/*" % IBOX_LINKED_OBJ_NAME)
+                Principal:
+                  AWS: getattr(cfg, f"{IBOX_RESNAME}AllowAccountsWritePrincipalAWS")
+                Sid: AllowAccountsWrite
+            - AllowAccountsDelete:
+                IBOX_IF:
+                  - IBOX_RESNAME.AllowAccountsDelete
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                Action:
+                  - "s3:DeleteObject*"
+                Effect: Allow
+                Resource:
+                  - Sub("arn:aws:s3:::%s/*" % IBOX_LINKED_OBJ_NAME)
+                Principal:
+                  AWS: getattr(cfg, f"{IBOX_RESNAME}AllowAccountsDeletePrincipalAWS")
+                Sid: AllowAccountsDelete
+            - AllowCloudFrontOriginAccessControl:
+                IBOX_IF:
+                  - IBOX_RESNAME.AllowCloudFrontOriginAccessControl
+                  - IBOX_IFVALUE
+                  - Ref("AWS::NoValue")
+                Action:
+                  - "s3:GetObject"
+                Condition:
+                  StringLike:
+                    "AWS:SourceArn": getattr(cfg, f"{IBOX_RESNAME}AllowCloudFrontOriginAccessControlConditionDistributionID")
+                Effect: Allow
+                Principal:
+                  Service: cloudfront.amazonaws.com
+                Resource:
+                  - Sub("arn:aws:s3:::%s/*" % IBOX_LINKED_OBJ_NAME)
+                Sid: AllowCloudFrontOriginAccessControl
+          Version: "2012-10-17"

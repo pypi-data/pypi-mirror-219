@@ -1,0 +1,37 @@
+global:
+  Output:
+    - LambdaServiceUnavailableArn:
+        Value: GetAtt('LambdaServiceUnavailable', 'Arn')
+        Export: Export('LambdaServiceUnavailableArn')
+  Lambda:
+    - ServiceUnavailable:
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Lambda to serve resource-unavailable pages'
+        Runtime: python3.9
+        Timeout: 65
+        Environment:
+          Variables:
+            - RCode: 503
+            - Bucket: Sub(cfg.BucketNameAppData)
+  LambdaPermission:
+    - ServiceUnavailable:
+        IBOX_ENABLED: True
+        FunctionName: GetAtt('LambdaServiceUnavailable', 'Arn')
+        Principal: "elasticloadbalancing.amazonaws.com"
+  IAMPolicy:
+    - ServiceUnavailable:
+        Roles:
+          - Ref('RoleLambdaServiceUnavailable')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action: 's3:ListBucket'
+                Effect: Allow
+                Resource: Sub('arn:aws:s3:::%s' % cfg.BucketNameAppData)
+            - 2:
+                Action: 's3:GetObject'
+                Effect: Allow
+                Resource: Sub('arn:aws:s3:::%s/service-unavailable/*' % cfg.BucketNameAppData)

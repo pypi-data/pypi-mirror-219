@@ -1,0 +1,10 @@
+IBoxLoader: !include
+  - com/ec2/securitygroup.yml
+
+global:
+  RDSDBParameterGroup:
+    - Base:
+        Parameters:
+          character_set_server: utf8
+          collation_server: utf8_general_ci
+          log_bin_trust_function_creators: 1

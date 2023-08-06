@@ -1,0 +1,193 @@
+global:
+  EventsRule:
+    - EC2StartTagged:
+        Description: 'Cron based invocation of LambdaEC2StartStopTagged - Start'
+        State: 'DISABLED'
+        ScheduleExpression: 'cron(00 6 ? * mon-fri *)'
+        Targets:
+          - LambdaEC2StartStopTagged:
+              Arn: GetAtt('LambdaEC2StartStopTagged', 'Arn')
+              Id: 'TargetFunction-01'
+              Input: '{"Action": "start"}'
+    - EC2StopTagged:
+        Description: 'Cron based invocation of LambdaEC2StartStopTagged - Stop'
+        State: 'DISABLED'
+        ScheduleExpression: 'cron(0 19 * * ? *)'
+        Targets:
+          - LambdaEC2StartStopTagged:
+              Arn: GetAtt('LambdaEC2StartStopTagged', 'Arn')
+              Id: 'TargetFunction-01'
+              Input: '{"Action": "stop"}'
+    - EC2Notification:
+        Description: 'EC2 Instance State-change Notification'
+        State: 'ENABLED'
+        EventPattern:
+          detail:
+            state:
+              - running
+              - shutting-down
+          detail-type:
+            - EC2 Instance State-change Notification
+          source:
+            - aws.ec2
+        Targets:
+          - LambdaServiceDiscovery:
+              Arn: GetAtt('LambdaServiceDiscovery', 'Arn')
+              Id: 'TargetFunction-01'
+          - LambdaR53RecordInstanceId:
+              Arn: GetAtt('LambdaR53RecordInstanceId', 'Arn')
+              Id: 'TargetFunction-02'
+    - EC2SpotInterruption:
+        Description: 'EC2 Spot Instance Interruption Warning'
+        State: 'DISABLED'
+        EventPattern:
+          detail:
+            instance-action:
+              - terminate
+              - stop
+          detail-type:
+            - EC2 Spot Instance Interruption Warning
+          source:
+            - aws.ec2
+        Targets:
+          - LambdaECSDrainTasks:
+              Arn: GetAtt('LambdaECSDrainTasks', 'Arn')
+              Id: 'TargetFunction-01'
+  Lambda:
+    - EC2StartStopTagged:
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Start and Stop EC2 Tagged Instances'
+        Runtime: python3.9
+        Timeout: 10
+        Environment:
+          Variables:
+            - TagName: 'AutoStartStop'
+    - ECSDrainTasks:
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'Drain and stop Tasks from ECS container spot instances scheduled for termination'
+        Runtime: python3.9
+        Timeout: 300
+    - ServiceDiscovery:
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'ServiceDiscovery'
+        Environment:
+          Variables:
+            - NameSpaceID: ImportValue('ServiceDiscoveryPublicDnsNamespaceId')
+            - PublicDnsNamespaceName: Sub(f'find.{cfg.HostedZoneNameEnv}')
+            - HostedZoneId: ImportValue('HostedZoneIdEnv')
+        MemorySize: 256
+        Runtime: python3.9
+        Timeout: 30
+    - R53RecordInstanceId:
+        Architectures:
+          - arm64
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Description: 'R53 Record InstanceId Automatic Creation'
+        Environment:
+          Variables:
+            - HostedZoneName: get_endvalue('HostedZoneNamePrivate')
+            - HostedZoneId: ImportValue('HostedZoneIdPrivate')
+            - Topic: Ref('SNSTopicASGNotificationR53')
+        MemorySize: 256
+        Runtime: python3.9
+        Timeout: 30
+  LambdaPermission:
+    - EC2StartStopTaggedEventsRuleEC2StartTagged:
+        FunctionName: GetAtt('LambdaEC2StartStopTagged', 'Arn')
+        Principal: events.amazonaws.com
+        SourceArn: GetAtt("EventsRuleEC2StartTagged", 'Arn')
+    - EC2StartStopTaggedEventsRuleEC2StopTagged:
+        FunctionName: GetAtt('LambdaEC2StartStopTagged', 'Arn')
+        Principal: events.amazonaws.com
+        SourceArn: GetAtt("EventsRuleEC2StopTagged", 'Arn')
+    - ServiceDiscoveryEventsRuleEC2Notification:
+        FunctionName: GetAtt('LambdaServiceDiscovery', 'Arn')
+        Principal: events.amazonaws.com
+        SourceArn: GetAtt("EventsRuleEC2Notification", 'Arn')
+    - R53RecordInstanceIdEventsRuleEC2Notification:
+        FunctionName: GetAtt('LambdaR53RecordInstanceId', 'Arn')
+        Principal: events.amazonaws.com
+        SourceArn: GetAtt("EventsRuleEC2Notification", 'Arn')
+    - ECSDrainTasksEventsRuleEC2SpotInterruption:
+        FunctionName: GetAtt('LambdaECSDrainTasks', 'Arn')
+        Principal: events.amazonaws.com
+        SourceArn: GetAtt("EventsRuleEC2SpotInterruption", 'Arn')
+  IAMPolicy:
+    - LambdaEC2StartStopTagged:
+        Roles:
+          - Ref('RoleLambdaEC2StartStopTagged')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'ec2:StartInstances'
+                  - 'ec2:StopInstances'
+                Effect: Allow
+                Resource: 'arn:aws:ec2:*:*:instance/*'
+    - LambdaECSDrainTasks:
+        Roles:
+          - Ref('RoleLambdaECSDrainTasks')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'ecs:ListContainerInstances'
+                  - 'ecs:ListTasks'
+                  - 'ecs:DescribeTasks'
+                  - 'ecs:StopTask'
+                  - 'ecs:DescribeServices'
+                  - 'elasticloadbalancing:DescribeTargetGroupAttributes'
+                  - 'elasticloadbalancing:DescribeTargetHealth'
+                  - 'elasticloadbalancing:DeregisterTargets'
+                Effect: Allow
+                Resource: '*'
+    - LambdaServiceDiscovery:
+        Roles:
+          - Ref('RoleLambdaServiceDiscovery')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'servicediscovery:ListServices'
+                  - 'servicediscovery:CreateService'
+                  - 'servicediscovery:DeleteService'
+                  - 'servicediscovery:RegisterInstance'
+                  - 'servicediscovery:DeRegisterInstance'
+                  - 'servicediscovery:GetOperation'
+                  - 'servicediscovery:GetNameSpace'
+                Effect: Allow
+                Resource: '*'
+            - 2:
+                Action:
+                  - 'route53:ChangeResourceRecordSets'
+                Effect: Allow
+                Resource: 'arn:aws:route53:::*'
+    - LambdaR53RecordInstanceId:
+        Roles:
+          - Ref('RoleLambdaR53RecordInstanceId')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'sns:Publish'
+                Effect: Allow
+                Resource: Ref('SNSTopicASGNotificationR53')
+            - 2:
+                Action:
+                  - 'route53:ChangeResourceRecordSets'
+                  - 'route53:ListResourceRecordSets'
+                Effect: Allow
+                Resource: 'arn:aws:route53:::*'
+  SNSTopic:
+    - ASGNotificationR53:
+        NOOP: True

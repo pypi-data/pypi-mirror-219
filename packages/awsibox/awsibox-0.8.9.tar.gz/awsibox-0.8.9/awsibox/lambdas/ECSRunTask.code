@@ -1,0 +1,87 @@
+# vim: ft=python
+import boto3
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+CLIENT_ECS = boto3.client("ecs")
+RESOURCE_EC2 = boto3.resource("ec2")
+
+
+def get_container_instance(cluster):
+    c_instances = []
+    paginator = CLIENT_ECS.get_paginator("list_container_instances")
+    response_iterator = paginator.paginate(cluster=cluster, status="ACTIVE")
+    for s in response_iterator:
+        container_instance_arns = s.get("containerInstanceArns")
+        while container_instance_arns:
+            cia = container_instance_arns[0:100]
+            resp_describe = CLIENT_ECS.describe_container_instances(
+                cluster=cluster, containerInstances=cia
+            )
+            c_instances.extend(resp_describe.get("containerInstances"))
+            del container_instance_arns[0:100]
+
+    newer_instance = sorted(
+        c_instances,
+        key=lambda i: (i.get("registeredAt"), i["containerInstanceArn"]),
+        reverse=True,
+    )[0]
+
+    return newer_instance["containerInstanceArn"], newer_instance["ec2InstanceId"]
+
+
+# currently not used
+def manage_attribute(cluster, action, id=None):
+    kwargs = {"cluster": cluster, "attributes": [{"name": "LambdaRunTask"}]}
+
+    if action == "put":
+        kwargs["attributes"]["targetType"] = "container-instance"
+        kwargs["attributes"]["targetId"] = id
+        CLIENT_ECS.put_attributes(**kwargs)
+    else:
+        CLIENT_ECS.delete_attributes(**kwargs)
+
+
+def lambda_handler(event, context):
+    logger.info(event)
+    cluster = event["Cluster"]
+
+    kwargs = {
+        "taskDefinition": event["TaskDefinition"],
+        "cluster": cluster,
+        # 'placementConstraints': [{
+        #  'type': 'memberOf',
+        #  'expression': 'attribute:LambdaRunTask exists',
+        # }],
+    }
+
+    if "NetworkModeAwsVpc" in event:
+        kwargs["networkConfiguration"] = {
+            "awsvpcConfiguration": {
+                "subnets": event["Subnets"].split(","),
+                "securityGroups": event["SecurityGroups"].split(),
+                "assignPublicIp": "DISABLED",
+            }
+        }
+
+    if event["LaunchType"] == "EC2":
+        # manage_attribute(cluster, 'delete')
+        my_container_instance, my_instance = get_container_instance(cluster)
+
+        logger.info(
+            f"EC2 Instance: {my_instance}, ECS Instance: {my_container_instance}"
+        )
+
+        # manage_attribute(cluster, 'put', my_container_instance)
+        kwargs["containerInstances"] = [my_container_instance]
+        response = CLIENT_ECS.start_task(**kwargs)
+    else:
+        kwargs["count"] = 1
+        kwargs["launchType"] = "FARGATE"
+        response = CLIENT_ECS.run_task(**kwargs)
+
+    if response.get("failures"):
+        logger.error(response)
+        raise Exception("Error running task.")

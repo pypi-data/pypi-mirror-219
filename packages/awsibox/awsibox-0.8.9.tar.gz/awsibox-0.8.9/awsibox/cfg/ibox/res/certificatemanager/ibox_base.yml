@@ -1,0 +1,8 @@
+global:
+  CertificateManagerCertificate:
+    - IBOX_BASE:
+        IBOX_RESNAME: Certificate.IBOX_INDEXNAME
+        IBOX_OUTPUT:
+          - _:
+              Value: Ref(IBOX_RESNAME)
+        Tags: Tags(Name=IBOX_INDEXNAME)

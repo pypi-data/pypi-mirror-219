@@ -1,0 +1,25 @@
+global:
+  StackName: r-latedge-01
+  IAMRole:
+    - Lambda:
+        AssumeRolePolicyDocument:
+          Statement:
+            - 1:
+                Principal:
+                  Service:
+                    - lambda.amazonaws.com
+                    - edgelambda.amazonaws.com
+  Lambda:
+    - IBOX_BASE:
+        IBOX_SOURCE_OBJ: LambdaFunctionVersioned
+        Environment: IBOX_SKIP
+    - AtEdgeAddHeaders:
+        IBOX_ENABLED: False
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        AtEdge: True
+        Description: 'Lambda@Edge add Headers'
+        Runtime: python3.9
+        Timeout: 10
+        Version: True
+        CacheControl: 31536000
