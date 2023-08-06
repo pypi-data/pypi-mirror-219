@@ -1,0 +1,99 @@
+[tool.poetry]
+name = "generic"
+version = "1.1.2"
+description = "Generic programming library for Python"
+authors = [
+    "Andrey Popp <8mayday@gmail.com>",
+    "Arjan Molenaar <gaphor@gmail.com>"
+]
+maintainers = [
+    "Arjan Molenaar <gaphor@gmail.com>",
+    "Dan Yeaw <dan@yeaw.me>"
+]
+
+license = "BSD License"
+readme = "README.md"
+homepage = "https://generic.readthedocs.io/"
+repository = "https://github.com/gaphor/generic"
+documentation = "https://generic.readthedocs.io/"
+
+keywords = ["generic", "multi dispatch", "dispatch", "event"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: BSD License",
+    "Programming Language :: Python",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+exceptiongroup = "^1.0.0"
+sphinx = { version = ">=4.3,<7.1", optional = true }
+furo = { version = ">=2022,<2024", optional = true }
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4"
+pytest-cov = "^4.1"
+
+[tool.poetry.extras]
+docs = [ "sphinx", "furo" ]
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests",
+    "docs",
+    ]
+addopts = [
+    "--doctest-modules",
+    "--doctest-glob='*.rst'",
+    "--import-mode=importlib",
+]
+
+[tool.coverage.run]
+source = ["generic"]
+
+[tool.mypy]
+python_version = 3.9
+warn_return_any = true
+warn_unused_configs = true
+warn_redundant_casts = true
+check_untyped_defs = true
+strict_optional = true
+show_error_codes = true
+ignore_missing_imports=true
+warn_unused_ignores = true
+namespace_packages = true
+
+[[tool.mypy.overrides]]
+module = [
+    "pytest.*",
+    "conf",
+]
+ignore_missing_imports = true
+warn_unreachable = true
+
+[tool.ruff]
+exclude = [
+    ".venv",
+    "dist",
+]
+ignore = ["E501"]
+line-length = 88
+select = [
+    "B",
+    "B9",
+    "C",
+    "E",
+    "F",
+    "W",
+]
+
+[tool.ruff.mccabe]
+max-complexity = 18
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
