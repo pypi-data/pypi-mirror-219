@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: klldFN
+Version: 1.0.7
+Summary: klldFN
+Home-page: https://www.klld.42web.io
+Author: klld
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: crayons
+Requires-Dist: PirxcyPinger (==5.0.0)
+Requires-Dist: fortnitepy (==3.6.7)
+Requires-Dist: BenBotAsync (==3.0.1)
+Requires-Dist: FortniteAPIAsync (==0.1.6)
+Requires-Dist: sanic (==20.6.3)
+Requires-Dist: aiohttp
+Requires-Dist: uvloop
+Requires-Dist: requests
+
+**pip install klldFN**
+
+**pip3 install klldFN**
