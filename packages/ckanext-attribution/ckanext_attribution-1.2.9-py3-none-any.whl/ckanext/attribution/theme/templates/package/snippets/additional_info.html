@@ -1,0 +1,44 @@
+{% ckan_extends %}
+
+{% set contributors = h.get_cited_contributors(g.pkg_dict.get('id', {})) %}
+{% set external_id_list = h.controlled_list('agent_external_id_schemes') %}
+
+{% block attribution_row %}
+{% asset 'ckanext-attribution/addtl-css' %}
+<tr>
+    <th scope="row" class="dataset-label">{{ _('Primary contributors') }}</th>
+    <td class="dataset-details">
+        <div class="attribution-grid">
+            {% for contributor in contributors['cited'] %}
+            <div class="agent">
+                {{ contributor.agent['standardised_name'] }}{% if contributor.agent['external_id']
+                %}
+                (<a
+                href="{{ contributor.agent['external_id_url'] }}"><i
+                class="{{ external_id_list[contributor.agent['external_id_scheme']]['fa_icon'] }}"></i>
+                {{ contributor.agent['external_id'] }}</a>){% endif %}{% if not loop.last %};{%
+                endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </td>
+</tr>
+<tr>
+    <th scope="row" class="dataset-label">{{ _('Other contributors') }}</th>
+    <td class="dataset-details">
+        <div class="attribution-grid">
+            {% for contributor in contributors['uncited'] %}
+            <div class="agent">
+                {{ contributor.agent['standardised_name'] }}{% if contributor.agent['external_id']
+                %}
+                (<a
+                href="{{ contributor.agent['external_id_url'] }}"><i
+                class="{{ external_id_list[contributor.agent['external_id_scheme']]['fa_icon'] }}"></i>
+                {{ contributor.agent['external_id'] }}</a>){% endif %}{% if not loop.last %};{%
+                endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </td>
+</tr>
+{% endblock %}

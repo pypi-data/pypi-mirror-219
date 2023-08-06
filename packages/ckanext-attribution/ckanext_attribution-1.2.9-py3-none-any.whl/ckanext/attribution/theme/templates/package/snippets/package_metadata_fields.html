@@ -1,0 +1,15 @@
+{% ckan_extends %}
+
+{% block package_custom_fields_agent %}
+{% asset 'ckanext-attribution/main-js' %}
+{% asset 'ckanext-attribution/main-css' %}
+<label>Contributors</label>
+<div>
+    <i class="fas fa-info-circle"></i>
+    <small>"Contributors" includes authors, editors, and anyone else who may have contributed to the
+        dataset.</small>
+</div>
+<div id="contributors">
+    <app package-id="{{ data.id }}" can-edit="{{ h.can_edit() }}" doi-plugin="{{ h.doi_plugin() }}"></app>
+</div>
+{% endblock %}

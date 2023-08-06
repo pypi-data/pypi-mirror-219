@@ -1,0 +1,798 @@
+@smallScreen: 500px;
+@attribution-grey0: #757575;
+@attribution-grey1: #c3c3c3;
+@attribution-grey2: #dddddd;
+@attribution-grey3: #e8e8e8;
+@attribution-grey4: #f2f2f2;
+@attribution-grey5: #ffffff;
+@attribution-bold: #188100;
+@attribution-soft: #bbeda9;
+
+// CONTRIBUTION BLOCK ==============================================================================
+
+.contribution-block {
+  margin-bottom: 1em;
+  padding: 2px 2px 0.5em;
+  border-bottom: 2px solid @attribution-grey4;
+  background-color: @attribution-grey5;
+  display: grid;
+  grid-template-columns: 2em 1fr;
+  grid-gap: 0.5em;
+
+  & > .citation-ordering {
+    color: @attribution-grey0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-right: 1em;
+    grid-gap: 0.2em;
+    grid-template-rows: repeat(4, 1fr);
+
+    & > i {
+      cursor: pointer;
+    }
+
+    & .btn-1 {
+      grid-row: 1;
+    }
+
+    & .btn-2 {
+      grid-row: 2;
+    }
+
+    & .btn-3 {
+      grid-row: 3;
+    }
+
+    & .btn-4 {
+      grid-row: 4;
+    }
+  }
+
+  &.cited > .citation-ordering {
+    & > span {
+      font-size: 1.5em;
+      font-weight: bold;
+      cursor: grab;
+    }
+  }
+}
+
+// GENERIC FIELDS ==================================================================================
+
+.attribution-field {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 0.5em 1em;
+
+  &.one-line {
+    grid-template-columns: auto 1fr;
+    justify-items: left;
+  }
+
+  &.user-display {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  & label {
+    margin: 0;
+  }
+
+  & input,
+  select {
+    margin: 0;
+    width: 100%;
+    grid-column: span 2;
+
+    &[type='checkbox'] {
+      top: 0;
+      width: unset;
+      grid-column: span 1;
+    }
+  }
+}
+
+.attribution-row {
+  display: grid;
+  grid-gap: 1em;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+  background-color: @attribution-grey3;
+
+  &:nth-of-type(even) {
+    background-color: @attribution-grey4;
+  }
+
+  & .help-icon {
+    justify-self: end;
+  }
+}
+
+.attribution-save {
+  margin-top: 1em;
+  text-align: right;
+}
+
+@media (max-width: @smallScreen) {
+  .attribution-row .wrap-small {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+}
+
+// AGENT ===========================================================================================
+
+.agent-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2em;
+}
+
+.agent-detail {
+  opacity: 1;
+  transition: opacity 0.5s;
+
+  &.agent-empty {
+    opacity: 0.5;
+  }
+}
+
+.agent-dirty {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: -4em;
+    width: 0.5em;
+    height: 100%;
+    content: '';
+    z-index: -1;
+    background-color: @attribution-soft;
+  }
+}
+
+& .agent-name {
+  flex-grow: 1;
+  display: grid;
+  grid-gap: 0.5em;
+  grid-template-columns: auto 1fr;
+  margin-right: 1em;
+  align-items: start;
+}
+
+& .display-name {
+  flex-grow: 1;
+}
+
+.agent-activities {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.agent-detail {
+  position: relative;
+  padding: 5px 0;
+}
+
+.agent-icon {
+  margin-right: 0.5em;
+}
+
+.agent-affiliation {
+  font-style: italic;
+  font-size: 0.8em;
+
+  &:not(:last-child) {
+    &::after {
+      content: ';';
+      padding-right: 0.3em;
+      margin-left: -0.1em; // the left margin looks weird because of the parentheses, so this just fixes that
+    }
+  }
+}
+
+.agent-identifier {
+  font-size: 0.8em;
+  padding: 3px 0 0;
+  display: grid;
+
+  & > a {
+    white-space: nowrap;
+  }
+
+  & a > i {
+    margin-right: 0.3em;
+  }
+}
+
+.agent-type-edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: end;
+  margin-right: 1em;
+  padding: 0.5em 0.5em 0.7em;
+  border-radius: 5px;
+  background: @attribution-grey3;
+
+  & .agent-type-option {
+    & > input {
+      display: none;
+
+      &:checked ~ label {
+        border-bottom: 2px solid;
+        margin-bottom: -2px;
+      }
+    }
+
+    & label {
+      margin-bottom: 0;
+
+      &::after {
+        content: none;
+      }
+    }
+  }
+}
+
+.agent-user-edit,
+.agent-affiliations-edit {
+  grid-template-columns: 1fr auto;
+}
+
+// AUTOCOMPLETE ====================================================================================
+
+.autocomplete {
+  position: relative;
+  display: grid;
+  grid-column-gap: 0.5em;
+  align-items: center;
+
+  & > label {
+    margin: 0;
+  }
+}
+
+.attribution-field-validated {
+  position: relative;
+
+  .box-status-icon {
+    bottom: 10px;
+    top: unset;
+  }
+}
+
+.form-control-invalid {
+  border-color: darkred;
+}
+
+.box-status-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.autocomplete-options {
+  border-radius: 0 0 5px 5px;
+  background-color: @attribution-grey5;
+  max-height: 10em;
+  overflow-y: scroll;
+}
+
+.autocomplete-block-title,
+.autocomplete-option {
+  font-size: 0.8em;
+
+  &:last-of-type {
+    border-radius: 0 0 5px 5px;
+  }
+}
+
+.autocomplete-block-title {
+  padding: 4px 10px;
+  font-variant: all-small-caps;
+  font-weight: bold;
+  text-align: center;
+  background-color: @attribution-grey3;
+  border-top: 10px solid @attribution-grey5;
+}
+
+.autocomplete-option:not(.autocomplete-block-title) {
+  padding: 7px 10px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: @attribution-grey4;
+  }
+
+  &.null-option {
+    opacity: 0.8;
+  }
+}
+
+.autocomplete-list-items {
+  display: flex;
+  flex-wrap: wrap;
+
+  & > div {
+    background-color: @attribution-grey5;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0.5em;
+    font-size: 0.8em;
+
+    & > i {
+      margin-left: 0.5em;
+      cursor: pointer;
+    }
+  }
+}
+
+.autocomplete-no-label {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: @smallScreen) {
+  .autocomplete {
+    & .autocomplete-options {
+      grid-column-start: 1;
+    }
+
+    &.autocomplete-label {
+      & > i:last-child {
+        top: 2em;
+      }
+    }
+  }
+}
+
+@media (min-width: @smallScreen + 1) {
+  .autocomplete {
+    &.autocomplete-label {
+      grid-template-columns: auto 1fr;
+
+      & .autocomplete-options {
+        grid-column-start: 2;
+      }
+
+      & .autocomplete-list-items {
+        grid-column: span 2;
+      }
+
+      & .expand-bar {
+        grid-column: 2;
+      }
+    }
+  }
+}
+
+// MISC ============================================================================================
+
+.help-icon {
+  padding-left: 0.5em;
+  position: relative;
+
+  & .help-tooltip {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: @attribution-grey5;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.8em;
+    z-index: 100;
+    width: 18em;
+    border: 1px solid @attribution-grey3;
+  }
+
+  &:hover .help-tooltip {
+    display: block;
+  }
+}
+
+.edit-icon {
+  cursor: pointer;
+  margin-left: 1em;
+}
+
+.edit-icons {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.checkboxes {
+  display: flex;
+  align-items: center;
+
+  & > input[type='checkbox'] {
+    display: none;
+
+    & + label {
+      padding: 2px 5px 1px;
+      margin: 0 2px;
+      border-radius: 5px;
+      background-color: @attribution-grey3;
+      color: if(boolean(luma(@attribution-grey3) < 50%), #fff, #000);
+      font-weight: normal;
+      font-size: 0.9em;
+      transition: all 0.4s ease;
+
+      &::after {
+        margin-left: 0.5em;
+        font-family: 'Font Awesome 5 Free', serif;
+        content: '\f00d';
+        font-weight: bold;
+      }
+    }
+
+    &:checked + label {
+      background-color: @attribution-soft;
+      color: if(boolean(luma(@attribution-soft) < 50%), #fff, #000);
+
+      &::after {
+        content: '\f00c';
+      }
+    }
+  }
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+
+  & .toggle-label {
+    font-size: 0.8em;
+  }
+
+  .toggle-switch {
+    display: none;
+
+    & + label {
+      margin: 0 0.5em;
+      display: block;
+      position: relative;
+      cursor: pointer;
+      outline: none;
+      user-select: none;
+      padding: 2px;
+      width: 50px;
+      height: 30px;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      font-size: 0.9em;
+      text-align: center;
+      line-height: 1;
+    }
+
+    & + label:before {
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: @attribution-grey4;
+      border-radius: 30px;
+      padding: 4px;
+      content: '';
+      transition: all 0.4s ease;
+    }
+
+    &:checked + label:before {
+      background-color: @attribution-grey3;
+    }
+
+    & + label:after {
+      display: block;
+      position: absolute;
+      top: 16px;
+      left: 1px;
+      bottom: 0;
+      width: 22px;
+      background-color: @attribution-grey1;
+      color: if(boolean(luma(@attribution-grey1) < 50%), #fff, #000);
+      border-radius: 26px;
+      transition: all 0.4s ease;
+      text-align: center;
+      font-family: 'Font Awesome 5 Free', serif;
+      content: '\f00d';
+      padding-top: 1px;
+    }
+
+    &:checked + label:after {
+      margin-left: 26px;
+      background-color: @attribution-bold;
+      color: if(boolean(luma(@attribution-bold) < 50%), #fff, #000);
+      content: '\f00c';
+    }
+  }
+}
+
+.expand-bar {
+  background-color: @attribution-grey2;
+  text-align: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 5px;
+
+  & small {
+    font-variant: all-small-caps;
+    font-size: 0.9em;
+    padding: 0 10px 0;
+  }
+}
+
+.icon-btn {
+  margin: 5px;
+  color: @attribution-bold;
+  cursor: pointer;
+}
+
+.clickable-text {
+  cursor: pointer;
+
+  &.clicked {
+    font-weight: bold;
+    font-style: italic;
+  }
+}
+
+.is-deleted {
+  opacity: 0.3;
+  position: relative;
+  transition: opacity 0.5s;
+
+  &::after {
+    border-top: 1px solid black;
+    position: absolute;
+    bottom: 50%;
+    left: -2px;
+    right: -2px;
+    content: '';
+  }
+}
+
+.scroll-select {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-items: center;
+
+  & i {
+    cursor: pointer;
+  }
+}
+
+.btn-disabled {
+  opacity: 0.5;
+  cursor: default !important;
+}
+
+.screenreader {
+  visibility: hidden;
+}
+
+input.form-control[type='date'] {
+  padding: 0 12px;
+}
+
+// ACTIVITY ========================================================================================
+
+.agent-activity {
+  padding: 0.5em;
+  background-color: @attribution-grey4;
+  border-radius: 5px;
+  margin: 0.3em;
+  white-space: nowrap;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  border: 1px solid @attribution-grey3;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 1em;
+  }
+
+  & > i {
+    cursor: pointer;
+  }
+
+  &.activity-scheme-credit > div {
+    border-bottom: 2px solid #cd2653;
+  }
+
+  &.activity-scheme-datacite > div {
+    border-bottom: 2px solid #0983bb;
+  }
+
+  & > div:hover {
+    border-bottom-style: dashed;
+  }
+}
+
+.activity-sorted-agents,
+.activity-unsorted-agents {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  & > :last-child {
+    grid-column: span 2;
+  }
+}
+
+.active-agent {
+  border: 1px dashed @attribution-grey1;
+}
+
+.activity-agent {
+  background-color: @attribution-grey5;
+  padding: 10px;
+  margin: 0.5em;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-gap: 0.5em;
+  align-items: center;
+  cursor: grab;
+
+  &.sortable-chosen {
+    cursor: grabbing;
+  }
+
+  & > input {
+    width: 3em;
+    text-align: center;
+  }
+
+  & > span {
+    padding-top: 3px;
+  }
+}
+
+.activity-edit-fields {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: 1fr 1fr;
+
+  & .activity-field {
+    display: grid;
+  }
+}
+
+@media (max-width: @smallScreen) {
+  .activity-role-level {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-edit-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+.activity-edit-block {
+  margin: 1em 0;
+}
+
+// NEW BLOCK =======================================================================================
+
+.contribution-block-new {
+  margin-bottom: 2em;
+  margin-left: 1.5em;
+}
+
+.new-contribution-search {
+  display: grid;
+  align-items: center;
+  grid-gap: 0.5em;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 1em;
+
+  & .autocomplete {
+    grid-column: span 2;
+  }
+}
+
+.new-contribution-manual {
+  display: flex;
+  justify-content: end;
+  align-items: baseline;
+  font-style: italic;
+  margin-bottom: 1em;
+
+  & > * {
+    margin-left: 0.5em;
+    cursor: pointer;
+  }
+}
+
+// CITATION PREVIEW ================================================================================
+
+.citation-preview {
+  padding: 1em;
+  margin: 2em;
+  border-radius: 10px;
+  border: 2px solid @attribution-grey3;
+  background-color: @attribution-grey4;
+
+  & .citation-preview-header {
+    display: flex;
+
+    & .citation-preview-title {
+      font-weight: bold;
+      flex-grow: 1;
+    }
+  }
+
+  & .citation-preview-body {
+    display: grid;
+    grid-gap: 0.5em;
+    align-items: center;
+    margin-top: 1em;
+
+    & .scroll-select > span {
+      font-style: italic;
+      font-size: 0.9em;
+    }
+  }
+
+  & .citation-string {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+.attribution-errors-block {
+  background-color: #ffaaaa;
+  border: 1px solid darkred;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin: 1em;
+  font-size: 0.9em;
+
+  & > ul {
+    margin: 0;
+  }
+}
+
+.attribution-loading {
+  opacity: 0.5;
+}
+
+.contributor-pagination {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+  margin: 1em 1em 2em;
+
+  & .page-btn {
+    padding: 10px;
+    background-color: @attribution-soft;
+    border-radius: 5px;
+    cursor: pointer;
+
+    & + .page-btn {
+      margin-left: 5px;
+    }
+  }
+
+  & > div {
+    display: flex;
+  }
+}
+
+.attribution-warning {
+  margin-top: 1em;
+}

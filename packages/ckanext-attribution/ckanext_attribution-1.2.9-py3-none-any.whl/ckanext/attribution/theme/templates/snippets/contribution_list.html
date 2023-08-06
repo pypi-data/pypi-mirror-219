@@ -1,0 +1,26 @@
+{% block contribution_list %}
+{% if contributions %}
+<table class="contribution-list">
+    {% block contribution_list_header %}
+    <thead>
+    <tr>
+        <th id="contribution-list-dataset">Dataset</th>
+        <th id="contribution-list-roles">Role(s)</th>
+        <th id="contribution-list-order">Citation order</th>
+    </tr>
+    </thead>
+    {% endblock %}
+
+    {% block contribution_list_inner %}
+    <tbody>
+    {% for contribution in contributions %}
+    {% snippet 'snippets/contribution_item.html', contribution=contribution, item_class=item_class,
+        hide_resources=hide_resources, banner=banner,
+        truncate=truncate, truncate_title=truncate_title %}
+    {% endfor %}
+    </tbody>
+    {% endblock %}
+
+</table>
+{% endif %}
+{% endblock %}
