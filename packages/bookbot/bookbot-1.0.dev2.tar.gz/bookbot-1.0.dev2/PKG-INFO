@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: bookbot
+Version: 1.0.dev2
+Project-URL: Homepage, https://codeberg.org/HL-Bo/bookbot
+Project-URL: Documentation, https://codeberg.org/HL-Bo/bookbot/blob/master/docs/index.md
+Project-URL: Changelog, https://codeberg.org/HL-Bo/bookbot/blob/master/CHANGELOG.md
+Project-URL: Repository, https://codeberg.org/HL-Bo/bookbot.git
+Project-URL: Bug Tracker, https://codeberg.org/HL-Bo/bookbot/issues
+Author-email: Heng Zhou <hl-bo@outlook.com>
+Maintainer-email: handsome2810@163.com
+License: GPLv3+
+License-File: LICENSE
+Keywords: book,bot,novel,spider
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
+Requires-Dist: beautifulsoup4
+Requires-Dist: markdown
+Requires-Dist: requests
+Provides-Extra: cli
+Requires-Dist: textual; extra == 'cli'
+Provides-Extra: gui
+Requires-Dist: fastapi; extra == 'gui'
+Requires-Dist: uvicorn; extra == 'gui'
+Provides-Extra: lxml
+Requires-Dist: lxml; extra == 'lxml'
+Description-Content-Type: text/markdown
+
+bookbot
+======

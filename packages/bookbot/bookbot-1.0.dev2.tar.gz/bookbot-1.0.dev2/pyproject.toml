@@ -1,0 +1,55 @@
+[project]
+name = "bookbot"
+version = "1.0.dev2"
+description = ""
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "GPLv3+"}
+authors = [
+  {name="Heng Zhou", email="hl-bo@outlook.com" },
+]
+maintainers = [
+  {email = "handsome2810@163.com"}
+]
+keywords = ["spider", "bot", "book", "novel"]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Natural Language :: Chinese (Simplified)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+  "requests",
+  "beautifulsoup4",
+  "Markdown",
+]
+
+[project.urls]
+Homepage = "https://codeberg.org/HL-Bo/bookbot"
+Documentation = "https://codeberg.org/HL-Bo/bookbot/blob/master/docs/index.md"
+Changelog = "https://codeberg.org/HL-Bo/bookbot/blob/master/CHANGELOG.md"
+Repository = "https://codeberg.org/HL-Bo/bookbot.git"
+"Bug Tracker" = "https://codeberg.org/HL-Bo/bookbot/issues"
+
+[project.scripts]
+bookbot = "bookbot:main"
+bookbot-cli = "bookbot.cli:main"
+
+[project.gui-scripts]
+bookbot-gui = "bookbot.gui:main"
+
+[project.optional-dependencies]
+gui = [
+    "uvicorn",
+    "fastapi",
+]
+cli = ["textual"]
+lxml =  ["lxml"]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
