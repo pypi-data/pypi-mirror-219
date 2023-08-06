@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+starsign/__init__.py
+starsign/starsign.py
+starsign/test_suite.py
+starsign.egg-info/PKG-INFO
+starsign.egg-info/SOURCES.txt
+starsign.egg-info/dependency_links.txt
+starsign.egg-info/requires.txt
+starsign.egg-info/top_level.txt
