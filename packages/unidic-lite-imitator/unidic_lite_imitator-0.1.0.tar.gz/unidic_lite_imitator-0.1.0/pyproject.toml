@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unidic_lite_imitator"
+version = "0.1.0"
+authors = [
+  { name="Yutaka Nakano", email="nknytk.dev@gmail.com" },
+]
+description = "Imitate Japanese morphological analysis of mecab and unidic_lite with a small onnx model."
+readme = "README.md"
+requires-python = ">=3.8,<=3.11"
+dependencies = [
+    "onnxruntime>=1.14.0"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Operating System :: OS Independent"
+]
+license = {file = "LICENSE"}
+
+[project.urls]
+"Homepage" = "https://github.com/nknytk/ma-imitator"
+"Bug Tracker" = "https://github.com/nknytk/ma-imitator/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"*" = ["*.json", "*.onnx"]

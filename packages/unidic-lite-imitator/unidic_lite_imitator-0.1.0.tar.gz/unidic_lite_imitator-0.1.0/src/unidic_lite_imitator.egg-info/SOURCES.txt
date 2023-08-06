@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/unidic_lite_imitator/__init__.py
+src/unidic_lite_imitator/config.json
+src/unidic_lite_imitator/ma_imitator.py
+src/unidic_lite_imitator/model.onnx
+src/unidic_lite_imitator.egg-info/PKG-INFO
+src/unidic_lite_imitator.egg-info/SOURCES.txt
+src/unidic_lite_imitator.egg-info/dependency_links.txt
+src/unidic_lite_imitator.egg-info/requires.txt
+src/unidic_lite_imitator.egg-info/top_level.txt
