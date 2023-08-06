@@ -1,0 +1,61 @@
+[tool.poetry]
+name = "pymafia"
+version = "0.2.2"  # This is the standard placeholder for poetry-dynamic-versioning
+description = "A Python module and bridge for reflecting KoLmafia's Java environment"
+license = "MIT"
+authors = ["MrFizzyBubbs <MrFizzyBubbs@protonmail.com>"]
+readme = "README.md"
+repository = "https://github.com/MrFizzyBubbs/pymafia"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+JPype1 = "^1.4.1"
+wrapt = "^1.15.0"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.15.1"
+ruff = "^0.0.262"
+isort = "^5.10.1"
+black = "^23.3.0"
+yamlfix = "^1.9.0"
+docformatter = "^1.5.0"
+mypy = "^0.971"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+pre-commit = "^3.2.2"
+
+[tool.isort]
+profile = "black"
+
+[tool.ruff]
+ignore = [
+  "E501",  # Line too long, handled by black
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = [
+  "F401",  # Unused import
+  "F403",  # Wildcard import
+]
+"tests/__init__.py" = [
+  "E722",  # Bare except
+]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.yamlfix]
+explicit_start = false
+
+[tool.poetry-dynamic-versioning]
+enable = false
+format = "{base}"
+style = "pep440"
+strict = true
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
+build-backend = "poetry_dynamic_versioning.backend"
