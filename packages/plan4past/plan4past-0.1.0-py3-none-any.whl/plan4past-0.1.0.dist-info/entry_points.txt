@@ -1,0 +1,3 @@
+[console_scripts]
+plan4past=plan4past.__main__:cli
+
