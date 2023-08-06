@@ -1,0 +1,17 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+
+    {{ super() }}
+
+    {% if c.record_dict['gbifID'] %}
+        {{ h.build_gbif_nav_item(g.pkg.name, res.id, rec._id, g.version) }}
+    {% endif %}
+
+{% endblock %}
+
+{% block heading %}
+
+    <h1 class="page-heading">{{ c.record_title }}</h1>
+
+{% endblock %}

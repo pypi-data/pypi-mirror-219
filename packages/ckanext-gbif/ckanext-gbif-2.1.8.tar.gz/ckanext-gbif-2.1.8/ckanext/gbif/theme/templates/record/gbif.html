@@ -1,0 +1,238 @@
+{% extends "record/specimen.html" %}
+
+{% block heading %}
+
+     <h1 class="page-heading">GBIF interpreted record</h1>
+
+{% endblock %}
+
+{% block record_data %}
+
+    <table id="record-view">
+
+          <col width="300">
+          <col>
+
+        {# Identification #}
+
+        {% set classification = h.gbif_get_classification(gbif_record) %}
+
+        {% set errors = h.dqi_parse_errors(gbif_record['issues']) %}
+
+        {% if classification or gbif_record['specieskey'] or gbif_record['identifiedby'] %}
+
+            <thead>
+                <tr>
+                    <th>Identification details</th>
+                    <th><small>According to <a href="http://www.gbif.org/dataset/d7dddbf4-2cf0-4f39-9b2a-bb099caae36c" target="_blank" rel="nofollow">GBIF Backbone Taxonomy</a></small></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% if gbif_record['speciesKey'] %}
+
+                    <tr>
+                        <td><strong>Identified as species</strong></td>
+                        <td>
+                            <a href="http://www.gbif.org/species/{{ gbif_record['speciesKey'] }}" target="_blank" rel="nofollow">{{ gbif_record['scientificName'] }}</a>
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+                {% if classification %}
+
+                    <tr>
+                        <td><strong>Taxonomic classification</strong></td>
+                        <td>
+                            {{ classification }}
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+                {% if gbif_record['identifiedBy'] %}
+
+                    <tr>
+                        <td><strong>Identified</strong></td>
+                        <td>
+                            {{ gbif_record['identifiedBy'] }}
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+            </tbody>
+
+        {% endif %}
+
+        {# Occurrence details #}
+
+        {% if gbif_record['recordedBy'] or gbif_record['eventDate'] or gbif_record['recordNumber'] %}
+
+            <thead>
+                <tr>
+                    <th colspan="2">Occurrence details</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% if gbif_record['recordedBy'] %}
+
+                    <tr>
+                        <td><strong>Recorded by</strong></td>
+                        <td>{{ gbif_record['recordedBy'] }}</td>
+                    </tr>
+
+                {% endif %}
+
+                {% if gbif_record['eventDate'] %}
+
+                    <tr>
+                        <td><strong>Date recorded</strong></td>
+                        <td>{{ gbif_record['eventDate'] }}</td>
+                    </tr>
+
+                {% endif %}
+
+
+                {% if gbif_record['recordNumber'] %}
+
+                    <tr>
+                        <td><strong>Record number</strong></td>
+                        <td>{{ gbif_record['recordNumber'] }}</td>
+                    </tr>
+
+                {% endif %}
+
+            </tbody>
+
+        {% endif %}
+
+        {# Location #}
+
+        {% set geography = h.gbif_get_geography(gbif_record) %}
+
+        {% if geography or gbif_record['habitat'] or gbif_record['countryCode'] or gbif_record['islandGroup'] or (gbif_record['decimalLongitude'] and gbif_record['decimalLatitude']) %}
+
+            <thead>
+                <tr>
+                    <th colspan="2">Location</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% if gbif_record['countryCode'] %}
+
+                    <tr>
+                        <td><strong>Country</strong></td>
+                        <td><a href="http://www.gbif.org/country/{{ gbif_record['countryCode'] }}" target="_blank" rel="nofollow">{{ gbif_record['country'] or gbif_record['countryCode'] }}</a></td>
+                    </tr>
+
+                {% endif %}
+
+                {% if gbif_record['decimalLongitude'] and gbif_record['decimalLatitude'] %}
+
+                    <tr>
+                        <td><strong>Coordinates</strong></td>
+                        <td><a href="http://www.gbif.org/occurrence/{{ gbif_record['id'] }}" target="_blank" rel="nofollow">{{ gbif_record['decimalLongitude'] }}, {{ gbif_record['decimalLatitude'] }}</a></td>
+                    </tr>
+
+                {% endif %}
+
+                {% if geography %}
+
+                    <tr>
+                        <td><strong>Geographic classification</strong></td>
+                        <td>
+                            {{ geography }}
+                        </td>
+                    </tr>
+
+                {% endif %}
+
+                {% if gbif_record['islandGroup'] %}
+
+                    <tr>
+                        <td><strong>Islands</strong></td>
+                        <td>{{ gbif_record['islandGroup'] }}</td>
+                    </tr>
+
+                {% endif %}
+
+                {% if gbif_record['habitat'] %}
+
+                    <tr>
+                        <td><strong>Habitat</strong></td>
+                        <td>{{ gbif_record['habitat'] }}</td>
+                    </tr>
+
+                {% endif %}
+
+            </tbody>
+
+        {% endif %}
+
+        {% if errors %}
+
+            <thead>
+                <tr>
+                    <th colspan="2">Data Quality Issues</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for error in errors %}
+
+                    <tr>
+                        <td><strong>{{ error['title'] }}</strong></td>
+                        <td>{{ error['description'] }}</td>
+                    </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        {% endif %}
+
+        {# Publication details #}
+
+        <thead>
+            <tr>
+                <th colspan="2">GBIF Publication details</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td><strong>Last interpreted</strong></td>
+                <td>{{ h.gbif_render_datetime(gbif_record['lastInterpreted']) }}</td>
+            </tr>
+
+            <tr>
+                <td><strong>Occurrence</strong></td>
+                <td><a href="http://www.gbif.org/occurrence/{{ gbif_record['gbifID'] }}" target="_blank" rel="nofollow">{{ gbif_record['gbifID'] }}</a></td>
+            </tr>
+
+            <tr>
+                <td><strong>Cluster</strong></td>
+                <td><a href="http://www.gbif.org/occurrence/{{ gbif_record['gbifID'] }}/cluster" target="_blank" rel="nofollow">Cluster</a> (this is an experimental feature that highlights possible duplicates and related occurrences)</td>
+            </tr>
+
+            <tr>
+                <td><strong>Dataset</strong></td>
+                <td><a href="http://www.gbif.org/dataset/{{ dataset_key }}" target="_blank" rel="nofollow">Dataset</a></td>
+            </tr>
+
+            <tr>
+                <td><strong>Publisher</strong></td>
+                <td><a href="http://www.gbif.org/publisher/{{ organisation_key }}" target="_blank" rel="nofollow">Natural History Museum</a></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    {% asset 'ckanext-gbif/main-css' %}
+
+{% endblock %}
