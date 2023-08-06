@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/classy_xml/__init__.py
+src/classy_xml/classy_xml.py
+src/classyxml.egg-info/PKG-INFO
+src/classyxml.egg-info/SOURCES.txt
+src/classyxml.egg-info/dependency_links.txt
+src/classyxml.egg-info/top_level.txt
+tests/test_classy_xml.py
