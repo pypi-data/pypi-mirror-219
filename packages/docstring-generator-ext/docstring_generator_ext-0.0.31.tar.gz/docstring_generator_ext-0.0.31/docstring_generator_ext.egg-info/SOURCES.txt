@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+docstring_generator_ext.egg-info/PKG-INFO
+docstring_generator_ext.egg-info/SOURCES.txt
+docstring_generator_ext.egg-info/dependency_links.txt
+docstring_generator_ext.egg-info/not-zip-safe
+docstring_generator_ext.egg-info/requires.txt
+docstring_generator_ext.egg-info/top_level.txt
+src/docstringFormat.cpp
