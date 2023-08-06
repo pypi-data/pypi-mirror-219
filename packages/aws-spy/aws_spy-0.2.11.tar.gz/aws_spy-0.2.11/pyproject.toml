@@ -1,0 +1,124 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aws-spy"
+dynamic = ["version", "description"]
+readme = "README.md"
+requires-python = ">=3.10.0,<3.11.0"
+license = {file = "LICENSE"}
+keywords = []
+authors = [
+  { name = "Dominik Pioś", email = "792954018@wp.pl" },
+]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0"
+]
+
+[tool.pdm.dev-dependencies]
+linting = [
+    "black",
+    "ruff",
+    "mypy~=1.1.1",
+]
+testing = [
+    "coverage[toml]",
+    "dirty-equals",
+    "pytest",
+]
+mypy = [
+    "mypy",
+]
+
+[project.urls]
+Homepage = "https://github.com/PiochU19/aws-spy"
+Documentation = "https://github.com/PiochU19/aws-spy#readme"
+Issues = "https://github.com/PiochU19/aws-spy/issues"
+Source = "https://github.com/PiochU19/aws-spy"
+
+[project.scripts]
+aws-spy = "aws_spy.helpers.cli:cli_handler"
+
+[tool.hatch.version]
+path = "aws_spy/__init__.py"
+
+[tool.black]
+target-version = ["py310"]
+line-length = 120
+skip-string-normalization = true
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+select = [
+  "A",
+  "ARG",
+  "B",
+  "C",
+  "DTZ",
+  "E",
+  "EM",
+  "F",
+  "FBT",
+  "I",
+  "ICN",
+  "ISC",
+  "N",
+  "PLC",
+  "PLE",
+  "PLR",
+  "PLW",
+  "Q",
+  "RUF",
+  "S",
+  "T",
+  "TID",
+  "UP",
+  "W",
+  "YTT",
+]
+ignore = [
+  # Allow non-abstract empty methods in abstract base classes
+  "B027",
+  # Allow boolean positional values in function calls, like `dict.get(... True)`
+  "FBT003",
+  # Ignore checks for possible passwords
+  "S105", "S106", "S107",
+  # Ignore complexity
+  "C901", "PLR0911", "PLR0912", "PLR0913", "PLR0915",
+]
+unfixable = [
+  # Don't touch unused imports
+  "F401",
+]
+
+[tool.ruff.isort]
+known-first-party = ["aws_spy"]
+
+[tool.ruff.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.ruff.per-file-ignores]
+# Tests can use magic values, assertions, and relative imports
+"tests/**/*" = ["PLR2004", "S101", "TID252"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+  "if typing.TYPE_CHECKING:",
+  "@overload",
+  "@typing.overload"
+]
