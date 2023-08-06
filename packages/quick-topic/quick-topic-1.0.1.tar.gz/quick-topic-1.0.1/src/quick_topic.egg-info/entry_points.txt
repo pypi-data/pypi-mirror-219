@@ -1,0 +1,2 @@
+[console_scripts]
+qtmt = quick_topic.cli:main
