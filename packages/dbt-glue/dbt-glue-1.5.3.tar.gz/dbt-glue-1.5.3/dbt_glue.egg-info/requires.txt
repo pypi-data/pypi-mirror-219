@@ -1,0 +1,4 @@
+dbt-core~=1.5.2
+dbt-spark~=1.5.0
+waiter
+boto3
