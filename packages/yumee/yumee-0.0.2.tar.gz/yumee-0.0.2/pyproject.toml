@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "Yumee"
+version = "0.0.2"
+description = "Yet Unother MEtadata Embedder"
+authors = ["Billuc <billuc@hotmail.fr>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "yumee"}]
+
+keywords = ["yumee", "song metadata", "song", "metadata", "metadata embedder", "python", "mp3", "m4a", "ogg", "flac", "opus"]
+
+homepage = "https://github.com/Billuc/Yumee"
+repository = "https://github.com/Billuc/Yumee"
+documentation = "https://github.com/Billuc/Yumee"
+
+classifiers = [
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Multimedia",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Utilities",
+]
+
+include = ["yumee/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+mutagen = "^1.46.0"
+taipan-di = "^0.0.7"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+mypy = "^1.4.0"
+black = "^23.3.0"
+pytest-cov = "^4.1.0"
+vcrpy = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  ".", "yumee"
+]
+
+[tool.black]
+line-length = 92
