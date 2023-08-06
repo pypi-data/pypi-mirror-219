@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: talc
+Version: 0.0.2
+Summary: Logging client for Talc.
+Author-email: Max Kerr <max@joinhomey.co>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Talc AI debugger
+
+Talc provides logging and evaluation for multi-agent LLM apps. Production AI systems have many agents communicating amongst themselves; Talc gives you a birds eye view into what they're saying, and lets you tweak their conversations until it's perfect.
+
