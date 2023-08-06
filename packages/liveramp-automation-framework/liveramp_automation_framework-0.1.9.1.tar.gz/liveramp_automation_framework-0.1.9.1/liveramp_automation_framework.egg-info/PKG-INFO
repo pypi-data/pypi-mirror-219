@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: liveramp-automation-framework
+Version: 0.1.9.1
+Summary: This is the base liveramp_automation_framework
+Home-page: https://github.com/LiveRamp/qe_api_framework
+Author: Jasmine Qian
+Author-email: jasmine.qian@liveramp.com
+Description-Content-Type: text/markdown
+
+### 1. Descprition of the repository
+        This repository is to build a base autoamtion framework. 
+        We would like to integrate the common helpers and libraries here and then build a lib.
+        Later the only thing is to add the cases according to the features. 
+        Since most of the common helpers and libraries have been integrated to the lib, 
+        you only need to import that lib and methods.
+
+### 2. How to use?
+        python setup.py sdist bdist_wheel
+   
+
+### 3. Things need to follow:  
+- [x] Create a python repository
+- [x] Create a file named [requirements.txt](requirements.txt) and only input to this file [liveramp-automation-framework](liveramp-automation-framework), you can ignore the version
+- [x] Copy [conftest.py](conftest.py) and [pytest.ini](pytest.ini) to your repository's root directory
+- [x] 
+
+
+
+===========Mark how to build the pypi package==================
+### 1. Install the following two tools
+        pip install setup
+        pip install twine
+
+### 2. Ways to build the lib
+        python setup.py sdist bdist_wheel
+   
+
+### 3. Ways to upload the lib  to PYpi   
+         twine upload dist/*
+    and in this progress, there would pop up an input row to ask for your Username and Password
+
+
+===========Locally Run==================
+### 1. Ways to use python env
+        python -m venv env
+        source env/bin/activate
+        pip --version
+        pip install --upgrade pip
+        pip install -r requirements.txt
+        playwright install
+        playwright install-deps
+
+
+### 2. Ways to use generate code
+        playwright codegen
+
