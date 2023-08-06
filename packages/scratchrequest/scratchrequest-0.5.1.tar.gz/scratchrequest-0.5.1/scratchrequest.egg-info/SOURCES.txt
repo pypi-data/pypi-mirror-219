@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+scratchrequest/__init__.py
+scratchrequest/_cloud.py
+scratchrequest/_exceptions.py
+scratchrequest/_project.py
+scratchrequest/_session.py
+scratchrequest/_twcloud.py
+scratchrequest.egg-info/PKG-INFO
+scratchrequest.egg-info/SOURCES.txt
+scratchrequest.egg-info/dependency_links.txt
+scratchrequest.egg-info/requires.txt
+scratchrequest.egg-info/top_level.txt
