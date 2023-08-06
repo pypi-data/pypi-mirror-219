@@ -1,0 +1,89 @@
+[tool.poetry]
+name = "web_error"
+version = "0.5.4"
+description = "Web based error utils"
+authors = ["Daniel Edgecombe <edgy.edgemond@gmail.com>"]
+license = "Apache-2.0"
+repository="https://github.com/EdgyEdgemond/web-error/"
+homepage="https://github.com/EdgyEdgemond/web-error/"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+
+aiohttp = "*"
+pyramid = "*"
+flask = "*"
+fastapi = "*"
+
+changelog-gen = "^0.8.1"
+pytest = "^7.1.2"
+pytest-asyncio = "*"
+pytest-cov = "^3.0.0"
+pytest-git = "^1.7.0"
+pytest-random-order = "^1.0"
+
+# Style
+ruff = "^0.0"
+pre-commit = "^3.0.2"
+black = "^22.12.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--random-order"
+
+
+[tool.coverage.report]
+sort = "cover"
+fail_under = 95
+show_missing = true
+skip_covered = true
+exclude_lines = [
+    "if typing.TYPE_CHECKING:",
+]
+
+[tool.coverage.run]
+branch = true
+source = ["web_error"]
+
+[tool.bandit]
+exclude_dirs = ["tasks.py"]
+skips = [
+    "B101",  # use of asserts
+    "B404",  # subprocess import
+    "B603",  # use of subprocess
+    "B607",  # use of subprocess
+]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+select = ["ALL"]
+ignore = [
+    "ANN002",  # type annotation on *args
+    "ANN003",  # type annotation on **kwargs
+    "ANN101",  # annotate self
+    "ANN102",  # annotate cls
+    "D",
+    "FBT",  # boolean trap? no documentation
+    "S",  # bandit is run as a full commit hook
+]
+
+[tool.ruff.per-file-ignores]
+"tasks.py" = ["ANN", "E501", "INP001"]
+"tests/*" = ["ANN", "D", "S105", "S106", "SLF001"]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[build-system]
+requires = ["poetry>=1.1,<2.0"]
+build-backend = "poetry.masonry.api"
