@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: image_sky
+Version: 0.4.0
+Summary: Run many jobs transparently on aliyun fc and other cloud services
+Home-page: http://pywren.io
+Author: zhudayong
+Author-email: 671850478@qq.com
+License: UNKNOWN
+Description: image_sky lets you transparently run your python functionson aliyun cloud services, including aliyun fc .
+Platform: UNKNOWN
