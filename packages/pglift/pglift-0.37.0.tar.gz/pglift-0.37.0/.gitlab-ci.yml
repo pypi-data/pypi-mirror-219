@@ -1,0 +1,187 @@
+---
+include:
+  - template: 'Workflows/Branch-Pipelines.gitlab-ci.yml'
+
+variables:
+  GIT_FETCH_EXTRA_FLAGS: --tags
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PYOXIDIZER_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pyoxidizer"
+  PGLIFT_BINARY_URL: "$CI_API_V4_URL/projects/$CI_PROJECT_ID/packages/generic/bin/$CI_COMMIT_REF_NAME/pglift"
+  PGLIFT_BINARY_ARTIFACT: "pyoxidizer/build/x86_64-unknown-linux-gnu/release/exe/pglift"
+
+default:
+  interruptible: true
+
+stages:
+  - check
+  - build
+  - test
+  - publish
+
+cache:
+  paths:
+    - .cache/pip
+    - .cache/pyoxidizer
+
+checks:
+  stage: check
+  except:
+    - tags
+  image: python:$pyversion
+  before_script:
+    - pip install tox
+  script:
+    - tox -e lint
+    - tox -e typing
+    - tox -e tests-doctest
+    - tox -e tests-unit
+    - tox -e docs
+    - tox -e bandit
+  parallel:
+    matrix:
+      - pyversion: "3.9"
+      - pyversion: "3.11"
+  artifacts:
+    paths: [docs/_build/]
+    expire_in: 3 days
+
+buildbin:
+  stage: test
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: always
+      allow_failure: true
+    - changes:
+        - pyoxidizer/requirements.txt
+      when: always
+    - when: manual
+      allow_failure: true
+  image: $CI_REGISTRY_IMAGE:rockylinux8_buildbin
+  script:
+    - tox -e buildbin
+  artifacts:
+    paths:
+      - "$PGLIFT_BINARY_ARTIFACT"
+    expire_in: 1 day
+
+tests:
+  stage: test
+  except:
+    - tags
+  image: $CI_REGISTRY_IMAGE:$dist
+  script:
+    - tox -e tests-func -- $opts -x -o faulthandler_timeout=600
+    - tox -e tests-ansible
+  parallel:
+    matrix:
+      - dist: debian
+        opts: --pg-auth peer --pgbackrest-repo-host
+      - dist: rockylinux8
+        opts: --pg-auth pgpass
+      - dist: rockylinux9
+        opts: --pg-auth password_command
+
+tests-expect:
+  image: $CI_REGISTRY_IMAGE:debian
+  script:
+    - tox -e tests-expect
+
+tests-binary:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:$dist
+  needs: ['buildbin']
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: always
+      allow_failure: true
+    - when: manual
+      allow_failure: true
+  script:
+    - tox -e tests-binary
+  parallel:
+    matrix:
+      - dist: debian
+      - dist: rockylinux8
+      - dist: rockylinux9
+
+.ci_image:
+  stage: build
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: manual
+      allow_failure: true
+    - if: '($CI_PIPELINE_SOURCE == "schedule" && $CI_PROJECT_ROOT_NAMESPACE == "dalibo") || $CI_PROJECT_ROOT_NAMESPACE != "dalibo"'
+      when: on_success
+    - when: manual
+      allow_failure: true
+  image: docker:dind
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - cd ci/$WORKSUBDIR
+    - docker pull $IMAGE_TAG || true
+    - docker build --pull --cache-from $IMAGE_TAG --tag $IMAGE_TAG -f $DOCKERFILE .
+    - wget -O duuh https://github.com/philpep/duuh/releases/download/1.2/duuh-linux-amd64
+    - chmod +x duuh
+    - ./duuh -build $IMAGE_TAG
+    - docker push $IMAGE_TAG
+
+buildbin_ci_image:
+  extends: .ci_image
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: always
+    - when: manual
+      allow_failure: true
+  variables:
+    WORKSUBDIR: "buildbin"
+    DOCKERFILE: "Dockerfile"
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE:rockylinux8_buildbin"
+
+debian_ci_image:
+  extends: .ci_image
+  variables:
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE:debian"
+    WORKSUBDIR: "testing"
+    DOCKERFILE: "Dockerfile.debian"
+
+rockylinux8_ci_image:
+  extends: .ci_image
+  variables:
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE:rockylinux8"
+    WORKSUBDIR: "testing"
+    DOCKERFILE: "Dockerfile.rockylinux8"
+
+rockylinux9_ci_image:
+  extends: .ci_image
+  variables:
+    IMAGE_TAG: "$CI_REGISTRY_IMAGE:rockylinux9"
+    WORKSUBDIR: "testing"
+    DOCKERFILE: "Dockerfile.rockylinux9"
+
+pypi-upload:
+  only:
+    - tags@dalibo/pglift
+  stage: publish
+  image: python:3
+  before_script:
+    - pip install twine
+    - pip install build
+  script:
+    - python3 -m build
+    - python3 -m twine check dist/*
+    - python3 -m twine upload dist/*
+
+gitlab-package-upload:
+  stage: publish
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: always
+    - when: manual
+      allow_failure: true
+  image: $CI_REGISTRY_IMAGE:rockylinux8_buildbin
+  needs: ['buildbin']
+  script:
+    - curl --fail --header "JOB-TOKEN:$CI_JOB_TOKEN" --upload-file "$PGLIFT_BINARY_ARTIFACT" "$PGLIFT_BINARY_URL?select=package_file"

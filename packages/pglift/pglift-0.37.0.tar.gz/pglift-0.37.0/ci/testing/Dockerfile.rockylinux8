@@ -1,0 +1,37 @@
+FROM rockylinux:8
+RUN dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-8-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+RUN dnf -qy module disable postgresql
+RUN dnf install -y epel-release
+RUN dnf install -y postgresql11-server postgresql11-contrib pg_stat_kcache11 pg_qualstats11 powa_11 pgbackrest
+WORKDIR /tmp
+ARG ETCD_VER=v3.5.4
+ARG ETCD_DOWNLOAD_URL=https://storage.googleapis.com/etcd
+RUN curl -O -L \
+	${ETCD_DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz
+RUN tar xzvf etcd-${ETCD_VER}-linux-amd64.tar.gz --strip-components=1
+RUN mv etcd /usr/bin/
+RUN mv etcdctl /usr/bin/
+ARG PGE_VERSION=0.10.1
+ARG PGE_FNAME=postgres_exporter-${PGE_VERSION}.linux-amd64
+ARG PGE_TGZ=${PGE_FNAME}.tar.gz
+RUN curl -O -L \
+	https://github.com/prometheus-community/postgres_exporter/releases/download/v${PGE_VERSION}/${PGE_TGZ}
+RUN tar xvf ${PGE_TGZ}
+RUN mv ${PGE_FNAME}/postgres_exporter /usr/bin/
+RUN dnf install -y gcc git jq openssl procps-ng python39-pip \
+	&& dnf clean all \
+	&& rm -rf /var/cache/yum
+
+RUN dnf install -y epel-release
+RUN dnf install -y https://yum.dalibo.org/labs/dalibo-labs-4-1.noarch.rpm
+RUN dnf install -y temboard-agent
+
+RUN pip3 install tox
+RUN useradd --uid 5432 --create-home runner
+
+RUN touch /etc/port-for.conf
+RUN chown runner: /etc/port-for.conf
+
+USER runner
+WORKDIR /home/runner
+ENV PATH=/usr/pgsql-11/bin:$PATH
