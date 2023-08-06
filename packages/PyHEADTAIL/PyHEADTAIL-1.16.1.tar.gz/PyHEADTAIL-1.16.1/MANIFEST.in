@@ -1,0 +1,2 @@
+recursive-include PyHEADTAIL *.pxd *.pyx *.c *.f90 *.cu
+include README.rst
