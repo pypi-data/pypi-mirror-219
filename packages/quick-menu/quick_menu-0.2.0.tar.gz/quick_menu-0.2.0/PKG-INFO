@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: quick-menu
+Version: 0.2.0
+Project-URL: Documentation, https://github.com/yqbear/quick-menu#readme
+Project-URL: Issues, https://github.com/yqbear/quick-menu/issues
+Project-URL: Source, https://github.com/yqbear/quick-menu
+Author-email: "Stephan Poole (e122785)" <yqbear@gmail.com>
+License-Expression: MIT
+License-File: LICENSE.txt
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.7
+Requires-Dist: typing-extensions
+Description-Content-Type: text/markdown
+
+# quick-menu
+
+[![PyPI - Version](https://img.shields.io/pypi/v/quick-menu.svg)](https://pypi.org/project/quick-menu)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/quick-menu.svg)](https://pypi.org/project/quick-menu)
+
+-----
+
+**Table of Contents**
+
+- [Installation](#installation)
+- [License](#license)
+
+## Installation
+
+```console
+pip install quick-menu
+```
+
+## License
+
+`quick-menu` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
