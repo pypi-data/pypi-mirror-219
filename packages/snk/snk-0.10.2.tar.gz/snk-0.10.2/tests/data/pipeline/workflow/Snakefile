@@ -1,0 +1,8 @@
+configfile: "config.yaml"
+
+rule hello_world:
+    output: config['output']
+    params:
+        text=config['text'],
+    threads: config['times'] if config['times'] else 1
+    shell: "for i in {{1..{threads}}}; do echo {params.text} >> {output}; done"
