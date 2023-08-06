@@ -1,0 +1,7 @@
+
+[dev]
+pytest
+build
+pyinstaller
+twine
+toml-cli
