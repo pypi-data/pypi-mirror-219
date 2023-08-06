@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+wiggler/__init__.py
+wiggler/cli.py
+wiggler/main.py
+wiggler/service/wiggler.service
+wiggler/service/wiggler_boot.sh
+wiggler_studiorabota.egg-info/PKG-INFO
+wiggler_studiorabota.egg-info/SOURCES.txt
+wiggler_studiorabota.egg-info/dependency_links.txt
+wiggler_studiorabota.egg-info/entry_points.txt
+wiggler_studiorabota.egg-info/requires.txt
+wiggler_studiorabota.egg-info/top_level.txt
