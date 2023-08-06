@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+aiocapsule/__init__.py
+aiocapsule/_modidx.py
+aiocapsule/core.py
+aiocapsule.egg-info/PKG-INFO
+aiocapsule.egg-info/SOURCES.txt
+aiocapsule.egg-info/dependency_links.txt
+aiocapsule.egg-info/entry_points.txt
+aiocapsule.egg-info/not-zip-safe
+aiocapsule.egg-info/requires.txt
+aiocapsule.egg-info/top_level.txt
