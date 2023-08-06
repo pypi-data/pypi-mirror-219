@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/sql_database_zoutigewolf/__init__.py
+src/sql_database_zoutigewolf/database.py
+src/sql_database_zoutigewolf.egg-info/PKG-INFO
+src/sql_database_zoutigewolf.egg-info/SOURCES.txt
+src/sql_database_zoutigewolf.egg-info/dependency_links.txt
+src/sql_database_zoutigewolf.egg-info/requires.txt
+src/sql_database_zoutigewolf.egg-info/top_level.txt
