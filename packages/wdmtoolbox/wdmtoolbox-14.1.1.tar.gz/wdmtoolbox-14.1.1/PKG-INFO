@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: wdmtoolbox
+Version: 14.1.1
+Summary: Read and write Watershed Data Management (WDM) files
+Author-email: Tim Cera <tim@cerazone.net>
+License: BSD-3-Clause
+Project-URL: documentation, https://timcera.bitbucket.io/wdmtoolbox/docs/index.html
+Project-URL: github, https://github.com/timcera/wdmtoolbox
+Project-URL: bitbucket, https://bitbucket.org/timcera/wdmtoolbox/src/main/
+Keywords: WDM,watershed,data_management,data,hydrology,hydrological,simulation,fortran,HSPF
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
+Provides-Extra: dev
+License-File: LICENSE.txt
