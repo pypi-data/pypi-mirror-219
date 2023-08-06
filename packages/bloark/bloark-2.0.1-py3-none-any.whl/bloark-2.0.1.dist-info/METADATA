@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: bloark
+Version: 2.0.1
+Summary: Blocks Architecture (BloArk): An unified tool for processing revision-based data efficiently.
+Home-page: https://bloark.lingxi.li/
+License: GNU GPL
+Author: Lingxi Li
+Author-email: hi@lingxi.li
+Requires-Python: >=3.8,<4
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: beautifulsoup4 (>=4.12.2,<5.0.0)
+Requires-Dist: jsonlines (>=3.1.0,<4.0.0)
+Requires-Dist: psutil (>=5.9.5,<6.0.0)
+Requires-Dist: py7zr (>=0.20.5,<0.21.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: tqdm (>=4.65.0,<5.0.0)
+Requires-Dist: unstable (>=0.5.1,<0.6.0)
+Requires-Dist: wrapt (>=1.15.0,<2.0.0)
+Requires-Dist: xmltodict (>=0.13.0,<0.14.0)
+Requires-Dist: zstandard (>=0.21.0,<0.22.0)
+Project-URL: Repository, https://github.com/lilingxi01/bloark
+Description-Content-Type: text/markdown
+
+<img src="https://imagedelivery.net/Dr98IMl5gQ9tPkFM5JRcng/b4d5d2b0-860c-4d73-02f0-104d77223800/Ultra" alt="BloArk" />
+
+# Blocks Architecture (BloArk)
+
+Blocks Architecture (BloArk) is a powerful Python package designed to process the extensive edit history of Wikipedia pages into easily manageable and memory-friendly blocks. The package is specifically developed to enable efficient parallelization and composition of these blocks to facilitate faster processing and analysis of large Wikipedia datasets. The original design of this package is to build other Wikipedia-oriented datasets on top of it.
+
+The package works by dividing the Wikipedia edit history into temporal blocks, which are essentially subsets of the complete dataset that are based on time intervals. These blocks can then be easily processed and analyzed without the need to load the entire dataset into memory.
+
+## Installation
+
+The package is available on PyPI and can be installed using pip:
+
+```bash
+pip install bloark
+```
+
+## Benefits
+
+- **Efficient**: The package is designed to be memory-friendly and can be easily parallelized to process large datasets.
+- **Fast**: The package is designed to be fast and can be easily optimized to process large datasets.
+- **Flexible**: The package is designed to be flexible and can be easily extended to support other types of blocks.
+- **Composable**: The package is designed to be composable and can be easily combined with other packages to build other datasets.
+
+## Specification
+
+- Default compression method: ZStandard.
+
