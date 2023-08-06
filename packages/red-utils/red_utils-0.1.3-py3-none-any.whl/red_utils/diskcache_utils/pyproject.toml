@@ -1,0 +1,17 @@
+[project]
+name = "diskcache_utils"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "redjax", email = "none@none.com"},
+]
+dependencies = [
+    "diskcache>=5.6.1",
+]
+requires-python = ">=3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
