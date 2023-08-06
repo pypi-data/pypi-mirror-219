@@ -1,0 +1,87 @@
+{% set active_page = "index" %}
+{% extends 'base.html' %}
+{% block content %}
+
+<p> To download, choose your file format (the PDF is the reference output;
+	it is editable with vector-drawing software, others are conversions from the PDF).</p>
+<p>
+	<a href="{{url_for('control.download', filename=message['begname']+'.pdf')}}" class="btn">
+	    <svg class="btn-icon" aria-hidden="true">
+		<use href="{{ url_for('static', filename='icons.svg')}}#download"></use>
+	    </svg>
+		Download as PDF
+	</a>
+    	<a href="{{url_for('control.download', filename=message['begname']+'.svg')}}" class="btn">
+	    <svg class="btn-icon" aria-hidden="true">
+		<use href="{{ url_for('static', filename='icons.svg')}}#download"></use>
+	    </svg>
+		Download as SVG
+	</a>
+	<a href="{{url_for('control.download', filename=message['begname']+'-mr.png')}}" class="btn">
+	    <svg class="btn-icon" aria-hidden="true">
+		<use href="{{ url_for('static', filename='icons.svg')}}#download"></use>
+	    </svg>
+		Download as PNG
+	</a>
+	<a href="{{url_for('control.download', filename=message['begname']+'-mr.jpg')}}" class="btn">
+	    <svg class="btn-icon" aria-hidden="true">
+		<use href="{{ url_for('static', filename='icons.svg')}}#download"></use>
+	    </svg>
+		Download as JPEG
+	</a>
+</p>
+
+{% if message['error'] %}
+	<h3>Critical issue message(s)</h3>
+	This ember may contain errors and should not be published without investigating.<br>
+	The detected problem(s) are:
+	{% for aline in message['error'] %}
+		<p class="compact"> - {{aline|safe}} </p>
+	{% endfor %}
+{% endif %}
+
+{% if message['warning'] %}
+	<h3>Warning message(s)</h3>
+	Warning messages do not necessarily mean that there is an error, but  you should pay attention:
+	{% for aline in message['warning'] %}
+		<p class="compact"> - {{aline|safe}} </p>
+	{% endfor %}
+{% endif %}
+
+{%if not (message['error'] or message['warning']) %}
+	Everything appears ok (no error or warning message).
+{% endif %}
+
+<p style="margin-top:12px;">
+	<button onclick="logToggle()" class="btn">View / hide log information</button>
+	<a href="{{ url_for('sitenav.index')+'?reset'}}" class="btn btn-danger">Restart with a new file</a>
+</p>
+
+<div id="log" class="hidden"></div>
+
+<img class="preview" style="width: {{message['img-width']}}pt;"
+	 src="{{url_for('control.download', filename=message['begname']+'.svg')}}?preview=1"
+	 alt="Image could not be produced">
+
+<script>
+function logToggle() {
+  var dc = document.getElementById("log");
+  if (dc.style.display !== "block") {
+      dc.style.display = "block";
+      if (dc.childNodes.length === 0) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                dc.innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "{{url_for('control.download', filename='log.html')}}", true);
+        xhttp.send();
+      }
+  } else {
+    dc.style.display = "none";
+  }
+}
+</script>
+
+{% endblock %}
