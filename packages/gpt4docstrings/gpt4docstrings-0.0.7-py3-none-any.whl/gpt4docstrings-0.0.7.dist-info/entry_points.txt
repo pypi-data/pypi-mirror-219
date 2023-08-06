@@ -1,0 +1,3 @@
+[console_scripts]
+gpt4docstrings=gpt4docstrings.cli:main
+
