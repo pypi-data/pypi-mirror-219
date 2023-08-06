@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message FileWrapper {
+  string version = 1;
+  bytes file = 2;
+}
