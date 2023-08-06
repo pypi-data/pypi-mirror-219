@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: infoblox-discovery
+Version: 0.1.1
+Summary: A Prometheus file and http discovery for infoblox
+Home-page: https://github.com/thenodon/infoblox_discovery
+Author: thenodon
+Author-email: aha@ingby.com
+License: GPLv3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (~=2.25.1)
+Requires-Dist: urllib3 (~=1.26.10)
+Requires-Dist: PyYAML (~=6.0)
+Requires-Dist: fastapi (~=0.95.0)
+Requires-Dist: APScheduler (==3.10.1)
+Requires-Dist: uvicorn (~=0.21.1)
+Requires-Dist: python-dateutil (~=2.8.2)
+Requires-Dist: prometheus-fastapi-instrumentator
+Requires-Dist: setuptools (~=67.7.2)
+Requires-Dist: infoblox-client (==0.6.0)
+Requires-Dist: IPy (==1.01)
+
+infoblox-discovery
+---------------------
