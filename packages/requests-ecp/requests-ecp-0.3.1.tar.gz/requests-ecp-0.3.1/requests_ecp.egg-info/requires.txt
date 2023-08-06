@@ -1,0 +1,17 @@
+lxml
+requests
+
+[docs]
+sphinx
+sphinx-argparse
+sphinx_automodapi
+sphinx-panels
+sphinx_rtd_theme
+
+[kerberos]
+requests-gssapi>=1.2.2
+
+[tests]
+pytest>=2.9.2
+pytest-cov
+requests-mock>=1.5.0

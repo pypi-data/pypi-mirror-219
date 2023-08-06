@@ -1,0 +1,53 @@
+requests-ecp (0.3.1-1) unstable; urgency=low
+
+  * update for 0.3.1
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 17 Jul 2023 21:34:00 +0100
+
+requests-ecp (0.3.0-1) unstable; urgency=low
+
+  * update for 0.3.0
+  * remove unnecessary patches for requests-kerberos, which
+    is now optional in the Python metadata
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Wed, 26 Oct 2022 14:56:00 +0100
+
+requests-ecp (0.2.3-1) unstable; urgency=low
+
+  * move to python3-gssapi as kerberos backend in main package,
+    debian config now includes a patch to undo that change because
+    that package isn't available, but python3-kerberos still works
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 22 Nov 2021 10:00:00 +0000
+
+requests-ecp (0.2.2-1) unstable; urgency=low
+
+  * update for 0.2.2
+  * tests are now bundled with the package
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Fri, 19 Mar 2021 10:36:00 +0000
+
+requests-ecp (0.2.1-1) unstable; urgency=low
+
+  * update for 0.2.1
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 23 Mar 2020 10:00:00 +0000
+
+requests-ecp (0.2.0-1) unstable; urgency=low
+
+  * development release
+  * removed python2 support
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 09 Mar 2020 15:00:00 +0000
+
+requests-ecp (0.1.1-1) unstable; urgency=low
+
+  * bug-fix release
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 17 Feb 2020 16:44:00 +0000
+
+requests-ecp (0.1.0-1) unstable; urgency=low
+
+  * first release
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Fri, 07 Feb 2020 10:29:00 +0000
