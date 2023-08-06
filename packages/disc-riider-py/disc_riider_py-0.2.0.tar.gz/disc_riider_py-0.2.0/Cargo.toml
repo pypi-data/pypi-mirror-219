@@ -1,0 +1,16 @@
+[package]
+name = "disc-riider-py"
+version = "0.2.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "disc_riider_py"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = "0.19.1"
+disc_riider = { path = "local_dependencies/disc_riider" }
+binrw = "0.11.2"
+sha1 = "0.10.5"
+hex = "0.4.3"
