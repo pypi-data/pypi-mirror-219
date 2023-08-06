@@ -1,0 +1,139 @@
+# weelib
+<i>(experimental)</i><br>
+
+Library of additional functions for [`weepy`](https://gitlab.com/katry/weepy) framework.
+
+## Installation
+
+<b>
+	Installation will not work - library  has not been released, yet.<br>
+	If you want to try functionality just clone git repo.
+</b><br><br>
+Run installation command (requires python>=3.10):
+
+```sh
+$ pip install weelib
+```
+
+## Using
+Import library and use its functions
+```py
+import weelib
+```
+
+## Functionality
+### Validator
+This functionality provides data validation for `list`s, `dict`s and with extended class also decorator for validation requests `HTTP BODY`.<br>
+Simply inherit `Validator` class or `RequestValidator` class depending on what type validation you need.<br>
+Create class variables usin `Rule` pattern to create indivitual validation rules.
+When you want validate input simply create instance of your class or (with RequestValidator) use class instance as decorator.
+
+`Validator` methods and properties:
+- `__init__`(self, data=None, exact_match) - class constructor accepts optional `data` parameter for automatic validation and `exact_match` parameter specifying whether the data can contain keys validator doesn't contain 
+- `__call__`(self, data) - validate data (called automatically when `data` parameter passed into `__init__`) - returns tuple (status<bool>, error<None | ValidationError | str>, key<str | None>)
+- `_init_validation_result` - saved return_value from `__call__` when data passed to `__init__` directly
+ValidationError contents:
+
+`RequestValidator` methods and properties:
+- `__init__`(self, exact_match) - decorator constructor - `exact_match` parameter is same as in `Validator` class
+- `__call__`(self, req, resp, \*args, \*\*kwargs) - method provides wrapper request data parsing - provides `data` parameter with class instance value to decorated function
+- `_init_validation_result` - saved return_value from `__call__` when data passed to `__init__` directly
+
+
+`Rule` constructor parameters:
+- `data_type` - python `type` that testing value must match
+- `optional` - specifies whether rule is mandatory (`boolean`, default=False)
+- `min` - specifies min value for types `int` or `float` (`int` | `float`, optional)
+- `max` - specifies max value for types `int` or `float` (`int` | `float`, optional)
+- `length` -  specifies length for `str` or `bytes` (`int`, optional)
+- `min_length` - specifies minimal length for `str` or `bytes` (`int`, optional)
+- `max_length` - specifies maximal length for `str` or `bytes` (`int`, optional)
+- `regex` - specifies regex to test for `str` or `bytes` (`Pattern`, optional)
+- `check_method` - specifies `function` (or `lambda`) for more complex value check with one parameter (value) that returns `boolean` (`Callable`, optional)
+
+`ValidationError` provides enum of basic errors that may occur during validation -intended for extending to meet requirements of `_validate` wraps. <br>
+`ValidationError` contents:
+```py
+from enum import Enum
+
+
+class ValidatorError(Enum):
+	MISSING_KEY = "MISSING_KEY"
+	INVALID_TYPE = "INVALID_TYPE"
+	INVALID_VALUE = "INVALID_VALUE"
+	NUMBER_NOT_IN_RANGE = "NUMBER_NOT_IN_RANGE"
+	LENGTH_NOT_IN_RANGE = "LENGTH_NOT_IN_RANGE"
+	INVALID_SCHEMA = "INVALID_SCHEMA"
+```
+
+
+General example:
+```py
+import re
+from weelib.validator import Validator, Rule
+
+password = "dude"
+
+
+class MyDataValidator(Validator):
+	# for clarity is regex simplified
+	email = Rule(str, regex=re.compile(r".+\@.+\..+"))
+	password = Rule(str, min_length=6)
+	age = Rule(int, min=18)
+	height = Rule(float, optional=True, min=1)
+
+	# following method is optional
+	def _validate(data):
+		if data["password"] == password:
+			return True, None, ""
+		else:
+			return False, "INVALID_PASSWORD", "password"
+
+
+person = MyDataValidator({
+	"email": "test@test.com",
+	"password": "dude",
+	"age": 25
+})
+print("email", person.email)
+print("age", person.age)
+print("height", person.height or "not specified")
+```
+
+POST data parser example:
+```py
+import re
+from weepy import ASGI, Route
+from weelib.validator import RequestValidator, Rule
+
+password = "dude"
+
+
+class MyRequestDataValidator(RequestValidator):
+	# for clarity is regex simplified
+	email = Rule(str, regex=re.compile(r".+\@.+\..+"))
+	password = Rule(str, min_length=6)
+	age = Rule(int, min=18)
+	height = Rule(float, optional=True)
+
+	# following method is optional
+	def _validate(data):
+		if data["password"] == password:
+			return True, None, ""
+		else:
+			return False, "INVALID_PASSWORD", "password"
+
+
+application = ASGI(content_type="application/json", allow="*")
+
+
+@Route("/", methods=["POST"])
+@MyRequestDataValidator()
+async def info(req, resp, data=None):
+	return {
+		"email": data.email,
+		"password-length": len(data.password),
+		"age": data.age,
+		"height": data.height or "not specified"
+	}
+```
