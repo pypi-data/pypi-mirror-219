@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "locale": "en_US.UTF-8",
+  "metadata": {
+    "appmode": "python-api",
+    "entrypoint": "app"
+  },
+  "python": {
+    "version": "3.9.9",
+    "package_manager": {
+      "name": "pip",
+      "version": "23.1.2",
+      "package_file": "requirements.txt"
+    }
+  },
+  "files": {
+    "requirements.txt": {
+      "checksum": "ea98f1f66a5c22c2217d0ea6dca4ff96"
+    },
+    "Makefile": {
+      "checksum": "81b875733622351ea062cb363a9e8c38"
+    },
+    "app.py": {
+      "checksum": "a0b251958e52fa417a18b955ce9358ba"
+    },
+    "app_startup.py": {
+      "checksum": "3bfc103fea45bd78e508b3d5db3f7c82"
+    },
+    "dev_manifests/ocio_pade_dev_databricks_ocio_pade_dev_metadata_2023_06_09.json": {
+      "checksum": "f171f9d026e817035fa1d4e8f9077101"
+    },
+    "dev_manifests/ocio_pade_dev_databricks_ocio_pade_dev_metadata_2023_06_10.json": {
+      "checksum": "f171f9d026e817035fa1d4e8f9077101"
+    },
+    "dev_manifests/ocio_pade_dev_databricks_ocio_pade_dev_metadata_2023_06_12.json": {
+      "checksum": "e2e9e6dd56e5e03a8138aefdac2721f8"
+    },
+    "dev_manifests/ocio_pade_dev_databricks_ocio_pade_dev_metadata_2023_06_14.json": {
+      "checksum": "e2e9e6dd56e5e03a8138aefdac2721f8"
+    },
+    "dev_manifests/ocio_pade_dev_databricks_ocio_pade_dev_metadata_2023_06_15.json": {
+      "checksum": "12751119df40f6b682adb4dd8c606119"
+    },
+    "dev_posit_manifests/manifest.json": {
+      "checksum": "c55d369b94db2c66c1c75763a812b187"
+    },
+    "dev_swagger_manifests/swagger_2023_06_22.json": {
+      "checksum": "e4a3b675fb513caafe2a07a01328f6dd"
+    },
+    "manifest copy.json": {
+      "checksum": "7313706b9f9c4feb1a343a3ff9e7299b"
+    },
+    "ocio/ocio_pade_dev/config/.env": {
+      "checksum": "0460bb2089ee294c7f91e084e9f5558e"
+    },
+    "ocio/ocio_pade_dev/config/config.dev.json": {
+      "checksum": "68fe6228a40d9f255f0637410c8e230a"
+    },
+    "ocio/ocio_pade_dev/config/manifest.json": {
+      "checksum": "0dced2e4ebba30b3fd7334021331bfe3"
+    },
+    "schema/manifest.schema.json": {
+      "checksum": "ddd9531a1c8fae70866a771148d1e02c"
+    }
+  }
+}
