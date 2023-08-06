@@ -1,0 +1,3 @@
+[console_scripts]
+landing-zone=landing_zone.main:main
+
