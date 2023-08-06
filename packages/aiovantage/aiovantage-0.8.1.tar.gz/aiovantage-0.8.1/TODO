@@ -1,0 +1,20 @@
+# TODO
+
+- Cleanup "ELAGG", etc subscriptions on shutdown to avoid memory leaks on the controller
+- Consider grouped controllers like aiohue, eg. for sensors, loads, etc.
+- Consider renaming GMemController to VariablesController, MastersController to ControllersController
+- Sphinx docs / readthedocs
+- Smarter fetching of objects?
+  - Eg. combine multiple requests into one
+  - Eg. If we request 50 and get < 50 don't make another request
+- Expose PortDevice objects via a PortDeviceController
+- Pure object interfaces
+  - Rename command_client.interfaces to command_client.object_interfaces
+  - Remove non object interface methods ("LOAD", "S:LOAD" parsing, etc)
+  - Consider better typing approach
+    - Calls:
+      - `INVOKE id Interface.Method arg1 ... argN -> R:INVOKE id rcode Interface.Method arg1 ... argN`
+      - Args are mutable to support multiple return values
+    - Events
+      - `S:STATUS id Interface.Method rcode arg1 ... argN`
+      - `EL: id Interface.Method rcode arg1 ... argN`
