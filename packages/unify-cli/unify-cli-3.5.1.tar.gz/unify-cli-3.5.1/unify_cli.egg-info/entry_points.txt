@@ -1,0 +1,3 @@
+[console_scripts]
+ah = source.ah:cli
+unify = source.ah:cli
