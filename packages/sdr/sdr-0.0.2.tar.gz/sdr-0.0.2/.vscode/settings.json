@@ -1,0 +1,37 @@
+{
+    "python.testing.pytestArgs": [
+        "-c=pyproject.toml",
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "none",
+    "editor.formatOnSave": true,
+    "notebook.formatOnSave.enabled": true,
+    "[python]": {
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "editor.rulers": [
+        120
+    ],
+    "cSpell.words": [
+        "Baseband",
+        "downsampling",
+        "Feedforward",
+        "hexdump",
+        "matplotlib",
+        "overdamped",
+        "passband",
+        "periodograms",
+        "pyplot",
+        "resampler",
+        "resamplers",
+        "scipy",
+        "underdamped",
+        "upsampling"
+    ]
+}
