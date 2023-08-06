@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pymeten
+Version: 0.0.2
+Summary: A tool for metrics of tensors
+Author: deciding
+Author-email: zhangzn710@gmail.com
+License: MIT
+Keywords: conversion
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: dev
+
+Measure the different aspects of your tensor program efficiency
