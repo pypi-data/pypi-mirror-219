@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+modules/__init__.py
+modules/cli.py
+modules/stix_taxii.py
+modules/vectra.py
+vectra_api_tools.egg-info/PKG-INFO
+vectra_api_tools.egg-info/SOURCES.txt
+vectra_api_tools.egg-info/dependency_links.txt
+vectra_api_tools.egg-info/requires.txt
+vectra_api_tools.egg-info/top_level.txt
