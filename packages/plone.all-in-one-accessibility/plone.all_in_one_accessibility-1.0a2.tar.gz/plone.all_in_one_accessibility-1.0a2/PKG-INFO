@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: plone.all_in_one_accessibility
+Version: 1.0a2
+Summary: An add-on for Plone
+Home-page: https://github.com/collective/plone.all_in_one_accessibility
+Author: Skynet Technologies USA LLC
+Author-email: developer3@skynettechnologies.com
+License: GPL version 2
+Project-URL: PyPI, https://pypi.org/project/plone.all_in_one_accessibility/
+Keywords: Python Plone CMS
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: Addon
+Classifier: Framework :: Plone :: 5.2
+Classifier: Framework :: Plone :: 6.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Requires-Python: >=3.7
+Provides-Extra: test
+License-File: LICENSE.GPL
+License-File: LICENSE.rst
+
+# All in One Accessibility
+- All in One Accessibility widget improves plone website ADA compliance and browser experience for WCAG 2.1, ATAG 2.0, ADA, Section 508, Australian DDA, European EAA EN 301 549, UK Equality Act (EA), Israeli Standard 5568, and California Unruh standards.
+- 2 Minute installation
+- Screen Reader, dynamic widget color and position, supports multiple languages (40 languages)
+- Reduces the risk of time-consuming accessibility lawsuits.
+- Use apps to connect to external services and manage data flows
+
+It uses the accessibility interface which handles UI and design related adjustments. All in One Accessibility app enhances your plone website accessibility to people with hearing or vision impairments, motor impaired, color blind, dyslexia, cognitive & learning impairments, seizure and epileptic, and ADHD problems. It uses the accessibility interface which handles UI and design related adjustments.
+
+
+
+Installation
+------------
+
+Install plone.all_in_one_accessibility by adding it to your buildout::
+
+    [buildout]
+
+    ...
+
+    eggs =
+        plone.all_in_one_accessibility
+
+
+and then running ``bin/buildout``
+
+
+.. Call API in frontend footer component and create a dynamic script tag 
+
