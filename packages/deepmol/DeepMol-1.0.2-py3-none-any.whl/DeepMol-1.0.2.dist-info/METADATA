@@ -1,0 +1,195 @@
+Metadata-Version: 2.1
+Name: DeepMol
+Version: 1.0.2
+Summary: DeepMol: a python-based machine and deep learning framework for drug discovery
+Author: DeepMol Team
+License: BSD 2-Clause License
+Keywords: machine-learning,deep-learning,cheminformatics,drug-discovery
+Platform: unix
+Platform: linux
+Platform: osx
+Platform: cygwin
+Platform: win32
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.7
+License-File: LICENSE
+Requires-Dist: rdkit-pypi (==2022.9.3)
+Requires-Dist: cached-property (==1.5.2)
+Requires-Dist: seaborn (==0.12.0)
+Requires-Dist: joblib (==1.1.1)
+Requires-Dist: pillow (==8.4.0)
+Requires-Dist: h5py (==3.7.0)
+Provides-Extra: all
+Requires-Dist: flake8 (>=4.0.1) ; extra == 'all'
+Requires-Dist: optuna (==3.1.1) ; extra == 'all'
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'all'
+Requires-Dist: chembl-structure-pipeline (==1.1.0) ; extra == 'all'
+Requires-Dist: torch-geometric (==2.3.1) ; extra == 'all'
+Requires-Dist: joblib (==1.1.1) ; extra == 'all'
+Requires-Dist: shap (==0.41.0) ; extra == 'all'
+Requires-Dist: dgllife (==0.3.2) ; extra == 'all'
+Requires-Dist: numpy (==1.23.5) ; extra == 'all'
+Requires-Dist: dill (==0.3.6) ; extra == 'all'
+Requires-Dist: plotly (==5.13.1) ; extra == 'all'
+Requires-Dist: dgl (==0.9.1) ; extra == 'all'
+Requires-Dist: kneed (==0.8.2) ; extra == 'all'
+Requires-Dist: h5py (==3.7.0) ; extra == 'all'
+Requires-Dist: tox (>=3.25.0) ; extra == 'all'
+Requires-Dist: scikit-learn (==1.2.0) ; extra == 'all'
+Requires-Dist: gensim (==4.2.0) ; extra == 'all'
+Requires-Dist: pillow (==8.4.0) ; extra == 'all'
+Requires-Dist: smilespe (==0.0.3) ; extra == 'all'
+Requires-Dist: imblearn ; extra == 'all'
+Requires-Dist: cached-property (==1.5.2) ; extra == 'all'
+Requires-Dist: pytest (>=7.1.1) ; extra == 'all'
+Requires-Dist: umap-learn (==0.5.1) ; extra == 'all'
+Requires-Dist: tensorflow-probability (==0.20.1) ; extra == 'all'
+Requires-Dist: scikit-multilearn (==0.2.0) ; extra == 'all'
+Requires-Dist: pytest-cov (>=3.0.0) ; extra == 'all'
+Requires-Dist: seaborn (==0.12.0) ; extra == 'all'
+Requires-Dist: tensorflow (==2.12.0) ; extra == 'all'
+Requires-Dist: deepchem (==2.7.1) ; extra == 'all'
+Requires-Dist: torch (==2.0.0) ; extra == 'all'
+Requires-Dist: boruta (==0.3) ; extra == 'all'
+Requires-Dist: mypy (>=0.942) ; extra == 'all'
+Requires-Dist: kaleido (==0.2.1) ; extra == 'all'
+Provides-Extra: boruta
+Requires-Dist: boruta (==0.3) ; extra == 'boruta'
+Provides-Extra: cached_property
+Requires-Dist: cached-property (==1.5.2) ; extra == 'cached_property'
+Provides-Extra: chembl_structure_pipeline
+Requires-Dist: chembl-structure-pipeline (==1.1.0) ; extra == 'chembl_structure_pipeline'
+Provides-Extra: deep_learning
+Requires-Dist: optuna (==3.1.1) ; extra == 'deep_learning'
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'deep_learning'
+Requires-Dist: torch-geometric (==2.3.1) ; extra == 'deep_learning'
+Requires-Dist: joblib (==1.1.1) ; extra == 'deep_learning'
+Requires-Dist: shap (==0.41.0) ; extra == 'deep_learning'
+Requires-Dist: dgllife (==0.3.2) ; extra == 'deep_learning'
+Requires-Dist: numpy (==1.23.5) ; extra == 'deep_learning'
+Requires-Dist: dill (==0.3.6) ; extra == 'deep_learning'
+Requires-Dist: dgl (==0.9.1) ; extra == 'deep_learning'
+Requires-Dist: h5py (==3.7.0) ; extra == 'deep_learning'
+Requires-Dist: scikit-learn (==1.2.0) ; extra == 'deep_learning'
+Requires-Dist: pillow (==8.4.0) ; extra == 'deep_learning'
+Requires-Dist: smilespe (==0.0.3) ; extra == 'deep_learning'
+Requires-Dist: cached-property (==1.5.2) ; extra == 'deep_learning'
+Requires-Dist: tensorflow-probability (==0.20.1) ; extra == 'deep_learning'
+Requires-Dist: scikit-multilearn (==0.2.0) ; extra == 'deep_learning'
+Requires-Dist: seaborn (==0.12.0) ; extra == 'deep_learning'
+Requires-Dist: tensorflow (==2.12.0) ; extra == 'deep_learning'
+Requires-Dist: deepchem (==2.7.1) ; extra == 'deep_learning'
+Requires-Dist: torch (==2.0.0) ; extra == 'deep_learning'
+Provides-Extra: deepchem
+Requires-Dist: deepchem (==2.7.1) ; extra == 'deepchem'
+Provides-Extra: dgl
+Requires-Dist: dgl (==0.9.1) ; extra == 'dgl'
+Provides-Extra: dgllife
+Requires-Dist: dgllife (==0.3.2) ; extra == 'dgllife'
+Provides-Extra: dill
+Requires-Dist: dill (==0.3.6) ; extra == 'dill'
+Provides-Extra: flake8
+Requires-Dist: flake8 (>=4.0.1) ; extra == 'flake8'
+Provides-Extra: gensim
+Requires-Dist: gensim (==4.2.0) ; extra == 'gensim'
+Provides-Extra: h5py
+Requires-Dist: h5py (==3.7.0) ; extra == 'h5py'
+Provides-Extra: imblearn
+Requires-Dist: imblearn ; extra == 'imblearn'
+Provides-Extra: joblib
+Requires-Dist: joblib (==1.1.1) ; extra == 'joblib'
+Provides-Extra: kaleido
+Requires-Dist: kaleido (==0.2.1) ; extra == 'kaleido'
+Provides-Extra: kneed
+Requires-Dist: kneed (==0.8.2) ; extra == 'kneed'
+Provides-Extra: machine_learning
+Requires-Dist: pillow (==8.4.0) ; extra == 'machine_learning'
+Requires-Dist: smilespe (==0.0.3) ; extra == 'machine_learning'
+Requires-Dist: umap-learn (==0.5.1) ; extra == 'machine_learning'
+Requires-Dist: cached-property (==1.5.2) ; extra == 'machine_learning'
+Requires-Dist: numpy (==1.23.5) ; extra == 'machine_learning'
+Requires-Dist: dill (==0.3.6) ; extra == 'machine_learning'
+Requires-Dist: plotly (==5.13.1) ; extra == 'machine_learning'
+Requires-Dist: scikit-multilearn (==0.2.0) ; extra == 'machine_learning'
+Requires-Dist: seaborn (==0.12.0) ; extra == 'machine_learning'
+Requires-Dist: kneed (==0.8.2) ; extra == 'machine_learning'
+Requires-Dist: optuna (==3.1.1) ; extra == 'machine_learning'
+Requires-Dist: h5py (==3.7.0) ; extra == 'machine_learning'
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'machine_learning'
+Requires-Dist: shap (==0.41.0) ; extra == 'machine_learning'
+Requires-Dist: scikit-learn (==1.2.0) ; extra == 'machine_learning'
+Requires-Dist: joblib (==1.1.1) ; extra == 'machine_learning'
+Requires-Dist: kaleido (==0.2.1) ; extra == 'machine_learning'
+Provides-Extra: mypy
+Requires-Dist: mypy (>=0.942) ; extra == 'mypy'
+Provides-Extra: numpy
+Requires-Dist: numpy (==1.23.5) ; extra == 'numpy'
+Provides-Extra: optuna
+Requires-Dist: optuna (==3.1.1) ; extra == 'optuna'
+Provides-Extra: pillow
+Requires-Dist: pillow (==8.4.0) ; extra == 'pillow'
+Provides-Extra: plotly
+Requires-Dist: plotly (==5.13.1) ; extra == 'plotly'
+Provides-Extra: preprocessing
+Requires-Dist: pillow (==8.4.0) ; extra == 'preprocessing'
+Requires-Dist: smilespe (==0.0.3) ; extra == 'preprocessing'
+Requires-Dist: imblearn ; extra == 'preprocessing'
+Requires-Dist: cached-property (==1.5.2) ; extra == 'preprocessing'
+Requires-Dist: numpy (==1.23.5) ; extra == 'preprocessing'
+Requires-Dist: dill (==0.3.6) ; extra == 'preprocessing'
+Requires-Dist: seaborn (==0.12.0) ; extra == 'preprocessing'
+Requires-Dist: h5py (==3.7.0) ; extra == 'preprocessing'
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'preprocessing'
+Requires-Dist: boruta (==0.3) ; extra == 'preprocessing'
+Requires-Dist: chembl-structure-pipeline (==1.1.0) ; extra == 'preprocessing'
+Requires-Dist: gensim (==4.2.0) ; extra == 'preprocessing'
+Requires-Dist: joblib (==1.1.1) ; extra == 'preprocessing'
+Provides-Extra: pytest
+Requires-Dist: pytest (>=7.1.1) ; extra == 'pytest'
+Provides-Extra: pytest-cov
+Requires-Dist: pytest-cov (>=3.0.0) ; extra == 'pytest-cov'
+Provides-Extra: rdkit-pypi
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'rdkit-pypi'
+Provides-Extra: scikit-learn
+Requires-Dist: scikit-learn (==1.2.0) ; extra == 'scikit-learn'
+Provides-Extra: scikit-multilearn
+Requires-Dist: scikit-multilearn (==0.2.0) ; extra == 'scikit-multilearn'
+Provides-Extra: seaborn
+Requires-Dist: seaborn (==0.12.0) ; extra == 'seaborn'
+Provides-Extra: shap
+Requires-Dist: shap (==0.41.0) ; extra == 'shap'
+Provides-Extra: smilespe
+Requires-Dist: smilespe (==0.0.3) ; extra == 'smilespe'
+Provides-Extra: tensorflow
+Requires-Dist: tensorflow (==2.12.0) ; extra == 'tensorflow'
+Provides-Extra: tensorflow-probability
+Requires-Dist: tensorflow-probability (==0.20.1) ; extra == 'tensorflow-probability'
+Provides-Extra: test
+Requires-Dist: pillow (==8.4.0) ; extra == 'test'
+Requires-Dist: smilespe (==0.0.3) ; extra == 'test'
+Requires-Dist: flake8 (>=4.0.1) ; extra == 'test'
+Requires-Dist: cached-property (==1.5.2) ; extra == 'test'
+Requires-Dist: numpy (==1.23.5) ; extra == 'test'
+Requires-Dist: dill (==0.3.6) ; extra == 'test'
+Requires-Dist: pytest (>=7.1.1) ; extra == 'test'
+Requires-Dist: pytest-cov (>=3.0.0) ; extra == 'test'
+Requires-Dist: seaborn (==0.12.0) ; extra == 'test'
+Requires-Dist: h5py (==3.7.0) ; extra == 'test'
+Requires-Dist: rdkit-pypi (==2022.9.3) ; extra == 'test'
+Requires-Dist: tox (>=3.25.0) ; extra == 'test'
+Requires-Dist: mypy (>=0.942) ; extra == 'test'
+Requires-Dist: joblib (==1.1.1) ; extra == 'test'
+Provides-Extra: torch
+Requires-Dist: torch (==2.0.0) ; extra == 'torch'
+Provides-Extra: torch_geometric
+Requires-Dist: torch-geometric (==2.3.1) ; extra == 'torch_geometric'
+Provides-Extra: tox
+Requires-Dist: tox (>=3.25.0) ; extra == 'tox'
+Provides-Extra: umap-learn
+Requires-Dist: umap-learn (==0.5.1) ; extra == 'umap-learn'
+
