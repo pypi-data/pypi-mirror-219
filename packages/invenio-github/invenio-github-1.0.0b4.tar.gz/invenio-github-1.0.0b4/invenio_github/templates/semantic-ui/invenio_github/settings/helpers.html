@@ -1,0 +1,65 @@
+{# -*- coding: utf-8 -*-
+
+  This file is part of Invenio.
+  Copyright (C) 2023 CERN.
+
+  Invenio is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+{%- macro panel_start(title, icon="", btn_text='', btn='', btn_icon='',
+  btn_href='', btn_class='', btn_id='', btn_name='',
+  id="", with_body=True, panel_extra_class="secondary") %}
+  {%- block panel_start scoped %}
+    <div class="ui segments" {% if id %}id="{{ id }}"{% endif %}>
+      <div class="ui segment {{ panel_extra_class }}">
+        {%- block panel_heading scoped %}
+          <div class="ui equal width grid">
+            <div class="column">
+              <strong class="ui header">
+                {% if icon %}<i class="{{ icon }}"></i>{% endif %}
+                {{ title }}
+              </strong>
+            </div>
+            <div class="right floated right aligned column">
+              {%- if btn and (btn_href or btn_text) -%}
+                <div id="sync-result-message" class="ui label hidden"></div>
+                {%- if btn_text %}<small>{{ btn_text }}</small>{%- endif %}
+                {%- if btn_href %}
+                  <a class="ui basic tiny button {{ btn_class }}" href="{{ btn_href }}">
+                    {% if btn_icon %}<i class="{{ btn_icon }}"></i>{% endif %}
+                    {{ btn }}
+                  </a>
+                {%- elif btn_name and btn_id %}
+                  <button id="{{ btn_id }}" name="{{ btn_name }}" class="ui compact tiny button {{ btn_class }}">
+                    {% if btn_icon %}<i id="loaderIcon" class="{{ btn_icon }}"></i>{% endif %}
+                    {{ btn }}
+                  </button>
+                {%- endif %}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endblock %}
+      </div>
+      {%- if with_body %}
+        <div class="ui segment">
+      {%- endif %}
+  {%- endblock %}
+{%- endmacro %}
+
+{%- macro panel_end(with_body=True) %}
+  {%- block panel_end scoped %}
+    {%- if with_body %}</div>{%- endif %}
+    </div>
+  {%- endblock %}
+{%- endmacro %}
+
+{%- macro repo_switch(repo, repo_id) %}
+  {%- block repo_switch scoped %}
+    {%- set inaccessible = (repo and repo.user_id and (repo.user_id != current_user.id)) %}
+    <div class="ui toggle checkbox"
+         {% if inaccessible %} data-tooltip="{{ _('This repository is managed by another user of your GitHub organization.') }}" {% endif %}>
+      <input type="checkbox" {{' disabled' if inaccessible}}{{ ' checked' if repo and repo.enabled }} data-repo-id="{{ repo_id }}" />
+      <label></label>
+    </div>
+  {%- endblock %}
+{%- endmacro %}
