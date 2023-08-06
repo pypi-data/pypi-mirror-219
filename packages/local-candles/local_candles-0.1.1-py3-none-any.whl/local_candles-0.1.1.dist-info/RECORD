@@ -1,0 +1,16 @@
+local_candles/__init__.py,sha256=FW7BKpcfXBIYrzPNyczZiOQhsANQzrXTRLaBghNibnE,1063
+local_candles/data.py,sha256=sh9PocDQR2frd_EnJW9vPVfhqFQnIj4j8Qj4dqAjteA,3875
+local_candles/models/__init__.py,sha256=0GsgShFUfnB5YQoiOx47DBP-sgT05A5Dbag1h3EPUwQ,54
+local_candles/models/interval.py,sha256=CaEYvl0kPDZtLBcBEibEq697BG5yhK_dSKG6bDy0GV4,1671
+local_candles/models/time.py,sha256=0gMnavhNE0CqZb9Aw6dGDrOvjqNuIcsj1UGMxYM5gpk,1435
+local_candles/sources/__init__.py,sha256=_Ko9G-JJBeHfzmxmw9wLEvcPdPyOz2L9gVbxqgAnC8o,558
+local_candles/sources/base.py,sha256=CiXxMvax_mFqEz_9Dbs94ay1t-hJWAlniEHibwDhxYI,355
+local_candles/sources/binance_futures_ohlc.py,sha256=PNzkvGUu8zBp8aZjF-QtBMptKg9KUuQXhnbp_CNdxSw,2305
+local_candles/sources/binance_spot_ohlc.py,sha256=TQuOdPZpLJCsnB9RUwimOpTvylDj0i9j9AvTMUnoUO8,2320
+local_candles/sources/csv_file.py,sha256=xw5MoFvN_VoZN_ZDeDYAytH4ZY-hpw0j5wyAsBnor3c,2630
+local_candles/sources/gateio_spot_ohlc.py,sha256=u7L5sUHzxrDKiB3CBqTHqi7radFUavTyB6P7IKbcEMs,2342
+local_candles/sources/yahoo_finance_ohlc.py,sha256=A__rW6HfSa8My8lMwCOAYsFysOmxM2MucZT0AsQRw5s,2271
+local_candles/utils.py,sha256=jgiQkwemvtZjxWGWrLwOYLi8Qk6BmXLoQ_tHx1j5dVc,570
+local_candles-0.1.1.dist-info/WHEEL,sha256=vxFmldFsRN_Hx10GDvsdv1wroKq8r5Lzvjp6GZ4OO8c,88
+local_candles-0.1.1.dist-info/METADATA,sha256=xCeINtdfyUzbcVs39EzbAjpm-OxG4d_1TDLv2eysgA0,1474
+local_candles-0.1.1.dist-info/RECORD,,
