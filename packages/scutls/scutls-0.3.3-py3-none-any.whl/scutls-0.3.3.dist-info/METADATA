@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: scutls
+Version: 0.3.3
+Summary: Single-cell data processing utility tools
+Author: Kai Hu
+Author-email: kai.hu@umassmed.edu
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: GEOparse (>=2.0.3,<3.0.0)
+Requires-Dist: biopython (>=1.80,<2.0)
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: importlib-resources (>=5.8.0,<6.0.0)
+Requires-Dist: pysam (>=0.21.0,<0.22.0)
+Requires-Dist: regex (>=2023.5.5,<2024.0.0)
+Requires-Dist: urllib3 (>=1.26.10,<2.0.0)
+Requires-Dist: wget (>=3.2,<4.0)
