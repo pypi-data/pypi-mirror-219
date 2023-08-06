@@ -1,0 +1,19 @@
+# Python
+.env/
+__pycache__/
+dist/
+uniteai.egg-info/
+
+# Config
+.uniteai.yml
+.uniteai.yaml
+
+# Misc
+test.md
+test.txt
+*.log
+debug_transcription.wav
+
+# VSCode
+.vscode/
+node_modules/
