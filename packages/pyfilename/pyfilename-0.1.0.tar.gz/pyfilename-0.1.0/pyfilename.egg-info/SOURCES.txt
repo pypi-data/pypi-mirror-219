@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+pyfilename/__init__.py
+pyfilename/pyfilename.py
+pyfilename.egg-info/PKG-INFO
+pyfilename.egg-info/SOURCES.txt
+pyfilename.egg-info/dependency_links.txt
+pyfilename.egg-info/not-zip-safe
+pyfilename.egg-info/top_level.txt
+test/__init__.py
+test/test.py
