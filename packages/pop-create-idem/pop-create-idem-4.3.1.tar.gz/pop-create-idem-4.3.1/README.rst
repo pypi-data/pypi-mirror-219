@@ -1,0 +1,93 @@
+======
+README
+======
+
+It is recommended to use a python virtualenv when creating a new Idem provider
+plugin. We'll give some instructions below, but feel free to use what
+environment tool you're comfortable with.
+
+Create a virtual env
+++++++++++++++++++++
+
+.. warning::
+
+   Ensure you have Python 3.8 or later available. You're good if running the
+   command `python -V` displays a version of Python 3.8 or newer. Otherwise you
+   might need to use `python3` instead of `python` in the commands in the rest
+   of this tutorial.
+
+.. code-block:: bash
+
+    python -m venv env
+    source env/bin/activate
+
+Now you should be in your new python virtualenv.
+
+Let's update to the latest pip inside our virtual env:
+
+.. code-block:: bash
+
+    pip install -U pip
+
+
+Install Dependencies
+++++++++++++++++++++
+
+Now we're going to install "pop-create".
+
+.. code-block:: bash
+
+    pip install pop-create
+
+
+You now have access to the `pop-create` command for creating idem plugins.
+
+
+Installation
+++++++++++++
+Install `pop-create-idem` with pip from project root:
+
+.. code-block:: bash
+
+    pip install -e {project_root}
+
+Install `pop-create-idem` with pip from PyPi:
+
+.. code-block:: bash
+
+    pip install pop-create-idem
+
+
+Generating Idem Cloud Plugin
+++++++++++++++++++++++++++++
+
+To generate a new skeleton Idem cloud plugin, run:
+
+.. code-block:: bash
+
+    pop-create idem-cloud --directory /path/to/new/project --project-name=idem-{my_cloud} --simple_cloud_name={my_cloud}
+
+A new project will have been created with all the necessary directory structure to get started with Idem cloud plugin.
+
+To generate a new idem plugin project with swagger specification, run:
+
+.. code-block:: bash
+
+    pop-create swagger --directory /path/to/new/project --specification={swagger-spec-yaml-or-accessible-swagger-spec-json-url} --project-name=idem-{my_cloud} --simple_cloud_name={my_cloud}
+
+To generate a new Idem plugin project with openapi3 specification, run:
+
+.. code-block:: bash
+
+    pop-create openapi3 --directory /path/to/new/project --specification={openapi3-spec-yaml-or-accessible-openapi3-spec-json-url} --project-name=idem-{my_cloud} --simple_cloud_name={my_cloud}
+
+A new project will have been created with all the boilerplate code needed to get started with respective provider.
+
+.. important::
+
+    Look under quickstart tutorial guide for generating and configuring Idem Cloud plugin for your provider.
+
+.. note::
+
+    There is a swagger petstore example under tutorial which walks through generated Idem plugin
+    with a sample petstore swagger.
