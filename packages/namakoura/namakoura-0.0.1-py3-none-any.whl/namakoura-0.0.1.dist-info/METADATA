@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: namakoura
+Version: 0.0.1
+Summary: A central Minecraft historical senquential savedata manager
+License: AGPL
+Author: 快乐的老鼠宝宝
+Author-email: keaitianxinmail@qq.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# 〈生〉コーラ (Namakoura)
+
+A central Minecraft historical senquential savedata manager
+
+## Usage
+
+```shell
+pip install namakoura
+python -m namakoura <your_dir>
+```
+
+## Roadmap
+
+WIP
+
