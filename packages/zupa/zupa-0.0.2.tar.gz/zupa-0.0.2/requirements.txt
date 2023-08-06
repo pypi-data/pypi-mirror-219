@@ -1,0 +1,24 @@
+# Zupa
+owly      ~= 0.0.2
+arklog    ~= 0.5.1
+rdflib    ~= 6.3.2
+owlready2 ~= 0.43
+# Test
+pytest ~= 7.4.0
+# Doc
+sphinx               >= 5, < 8
+sphinx-tabs          ~= 3.4.1
+myst-parser          ~= 2.0.0
+sphinx-xournal       ~= 0.1.2
+sphinx-godot-theme   ~= 0.4.2
+sphinxcontrib-drawio ~= 0.0.16
+# Dev
+tox         ~= 4.6.0
+pip         ~= 23.2
+flit        ~= 3.9.0
+twine       ~= 4.0.2
+vermin      ~= 1.5.1
+invoke      ~= 2.2.0
+jinja2      ~= 3.1.2
+flake8      ~= 6.0.0
+coverage    ~= 7.2.7

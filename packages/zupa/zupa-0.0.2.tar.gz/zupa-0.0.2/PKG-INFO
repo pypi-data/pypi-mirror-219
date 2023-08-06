@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: zupa
+Version: 0.0.2
+Summary: Playground.
+Keywords: ontology
+Author-email: Arkadiusz Michał Ryś <Arkadiusz.Michal.Rys@gmail.com>
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Requires-Dist: owly~=0.0.2
+Requires-Dist: arklog~=0.5.1
+Requires-Dist: rdflib~=6.3.2
+Requires-Dist: owlready2~=0.43
+Requires-Dist: tox~=4.6.0 ; extra == "dev"
+Requires-Dist: pip~=23.2 ; extra == "dev"
+Requires-Dist: flit~=3.9.0 ; extra == "dev"
+Requires-Dist: twine~=4.0.2 ; extra == "dev"
+Requires-Dist: vermin~=1.5.1 ; extra == "dev"
+Requires-Dist: invoke~=2.2.0 ; extra == "dev"
+Requires-Dist: jinja2~=3.1.2 ; extra == "dev"
+Requires-Dist: flake8~=6.0.0 ; extra == "dev"
+Requires-Dist: coverage~=7.2.7 ; extra == "dev"
+Requires-Dist: sphinx>=5,<8 ; extra == "doc"
+Requires-Dist: sphinx-tabs~=3.4.1 ; extra == "doc"
+Requires-Dist: myst-parser~=2.0.0 ; extra == "doc"
+Requires-Dist: sphinx-xournal~=0.1.2 ; extra == "doc"
+Requires-Dist: sphinx-godot-theme~=0.4.2 ; extra == "doc"
+Requires-Dist: sphinxcontrib-drawio~=0.0.16 ; extra == "doc"
+Requires-Dist: pytest~=7.4.0 ; extra == "test"
+Project-URL: source, https://git.rys.one/dtdesign/zupa
+Provides-Extra: dev
+Provides-Extra: doc
+Provides-Extra: graphical
+Provides-Extra: test
+
+####
+Zupa
+####
+
+Playground for server management.
+
+..
+   .. code-block:: python
+
+      pass
+
+
+Installation
+------------
+
+.. code-block:: shell
+
+   pip install zupa
+
