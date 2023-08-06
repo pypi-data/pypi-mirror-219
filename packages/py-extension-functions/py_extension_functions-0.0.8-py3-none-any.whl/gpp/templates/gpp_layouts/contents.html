@@ -1,0 +1,43 @@
+{% extends 'gpp_layouts/master.html' %}
+{% block styles %}
+    <style>
+    div.page-heading section div.row {
+        min-width: 900px;
+    }
+    .form-control:focus {
+        border-color: #6265e4 !important;
+        box-shadow: 0 0 1px rgba(98, 101, 228, 1) !important;
+    }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>{% block breadcrumb_name %}Breadcrumb{% endblock %}</h3>
+                    <p class="text-subtitle text-muted">{% block breadcrumb_desc %}Indicate the current page’s location within a
+                        navigational hierarchy
+                        that automatically adds separators via CSS{% endblock %}</p>
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            {% block breadcrumb_item %}
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Breadcrumb</li>
+                            {% endblock %}
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <section class="section d-flex justify-content-center">
+        {% block section %}{% endblock %}
+        </section>
+
+    </div>
+{% endblock content %}

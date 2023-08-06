@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data server</title>
+    {% block stylesfirst %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    {% block styles %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'vendors/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/waitMe.min.css' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" type="image/x-icon" >
+</head>
+
+<body>
+    <div id="app">
+        <div id="sidebar" class="active">
+            {% include "gpp_layouts/sidebar.html" %}
+        </div>
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+            {% block content %}{% endblock %}
+            <footer>
+                <div class="footer clearfix mb-0 text-muted">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div id="spinner-div" class="pt-5"><div class="spinner-border text-primary" role="status"></div></div>
+    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'vendors/perfect-scrollbar/perfect-scrollbar.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{#    <script src="{% static 'js/waitMe.min.js' %}"></script>#}
+    <script>
+        var global_ajax_load = function() {
+            $(document).ajaxStart(function(){
+                $('#app').waitMe({
+                    effect : 'bounce',
+                    bg: 'rgba(255,255,255,0.7)',
+                    text: 'Please wait ...',
+                    color : '#000',
+                    maxSize : '',
+                    waitTime : -1,
+                    textPos : 'vertical',
+                    fontSize : '',
+                    source : '',
+                    onClose : function() {}
+                });
+            });
+            $(document).ajaxStop(function(){
+                $('#app').waitMe("hide");
+            });
+        }
+        var global_ajax_error = function() {
+            $(document).ajaxError(function myErrorHandler(event, xhr, ajaxOptions, thrownError) {
+                let url = ajaxOptions.url ;
+                alert('오류발생\najax url : ' + url + '\nresp: ' + xhr.status + ' : ' + xhr.statusText + '\n담당자에게 문의 바랍니다.');
+                console.log(event);
+                console.log(xhr);
+                console.log(ajaxOptions.url);
+                console.log(thrownError);
+            });
+        }
+        $(document).ready(function() {
+            {#global_ajax_load();#}
+            global_ajax_error();
+        })
+
+        $(function() {
+            let path = window.location.pathname;
+
+            $('#sidebar div.sidebar-menu ul li ul a').each(function () {
+                let href = $(this).attr('href');
+                if (href === undefined) return;
+
+                href = href.split('?')[0];
+                if (path.indexOf(href) === 0) {
+                    $(this).closest('li').addClass('active').parent('ul').addClass('active').parent('li').addClass('active');
+                }
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="popover"]').popover();
+        });
+
+        openCompanyHistory = () => {};
+        openCompanyPerYearHistory = () => {};
+        openFranchiseHistory = () => {};
+        openFranchisePerYearHistory = () => {};
+
+    </script>
+    {% block js %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+        <div class="d-flex justify-content-center">
+            <div class="logo">
+                <a href="/"><img src="{% static 'logo.svg' %}" alt="Logo"></a>
+            </div>
+            <div class="toggler">
+                <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-menu">
+        <ul class="menu">
+        {% for title in sidebarItems %}
+            <li class="sidebar-title{{ title.str_hassub_class }}">{{title.name}}</li>
+            {% for item in title.submenu %}
+            <li class="sidebar-item{{ item.str_hassub_class }}">
+                <a href="{{item.url}}" class='sidebar-link'>
+                    <i class="bi bi-{{ item.icon }}"></i>
+                    <span>{{item.name}}</span>
+                </a>
+                {% if item.submenu %}
+                <ul class="submenu">
+                {% for sub in item.submenu %}
+                    <li class="submenu-item">
+                        <a href="{{ sub.url }}">{{ sub.name }}</a>
+                    </li>
+                {% endfor %}
+                </ul>
+                {% endif %}
+            </li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+</div>
