@@ -1,0 +1,8 @@
+pytz
+
+[doc]
+Sphinx
+sphinx-rtd-theme
+
+[test]
+pytest-cov
