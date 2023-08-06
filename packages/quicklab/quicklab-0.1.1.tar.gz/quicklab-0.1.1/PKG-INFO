@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: quicklab
+Version: 0.1.1
+Summary: Start Jupyter Lab sessions on the cloud
+Home-page: https://github.com/dymaxionlabs/quicklab
+License: MPL-2.0
+Keywords: jupyter,cloud
+Author: nuxion
+Author-email: nuxion@gmail.com
+Requires-Python: >=3.7,<3.11
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Provides-Extra: google
+Requires-Dist: apache-libcloud (>=3.6.0,<4.0.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: cryptography (>=37.0.4,<38.0.0)
+Requires-Dist: google-cloud-artifact-registry (>=1.3.1,<2.0.0) ; extra == "google"
+Requires-Dist: google-cloud-logging (>=3.2.5,<4.0.0) ; extra == "google"
+Requires-Dist: google-cloud-storage (>=1.31.0,<2.0.0) ; extra == "google"
+Requires-Dist: nanoid (>=2.0.0,<3.0.0)
+Requires-Dist: pydantic (>=1.9.2,<2.0.0)
+Requires-Dist: rich (>=12.5.1,<13.0.0)
+Requires-Dist: smart-open (>=6.0.0,<7.0.0) ; extra == "google"
+Requires-Dist: tomli (>=2.0.1,<3.0.0)
+Requires-Dist: tomli-w (>=1.0.0,<2.0.0)
+Project-URL: Repository, https://github.com/dymaxionlabs/quicklab
+Description-Content-Type: text/markdown
+
+# quicklab
+
+Start Jupyter Lab sessions on the cloud
+
+## Features
+
+* VM creation
+* Jupyter on Docker
+* SSL certificates (ZeroSSL & Caddy)
+* Volumes management (Creation, Resizing, deletion, formating, etc)
+* DNS A record creation (Google, Cloudflare)
+* Automatic shutdown by inactivity (by Jupyter)
+* GPU Provisioning (nvidia-smi installation, docker configuration, etc)
+* Linux image creation (Packer)
+* Entities types for autocompletion
+* Logging into cloud provider log service
+
+Only Google Cloud Platform supported for now, but relatively easy to add new
+cloud providers.
+
+## Usage
+
+For users:
+
+* [Quickstart](docs/quickstart.md)
+
+For administrators:
+
+* [Deploy](docs/deploy.md)
+* [Images](docs/images.md)
+* [Volumes](docs/volumes.md)
+* [Permissions](docs/permissions.md)
+
+## Acknowledgments
+
+* Original work from [LabMachine](https://github.com/nuxion/labmachine)
+
+## License
+
+Work licensed under MPL 2.0. See [LICENSE](LICENSE) for more.
+
