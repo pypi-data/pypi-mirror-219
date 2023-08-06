@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "sqlmuggle"
+version = "0.0.1"
+description = "Database Attention Library"
+authors = ["Damian Świstowski <damian@swistowski.org>"]
+license = "MIT"
+packages = [{include = "sqlmuggle", from = "src"}]
+include = ["src/sqlmuggle/py.typed"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+ruff = "^0.0.278"
+pytest = "^7.4.0"
+mypy = "^1.4.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
