@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+dlprog/__init__.py
+dlprog/progress.py
+dlprog/utils.py
+dlprog.egg-info/PKG-INFO
+dlprog.egg-info/SOURCES.txt
+dlprog.egg-info/dependency_links.txt
+dlprog.egg-info/top_level.txt
