@@ -1,0 +1,232 @@
+{
+    "title": "节点编辑器",
+    "description": "节点编辑器的配置",
+    "jupyter.lab.menus": {
+        "main": [
+            {
+                "id": "jp-mainmenu-node-editor",
+                "label": "节点编辑器",
+                "items": [
+                    {
+                        "command": "nd-load"
+                    },
+                    {
+                        "command": "nd-create"
+                    },
+                    {
+                        "command": "nd-delete"
+                    },
+                    {
+                        "command": "nd-rename"
+                    },
+                    {
+                        "command": "nd-copy"
+                    },
+                    {
+                        "command": "nd-run-all-cells"
+                    },
+                    {
+                        "command": "nd-clear-run-cache"
+                    },
+                    {
+                        "command": "nd-undo"
+                    },
+                    {
+                        "command": "nd-redo"
+                    },
+                    {
+                        "command": "nd-reset-viewport"
+                    },
+                    {
+                        "command": "nd-kernel-interrupt"
+                    },
+                    {
+                        "command": "nd-kernel-restart"
+                    },
+                    {
+                        "command": "nd-kernel-change"
+                    },
+                    {
+                        "command": "nd-select-all"
+                    },
+                    {
+                        "command": "nd-delete-selected-nodes"
+                    },
+                    {
+                        "command": "nd-copy-selected-nodes"
+                    },
+                    {
+                        "command": "nd-paste-selected-nodes"
+                    },
+                    {
+                        "command": "nd-focus-to-selected-nodes"
+                    },
+                    {
+                        "command": "nd-close-image-viewer"
+                    },
+                    {
+                        "command": "nd-set-as-default"
+                    },
+                    {
+                        "command": "nd-open-comment-color-picker"
+                    },
+                    {
+                        "command": "nd-run-start-node"
+                    }
+                ],
+                "rank": 100
+            }
+        ]
+    },
+    "jupyter.lab.shortcuts": [
+        {
+            "command": "nd-load",
+            "keys": [
+                "L"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-create",
+            "keys": [
+                "N"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-delete",
+            "keys": [
+                "X"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-rename",
+            "keys": [
+                "R"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-copy",
+            "keys": [
+                "Shift F"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-run-all-cells",
+            "keys": [
+                "Shift R"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-clear-run-cache",
+            "keys": [
+                "Shift C"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-undo",
+            "keys": [
+                "Accel Z"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-redo",
+            "keys": [
+                "Accel Y"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-reset-viewport",
+            "keys": [
+                "G"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-kernel-interrupt",
+            "keys": [
+                "Accel I"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false]"
+        },
+        {
+            "command": "nd-kernel-restart",
+            "keys": [
+                "Accel K"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false]"
+        },
+        {
+            "command": "nd-select-all",
+            "keys": [
+                "Accel A"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-delete-selected-nodes",
+            "keys": [
+                "D"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-copy-selected-nodes",
+            "keys": [
+                "Accel C"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-paste-selected-nodes",
+            "keys": [
+                "Accel V"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-focus-to-selected-nodes",
+            "keys": [
+                "F"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-close-image-viewer",
+            "keys": [
+                "Escape"
+            ],
+            "selector": "[data-show-image-viewer=true][data-show-code-editor=false]"
+        },
+        {
+            "command": "nd-set-as-default",
+            "keys": [
+                "Alt Shift D"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-open-comment-color-picker",
+            "keys": [
+                "C"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false][data-inputing=false]"
+        },
+        {
+            "command": "nd-run-start-node",
+            "keys": [
+                "Accel Enter"
+            ],
+            "selector": "[data-show-image-viewer=false][data-show-code-editor=false]"
+        }
+    ],
+    "additionalProperties": false,
+    "type": "object"
+}
