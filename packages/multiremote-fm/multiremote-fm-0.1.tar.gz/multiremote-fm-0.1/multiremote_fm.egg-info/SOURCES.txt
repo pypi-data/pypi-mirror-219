@@ -1,0 +1,10 @@
+LICENSE
+README.md
+multiremote_fm.py
+pyproject.toml
+multiremote_fm.egg-info/PKG-INFO
+multiremote_fm.egg-info/SOURCES.txt
+multiremote_fm.egg-info/dependency_links.txt
+multiremote_fm.egg-info/top_level.txt
+tests/test_ftp.py
+tests/test_local_dir.py
