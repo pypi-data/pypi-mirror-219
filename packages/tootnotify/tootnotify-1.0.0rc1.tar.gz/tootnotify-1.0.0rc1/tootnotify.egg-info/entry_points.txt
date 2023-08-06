@@ -1,0 +1,2 @@
+[console_scripts]
+tootnotify = tootnotify.tootnotify:run_cli

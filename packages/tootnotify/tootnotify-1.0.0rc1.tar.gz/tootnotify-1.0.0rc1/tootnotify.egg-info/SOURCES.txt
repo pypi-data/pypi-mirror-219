@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+tootnotify/__init__.py
+tootnotify/tootnotify.py
+tootnotify.egg-info/PKG-INFO
+tootnotify.egg-info/SOURCES.txt
+tootnotify.egg-info/dependency_links.txt
+tootnotify.egg-info/entry_points.txt
+tootnotify.egg-info/requires.txt
+tootnotify.egg-info/top_level.txt
