@@ -1,0 +1,2 @@
+[flake8.extension]
+IMR2 = flake8_import_restrictions.checker:ImportChecker

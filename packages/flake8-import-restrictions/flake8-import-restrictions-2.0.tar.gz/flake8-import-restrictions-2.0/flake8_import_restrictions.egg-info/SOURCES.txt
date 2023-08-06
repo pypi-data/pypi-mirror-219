@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+flake8_import_restrictions/__init__.py
+flake8_import_restrictions/checker.py
+flake8_import_restrictions/imports_submodule.py
+flake8_import_restrictions.egg-info/PKG-INFO
+flake8_import_restrictions.egg-info/SOURCES.txt
+flake8_import_restrictions.egg-info/dependency_links.txt
+flake8_import_restrictions.egg-info/entry_points.txt
+flake8_import_restrictions.egg-info/not-zip-safe
+flake8_import_restrictions.egg-info/top_level.txt
