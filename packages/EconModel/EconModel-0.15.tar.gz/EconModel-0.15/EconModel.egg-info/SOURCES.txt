@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+EconModel/EconModel.py
+EconModel/__init__.py
+EconModel/cppcompile.py
+EconModel/cppstruct.py
+EconModel/cpptools.py
+EconModel/jit.py
+EconModel.egg-info/PKG-INFO
+EconModel.egg-info/SOURCES.txt
+EconModel.egg-info/dependency_links.txt
+EconModel.egg-info/top_level.txt
