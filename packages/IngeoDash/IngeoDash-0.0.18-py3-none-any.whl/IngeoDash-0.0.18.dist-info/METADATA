@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: IngeoDash
+Version: 0.0.18
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: b4msa
+Requires-Dist: microtc
+Requires-Dist: evodag
+Requires-Dist: evomsa
+Requires-Dist: dash
+Requires-Dist: scikit-learn
+
