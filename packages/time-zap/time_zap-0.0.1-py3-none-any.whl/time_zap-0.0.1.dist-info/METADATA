@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: time-zap
+Version: 0.0.1
+Summary: Simple Python CLI for printing time in multiple time zones.
+Author-email: Matt Rhoads <mrhoads1@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2023 Matt Rhoads
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/rckwzrd/time-zap
+Keywords: time,cli
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: arrow
+Requires-Dist: click
+Provides-Extra: dev
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+# Time-Zap
+
+Simple Python CLI for printing time in multiple time zones.
+
+```bash
+pop-os:$ time-zap
+-------------------
+CDT 06:22:16 -05:00
+-------------------
+UTC 11:22:16 +00:00
+EDT 07:22:16 -04:00
+MDT 05:22:16 -06:00
+PDT 04:22:16 -07:00
+-------------------
+```
+
+```bash
+pop-os:$ time-zap 1337
+-------------------
+CDT 13:37:00 -05:00
+-------------------
+UTC 18:37:00 +00:00
+EDT 14:37:00 -04:00
+MDT 12:37:00 -06:00
+PDT 11:37:00 -07:00
+-------------------
+```
+
+Help:
+```bash
+pop-os:$ time-zap --help
+Usage: time-zap [OPTIONS] [TIME]
+
+  Simple Python CLI for printing time in multiple time zones.
+
+Options:
+  --help  Show this message and exit.
+```
