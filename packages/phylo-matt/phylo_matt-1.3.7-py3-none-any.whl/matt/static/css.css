@@ -1,0 +1,134 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    background-color: lightgray;
+}
+
+#logo-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#logo-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#minimapDiv {
+    width: 15vw;
+    height: 30vh;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 2px solid;
+    background: lightgray;
+}
+
+#undo-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+#redo-button {
+    position: absolute;
+    top: 10px;
+    left: 54px;
+}
+
+#save-button {
+    position: absolute;
+    top: 10px;
+    left: 102px;
+}
+
+#snapshots-button {
+    position: absolute;
+    top: 10px;
+    left: 146px;
+}
+
+#zoom-in-button {
+    position: absolute;
+    top: 10px;
+    left: 194px;
+}
+
+#zoom-out-button {
+    position: absolute;
+    top: 10px;
+    left: 238px;
+}
+
+#search {
+    position: absolute;
+    top: 10px;
+    left: 282px;
+    display: flex;
+}
+
+#lengths-button {
+    position: absolute;
+    top: 10px;
+    right: calc(15vw + 112px);
+}
+
+#labels-button {
+    position: absolute;
+    top: 10px;
+    right: calc(15vw + 68px);
+}
+
+#options-button {
+    position: absolute;
+    top: 10px;
+    right: calc(15vw + 20px);
+}
+
+#outgroup-button {
+    position: absolute;
+    top: 54px;
+    left: 10px;
+    display: none;
+}
+
+#context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 150px;
+    background: #1b1a1a;
+    border-radius: 5px;
+    display: none;
+}
+
+#context-menu.visible {
+    display: block;
+}
+
+#context-menu .item {
+    padding: 8px 10px;
+    font-size: 15px;
+    color: #eee;
+    cursor: pointer;
+    border-radius: unset;
+}
+
+#context-menu .item:hover {
+    background: #343434;
+}
+
+#context-menu .line {
+    border-bottom: 1px solid;
+}
+
+.snapshots-table-checkbox {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.tests-results {
+    text-align: right;
+}
