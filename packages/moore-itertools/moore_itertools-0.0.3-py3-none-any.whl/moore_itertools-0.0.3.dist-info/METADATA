@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: moore-itertools
+Version: 0.0.3
+Summary: Moore Itertools
+Author-email: Nick Moore <nick@zoic.org>
+Maintainer-email: Nick Moore <nick@zoic.org>
+License: BSD-3-Clause
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: dev
+Requires-Dist: black (<24) ; extra == 'dev'
+Requires-Dist: build (==0.10.0) ; extra == 'dev'
+Requires-Dist: mypy (~=1.0.1) ; extra == 'dev'
+Requires-Dist: pylint (~=2.16) ; extra == 'dev'
+Requires-Dist: twine (==4.0.2) ; extra == 'dev'
+Requires-Dist: pandas-stubs (~=2.0.0) ; extra == 'dev'
+Requires-Dist: pytest (~=7.2) ; extra == 'dev'
+
+# `moore_itertools`
+
+This exists mostly as a pun on `more_itertools`.
+
+So far there's only one thing in it, a memoizing cartesian product for unbounded iterators.
+
