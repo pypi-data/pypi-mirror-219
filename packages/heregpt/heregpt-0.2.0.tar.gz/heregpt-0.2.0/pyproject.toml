@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "heregpt"
+version = "0.2.0"
+description = "Have ChatGPT right_here_ within your shell"
+authors = ["Dror Atariah <drorata@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/drorata/heregpt"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.9.0"}
+pydantic = "^2.0.2"
+openai = "^0.27.8"
+loguru = "^0.7.0"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+ipykernel = "^6.24.0"
+
+[tool.poetry.scripts]
+heregpt = "heregpt.main:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
