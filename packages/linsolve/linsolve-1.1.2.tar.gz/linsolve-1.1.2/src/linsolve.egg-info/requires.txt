@@ -1,0 +1,10 @@
+numpy>=1.23
+scipy
+
+[dev]
+pre-commit
+linsolve[test]
+
+[test]
+pytest
+pytest-cov
