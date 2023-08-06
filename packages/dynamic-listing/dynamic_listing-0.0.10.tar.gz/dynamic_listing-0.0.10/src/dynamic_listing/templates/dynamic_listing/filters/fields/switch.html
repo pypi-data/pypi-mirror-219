@@ -1,0 +1,13 @@
+<div class="form-check form-switch form-check-custom form-check-solid">
+  <input class="form-check-input"
+         type="checkbox"
+         data-instant-filter="true"
+         name="{{ attrs.name }}"
+         id="filter-id-{{ attrs.name }}"
+      {% if attrs.checked %}
+         checked="checked"
+      {% endif %}/>
+  <label class="form-check-label" for="filter-id-{{ attrs.name }}">
+    {{ attrs.label }}
+  </label>
+</div>

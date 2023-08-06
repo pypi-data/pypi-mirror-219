@@ -1,0 +1,30 @@
+{% load i18n static %}
+
+{% if factory and media %}
+  {{ media }}
+
+  {% if filter or listing_actions and factory %}
+    {% include 'dynamic_listing/filters/inline_filter.html' %}
+  {% endif %}
+{% endif %}
+
+
+
+{% if object_list|length > 0 %}
+  <div class="object_list" id="{{ list_id }}_object_list" data-list-id="{{ list_id }}">
+    {% for object in object_list %}
+      {% include item_template_name with item=object %}
+    {% endfor %}
+    {% if listing_actions_template_name %}
+      {% include listing_actions_template_name %}
+    {% endif %}
+  </div>
+  {% include "dynamic_listing/_pagination.html" %}
+{% else %}
+  {% include 'dynamic_listing/_no_data.html' %}
+{% endif %}
+
+
+{% if modals_template_name %}
+  {% include modals_template_name %}
+{% endif %}

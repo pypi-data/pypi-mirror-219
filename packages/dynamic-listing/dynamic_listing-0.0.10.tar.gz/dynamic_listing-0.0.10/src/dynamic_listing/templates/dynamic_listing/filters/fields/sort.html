@@ -1,0 +1,43 @@
+{#<select class="form-select form-select-solid select2-hidden-accessible"#}
+{#        data-control="select2"#}
+{#        data-hide-search="true"#}
+{#        #}
+{#        #}
+{#        data-placeholder="{{ attrs.placeholder }}"#}
+{#        #}
+{#       >#}
+{##}
+{#  {% for name, label in attrs.choices.items %}#}
+{#    <option value="{{ name }}"{% if attrs.value == name %} selected{% endif %} >#}
+{#      {{ label }}#}
+{#    </option>#}
+{#  {% endfor %}#}
+{##}
+{#</select>#}
+
+{% comment %}
+ data-kt-ecommerce-product-filter="status"
+        data-select2-id="select2-data-10-kpaz"
+        tabindex="-1"
+        aria-hidden="true"
+        data-kt-initialized="1"
+{% endcomment %}
+
+<div class="w-100 mw-150px">
+
+  <select class="form-select form-select-solid select2-hidden-accessible"
+          data-control="select2"
+          data-hide-search="true"
+          data-placeholder="{{ attrs.label }}"
+          data-instant-filter="true"
+          aria-label="{{ attrs.label }}"
+          name="{{ attrs.name }}"
+          id="filter-id-{{ attrs.name }}"
+          tabindex="-1">
+    {% for name, label in attrs.choices.items %}
+      <option value="{{ name }}"{% if attrs.value == name %} selected{% endif %} >
+        {{ label }}
+      </option>
+    {% endfor %}
+  </select>
+</div>

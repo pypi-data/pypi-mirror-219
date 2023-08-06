@@ -1,0 +1,13 @@
+<div class="col p-0">
+  <div class="d-flex align-items-center my-1">
+    <select class="form-select"
+            name="{{ attrs.name }}"
+            data-instant-filter="true"
+            id="filter-id-{{ attrs.name }}"
+            aria-label="{{ attrs.placeholder }}">
+      {% for name, label in attrs.choices.items %}
+        <option value="{{ name }}"{% if attrs.value == name %} selected{% endif %} >{{ label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>

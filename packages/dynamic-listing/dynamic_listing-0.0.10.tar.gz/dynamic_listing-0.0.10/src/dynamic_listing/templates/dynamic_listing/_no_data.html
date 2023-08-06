@@ -1,0 +1,10 @@
+{% load static i18n %}
+<div class="d-flex flex-column flex-center">
+  <img src="{% static "dynamic_listing/5.png" %}"
+       alt="{% trans "No Items Available" %}"
+       class="mw-400px">
+  <div class="fs-1 fw-bolder text-dark mb-4">{% trans "No items found." %}</div>
+  {% if empty_listing_actions_template_name %}
+    {% include empty_listing_actions_template_name %}
+  {% endif %}
+</div>
