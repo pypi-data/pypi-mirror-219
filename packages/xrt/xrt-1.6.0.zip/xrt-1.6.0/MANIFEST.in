@@ -1,0 +1,40 @@
+include README.txt
+include LICENSE.txt
+include xrt\xrt_logo.ico
+include examples\__init__.py
+include examples\withDummy\logo-python.png
+recursive-include examples\withDummy *.py
+include examples\withRaycing\__init__.py
+recursive-include examples\withRaycing\_QookBeamlines *
+recursive-include examples\withRaycing\00_xRayCalculator *.py
+recursive-include examples\withRaycing\01_SynchrotronSources *.py B*.xlsx b*.dc0 *.gz
+recursive-include examples\withRaycing\02_Balder_BL *.py
+recursive-include examples\withRaycing\03_LaueMono *.py
+recursive-include examples\withRaycing\04_Lenses *.py
+recursive-include examples\withRaycing\05_QWP *.py
+recursive-include examples\withRaycing\06_AnalyzerBent1D *.py
+recursive-include examples\withRaycing\07_AnalyzerBent2D *.py
+recursive-include examples\withRaycing\08_CLAESS_BL *.py
+recursive-include examples\withRaycing\09_Gratings *.py *.txt
+recursive-include examples\withRaycing\10_MultipleReflect *.py
+recursive-include examples\withRaycing\11_Waves *.py *.dat
+recursive-include examples\withRaycing\12_Multilayer *.py
+recursive-include examples\withRaycing\13_Warping *.py *.dat
+recursive-include examples\withRaycing\14_SoftiMAX *.py
+recursive-include examples\withRaycing\15_XRD *
+recursive-include examples\withRaycing\16_ParametricOptimization *.py
+include examples\withShadow\__init__.py
+recursive-include examples\withShadow\00_02 *.py
+recursive-include examples\withShadow\00_02\tmp0 *
+recursive-include examples\withShadow\03 *.py
+recursive-include examples\withShadow\03\tmp0 *
+recursive-include examples\withShadow\04_06 *.py
+recursive-include examples\withShadow\04_06\tmp0 *
+recursive-include tests *.py
+recursive-include tests\raycing\CXRO-Reflectivities *
+recursive-include tests\raycing\IR *
+recursive-include tests\raycing\misc *
+recursive-include tests\raycing\RemoteOpenCLCalculation *
+recursive-include tests\raycing\XOP-Reflectivities *
+recursive-include tests\raycing\XOP-RockingCurves *
+recursive-include tests\raycing\XOP-RockingCurves-Bent *
