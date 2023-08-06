@@ -1,0 +1,15 @@
+bilibili-api-python~=15.5.1
+setuptools~=68.0.0
+wordcloud~=1.9.2
+jieba~=0.42.1
+scipy~=1.11.1
+numpy~=1.25.1
+tyro~=0.5.4
+pandas~=2.0.3
+tqdm~=4.65.0
+matplotlib~=3.7.2
+asyncio~=3.4.3
+apscheduler~=3.10.1
+requests~=2.31.0
+httpx~=0.24.1
+openpyxl~=3.1.2
