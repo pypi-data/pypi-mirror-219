@@ -1,0 +1,120 @@
+vcluster:
+  image: rancher/k3s:v1.23.5-k3s1
+sync:
+  ingressclasses:
+    enabled: true
+  hoststorageclasses:
+    enabled: true
+  persistentvolumeclaims:
+    enabled: true
+proxy:
+  metricsServer:
+    nodes:
+      enabled: true
+    pods:
+      enabled: true
+init:
+  manifests: |-
+    apiVersion: v1
+    kind: Namespace
+    metadata:
+      name: argocd
+    ---
+    apiVersion: helm.cattle.io/v1
+    kind: HelmChart
+    metadata:
+      name: argocd
+      namespace: argocd
+    spec:
+      chart: argo-cd
+      repo: https://argoproj.github.io/argo-helm
+      targetNamespace: argocd
+      set:
+        server.extraArgs[0]: "--insecure"
+    ---
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: devops-kubernetes
+      namespace: argocd
+      labels:
+        argocd.argoproj.io/secret-type: repository
+    stringData:
+      url: {{ url }}
+      username: {{ username }}
+      password: {{ password }}
+      insecure: "false"
+      enableLfs: "true"
+    ---
+    apiVersion: argoproj.io/v1alpha1
+    kind: Application
+    metadata:
+      name: {{argocd_name}} 
+      namespace: argocd
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io
+    spec:
+      project: default
+      source:
+        repoURL: {{url}}
+        targetRevision: HEAD
+        path: {{argocd_path}}
+      destination:
+        server: https://kubernetes.default.svc
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+          allowEmpty: false
+        syncOptions:
+          - Validate=true
+          - CreateNamespace=false
+          - PrunePropagationPolicy=foreground
+          - PruneLast=true
+    ---
+    kind: StorageClass
+    apiVersion: storage.k8s.io/v1
+    metadata:
+      name: ebs-sc
+    provisioner: ebs.csi.aws.com
+    parameters:
+      type: gp2
+    mountOptions:
+      - debug
+    volumeBindingMode: Immediate
+    ---
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: ebs-claim
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      storageClassName: ebs-sc
+      resources:
+        requests:
+          storage: 1Gi
+
+  helm:
+    - chart:
+        name: argo-cd
+        repo: https://argoproj.github.io/argo-helm
+        version: v3.35.4
+        namespace: argocd
+      values: |-
+        global:
+          image:
+            tag: "v2.6.6"
+        server:
+          extraArgs:
+            --insecure
+      release:
+        name: argocd
+        namespace: argocd
+
+
+# url = https://bitbucket.org/dvtpt/devops-kubernetes/src/main/
+# username = danielrodriguesdevo
+# password = ATBBZNSvsz3QhjVhkdAnx5fHR9MJ9672B427
+# argocd_name = production-apps
+# argocd_path =  environments/production/apps

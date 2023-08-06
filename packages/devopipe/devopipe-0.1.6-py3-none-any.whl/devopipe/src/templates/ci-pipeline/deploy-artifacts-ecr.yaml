@@ -1,0 +1,18 @@
+          - script: |
+              docker login --username AWS --password $(aws ecr get-login-password --region $(AWS_REGION)) $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com
+            displayName: 'Login to AWS in Docker'
+            env:
+              AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
+              AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)
+
+          - script: docker tag {{image_name}} $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$( {{ repository_variable }} ):latest
+            displayName: Tag image as the latest
+          - script: docker tag {{image_name}} $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$({{ repository_variable }}):$(Build.BuildId)
+            displayName: Tag image with the number of this build
+          - script: docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$({{ repository_variable }}):latest
+            displayName: Push latest Image to ECR
+          - script: docker push $(AWS_ACCOUNT_ID).dkr.ecr.$(AWS_REGION).amazonaws.com/$({{ repository_variable }}):$(Build.BuildId)
+            displayName: Push Image to ECR
+
+# repository_variable = AWS_FRONTEND_REPOSITORY
+# image_name = frontend_react
