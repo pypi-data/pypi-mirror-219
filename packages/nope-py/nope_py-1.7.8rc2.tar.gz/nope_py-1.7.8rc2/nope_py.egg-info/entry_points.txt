@@ -1,0 +1,2 @@
+[console_scripts]
+nope-py = nope.cli:main_cli
