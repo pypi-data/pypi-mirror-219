@@ -1,0 +1,17 @@
+pyral/__init__.py,sha256=iPNQsQaO3n1VWA-dc3xVgYHzvI3CUSNCZLJ4MBJAKmc,17
+pyral/__main__.py,sha256=0iSwfiYpOzZWK4S9ZTT6wU3cHmRtZax5awEdnEfLEYU,1453
+pyral/command.py,sha256=DsHmgudmEETu_FR0qAFzHzTFZ5wb09xvFj-_XWYKhdo,1131
+pyral/database.py,sha256=XfWweiylayO-UTpXIsNGe5FGzzzVwusnTFA6WTw5qCc,2154
+pyral/exceptions.py,sha256=QJeEU227Lf5DwLUgsaG_WPrVaoFa2OSz_Slb7nwqISA,726
+pyral/log.conf,sha256=8EDDD6f3eue1IX80FBHJIyI2-mGN7Bycd3dSEeSWo-M,807
+pyral/relation.py,sha256=oVr0u_uBJB4WwpDz9LNLDu3zxVa2FXXsYaqstUKeLjU,25048
+pyral/relvar.py,sha256=Qdpwdk6I35zRgrtmERA_YgF2RBpN_hMFcA1giGLwULQ,18368
+pyral/rtypes.py,sha256=5Sgrb-5PEOCt1vid5jRlfmqCBwuh7t8240ZjJKAJcg0,435
+pyral/transaction.py,sha256=KodaRLoY9TVCCmtUFFScJS66n788vckkuiIZvYe8up4,2110
+pyral/tcl_scripts/init_TclRAL.tcl,sha256=qUGu3fqt4lQVuwRXlfT7CfMCHeV--DeHCxENX34YR-w,387
+mi_pyral-0.2.3.dist-info/LICENSE,sha256=kL0xVrwl2i3Pk9mQXAVAPANCTaLGGOsoXgvqW7TBs20,1072
+mi_pyral-0.2.3.dist-info/METADATA,sha256=b3n_IW73O9DNOPkoxQghzZWiE8eZqc_s2b_JshZKNuQ,2312
+mi_pyral-0.2.3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+mi_pyral-0.2.3.dist-info/entry_points.txt,sha256=PLncHf5Ip4tOadSOdBht6cD3zSqyQb2dTH_X6Wywg8w,47
+mi_pyral-0.2.3.dist-info/top_level.txt,sha256=z5xDgydftSrs_zxpkp-OIra6iRbqDfpjgqkOslRYQg4,6
+mi_pyral-0.2.3.dist-info/RECORD,,
