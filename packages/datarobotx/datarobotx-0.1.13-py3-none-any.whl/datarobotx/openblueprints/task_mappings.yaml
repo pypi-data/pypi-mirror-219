@@ -1,0 +1,1123 @@
+tasks:
+  SID_modelers:
+    open_class: ''
+    versions:
+    - SID_FDENETCD
+    - SID_FDLENETCD
+    - SID_PXGBR2
+    - SID_PXGBC2
+    - SID_XGBR2
+    - SID_XGBC2
+    - SID_ESXGBR2
+    - SID_ESXGBC2
+    - KIA_SID_ESXGBR2
+    - SID_PLGBMTR
+    - SID_PLGBMTC
+    - SID_ESLGBMTR
+    - SID_ESLGBMTC
+  XLF_modelers:
+    open_class: ''
+    versions:
+    - XLF_ENETCD
+    - XLF_LENETCD
+  XL_modelers:
+    open_class: ''
+    versions:
+    - XL_ENETCD
+    - XL_ENETCDWC
+    - XL_ENETCDS
+    - XL_FDENETCD
+    - XL_FDENETCDS
+    - RES_FDENETCD
+    - XL_XGAMR
+    - XL_XGAMC
+    - XL_LENETCD
+    - XL_LENETCDWC
+    - XL_FDLENETCD
+    - RES_FDLENETCD
+    - XL_ESGBC
+    - XL_ESGBR
+    - XL_ESGBR2
+    - XL_ESXGBC
+    - XL_ESXGBR
+    - XL_PXGBC2
+    - XL_PXGBR2
+    - XL_XGBC2
+    - XL_XGBR2
+    - XL_ESXGBC2
+    - XL_ESXGBR2
+    - CLXL_ESXGBR2
+    - RES_PXGBC2
+    - RES_PXGBR2
+    - RES_XGBC2
+    - RES_XGBR2
+    - RES_ESXGBC2
+    - RES_ESXGBR2
+    - CLRES_ESXGBR2
+    - XL_PLGBMTR
+    - XL_PLGBMTC
+    - XL_ESLGBMTC
+    - XL_ESLGBMTR
+    - RES_PLGBMTR
+    - RES_PLGBMTC
+    - RES_ESLGBMTC
+    - RES_ESLGBMTR
+    - CLRES_ESLGBMTR
+    - RES_PLGBMDR
+    - RES_PLGBMDC
+    - RES_ESLGBMDC
+    - RES_ESLGBMDR
+  ad_lof:
+    open_class: ''
+    versions:
+    - ADLOF
+    - ADLOF_CAL
+  adaboost:
+    open_class: ''
+    versions:
+    - ABC
+    - ABR
+  agglomerative:
+    open_class: ''
+    versions:
+    - AGGLOMERATIVE_CL
+  anomaly_blend:
+    open_class: ''
+    versions:
+    - ADBLEND
+  anomaly_xgb:
+    open_class: ''
+    versions:
+    - ADXGB
+    - ADXGB2
+    - ADXGB2_CAL
+  asvcd:
+    open_class: ''
+    versions:
+    - ASVMSKC
+    - ASVMEC
+    - ASVMSKR
+    - ASVMER
+  autoencoder_modeler:
+    open_class: ''
+    versions:
+    - KERAS_AUTOENCODER
+    - KERAS_AUTOENCODER_CAL
+  autoencoder_variational_modeler:
+    open_class: ''
+    versions:
+    - KERAS_VARIATIONAL_AUTOENCODER
+    - KERAS_VARIATIONAL_AUTOENCODER_CAL
+  autoint_modelers:
+    open_class: ''
+    versions:
+    - KERAS_AUTOINT_R
+    - KERAS_AUTOINT_C
+    - KERAS_AUTOINT_MULTIC
+  avg:
+    open_class: ''
+    versions:
+    - AVG2
+  baseline_imputation:
+    open_class: ''
+    versions:
+    - BASELINE_DTMS
+  best_transformer:
+    open_class: ''
+    versions:
+    - BTRANSF3
+    - BLOGPOL
+  best_transformer_v2:
+    open_class: ''
+    versions:
+    - BTRANSF4
+    - BLOGPOL2
+  best_transformer_v3:
+    open_class: ''
+    versions:
+    - BTRANSF_CLIP_NO_POLY
+  best_transformer_v4:
+    open_class: ''
+    versions:
+    - BTRANSF6
+    - BTRANSF6T
+  bias_mitigation_preprocessing_reweighing:
+    open_class: ''
+    versions:
+    - BIAS_MITIGATION_PREPROCESSING_REWEIGHING
+  bias_mitigation_rejection_option:
+    open_class: ''
+    versions:
+    - BIAS_MITIGATION_POSTPROCESSING_REJECTION_OPTION
+  bias_mitigation_rejection_option_multi_margin:
+    open_class: ''
+    versions:
+    - BIAS_MITIGATION_POSTPROCESSING_REJECTION_OPTION_MULTI_MARGIN
+  binning:
+    open_class: ''
+    versions:
+    - BINNING
+  blend:
+    open_class: ''
+    versions:
+    - AVGBL
+    - MEDBL
+    - RANKBL
+    - MAEBL
+  calib:
+    open_class: ''
+    versions:
+    - CALIB
+    - CALIB2
+    - ISOCAL
+    - ISOCAL2
+    - PLACAL
+    - PLACAL2
+    - UEDA_PLATT_ANOMALY_CAL
+    - SWCAL
+    - CALIB_ESXGBC2
+    - CALIB_RFC
+    - CALIB_V2_ESXGBC2
+    - CALIB_V2_RFC
+    - CALIB_V2_KERASMULTIC
+  cart:
+    open_class: ''
+    versions:
+    - DTC
+    - DTC_ML
+    - DTR
+  cat_converters:
+    open_class: sklearn.preprocessing.OneHotEncoder
+    versions:
+    - DM2
+    - PDM2
+    - DM3
+    - PDM3
+    - CCAT
+    - PCCAT
+    - ORDCAT2
+    - CATEMB
+    - VWCAT
+    - ORDCAT
+  cddglm:
+    open_class: sklearn.linear_model.ElasticNet(alpha=0)
+    versions:
+    - DGLM1
+  cglm:
+    open_class: sklearn.linear_model.ElasticNet(alpha=0)
+    versions:
+    - GLMC
+    - GLMMC
+    - GLMR
+    - GLMB
+    - GLMG
+    - GLMP
+    - GLMA
+    - GLMT
+  cglm2:
+    open_class: sklearn.linear_model.ElasticNet(alpha=0)
+    versions:
+    - GLMC2
+    - GLMR2
+  clip:
+    open_class: ''
+    versions:
+    - CLIP
+  cnn_text_modelers:
+    open_class: ''
+    versions:
+    - KERAS_CNN_TEXT_R
+    - KERAS_CNN_TEXT_C
+    - KERAS_CNN_TEXT_MULTIC
+    - KERAS_CNN_TEXT_MULTILABELC
+  column_selection:
+    open_class: ''
+    versions:
+    - MCPICK
+  compartment:
+    open_class: ''
+    versions:
+    - SIRFEATS
+    - SEIRFEATS
+  constant_splines:
+    open_class: ''
+    versions:
+    - GS
+  convert:
+    open_class: ''
+    versions:
+    - GEO_IN
+  count_dict_task:
+    open_class: ''
+    versions:
+    - CDICT2SP
+  cred_converters:
+    open_class: ''
+    versions:
+    - CRED1b1
+    - CRED1b1_V2
+    - CRED1
+  cross_network_modelers:
+    open_class: ''
+    versions:
+    - KERAS_CROSSNETWORK_R
+    - KERAS_CROSSNETWORK_C
+    - KERAS_CROSSNETWORK_MULTIC
+  diff:
+    open_class: ''
+    versions:
+    - DIFF3
+  dmad:
+    open_class: ''
+    versions:
+    - ADDMAD
+    - ADDMAD_CAL
+  document_text_extractor:
+    open_class: ''
+    versions:
+    - DOCUMENT_TEXT_EXTRACTOR
+  dummy:
+    open_class: ''
+    versions:
+    - RC
+    - MAJORITY_CLASS_CLASSIFIER_MULTILABEL
+    - RR
+    - NAIVEPRED
+    - NAIVEPREDBINARY
+  eq:
+    open_class: ''
+    versions:
+    - EQC
+    - EQR
+  eq_approx:
+    open_class: ''
+    versions:
+    - EQ_ESXGBC
+    - EQ_ESXGBR
+  eqfd:
+    open_class: ''
+    versions:
+    - EQR_SIMPLE
+    - EQC_SIMPLE
+  ets:
+    open_class: ''
+    versions:
+    - AUTOETS
+  external_prediction_model:
+    open_class: ''
+    versions:
+    - EXTMODEL
+  fasttext_embeddings:
+    open_class: ''
+    versions:
+    - TXTEM1
+  feature_selectors:
+    open_class: ''
+    versions:
+    - FS_LASSO
+    - FS_XL_LASSO
+    - FS_RFC
+    - FS_RFR
+    - FS_RFCDR
+    - FS_RFRDR
+  feature_selectors2:
+    open_class: ''
+    versions:
+    - FS_LASSO2
+    - FS_XL_LASSO2
+    - FS_RFC2
+    - FS_RFR2
+    - FS_RFCDR2
+    - FS_RFCDR2_MULTILABEL
+    - FS_RFRDR2
+    - FS_RFCDR_LASSO
+    - FS_RFRDR_LASSO
+  features:
+    open_class: ''
+    versions:
+    - TRENDFEATS
+    - FDFEATS
+    - MODEL_REGIME_FEATS
+    - FDFEATST
+    - FDFEATSPDM3
+    - MSFEATS
+    - MSFEATS2
+    - MODEL_GROUP_FEATS
+    - BASELINE
+    - BASELINE2
+    - BASELINE2NT
+    - BASELINE2NTT
+    - BASELINE3
+    - BASELINE_SIMPLE
+    - BASEDEV
+    - BASEDEVT
+    - SEASINTER
+    - MULTINTER
+    - FMULTINTER
+    - TSADFEATS
+  forecast_distance_blender:
+    open_class: ''
+    versions:
+    - FDTOP_AVGBL
+  frequency_cost_modelers:
+    open_class: ''
+    versions:
+    - FCEE
+    - FCXX
+    - FCXE2
+    - FCXX2
+    - FCLL
+    - FCGG
+    - FCGG2
+  frequency_severity_combiner:
+    open_class: ''
+    versions:
+    - FSPROD
+  frequency_severity_modelers:
+    open_class: ''
+    versions:
+    - FSEE
+    - FSXX
+    - FSXX2
+    - FSLL
+    - FSGG
+    - FSGG2
+    - FSXE
+    - FSXE2
+    - FSLE
+  gaussian_mixture:
+    open_class: ''
+    versions:
+    - GMM_CL
+  gbm:
+    open_class: ''
+    versions:
+    - GBC
+    - PGBC
+    - GBR
+    - PGBR
+    - GBR2
+    - PGBR2
+    - ESGBC
+    - ESGBR
+    - ESGBR2
+    - MNGBR
+  gpc_modelers:
+    open_class: ''
+    versions:
+    - GPCRBF
+    - GPCM
+  gpr_modelers:
+    open_class: ''
+    versions:
+    - GPRRBF
+    - GPRM
+    - GPRRQ
+    - GPRESS
+    - GPRDP
+  grayscale_downscaled_image_featurizer:
+    open_class: ''
+    versions:
+    - IMG_GRAYSCALE_DOWNSCALED_IMAGE_FEATURIZER
+  hdbscan:
+    open_class: ''
+    versions:
+    - HDBSCAN_CL
+  hierarchical:
+    open_class: ''
+    versions:
+    - NAIVEPREDHM
+    - HMEE
+    - FDHMEE
+    - HMXX
+  history_regularizer:
+    open_class: ''
+    versions:
+    - HISTREG
+    - HISTREG_TRANS
+  hyperband_modelers:
+    open_class: ''
+    versions:
+    - KERAS_HYPERBAND_MLP_C
+    - KERAS_HYPERBAND_MLP_R
+    - KERAS_HYPERBAND_MLP_MULTIC
+    - KERAS_HYPERBAND_CROSSNETWORK_C
+    - KERAS_HYPERBAND_CROSSNETWORK_R
+    - KERAS_HYPERBAND_CROSSNETWORK_MULTIC
+    - KERAS_HYPERBAND_NFM_C
+    - KERAS_HYPERBAND_NFM_R
+    - KERAS_HYPERBAND_NFM_MULTIC
+    - KERAS_HYPERBAND_AUTOINT_C
+    - KERAS_HYPERBAND_AUTOINT_R
+    - KERAS_HYPERBAND_AUTOINT_MULTIC
+  image_augmentation:
+    open_class: ''
+    versions:
+    - IMAGE_AUGMENTATION
+  image_dl_feature:
+    open_class: ''
+    versions:
+    - IMGFEA
+  image_feature_summarizer:
+    open_class: ''
+    versions:
+    - IMGFEAAVE
+    - IMGFEADIST
+  image_finetune:
+    open_class: ''
+    versions:
+    - IMGFTC
+    - MULTIIMGFTR
+    - MULTIIMGFTC
+    - IMGFTR
+  isofor:
+    open_class: ''
+    versions:
+    - ADISOFOR
+    - ADISOFOR_CAL
+  k_means:
+    open_class: ''
+    versions:
+    - KMEANS
+    - KMDENETCD
+    - KMDLENETCD
+    - KMEANS_CL
+    - KMEANS_TS_DTW
+    - KMEANS_TS_SOFT_DTW
+  keras_bpe_tokenizer:
+    open_class: ''
+    versions:
+    - KERAS_BPE_TOKENIZER
+    - KERAS_BPE_TOKENIZER_V2
+  keras_multiquantile:
+    open_class: ''
+    versions:
+    - KERAS_MULTI_QUANTILE
+  keras_tokenizer:
+    open_class: ''
+    versions:
+    - KERAS_TOKENIZER
+  knn:
+    open_class: ''
+    versions:
+    - KNNC
+    - KNNC_ML
+    - KNNR
+  lasso:
+    open_class: sklearn.linear_model.Lasso
+    versions:
+    - LASSO
+    - LASSO2
+  ridge:
+    open_class: sklearn.linear_model.Ridge
+    versions:
+    - RIDGE
+    - RIDGEWC
+    - RIDGE_CLASSIFIER_MULTILABEL
+  elastic_net:
+    open_class: sklearn.linear_model.ElasticNet
+    versions:
+    - GLMCD
+    - ENETCD
+    - ENETCDS
+    - FDENETCD
+    - ENETCDWC
+    - BENETCD
+    - BENETCD2
+    - UENETCD
+  leak_test:
+    open_class: ''
+    versions:
+    - LEAKTEST
+  lemmatization_featurizer:
+    open_class: ''
+    versions:
+    - LEMMATIZER
+  lightgbm:
+    open_class: ''
+    versions:
+    - PLGBMTR
+    - PLGBMTC
+    - LGBM_ONE_VS_ALL_MULTILABEL_CLASSIFIER
+    - ESLGBMTC
+    - ESLGBMTR
+    - PLGBMRFR
+    - PLGBMRFC
+    - PLGBMDR
+    - PLGBMDC
+    - ESLGBMDC
+    - ESLGBMDR
+    - UPLGBMTC
+    - UESLGBMTC
+    - UPLGBMDC
+    - UESLGBMDC
+  link_bind_transformers:
+    open_class: ''
+    versions:
+    - LINK
+    - BIND
+  log_transform:
+    open_class: sklearn.preprocessing.FunctionTransformer(np.log1p, validate=True)
+    versions:
+    - LOGT
+  logistic:
+    open_class: sklearn.linear_model.LogisticRegression(penalty=None)
+    versions:
+    - LR
+    - LR1
+    - LR1WC
+    - LRCD
+    - LR1S
+  logisticenet:
+    open_class: sklearn.linear_model.LogisticRegression(penalty='elasticnet')
+    versions:
+    - LENETAG
+    - LENETCD
+    - LENETCDWC
+    - BLENETCD
+    - BLENETCD2
+    - ULENETCD
+    - FDLENETCD
+    - NB_LENETCD
+  mahal:
+    open_class: ''
+    versions:
+    - ADMahal
+    - ADMahalPCA
+    - ADMAHAL_PCA_CAL
+  mean_regressor:
+    open_class: ''
+    versions:
+    - TSMEANR
+  model_collection:
+    open_class: ''
+    versions:
+    - EQFDR
+    - EQFDC
+    - MC_MID_ETS
+    - MC_MID_PROPHET
+    - MC_MID_TBATS
+    - MC_MID_ARIMA_NOX
+    - MC_MID_ARIMA_NOX_FB
+    - MC_MID_ARIMA
+    - MC_MID_ARIMA_TRANS
+    - MC_MID_ARIMA_NOX_TRANS
+    - MC_MID_ARIMA_CODE
+    - MC_MID_ARIMA_NAIVE_FD
+    - MC_CL_XL_ESXGBR2
+    - MC_SCL_XL_ESXGBR2
+    - MC_SCL_XL_ESXGBR2_REDUCE
+    - MC_SCL_XL_ESXGBR2_BLEND
+    - MC_CL_RES_ESXGBR2
+    - MC_SCL_RES_ESXGBR2
+    - MC_MID_XL_ESXGBR2
+    - MC_MID_RES_ESXGBR2
+    - MC_MID_XL_FDENETCD
+    - MC_CL_XL_FDENETCD
+    - MC_SCL_XL_FDENETCD
+    - MC_MID_RES_ESLGBR
+    - MC_TSADBB_CAL
+    - MC_TSADBB_ROLL_CAL
+    - MC_TSADDMAD_CAL
+    - MC_TSADMAHAL_PCA_CAL
+    - MC_TSADLOF_CAL
+  modelers:
+    open_class: ''
+    versions:
+    - KERASR
+    - KERASC
+    - KERASMULTIC
+    - KERASMULTILABELC
+    - CUSTOMR
+    - CUSTOMC
+    - CUSTOMMULTIC
+    - CUSTOMAD
+    - CUSTOMADCALIB
+  mrmr:
+    open_class: ''
+    versions:
+    - MRMR
+  na_imputation:
+    open_class: sklearn.impute.SimpleImputer
+    versions:
+    - PNI
+    - PNI2
+    - NIA
+    - PNIA
+    - PNIA2
+    - PNIA3
+    - PNIA4
+    - PNIA4T
+    - NI
+  naive_bayes:
+    open_class: ''
+    versions:
+    - GNBC
+    - MNBC
+    - BNBC
+    - CNBC
+  neighborhood:
+    open_class: ''
+    versions:
+    - GEO_LAG
+    - GEO_LISA
+    - GEO_KNL
+  neighborhood_non_ts:
+    open_class: ''
+    versions:
+    - GEO_NEIGHBOR_V1
+  neighborhood_ts:
+    open_class: ''
+    versions:
+    - GEO_NEIGHBOR_TS
+  ner_featurizer:
+    open_class: ''
+    versions:
+    - SPACY_NAMED_ENTITY_RECOGNITION
+  neural_tasks:
+    open_class: ''
+    versions:
+    - NN1C
+    - NN1R
+    - NN2C
+    - NN2R
+    - VNNC
+    - VNNR
+    - VNN2C
+    - VNN2R
+  nfm_modelers:
+    open_class: ''
+    versions:
+    - KERAS_NFM_R
+    - KERAS_NFM_C
+    - KERAS_NFM_MULTIC
+  normalizer:
+    open_class: ''
+    versions:
+    - NORM
+  num_imputation:
+    open_class: ''
+    versions:
+    - NI_DTMS
+  numeric_data_cleansing:
+    open_class: ''
+    versions:
+    - NDC
+  opencv_detect_largest_rectangle:
+    open_class: ''
+    versions:
+    - OPENCV_DETECT_LARGEST_RECTANGLE
+  opencv_image_featurizer:
+    open_class: ''
+    versions:
+    - OPENCV_FEATURIZER
+  osvm:
+    open_class: ''
+    versions:
+    - ADOSVM
+    - ADOSVM_CAL
+  pairwise_cosine_sim:
+    open_class: ''
+    versions:
+    - PCS
+  pls:
+    open_class: ''
+    versions:
+    - PLS
+    - PLSC
+  polynomial_features:
+    open_class: ''
+    versions:
+    - POLYFEATS
+  pos_tagging_featurizer:
+    open_class: ''
+    versions:
+    - POS_TAGGING
+  post_processing:
+    open_class: ''
+    versions:
+    - IMAGE_POST_PROCESSOR
+  prophet:
+    open_class: ''
+    versions:
+    - PROPHET
+  qgbm:
+    open_class: ''
+    versions:
+    - QGBR2
+    - QPGBR2
+    - QESGBR2
+  quant_reg:
+    open_class: ''
+    versions:
+    - QUANTILER
+  quant_regularized_regression:
+    open_class: ''
+    versions:
+    - KERAS_REGULARIZED_QUANTILE_REG
+  rare_feature_masking:
+    open_class: ''
+    versions:
+    - RFMASK
+  rating_table:
+    open_class: ''
+    versions:
+    - RATINGTABLEC
+    - RATINGTABLER
+  ratio:
+    open_class: ''
+    versions:
+    - RATIO3
+  rdt:
+    open_class: sklearn.preprocessing.QuantileTransformer
+    versions:
+    - RDT3
+    - SRDT3
+    - SRDT4
+    - RDT5
+  reduction_transformers:
+    open_class: ''
+    versions:
+    - SVD
+    - SVD2
+    - PCA
+    - PPCA
+    - SPARSE_TO_DENSE
+  rf:
+    open_class: ''
+    versions:
+    - RFC
+    - RFC_ML
+    - RFR
+    - SHAPRFC
+    - SHAPRFR
+  rnn_modelers:
+    open_class: ''
+    versions:
+    - KERASRNNR
+    - KERASRNNR_MS
+    - KERASRNNR_SS
+    - KERASRNNR_DAR_UN
+    - KERASRNNC
+    - KERASRNNC_MS
+    - KERASRNNC_SS
+  rulefit:
+    open_class: ''
+    versions:
+    - RULEFITC
+    - RULEFITR
+    - XRULEFITC
+    - XRULEFITR
+  sarimax:
+    open_class: ''
+    versions:
+    - ARIMA
+    - AUTOARIMA
+    - AUTOARIMA_NOX
+    - AUTOARIMA_TRANS
+    - AUTOARIMA_NOX_TRANS
+    - AUTOARIMA_NAIVE
+    - AUTOARIMA_NAIVE_FD
+    - AUTOARIMA_NOX_FB
+    - VARMAX
+    - VARMAX_FB
+    - VAR
+  sc_estimators:
+    open_class: ''
+    versions:
+    - SCLENETC
+    - SCLENETC_MULTILABEL
+    - SCENETR
+  seasonality_features:
+    open_class: ''
+    versions:
+    - SEASONALITY
+    - FOURIERBASIS
+  segmentation:
+    open_class: ''
+    versions:
+    - SEGMENTS_SPLIT_USER_DEFINED
+    - SEGMENTS_MODELS
+    - SEGMENTS_COMBINED
+    - SEGMENTS_SERIES_STANDARDIZED
+  sentence_multi_minilm_featurizer:
+    open_class: ''
+    versions:
+    - SENTENCE_MULTILINGUAL_MINILM
+  sentence_roberta_featurizer:
+    open_class: ''
+    versions:
+    - SENTENCE_ROBERTA
+  sentence_tiny_bert_featurizer:
+    open_class: ''
+    versions:
+    - SENTENCE_TINY_BERT
+  sentiment_featurizer:
+    open_class: ''
+    versions:
+    - NLTK_SENTIMENT
+    - TEXTBLOB_SENTIMENT
+  series_scaling:
+    open_class: ''
+    versions:
+    - SERIES_SCALING
+    - SCALESTANDRDT5
+  sgd:
+    open_class: ''
+    versions:
+    - SGDC
+    - SGDR
+    - SGDRS
+    - SGDCWC
+    - SGDRA
+  sparse_polynomial_features:
+    open_class: ''
+    versions:
+    - SPOLY
+  sparse_transform:
+    open_class: ''
+    versions:
+    - DENSE_TO_SPARSE
+  standardize:
+    open_class: sklearn.preprocessing.StandardScaler
+    versions:
+    - ST
+    - RST
+    - ST_DTMS
+  stemming_featurizer:
+    open_class: ''
+    versions:
+    - STEMMER
+  strdt:
+    open_class: ''
+    versions:
+    - STANDRDT5
+    - STANDRDT5T
+  svc:
+    open_class: ''
+    versions:
+    - SVMC
+    - SVMR
+    - LSVC
+    - ASVMC
+    - ASVMR
+  svc2:
+    open_class: ''
+    versions:
+    - SVMC2
+    - SVMR2
+  tbats:
+    open_class: ''
+    versions:
+    - TBATS
+  temporal:
+    open_class: ''
+    versions:
+    - THEX
+  tesseract_ocr:
+    open_class: ''
+    versions:
+    - TESSERACT_OCR
+  text_converters:
+    open_class: ''
+    versions:
+    - PTM2
+    - PTM3
+    - PTM3_GAM
+    - SCTXT
+    - SCTXT2
+    - SCTXT3
+    - SCTXT4
+    - SCPICK
+    - SCPICK2
+    - SCBAGOFCAT
+    - SCBAGOFCAT2
+    - VWTXT
+    - VWTXT2
+  text_mining:
+    open_class: ''
+    versions:
+    - WNGR
+    - WNGC
+    - CNGR
+    - CNGC
+  text_mining_estimator:
+    open_class: ''
+    versions:
+    - WNGER2
+    - WNGEC2
+    - CNGER2
+    - CNGEC2
+  text_mining_w_elnet:
+    open_class: ''
+    versions:
+    - WNGER
+    - WNGEC
+    - CNGER
+    - CNGEC
+    - W1GER
+    - W1GEC
+  tiny_bert_featurizer:
+    open_class: ''
+    versions:
+    - TINYBERTFEA
+  transforms:
+    open_class: ''
+    versions:
+    - CUSTOMT
+  tree_embedding:
+    open_class: ''
+    versions:
+    - TELENET
+    - TEENET
+  trend:
+    open_class: ''
+    versions:
+    - LINTREND
+    - LOGISTIC_TREND
+    - MULTI_LOGISTIC_TREND
+  tsad_anomaly_xgb:
+    open_class: ''
+    versions:
+    - TSADXGB2_CAL
+  tsad_blend:
+    open_class: ''
+    versions:
+    - TSADMINBLEND
+    - TSADMAXBLEND
+  tsad_bollinger:
+    open_class: ''
+    versions:
+    - TSADBB_CAL
+    - TSADBB_ROLL_CAL
+  tsad_dmad:
+    open_class: ''
+    versions:
+    - TSADDMAD_CAL
+  tsad_isofor:
+    open_class: ''
+    versions:
+    - TSADISOFOR_CAL
+  tsad_lof:
+    open_class: ''
+    versions:
+    - TSADLOF_CAL
+  tsad_mahal:
+    open_class: ''
+    versions:
+    - TSADMAHAL_PCA_CAL
+  tsad_osvm:
+    open_class: ''
+    versions:
+    - TSADOSVM_CAL
+  tts_codegen:
+    open_class: ''
+    versions:
+    - AUTOARIMA_CODE
+    - VARMAX_CODE
+    - VAR_CODE
+  tws:
+    open_class: ''
+    versions:
+    - TWSL2
+  unif:
+    open_class: ''
+    versions:
+    - UNIF3
+  varmax:
+    open_class: ''
+    versions:
+    - VARMAX2
+    - VAR2
+  velocity:
+    open_class: ''
+    versions:
+    - VELOCITY_TS_MEAN
+    - VELOCITY_TS_ZI_MEAN
+    - VELOCITY_TS_STD
+    - VELOCITY_TS_ZI_STD
+  vw:
+    open_class: sklearn.linear_model.ElasticNet
+    versions:
+    - VWC
+    - VWR
+    - VWSC
+    - VWSR
+    - VWNNC
+    - VWNNR
+    - VWSVMLC
+    - VWSVMPC
+    - VWSVMRC
+    - VWGBC
+    - VWGBR
+    - VWSPC
+    - VWSPR
+    - VWLRQC
+    - VWLRQR
+    - VWTC
+    - VWTR
+    - VWTSPC
+    - VWTSPR
+    - VWTLRQC
+    - VWTLRQR
+    - VWMCR
+  xgam:
+    open_class: ''
+    versions:
+    - XGAMR
+    - XGAMC
+  xgam2:
+    open_class: ''
+    versions:
+    - XGAMR2
+    - XGAMC2
+  xgb:
+    open_class: ''
+    versions:
+    - PXGBC
+    - PXGBR
+    - UPXGBC
+    - UPXGBR
+    - XGBC
+    - XGBR
+    - UXGBC
+    - UXGBR
+    - ESXGBC
+    - ESXGBR
+    - UESXGBC
+    - UESXGBR
+  xgb2:
+    open_class: ''
+    versions:
+    - PXGBC2
+    - PXGBR2
+    - XGBC2
+    - XGBR2
+    - ESXGBC2
+    - ESXGBR2
+    - UPXGBC2
+    - UPXGBR2
+    - UXGBC2
+    - UXGBR2
+    - UESXGBC2
+    - UESXGBR2
+    - ESLXGBC
+    - ESLXGBR
+  xgb2_quantile:
+    open_class: ''
+    versions:
+    - QUANTXGBR
+    - ESQUANTXGBR
+  xprim:
+    open_class: ''
+    versions:
+    - XPRIMC
+    - XPRIMR
+  zero_inflated_modelers:
+    open_class: ''
+    versions:
+    - XL_ZIXX
+    - XL_ZIPXX
+    - XL_ZIESXX
+    - XL_ZIPLL
+    - XL_ZIESLL
