@@ -1,0 +1,9 @@
+[console_scripts]
+recurtx = recurtx.__main__:main
+xbatch = recurtx.__main__:xbatch
+xfind = recurtx.__main__:xfind
+xll = recurtx.__main__:xll
+xpandas = recurtx.__main__:xpandas
+xpolars = recurtx.__main__:xpolars
+xsearch = recurtx.__main__:xsearch
+xunder = recurtx.__main__:xunder

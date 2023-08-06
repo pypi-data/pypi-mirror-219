@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: recurtx
+Version: 0.0.10
+Summary: CLI to transform text files recursively
+Home-page: https://github.com/Minyus/recurtx
+Author: Yusuke Minami
+Author-email: me@minyus.github.com
+License: Apache Software License (Apache 2.0)
+Keywords: CLI,recursive,text,find,xargs,sed
+Classifier: Development Status :: 3 - Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+Please see:
+https://github.com/Minyus/recurtx

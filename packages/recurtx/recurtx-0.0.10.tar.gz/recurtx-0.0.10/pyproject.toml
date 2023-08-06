@@ -1,0 +1,43 @@
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+ignore_missing_imports = true
+implicit_optional = true
+show_column_numbers = true
+
+[tool.ruff]
+select = ["ALL"]
+ignore = [
+    "ANN401",
+    "BLE001",
+    "C408",
+    "C418",
+    "C901",
+    "COM812",
+    "D100",
+    "D103",
+    "D104",
+    "D202",
+    "E501",
+    "ERA001",
+    "EXE002",
+    "FBT001",
+    "FBT002",
+    "INP001",
+    "PD901",
+    "PGH001",
+    "PTH123",
+    "PLR0912",
+    "PLR0913",
+    "PLR0915",
+    "PLR1711",
+    "PLR2004",
+    "Q000",
+    "RET501",
+    "RUF005",
+    "S101",
+    "S602",
+    "S603",
+]
+target-version = "py37"
