@@ -1,0 +1,21 @@
+
+[tool.poetry]
+name = "streamsbpy"
+version = "1.0.6"
+description = "Interact Using StreamSb API"
+authors = ["Code-xed"]
+readme = "README.md"
+license = "GNU General Public License 3.0"
+repository = "https://github.com/Code-xed"
+packages = [{include = "streamsbpy"}]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.28.2"
+
+
+[tool.poetry.group.test.dependencies]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
