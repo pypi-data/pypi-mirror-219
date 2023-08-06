@@ -1,0 +1,135 @@
+# 'defaults' is a group of variables that are calculated and referenced by multiple resources.
+# The defaults helps to deduplicate calculated variables, and 
+defaults:
+  name: titan-lite-${deploymentId}
+  tags:
+    deployment: ${deploymentId}
+    managed-by: titan-lite
+
+# The providers section specifies provider-specific data. Normally this required to initialize
+# a provider.
+providers:
+  - type: azure
+    data: ${vars.provider}
+  - type: hcs
+    data:
+
+resources:
+  myRuntime:
+    kind: runtime/vhcs.support.daas.tenant_calc # Custom calculation of values
+    data: ${vars} # Take the entire unchanged vars as input
+
+  myRg:
+    kind: azure/resource-group
+    data:
+      name: ${defaults.name}
+      location: ${myRuntime.location}
+      tags: ${defaults.tags}
+
+  myNsg:
+    kind: azure/nsg
+    data:
+      name: ${myRg.name}
+      location: ${myRuntime.location}
+      resourceGroup: ${myRuntime.vNet.resourceGroup}
+      tags: ${defaults.tags}
+
+  mySubnet:
+    kind: azure/subnet
+    data:
+      name: ${defaults.name}
+      resourceGroup: ${myRuntime.vNet.resourceGroup}
+      vNetName: ${myRuntime.vNet.name}
+      cidr: ${myRuntime.cidr}
+      nsgName: ${myNsg.NewNSG.name}
+
+  myAADGroup:
+    kind: azure/aad-group
+    data:
+      displayName: ${defaults.name}
+      mailNickname: ${defaults.name}
+      description:
+      parentGroup: ${vars.desktop.userGroup}
+  
+  myAADUser:
+    kind: azure/aad-user
+    for: email in vars.userEmails
+    data:
+      group: ${myAADGroup.id}
+      domainName: ${myRuntime.orgIdpMap.domains[0]}
+
+  myTemplate:
+    kind: hcs/pool-template
+    data:
+      providerInstanceId: ${vars.provider.id}
+      uagDeploymentId: ${myRuntime.template.uag_deployment_id}
+      edgeDeploymentId: ${myRuntime.template.edge_deployment_id}
+      orgId: ${vars.orgId}
+      name: ${defaults.name}
+      vmNamePattern: d-
+      templateType: ${vars.desktop.templateType}
+      applicationProperties:
+        azureActiveDirectoryJoined: 'true'
+      networks:
+      - kind: subnets
+        id: ${mySubnet.id}
+        data:
+          parent: ${mySubnet.id}
+          name: ${mySubnet.name}
+          availableIpAddresses: 250
+          cidr: ${myRuntime.cidr}
+      imageReference:
+        streamId: ${vars.desktop.streamId}
+        markerId: ${vars.desktop.markerId}
+      licenseProvided: true
+      desktopAdminUsername: hcs-admin
+      desktopAdminPassword: ${myRuntime.template.password}
+      diskEncryption:
+        enabled: false
+      sparePolicy:
+        limit: ${myRuntime.template.total_vms}
+        max: ${myRuntime.template.total_vms}
+        min: ${myRuntime.template.total_vms}
+      sessionsPerVm: ${myRuntime.number_of_users}
+      vmLicenseType: WINDOWS_CLIENT
+      diskSizeInGB: 127
+      infrastructure:
+        vmSkus:
+        - ${myRuntime.template.vm_sku}
+
+  myPoolGroup:
+    kind: hcs/pool-group
+    data:
+      orgId: ${vars.orgId}
+      name: ${defaults.name}
+      type: DESKTOP
+      templateType: ${vars.desktop.templateType}
+      connectionAffinity: NEAREST_SITE
+      scope: ALL_SITES
+      enableSSO: false
+      preferredClientType: HORIZON_CLIENT
+      protocols:
+      - name: BLAST
+        defaultProtocol: true
+      templates:
+      - id: ${myTemplate.id}
+
+  myEntitlement:
+    kind: hcs/entitlement
+    data:
+      orgId: ${vars.orgId}
+      poolIds:
+      - ${myPoolGroup.id}
+      resourceDetails:
+      - poolId: ${myPoolGroup.id}
+      userIds: "${[for u in myAADUser: u.id]}"
+
+  myLaunchItem:
+    kind: hcs/launch-item
+    data:
+      users: ${myAADUser}
+      entitlementId: ${myPoolGroup.name}
+      domainName: ${myRuntime.orgIdpMap.idpTenantDomain}
+      stackUrl: ${profile.hcs.url}
+    after:
+    - myEntitlement

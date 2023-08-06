@@ -1,0 +1,17 @@
+
+defaults:
+  name: titan-lite-${deploymentId}
+  tags:
+    - deployment=${deploymentId}
+
+resources:
+  myRuntime:
+    kind: runtime/vhcs.support.daas.infra_calc # Custom calculation of dynamic values
+    data: ${vars} # Take the entire unchanged vars as input
+
+  mySite:
+    kind: hcs/site
+    data:
+      orgId: ${vars.orgId}
+      name: ${defaults.name}
+      description: ${myRuntime.location}
