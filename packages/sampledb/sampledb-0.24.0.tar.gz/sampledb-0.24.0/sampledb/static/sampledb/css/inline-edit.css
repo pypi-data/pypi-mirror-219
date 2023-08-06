@@ -1,0 +1,39 @@
+.row.alert {
+    padding-left: 0px;
+}
+
+.form-switch {
+    display: none;
+}
+
+.view-switch {
+    display: block;
+}
+
+.alert-upload-failed {
+    display: none
+}
+
+.alert-upload-container {
+    padding-left: 0px;
+}
+
+.form-area {
+    margin-bottom: 0px;
+}
+
+.title-label {
+    margin-top: 5px;
+}
+
+.input-list {
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.edit-helper {
+    padding-left: 0.8em;
+    visibility: hidden;
+    cursor: pointer ;
+}
