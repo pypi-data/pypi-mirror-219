@@ -1,0 +1,4 @@
+include requirements.txt
+include build.py
+include pyproject.toml
+include requirements-dev.txt
