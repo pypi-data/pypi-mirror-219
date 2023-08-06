@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: ps-optimize
+Version: 2.0.2
+Summary: PSO meet hyperparameter tuning.
+Author-email: Yuen Shing Yan Hindy <yuenshingyan@gmail.com>
+Project-URL: Homepage, https://github.com/yuenshingyan/ps-opt
+Project-URL: Bug Tracker, https://github.com/yuenshingyan/ps-opt/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# ps-opt
+Hyperparameters Tuning with Particle Swarm Optimization
+
+
+Installation
+------------
+
+Install it using pip:
+
+    pip install ps-opt
+
+Hyperparameters Tuning
+----------------
+
+https://github.com/yuenshingyan/ps-opt/blob/main/hyperparameters_tuning_example.py
+
+
+Feature Selection
+-------------------------
+
+https://github.com/yuenshingyan/ps-opt/blob/main/feature_selection_example.py
