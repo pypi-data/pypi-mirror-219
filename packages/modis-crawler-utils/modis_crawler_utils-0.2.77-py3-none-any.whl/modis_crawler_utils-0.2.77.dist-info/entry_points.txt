@@ -1,0 +1,5 @@
+[console_scripts]
+build-egg=crawler_utils.deploy.create_egg:main
+build-md=crawler_utils.deploy.make_arguments_md_file:main
+bump-version=crawler_utils.deploy.bump_version:main
+
