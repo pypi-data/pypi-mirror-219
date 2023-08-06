@@ -1,0 +1,3 @@
+[console_scripts]
+gpt-chat = gpt_tools.chat:main
+gpt-git = gpt_tools.git:main
