@@ -1,0 +1,17 @@
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/__init__.py,sha256=uyQ9YNqUKTgsZfTvEugDoAN7VEWAorJGyEtSblO_4go,515
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/_tf_tfl_flatbuffer.pyd,sha256=mooOA9wLB08LoES8mfbtBM_AT77fRPd2Qc04h_aOdII,139534336
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/python/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/python/converter.py,sha256=SCTJrgHSeklD8uCBy_dqxgy9elAb9biqW1qnSS4aWEA,11442
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/python/tflite_schema.py,sha256=89qT-HMMYd5IN9hXEEkykwq3qRCfg4lzCkMCssF2Rro,429774
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/mlir/python/util.py,sha256=3o7RUiSdqhSQKN-Z65_MaMCKIUsNj7SEqsEmlmYnyQ4,14848
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/tflite/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/tflite/python/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/tflite/python/interpreter.py,sha256=X7ObfH3E7SaxutfXoRdHb1HtQ2I6RqaLPJgfVIPNFhQ,2285
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/tflite/python/interpreter_base.py,sha256=uL4a2LfCkNsEhh_1gP7e7P2HDeZjNO8BzGTRPonDBZo,3247
+larq_compute_engine-0.11.1.data/purelib/larq_compute_engine/tflite/python/interpreter_wrapper_lite.pyd,sha256=o2cIlvnOILs9DbLE7FL4qYk5DU3tunnOIV5kOhpOpxc,2945536
+larq_compute_engine-0.11.1.dist-info/LICENSE,sha256=HrhfyXIkWY2tGFK11kg7vPCqhgh5DcxleloqdhrpyMY,11558
+larq_compute_engine-0.11.1.dist-info/METADATA,sha256=zWjk2CjuXMk-CAzBVRmEvdb0QshPBSbkbfPUis9fpS4,10220
+larq_compute_engine-0.11.1.dist-info/WHEEL,sha256=bipuClDp75Tl92wOCbNQvfy8uWiHgUDTfxkDCRx_slY,101
+larq_compute_engine-0.11.1.dist-info/top_level.txt,sha256=InE06LtZpTtDpzQ5h7FWAiWN87wtJ0dpGq_FzjLVLyU,20
+larq_compute_engine-0.11.1.dist-info/RECORD,,
