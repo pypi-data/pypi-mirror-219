@@ -1,0 +1,2 @@
+[keyring.backends]
+kognic_key_auth = keyrings.kognic.proxy_auth
