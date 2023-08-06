@@ -1,0 +1,34 @@
+parameters:
+  - dts.id
+  - concept.local-name
+fields:
+  - concept.id
+  - concept.local-name
+  - concept.namespace
+  - dts.id
+  - dts.entry-point
+  - label.id
+  - label.text
+  - label.lang
+  - label.role
+  - label.role-short
+  - label.*
+limit:
+  - assertion
+  - concept
+  - cube
+  - dimension
+  - document
+  - dts
+  - entity
+  - fact
+  - label
+  - network
+  - reference
+  - relationship
+  - report
+sort:
+  -
+offset:
+  -
+url: /api/v1/dts/{dts.id}/concept/{concept.local-name}/label

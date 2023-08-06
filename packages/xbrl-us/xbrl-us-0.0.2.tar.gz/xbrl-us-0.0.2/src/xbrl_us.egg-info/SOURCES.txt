@@ -1,0 +1,93 @@
+.bumpversion.cfg
+.cookiecutterrc
+.coveragerc
+.editorconfig
+.pre-commit-config.yaml
+.readthedocs.yml
+AUTHORS.rst
+CHANGELOG.rst
+CONTRIBUTING.rst
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+pytest.ini
+setup.py
+tox.ini
+.github/workflows/github-actions.yml
+ci/bootstrap.py
+ci/requirements.txt
+ci/templates/.github/workflows/github-actions.yml
+docs/authors.rst
+docs/changelog.rst
+docs/conf.py
+docs/contributing.rst
+docs/index.rst
+docs/readme.rst
+docs/requirements.txt
+docs/spelling_wordlist.txt
+docs/reference/index.rst
+docs/reference/xbrl_us.rst
+src/xbrl_us/__init__.py
+src/xbrl_us/__main__.py
+src/xbrl_us/app.py
+src/xbrl_us/cli.py
+src/xbrl_us/xbrl_us.py
+src/xbrl_us.egg-info/PKG-INFO
+src/xbrl_us.egg-info/SOURCES.txt
+src/xbrl_us.egg-info/dependency_links.txt
+src/xbrl_us.egg-info/entry_points.txt
+src/xbrl_us.egg-info/not-zip-safe
+src/xbrl_us.egg-info/requires.txt
+src/xbrl_us.egg-info/top_level.txt
+src/xbrl_us/methods/assertion search.yml
+src/xbrl_us/methods/assertion validate.yml
+src/xbrl_us/methods/concept name search.yml
+src/xbrl_us/methods/concept search.yml
+src/xbrl_us/methods/cube search.yml
+src/xbrl_us/methods/dimension search.yml
+src/xbrl_us/methods/document search.yml
+src/xbrl_us/methods/dts id concept label.yml
+src/xbrl_us/methods/dts id concept name.yml
+src/xbrl_us/methods/dts id concept reference.yml
+src/xbrl_us/methods/dts id concept search.yml
+src/xbrl_us/methods/dts id network search.yml
+src/xbrl_us/methods/dts id network.yml
+src/xbrl_us/methods/dts search.yml
+src/xbrl_us/methods/entity id report search.yml
+src/xbrl_us/methods/entity id.yml
+src/xbrl_us/methods/entity report search.yml
+src/xbrl_us/methods/entity search.yml
+src/xbrl_us/methods/fact id.yml
+src/xbrl_us/methods/fact search oim.yml
+src/xbrl_us/methods/fact search.yml
+src/xbrl_us/methods/label dts id search.yml
+src/xbrl_us/methods/label search.yml
+src/xbrl_us/methods/network id relationship search.yml
+src/xbrl_us/methods/network id.yml
+src/xbrl_us/methods/network relationship search.yml
+src/xbrl_us/methods/relationship search.yml
+src/xbrl_us/methods/relationship tree search.yml
+src/xbrl_us/methods/report fact search.yml
+src/xbrl_us/methods/report id delete.yml
+src/xbrl_us/methods/report id fact search.yml
+src/xbrl_us/methods/report id.yml
+src/xbrl_us/methods/report search.yml
+src/xbrl_us/schemas/__init__.py
+src/xbrl_us/schemas/assertion_details.py
+src/xbrl_us/schemas/concept_details.py
+src/xbrl_us/schemas/cube_details.py
+src/xbrl_us/schemas/dimension_details.py
+src/xbrl_us/schemas/document_details.py
+src/xbrl_us/schemas/dts_details.py
+src/xbrl_us/schemas/entity_details.py
+src/xbrl_us/schemas/fact_details.py
+src/xbrl_us/schemas/label_details.py
+src/xbrl_us/schemas/network_details.py
+src/xbrl_us/schemas/relationship_details.py
+src/xbrl_us/schemas/report_details.py
+src/xbrl_us/utils/__init__.py
+src/xbrl_us/utils/exceptions.py
+src/xbrl_us/utils/fields.py
+src/xbrl_us/utils/paramters.py
+tests/test_xbrl_us.py
