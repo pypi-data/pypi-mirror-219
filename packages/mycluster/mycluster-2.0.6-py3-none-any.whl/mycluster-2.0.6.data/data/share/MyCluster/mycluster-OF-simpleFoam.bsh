@@ -1,0 +1,4 @@
+#!/bin/bash -f
+
+$OMPI_CMD simpleFoam -parallel | tee logfile.txt
+
