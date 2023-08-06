@@ -1,0 +1,2 @@
+[jupyter_client.kernel_provisioners]
+ignition-kernel-provisioner = ignition_kernel.provisioner:IgnitionKernelProvisioner
