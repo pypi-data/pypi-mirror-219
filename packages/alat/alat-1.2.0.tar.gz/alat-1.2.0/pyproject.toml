@@ -1,0 +1,23 @@
+# pyproject.toml
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "alat"
+version = "1.2.0"
+authors = [
+   {name = "Can Gulmez", email = "ahmetcangulmez02@gmail.com"},
+]
+description = "ALAT: Advanced Linear Algebra Toolkit"
+keywords= ["math, linear algebra, matrices, vectors"]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+"Homepage" = "https://github.com/CanGulmez/alat"
