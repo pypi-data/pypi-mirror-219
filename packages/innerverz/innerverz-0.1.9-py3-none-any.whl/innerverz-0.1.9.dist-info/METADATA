@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: innerverz
+Version: 0.1.9
+Summary: innerverz package
+Author: Innerverz
+Author-email: study@innerverz.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+License-File: LICENSE.txt
+Requires-Dist: Pillow
+Requires-Dist: numpy
+Requires-Dist: tqdm
+Requires-Dist: gdown
+Requires-Dist: insightface
+Requires-Dist: opencv-python
+Requires-Dist: timm
+Requires-Dist: kornia
+Requires-Dist: onnxruntime
+
+testing...
+
