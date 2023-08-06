@@ -1,0 +1,3 @@
+[console_scripts]
+serialtools=serialtools.__main__:main
+
