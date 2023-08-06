@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mongoclasses"
+dynamic = ["version"]
+description = "A lightweight tool for performing MongoDB operations on python dataclasses."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Ryan Kroon", email = "rykroon.tech@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+  "cattrs==23.1.2, <24",
+  "motor>=3.1.1, <4"
+]
+
+[project.urls]
+Documentation = "https://github.com/rykroon/mongoclasses#readme"
+Issues = "https://github.com/rykroon/mongoclasses/issues"
+Source = "https://github.com/rykroon/mongoclasses"
+
+[tool.hatch.version]
+path = "src/mongoclasses/__about__.py"
+
+[tool.hatch.envs.test]
+dependencies = [
+  "pytest",
+  "pytest-asyncio",
+  "coverage",
+]
+[tool.hatch.envs.test.scripts]
+test = "coverage run -m pytest"
+cov-report = "coverage report -m"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+
+[tool.hatch.envs.mypy]
+python="3.11"
+dependencies = [
+  "mypy"
+]
+[tool.hatch.envs.mypy.scripts]
+strict = "mypy --strict src/mongoclasses"
+
+[tool.hatch.envs.docs]
+python="3.11"
+dependencies = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+]
+[tool.hatch.envs.docs.scripts]
+build = "mkdocs build --clean --strict"
+serve = "mkdocs serve"
