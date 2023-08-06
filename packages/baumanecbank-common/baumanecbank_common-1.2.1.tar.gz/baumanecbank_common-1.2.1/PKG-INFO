@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: baumanecbank_common
+Version: 1.2.1
+Summary: Common funcions package for Baumanec Bank bots
+Project-URL: Homepage, https://github.com/twobrowin-study/baumanec-bank
+Project-URL: Bug Tracker, https://github.com/twobrowin-study/baumanec-bank/issues
+Author-email: Egor Dubrovin <dubrovin.en@ya.ru>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.11
+Requires-Dist: pillow
+Requires-Dist: psycopg2-binary
+Requires-Dist: python-dotenv
+Requires-Dist: python-telegram-bot==20.4
+Requires-Dist: pyyaml
+Requires-Dist: pyzbar
+Requires-Dist: tenacity
+Description-Content-Type: text/markdown
+
+# Пакет основных функций для ботов БауБанка
+
+Для работы требуются пременные окружения:
+
+* `PG_HOST` - значение по-умолчанию `localhost`
+
+* `PG_PORT` - значение по-умолчанию `5432`
+
+* `PG_USER` - значение по-умолчанию `government_app`
+
+* `PG_PASSWORD` - значение по-умолчанию `government_app`
+
+* `PG_DATABASE` - значение по-умолчанию `postgres`
+
+* `APP_NAME` - значение по-умолчанию `government`
+
+* `I18N_DIR` - значение по-умолчанию `../i18n`
+
+* `I18N_LOCALE` - значение по-умолчанию `ru-RU`
