@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "funcpipe"
+version = "0.2.0"
+description = ""
+authors = ["Lucas Silva <lucas76leonardo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "funcpipe", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.0"
+autoflake = "^2.1.1"
+black = "^23.3.0"
+isort = "^5.12.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
