@@ -1,0 +1,6 @@
+@import "theme.css";
+
+
+article table.autosummary {
+    margin-left: 0;
+}
