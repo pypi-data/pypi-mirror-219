@@ -1,0 +1,5 @@
+toml
+click>=8
+yt-dlp>=2023.06.22
+textual>=0.28.1
+catt
