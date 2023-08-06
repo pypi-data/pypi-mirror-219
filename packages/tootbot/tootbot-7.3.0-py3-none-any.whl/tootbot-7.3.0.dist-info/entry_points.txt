@@ -1,0 +1,5 @@
+[console_scripts]
+tootbot=tootbot.app:start_main
+tootbot_create_config=tootbot.create_config:create
+tootbot_debug_submission=tootbot.debug:start_debug_single_submission
+
