@@ -1,0 +1,3 @@
+[console_scripts]
+dl-hf-model=dl_hf_model.__main__:app
+
