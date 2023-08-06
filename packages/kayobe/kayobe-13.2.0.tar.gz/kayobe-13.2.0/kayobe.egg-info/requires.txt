@@ -1,0 +1,10 @@
+Jinja2>3
+PyYAML>=3.10.0
+ansible<7.0,>=5
+cliff>=3.1.0
+jsonschema<5
+netaddr!=0.7.16,>=0.7.13
+oslo.config>=5.2.0
+paramiko
+pbr>=2.0
+selinux
