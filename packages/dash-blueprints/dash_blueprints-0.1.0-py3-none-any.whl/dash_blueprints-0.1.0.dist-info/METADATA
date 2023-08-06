@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dash-blueprints
+Version: 0.1.0
+Summary: cookie cutter composite components that can be instantiated multiple times per app
+Author: John Smith
+Requires-Python: >=3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: dash
+Requires-Dist: dash-ag-grid
+Requires-Dist: dash-extensions
+Requires-Dist: dash-mantine-components
+Description-Content-Type: text/markdown
+
+# dash-blueprints
