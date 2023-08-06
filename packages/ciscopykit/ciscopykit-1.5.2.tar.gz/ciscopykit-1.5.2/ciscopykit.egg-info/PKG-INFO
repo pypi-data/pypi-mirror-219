@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: ciscopykit
+Version: 1.5.2
+Summary: A network management toolkit for Cisco devices keeping track of devices when using GNS3 / Cisco Packet Tracer
+Home-page: https://github.com/Vincent-de-Torres-Portfolio/ciscopykit
+Author: devinci-it
+Author-email: vince.dev@icloud.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE.md
+
+A network management toolkit for Cisco devices. It provides classes and methods to manage network devices, interfaces, and configurations.
