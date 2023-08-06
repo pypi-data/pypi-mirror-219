@@ -1,0 +1,53 @@
+[tool.poetry]
+name = "rubi"
+version = "2.1.5"
+description = "A python SDK for the Rubicon Protocol"
+authors = ["denver <denver@rubicon.finance>", "adam <adam@rubicon.finance>"]
+readme = "README.md"
+include = ["network_config/**/*"]
+
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sphinx = "7.0.1"
+web3 = "6.5.0"
+hexbytes = "0.3.0"
+attributedict = "0.3.0"
+eth-abi = "4.0.0"
+pytest = "7.3.1"
+eth-tester = "0.9.0b1"
+py-evm = "0.7.0a2"
+eth-utils = "2.1.0"
+subgrounds = { version = "1.6.0", extras = ["dash"] }
+pyyaml = "6.0.0"
+python-semantic-release = "7.34.3"
+black = "^23.3.0"
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "0.21.1"
+ipykernel = "6.23.1"
+jupyter = "1.0.0"
+
+[tool.poetry.extras]
+docs = ["sphinx"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+test = "scripts:test"
+test_with_coverage = "scripts:test_with_coverage"
+generate_coverage_report = "scripts:test_coverage_html"
+
+[tool.semantic_release]
+version_toml = "pyproject.toml:tool.poetry.version"     # version location
+branch = "master"                                       # branch to make releases of
+changelog_file = "./CHANGELOG.md"                      # changelog file
+build_command = "poetry build"                          # build dists
+dist_path = "../dist/"                                  # where to put dists
+upload_to_release = true                                # auto-create GitHub release
+upload_to_pypi = false                                  # don't auto-upload to PyPI
+remove_dist = false                                     # don't remove dists
+patch_without_tag = false                               # patch release by default -> TODO    
+version_source = "tag"                           
