@@ -1,0 +1,12 @@
+README.md
+setup.py
+serra_cli/__init__.py
+serra_cli/cli.py
+serra_cli/utils.py
+serra_cli.egg-info/PKG-INFO
+serra_cli.egg-info/SOURCES.txt
+serra_cli.egg-info/dependency_links.txt
+serra_cli.egg-info/entry_points.txt
+serra_cli.egg-info/not-zip-safe
+serra_cli.egg-info/requires.txt
+serra_cli.egg-info/top_level.txt
