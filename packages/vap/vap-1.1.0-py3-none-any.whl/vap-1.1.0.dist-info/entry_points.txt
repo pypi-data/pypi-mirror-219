@@ -1,0 +1,2 @@
+[console_scripts]
+vap = vap.cli:run
