@@ -1,0 +1,187 @@
+[tool.poetry]
+name = "gaitmap-datasets"
+version = "0.13.0"
+description = "Helper to access to open-source gait datasets used by MaD-Lab"
+authors = [
+    "Arne Küderle <arne.kuederle@fau.de>",
+    "Nils Roth <nils.roth@fau.de>",
+    "Liv Herzer <liv.herzer@gmx.de>"
+]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/mad-lab-fau/gaitmap-datasets"
+repository = "https://github.com/mad-lab-fau/gaitmap-datasets"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4.0"
+tpcp = ">=0.11"
+pandas = ">=1.4.2"
+joblib = ">=1.2.0"
+imucal = ">=2.3.0"
+nilspodlib = ">=3.6.0"
+scipy = ">=1.8.1"
+c3d = "^0.5.1"
+h5py = "^3.8.0"
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.14.0"
+pytest = "^7.2.0"
+pytest-cov = "^4.0.0"
+numpydoc = "^1.4.0"
+recommonmark = "^0.7.1"
+memory-profiler = "^0.60.0"
+matplotlib = "^3.5.2"
+toml = "^0.10.2"
+black = "^23.3.0"
+Sphinx = "^5.3.0"
+sphinx-gallery = "^0.11.1"
+pydata-sphinx-theme = "^0.12.0"
+ruff = "^0.0.270"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | docs
+    | build
+    | dist
+    | \.virtual_documents
+  )/
+)
+'''
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+
+select = [
+    # pyflakes
+    "F",
+    # pycodestyle
+    "E",
+    "W",
+    # mccabe
+    "C90",
+    # isort
+    "I",
+    # pydocstyle
+    "D",
+    # pyupgrade
+    "UP",
+    # pep8-naming
+    "N",
+    # flake8-blind-except
+    "BLE",
+    # flake8-2020
+    "YTT",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-errmsg
+    "EM",
+    # flake8-implicit-str-concat
+    "ISC",
+    # flake8-pytest-style
+    "PT",
+    # flake8-return
+    "RET",
+    # flake8-simplify
+    "SIM",
+    # flake8-unused-arguments
+    "ARG",
+    # pandas-vet
+    "PD",
+    # pygrep-hooks
+    "PGH",
+    # flake8-bugbear
+    "B",
+    # flake8-quotes
+    "Q",
+    # pylint
+    "PL",
+    # flake8-pie
+    "PIE",
+    # flake8-type-checking
+    "TCH",
+    # tryceratops
+    "TRY",
+    # flake8-use-pathlib
+    "PTH",
+    "RUF"
+]
+
+ignore = [
+    # controversial
+    "B006",
+    # controversial
+    "B008",
+    "B010",
+    # Magic constants
+    "PLR2004",
+    # Strings in error messages
+    "EM101",
+    "EM102",
+    "EM103",
+    # Multiline docstring summary
+    "D213",
+    # Varaibles before return
+    "RET504",
+    # Abstract raise into inner function
+    "TRY301",
+    # Use type-checking block
+    "TCH001",
+    "TCH002",
+    "TCH003",
+    # df as varaible name
+    "PD901",
+    # melt over stack
+    "PD013",
+    # I like long messages
+    "TRY003",
+    # To many arguments
+    "PLR0913"
+]
+
+
+exclude = [
+    "doc/sphinxext/*.py",
+    "doc/build/*.py",
+    "doc/temp/*.py",
+    ".eggs/*.py",
+    "examples"
+]
+
+
+[tool.ruff.pydocstyle]
+convention = "numpy"
+
+[tool.poe.tasks]
+_format_black = "black ."
+_format_ruff = "ruff . --fix-only --exit-zero"
+format = ["_format_black", "_format_ruff", "_format_black"]
+lint = { cmd = "ruff gaitmap_datasets", help = "Lint all files with ruff." }
+_check_black = "black . --check"
+_lint_ci = "ruff gaitmap_datasets --format=github"
+ci_check = { sequence = ["_check_black", "_lint_ci"], help = "Check all potential format and linting issues." }
+test = { cmd = "pytest --cov=gaitmap_datasets --cov-report=term-missing --cov-report=xml", help = "Run Pytest with coverage." }
+version = { script = "_tasks:task_update_version()" }
+docs = { script = "_tasks:task_docs()" }
+upload_docs = { script = "_tasks:task_upload_docs()" }
+prepare_release = { script = "_tasks:task_prepare_release()" }
+create_dev_config = { script = "gaitmap_datasets:create_config_template('.datasets.dev.json')" }
+
