@@ -1,0 +1,53 @@
+span.crumbs {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap-reverse;
+  justify-content: start;
+
+  & span:not(:last-child):before {
+    content: ", "
+  }
+}
+
+section.tree {
+  & ul {
+    padding-left: 0px; /* No top-level indention */
+
+    @media (min-width: 640px) {
+      & li {
+        padding-left: 0.7rem; /* Indention if > small screens */
+      }
+
+      & li[data-par="true"] {
+        padding-left: 0px; /* No indention for data-par even if > small screens */
+      }
+    }
+  }
+
+  & li {
+    list-style-type: none;
+    margin-bottom: 0.25em;
+    padding-left: 0px;
+    padding-bottom:  0.25em;
+
+    > strong.label::after {
+      content: ". " /* divides item and (caption or content) */
+    }
+
+    > em.label::after {
+      content: " " /* divides caption and content */
+    }
+
+    > strong.label:hover, em.label:hover
+    {
+      cursor: pointer;
+      text-decoration: underline;
+      text-decoration-color: var(--primary);
+      text-underline-offset: 3px;
+    }
+
+    > p {
+      display:inline; /* prevent separate line in a <li>...  because display:inline prevents this. */
+    }
+  }
+}

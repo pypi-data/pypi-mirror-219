@@ -1,0 +1,3 @@
+{# Recursive creation of linear branches for textual content retrieval. #}
+{% from 'tree.html' import create_paragraphs %}
+{{ create_paragraphs(units|from_json) }}
