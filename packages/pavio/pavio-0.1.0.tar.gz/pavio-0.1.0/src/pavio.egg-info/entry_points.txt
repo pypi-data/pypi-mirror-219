@@ -1,0 +1,2 @@
+[console_scripts]
+pavio = pavio.cli:main
