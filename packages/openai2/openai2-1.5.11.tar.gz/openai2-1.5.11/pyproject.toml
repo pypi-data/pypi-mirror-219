@@ -1,0 +1,19 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "openai2"
+version = "1.5.11"
+description = "一个用来调用 ChatGPT 的工具，支持连续对话、对话存档与载入、对话回滚、对话伪造、轮询 api_key 池"
+dependencies = ["openai"]
+keywords = ["openai2", "openai"]
+
+readme = "README.md"
+authors = [{name = "lcctoor.com", email = "lcctoor@outlook.com"}]
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: Apache Software License"]
+requires-python = ">=3.7"
+
+[project.urls]
+HomePage = "https://lcctoor.github.io/lccpy/?package=openai2"
