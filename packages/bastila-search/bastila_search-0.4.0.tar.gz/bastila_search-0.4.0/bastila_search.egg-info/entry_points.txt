@@ -1,0 +1,3 @@
+[console_scripts]
+bastila_run = bastla_search.bastila_search:main
+bastila_setup = bastila_search.setup_config:main

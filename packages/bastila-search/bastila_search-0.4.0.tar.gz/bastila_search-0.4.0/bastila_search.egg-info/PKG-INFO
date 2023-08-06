@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: bastila-search
+Version: 0.4.0
+Summary: A python script that catches commits that introduce predefined deprecated patterns
+Home-page: https://github.com/GetBastila/bastila-hook
+Author: Bastila
+Author-email: hello@bastila.app
+License: MIT
+License-File: LICENSE
