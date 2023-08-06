@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+aEye/__init__.py
+aEye/auxiliary.py
+aEye/extractor.py
+aEye/labeler.py
+aEye/video.py
+aEye.egg-info/PKG-INFO
+aEye.egg-info/SOURCES.txt
+aEye.egg-info/dependency_links.txt
+aEye.egg-info/requires.txt
+aEye.egg-info/top_level.txt
+tests/test_extract_metadata.py
