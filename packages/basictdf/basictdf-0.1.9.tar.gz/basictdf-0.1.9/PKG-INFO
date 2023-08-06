@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: basictdf
+Version: 0.1.9
+Summary: A basic TDF parser
+Author: Marcos A. Núñez
+Author-email: silver94@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy (<=1.21) ; python_version >= "3.7" and python_version < "3.8"
+Requires-Dist: numpy (>=1.22,<2.0) ; python_version >= "3.8"
+Description-Content-Type: text/markdown
+
+# basictdf
+
+[![example workflow](https://github.com/marnunez/basictdf/actions/workflows/test.yml/badge.svg)](https://github.com/marnunez/basictdf/actions/workflows/test.yml)
+[![codecov](https://codecov.io/gh/marnunez/basictdf/branch/master/graph/badge.svg?token=7BP5TOHNBF)](https://codecov.io/gh/marnunez/basictdf)
+[![Documentation](https://img.shields.io/badge/docs-view%20online-brightgreen)](https://marnunez.github.io/basictdf/basictdf/)
+
+A read/write binary parser for the BTS Bioengineering TDF data format.
+
+### Installation
+
+```bash
+pip install basictdf
+```
+
+### Usage
+
+Read the documentation [here](https://marnunez.github.io/basictdf/basictdf/).
+
+### Development
+
+First clone the repo:
+
+```bash
+git clone https://github.com/marnunez/basictdf.git
+cd basictdf
+```
+
+Basictdf uses poetry for dependency management. To install poetry, run:
+
+```bash
+pip install poetry
+```
+
+To install the dependencies, run:
+
+```bash
+poetry install --with dev
+```
+
