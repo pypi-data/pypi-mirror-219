@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: snapctl
+Version: 0.2.5
+Summary: Snapser CLI Tool
+Author: Ajinkya Apte
+Author-email: aj@snapser.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Description-Content-Type: text/markdown
+
+# Snapser CLI Tool
+Snapser CLI Tool
+
+## Commands
+Run the following to see the list of commands Snapser supports
+```bash
+snapctl --help
+```
