@@ -1,0 +1,3 @@
+[console_scripts]
+cenas = cenas.views:run
+cenas-post-install = cenas.scripts.post_install:run_post_install
