@@ -1,0 +1,262 @@
+
+
+![PlistParse Log](./logo.png)
+
+# PlistParser
+
+## 建议使用最新版
+
+### `🏷️建议在 查看此文档`
+#### `本扩展库(包)` 还有`待完善` 如有问题 请在 `序言`-`讨论` 找到推荐的 相关问题 `讨论` 位置
+#### `谢谢`
+### 本库 作者实在肝不动 文档这些就随便写写了 大家把 扩展库 安装好后 主要看源代码文件就行了 见谅
+-------------------
+* 🎫 序言
+  * ### `📿讨论`
+    * ### [`GitHub`](https://github.com/whiteEelsYikes/PlistParser)
+    * <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=hxazC_VtukLg0VcGfykpJsleBSzj-WE7&jump_from=webapi&authKey=WK2HPKG7f/2sqLYTwPo5NkicoJSrke4TNglt/dV8QAHyKvGS/XYiJFteSxSs4IpH"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="PlistParser" title="PlistParser"></a>
+  * ## `贡献名单`
+      * `white-EelsYikes`: 邮箱2:<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=L1hHRltKAkpKQ1xWRkRKXG9eXgFMQEI" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png"/></a> |邮箱2:<a target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=TjkmJzorYysrIg4-P2AtISM" style="text-decoration:none;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/function/qm_open/ico_mailme_21.png"/></a>
+  * ## `赞助名单`
+  
+* 📖 前言
+  * #### [`点击查看 GitHub README`](https://github.com/whiteEelsYikes/PlistParser/blob/main/README.md)
+  * `停` `实际我并不会用 GitHub 至少写这个文档时不会 有考虑学习 但是我的GitHub会很乱 见谅`
+  * 其实作者甚至不只是 `GitHub` 不会用 `pypi`和`py` 也不是特别会用 如果有什么问题 请多包涵 `谢谢`
+  * 当前该扩展库主要 参考 [`PyPi`](https://pypi.org/project/PlistParser/) 说的即可
+  * 本py扩展程序包主要提供了py操作.plist xml 文件的 功能 `特别是对于苹果的 .plist xml 配置文件`
+  * 本py扩展程序包将秉承着 `简单` `易用` `轻量` `高扩展` `高自定义` 以及 `高自由度` 来构建程序
+  * 程序作者并不从事 .plist 有关职业 比如 `ios开发` `ios软件开发` `ios刷机` `ios检测` 等等 使用该程序不会完全完善(其实连帮忙测bug的人都没有😂)所以本程序可能有一定`BUG`或者不太完善的地方
+  * emm 请多多指教 如果有好的想法或者`BUG`等需要反馈的 欢迎 
+  * ##### `谢谢(Thank you)`
+
+* 🫳 获取方法
+  * [`PyPi`](https://pypi.org/project/PlistParser/)
+  * [`GitHub`](https://github.com/whiteEelsYikes/PlistParser)
+  * python pip 安装最新版
+    * ``python -m pip install PlistParser``
+  * python pip 安装指定版本
+    * ``python -m pip install PlistParser>2023.7.13``
+  * 🔖 [`PyPi`](https://pypi.org/project/PlistParser/) 与 [`GitHub`](https://github.com/whiteEelsYikes/PlistParser) 可能存在不同步或者一定差异等情况 主要以 [`PyPi`](https://pypi.org/project/PlistParser/) 为标准
+
+* 🪛🔧 使用方法
+  * 🔖 本扩展库为 扩展类型库 所以可能存在很多功能和扩展性 这里 作者提示 
+  * 文档教程
+    * 在[`PyPi`](https://pypi.org/project/PlistParser/)下载项目压缩包 其中可以找到`PlistParser.doc-info`与`PlistParser.test-s`他们分别保存了项目构建时保留的教程文档以及测试调试文件 可以参考 这里提供下载
+    * 🔖 如果您的电脑没有解压软件 我们也推荐了解压程序[`360zip`](http://360yasuo.cn/) 您也可以在[`PyPi`](https://pypi.org/project/PlistParser/)找到该程序 我们也提供下载
+  * 🧑‍💻 关于API
+    * 相关库导入
+      ```python
+        from PlistParser import PlistParser  # .plist 解析器 引擎 提供 主要算法和解析转译支持
+        from PlistParser import Plist  # .plist 解析辅助定位器 同时支持 py基本的plist文件定义
+        from PlistParser import Base64  # .plist 解析器 base64 加解密 辅助库
+      
+        from PlistParser import Extend  # .plist 解析器 扩展函数库
+        from PlistParser import Info  # .plist 解析器 相关信息
+        from PlistParser import DisplaceTemplate  # .plist 解析器置换模板文件包
+      ```
+    * 相关库的API(接口)
+      * `PlistParser`.py 库
+        ```python
+        class PlistParser:
+            def __init__(self, parser_plist: str | dict | None = None, auto_parser: bool = True, cust_dict: dict = None):
+            """
+            
+            :param parser_plist: 给定解析的 .plist 文件 或者 二进制 或者 文本 数据
+            :param auto_parser: 是否在 plist_txt 不为空时 自动在初始化时解析 plist_txt (在 plist_txt 为空时 该参数不会有任何效果)
+            :param cust_dict: 全称 customization_dict 给定自定义的 plist 字典数据
+            """
+            def parser_base64(self, bytes_data: bytes | str, mode_dict: dict) -> bytes | str:  # base 16 32 64 加解密支持
+            """
+            提供强大的 base64 基础加解密支持 可支持嵌套加解密
+            :param bytes_data: 被这些操作的(加解密)数据
+            :param mode_dict: 加解密操作及其参数声明字典
+            :return: 执行 mode_dict 指定操作后的 加解密 数据
+                        (一开始传入的bytes_data是什么类型就返回什么类型)
+            """
+            def parser_plist(self, parser_dict: dict | None = None, out_file: str | None = None, **kwargs) -> bytes:
+            """
+            将 dict 解析为 .plist
+            :param parser_dict: 被解析的 dict 默认为解析 self.plist_dict
+            :param out_file: 输出解析数据到指定文件 默认不输出 文件
+            :param kwargs: plistlib.dumps 扩展参数
+            :return: 已解析 plist 数据
+            """
+            def parser_dict(self, parser_plist: str | None = None, **kwargs) -> dict:
+            """
+            将 .plist 解析为 dict
+            :param parser_plist: 给定解析的 .plist 文件 或者 二进制 或者 文本 数据
+            :param kwargs: plistlib.load 扩展参数
+            :return: 已解析 dict 数据
+            """
+            def customization_parser_dict_value(self, value_path: tuple, cust_value: str | None = None) -> str | bytes | list | dict:
+            """
+            提供 基础 自定义 parser_dict 值功能
+            :param value_path: 一个元组 元组中的数据从左到右顺序 表达 需要修改 或者查询数据位置
+            :param cust_value: 自定义(修改)的数据 默认则不修改 仅查询
+            :return: value_path 指定位置的数据 或者修改后数据
+            """
+            def customization_parser_dict_values(self, cust_dict: dict | None = None, plist_dict: dict | None = None) -> dict:
+            """
+            提供 高级 批量 自定义/查询 parser_dict 值功能
+            !!!使用 递归 方式实现
+            :param cust_dict: cust_dict: 自定义(修改)的数据 | key-value value为 None 时 则为 查询
+            :param plist_dict: 本函数使用的 plist_dict 主要为 递归准备 一般情况下 该参数默认即可
+            :return: 执行 cust_dict 修改后的 数据
+            """
+            def plist_dict_to_cust_dict(self, plist_dict: dict) -> dict:
+            """
+            将 Plist dict 数据 转换 标准 cust dict
+            :param plist_dict: 需要 转换的 plist dict 数据
+            :return: 完成 转换的 cust dict 数据
+            """
+        
+        class FastPlistParser(PlistParser):
+            def __init__(self, parser_plist: str | dict | PlistParser | None = None, auto_parser: bool = True, cust_dict: dict = None, *args, **kwargs):
+            """
+            
+            :param parser_plist: 给定解析的 .plist 文件 或者 二进制 或者 文本 数据
+            :param auto_parser: 是否在 plist_txt 不为空时 自动在初始化时解析 plist_txt (在 plist_txt 为空时 该参数不会有任何效果)
+            :param cust_dict: 全称 customization_dict 给定自定义的 plist 字典数据
+            """
+            def device_model(self, set_value: str | bytes | list | dict | None = None) -> str | bytes | list | dict | None:
+            """
+            一键 查询/设置 设备型号
+            :param set_value: 自定义(修改)的数据 默认则不修改 仅查询
+            :return: 设备数据 或者修改后数据
+            """
+        def device_category(self, set_value: str | bytes | list | dict | None = None) -> str | bytes | list | dict | None:
+            """
+            一键 查询/设置 设备类别
+            :param set_value: 自定义(修改)的数据 默认则不修改 仅查询
+            :return: 设备数据 或者修改后数据
+            """
+        def device_issuance(self, set_value: str | bytes | list | dict | None = None) -> str | bytes | list | dict | None:
+            """
+            一键 查询/设置 设备发行
+            :param set_value: 自定义(修改)的数据 默认则不修改 仅查询
+            :return: 设备数据 或者修改后数据
+            """
+        def device_system(self, set_value: str | bytes | list | dict | None = None) -> str | bytes | list | dict | None:
+            """
+            一键 查询/设置 设备系统
+            :param set_value: 自定义(修改)的数据 默认则不修改 仅查询
+            :return: 设备数据 或者修改后数据
+            """
+            
+        ```
+      * `Plist`.py 库
+        ```python
+        class PlistItem:
+            def __init__(self, item_index_tuple, item, item_index_head=''):
+            """
+              
+            :param item_index_tuple:
+            :param item: 当前节点在 .plist 中的名称 (key值)
+            :param item_index_head: 当前节点的 前缀头数据 在  __pos__ __neg__ __invert__ 中引用拼接 节点路径前缀
+            """
+            def __pos__(self):
+            """
+            重载 单目运算符 +
+            :return:
+            """
+            def __neg__(self):
+            """
+            重载 单目运算符 -
+            :return:
+            """
+              
+            def __invert__(self):
+            """
+            重载 单目运算符 ~
+            :return:
+            """
+        class PlistCacheExtraItem(PlistItem):
+            pass
+        class PlistCacheExtra(PlistItem):
+            def __init__(self, item_index_tuple, item, item_index_head=''):
+                super().__init__(item_index_tuple, item, item_index_head)
+                self.device_category = PlistCacheExtraItem(item_index_tuple, 'VuGdqp8UBpi9vPWHlPluVQ',
+                                                           item_index_head)  #: ['iPhone15,3'],
+                self.device_issuance = PlistCacheExtraItem(item_index_tuple, 'zHeENZu+wbg7PUprwNwBWg',
+                                                           item_index_head)  # : 'CH/A',
+                self.device_model = PlistCacheExtraItem(item_index_tuple, 'Z/dqyWS6OZTRy10UcmUAhw',
+                                                        item_index_head)  # : 'iPhone14 Pro Max',
+                self.device_system = PlistCacheExtraItem(item_index_tuple, 'ivIu8YTDnBSrYv/SN4G8Ag',
+                                                         item_index_head)  # : 'iPhone OS',
+        class Plist(PlistItem):
+            """
+            该类的 部分属性 是与 .plist 一一对应 的
+            用来在使用 PlistParser 部分功能时 进行辅助定位的 功能类/库
+            """
+            def __init__(self, item_index_tuple=None, item='Plist', item_index_head=''):
+                super().__init__(item_index_tuple, item, item_index_head)
+                item_index_tuple = () if item_index_tuple == None else item_index_tuple
+                self.CacheUUID = PlistItem(item_index_tuple, 'CacheUUID')
+                self.CacheData = PlistItem(item_index_tuple, 'CacheData')
+                self.CacheVersion = PlistItem(item_index_tuple, 'CacheVersion')
+                self.CacheExtra = PlistCacheExtra(('CacheExtra',), 'CacheExtra')
+          
+        ```
+      * `Base64`.py 库
+        ```python
+        class Base64:
+            class Encode:
+                bit16 = base64.b16encode
+                bit32 = base64.b32encode
+                bit64 = base64.b64encode
+                bit85 = base64.b85decode
+        
+            class Decode:
+                bit16 = base64.b16decode
+                bit32 = base64.b32decode
+                bit64 = base64.b64decode
+                bit85 = base64.b85decode
+        
+        ```
+      * 最后
+        * Extend.py库 Info.py库 DisplaceTemplate包
+        * `Extend` `Info` `DisplaceTemplate` 这三个库/包 可以不用管 因为是预留的 哪怕里面有 `内容` `功能` 实现 哪大概率您也用不到
+  * 🛠️ 实例
+    * 功能实例
+      * 解析一个plist文件
+        ```python
+        from PlistParser.PlistParser import PlistParser, FastPlistParser
+        from PlistParser.Plist import Plist
+        
+        
+        plist = r'plist/com.apple.MobileGestalt.plist'
+        out_plist = r'plist/example.plist'
+        
+        plist_parser = PlistParser()  # 创建空解析器 plist_parser
+        plist_value = plist_parser.parser_dict(plist)  # 执行plist_parser解析器 解析 plist 为 dict
+        print(plist_value)  # 查看解析后的字典
+        print(plist_parser.parser_dict)  # 查看解析后的字典
+        plist_value = plist_parser.parser_plist()  # 解析 dict 为 plist
+        plist_value = plist_parser.parser_plist(plist_value, out_plist)  # 解析 dict 为 plist
+        print(plist_value)  # 查看 解析为 plist 的内容
+        data = plist_parser.customization_parser_dict_value(~Plist().CacheExtra.device_model, 'abbbcd')
+        print(data)  # 设置CacheExtra.device_model的值为 'abbbcd'
+        plist_parser.customization_parser_dict_values()
+        
+        plist_parser = FastPlistParser(plist_parser)
+        plist_parser.device_system()  # 查询系统名称
+        plist_parser.device_system('IOS')  # 设置 自定义 系统名称
+        ```
+    * 测试实例
+      * `pass`
+  * 扩展
+    * 基础设计扩展
+      * `pass`
+    * 高级设计扩展
+      * `pass`
+    * 🔖 本扩展程序皆可 `继承` `重写` 或者 `修改/补充源代码` 等方式实现 功能的扩展等 使该扩展库更符合 `需求`
+    * 🔖🔖 好了 最后有问题欢迎 `GitHub` `QQ群` 讨论 供电功能和用法  等待您来发掘 (`文档写不动拉 太肝拉`)  
+
+* 总结最后
+  * ## `拜拜`
+
+# `完...`
+
+
+
