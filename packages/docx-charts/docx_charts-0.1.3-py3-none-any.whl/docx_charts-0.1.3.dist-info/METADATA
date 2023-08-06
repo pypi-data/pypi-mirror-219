@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: docx-charts
+Version: 0.1.3
+Summary: Python library for manipulating chart data in word documents
+Author: Julia van der Kris
+Author-email: julia@juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuulia.dev
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# docx-charts
+
+Python library for manipulating chart data in word documents
+
+Disclaimer: this is a project made for a very specific usecase, because nothing better existed yet. No stability guarantees are made, and the API is subject to change :)
+
