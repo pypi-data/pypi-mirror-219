@@ -1,0 +1,16 @@
+datagit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+datagit/dataset_helpers.py,sha256=8pqETNbY55KQOjgoVbA-Ds29YzP2gYwF4IWws76C2jw,2950
+datagit/drift_evaluators.py,sha256=qT8D-4G9zBoD7eLNcNHp4Rnuo-NNOEo09nRiSYpbP_I,514
+datagit/github_connector.py,sha256=rMwQ04Bfc68PAJplfqJjuG6ihO9b4ynGoOqZx-A4iQ4,14596
+datagit/query_builder.py,sha256=bInZwov7PrPseeUvHYvS141QYaWksuprhDFT2cvdy-g,776
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_compare_dataframes.py,sha256=8smKTEf2uZcmyKZ1seeBKnhZZ4f6tal0zLNLbICFwZg,3513
+tests/test_git_helpers.py,sha256=HlkXoGf_DbCg5zwEFMdgvr_Oq06EEFZXQfKoOp6Rnog,1257
+tests/test_github_connector.py,sha256=X2bsBzfG0fKr14nairm8i01CCbejtWduelH6KxHyvr4,2962
+tests/test_large_dataset_comparison.py,sha256=X1kvSqtWSup0Ri2Hx1RXmsXvxUSXjKcZsVwpquEpCCY,1447
+tests/test_parse_date.py,sha256=7CiJrHE_7iHyrLsnC2j0qlEBszBNggrf-D7KcpyBYv4,1175
+tests/test_query_builder.py,sha256=BCg19pCUBa1feAyeTG-qHneI9brTJS7IdDNp8qSpYtk,2969
+datagit-0.13.dist-info/METADATA,sha256=eKcVbUy22VKI4RPDyBqJnTERhk9Z-JwwhOsZB8VB7Lg,5005
+datagit-0.13.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+datagit-0.13.dist-info/top_level.txt,sha256=VBegXcWnIhT2NiTA_iF2h6NCvWVH2ZYq2gtCSsNpfSM,14
+datagit-0.13.dist-info/RECORD,,
