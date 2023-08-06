@@ -1,0 +1,27 @@
+[project]
+name = "XPT2046-asukiaaa-python"
+version = "1.0.0"
+authors = [
+  { name="Asuki Kono", email="asukiaaa@gmail.com" },
+]
+keywords = [
+    "spi",
+    "touch",
+    "xpt2046",
+]
+description = "A library to use XPT2046 touch module"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "adafruit-circuitpython-busdevice",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/asukiaaa/XPT2046_asukiaaa_python"
+"Bug Tracker" = "https://github.com/asukiaaa/XPT2046_asukiaaa_python/issues"
+"Repository" = "https://github.com/asukiaaa/XPT2046_asukiaaa_python.git"
