@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+# Copyright 2014 Numérigraphe SARL
+# Copyright 2017 Tecnativa - David  Vidal
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+{
+    'name': 'Quotations in quantity available to promise',
+    'version': '10.0.1.0.1',
+    'license': 'AGPL-3',
+    'author': 'Numérigraphe, '
+              'Tecnativa, '
+              'Odoo Community Association (OCA)',
+    'category': 'Stock',
+    'website': 'https://github.com/OCA/stock-logistics-warehouse',
+    'depends': [
+        'stock_available',
+        'sale_order_dates',
+        'sale_stock',
+    ],
+    'data': [
+        'views/product_template_view.xml',
+    ],
+    'installable': True,
+}
