@@ -1,0 +1,3 @@
+[console_scripts]
+f5project = f5project.console_scripts:main
+
