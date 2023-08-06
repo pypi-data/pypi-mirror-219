@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+QRcodeTracking/QR_codefunction.pyd
+QRcodeTracking/QRcodeTracking.pyd
+QRcodeTracking/__init__.py
+QRcodeTracking/erwewima_ui.pyd
+QRcodeTracking.egg-info/PKG-INFO
+QRcodeTracking.egg-info/SOURCES.txt
+QRcodeTracking.egg-info/dependency_links.txt
+QRcodeTracking.egg-info/top_level.txt
