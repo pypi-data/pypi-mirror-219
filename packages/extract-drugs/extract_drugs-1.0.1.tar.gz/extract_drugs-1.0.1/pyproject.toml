@@ -1,0 +1,35 @@
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"
+
+[project]
+name = "extract-drugs"
+version = "1.0.1"
+description = "A CLI for extracting drugs from text records"
+license = {file = "LICENSE.md"}
+requires-python = ">=3.7"
+authors = [
+    {name = "Nick Anthony", email = "nanthony007@gmail.com"}
+]
+maintainers = [
+    {name = "Nick Anthony", email = "nanthony007@gmail.com"}
+]
+classifiers = [
+    "Programming Language :: Rust",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Development Status :: 5 - Production/Stable",
+    "Natural Language :: English",
+    "Topic :: Text Processing",
+]
+
+[project.urls]
+homepage = "https://github.com/UK-IPOP/drug-extraction"
+documentation = "https://github.com/UK-IPOP/drug-extraction"
+repository = "https://github.com/UK-IPOP/drug-extraction"
+changelog = "https://github.com/UK-IPOP/drug-extraction/releases"
+
+[tool.maturin]
+bindings = "bin"
+profile = "release"
+strip = true
