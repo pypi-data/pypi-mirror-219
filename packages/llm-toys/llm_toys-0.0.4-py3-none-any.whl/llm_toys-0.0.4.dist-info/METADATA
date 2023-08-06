@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: llm-toys
+Version: 0.0.4
+Summary: Production-ready small LLMs fine-tuned for diverse tasks, all without an OpenAI key.
+Home-page: https://github.com/kuutsav/llm-toys
+Author: Kumar Utsav
+Author-email: krum.utsav@gmail.com
+License: https://opensource.org/license/mit/
+Requires-Python: >=3.9.0
+Description-Content-Type: text/markdown
+Requires-Dist: accelerate (==0.20.3)
+Requires-Dist: aim (==3.17.5)
+Requires-Dist: aim-ui (==3.17.5)
+Requires-Dist: aimrecords (==0.0.7)
+Requires-Dist: aimrocks (==0.4.0)
+Requires-Dist: aiofiles (==23.1.0)
+Requires-Dist: alembic (==1.11.1)
+Requires-Dist: annotated-types (==0.5.0)
+Requires-Dist: anyio (==3.7.1)
+Requires-Dist: backoff (==2.2.1)
+Requires-Dist: base58 (==2.0.1)
+Requires-Dist: bitsandbytes (==0.39.1)
+Requires-Dist: cachetools (==5.3.1)
+Requires-Dist: certifi (==2023.5.7)
+Requires-Dist: cffi (==1.15.1)
+Requires-Dist: charset-normalizer (==3.2.0)
+Requires-Dist: click (==8.1.5)
+Requires-Dist: cmake (==3.26.4)
+Requires-Dist: cryptography (==41.0.2)
+Requires-Dist: exceptiongroup (==1.1.2)
+Requires-Dist: fastapi (==0.100.0)
+Requires-Dist: filelock (==3.12.2)
+Requires-Dist: fsspec (==2023.6.0)
+Requires-Dist: greenlet (==2.0.2)
+Requires-Dist: grpcio (==1.56.0)
+Requires-Dist: h11 (==0.14.0)
+Requires-Dist: huggingface-hub (==0.16.4)
+Requires-Dist: idna (==3.4)
+Requires-Dist: Jinja2 (==3.1.2)
+Requires-Dist: lit (==16.0.6)
+Requires-Dist: loguru (==0.7.0)
+Requires-Dist: Mako (==1.2.4)
+Requires-Dist: MarkupSafe (==2.1.3)
+Requires-Dist: monotonic (==1.6)
+Requires-Dist: mpmath (==1.3.0)
+Requires-Dist: networkx (==3.1)
+Requires-Dist: numpy (==1.25.1)
+Requires-Dist: nvidia-cublas-cu11 (==11.10.3.66)
+Requires-Dist: nvidia-cuda-cupti-cu11 (==11.7.101)
+Requires-Dist: nvidia-cuda-nvrtc-cu11 (==11.7.99)
+Requires-Dist: nvidia-cuda-runtime-cu11 (==11.7.99)
+Requires-Dist: nvidia-cudnn-cu11 (==8.5.0.96)
+Requires-Dist: nvidia-cufft-cu11 (==10.9.0.58)
+Requires-Dist: nvidia-curand-cu11 (==10.2.10.91)
+Requires-Dist: nvidia-cusolver-cu11 (==11.4.0.1)
+Requires-Dist: nvidia-cusparse-cu11 (==11.7.4.91)
+Requires-Dist: nvidia-nccl-cu11 (==2.14.3)
+Requires-Dist: nvidia-nvtx-cu11 (==11.7.91)
+Requires-Dist: packaging (==23.1)
+Requires-Dist: Pillow (==10.0.0)
+Requires-Dist: protobuf (==4.23.4)
+Requires-Dist: psutil (==5.9.5)
+Requires-Dist: py3nvml (==0.2.7)
+Requires-Dist: pycparser (==2.21)
+Requires-Dist: pydantic (==2.0.3)
+Requires-Dist: pydantic-core (==2.3.0)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: PyYAML (==6.0)
+Requires-Dist: regex (==2023.6.3)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: RestrictedPython (==6.1)
+Requires-Dist: safetensors (==0.3.1)
+Requires-Dist: scipy (==1.11.1)
+Requires-Dist: segment-analytics-python (==2.2.3)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: sniffio (==1.3.0)
+Requires-Dist: SQLAlchemy (==1.4.49)
+Requires-Dist: starlette (==0.27.0)
+Requires-Dist: sympy (==1.12)
+Requires-Dist: tokenizers (==0.13.3)
+Requires-Dist: torch (==2.0.1)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: triton (==2.0.0)
+Requires-Dist: typing-extensions (==4.7.1)
+Requires-Dist: urllib3 (==2.0.3)
+Requires-Dist: uvicorn (==0.23.0)
+Requires-Dist: xmltodict (==0.13.0)
+
+# llm-toys
+
+Production-ready small LLMs fine-tuned for diverse tasks, all without an OpenAI key.
+
+
+## Training
+
+### Paraphrase + Tone change:
+```bash
+python llm_toys/train.py \
+    --task_type paraphrase_tone \
+    --model_name tiiuae/falcon-7b \
+    --max_length 128 \
+    --batch_size 8 \
+    --gradient_accumulation_steps 1 \
+    --num_train_epochs 3 \
+    --learning_rate 1e-4 \
+    --use_aim
+```
