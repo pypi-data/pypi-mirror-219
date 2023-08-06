@@ -1,0 +1,3 @@
+[console_scripts]
+gendocs_new=docstring_generator.new_gen_docs:main
+
