@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: fuo-kuwo
+Version: 0.2.1
+Summary: Kuwo music provider for FeelUOwn music player
+Home-page: https://github.com/feeluown/feeluown-kuwo
+Author: feeluown team
+Requires-Python: >=3.8,<4.0
+License-File: LICENSE
