@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: trycortex
+Version: 1.0.5
+Summary: Python library for Cortex
+Author: Charles
+Author-email: charlespun6@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.5,<9.0.0)
+Description-Content-Type: text/markdown
+
+# cortex-python
+
+docs.trycortex.ai for full documentation
