@@ -1,0 +1,184 @@
+Metadata-Version: 2.1
+Name: talos-install
+Version: 0.2.2
+Summary: E4 CLI Manager
+Home-page: https://www.e4company.com/
+Author: "Marco Cicala"
+Author-email: marco.cicala@e4company.com
+License: GNU General Public License v3 (GPLv3)
+Classifier: Environment :: Console
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Unix Shell
+Description-Content-Type: text/markdown
+License-File: AUTHORS
+
+# All in One installation
+
+## Deploy requirements
+
+Currrent Talos-cli version is still not public, a dev_key is required for deployment.
+
+Ask a `dev_key` and `dev_key.pub` to save in your `$HOME/.ssh` folder.
+
+## OS requirements
+
+- The supported OS is Rocky Linux 8. Other Rhel like distributions should works, but aren't tested yet.
+
+- An **user with sudo permissions** is MANDATORY, don't use root directly. Due to some restrictions talos user (if already present) can't be used for installation
+
+```
+sudo useradd installer
+sudo visudo
+# add installer as sudo user
+sudo su - installer
+'''
+
+### Packages
+
+- python = 3.9
+- pip = 3.9
+
+```bash
+sudo dnf install epel-release -y
+
+# Install Python 3.9 requirements
+sudo dnf install python39  python39-pip sshpass -y
+
+# Update pip
+pip3.9 install --upgrade pip
+
+# Install package
+pip install talos-install
+```
+
+### Installation
+
+The talos_install package can be runned with these options:
+
+- precheck: to prepare system with base requirements
+- deploy: to install components
+- build: to recreate docker images and pull on docker Hub (only for authorized developper)
+- remove: to remove main settings and confurations.
+- update: Update environment from a newer version
+
+> Note that remove doesn't remove installed packages (like docker)
+and doesn't return to original settings (like selinux or firewalld).
+
+### Configuration Files
+
+#### inventory
+
+File `<pip_environment>/share/talos_install/etc/inventory` is dinamically create at code level.
+Changes to this file by user are tatally ignored during execution.
+
+#### ansible.cfg
+
+The default ansible configuration should not be changed.
+By default the `display_ok_hosts` parameter is set to false.
+If you need to display also the OK state please comment the row in
+`<pip_environment>/share/talos_install/ansible/ansible.cfg`
+
+#### talos.yaml [ REQUIRED ]
+
+Copy configuration file `<pip_environment>/share/talos_install/etc/example_talos.yaml` to your ${HOME} directory.
+Then change users configuration.
+Is not allow to add or delete master and guest configuration
+
+#### global.yaml [ REQUIRED ]
+
+Copy configuration file `<pip_environment>/share/talos_install/etc/example_global.yaml` to your ${HOME} directory.
+Then change customer configuration.
+
+### Run Installation precheck
+
+```bash
+talos_install precheck
+```
+
+A list of change will be shown for user approval. Use `-y` to confirm automatically.
+
+### Run Installation deploy
+
+```bash
+talos_install deploy
+```
+
+A list of change will be shown for user approval. Use `-y` to confirm automatically.
+
+### Run update
+
+Generally speaking, the update process is done with `talos-config update`; if something goes wrong during backward compatibilty process (like an update from a very old build), should be necessary to run `talos_install update` (as install user) to fix environment. Be aware about unecessary `talos_install update` and always check configuration files first (talos.yaml and global.yaml in your HOME directory).
+
+```bash
+talos_install update
+```
+
+A list of change will be shown for user approval. Use `-y` to confirm automatically.
+
+## Post installation
+
+Then need to validate configuration.
+First access as talos user:
+
+```bash
+sudo su - talos
+```
+
+By default setup is automatically done during deploy:
+
+```bash
+<pip_environment>/share/talos_cli/etc/talos.yaml
+
+talos_conf: use_default: true
+```
+
+If necessary run setup
+
+```bash
+ talos-config setup
+```
+
+Load initial configuration
+
+```bash
+talos-config init
+```
+
+Check Key Pairs with Talos-cli (needed for update only)
+
+```bash
+talos-check git_keys
+```
+
+Check System status
+
+```bash
+talos-check status
+```
+
+Check Version status
+
+```bash
+talos-check version
+```
+
+## Known Issue
+
+ansible-core requires the locale have UTF-8 encoding since 2.14.0
+
+Excerpt from the 2.14.0 release notes1
+
+ansible - At startup the filesystem encoding and locale are checked to verify they are UTF-8. If not, the process exits with an error reporting the errant encoding.
+
+Can you share the output of executing locale in a shell, please?
+You probably just have to fix your system language to a UTF-8 variant.
+Or just run ansible using:
+
+```bash
+LANG=C.UTF-8 talos_install <command>
+```
+

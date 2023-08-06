@@ -1,0 +1,12 @@
+---
+- name: Setup environment
+  ansible.builtin.include_tasks: init.yaml
+  when: cli_action in ['deploy']
+
+- name: Run docker compose
+  ansible.builtin.include_tasks: compose.yaml
+  when: cli_action in ['deploy','stop','destroy']
+
+- name: Misc opts
+  ansible.builtin.include_tasks: misc.yaml
+  when: cli_action in ['deploy']

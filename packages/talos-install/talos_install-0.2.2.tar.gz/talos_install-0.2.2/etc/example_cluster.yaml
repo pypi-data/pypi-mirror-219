@@ -1,0 +1,10 @@
+---
+### Mellanox
+mlnx_ofed_version: 5.8-3.0.7.0-LTS
+mlnx_ofed_distro: rhel8.8
+
+### Nvidia
+nvidia_driver_persistence_mode_on: true
+nvidia_driver_module_params: "--noopengl"
+nvidia_driver_skip_reboot: true
+nvidia_driver_branch: "latest"
