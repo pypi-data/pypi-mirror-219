@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+gungnir/dependencytrack/__init__.py
+gungnir/dependencytrack/api.py
+gungnir/dependencytrack/project.py
+gungnir/gungnir.egg-info/PKG-INFO
+gungnir/gungnir.egg-info/SOURCES.txt
+gungnir/gungnir.egg-info/dependency_links.txt
+gungnir/gungnir.egg-info/requires.txt
+gungnir/gungnir.egg-info/top_level.txt
+tests/test_project.py
