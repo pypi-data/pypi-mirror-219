@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: cvgl-data
+Version: 0.1.2
+Summary: A library for managing datasets for cross-view geolocalization (CVGL).
+Home-page: https://github.com/fferflo/cvgl_data
+Author: Florian Fervers
+Author-email: florian.fervers@gmail.com
+License: MIT
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pyarrow
+Requires-Dist: pyntcloud
+Requires-Dist: tqdm
+Requires-Dist: tinylogdir
+Requires-Dist: tiledwebmaps
+Requires-Dist: open3d
+Requires-Dist: docker
+Requires-Dist: pyquaternion
+Requires-Dist: imageio
+Requires-Dist: scikit-image
+Requires-Dist: opencv-python
+Requires-Dist: opencv-contrib-python
+Requires-Dist: pandas
+Requires-Dist: pyyaml
+Requires-Dist: nuscenes-devkit
+Requires-Dist: ciso8601
+Requires-Dist: pyunpack
+Requires-Dist: pypeln
+
