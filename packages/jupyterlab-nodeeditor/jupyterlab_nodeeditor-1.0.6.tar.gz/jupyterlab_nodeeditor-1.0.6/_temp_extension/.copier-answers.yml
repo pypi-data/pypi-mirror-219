@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.0.6
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: cenlan@hotmail.com
+author_name: l0n0l
+has_binder: true
+has_settings: true
+kind: frontend
+labextension_name: jupyterlab_nodeeditor
+project_short_description: 一个节点编辑器
+python_name: jupyterlab_nodeeditor
+repository: https://github.com/github_username/jupyterlab_nodeeditor.git
+test: false
+

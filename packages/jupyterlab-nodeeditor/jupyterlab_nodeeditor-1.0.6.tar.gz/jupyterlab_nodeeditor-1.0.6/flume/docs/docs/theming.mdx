@@ -1,0 +1,86 @@
+---
+title: Theming
+---
+
+All required styles are automatically included with the `NodeEditor`, but each Flume component has a data attribute that you can target using normal css.
+
+## Example
+
+For example, you can change the background color of the nodes with the following CSS:
+
+```css
+[data-flume-component="node"]{
+  background: #ffffff;
+}
+```
+
+## Reference
+
+The following is a comprehensive list of all available data attributes. Each component name is prefixed with `data-flume-component`.
+
+- `stage`
+- `node`
+- `node-header`
+- `connection-svg`
+- `connection-path`
+- `ports`
+- `ports-inputs`
+- `ports-outputs-`
+- `port-input`
+- `port-output`
+- `port-label`
+- `port-handle`
+- `comment`
+- `comment-textarea`
+- `comment-text`
+- `comment-resize-handle`
+- `control`
+- `control-label`
+- `select`
+- `select-label`
+- `select-desc`
+- `text-input`
+- `text-input-number`
+- `text-input-textarea`
+- `checkbox`
+- `checkbox-label`
+- `color-picker`
+- `color-button`
+- `toast`
+- `toast-title`
+- `toast-message`
+- `toast-close`
+- `ctx-menu`
+- `ctx-menu-header`
+- `ctx-menu-title`
+- `ctx-menu-input`
+- `ctx-menu-list`
+- `ctx-menu-empty`
+- `ctx-menu-option`
+
+## Theming based on node type
+
+In some cases you may want to style some nodes based on their type. There are a few dynamic data attributes you can use for this.
+
+- `data-flume-node-type=[nodeType]` 
+- `data-flume-component-is-root=[boolean]`
+- `data-port-color=[color]`
+- `data-port-name=[portName]`
+- `data-port-type=[portType]
+
+For example, to target a node with type `addNumbers` you could add this to your CSS:
+
+```css
+[data-flume-node-type="addNumbers"] {
+  background: linear-gradient(to top, #4e2020 0%, #20204e 100%);
+  border: 1px solid rgba(255,255,255,.5);
+  color: #fff;
+}
+[data-flume-node-type="addNumbers"] [data-flume-component="node-header"] {
+  background: none;
+}
+```
+
+import {DynamicThemingExample} from '../components/DynamicThemingExample'
+
+<DynamicThemingExample />

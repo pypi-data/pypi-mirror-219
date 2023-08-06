@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  padding-right: 3px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  display: flex;
+}
+
+.label {
+  font-size: 18px;
+}
+
+.controlLabel {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  flex: none;
+}
