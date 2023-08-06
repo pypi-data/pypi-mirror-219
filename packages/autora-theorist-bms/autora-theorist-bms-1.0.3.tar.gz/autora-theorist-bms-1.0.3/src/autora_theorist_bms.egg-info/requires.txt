@@ -1,0 +1,8 @@
+autora-core
+scikit-learn
+tqdm
+sympy
+
+[dev]
+autora-core[dev]
+autora-synthetic
