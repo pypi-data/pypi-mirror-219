@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: PlexLabExchange
+Version: 0.8.14
+Summary: A Python interface to the Plex Go CLI.
+Home-page: https://github.com/labdao/plex
+Author: LabDAO
+Author-email: media@labdao.xyz
+License: MIT
+Keywords: plex golang cli wrapper
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
