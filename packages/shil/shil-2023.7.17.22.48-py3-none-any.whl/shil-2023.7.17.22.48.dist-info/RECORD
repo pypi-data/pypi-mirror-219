@@ -1,0 +1,15 @@
+shil/__init__.py,sha256=8jZ9fQNM7meHu9itTX9qe-i11hLPxh88H0QNnRxUkD0,218
+shil/__main__.py,sha256=OXcdDRzigaiMcqfQS_sJf_4dzJ09q5CPpW-5OaoochM,859
+shil/_version.py,sha256=2jJjF2xmSivWOaMFIrAAel16hmFEZRA_SigAyxxgRBo,78
+shil/bin.py,sha256=Hj-i9Z-x0JR4hT4Y_D8h9OqvAEBXF7gXiMvBXJGQ4QM,48
+shil/console.py,sha256=SRBa36eyWVKTEz2yy9nw_aFflPXsxb_PbSbCOoEt-yM,210
+shil/util.py,sha256=jwaxwLvBY0IeKABSwl4rWufIWT5GcjAJg6ym_bWisM4,642
+shil/models/__init__.py,sha256=M9mOjurEcQc5nh76gPXdQ-zdHsJJEyOZWtzqA-eAkN4,9259
+shil/models/base.py,sha256=LQ-cfm3GSj9bv_LqVFaxIgfSOi1KfgDWPqVmcN5P0_4,254
+shil/parser/__init__.py,sha256=voH3-IEAGbyPfg06wvCZ2-YLmebTXQAb4ACteh2SbLY,837
+shil/parser/grammar.py,sha256=m7z1BlLb4TUfPgeAsUmCzYUp_McGeVcIAAVyicVN-mE,5551
+shil/parser/semantics.py,sha256=OvOrMQf17Zq3DTE-GmAAbcTDVlC7CePRUHJEoMb-aVY,3264
+shil-2023.7.17.22.48.dist-info/METADATA,sha256=2DpVWagvouK_b90WO0FpoGq_MOXo_Zo7FJ4suuVY1dM,3765
+shil-2023.7.17.22.48.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+shil-2023.7.17.22.48.dist-info/top_level.txt,sha256=aDCwqmjmSpL2G1OIBhevjrroPTB4LKCmzWv0ObAg6Hg,5
+shil-2023.7.17.22.48.dist-info/RECORD,,
