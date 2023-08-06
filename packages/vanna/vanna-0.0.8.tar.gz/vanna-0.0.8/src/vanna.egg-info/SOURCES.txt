@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/vanna/__init__.py
+src/vanna/types.py
+src/vanna.egg-info/PKG-INFO
+src/vanna.egg-info/SOURCES.txt
+src/vanna.egg-info/dependency_links.txt
+src/vanna.egg-info/requires.txt
+src/vanna.egg-info/top_level.txt
