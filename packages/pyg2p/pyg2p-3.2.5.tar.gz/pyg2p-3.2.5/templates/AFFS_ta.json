@@ -1,0 +1,28 @@
+{
+    "Execution": {
+        "@name": "AFFS_T24",
+        "Aggregation": {
+            "@step": 24, 
+            "@type": "average"
+        }, 
+        "OutMaps": {
+            "@cloneMap": "/home/carlo/current_lisflood/pyg2p/tests/data/dem.map", 
+            "@ext": 1, 
+            "@fmap": 1, 
+            "@namePrefix": "ta", 
+            "@unitTime": 24, 
+            "Interpolation": {
+                "@latMap": "/home/carlo/current_lisflood/pyg2p/tests/data/lat.map", 
+                "@lonMap": "/home/carlo/current_lisflood/pyg2p/tests/data/lon.map", 
+                "@mode": "grib_nearest"
+            }
+        }, 
+        "Parameter": {
+            "@applyConversion": "k2c", 
+            "@correctionFormula": "p+gem-dem*0.0065", 
+            "@demMap": "/home/carlo/current_lisflood/pyg2p/tests/data/dem.map", 
+            "@gem": "(z/9.81)*0.0065", 
+            "@shortName": "2t"
+        }
+    }
+}
