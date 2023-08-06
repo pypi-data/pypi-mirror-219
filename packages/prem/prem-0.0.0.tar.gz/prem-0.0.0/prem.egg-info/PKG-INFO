@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: prem
+Version: 0.0.0
+Summary: WiP
+Maintainer-email: Casper da Costa-Luis <casper.dcl@physics.org>
+License: Apache-2.0
+Project-URL: documentation, https://dev.premai.io/docs/intro
+Project-URL: repository, https://github.com/premAI-io/prem-utils
+Project-URL: changelog, https://github.com/premAI-io/prem-utils/releases
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Prem common utilities
+
+WiP
