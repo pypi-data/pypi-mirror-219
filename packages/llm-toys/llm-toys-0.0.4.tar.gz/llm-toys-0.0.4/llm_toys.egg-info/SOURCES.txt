@@ -1,0 +1,17 @@
+README.md
+pyproject.toml
+setup.py
+llm_toys/__init__.py
+llm_toys/config.py
+llm_toys/prompts.py
+llm_toys/train.py
+llm_toys/utils.py
+llm_toys.egg-info/PKG-INFO
+llm_toys.egg-info/SOURCES.txt
+llm_toys.egg-info/dependency_links.txt
+llm_toys.egg-info/requires.txt
+llm_toys.egg-info/top_level.txt
+llm_toys/tasks/__init__.py
+llm_toys/tasks/paraphrase.py
+llm_toys/tasks/predict.py
+llm_toys/tasks/tone_change.py
