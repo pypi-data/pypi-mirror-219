@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: coldfront
+Version: 1.1.5
+Summary: HPC Resource Allocation System 
+Home-page: http://coldfront.io
+Author: Andrew E. Bruno, Dori Sajdak, Mohammad Zia
+License: GNU General Public License v3 (GPLv3)
+Project-URL: Bug Tracker, https://github.com/ubccr/coldfront/issues
+Project-URL: Documentation, https://coldfront.readthedocs.io
+Project-URL: Source Code, https://github.com/ubccr/coldfront
+Keywords: high-performance-computing resource-allocation
+Classifier: Programming Language :: Python :: 3
+Classifier: Framework :: Django :: 3.2
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Requires-Dist: arrow (==1.2.3)
+Requires-Dist: bibtexparser (==1.4.0)
+Requires-Dist: blessed (==1.20.0)
+Requires-Dist: chardet (==5.1.0)
+Requires-Dist: Django (==3.2.20)
+Requires-Dist: django-crispy-forms (==1.14.0)
+Requires-Dist: Faker (==11.3.0)
+Requires-Dist: fontawesome-free (==5.15.4)
+Requires-Dist: django-environ (==0.9.0)
+Requires-Dist: django-model-utils (==4.3.1)
+Requires-Dist: django-picklefield (==3.1)
+Requires-Dist: django-q (==1.3.9)
+Requires-Dist: django-settings-export (==1.2.1)
+Requires-Dist: django-simple-history (==3.2.0)
+Requires-Dist: django-split-settings (==1.2.0)
+Requires-Dist: django-sslserver (==0.22)
+Requires-Dist: django-su (==1.0.0)
+Requires-Dist: doi2bib (==0.4.0)
+Requires-Dist: factory-boy (==3.2.1)
+Requires-Dist: future (==0.18.3)
+Requires-Dist: humanize (==4.6.0)
+Requires-Dist: idna (==3.4)
+Requires-Dist: pyparsing (==3.0.9)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: python-memcached (==1.59)
+Requires-Dist: pytz (==2022.7.1)
+Requires-Dist: redis (==3.5.3)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: sqlparse (==0.4.2)
+Requires-Dist: text-unidecode (==1.3)
+Requires-Dist: urllib3 (==1.26.14)
+Requires-Dist: wcwidth (==0.2.6)
+Requires-Dist: formencode (==2.0.1)
+
+![ColdFront](docs/pages/images/logo-lg.png)
+
+# ColdFront - Resource Allocation System
+
+[![Documentation Status](https://readthedocs.org/projects/coldfront/badge/?version=latest)](https://coldfront.readthedocs.io/en/latest/?badge=latest)
+
+ColdFront is an open source resource and allocation management system designed to provide a
+central portal for administration, reporting, and measuring scientific impact
+of cyberinfrastructure resources. ColdFront was created to help high performance computing (HPC) centers manage access to a diverse set of resources across large groups of users and provide a rich set of
+extensible meta data for comprehensive reporting. The flexiblity of ColdFront allows centers to manage and automate their policies and procedures within the framework provided or extend the functionality with [plugins](docs/pages/index.md#extensibility).  ColdFront is written in Python and released under the GPLv3 license.
+
+## Features
+
+- Allocation based system for managing access to resources
+- Self-service portal for users to request access to resources for their research group
+- Collection of Project, Grant, and Publication data from users
+- Center director approval system and annual project review process
+- Email notifications for expiring/renewing access to resources
+- Ability to define custom attributes on resources and allocations 
+- Integration with 3rd party systems for automation, access control, and other system provisioning tasks
+
+[Read more](docs/pages/index.md)  
+
+## Community Supported Plugins
+
+- [OpenStack Plugin](https://github.com/nerc-project/coldfront-plugin-openstack)
+- [Keycloak User Search](https://github.com/nerc-project/coldfront-plugin-keycloak)
+- [Starfish Plugin](https://github.com/fasrc/sftocf)
+
+_Submit a PR to add your plugin to the list above._
+
+## Documentation
+
+For more information on installing and using ColdFront see our [documentation here](https://coldfront.readthedocs.io)
+
+## Contact Information
+If you would like a live demo followed by QA, please contact us at
+ccr-coldfront-admin-list@listserv.buffalo.edu. You can also contact us for
+general inquiries and installation troubleshooting.
+
+If you would like to join our mailing list to receive news and updates, please
+send an email to listserv@listserv.buffalo.edu with no subject, and the
+following command in the body of the message:
+
+subscribe ccr-open-coldfront-list@listserv.buffalo.edu first_name last_name
+
+
+## License
+
+ColdFront is released under the GPLv3 license. See the LICENSE file.
