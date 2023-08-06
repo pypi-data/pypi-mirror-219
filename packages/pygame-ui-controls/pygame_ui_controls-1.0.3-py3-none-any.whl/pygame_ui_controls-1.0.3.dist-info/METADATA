@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pygame-ui-controls
+Version: 1.0.3
+Summary: Pygame UI controls
+Home-page: https://github.com/ArthurLeFloch/PygameUI
+Author: Arthur Le Floch
+Author-email: alf.github@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE
+Requires-Dist: pygame
+
+UI controls for Pygame (Button, ImageButton, CheckBox, Slider, Text)
+
