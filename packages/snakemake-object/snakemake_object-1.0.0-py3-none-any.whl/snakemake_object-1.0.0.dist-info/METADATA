@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: snakemake-object
+Version: 1.0.0
+Summary: Language agnostic encoding of Snakemake job information as 'Snakemake objects' into Snakemake script preambles.
+Author: Johannes Köster
+Author-email: johannes.koester@uni-due.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# snakemake-object
+
+This package offers language agnostic encoding of Snakemake job information.
+It is used to create 'Snakemake objects' that are injected by Snakemake into script preambles.
+
