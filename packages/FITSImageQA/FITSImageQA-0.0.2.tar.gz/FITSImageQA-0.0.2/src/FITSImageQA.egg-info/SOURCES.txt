@@ -1,0 +1,13 @@
+LICENSE.md
+MANIFEST.in
+README.md
+setup.py
+src/FITSImageQA/__init__.py
+src/FITSImageQA/imageqa.py
+src/FITSImageQA.egg-info/PKG-INFO
+src/FITSImageQA.egg-info/SOURCES.txt
+src/FITSImageQA.egg-info/dependency_links.txt
+src/FITSImageQA.egg-info/top_level.txt
+src/FITSImageQA/detection/__init__.py
+src/FITSImageQA/detection/detection.py
+src/FITSImageQA/detection/detection_mrf.py
