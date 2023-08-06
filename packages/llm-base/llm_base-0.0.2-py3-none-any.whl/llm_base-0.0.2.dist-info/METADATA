@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: llm-base
+Version: 0.0.2
+Summary: LLM Base
+Author-email: Caspar Nettelbladt <caspar.n@gmail.com>
+Project-URL: Homepage, https://github.com/kaar/llm-base
+Project-URL: Bug Tracker, https://github.com/kaar/llm-base/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# LLM Base
+
+## Install
+```
+pip install llm-base
+```
+
+## Usage
+```python
+from llb_base import gpt as openai
+from llb_base import gpt
+```
