@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: rotarypi
+Version: 2.0.0
+Summary: Reading the rotary dial of an old phone with a RaspberryPi
+Home-page: https://gitlab.com/rotaryphone/rotarypi
+Author: Martin Obrist
+Author-email: martin.obrist@buero.io
+License: MIT
+Project-URL: Documentation, https://rotarypi.readthedocs.io
+Project-URL: Source Code, https://gitlab.com/rotaryphone/rotarypi
+Project-URL: Issue Tracker, https://gitlab.com/rotaryphone/rotarypi/-/issues
+Requires-Python: >=3.9, <4
+Description-Content-Type: text/markdown
+Requires-Dist: RPi.GPIO
+Provides-Extra: dev
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: invoke ; extra == 'dev'
+
+# RotaryPi
+
+Python library to read the rotary dial of an old telephone with a Raspberry Pi.
+
+Targets Python `>3.9` on a Raspberry Pi.
+
+This library was developed using a **Tfg 3-39.205** desktop telephone from 1974, but it should work with a wide variety of rotary dials since the basic principle is pretty strait forward and probably very similar on various models. But I only have this particular model, so I've only tested it on that particular one.
+
+## Documentation
+
+Read the full documentation on [readthedocs](https://rotarypi.readthedocs.io/en/latest/).
