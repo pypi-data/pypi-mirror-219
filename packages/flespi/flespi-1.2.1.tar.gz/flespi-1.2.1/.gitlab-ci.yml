@@ -1,0 +1,14 @@
+image: python:latest
+
+stages:
+  - deploy
+
+deploy-library:
+  stage: deploy
+  script:
+    - pip install --upgrade pip build twine
+    - python3 -m build
+    - TWINE_PASSWORD=${PYPI_TOKEN} TWINE_USERNAME=${PYPI_USERNAME} python -m twine upload dist/*
+
+  only:
+    - main

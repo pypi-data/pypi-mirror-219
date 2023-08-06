@@ -1,0 +1,10 @@
+/.env
+/dist
+/*.egg-info
+/test.py
+/**/*.pyc
+/.DS_Store
+/.venv
+.vscode/*
+!.vscode/settings.json
+/**/*/__pycache__
