@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: efipay
+Version: 1.0.0
+Summary: Module for integration with EfiPay API
+Home-page: https://github.com/efipay/sdk-python-apis-efi
+Author: Consultoria Técnica
+Author-email: consultoria@sejaefi.com.br
+License: MIT
+Keywords: payment EfiPay
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+Requires-Dist: pytest (==6.2.3)
+Requires-Dist: responses (==0.13.2)
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: six (>=1.16.0)
+Provides-Extra: test
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: responses ; extra == 'test'
+
+A python library for integration of your backend with the payment services
+
+provided by http://sejaefi.com.br.
+
+
+
+More info visit our github page: https://github.com/efipay/sdk-python-apis-efi
