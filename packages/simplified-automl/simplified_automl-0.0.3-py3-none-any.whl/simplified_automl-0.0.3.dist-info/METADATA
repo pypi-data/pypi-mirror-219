@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: simplified-automl
+Version: 0.0.3
+License-File: LICENSE.txt
+Requires-Dist: asyncio (>=3.4)
+Requires-Dist: aiohttp (>=3.8)
+Requires-Dist: aiohttp-cors (>=0.7)
+Requires-Dist: h2o (>=3.40)
+Requires-Dist: DateTime (>=5.1)
+Requires-Dist: cryptography (>=40.0)
+
