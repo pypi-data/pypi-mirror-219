@@ -1,0 +1,3 @@
+[console_scripts]
+g2p_zh_en = g2p_zh_en.cli:main
+
