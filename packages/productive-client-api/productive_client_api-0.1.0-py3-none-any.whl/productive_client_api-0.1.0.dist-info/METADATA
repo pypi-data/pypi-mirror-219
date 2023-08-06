@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: productive-client-api
+Version: 0.1.0
+Summary: Productive client api
+Author: Paweł Karbowniczek
+License: MIT
+Requires-Dist: requests
+
