@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pymetard
+Version: 0.0.1
+Summary: Download parsed METAR data.
+Home-page: https://github.com/ai4time/pymetard
+Author: AI4Time
+Author-email: huang.yipeng@hotmail.com
+License: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AWC METAR Downloader
+Download parsed METAR data (real-time and historical) from Aviation Weather Center
