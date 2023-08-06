@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+target_duckdb/__init__.py
+target_duckdb/db_sync.py
+target_duckdb/logger.py
+target_duckdb/logging.conf
+target_duckdb.egg-info/PKG-INFO
+target_duckdb.egg-info/SOURCES.txt
+target_duckdb.egg-info/dependency_links.txt
+target_duckdb.egg-info/entry_points.txt
+target_duckdb.egg-info/requires.txt
+target_duckdb.egg-info/top_level.txt

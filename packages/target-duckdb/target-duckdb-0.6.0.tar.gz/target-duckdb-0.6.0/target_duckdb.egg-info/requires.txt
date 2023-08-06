@@ -1,0 +1,7 @@
+jsonschema>=3.2.0
+duckdb>=0.7.0
+
+[test]
+pytest
+pylint
+pytest-cov
