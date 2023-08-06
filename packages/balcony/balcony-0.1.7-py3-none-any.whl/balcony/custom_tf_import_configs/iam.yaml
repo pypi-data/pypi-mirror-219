@@ -1,0 +1,53 @@
+maintainers:
+- name: Oguzhan Yilmaz
+
+import_configurations:
+- id_generator_jinja2_template: '{{ UserName }}'
+  jmespath_query: '[].Users[]'
+  operation_name: ListUsers
+  resource_node: User
+  service: iam
+  to_resource_name_jinja2_template: '{{ UserName }}'
+  to_resource_type: aws_iam_user
+
+- id_generator_jinja2_template: '{{ item }}'
+  jmespath_query: '[].PolicyNames[]'
+  operation_name: ListRolePolicies
+  resource_node: RolePolicy
+  service: iam
+  to_resource_name_jinja2_template: '{{ item }}'
+  to_resource_type: aws_iam_role_policy
+
+- service: iam
+  resource_node: GroupPolicy
+  operation_name: GetGroupPolicy
+  jmespath_query: '[]'
+  to_resource_type: aws_iam_group_policy
+  to_resource_name_jinja2_template: '{{ GroupName ~ '':'' ~ PolicyName }}'
+  id_generator_jinja2_template: '{{ GroupName ~ '':'' ~ PolicyName }}'
+
+- id_generator_jinja2_template: '{{ Arn }}'
+  jmespath_query: '[].Policies[]'
+  operation_name: ListPolicies
+  resource_node: Policy
+  service: iam
+  to_resource_name_jinja2_template: '{{ PolicyName or PolicyId }}'
+  to_resource_type: aws_iam_policy
+
+- id_generator_jinja2_template: '{{ RoleName }}'
+  jmespath_query: '[].Roles[]'
+  operation_name: ListRoles
+  resource_node: Role
+  service: iam
+  to_resource_name_jinja2_template: '{{ ''role-'' ~ RoleName }}'
+  to_resource_type: aws_iam_role
+
+- id_generator_jinja2_template: '{{ UserName ~ '':''  ~ PolicyName }}'
+  jmespath_query: '[]'
+  operation_name: GetUserPolicy
+  resource_node: UserPolicy
+  service: iam
+  to_resource_name_jinja2_template: '{{ UserName ~ ''-'' ~ PolicyName }}'
+  to_resource_type: aws_iam_user_policy
+
+
