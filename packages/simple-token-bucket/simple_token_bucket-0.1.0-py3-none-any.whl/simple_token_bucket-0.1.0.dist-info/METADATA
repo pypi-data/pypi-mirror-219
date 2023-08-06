@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: simple-token-bucket
+Version: 0.1.0
+Project-URL: Source, https://github.com/buserbrasil/simple-token-bucket
+Project-URL: Issues, https://github.com/buserbrasil/simple-token-bucket/issues
+Author-email: Erle Carrara <carrara.erle@gmail.com>
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Provides-Extra: redis
+Requires-Dist: redis; extra == 'redis'
+Description-Content-Type: text/markdown
+
+# Simple Token Bucket
+
+A *simple* token bucket implementation.
+
+## Project philosophy
+
+`simple-token-bucket` is meant to be a light and very simple to use
+token bucket library. [Simple is better than
+complex](https://peps.python.org/pep-0020/).
+
+## Contributing
+
+Contributions are welcome. See Contributing section in docs.
+
