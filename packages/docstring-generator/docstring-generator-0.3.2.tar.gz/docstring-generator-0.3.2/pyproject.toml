@@ -1,0 +1,46 @@
+[tool.black]
+line-length = 100
+target-version = ['py39']
+
+[tool.isort]
+combine_as_imports = true
+line_length = 100
+profile = "black"
+
+[tool.poetry]
+name = "docstring-generator"
+version = "0.3.2"
+description = "Auto generate docstring from type-hints."
+authors = ["FelixTheC <felixeisenmenger@gmx.net>"]
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/FelixTheC/docstring_generator"
+packages = [{include = "docstring_generator"}]
+classifiers=[
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Documentation",
+    "Typing :: Typed",
+]
+
+[tool.poetry.scripts]
+gendocs_new = "docstring_generator.new_gen_docs:main"
+
+[tool.poetry.dependencies]
+python = ">=3.8,<=3.11"
+click = "^8.1.3"
+docstring-generator-ext = "0.0.*"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.8.0"
+isort = "^5.10.1"
+pytest = "^7.1.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
