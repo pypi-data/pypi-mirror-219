@@ -1,0 +1,16 @@
+game/game.py,sha256=GWILdX6X6IAnKHMHaAPcAHuxqsoU9dAApKY_ZnRPojk,10624
+src/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/commands.py,sha256=xaihHGrOY2OBswo4UPhLVbdPcUrC24TLgFMN6TIXKXc,13208
+src/common_functions.py,sha256=tBWqbR6iqOjW0C0pHr96sOd6S-_TXkiFM9gv6fUBwSk,3147
+src/main.py,sha256=rFZn3thdmxYiVQNUTCnnyK2XPDi8Sg_bEulh-6xK9RM,5590
+src/memory.py,sha256=_zOjluEZcOPNPbBuv9BvFx1NnrADfBuIFQSMUMKX5KQ,18393
+src/notes_core.py,sha256=hbzaSKeInaPhQFs4jpsmJyVu3L9nTwN8TlVwrBeLWaY,5186
+src/open_ai_input_assistent.py,sha256=wCwADA2Ky5I9TF-wVXguC4T2nwOiKUfJg5_JKrt499Q,2899
+src/save_load_books.py,sha256=UuA8aRCwVFHnC6brPMAZa8NCvFehBzbUd_TmGuuXApI,2995
+src/sorter.py,sha256=R85EeRRKJxTfleabKkHBVjmUoV6GCckyf3MciUQwtFQ,4339
+jarvis_assistant_bot-1.0.dist-info/LICENSE,sha256=6kbiFSfobTZ7beWiKnHpN902HgBx-Jzgcme0SvKqhKY,1091
+jarvis_assistant_bot-1.0.dist-info/METADATA,sha256=ySy196jll3qGKh0IhuuHSiWBBu4w6_JyCKPvEZByxU8,6254
+jarvis_assistant_bot-1.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+jarvis_assistant_bot-1.0.dist-info/entry_points.txt,sha256=ds2M6ZFbNm6OLrKnWHNfLltegS06MN8tCRxPVAYUfF8,41
+jarvis_assistant_bot-1.0.dist-info/top_level.txt,sha256=4VKKlDerb_XCPM98AL0N-8pXZU_WZlprLcUCBqt-550,9
+jarvis_assistant_bot-1.0.dist-info/RECORD,,

@@ -1,0 +1,2 @@
+[console_scripts]
+Jarvis = src.main:main
