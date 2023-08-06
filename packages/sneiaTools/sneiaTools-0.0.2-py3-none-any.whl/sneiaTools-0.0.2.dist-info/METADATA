@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: sneiaTools
+Version: 0.0.2
+Summary: A python package that will include all the tools that the SNEIA research team will develop and need to carry out their tasks.
+Home-page: https://github.com/Semillero-de-neuroinformatica/SNEIA-tools
+Author: SNEIA Research Team
+Author-email: sneia@utp.edu.co
+License: MIT
+License-File: LICENSE
+Requires-Dist: numpy
+
