@@ -1,0 +1,16 @@
+mqtt_broker:
+  host: hastings.attlocal.net
+  username: homeassistant
+  password: wu2veeJoi5ox5ooP8wai9ich0oothaepaeg5keteu4mahwui9iexai7uNufae1sa
+  discovery_prefix: homeassistant
+  state_prefix: hmd
+home_address: 543 Terrace Cove Way, Orlando, FL
+gpio:
+  button_push_duration_ms: 500
+  contact_bounce_time_ms: 200
+  contact_pullup: true
+  doors:
+    - button_pin: 15
+      closed_contact_pin: 13
+      name: main garage door
+      opened_contact_pin: 11
