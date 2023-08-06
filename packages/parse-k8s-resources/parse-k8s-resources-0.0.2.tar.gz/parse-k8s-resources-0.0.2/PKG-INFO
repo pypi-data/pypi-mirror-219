@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: parse-k8s-resources
+Version: 0.0.2
+Summary: parse k8s resource
+Home-page: 
+Author: harvey
+Author-email: harveyzhwei@gmail.com
+License: MIT
+Keywords: kubectl,Kubernetes
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+k8s resources statistics

@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+parse_k8s_resources/__init__.py
+parse_k8s_resources/main.py
+parse_k8s_resources.egg-info/PKG-INFO
+parse_k8s_resources.egg-info/SOURCES.txt
+parse_k8s_resources.egg-info/dependency_links.txt
+parse_k8s_resources.egg-info/entry_points.txt
+parse_k8s_resources.egg-info/requires.txt
+parse_k8s_resources.egg-info/top_level.txt
