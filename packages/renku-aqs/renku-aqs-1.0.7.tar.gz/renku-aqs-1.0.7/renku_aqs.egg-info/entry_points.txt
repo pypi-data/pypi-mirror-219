@@ -1,0 +1,8 @@
+[jupyter_serverproxy_servers]
+interactive_graph = renkuaqs:setup_graph_visualizer
+
+[renku]
+name_of_plugin = renkuaqs.plugin
+
+[renku.cli_plugins]
+aqs = renkuaqs.plugin:aqs
