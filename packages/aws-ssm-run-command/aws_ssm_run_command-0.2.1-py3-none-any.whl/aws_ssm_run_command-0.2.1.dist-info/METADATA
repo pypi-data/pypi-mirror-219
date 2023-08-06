@@ -1,0 +1,118 @@
+Metadata-Version: 2.1
+Name: aws-ssm-run-command
+Version: 0.2.1
+Summary: Package short description.
+Home-page: https://github.com/MacHu-GWU/aws_ssm_run_command-project
+Download-URL: https://pypi.python.org/pypi/aws_ssm_run_command/0.2.1#downloads
+Author: Sanhe Hu
+Author-email: husanhe@gmail.com
+Maintainer: Sanhe Hu
+Maintainer-email: husanhe@gmail.com
+License: MIT
+Platform: Windows
+Platform: MacOS
+Platform: Unix
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+License-File: LICENSE.txt
+License-File: AUTHORS.rst
+Requires-Dist: boto3
+Provides-Extra: docs
+Requires-Dist: sphinx (==5.3.0) ; extra == 'docs'
+Requires-Dist: sphinx-jinja (==2.0.2) ; extra == 'docs'
+Requires-Dist: sphinx-copybutton (==0.5.1) ; extra == 'docs'
+Requires-Dist: rstobj (==1.2.1) ; extra == 'docs'
+Requires-Dist: docfly (==1.1.1) ; extra == 'docs'
+Requires-Dist: furo (==2023.03.27) ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+
+
+.. .. image:: https://readthedocs.org/projects/aws-ssm-run-command/badge/?version=latest
+    :target: https://aws-ssm-run-command.readthedocs.io/en/latest/
+    :alt: Documentation Status
+
+.. image:: https://github.com/MacHu-GWU/aws_ssm_run_command-project/workflows/CI/badge.svg
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project/actions?query=workflow:CI
+
+.. .. image:: https://codecov.io/gh/MacHu-GWU/aws_ssm_run_command-project/branch/main/graph/badge.svg
+    :target: https://codecov.io/gh/MacHu-GWU/aws_ssm_run_command-project
+
+.. image:: https://img.shields.io/pypi/v/aws-ssm-run-command.svg
+    :target: https://pypi.python.org/pypi/aws-ssm-run-command
+
+.. image:: https://img.shields.io/pypi/l/aws-ssm-run-command.svg
+    :target: https://pypi.python.org/pypi/aws-ssm-run-command
+
+.. image:: https://img.shields.io/pypi/pyversions/aws-ssm-run-command.svg
+    :target: https://pypi.python.org/pypi/aws-ssm-run-command
+
+.. image:: https://img.shields.io/badge/Release_History!--None.svg?style=social
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project/blob/main/release-history.rst
+
+.. image:: https://img.shields.io/badge/STAR_Me_on_GitHub!--None.svg?style=social
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project
+
+------
+
+.. .. image:: https://img.shields.io/badge/Link-Document-blue.svg
+    :target: https://aws-ssm-run-command.readthedocs.io/en/latest/
+
+.. .. image:: https://img.shields.io/badge/Link-API-blue.svg
+    :target: https://aws-ssm-run-command.readthedocs.io/en/latest/py-modindex.html
+
+.. image:: https://img.shields.io/badge/Link-Install-blue.svg
+    :target: `install`_
+
+.. image:: https://img.shields.io/badge/Link-GitHub-blue.svg
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project
+
+.. image:: https://img.shields.io/badge/Link-Submit_Issue-blue.svg
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Request_Feature-blue.svg
+    :target: https://github.com/MacHu-GWU/aws_ssm_run_command-project/issues
+
+.. image:: https://img.shields.io/badge/Link-Download-blue.svg
+    :target: https://pypi.org/pypi/aws-ssm-run-command#files
+
+
+Welcome to ``aws_ssm_run_command`` Documentation
+==============================================================================
+Utility tool to use AWS SSM run command feature more efficiently.
+
+Example:
+
+- `run_command synchronously <./examples/run_command/example.py>`_
+- `run_command_on_one_ec2-run_python_script <./examples/run_command_on_one_ec2-run_python_script>`_
+- `run_command_on_one_ec2-run_python_script_large_payload <./examples/run_command_on_one_ec2-run_python_script_large_payload>`_
+
+
+.. _install:
+
+Install
+------------------------------------------------------------------------------
+
+``aws_ssm_run_command`` is released on PyPI, so all you need is to:
+
+.. code-block:: console
+
+    $ pip install aws-ssm-run-command
+
+To upgrade to latest version:
+
+.. code-block:: console
+
+    $ pip install --upgrade aws-ssm-run-command
