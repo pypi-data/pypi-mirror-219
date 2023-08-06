@@ -1,0 +1,142 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/54.0.2840.87 Safari/537.36
+    method: GET
+    uri: https://raw.githubusercontent.com/frictionlessdata/frictionless-py/master/data/text.txt
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAytJrSjhAgAn2uw3BQAAAA==
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=300
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '25'
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 09 Feb 2021 08:44:22 GMT
+      ETag:
+      - W/"b817bdabb63060f38820bfbc3d36bc43130b015102b3b90e8b5194c6c4515d81"
+      Expires:
+      - Tue, 09 Feb 2021 08:49:22 GMT
+      Source-Age:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Authorization,Accept-Encoding
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Fastly-Request-ID:
+      - 72f1cb84987b380e59cdce6a167756b39b7c1f84
+      X-Frame-Options:
+      - deny
+      X-GitHub-Request-Id:
+      - CBF4:E8DD:D143C:E0851:60224B64
+      X-Served-By:
+      - cache-fra19126-FRA
+      X-Timer:
+      - S1612860262.840073,VS0,VE181
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML,
+        like Gecko) Chrome/54.0.2840.87 Safari/537.36
+    method: GET
+    uri: https://raw.githubusercontent.com/frictionlessdata/frictionless-py/master/data/text.txt
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAAytJrSjhAgAn2uw3BQAAAA==
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=300
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '25'
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 09 Feb 2021 08:44:22 GMT
+      ETag:
+      - W/"b817bdabb63060f38820bfbc3d36bc43130b015102b3b90e8b5194c6c4515d81"
+      Expires:
+      - Tue, 09 Feb 2021 08:49:22 GMT
+      Source-Age:
+      - '1'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Authorization,Accept-Encoding
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - HIT
+      X-Cache-Hits:
+      - '1'
+      X-Content-Type-Options:
+      - nosniff
+      X-Fastly-Request-ID:
+      - 8f392f58b30beae4c4f20ecbdc229186094a3a92
+      X-Frame-Options:
+      - deny
+      X-GitHub-Request-Id:
+      - CBF4:E8DD:D143C:E0851:60224B64
+      X-Served-By:
+      - cache-fra19125-FRA
+      X-Timer:
+      - S1612860263.845686,VS0,VE0
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
