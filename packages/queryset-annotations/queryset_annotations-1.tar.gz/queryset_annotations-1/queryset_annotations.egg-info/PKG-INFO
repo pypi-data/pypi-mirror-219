@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: queryset-annotations
+Version: 1
+Summary: Django Smart Queryset Annotations
+Home-page: https://github.com/GefMar/django_queryset_annotations
+Author: Sergei (Gefest) Romanchuk
+License: MIT
+Requires-Python: >=3.8
+License-File: LICENSE
