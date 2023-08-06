@@ -1,0 +1,88 @@
+# ========================== #
+#        Build System        #
+# ========================== #
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# ========================== #
+#      Project Metadata      #
+# ========================== #
+
+[project]
+name = "kaparoo-python"
+dynamic = ["version"]
+description = "A Python package for (personally) common and useful features."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Jaewoo Park", email = "kaparoo2001@gmail.com" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Typing :: Typed",
+]
+dependencies = [
+    "beartype>=0.14.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "hatch>=1.7.0",
+    "ruff>=0.0.277",
+    "mypy>=1.4.1",
+    "black>=23.7.0",
+    "pytest>=7.4.0",
+    "pytest-order>=1.1.0",
+]
+
+[project.urls]
+GitHub = "https://www.github.com/kaparoo/python-package"
+
+# ========================== #
+#      [tool.*] Sections     #
+# ========================== #
+
+[tool.hatch.build]
+only-include = ["kaparoo"]
+
+[tool.hatch.version]
+path = "kaparoo/__about__.py"
+
+[tool.mypy]
+warn_return_any = true
+warn_unused_configs = true
+allow_redefinition = true
+show_column_numbers = true
+show_error_codes = true
+pretty = true
+exclude = ["tests/"]
+
+[tool.black]
+line-length = 88
+
+[tool.pytest.ini_options]
+testpaths = ["tests/"]
+
+[tool.ruff]
+line-length = 88
+ignore-init-module-imports = true
+
+[tool.ruff.flake8-annotations]
+allow-star-arg-any = true
+
+[tool.ruff.flake8-unused-arguments]
+ignore-variadic-names = true
+
+[tool.ruff.isort]
+known-first-party = ["kaparoo"]
