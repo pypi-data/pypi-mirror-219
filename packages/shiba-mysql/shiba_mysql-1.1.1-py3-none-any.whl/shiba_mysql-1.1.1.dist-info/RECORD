@@ -1,0 +1,13 @@
+shiba/__init__.py,sha256=56kvmnpImQUgtzMWICrDFVaTR1JgOEny7PEVhrXNu3I,662
+shiba/database.py,sha256=U9HEo_K9exRooO-V0B4P4txNkXOkYf0Wg0GIqpvL6bE,5111
+shiba/query_builder.py,sha256=c4APc8cPftzhu336QOiIaqIO2yeGKq-xM1xA4o-MTa4,5306
+shiba/table_builder.py,sha256=YlZrBuLL-tLB3tIDADeHmeqra-cp1FaL36BbBnQmCVs,4623
+shibamysql/__init__.py,sha256=56kvmnpImQUgtzMWICrDFVaTR1JgOEny7PEVhrXNu3I,662
+shibamysql/database.py,sha256=U9HEo_K9exRooO-V0B4P4txNkXOkYf0Wg0GIqpvL6bE,5111
+shibamysql/query_builder.py,sha256=c4APc8cPftzhu336QOiIaqIO2yeGKq-xM1xA4o-MTa4,5306
+shibamysql/table_builder.py,sha256=YlZrBuLL-tLB3tIDADeHmeqra-cp1FaL36BbBnQmCVs,4623
+shiba_mysql-1.1.1.dist-info/LICENSE,sha256=cPrfJxkTdAtjNRzNwjGVaB9X16udHda5dn_43MIk_Y0,1105
+shiba_mysql-1.1.1.dist-info/METADATA,sha256=p-5p-irX_FhPBSn3CD0WPfebUV3dqiEU5ypDhecNFX8,4003
+shiba_mysql-1.1.1.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+shiba_mysql-1.1.1.dist-info/top_level.txt,sha256=12r-B3fAI_XlneuC4FENyDgYEjTxsaMxfcEu9Ro2m_E,11
+shiba_mysql-1.1.1.dist-info/RECORD,,
