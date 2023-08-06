@@ -1,0 +1,32 @@
+import json
+import requests
+import urllib
+
+from requests.exceptions import HTTPError
+
+
+class UserService:
+    def __init__(self, client):
+        self.client = client
+        self.base_url = f"{self.client.api_url}/{self.client.api_version_snippet}/{self.client.api_myorg_snippet}/"
+
+    def refresh_user_permissions(self):
+        """
+        Refreshes user permissions in Power BI.
+        This api call is limited to one request per user per hour.
+        """
+
+        url = self.base_url + "RefreshUserPermissions"
+
+        headers = self.client.auth_header
+        response = requests.post(url, headers=headers)
+
+        if response.status_code == 429:
+            raise HTTPError(
+                response, "Failed to refresh user permissions: number of requests above limit."
+            )
+
+        if response.status_code != 200:
+            raise HTTPError(
+                response, f"Failed when trying to refresh user permissions."
+            )
