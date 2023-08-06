@@ -1,0 +1,78 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+
+[tool.poetry]
+name = "rcplus_alloy_common"
+version = "1.2.1"
+description = "RC+/Alloy helpers functions for Python"
+readme = "README.md"
+authors = [
+    "Ringier AG <info@rcplus.io>",
+]
+license = "Proprietary"
+repository = "https://github.com/ringier-data/rcplus-alloy-lib-py-common"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Intended Audience :: Developers",
+]
+keywords = ["rcplus", "alloy", "logging", "metrics", "utilities"]
+
+[tool.poetry.dependencies]
+python = ">= 3.10, < 4"
+requests = ">=2.6.1"
+jsonschema = ">=3.0.0"
+python-json-logger = ">=2.0.4"
+apache-airflow = {version = "^2.6.1", optional = true, extras=["amazon", "slack"]}
+pytz = {version = "^2023.3", optional = true}
+
+[tool.poetry.extras]
+airflow = ["apache-airflow", "pytz"]
+
+[tool.poetry.group.dev.dependencies]
+prospector = {version="*", extras=["with_mypy"]}
+black = ">=22.10.0"
+pytest = ">=7.2.0"
+pytest-asyncio = ">=0.10.0"
+pylint-quotes = ">=0.2.0"
+moto = "^4.1.10"
+coverage = "^7.2.6"
+bumpsemver = "*"
+pyparsing = "^3.1.0"
+
+[tool.pylint]
+max-line-length = 120
+
+[tool.pylint.main]
+string-quote = "double"
+triple-quote = "double"
+docstring-quote = "double"
+
+[tool.mypy]
+[[tool.mypy.overrides]]
+module = [
+    "pandas",
+    "scipy.*",
+    "rcplus_alloy_common",
+]
+ignore_missing_imports = true
+
+[tool.vulture]
+ignore_names = ["logger"]
+
+[tool.pytest.ini_options]
+addopts = "-rsxX -vv --capture=tee-sys"
+testpaths = ["tests"]
+python_files="tests/*.py"
+log_cli = "0"
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
