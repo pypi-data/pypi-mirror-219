@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+src/OhSheet.egg-info/PKG-INFO
+src/OhSheet.egg-info/SOURCES.txt
+src/OhSheet.egg-info/dependency_links.txt
+src/OhSheet.egg-info/entry_points.txt
+src/OhSheet.egg-info/requires.txt
+src/OhSheet.egg-info/top_level.txt
+src/ohsheet/__init__.py
+src/ohsheet/__main__.py
+src/ohsheet/chatcsv.py
+src/ohsheet/ohsheet.py
