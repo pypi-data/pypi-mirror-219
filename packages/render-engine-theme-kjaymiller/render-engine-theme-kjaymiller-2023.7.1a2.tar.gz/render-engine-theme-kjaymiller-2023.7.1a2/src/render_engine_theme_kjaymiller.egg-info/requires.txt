@@ -1,0 +1,8 @@
+jinja2
+
+[dev]
+pytest
+pytest-mock
+pytest-cov
+ruff
+black
