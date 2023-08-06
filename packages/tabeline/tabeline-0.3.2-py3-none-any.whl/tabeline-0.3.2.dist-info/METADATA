@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: tabeline
+Version: 0.3.2
+Summary: A data frame and data grammar library
+Home-page: https://github.com/drhagen/tabeline
+License: MIT
+Keywords: dataframe,datatable,datagrammar,dplyr
+Author: David Hagen
+Author-email: david@drhagen.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: pandas
+Requires-Dist: numpy (>=1.24,<2.0)
+Requires-Dist: pandas (>=1.4,<2.0) ; extra == "pandas"
+Requires-Dist: parsita (>=2.0,<3.0)
+Requires-Dist: polars (>=0.17,<0.19)
+Requires-Dist: pyarrow (>=11.0,<12.0) ; extra == "pandas"
+Requires-Dist: typing_extensions (>=4.3,<5.0)
+Project-URL: Documentation, https://tabeline.drhagen.com
+Project-URL: Repository, https://github.com/drhagen/tabeline
+Description-Content-Type: text/markdown
+
+# Tabeline
+
+Tabeline is a data frame and data grammar library. You write the expressions in strings and supply them to methods on the `DataFrame` class. The strings are parsed by Parsita and converted into Polars for execution.
+
+Tabeline draws inspiration from dplyr, the data grammar of R's tidyverse, especially for its methods names. The `filter`, `mutate`, `group_by`, and `summarize` methods should all feel familiar. But Tabeline is as proper a Python library as can be, using methods instead of pipes, like is standard in R. 
+
+Tabeline uses Polars under the hood, but adds a lot of handling of edge cases from Polars, which otherwise result in crashes or behavior that is not type stable.
+
+See the [Documentation](https://tabeline.drhagen.com) for the full user guide.
+
+## Installation
+
+It is recommended to install Tabeline from PyPI using `pip`.
+
+```shell
+pip install tabeline
+```
+
+## Motivating example
+
+```python
+from tabeline import DataFrame
+
+# Construct a data frame using clean syntax
+# from_csv, from_pandas, and from_polars are also available 
+df = DataFrame(
+    id=[0, 0, 0, 0, 1, 1, 1, 1, 1],
+    t=[0, 6, 12, 24, 0, 6, 12, 24, 48],
+    y=[0, 2, 3, 1, 0, 4, 3, 2, 1],
+)
+
+# Use data grammar methods and string expressions to define
+# transformed data frames
+analysis = (
+    df
+    .filter("t <= 24")
+    .group_by("id")
+    .summarize(auc="trapz(t, y)")
+)
+
+print(analysis)
+# shape: (2, 2)
+# ┌─────┬──────┐
+# │ id  ┆ auc  │
+# │ --- ┆ ---  │
+# │ i64 ┆ f64  │
+# ╞═════╪══════╡
+# │ 0   ┆ 45.0 │
+# ├╌╌╌╌╌┼╌╌╌╌╌╌┤
+# │ 1   ┆ 63.0 │
+# └─────┴──────┘
+```
+
