@@ -1,0 +1,461 @@
+.gitattributes
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+.github/workflows/publish.yml
+ladybug_vectorworks/__init__.py
+ladybug_vectorworks/_version.py
+ladybug_vectorworks/color.py
+ladybug_vectorworks/config.py
+ladybug_vectorworks/download.py
+ladybug_vectorworks/fromgeometry.py
+ladybug_vectorworks/fromobjects.py
+ladybug_vectorworks/grasshopper.py
+ladybug_vectorworks/intersect.py
+ladybug_vectorworks/text.py
+ladybug_vectorworks/togeometry.py
+ladybug_vectorworks.egg-info/PKG-INFO
+ladybug_vectorworks.egg-info/SOURCES.txt
+ladybug_vectorworks.egg-info/dependency_links.txt
+ladybug_vectorworks.egg-info/requires.txt
+ladybug_vectorworks.egg-info/top_level.txt
+ladybug_vectorworks/etc/HowToInstall.pdf
+ladybug_vectorworks/etc/HowToInstall_v2018.vwx
+ladybug_vectorworks/etc/HowToInstall_v2022.vwx
+ladybug_vectorworks/etc/JPN_Kagoshima.478270_IWEC.epw
+ladybug_vectorworks/etc/Ladybug-sample_v2018.vwx
+ladybug_vectorworks/etc/Ladybug-sample_v2022.vwx
+ladybug_vectorworks/etc/Node_List_v2018.vwx
+ladybug_vectorworks/etc/Node_List_v2022.vwx
+ladybug_vectorworks/icon_set/icon_Butterfly Boundary.png
+ladybug_vectorworks/icon_set/icon_Butterfly Butterfly.png
+ladybug_vectorworks/icon_set/icon_Butterfly Create_Butterfly_Geometry.png
+ladybug_vectorworks/icon_set/icon_Butterfly Create_Case_from_Folder.png
+ladybug_vectorworks/icon_set/icon_Butterfly Create_Case_from_Geometries.png
+ladybug_vectorworks/icon_set/icon_Butterfly Create_Case_from_Tunnel.png
+ladybug_vectorworks/icon_set/icon_Butterfly DistanceRefinementMode.png
+ladybug_vectorworks/icon_set/icon_Butterfly Function_Object.png
+ladybug_vectorworks/icon_set/icon_Butterfly FvSchemes_from_Non-orthogonality.png
+ladybug_vectorworks/icon_set/icon_Butterfly Get_Geometry.png
+ladybug_vectorworks/icon_set/icon_Butterfly Grading_XYZ.png
+ladybug_vectorworks/icon_set/icon_Butterfly Heat_Transfer_Recipe.png
+ladybug_vectorworks/icon_set/icon_Butterfly Inlet_Boundary.png
+ladybug_vectorworks/icon_set/icon_Butterfly Inlet_Flow-Rate_Boundary.png
+ladybug_vectorworks/icon_set/icon_Butterfly LES_Turbulance_Model.png
+ladybug_vectorworks/icon_set/icon_Butterfly Laminar_Turbulance_Model.png
+ladybug_vectorworks/icon_set/icon_Butterfly Load_Mesh.png
+ladybug_vectorworks/icon_set/icon_Butterfly Load_Points.png
+ladybug_vectorworks/icon_set/icon_Butterfly Load_Probes.png
+ladybug_vectorworks/icon_set/icon_Butterfly Load_Probes_Value.png
+ladybug_vectorworks/icon_set/icon_Butterfly Load_Skipped_Probes.png
+ladybug_vectorworks/icon_set/icon_Butterfly LocationRefinementMode.png
+ladybug_vectorworks/icon_set/icon_Butterfly Look_Up_Case_Folder.png
+ladybug_vectorworks/icon_set/icon_Butterfly Make2d_Parameters.png
+ladybug_vectorworks/icon_set/icon_Butterfly Meshing_Parameters.png
+ladybug_vectorworks/icon_set/icon_Butterfly MultiGrading.png
+ladybug_vectorworks/icon_set/icon_Butterfly Outlet_Boundary.png
+ladybug_vectorworks/icon_set/icon_Butterfly Plot_Residuals.png
+ladybug_vectorworks/icon_set/icon_Butterfly RAS_Turbulance_Model.png
+ladybug_vectorworks/icon_set/icon_Butterfly Refinement_Region.png
+ladybug_vectorworks/icon_set/icon_Butterfly Sample_Case.png
+ladybug_vectorworks/icon_set/icon_Butterfly Segment_Grading.png
+ladybug_vectorworks/icon_set/icon_Butterfly Solution.png
+ladybug_vectorworks/icon_set/icon_Butterfly Solution_Parameter.png
+ladybug_vectorworks/icon_set/icon_Butterfly Solution_Parameters.png
+ladybug_vectorworks/icon_set/icon_Butterfly Steady_Incompressible_Recipe.png
+ladybug_vectorworks/icon_set/icon_Butterfly Update_blockMeshDict.png
+ladybug_vectorworks/icon_set/icon_Butterfly Wall_Boundary.png
+ladybug_vectorworks/icon_set/icon_Butterfly Wind_Tunnel_Parameters.png
+ladybug_vectorworks/icon_set/icon_Butterfly Wind_Vector.png
+ladybug_vectorworks/icon_set/icon_Butterfly blockMesh.png
+ladybug_vectorworks/icon_set/icon_Butterfly calculated.png
+ladybug_vectorworks/icon_set/icon_Butterfly chekMesh.png
+ladybug_vectorworks/icon_set/icon_Butterfly controlDict.png
+ladybug_vectorworks/icon_set/icon_Butterfly decomposeParDict_scotch.png
+ladybug_vectorworks/icon_set/icon_Butterfly decomposeParDict_simple.png
+ladybug_vectorworks/icon_set/icon_Butterfly divSchemes_library.png
+ladybug_vectorworks/icon_set/icon_Butterfly epsilonWallFunction.png
+ladybug_vectorworks/icon_set/icon_Butterfly fixedValue.png
+ladybug_vectorworks/icon_set/icon_Butterfly kqRWallFunction.png
+ladybug_vectorworks/icon_set/icon_Butterfly nutkWallFunction.png
+ladybug_vectorworks/icon_set/icon_Butterfly probes.png
+ladybug_vectorworks/icon_set/icon_Butterfly purgeCase.png
+ladybug_vectorworks/icon_set/icon_Butterfly relaxtionFactors.png
+ladybug_vectorworks/icon_set/icon_Butterfly residualControl.png
+ladybug_vectorworks/icon_set/icon_Butterfly snappyHexMesh.png
+ladybug_vectorworks/icon_set/icon_Butterfly snappyHexMeshDict.png
+ladybug_vectorworks/icon_set/icon_Butterfly wind Tunnel Grading.png
+ladybug_vectorworks/icon_set/icon_Butterfly zeroGradient.png
+ladybug_vectorworks/icon_set/icon_HB Adaptive Comfort Map.png
+ladybug_vectorworks/icon_set/icon_HB Add Prefix.png
+ladybug_vectorworks/icon_set/icon_HB Add Shade.png
+ladybug_vectorworks/icon_set/icon_HB Add Subface.png
+ladybug_vectorworks/icon_set/icon_HB Adiabatic by Type.png
+ladybug_vectorworks/icon_set/icon_HB Adjust HDR.png
+ladybug_vectorworks/icon_set/icon_HB Airflow Newtwork.png
+ladybug_vectorworks/icon_set/icon_HB All-Air HVAC Templates.png
+ladybug_vectorworks/icon_set/icon_HB All-Air HVAC.png
+ladybug_vectorworks/icon_set/icon_HB Ambient Resolution.png
+ladybug_vectorworks/icon_set/icon_HB Annual Average Values.png
+ladybug_vectorworks/icon_set/icon_HB Annual Cumulative Values.png
+ladybug_vectorworks/icon_set/icon_HB Annual Daylight Metrics.png
+ladybug_vectorworks/icon_set/icon_HB Annual Daylight.png
+ladybug_vectorworks/icon_set/icon_HB Annual Irradiance.png
+ladybug_vectorworks/icon_set/icon_HB Annual Loads.png
+ladybug_vectorworks/icon_set/icon_HB Annual Peak Values.png
+ladybug_vectorworks/icon_set/icon_HB Annual Results to Data.png
+ladybug_vectorworks/icon_set/icon_HB Aperture.png
+ladybug_vectorworks/icon_set/icon_HB Apertures by Guide Surface.png
+ladybug_vectorworks/icon_set/icon_HB Apertures by Ratio.png
+ladybug_vectorworks/icon_set/icon_HB Apply Abolute Load Values.png
+ladybug_vectorworks/icon_set/icon_HB Apply ConstructionSet.png
+ladybug_vectorworks/icon_set/icon_HB Apply Daylight Control.png
+ladybug_vectorworks/icon_set/icon_HB Apply Face Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Apply Load Values.png
+ladybug_vectorworks/icon_set/icon_HB Apply ModifierSet.png
+ladybug_vectorworks/icon_set/icon_HB Apply Opaque Construction.png
+ladybug_vectorworks/icon_set/icon_HB Apply ProgramType.png
+ladybug_vectorworks/icon_set/icon_HB Apply Room Schedules.png
+ladybug_vectorworks/icon_set/icon_HB Apply Setpoint Values.png
+ladybug_vectorworks/icon_set/icon_HB Apply Shade Construction.png
+ladybug_vectorworks/icon_set/icon_HB Apply Shade Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Apply Shade Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Apply Window Construction.png
+ladybug_vectorworks/icon_set/icon_HB Apply Window Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Assign Grids and Views.png
+ladybug_vectorworks/icon_set/icon_HB BSModifier.png
+ladybug_vectorworks/icon_set/icon_HB Balance Temperature.png
+ladybug_vectorworks/icon_set/icon_HB Blend ProgramTypes.png
+ladybug_vectorworks/icon_set/icon_HB Blind Material.png
+ladybug_vectorworks/icon_set/icon_HB Blower Pressure Converter.png
+ladybug_vectorworks/icon_set/icon_HB Building Programs.png
+ladybug_vectorworks/icon_set/icon_HB Building Vintages.png
+ladybug_vectorworks/icon_set/icon_HB CIE Standard Sky.png
+ladybug_vectorworks/icon_set/icon_HB Carbon Emission Intensity.png
+ladybug_vectorworks/icon_set/icon_HB Certain Illuminance.png
+ladybug_vectorworks/icon_set/icon_HB Check Scene.png
+ladybug_vectorworks/icon_set/icon_HB Check Versions.png
+ladybug_vectorworks/icon_set/icon_HB Climate Zones.png
+ladybug_vectorworks/icon_set/icon_HB Climatebased Sky.png
+ladybug_vectorworks/icon_set/icon_HB Color Face Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Color Faces.png
+ladybug_vectorworks/icon_set/icon_HB Color Room Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Color Rooms.png
+ladybug_vectorworks/icon_set/icon_HB Config.png
+ladybug_vectorworks/icon_set/icon_HB Constant Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Construction Set by Climate.png
+ladybug_vectorworks/icon_set/icon_HB Construction Types.png
+ladybug_vectorworks/icon_set/icon_HB ConstructionSet.png
+ladybug_vectorworks/icon_set/icon_HB Cumulative Radiation.png
+ladybug_vectorworks/icon_set/icon_HB Custom Ground.png
+ladybug_vectorworks/icon_set/icon_HB Custom Simulation Output.png
+ladybug_vectorworks/icon_set/icon_HB Custom Sky.png
+ladybug_vectorworks/icon_set/icon_HB Custom Window Gap Material.png
+ladybug_vectorworks/icon_set/icon_HB DOAS HVAC Templates.png
+ladybug_vectorworks/icon_set/icon_HB DOAS HVAC.png
+ladybug_vectorworks/icon_set/icon_HB Daylight Control Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Daylight Factor.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Construction.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct ConstructionSet Interior.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct ConstructionSet.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Equipment.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Hot Water.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Infiltration.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Lighting.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Material.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Model.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct ModifierSet Interior.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct ModifierSet.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Object.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct People.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct ProgramType.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Setpoint.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Ventilation.png
+ladybug_vectorworks/icon_set/icon_HB Deconstruct Wea.png
+ladybug_vectorworks/icon_set/icon_HB Direct Sun Hours.png
+ladybug_vectorworks/icon_set/icon_HB Door.png
+ladybug_vectorworks/icon_set/icon_HB Dump Compressed Objects.png
+ladybug_vectorworks/icon_set/icon_HB Dump Objects.png
+ladybug_vectorworks/icon_set/icon_HB Dump gbXML.png
+ladybug_vectorworks/icon_set/icon_HB Dynamic Aperture Group.png
+ladybug_vectorworks/icon_set/icon_HB Dynamic Shade Group.png
+ladybug_vectorworks/icon_set/icon_HB Dynamic State Geometry.png
+ladybug_vectorworks/icon_set/icon_HB Dynamic State.png
+ladybug_vectorworks/icon_set/icon_HB End Use Intensity.png
+ladybug_vectorworks/icon_set/icon_HB Equipment.png
+ladybug_vectorworks/icon_set/icon_HB Exterior Construction Subset.png
+ladybug_vectorworks/icon_set/icon_HB Exterior Modifier Subset.png
+ladybug_vectorworks/icon_set/icon_HB Extract HDR.png
+ladybug_vectorworks/icon_set/icon_HB Extruded Border Shades.png
+ladybug_vectorworks/icon_set/icon_HB Face Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Face Energy Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Face Radiance Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Face Result by Type.png
+ladybug_vectorworks/icon_set/icon_HB Face.png
+ladybug_vectorworks/icon_set/icon_HB Faces by Attribute.png
+ladybug_vectorworks/icon_set/icon_HB Faces by BC.png
+ladybug_vectorworks/icon_set/icon_HB Faces by Type.png
+ladybug_vectorworks/icon_set/icon_HB False Color.png
+ladybug_vectorworks/icon_set/icon_HB Fixed Interval Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Gene Pool to Day Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Geometry Properties.png
+ladybug_vectorworks/icon_set/icon_HB Get Grids and Views.png
+ladybug_vectorworks/icon_set/icon_HB Glare Postprocess.png
+ladybug_vectorworks/icon_set/icon_HB Glass Material.png
+ladybug_vectorworks/icon_set/icon_HB Glass Modifier 3.png
+ladybug_vectorworks/icon_set/icon_HB Glass Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Ground Construction Subset.png
+ladybug_vectorworks/icon_set/icon_HB Ground.png
+ladybug_vectorworks/icon_set/icon_HB HDR to GIF.png
+ladybug_vectorworks/icon_set/icon_HB HeatCool HVAC Templates.png
+ladybug_vectorworks/icon_set/icon_HB HeatCool HVAC.png
+ladybug_vectorworks/icon_set/icon_HB IdealAir.png
+ladybug_vectorworks/icon_set/icon_HB Imageless Annual Glare.png
+ladybug_vectorworks/icon_set/icon_HB Infiltration.png
+ladybug_vectorworks/icon_set/icon_HB Interior Construction Subset.png
+ladybug_vectorworks/icon_set/icon_HB Interior Modifier Subset.png
+ladybug_vectorworks/icon_set/icon_HB Internal Mass.png
+ladybug_vectorworks/icon_set/icon_HB Intersect Solids.png
+ladybug_vectorworks/icon_set/icon_HB Label Faces.png
+ladybug_vectorworks/icon_set/icon_HB Label Rooms.png
+ladybug_vectorworks/icon_set/icon_HB Lighting.png
+ladybug_vectorworks/icon_set/icon_HB Load Compressed Objects.png
+ladybug_vectorworks/icon_set/icon_HB Load Measure.png
+ladybug_vectorworks/icon_set/icon_HB Load Objects.png
+ladybug_vectorworks/icon_set/icon_HB Load gbXML OSM IDF.png
+ladybug_vectorworks/icon_set/icon_HB Louver Shades.png
+ladybug_vectorworks/icon_set/icon_HB Metal Modifier 3.png
+ladybug_vectorworks/icon_set/icon_HB Metal Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Mirror Modifier 3.png
+ladybug_vectorworks/icon_set/icon_HB Mirror Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Mirror.png
+ladybug_vectorworks/icon_set/icon_HB Model to OSM.png
+ladybug_vectorworks/icon_set/icon_HB Model to Rad Folder.png
+ladybug_vectorworks/icon_set/icon_HB Model.png
+ladybug_vectorworks/icon_set/icon_HB ModifierSet.png
+ladybug_vectorworks/icon_set/icon_HB Move.png
+ladybug_vectorworks/icon_set/icon_HB Normalize by Floor Area.png
+ladybug_vectorworks/icon_set/icon_HB Object to String.png
+ladybug_vectorworks/icon_set/icon_HB Opaque Construction.png
+ladybug_vectorworks/icon_set/icon_HB Opaque Material No Mass.png
+ladybug_vectorworks/icon_set/icon_HB Opaque Material.png
+ladybug_vectorworks/icon_set/icon_HB Opaque Modifier 3.png
+ladybug_vectorworks/icon_set/icon_HB Opaque Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Other Side Temperature.png
+ladybug_vectorworks/icon_set/icon_HB PMV Comfort Map.png
+ladybug_vectorworks/icon_set/icon_HB Patch Missing Adjacency.png
+ladybug_vectorworks/icon_set/icon_HB Peak Loads.png
+ladybug_vectorworks/icon_set/icon_HB People.png
+ladybug_vectorworks/icon_set/icon_HB Planarize Brep.png
+ladybug_vectorworks/icon_set/icon_HB Plenum.png
+ladybug_vectorworks/icon_set/icon_HB Point-In-Time Grid-Based.png
+ladybug_vectorworks/icon_set/icon_HB Point-In-Time View-Based.png
+ladybug_vectorworks/icon_set/icon_HB Process Load.png
+ladybug_vectorworks/icon_set/icon_HB ProgramType.png
+ladybug_vectorworks/icon_set/icon_HB Properties by Guide Surface.png
+ladybug_vectorworks/icon_set/icon_HB Radial Grid from Rooms.png
+ladybug_vectorworks/icon_set/icon_HB Radial Sensor Grid.png
+ladybug_vectorworks/icon_set/icon_HB Radiance Parameter.png
+ladybug_vectorworks/icon_set/icon_HB Radiant HVAC Properties.png
+ladybug_vectorworks/icon_set/icon_HB Read Custom Result.png
+ladybug_vectorworks/icon_set/icon_HB Read Environment Matrix.png
+ladybug_vectorworks/icon_set/icon_HB Read Face Result.png
+ladybug_vectorworks/icon_set/icon_HB Read HVAC Sizing.png
+ladybug_vectorworks/icon_set/icon_HB Read Result Dictionary.png
+ladybug_vectorworks/icon_set/icon_HB Read Room Comfort Result.png
+ladybug_vectorworks/icon_set/icon_HB Read Room Energy Result.png
+ladybug_vectorworks/icon_set/icon_HB Read Tabular Data.png
+ladybug_vectorworks/icon_set/icon_HB Read Thermal Matrix.png
+ladybug_vectorworks/icon_set/icon_HB Read Zone Sizing.png
+ladybug_vectorworks/icon_set/icon_HB Recipe Settings.png
+ladybug_vectorworks/icon_set/icon_HB Room Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Room Energy Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Room Radiance Attributes.png
+ladybug_vectorworks/icon_set/icon_HB Room from Solid.png
+ladybug_vectorworks/icon_set/icon_HB Room.png
+ladybug_vectorworks/icon_set/icon_HB Rooms by Attribute.png
+ladybug_vectorworks/icon_set/icon_HB Rooms by Floor Height.png
+ladybug_vectorworks/icon_set/icon_HB Rooms by Orientation.png
+ladybug_vectorworks/icon_set/icon_HB Rotate.png
+ladybug_vectorworks/icon_set/icon_HB Run IDF.png
+ladybug_vectorworks/icon_set/icon_HB Run OSM.png
+ladybug_vectorworks/icon_set/icon_HB Run OSW.png
+ladybug_vectorworks/icon_set/icon_HB SHW System.png
+ladybug_vectorworks/icon_set/icon_HB SHW Templates.png
+ladybug_vectorworks/icon_set/icon_HB Scale.png
+ladybug_vectorworks/icon_set/icon_HB Schedule to Data.png
+ladybug_vectorworks/icon_set/icon_HB Search Construction Sets.png
+ladybug_vectorworks/icon_set/icon_HB Search Constructions.png
+ladybug_vectorworks/icon_set/icon_HB Search Materials.png
+ladybug_vectorworks/icon_set/icon_HB Search Mofidier Sets.png
+ladybug_vectorworks/icon_set/icon_HB Search Mofidiers.png
+ladybug_vectorworks/icon_set/icon_HB Search Programs.png
+ladybug_vectorworks/icon_set/icon_HB Search Schedules.png
+ladybug_vectorworks/icon_set/icon_HB Seasonal Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Section Plane View.png
+ladybug_vectorworks/icon_set/icon_HB Sensor Grid .png
+ladybug_vectorworks/icon_set/icon_HB Sensor Grid from Rooms.png
+ladybug_vectorworks/icon_set/icon_HB Service Hot Water.png
+ladybug_vectorworks/icon_set/icon_HB Set Conditioned.png
+ladybug_vectorworks/icon_set/icon_HB Set Identifier.png
+ladybug_vectorworks/icon_set/icon_HB Set Multiplier.png
+ladybug_vectorworks/icon_set/icon_HB Set Story.png
+ladybug_vectorworks/icon_set/icon_HB Setpoint.png
+ladybug_vectorworks/icon_set/icon_HB Shade Construction.png
+ladybug_vectorworks/icon_set/icon_HB Shade Material.png
+ladybug_vectorworks/icon_set/icon_HB Shade Modifier Subset.png
+ladybug_vectorworks/icon_set/icon_HB Shade.png
+ladybug_vectorworks/icon_set/icon_HB Shadow Calculation.png
+ladybug_vectorworks/icon_set/icon_HB Simulation Control.png
+ladybug_vectorworks/icon_set/icon_HB Simulation Output.png
+ladybug_vectorworks/icon_set/icon_HB Simulation Parameter.png
+ladybug_vectorworks/icon_set/icon_HB Sizing Parameter.png
+ladybug_vectorworks/icon_set/icon_HB Sky View.png
+ladybug_vectorworks/icon_set/icon_HB Solve Adjacency.png
+ladybug_vectorworks/icon_set/icon_HB Spatial Daylight Autonomy.png
+ladybug_vectorworks/icon_set/icon_HB Straight Skeleton.png
+ladybug_vectorworks/icon_set/icon_HB String to Object.png
+ladybug_vectorworks/icon_set/icon_HB Subface Modifier Subset.png
+ladybug_vectorworks/icon_set/icon_HB Subface Subset.png
+ladybug_vectorworks/icon_set/icon_HB Thermal Load Balance.png
+ladybug_vectorworks/icon_set/icon_HB Translucent Modifier 3.png
+ladybug_vectorworks/icon_set/icon_HB Translucent Modifier.png
+ladybug_vectorworks/icon_set/icon_HB Type Limit.png
+ladybug_vectorworks/icon_set/icon_HB UTCI Comfort Map.png
+ladybug_vectorworks/icon_set/icon_HB Update HBJSON.png
+ladybug_vectorworks/icon_set/icon_HB Validate Model.png
+ladybug_vectorworks/icon_set/icon_HB Vegetation Material.png
+ladybug_vectorworks/icon_set/icon_HB Ventilation Control.png
+ladybug_vectorworks/icon_set/icon_HB Ventilation.png
+ladybug_vectorworks/icon_set/icon_HB View from Viewport.png
+ladybug_vectorworks/icon_set/icon_HB View.png
+ladybug_vectorworks/icon_set/icon_HB Visualize All.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Normals.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Quick.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Recipe Execution.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Sky.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Thermal Map.png
+ladybug_vectorworks/icon_set/icon_HB Visualize Wireframe.png
+ladybug_vectorworks/icon_set/icon_HB Visualize by BC.png
+ladybug_vectorworks/icon_set/icon_HB Visualize by Type.png
+ladybug_vectorworks/icon_set/icon_HB Wea From Clear Sky.png
+ladybug_vectorworks/icon_set/icon_HB Wea From EPW.png
+ladybug_vectorworks/icon_set/icon_HB Wea From Tau Clear Sky.png
+ladybug_vectorworks/icon_set/icon_HB Wea from Zhang-Huang.png
+ladybug_vectorworks/icon_set/icon_HB Weekly Schedule.png
+ladybug_vectorworks/icon_set/icon_HB Window Construction Dynamic.png
+ladybug_vectorworks/icon_set/icon_HB Window Construction Shade.png
+ladybug_vectorworks/icon_set/icon_HB Window Construction.png
+ladybug_vectorworks/icon_set/icon_HB Window Frame.png
+ladybug_vectorworks/icon_set/icon_HB Window Gap Material.png
+ladybug_vectorworks/icon_set/icon_HB Window Material.png
+ladybug_vectorworks/icon_set/icon_HB Window Opening.png
+ladybug_vectorworks/icon_set/icon_HB c69.png
+ladybug_vectorworks/icon_set/icon_LB Activities Met List.png
+ladybug_vectorworks/icon_set/icon_LB Adaptive Comfort Parameters.png
+ladybug_vectorworks/icon_set/icon_LB Adaptive Comfort.png
+ladybug_vectorworks/icon_set/icon_LB Analysis Period.png
+ladybug_vectorworks/icon_set/icon_LB Apply Analysis Period.png
+ladybug_vectorworks/icon_set/icon_LB Apply Conditional Statement.png
+ladybug_vectorworks/icon_set/icon_LB Area Aggregate.png
+ladybug_vectorworks/icon_set/icon_LB Area Normalize.png
+ladybug_vectorworks/icon_set/icon_LB Arithmetic Operation.png
+ladybug_vectorworks/icon_set/icon_LB Benefit Sky Matrix.png
+ladybug_vectorworks/icon_set/icon_LB Calculate HOY.png
+ladybug_vectorworks/icon_set/icon_LB Capture View.png
+ladybug_vectorworks/icon_set/icon_LB Clothing List.png
+ladybug_vectorworks/icon_set/icon_LB Clothing by Temperature.png
+ladybug_vectorworks/icon_set/icon_LB Color Range.png
+ladybug_vectorworks/icon_set/icon_LB Comfort Statistics.png
+ladybug_vectorworks/icon_set/icon_LB Compass.png
+ladybug_vectorworks/icon_set/icon_LB Construct Data Type.png
+ladybug_vectorworks/icon_set/icon_LB Construct Data.png
+ladybug_vectorworks/icon_set/icon_LB Construct Header.png
+ladybug_vectorworks/icon_set/icon_LB Construct Location.png
+ladybug_vectorworks/icon_set/icon_LB Construct Matrix.png
+ladybug_vectorworks/icon_set/icon_LB Convert to Timestep.png
+ladybug_vectorworks/icon_set/icon_LB Create Legend.png
+ladybug_vectorworks/icon_set/icon_LB Cumulative Sky Matrix.png
+ladybug_vectorworks/icon_set/icon_LB Data DateTimes.png
+ladybug_vectorworks/icon_set/icon_LB Data to Legacy.png
+ladybug_vectorworks/icon_set/icon_LB Deconstruct Data.png
+ladybug_vectorworks/icon_set/icon_LB Deconstruct Design Day.png
+ladybug_vectorworks/icon_set/icon_LB Deconstruct Header.png
+ladybug_vectorworks/icon_set/icon_LB Deconstruct Location.png
+ladybug_vectorworks/icon_set/icon_LB Deconstruct Matrix.png
+ladybug_vectorworks/icon_set/icon_LB Degree Days.png
+ladybug_vectorworks/icon_set/icon_LB Direct Sun Hours.png
+ladybug_vectorworks/icon_set/icon_LB Directional Solar Irradiance.png
+ladybug_vectorworks/icon_set/icon_LB Download Weater.png
+ladybug_vectorworks/icon_set/icon_LB Dump Data.png
+ladybug_vectorworks/icon_set/icon_LB Dump VisualizationSet.png
+ladybug_vectorworks/icon_set/icon_LB EPW to DDY.png
+ladybug_vectorworks/icon_set/icon_LB EPWmap.png
+ladybug_vectorworks/icon_set/icon_LB FalseStartToggle.png
+ladybug_vectorworks/icon_set/icon_LB Generate Point Grid.png
+ladybug_vectorworks/icon_set/icon_LB HOY to DateTime.png
+ladybug_vectorworks/icon_set/icon_LB Hourly Plot.png
+ladybug_vectorworks/icon_set/icon_LB Human to Sky Relation.png
+ladybug_vectorworks/icon_set/icon_LB Humidity Metrics.png
+ladybug_vectorworks/icon_set/icon_LB ImageViewer.png
+ladybug_vectorworks/icon_set/icon_LB Import DDY.png
+ladybug_vectorworks/icon_set/icon_LB Import Design Day.png
+ladybug_vectorworks/icon_set/icon_LB Import Location.png
+ladybug_vectorworks/icon_set/icon_LB Import STAT.png
+ladybug_vectorworks/icon_set/icon_LB ImportEPW.png
+ladybug_vectorworks/icon_set/icon_LB Incident Radiation.png
+ladybug_vectorworks/icon_set/icon_LB Indoor Solar MRT.png
+ladybug_vectorworks/icon_set/icon_LB Legend 2D Parameters.png
+ladybug_vectorworks/icon_set/icon_LB Legend Parameters Categorized.png
+ladybug_vectorworks/icon_set/icon_LB Legend Parameters.png
+ladybug_vectorworks/icon_set/icon_LB Load Data.png
+ladybug_vectorworks/icon_set/icon_LB Mass Arithmetic Operation.png
+ladybug_vectorworks/icon_set/icon_LB Mesh Threshold Selector.png
+ladybug_vectorworks/icon_set/icon_LB Mesh to Hatch.png
+ladybug_vectorworks/icon_set/icon_LB Monthly Chart.png
+ladybug_vectorworks/icon_set/icon_LB Open Directory.png
+ladybug_vectorworks/icon_set/icon_LB Open File.png
+ladybug_vectorworks/icon_set/icon_LB Orient to Camera.png
+ladybug_vectorworks/icon_set/icon_LB Outdoor Solar MRT.png
+ladybug_vectorworks/icon_set/icon_LB PET Body Parameters.png
+ladybug_vectorworks/icon_set/icon_LB PET Comfort.png
+ladybug_vectorworks/icon_set/icon_LB PMV Comfort Parameters.png
+ladybug_vectorworks/icon_set/icon_LB PMV Comfort.png
+ladybug_vectorworks/icon_set/icon_LB PMV Polygon.png
+ladybug_vectorworks/icon_set/icon_LB Passive Strategies.png
+ladybug_vectorworks/icon_set/icon_LB Passive Strategy Parameters.png
+ladybug_vectorworks/icon_set/icon_LB Preview VisualizationSet.png
+ladybug_vectorworks/icon_set/icon_LB Psychrometric Chart.png
+ladybug_vectorworks/icon_set/icon_LB Radiation Dome.png
+ladybug_vectorworks/icon_set/icon_LB Radiation Rose.png
+ladybug_vectorworks/icon_set/icon_LB Real Time Incident Radiation.png
+ladybug_vectorworks/icon_set/icon_LB Relative Humidity from Dew Point.png
+ladybug_vectorworks/icon_set/icon_LB Set Rhino Sun.png
+ladybug_vectorworks/icon_set/icon_LB Sky Dome.png
+ladybug_vectorworks/icon_set/icon_LB Sky Mask.png
+ladybug_vectorworks/icon_set/icon_LB Solar Body Parameters.png
+ladybug_vectorworks/icon_set/icon_LB Solar Envelope.png
+ladybug_vectorworks/icon_set/icon_LB Solar MRT from Solar Components.png
+ladybug_vectorworks/icon_set/icon_LB SortByLayers.png
+ladybug_vectorworks/icon_set/icon_LB Spatial Heatmap.png
+ladybug_vectorworks/icon_set/icon_LB Surface Ray Tracing.png
+ladybug_vectorworks/icon_set/icon_LB Thermal Indices.png
+ladybug_vectorworks/icon_set/icon_LB Time Aggregate.png
+ladybug_vectorworks/icon_set/icon_LB Time Interval Operation.png
+ladybug_vectorworks/icon_set/icon_LB Time Rate of Change.png
+ladybug_vectorworks/icon_set/icon_LB To IP.png
+ladybug_vectorworks/icon_set/icon_LB To SI.png
+ladybug_vectorworks/icon_set/icon_LB To Unit.png
+ladybug_vectorworks/icon_set/icon_LB UTCI Comfort.png
+ladybug_vectorworks/icon_set/icon_LB Unit Converter.png
+ladybug_vectorworks/icon_set/icon_LB View From Sun.png
+ladybug_vectorworks/icon_set/icon_LB View Percent.png
+ladybug_vectorworks/icon_set/icon_LB Visibility Percent.png
+ladybug_vectorworks/icon_set/icon_LB Wind Profile.png
+ladybug_vectorworks/icon_set/icon_LB Wind Speed.png
+ladybug_vectorworks/icon_set/icon_LB WindRose.png
+ladybug_vectorworks/icon_set/icon_LB-Sunpath.png
