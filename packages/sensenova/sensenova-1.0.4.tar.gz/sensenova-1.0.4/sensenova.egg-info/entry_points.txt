@@ -1,0 +1,3 @@
+[console_scripts]
+sensenova = sensenova._sensenova_scripts:main
+
