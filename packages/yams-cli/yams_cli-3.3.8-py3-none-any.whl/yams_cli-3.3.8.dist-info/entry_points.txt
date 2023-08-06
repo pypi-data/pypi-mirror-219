@@ -1,0 +1,2 @@
+[console_scripts]
+yams = yams_cli.logic.cli:main
