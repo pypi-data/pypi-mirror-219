@@ -1,0 +1,9 @@
+jina==3.18.0
+click
+toml
+nest-asyncio
+
+[test]
+pytest
+pytest-asyncio
+psutil
