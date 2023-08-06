@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "docwalker"
+version = "1.0.2"
+description = "Quickly view documentation in source code in a language-agnostic way."
+authors = ["Conner Marzen <connermarzen@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["tui", "documentation", "viewer"]
+classifiers = [
+  # How mature is this project? Common values are
+  #   3 - Alpha
+  #   4 - Beta
+  #   5 - Production/Stable
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3 :: Only",
+]
+packages = [
+    { include = "docwalker" },
+    { include = "docwalker/styles/*.css" },
+]
+
+[tool.poetry.scripts]
+docwalker = "docwalker.__main__:main"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+textual = "^0.29.0"
+
+[tool.poetry.group.dev.dependencies]
+textual-dev = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
