@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: password-generator-library
+Version: 1.0.0
+Summary: A password generating library
+Home-page: https://github.com/your_username/password-generator-library
+Author: Your Name
+Author-email: your@email.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Password Generator Library
+
+The Password Generator library provides a convenient way to generate secure and strong passwords. It utilizes the zxcvbn library to evaluate the strength of the generated passwords and provides insights into their crack time estimates at different brute force speeds.
+
+## Installation
+
+To use the Password Generator library, you need to install the required dependencies. You can do this using pip:
+
+```
+pip install pandas zxcvbn
+```
+
+## Usage
+
+To use the Password Generator library, follow the steps below:
+
+1. Import the `Generator` class from the `password_generator` module:
+
+   ```python
+   from password_generator import Generator
+   ```
+
+2. Create an instance of the `Generator` class:
+
+   ```python
+   generator = Generator()
+   ```
+
+3. Generate password suggestions by calling the `generator` method:
+
+   ```python
+   generator.generator(number_of_suggestions, password_length)
+   ```
+
+   - `number_of_suggestions` (int): The number of password suggestions to generate.
+   - `password_length` (int): The length of each password.
+
+4. Retrieve the top password suggestions by calling the `get_top_passwords` method:
+
+   ```python
+   top_passwords = generator.get_top_passwords(n)
+   ```
+
+   - `n` (int): The number of top password suggestions to retrieve.
+
+   The `get_top_passwords` method returns a list of dictionaries, where each dictionary represents a top password suggestion. Each dictionary contains the following keys:
+   
+   - `'Sl.No.'`: The serial number of the suggestion.
+   - `'suggested password'`: The suggested password.
+   - `'score'`: The strength score of the password.
+   - `'@100/hr'`: The crack time estimate at 100 guesses per hour.
+   - `'@36,000/hr'`: The crack time estimate at 36,000 guesses per hour.
+   - `'@196,000/hr'`: The crack time estimate at 196,000 guesses per hour.
+   - `'@792.9M/hr'`: The crack time estimate at 792.9 million guesses per hour.
+
+5. Display the top password suggestions using your preferred method.
+
+6. You can also access the complete results of the password generation and strength evaluation by accessing the `results` attribute of the `Generator` instance:
+
+   ```python
+   all_results = generator.results
+   ```
+
+   The `results` attribute is a list of dictionaries, where each dictionary represents a password suggestion. The keys and values in each dictionary are the same as mentioned above.
+
+That's it! You can now use the Password Generator library to generate strong and secure password suggestions.
+
+## Example
+
+Here's an example that demonstrates the usage of the Password Generator library:
+
+```python
+from password_generator import Generator
+
+def main():
+    generator = Generator()
+    generator.generator(10, 12)  # Generate 10 password suggestions of length 12
+
+    top_passwords = generator.get_top_passwords(5)  # Retrieve the top 5 password suggestions
+
+    for password in top_passwords:
+        print(password['suggested password'])
+
+if __name__ == "__main__":
+    main()
+```
+
+This example generates 10 password suggestions of length 12 and retrieves the top 5 suggestions. The top password suggestions are then printed.
+
+Remember to handle any exceptions that may be raised by the library methods and adjust the parameters according to your specific requirements.
+
+## Note
+
+While the Password Generator library provides strong and secure password suggestions, it's important to follow additional best practices for password security, such as using unique passwords for each account, regularly updating passwords, and enabling two-factor authentication whenever possible.
+
