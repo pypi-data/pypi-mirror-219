@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - 'v*'
+  pull_request:
+
+jobs:
+  linux:
+    strategy:
+      matrix:
+        target: [x86_64, aarch64]
+    uses: ./.github/workflows/_workflow.yml
+    with:
+      runs-on: ubuntu-latest
+      maturin-target: ${{ matrix.target }}
+      maturin-build-args: --release --sdist -o dist --find-interpreter
+
+  windows:
+    uses: ./.github/workflows/_workflow.yml
+    with:
+      runs-on: windows-latest
+      maturin-target: x64
+      maturin-build-args: --release -o dist --find-interpreter
+
+  macos:
+    strategy:
+      matrix:
+        target: [x86_64, aarch64]
+    uses: ./.github/workflows/_workflow.yml
+    with:
+      runs-on: macos-latest
+      maturin-target: ${{ matrix.target }}
+      maturin-build-args: --release -o dist --find-interpreter
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    if: "startsWith(github.ref, 'refs/tags/')"
+    needs: [ macos, windows, linux ]
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: wheels
+      - name: Publish to PyPI
+        uses: messense/maturin-action@v1
+        env:
+          MATURIN_PYPI_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
+        with:
+          command: upload
+          args: --skip-existing *

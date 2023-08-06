@@ -1,0 +1,45 @@
+name: test and build artifact
+
+on:
+  workflow_call:
+    inputs:
+      runs-on:
+        type: string
+        required: true
+      maturin-target:
+        type: string
+        required: true
+      maturin-build-args:
+        type: string
+        required: true
+
+jobs:
+  test_and_build_artifact:
+    runs-on: ${{ inputs.runs-on }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install linter and formatter
+      uses: actions-rs/toolchain@v1
+      with:
+          toolchain: stable
+          override: true
+          components: rustfmt, clippy
+    - name: Execute tests
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+    - run: |
+        cargo fmt --all -- --check
+        cargo clippy
+        cargo test
+    - uses: messense/maturin-action@v1
+      with:
+        manylinux: auto
+        command: build
+        target: ${{ inputs.maturin-target }}
+        args: ${{ inputs.maturin-build-args }}
+    - name: Upload wheels
+      uses: actions/upload-artifact@v2
+      with:
+        name: wheels
+        path: dist
