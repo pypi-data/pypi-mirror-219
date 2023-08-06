@@ -1,0 +1,194 @@
+Metadata-Version: 2.1
+Name: runtype
+Version: 0.3.5
+Summary: Type dispatch and validation for run-time Python
+Home-page: https://github.com/erezsh/runtype
+License: MIT
+Keywords: types,typing,dispatch,multimethods,dataclass,runtime
+Author: Erez Shinan
+Author-email: erezshin@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Topic :: Utilities
+Requires-Dist: contextvars; python_version >= "3.6" and python_version < "3.7"
+Requires-Dist: dataclasses; python_version >= "3.6" and python_version < "3.7"
+Project-URL: Repository, https://github.com/erezsh/runtype
+Description-Content-Type: text/markdown
+
+![alt text](logo.png "Logo")
+
+
+Runtype is a collection of run-time type utilities for Python.
+
+It is:
+
+:runner: Fast! Uses an internal typesystem for maximum performance.
+
+:brain: Smart! Supports `typing`, forward-references, constraints, auto-casting, and more.
+
+:gear: Configurative! Write your own type system, and use it with *dataclass* and *dispatch*.
+
+------
+
+### Modules
+
+- :star: [**validation**](https://runtype.readthedocs.io/en/latest/validation.html) - Provides a smarter alternative to `isinstance` and `issubclass`, with support for the `typing` module, and type constraints.
+
+- :star: [**dataclass**](https://runtype.readthedocs.io/en/latest/dataclass.html) - Adds run-time type validation to the built-in dataclass.
+
+    - Improves dataclass ergonomics.
+    - Supports most mypy constructs, like `typing` and forward-references (`foo: 'Bar'`).
+    - Supports automatic value casting, Pydantic-style. (Optional, off by default)
+    - Supports types with constraints. (e.g. `String(max_length=10)`)
+    - Supports optional sampling for faster validation of big lists and dicts.
+    - Twice faster than Pydantic ([read here](https://runtype.readthedocs.io/en/latest/dataclass.html#compared-to-pydantic))
+
+- :star: [**dispatch**](https://runtype.readthedocs.io/en/latest/dispatch.html) - Provides fast multiple-dispatch for functions and methods, via a decorator.
+
+    - Inspired by Julia.
+
+- :star: [**type utilities**](https://runtype.readthedocs.io/en/latest/types.html) - Provides a set of classes to implement your own type-system.
+
+    - Used by runtype itself, to emulate the Python type-system.
+
+
+## Docs
+
+Read the docs here: https://runtype.readthedocs.io/
+
+## Install
+
+```bash
+pip install runtype
+```
+
+No dependencies.
+
+Requires Python 3.6 or up.
+
+[![codecov](https://codecov.io/gh/erezsh/runtype/branch/master/graph/badge.svg)](https://codecov.io/gh/erezsh/runtype)
+
+## Examples
+
+### Validation (Isa & Subclass)
+
+```python
+from typing import Dict, Mapping
+from runtype import isa, issubclass
+
+print( isa({'a': 1}, Dict[str, int]) )
+#> True
+print( isa({'a': 'b'}, Dict[str, int]) )
+#> False
+
+print( issubclass(Dict[str, int], Mapping[str, int]) )
+#> True
+print( issubclass(Dict[str, int], Mapping[int, str]) )
+#> False
+```
+
+### Dataclasses
+
+```python
+from typing import List
+from datetime import datetime
+from runtype import dataclass
+
+@dataclass(check_types='cast')  # Cast values to the target type, when applicable
+class Person:
+    name: str
+    birthday: datetime = None   # Optional
+    interests: List[str] = []   # The list is copied for each instance
+
+
+print( Person("Beetlejuice") )
+#> Person(name='Beetlejuice', birthday=None, interests=[])
+print( Person("Albert", "1955-04-18T00:00", ['physics']) )
+#> Person(name='Albert', birthday=datetime.datetime(1955, 4, 18, 0, 0), interests=['physics'])
+print( Person("Bad", interests=['a', 1]) )
+# Traceback (most recent call last):
+#   ...
+# TypeError: [Person] Attribute 'interests' expected value of type list[str]. Instead got ['a', 1]
+
+#     Failed on item: 1, expected type str
+
+```
+
+### Multiple Dispatch
+
+```python
+from runtype import Dispatch
+dp = Dispatch()
+
+@dp
+def append(a: list, b):
+    return a + [b]
+
+@dp
+def append(a: tuple, b):
+    return a + (b,)
+
+@dp
+def append(a: str, b: str):
+    return a + b
+
+
+print( append([1, 2, 3], 4) )
+#> [1, 2, 3, 4]
+print( append((1, 2, 3), 4) )
+#> (1, 2, 3, 4)
+print( append('foo', 'bar') )
+#> foobar
+print( append('foo', 4)     )
+# Traceback (most recent call last):
+#    ...
+# runtype.dispatch.DispatchError: Function 'append' not found for signature (<class 'str'>, <class 'int'>)
+```
+
+Dispatch can also be used for extending the dataclass builtin `__init__`:
+
+```python
+dp = Dispatch()
+
+@dataclass(frozen=False)
+class Point:
+    x: int = 0
+    y: int = 0
+    
+    @dp
+    def __init__(self, points: list | tuple):
+        self.x, self.y = points
+
+    @dp
+    def __init__(self, points: dict):
+        self.x = points['x']
+        self.y = points['y']
+    
+# Test constructors
+p0 = Point()                         # Default constructor
+assert p0 == Point(0, 0)             # Default constructor
+assert p0 == Point([0, 0])           # User constructor
+assert p0 == Point((0, 0))           # User constructor
+assert p0 == Point({"x": 0, "y": 0}) # User constructor
+```
+
+
+## License
+
+Runtype uses the [MIT license](LICENSE).
+
+## Donate
+
+If you like Runtype and want to show your appreciation, you can do so at my [patreon page](https://www.patreon.com/erezsh), or [ko-fi page](https://ko-fi.com/erezsh).
+
