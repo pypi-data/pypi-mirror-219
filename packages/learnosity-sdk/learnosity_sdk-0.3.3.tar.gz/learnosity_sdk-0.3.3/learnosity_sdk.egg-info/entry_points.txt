@@ -1,0 +1,3 @@
+[console_scripts]
+learnosity-sdk-assessment-quickstart = docs.quickstart.assessment.standalone_assessment:main [quickstart]
+
