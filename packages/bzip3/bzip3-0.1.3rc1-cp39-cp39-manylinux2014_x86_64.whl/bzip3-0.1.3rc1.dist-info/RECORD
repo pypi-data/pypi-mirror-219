@@ -1,0 +1,16 @@
+bz3/__init__.py,sha256=3M6-V-A-ADCWQaanbkJ--ZjIB-9Qumzyrelj5g8lZco,329
+bz3/bz3.py,sha256=iDzYcI_FFgnp6ozV5AY4TgHJMjOwbsj_o-fMR9x65v4,12080
+bz3/compression.py,sha256=LGzhjaShj-YyklwcxxMeFOPx9G46ICT-_m6ti50hK8o,5403
+bz3/backends/__init__.py,sha256=gR_LXnNnTvoWY1WwBN6u-tIeaHxavjN-b6oO9WPUR2k,949
+bz3/backends/cffi/__init__.py,sha256=aBGVKvQgcuJgRkWpF_r-r0j6E55beEya60ZfWcK9pWg,18788
+bz3/backends/cffi/_bz3.abi3.so,sha256=RHm58E1ewQ7ftSiQOLuVrU95jXAlf4heHBVQ054UoF8,95912
+bz3/backends/cffi/build.py,sha256=-sjfQoE9SQSVig5yBXQOkfATTUpOE2LaaYiLZyeQTbE,4676
+bz3/backends/cython/__init__.py,sha256=Sqe5fwf_6gcEH0jGaSGA3ocYB-mhtv6d9W4LQEYivDo,345
+bz3/backends/cython/_bz3.abi3.so,sha256=QWyQX4d2gxuU4fZRmNU7B3JSCADJfFhdZ2CL7k6fJX8,393280
+bz3/backends/cython/_bz3.c,sha256=n6Rcj4f_BTHJ8vQpHlPIFKyGIBt4nE422ZuuyNBLTRk,1443071
+bz3/backends/cython/_bz3.pyx,sha256=P72rYT9CDneBAk1q84YalowJtZybEZT8cWd2GMbGKpM,38370
+bz3/backends/cython/bzip3.pxd,sha256=MsoKAMzc1FeKvb3X4R_2idn7Pf4luLfUyjhX0kV6SUs,1873
+bzip3-0.1.3rc1.dist-info/METADATA,sha256=woCZHpKxjho3rlJrVl-estKlK0eXahkvNAfLJymtt4Y,4606
+bzip3-0.1.3rc1.dist-info/WHEEL,sha256=3s2LSuQQhT9U1Dyv6MxBd72puf_ocSkY6hn5h0Kjf-o,103
+bzip3-0.1.3rc1.dist-info/top_level.txt,sha256=ko8So6pdpxW18e5QcjoL-fwOc9ePcBemwRlxqS15Mto,4
+bzip3-0.1.3rc1.dist-info/RECORD,,
