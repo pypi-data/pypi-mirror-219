@@ -1,0 +1,15 @@
+name: napari-tomotwin
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - napari=0.4.18
+  - pandas
+  - numpy
+  - pyqt
+  - matplotlib
+  - scipy
+  - napari-clusters-plotter
+  - tqdm
+  - pip
