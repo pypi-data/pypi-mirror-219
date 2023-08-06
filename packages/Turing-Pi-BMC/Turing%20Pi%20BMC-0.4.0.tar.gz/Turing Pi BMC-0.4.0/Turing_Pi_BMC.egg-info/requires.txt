@@ -1,0 +1,9 @@
+requests
+semver
+
+[build]
+wheel
+build
+
+[test]
+pre-commit
