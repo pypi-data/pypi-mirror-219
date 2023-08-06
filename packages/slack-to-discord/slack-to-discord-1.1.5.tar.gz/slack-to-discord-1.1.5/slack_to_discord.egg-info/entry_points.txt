@@ -1,0 +1,2 @@
+[console_scripts]
+slack-to-discord = slack_to_discord.__main__:main

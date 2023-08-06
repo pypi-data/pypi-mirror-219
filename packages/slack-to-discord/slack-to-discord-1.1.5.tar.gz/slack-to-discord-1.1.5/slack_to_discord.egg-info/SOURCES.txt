@@ -1,0 +1,16 @@
+README.md
+setup.py
+slack_to_discord/__init__.py
+slack_to_discord/__main__.py
+slack_to_discord/emojis.py
+slack_to_discord/http_stream.py
+slack_to_discord/importer.py
+slack_to_discord/script.py
+slack_to_discord.egg-info/PKG-INFO
+slack_to_discord.egg-info/SOURCES.txt
+slack_to_discord.egg-info/dependency_links.txt
+slack_to_discord.egg-info/entry_points.txt
+slack_to_discord.egg-info/requires.txt
+slack_to_discord.egg-info/top_level.txt
+tests/test_bufferediterator.py
+tests/test_http_stream.py
