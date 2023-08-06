@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: hawthorn
+Version: 0.0.4
+Summary: common python programing encapsulation library
+Home-page: https://github.com/libpub/hawthorn
+Author: kevinyjn
+Author-email: kevinyjn@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# hawthorn
+common python programing encapsulation library
