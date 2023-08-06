@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+AddBookmarket/AddBookmarket.pyd
+AddBookmarket/__init__.py
+AddBookmarket/bookmarket_input.pyd
+AddBookmarket/optimize_import.pyd
+AddBookmarket.egg-info/PKG-INFO
+AddBookmarket.egg-info/SOURCES.txt
+AddBookmarket.egg-info/dependency_links.txt
+AddBookmarket.egg-info/top_level.txt
