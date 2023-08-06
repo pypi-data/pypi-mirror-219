@@ -1,0 +1,121 @@
+Metadata-Version: 2.1
+Name: vallenae
+Version: 0.8.0
+Summary: Extract and analyze Acoustic Emission measurement data
+Project-URL: Changelog, https://github.com/vallen-systems/pyVallenAE/blob/master/CHANGELOG.md
+Project-URL: Source, https://github.com/vallen-systems/pyVallenAE
+Project-URL: Issues, https://github.com/vallen-systems/pyVallenAE/issues
+Author-email: Lukas Berbuer <software@vallen.de>
+License: MIT License
+License-File: LICENSE.txt
+Keywords: AMSY,Acoustic Emission,SQLite,Vallen,WaveLine,analysis,data acquisition,pridb,timepicker,tradb,trfdb
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: pandas>=0.24
+Requires-Dist: soundfile
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions
+Provides-Extra: dev
+Requires-Dist: vallenae[docs,tests,tools]; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: matplotlib; extra == 'docs'
+Requires-Dist: myst-parser; extra == 'docs'
+Requires-Dist: numba; extra == 'docs'
+Requires-Dist: pillow; extra == 'docs'
+Requires-Dist: scipy; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints; extra == 'docs'
+Requires-Dist: sphinx-gallery; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: sphinx>=5; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: coverage[toml]>=5; extra == 'tests'
+Requires-Dist: pytest-benchmark; extra == 'tests'
+Requires-Dist: pytest>=6; extra == 'tests'
+Provides-Extra: tools
+Requires-Dist: mypy>=0.9; extra == 'tools'
+Requires-Dist: ruff>=0.0.278; extra == 'tools'
+Requires-Dist: tox>=3.4; extra == 'tools'
+Description-Content-Type: text/markdown
+
+# Vallen AE Python Tools
+
+[![CI](https://github.com/vallen-systems/pyVallenAE/workflows/CI/badge.svg)](https://github.com/vallen-systems/pyVallenAE/actions)
+[![Documentation Status](https://readthedocs.org/projects/pyvallenae/badge/?version=latest)](https://pyvallenae.readthedocs.io/en/latest/?badge=latest)
+[![Coverage Status](https://coveralls.io/repos/github/vallen-systems/pyVallenAE/badge.svg?branch=master)](https://coveralls.io/github/vallen-systems/pyVallenAE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI](https://img.shields.io/pypi/v/vallenae)](https://pypi.org/project/vallenae)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/vallenae)](https://pypi.org/project/vallenae)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json)](https://github.com/charliermarsh/ruff)
+
+**[Documentation](https://pyvallenae.readthedocs.io/) · [Examples](https://pyvallenae.readthedocs.io/en/stable/examples)**
+
+Python tools to extract and analyze Acoustic Emission measurement data.
+The package includes following modules:
+
+- vallenae.**io**: Reading (and writing) of Vallen Systeme SQLite database files (*.pridb, *.tradb, *.trfdb)
+- vallenae.**features**: Extraction of Acoustic Emission features
+- vallenae.**timepicker**: Timepicking algorithms for arrival time estimations
+
+> **Note**:
+> A free/lite version of the Vallen AE Suite is available since the release R2020.
+> If offers the basic features for real-time data visualization and analysis with VisualAE.
+> So you could write you own pridb/tradb files and have real-time visualizations with VisualAE.
+>
+> The Vallen AE Suite can be downloaded [here](https://www.vallen.de/downloads/).
+
+## Installation
+
+Install the latest version from [PyPI](https://pypi.org/project/vallenae):
+
+```shell
+$ pip install vallenae
+```
+
+If you want to run the latest version of the code, you can install from the master branch directly:
+
+```shell
+$ pip install -U git+https://github.com/vallen-systems/pyVallenAE.git
+# Or if you don't have git installed
+$ pip install -U https://github.com/vallen-systems/pyVallenAE/zipball/master
+```
+
+Please note, that `vallenae` requires Python 3.6 or newer. On Linux systems, `pip` is usually mapped to Python 2, so use `pip<version>` (e.g. `pip3` or `pip3.7`) instead. Alternatively, you can run `pip` from your specific Python version with `python<version> -m pip`.
+
+## Contributing
+
+Feature requests, bug reports and fixes are always welcome!
+Just [create an issue](https://github.com/vallen-systems/pyVallenAE/issues/new) or make a pull-request.
+
+### Development setup
+
+```shell
+# Clone this repository
+$ git clone https://github.com/vallen-systems/pyVallenAE.git
+$ cd pyVallenAE
+
+# Install package and dependencies
+$ pip install -e .[dev]
+
+# Run the test suite with tox
+$ tox
+
+# Build the documentation with Sphinx
+$ cd docs
+$ make html  # on Linux
+$ ./make.bat html  # on Windows
+```
