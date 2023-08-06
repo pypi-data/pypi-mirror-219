@@ -1,0 +1,3 @@
+[console_scripts]
+chess_program_generator=chess_program_generator:main
+

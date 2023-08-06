@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: chess-program-generator
+Version: 1.0.0
+Summary: A program to generate a chess program. Since chess is such a complex game, it is impossible to write a program for it by hand.
+Home-page: https://github.com/MiguelGuthridge/chess-program-generator
+License: MIT
+Keywords: chess,generator,cli
+Author: Miguel Guthridge
+Author-email: hdsq@outlook.com.au
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Games/Entertainment :: Board Games
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Typing :: Typed
+Requires-Dist: chess (>=1.9.4,<2.0.0)
+Project-URL: Bug Tracker, https://github.com/MiguelGuthridge/chess-program-generator/issues
+Project-URL: Online Documentation, https://github.com/MiguelGuthridge/chess-program-generator
+Project-URL: Repository, https://github.com/MiguelGuthridge/chess-program-generator
+Description-Content-Type: text/markdown
+
+# Chess Program Generator
+
+A program to generate a chess program. Since chess is such a complex game with
+many branching paths, it is impossible to write a program for it by hand.
+
+This tool provides a CLI to generate a simple terminal chess program.
+
+## Installation
+
+`pip install chess-program-generator`
+
+## Usage
+
+To generate the runnable chess program:
+
+`chess-program-generator [depth] > chess.py`
+
+To run the produced chess program
+
+`python chess.py`
+
+## Pre-generated program
+
+A pre-compiled program, generated to a depth of 4 ply, can be downloaded from
+the releases page on GitHub.
+
