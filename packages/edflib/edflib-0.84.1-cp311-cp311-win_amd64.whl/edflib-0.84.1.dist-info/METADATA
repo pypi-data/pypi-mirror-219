@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: edflib
+Version: 0.84.1
+Summary: python edflib is a python package ot allow access to European Data Format files (EDF for short). This is a standard for biological signals such as EEG, evoked potentials and EMG.  This module wraps Teunis van Beelen's edflib.
+Home-page: https://github.com/cleemesser/python-edf
+Download-URL: https://github.com/cleemesser/python-edf/releases
+Author: Chris Lee-Messer
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Development Status :: 4 - Beta
+Requires-Dist: numpy
+Requires-Dist: future
+
