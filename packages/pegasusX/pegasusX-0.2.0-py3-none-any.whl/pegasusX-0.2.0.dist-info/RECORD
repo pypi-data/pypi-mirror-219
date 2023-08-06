@@ -1,0 +1,12 @@
+pegasus/__init__.py,sha256=HAoyPnIscls5kvITRBlHtzCwp19rPs0EVHzBLSJjKvI,32
+pegasus/main.py,sha256=YMPKZvsNioHa_hQJfp_Xd9i4QlBdjKBmfvjUT7rZYSM,1350
+pegasus/oceandb/__init__.py,sha256=Xk9NxL0rfQVPATkGwULq7nwaXZCzCgJ8iiUvJxNnIek,95
+pegasus/oceandb/config.py,sha256=ddIxZj6wbfej80THP-LQHGcISqZR5sy6D7UO7OijtlA,846
+pegasus/oceandb/errors.py,sha256=SDlDelyQnkkl2Gz-VZu3dt_Q2PFovONRGQqFzBafYA0,1485
+pegasus/oceandb/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pegasus/oceandb/utils/embedding_functions.py,sha256=YHnjM538rwU2ofGMQeHhUK_xQzYvHl3EPb14b8D9rKM,8036
+pegasusX-0.2.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pegasusX-0.2.0.dist-info/METADATA,sha256=L-Z7IhQrFg-GL9Ivy6n5uWNSuhtO-SFgf45t0kq2Syk,626
+pegasusX-0.2.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+pegasusX-0.2.0.dist-info/top_level.txt,sha256=4WAAhIHJ5VasajhnMQ96Ed8tIaZlRk9Gitf0TfOohmY,8
+pegasusX-0.2.0.dist-info/RECORD,,
