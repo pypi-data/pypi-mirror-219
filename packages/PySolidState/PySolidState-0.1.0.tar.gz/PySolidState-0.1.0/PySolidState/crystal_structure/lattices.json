@@ -1,0 +1,162 @@
+{
+    "2D": {
+        "oblique": {
+            "magnitude": [
+                1,
+                1,
+                0
+            ],
+            "angles": [
+                0,
+                0,
+                60
+            ],
+            "structure_type": [null]
+        },
+        "square": {
+            "magnitude": [
+                1,
+                1,
+                0
+            ],
+            "angles": [
+                0,
+                0,
+                90
+            ],
+            "structure_type": [null]
+        },
+        "hexagonal": {
+            "magnitude": [
+                1,
+                1,
+                0
+            ],
+            "angles": [
+                0,
+                0,
+                120
+            ],
+            "structure_type": [null]
+        },
+        "rectangular": {
+            "magnitude": [
+                2,
+                1,
+                0
+            ],
+            "angles": [
+                0,
+                0,
+                90
+            ],
+            "structure_type": [
+                "centered"
+            ]
+        }
+    },
+    "3D": {
+        "triclinic": {
+            "magnitude": [
+                1,
+                2,
+                3
+            ],
+            "angles": [
+                90,
+                45,
+                120
+            ],
+            "structure_type": [null]
+        },
+        "monoclinic": {
+            "magnitude": [
+                1,
+                2,
+                3
+            ],
+            "angles": [
+                90,
+                90,
+                120
+            ],
+            "structure_type": [
+                "base_centered"
+            ]
+        },
+        "orthorhombic": {
+            "magnitude": [
+                1,
+                2,
+                3
+            ],
+            "angles": [
+                90,
+                90,
+                90
+            ],
+            "structure_type": [
+                "base_centered",
+                "body_centered",
+                "face_centered"
+            ]
+        },
+        "tetragonal": {
+            "magnitude": [
+                1,
+                1,
+                2
+            ],
+            "angles": [
+                90,
+                90,
+                90
+            ],
+            "structure_type": [
+                "body_centered"
+            ]
+        },
+        "trigonal": {
+            "magnitude": [
+                1,
+                1,
+                1
+            ],
+            "angles": [
+                100,
+                100,
+                100
+            ],
+            "structure_type": [null]
+        },
+        "hexagonal": {
+            "magnitude": [
+                1,
+                1,
+                2
+            ],
+            "angles": [
+                90,
+                90,
+                120
+            ],
+            "structure_type": [null]
+        },
+        "cubic": {
+            "magnitude": [
+                1,
+                1,
+                1
+            ],
+            "angles": [
+                90,
+                90,
+                90
+            ],
+            "structure_type": [
+                "body_centered",
+                "face_centered"
+            ]
+        }
+    }
+}
