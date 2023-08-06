@@ -1,0 +1,15 @@
+*.env
+!.env.example
+*.DS_Store
+*__pycache__*
+*.pyc
+*.tox
+*.egg-info
+*htmlcov*
+*.mypy_cache*
+*.pytest_cache*
+*.coverage
+*.idea
+*-failed-diff.png
+dist/*
+
