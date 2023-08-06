@@ -1,0 +1,2 @@
+[console_scripts]
+spkg = spkg.__main__:main
