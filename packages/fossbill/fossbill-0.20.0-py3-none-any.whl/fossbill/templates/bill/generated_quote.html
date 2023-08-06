@@ -1,0 +1,14 @@
+{% extends 'bill/generated_draft.html' %}
+
+{% block identifier %}
+  <div class="persons">
+    <pre><b>{% trans %}From{% endtrans %}</b>
+{{ bill.source or '' }}</pre>
+    <pre><b>{% trans %}To{% endtrans %}</b>
+{{ bill.recipient }}</pre>
+  </div>
+  <p>
+    <b>{% trans quotenumber=bill.quote_number %}Quote #{{ quotenumber }}{% endtrans %}</b><br>
+    {% trans date=bill.date.strftime("%Y-%m-%d") %}Issued {{ date }}{% endtrans %}
+  </p>
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% trans quotenumber=bill.quote_number %}Quote #{{ quotenumber }}{% endtrans %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bill.css') }}">
+  </head>
+  <body>
+    {% block identifier %}
+      <div class="warning">
+        <h1>{% trans %}Draft{% endtrans %}</h1>
+      </div>
+      <div class="persons">
+        <pre><b>{% trans %}From{% endtrans %}</b>
+{{ bill.source or '' }}</pre>
+        <pre><b>{% trans %}To{% endtrans %}</b>
+{{ bill.recipient }}</pre>
+      </div>
+      <p>
+        {% if None == bill.quote_number %}
+          <b>{% trans %}Draft{% endtrans %}</b><br>
+          {% trans date=bill.date.strftime("%Y-%m-%d") %}Generated {{ date }}{% endtrans %}
+        {% else %}
+          <b>{% trans quotenumber=bill.quote_number %}Quote #{{ quotenumber }}{% endtrans %}</b><br>
+          {% trans date=bill.date.strftime("%Y-%m-%d") %}Issued {{ date }}{% endtrans %}
+        {% endif %}
+      </p>
+    {% endblock %}
+    <table>
+      <tr>
+        <th>{% trans %}Detail{% endtrans %}</th>
+        <th>{% trans %}Price{% endtrans %}</th>
+        <th>{% trans %}Qty{% endtrans %}</th>
+        <th>{% trans %}Amount{% endtrans %}</th>
+        <th>{% trans %}Tax{% endtrans %}</th>
+        <th>{% trans %}Total{% endtrans %}</th>
+      </tr>
+      {% for bill_row in bill_rows %}
+        <tr>
+          <td>{{ bill_row.label }}</td>
+          <td>{{ (bill_row.price / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+          <td>{{ bill_row.quantity }}</td>
+          <td>{{ (bill_row.gross_amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+          <td>{{ bill_row.tax_rate }} %</td>
+          <td>{{ ((bill_row.gross_amount + bill_row.tax_amount) / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+    <p>
+      <b>{% trans %}Amount{% endtrans %}</b> {{ (bill.gross_amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}<br>
+      <b>{% trans %}Taxes{% endtrans %}</b> {{ (bill.tax_amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}<br>
+      <b>{% trans %}Total{% endtrans %}</b> {{ (bill.amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}<br>
+    </p>
+    {% block mentions %}
+      <pre>{{ bill.quote_mentions or '' }}</pre>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Edit row{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="label">{% trans %}Label{% endtrans %}</label>
+    <input name="label" id="label" value="{{ bill_row.label }}" required autofocus>
+    <label for="price">{% trans %}Price{% endtrans %}</label>
+    <input name="price" id="price" type="number" step="0.01"" value="{{ bill_row.price/100 }}" required>
+    <label for="tax_rate">{% trans %}Tax rate{% endtrans %}</label>
+    <input name="tax_rate" id="tax_rate" type="number" step="0.01" value="{{ bill_row.tax_rate }}" max="100" min="0" required>
+    <label for="quantity">{% trans %}Qty{% endtrans %}</label>
+    <input name="quantity" id="quantity" type="number" value="{{ bill_row.quantity }}" required>
+    <div class="actions">
+      <input type="submit" value="{% trans %}Save{% endtrans %}">
+      <a href="{{ url_for('bill.update', id=bill['id'], _anchor="bill_row_{}".format(bill_row['id'])) }}">{% trans %}Cancel{% endtrans %}</a>
+    </div>
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% macro paginate(pagination) %}
+  {% set args = request.args.to_dict() %}
+  <div id="pagination" class="pagination">
+    {% if pagination.cur != 1 %}
+      {% set _ = args.update(page=1) %}
+      <a href="{{ url_for(".index", _anchor="pagination", **args) }}">{% trans %}First{% endtrans %}</a>
+    {% else %}
+      <div>{% trans %}First{% endtrans %}</div>
+    {% endif %}
+
+    {% if pagination.cur > 1 %}
+      {% set _ = args.update(page=pagination.cur-1) %}
+      <a href="{{ url_for(".index", _anchor="pagination", **args) }}">{% trans %}Prev{% endtrans %}</a>
+    {% else %}
+      <div>{% trans %}Prev{% endtrans %}</div>
+    {% endif %}
+
+    {% for page in range(pagination['mindisplayed'], pagination['maxdisplayed'] + 1) %}
+      {% if pagination.cur != page %}
+        {% set _ = args.update(page=page) %}
+        <a href="{{ url_for(".index", _anchor="pagination", **args) }}">{{ page }}</a>
+      {% else %}
+        <div class="cur">{{ page }}</div>
+      {% endif %}
+    {% endfor %}
+
+    {% if pagination.cur != pagination.max %}
+      {% set _ = args.update(page=pagination.cur+1) %}
+      <a href="{{ url_for(".index", _anchor="pagination", **args) }}">{% trans %}Next{% endtrans %}</a>
+    {% else %}
+      <div>{% trans %}Next{% endtrans %}</div>
+    {% endif %}
+
+    {% if pagination.cur != pagination.max %}
+      {% set _ = args.update(page=pagination.max) %}
+      <a href="{{ url_for(".index", _anchor="pagination", **args) }}">{% trans %}Last{% endtrans %}</a>
+    {% else %}
+      <div>{% trans %}Last{% endtrans %}</div>
+    {% endif %}
+  </div>
+{% endmacro %}
