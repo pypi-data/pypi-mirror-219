@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: aseprite-ini
+Version: 0.0.0
+Summary: A tool to parse Aseprite '.ini' format file.
+Author: Aseprite Quest
+Maintainer: Aseprite Quest
+License: MIT License
+Project-URL: homepage, https://github.com/aseprite-quest/aseprite-ini
+Project-URL: source, https://github.com/aseprite-quest/aseprite-ini
+Project-URL: issues, https://github.com/aseprite-quest/aseprite-ini/issues
+Keywords: aseprite
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (>=2.31.0)
+
+# Aseprite INI
+
+[![Python](https://img.shields.io/badge/python-3.10-brightgreen)](https://www.python.org)
+[![PyPI](https://img.shields.io/pypi/v/aseprite-ini)](https://pypi.org/project/aseprite-ini/)
+
+A tool to parse [Aseprite](https://github.com/aseprite/aseprite) `.ini` format file.
+
+## Installation
+
+```shell
+pip install aseprite-ini
+```
+
+## Usage
+
+TODO
+
+## Dependencies
+
+- [Requests](https://github.com/psf/requests)
+
+## License
+
+Under the [MIT license](LICENSE).
