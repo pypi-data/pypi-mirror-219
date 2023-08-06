@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maddaq"
+version = "0.7.12"
+authors = [
+  { name="Carlos Lacasta", email="carlos.lacasta@alibavasystems.com" },
+]
+description = "A collection of python scripts to access maddaq data."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+  "h5py>=3.8.0",
+  "lmfit>=1.1.0",
+  "matplotlib>=3.7.1",
+  "numpy>=1.24.2",
+  "scipy>=1.10.1"
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.gui-scripts]
+analyze_data = "maddaq:analyze_data"
+show_data = "maddaq:show_data"
+getSpectrum = "maddaq:getSpectrum"
+getFileInfo = "maddaq:getFileInfo"
+
+[project.urls]
+"Homepage" = "https://igit.ific.uv.es"
+"Bug Tracker" = "https://igit.ific.uv.es"
