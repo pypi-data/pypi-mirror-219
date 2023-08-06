@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "poetry-template-plugin"
+version = "0.1.10"
+description = ""
+authors = ["aachurin <aachurin@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+poetry = "^1.2"
+tomlkit = ">=0.11.1,<1.0.0"
+merge3 = "^0.0.13"
+
+[tool.poetry.dev-dependencies]
+black = "^23.1.0"
+isort = "^5.12.0"
+autoflake = "^2.0.1"
+flake8 = "^6.0.0"
+mypy = "^1.1.1"
+
+[tool.black]
+line-length = 119
+target-version = ['py310']
+
+[tool.isort]
+profile = "black"
+line_length = 119
+
+[tool.mypy]
+ignore_missing_imports = true
+disallow_untyped_defs = true
+
+[tool.poetry.plugins."poetry.application.plugin"]
+template = "poetry_template_plugin.plugin:TemplatePlugin"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
