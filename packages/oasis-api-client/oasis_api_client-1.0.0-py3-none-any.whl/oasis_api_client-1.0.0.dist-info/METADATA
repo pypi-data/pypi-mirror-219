@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: oasis-api-client
+Version: 1.0.0
+Summary: OASIS is a Python wrapper of ONNC
+Home-page: https://www.skymizer.com
+Author: The Skymizer Team
+Author-email: hello@skymizer.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: onnx
+Requires-Dist: loguru
+Requires-Dist: sentry-sdk
+Requires-Dist: packaging
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: openvino
+Requires-Dist: read-only-attributes
+Requires-Dist: click
+Requires-Dist: wget
+Requires-Dist: Jinja2
+Requires-Dist: singledispatchmethod
+Requires-Dist: msgpack-numpy
+Requires-Dist: zerorpc
+Requires-Dist: pydlmeta
+Requires-Dist: tensorflow (~=2.11)
+Requires-Dist: onnxruntime
+Requires-Dist: torch
+Requires-Dist: torchvision
+Requires-Dist: tensorflow-datasets
+
+# OASIS-API-CLIENT
+
+OASIS:
+- SaaS for ONNC (Open neural network compiler)
+
+## Installation
+
+### Developer install
+```
+python3 -m pip install -e .
+```
+
+### Using pip
+
+```
+pip install oasis-api-client
+```
+
+## Python API Example
+
+Here is an example to show how to use OASIS python API
+
+```
+from oasis.bench import login, Project
+# Setup your OASIS API key
+api_key = "Your API KEY"
+login(api_key)
+
+# Instantiate a projct
+project = Project('experiment-1')
+
+# Add a model and its coresponding calibration samples
+project.add_model('path/to/model', 'path/to/samples')
+
+# Compile the model and optmize to `CMSIS-NN` backend
+project.compile(target='CMSIS-NN-DEFAULT')
+
+
+# Save the compiled model
+deployment = project.save('./output')
+
+```
+
+Please Check https://docs-tinyonnc.skymizer.com/index.html for the full documents.
+
+
