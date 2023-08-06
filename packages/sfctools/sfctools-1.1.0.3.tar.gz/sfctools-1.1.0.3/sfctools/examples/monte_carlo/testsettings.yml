@@ -1,0 +1,12 @@
+
+
+metainfo:
+    author: your name here
+    date: 2022
+    info: example settings
+
+hyperparams:
+    - name: param_a
+      value: 3.1418
+      description: an example parameter
+
