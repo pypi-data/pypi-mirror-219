@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "winbundle"
+version = "0.1.0.post1"
+authors = [
+    {name = "Alex Walters", email = "alex.walters@gmail.com"},
+]
+description = "A simple freezer for windows"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = [
+    "distlib",
+    "questionary",
+    "toml",
+]

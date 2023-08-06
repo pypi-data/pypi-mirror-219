@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+winbundle/__init__.py
+winbundle/__main__.py
+winbundle/builder.py
+winbundle/newconfig.py
+winbundle/util.py
+winbundle.egg-info/PKG-INFO
+winbundle.egg-info/SOURCES.txt
+winbundle.egg-info/dependency_links.txt
+winbundle.egg-info/requires.txt
+winbundle.egg-info/top_level.txt
