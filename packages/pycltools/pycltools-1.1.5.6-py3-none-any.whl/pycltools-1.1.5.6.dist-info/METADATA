@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pycltools
+Version: 1.1.5.6
+Summary: pycltools is a package written in python3 containing a collection of generic functions and classes for file parsing, manipulation...
+Home-page: https://github.com/a-slide/pycltools
+Author: Adrien Leger
+Author-email: adrien.leger@nanoporetech.com
+License: GPLv3
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+License-File: LICENSE
+Requires-Dist: pysam (>=0.14.0)
+Requires-Dist: pandas (>=0.23.0)
+Requires-Dist: numpy (>=1.14.0)
+Requires-Dist: tqdm (>=4.23.4)
+Requires-Dist: matplotlib (>=3.0.0)
+
