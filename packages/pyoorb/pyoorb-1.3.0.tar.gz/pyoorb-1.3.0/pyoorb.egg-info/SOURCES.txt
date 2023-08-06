@@ -1,0 +1,11 @@
+COPYING
+README.md
+pyproject.toml
+setup.py
+pyoorb.egg-info/PKG-INFO
+pyoorb.egg-info/SOURCES.txt
+pyoorb.egg-info/dependency_links.txt
+pyoorb.egg-info/requires.txt
+pyoorb.egg-info/top_level.txt
+tests/test_compute_version.py
+tests/test_version.py
