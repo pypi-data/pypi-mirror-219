@@ -1,0 +1,10 @@
+autora-core
+scikit-learn
+numpy
+scipy
+tqdm
+pandas
+sympy
+
+[dev]
+autora-core[dev]
