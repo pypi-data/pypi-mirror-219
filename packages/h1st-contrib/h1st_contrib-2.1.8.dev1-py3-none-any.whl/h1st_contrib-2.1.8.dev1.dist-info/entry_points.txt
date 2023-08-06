@@ -1,0 +1,3 @@
+[console_scripts]
+h1st=h1st.utils.tools:h1st_cli
+
