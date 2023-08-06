@@ -1,0 +1,3 @@
+[console_scripts]
+codegen-ini=click_schema_config.commands.codegen:codegen
+
