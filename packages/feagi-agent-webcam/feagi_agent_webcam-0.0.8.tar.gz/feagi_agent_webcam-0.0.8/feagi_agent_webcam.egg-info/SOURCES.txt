@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+./feagi_agent_webcam/__init__.py
+./feagi_agent_webcam/__main__.py
+./feagi_agent_webcam/configuration.py
+./feagi_agent_webcam/controller.py
+feagi_agent_webcam.egg-info/PKG-INFO
+feagi_agent_webcam.egg-info/SOURCES.txt
+feagi_agent_webcam.egg-info/dependency_links.txt
+feagi_agent_webcam.egg-info/requires.txt
+feagi_agent_webcam.egg-info/top_level.txt
