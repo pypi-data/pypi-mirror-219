@@ -1,0 +1,13 @@
+LICENSE
+setup.py
+scripts/swiftly.bat
+swiftly_windows/__init__.py
+swiftly_windows/config.py
+swiftly_windows/gitignore.py
+swiftly_windows/init.py
+swiftly_windows/makeapp.py
+swiftly_windows/runapp.py
+swiftly_windows.egg-info/PKG-INFO
+swiftly_windows.egg-info/SOURCES.txt
+swiftly_windows.egg-info/dependency_links.txt
+swiftly_windows.egg-info/top_level.txt
