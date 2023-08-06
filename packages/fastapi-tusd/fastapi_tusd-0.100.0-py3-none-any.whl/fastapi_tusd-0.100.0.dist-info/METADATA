@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: fastapi-tusd
+Version: 0.100.0
+Summary: FastAPI extention implementing the tus server
+Home-page: https://github.com/liviaerxin/fastapi_tusd
+Author: Frank
+Author-email: 1yue8haogaoqi@gmail.com
+License: MIT license
+Keywords: fastapi_tusd
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Classifier: Framework :: FastAPI
+Classifier: Framework :: Pydantic
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+License-File: AUTHORS.md
+Requires-Dist: fastapi (>=0.100.0)
+Requires-Dist: filelock
+Provides-Extra: dev
+Requires-Dist: uvicorn ; extra == 'dev'
+Provides-Extra: format
+Requires-Dist: black ; extra == 'format'
+Provides-Extra: test
+Requires-Dist: pytest (>=3) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# FastAPI Server for Tus Protocol
+
+A file upload server of the tus resumable upload protocol is implemented on FastAPI framework.  
+
+## Getting started
+
+Import `TusRouter` to your application,
+
+```py title=main.py
+from fastapi import FastAPI
+from fastapi_tusd import TusRouter
+
+app = FastAPI()
+
+app.include_router(TusRouter(store_dir="./files", prefix="/files"))
+```
+
+Then the tus upload endpoints will be served at `http://127.0.0.1:8000/files`, more information is available at `http://127.0.0.1:8000/docs`
+
+### Examples
+
+There a simple example with web file upload client supporting for `Tus` protocol, thanks to `Uppy`!
+
+Enter the `example/` folder, run(`pip install uvicorn` if no `uvicorn`!)
+
+```sh
+uvicorn app_tusd:app --reload
+```
+
+Then visit `https://127.0.0.1:8000/upload.thml`
+
+## References
+
+[GitHub - tus/tus-resumable-upload-protocol: Open Protocol for Resumable File Uploads](https://github.com/tus/tus-resumable-upload-protocol)
