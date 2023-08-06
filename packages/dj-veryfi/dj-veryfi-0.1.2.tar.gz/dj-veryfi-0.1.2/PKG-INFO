@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dj-veryfi
+Version: 0.1.2
+Summary: Django integration for Veryfi OCR API.
+Home-page: https://github.com/tonykamillo/dj-veryfi
+Author: Tony Kamillo
+Author-email: tonykamillo@gmail.com
+License: DBAD
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+License-File: LICENSE
