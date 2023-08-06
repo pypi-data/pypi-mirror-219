@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+SpaceShare/__init__.py
+SpaceShare/optimize_rideshares.py
+SpaceShare/reader.py
+SpaceShare/run.py
+SpaceShare/write_email.py
+SpaceShare.egg-info/PKG-INFO
+SpaceShare.egg-info/SOURCES.txt
+SpaceShare.egg-info/dependency_links.txt
+SpaceShare.egg-info/requires.txt
+SpaceShare.egg-info/top_level.txt
+tests/test_optimize_reqs.py
+tests/test_reader.py
+tests/test_run.py
+tests/test_time_conversion.py
