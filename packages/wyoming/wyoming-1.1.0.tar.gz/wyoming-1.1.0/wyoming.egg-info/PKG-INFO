@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: wyoming
+Version: 1.1.0
+Summary: Protocol for Rhasspy Voice Assistant
+Home-page: http://github.com/rhasspy/rhasspy3
+Author: Michael Hansen
+Author-email: mike@rhasspy.org
+License: MIT
+Description: UNKNOWN
+Keywords: voice assistant rhasspy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
