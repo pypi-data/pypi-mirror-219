@@ -1,0 +1,13 @@
+LICENSE
+setup.py
+scripts/swiftly
+swiftly_unix/__init__.py
+swiftly_unix/config.py
+swiftly_unix/gitignore.py
+swiftly_unix/init.py
+swiftly_unix/makeapp.py
+swiftly_unix/runapp.py
+swiftly_unix.egg-info/PKG-INFO
+swiftly_unix.egg-info/SOURCES.txt
+swiftly_unix.egg-info/dependency_links.txt
+swiftly_unix.egg-info/top_level.txt
