@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dash-blueprints"
+version = "0.1.0"
+description = "cookie cutter composite components that can be instantiated multiple times per app"
+authors = ["John Smith"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">= 3.9"
+dash = "*"
+dash-mantine-components = "*"
+dash-extensions = "*"
+dash-ag-grid = "*"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
