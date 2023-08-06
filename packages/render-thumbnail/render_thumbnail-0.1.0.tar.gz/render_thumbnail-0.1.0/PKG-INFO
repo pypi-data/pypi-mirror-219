@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: render-thumbnail
+Version: 0.1.0
+Summary: A CLI tool written in python using click package for creating thumbnail for youtube using the tex file it basically extracts tikzpicture environment from the tex file and put it into separate tex file and then it renders as pdf then to manually you can export as png usign vbpdf instagram tool.
+Author: vaibhavblayer
+Author-email: vaibhavblayer@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+
