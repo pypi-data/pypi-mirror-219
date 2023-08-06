@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+lichesspy/__init__.py
+lichesspy/api.py
+lichesspy/auth.py
+lichesspy/format.py
+lichesspy/pgn.py
+lichesspy.egg-info/PKG-INFO
+lichesspy.egg-info/SOURCES.txt
+lichesspy.egg-info/dependency_links.txt
+lichesspy.egg-info/requires.txt
+lichesspy.egg-info/top_level.txt
