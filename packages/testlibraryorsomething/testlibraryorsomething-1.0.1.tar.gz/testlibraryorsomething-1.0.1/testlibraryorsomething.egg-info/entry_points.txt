@@ -1,0 +1,2 @@
+[console_scripts]
+testlibraryorsomething = testlibraryorsomething.__init__:main
