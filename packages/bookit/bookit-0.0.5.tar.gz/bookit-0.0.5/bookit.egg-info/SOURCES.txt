@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+bookit/__init__.py
+bookit/__main__.py
+bookit/bookit.py
+bookit/cli.py
+bookit.egg-info/PKG-INFO
+bookit.egg-info/SOURCES.txt
+bookit.egg-info/dependency_links.txt
+bookit.egg-info/requires.txt
+bookit.egg-info/top_level.txt
+tests/.gitkeep
+tests/__init__.py
