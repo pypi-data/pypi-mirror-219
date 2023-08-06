@@ -1,0 +1,186 @@
+Metadata-Version: 2.1
+Name: check-changelog
+Version: 0.4.0
+Summary: check that changelog conforms to 'Keep A Changelog' style
+Author-email: Anatoly Asviyan <aanatoly@gmail.com>
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Requires-Dist: markdown-it-py
+Requires-Dist: pydevkit<4.0.0,>=3.1.2
+Requires-Dist: toml
+Project-URL: Homepage, https://github.com/aanatoly/check-changelog
+Project-URL: Repository, https://github.com/aanatoly/check-changelog
+Description-Content-Type: text/markdown
+
+# check-changelog
+
+[![pkg - version][pkg-version]][pkg-link]
+[![pkg - python versions][pkg-pyversions]][pkg-link]
+[![pkg - license][pkg-license]][pkg-link]
+
+---
+The project's aims are:
+ - validate `CHANGELOG.md`. Check that it conforms to
+   [Keep A Changelog][kacl] and [Common Changelog][ccl] styles.
+ - ensure git tags are documented in `CHANGELOG.md`
+ - block pushing tags without changelog. See [git pre-push](#git-pre-push-hook) section
+
+The supported changelog style is [Keep A Changelog][kacl] style with these
+additions:
+
+ - allow changelog notes
+
+   ```markdown
+   # Changelog
+   Changelog notes
+
+   ## [Unreleased]
+   ```
+
+ - allow release notes
+   ([Common Changelog][ccl] addition)
+
+   ```markdown
+   ## [1.0.0] - 2023-05-05
+   Release notes
+
+   ### Added
+    - add feature ...
+   ```
+
+ - allow custom footer to separate tech stuff from changelog content.
+   Useful for legal notes, text used by other scripts, HTML comments, etc
+
+   ```markdown
+   -----
+   Linter will ignore this section.
+   <!--- message for some script -->
+   [my site]: http://mysite.com
+   ```
+
+## Installation
+
+```sh
+pip install check-changelog
+```
+
+## Usage
+
+### From command line
+
+Check changelog style
+
+```sh
+check-changelog --check=yes
+```
+
+Ensure git tags are documented in a changelog
+
+```sh
+check-changelog --tags=history
+```
+
+Add `Unreleased` section to a changelog, create a new changelog if needed
+
+```sh
+check-changelog --release=new
+```
+
+Create release `3.3.3` from current `Unreleased` section
+
+```sh
+check-changelog --release="3.3.3"
+```
+
+```diff
+--- CHANGELOG.md
++++ CHANGELOG.md
+@@ -2,6 +2,8 @@
+
+ ## [Unreleased]
+
++## [3.3.3] - 2023-07-17
++
+ ### Changed
+
+  - some change
+@@ -20,6 +22,7 @@
+ ## [0.1.0] - 2023-07-11
+
+ [Unreleased]: https://github.com/aanatoly/check-changelog
++[3.3.3]: https://github.com/aanatoly/check-changelog/releases/tag/3.3.3
+ [0.3.0]: https://github.com/aanatoly/check-changelog/releases/tag/0.3.0
+ [0.2.1]: https://github.com/aanatoly/check-changelog/releases/tag/0.2.1
+
+
+```
+
+### pre-commit hook
+As a [pre-commit](https://pre-commit.com/) hook.
+Add this section to your `.pre-commit-config.yaml`
+
+```yml
+- repo: https://github.com/aanatoly/check-changelog
+  rev: '0.4.0'
+  hooks:
+    - id: check-changelog
+```
+
+### git pre-push hook
+As a git `pre-push` hook, `check-changelog` can block `git` from pushing
+tags without changelog. To install it that way, run the following commmands
+
+```sh
+# backup existing hook
+mv .git/hooks/pre-push  .git/hooks/pre-push.bak
+# install new hook
+check-changelog --install=yes
+```
+
+and let's test it
+
+```sh
+git tag -a -m "abc.7.7" "abc.7.7"
+git tag -a -m "abc.7.8" "abc.7.8"
+git push --tags --dry-run
+
+# check-changelog :: INFO  :: file CHANGELOG.md: starting
+# check-changelog :: INFO  :: task check tags documentation: starting
+# check-changelog :: INFO  :: scan 2 tags from 'hook' source
+# check-changelog :: ERROR :: tag 'abc.7.7' not found
+# check-changelog :: ERROR :: tag 'abc.7.8' not found
+# check-changelog :: ERROR :: task check tags documentation: fail
+# check-changelog :: ERROR :: file CHANGELOG.md: fail
+
+git tag -d "abc.7.7"
+git tag -d "abc.7.8"
+
+```
+
+## Alternatives
+`check-changelog` is a minimalistic tool by design. It checks the Changelog
+structure and does nothing else.
+
+If you are looking for more, check [python-kacl][py-kacl]. It is a feature-rich tool
+capable of linting, fixing errors, and automating Changelog maintenance.
+
+## Development
+See [development](docs/devel.md) doc
+
+[kacl]: https://keepachangelog.com/en/ "Keep a Changelog"
+[ccl]: https://common-changelog.org/ "Common Changelog"
+[py-kacl]: https://gitlab.com/schmieder.matthias/python-kacl
+
+[pkg-link]: https://pypi.python.org/pypi/check-changelog/
+[pkg-version]: https://img.shields.io/pypi/v/check-changelog?logo=pypi&logoColor=aaaaaa&color=blue
+[pkg-license]: https://img.shields.io/pypi/l/check-changelog?logoColor=aaaaaa&color=blue
+[pkg-pyversions]: https://img.shields.io/pypi/pyversions/check-changelog?logo=python&logoColor=aaaaaa&color=blue
+
