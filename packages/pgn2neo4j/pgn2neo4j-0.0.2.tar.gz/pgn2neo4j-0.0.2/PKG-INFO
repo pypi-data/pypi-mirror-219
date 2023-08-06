@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pgn2neo4j
+Version: 0.0.2
+Summary: Convert chess games (PGN:s) to a Neo4j database
+Home-page: https://github.com/chess-opening-trainer/pgn2neo4j
+Author: Anton Forsman
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pgn2neo4j
+Convert a series of chess games in a PGN file to a Neo4j database.
+
+The database contains Position nodes representing a board position, and Move relationships representing a move from one position to another.
+
+Each Position node has a fen property containing the FEN representation of the position. Additionally, each node contains the following properties:
+* whiteWins: the number of games won by white from this position
+* blackWins: the number of games won by black from this position
+* gamesPlayed: the total number of games played from this position

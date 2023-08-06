@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+./pgn2neo4j/src/__init__.py
+./pgn2neo4j/src/enums.py
+./pgn2neo4j/src/gamehandler.py
+./pgn2neo4j/src/gameparser.py
+./pgn2neo4j/src/queries.py
+pgn2neo4j.egg-info/PKG-INFO
+pgn2neo4j.egg-info/SOURCES.txt
+pgn2neo4j.egg-info/dependency_links.txt
+pgn2neo4j.egg-info/requires.txt
+pgn2neo4j.egg-info/top_level.txt
