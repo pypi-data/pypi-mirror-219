@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: motipy
+Version: 1.0.0
+Summary: Un package Python pour obtenir des messages de motivation.
+Author: Coding Team
+Author-email: codingteam@telegmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h1>MotiPy</h1>
+<p>Un package Python qui génére des message de motivation</p>
+<h2>Installation</h2>
+<p>Installez le package à l'aide de <code>pip</code> :</p>
+<pre lang="bash">pip<span class="w"> </span>install<span class="w"> </span>motipy
+</pre>
+<h2>Utilisation</h2>
+<p>Importez le package dans votre script Python et appelez la fonction moty() pour obtenir des informations intéressantes :</p>
+<pre lang="bash">import<span class="w"> </span>motipy
+from<span class="w"> </span>motipy<span class="w"> </span>import<span class="w"> </span>moty
+
+<span class="nv">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>moty<span class="o">()</span>
+print<span class="o">(</span>a<span class="o">)</span>
+</pre>
+<h2>Exigences</h2>
+<ul>
+<li>Python3</li>
+</ul>

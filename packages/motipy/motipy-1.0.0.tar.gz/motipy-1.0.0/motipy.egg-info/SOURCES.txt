@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+motipy/__init__.py
+motipy/motipy.py
+motipy.egg-info/PKG-INFO
+motipy.egg-info/SOURCES.txt
+motipy.egg-info/dependency_links.txt
+motipy.egg-info/top_level.txt
