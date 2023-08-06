@@ -1,0 +1,46 @@
+[build-system]
+requires = [ "poetry>=1.0",]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "diot"
+version = "0.2.2"
+description = "Python dictionary with dot notation."
+authors = [ "pwwang <pwwang@pwwang.com>",]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/pwwang/diot"
+repository = "https://github.com/pwwang/diot"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+inflection = "^0.5"
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[tool.poetry.dev-dependencies]
+pytest = "^7"
+pytest-cov = "^4"
+pyyaml = "^6"
+rtoml = "^0.8"
+
+[tool.mypy]
+ignore_missing_imports = true
+allow_redefinition = true
+disable_error_code = ["attr-defined", "no-redef", "union-attr"]
+show_error_codes = true
+strict_optional = false
+
+[tool.pytest.ini_options]
+addopts = "-vv --cov-config=.coveragerc --cov=diot --cov-report xml:.coverage.xml --cov-report term-missing"
+filterwarnings = [
+    #"error"
+]
+console_output_style = "progress"
+junit_family = "xunit1"
+
+[tool.black]
+line-length = 79
+target-version = ['py37', 'py38', 'py39']
+include = '\.pyi?$'
