@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: django-url-security
+Version: 0.0.2
+Summary: Django URL Security provides tests to ensure all the private endpoints in your Django project are private.
+Home-page: https://github.com/Edrolo/django-url-security
+License: MIT
+Author: Matt Fisher
+Author-email: m@ttfisher.com
+Requires-Python: >=3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: django (>=3.2)
+Requires-Dist: importlib_metadata (>=3.4)
+Requires-Dist: parameterized (>=0.9)
+Description-Content-Type: text/markdown
+
+# Django URL Security
+
+
+[![PyPI version](https://badge.fury.io/py/django-url-security.svg)](https://badge.fury.io/py/django-url-security)
+![versions](https://img.shields.io/pypi/pyversions/django-url-security.svg)
+[![GitHub license](https://img.shields.io/github/license/mgancita/django-url-security.svg)](https://github.com/Edrolo/django-url-security/blob/main/LICENSE)
+
+
+[![Code style: blue](https://img.shields.io/badge/code_style-blue-blue.svg)](https://blue.readthedocs.io/)
+
+
+Django URL Security provides tests to ensure all the private endpoints in your Django project are private.
+
+
+- Free software: MIT
+- Documentation: https://Edrolo.github.io/django-url-security.
+
+
+## Features
+
+* TODO
+
+## Credits
+
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [`mgancita/cookiecutter-pypackage`](https://mgancita.github.io/cookiecutter-pypackage/) project template.
+
