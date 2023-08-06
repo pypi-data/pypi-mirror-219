@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: labeva
+Version: 2.1.0a2.dev1
+Summary: ETs Laboratory Evaluation Suit
+Home-page: https://github.com/et15/labeva
+License: GPLv3+
+Author: Erik Thiel
+Author-email: erik.thiel@students.uni-mainz.de
+Requires-Python: >=3.10,<3.13
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Dist: matplotlib (>=3.7.1)
+Requires-Dist: numpy (>=1.24.3)
+Requires-Dist: scipy (>=1.10.1)
+Project-URL: Documentation, https://labeva.docs.et15.eu/
+Project-URL: Repository, https://github.com/et15/labeva
+Description-Content-Type: text/markdown
+
+# labeva
+
+<!-- badges-begin -->
+![Package version][package version badge]
+![Python version][python version badge]
+[![License: GNU General Public License v3 or later (GPLv3+)][license badge]][license gplv3]
+
+[![Black codestyle][black badge]][black project]
+[![Conventional commits][conventional badge]][conventional commits]
+[![pre-commit enabled][pre-commit badge]][pre-commit project]
+
+[license badge]: https://badgen.net/static/license/GPLv3+/blue
+[license gplv3]: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+[black badge]: https://img.shields.io/badge/code%20style-black-000000.svg
+[black project]: https://github.com/psf/black
+
+[pre-commit badge]: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+[pre-commit project]: https://pre-commit.com/
+
+[package version badge]: https://badgen.net/pypi/v/labeva
+[python version badge]: https://badgen.net/pypi/python/labeva
+
+[status badge]: https://badgen.net/badge/status/alpha/red
+
+[conventional badge]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white
+[conventional commits]: https://www.conventionalcommits.org/en/v1.0.0/
+
+<!-- badges-end -->
+
+
+Tools for analysing, fitting and plotting data .
+
