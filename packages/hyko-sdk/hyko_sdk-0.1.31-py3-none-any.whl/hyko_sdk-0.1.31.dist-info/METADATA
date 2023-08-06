@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: hyko-sdk
+Version: 0.1.31
+Home-page: https://hyko.ai
+Author: Abdelmadjid Dahmani, Lotfi Lehamel
+Author-email: amd2@big-mama.io, ll@big-mama.io
+Requires-Python: >=3.8
+Requires-Dist: pydantic (==1.10.9)
+Requires-Dist: pillow
+Requires-Dist: soundfile
+Requires-Dist: numpy
+Requires-Dist: fastapi
+Requires-Dist: h2
+Requires-Dist: httpx
+Requires-Dist: tqdm
+
