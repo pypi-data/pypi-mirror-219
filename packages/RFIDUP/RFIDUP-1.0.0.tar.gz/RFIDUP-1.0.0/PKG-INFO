@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: RFIDUP
+Version: 1.0.0
+Summary: nfc
+Home-page: https://github.com/liuyuchen012/NFCUP
+Download-URL: https://github.com/liuyuchen012/NFCUP/NFCUP.zip
+Author: liuyuchen
+Author-email: liuyuchen032901@outlook.com
+
+In order to make it easier for developers to develop hardware programs, we have developed this library. This is the first version of this library. There are only nfcsb functions.
