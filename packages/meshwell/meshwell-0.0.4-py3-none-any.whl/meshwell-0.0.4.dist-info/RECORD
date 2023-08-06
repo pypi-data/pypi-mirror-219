@@ -1,0 +1,14 @@
+meshwell/__init__.py,sha256=reCC9BcKtFxax0lzndlOqls2S4DwXgSVbRq6yFa1gCA,137
+meshwell/config.py,sha256=6CnVd-KLxbxYcALn7u8-xdSTZpRYbcYyPBUSWQMtex8,465
+meshwell/gmsh_entity.py,sha256=iQHkWpga9hmMIkb615FW2Q85dEhOD7keJuJa03IRTbI,1608
+meshwell/labeledentity.py,sha256=8mRibPGUd8UQR9YZHFvrhuf6sUIjOjzhPkudZ-DdzAA,1315
+meshwell/model.py,sha256=vVVYMbInMWVF3aZxbr1UfR9bZbanFw_I068gjXkB9T8,11397
+meshwell/polysurface.py,sha256=pdwUOKjTiRoWEuCnf1d1EwylIAa4gfOMwbwT2w0KYdI,2180
+meshwell/prism.py,sha256=e0SdiVLqb8HxIoim3ddykalBIE1fK3sjVQCctvkZ8_w,5694
+meshwell/refinement.py,sha256=009-IHkeYfQ3Lsa9F4KPj8bHQRizxYVQ4L0s31fL_2o,715
+meshwell/tag.py,sha256=gtUjOW1XFOaZnQZRYf_Iz4QU1PAk0iCioNwlhDT0LdI,2220
+meshwell/validation.py,sha256=Il8tuG-2phs2uoyrshboGrP6LZ6iKKmixqKKetqSAgM,527
+meshwell-0.0.4.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+meshwell-0.0.4.dist-info/WHEEL,sha256=EZbGkh7Ie4PoZfRQ8I0ZuP9VklN_TvcZ6DSE5Uar4z4,81
+meshwell-0.0.4.dist-info/METADATA,sha256=bncdZrH_u301R5FM6tRECvnxT1T9v3PuBAo2PagPwcg,4384
+meshwell-0.0.4.dist-info/RECORD,,
