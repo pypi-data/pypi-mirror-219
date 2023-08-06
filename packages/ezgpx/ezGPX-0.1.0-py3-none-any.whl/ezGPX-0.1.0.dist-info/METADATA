@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: ezGPX
+Version: 0.1.0
+Summary: Easy to use Python GPX library
+Download-URL: https://github.com/FABallemand/ezGPX
+Author: Fabien ALLEMAND
+Author-email: allemand.fabien@orange.fr
+License: GNU GPLv3
+Project-URL: Bug Tracker, https://github.com/FABallemand/ezGPX/issues
+Project-URL: Source Code, https://github.com/FABallemand/ezGPX
+Keywords: gpx,gpx-files,gpx-parser,gpx-reader,gpx-writer,gpx-data
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: gmap
+Requires-Dist: folium
+
+# 🗺️ ezGPX
+
+## 🔎 Description
+Easy to use Python GPX library.
+
+## 🛠️ Installation
+
+```bash
+pip install ezgpx
+```
+
+## 🏁 Get started
+
+```python
+import ezgpx
+
+# Parse GPX file
+gpx = ezgpx.GPX("file.gpx")
+
+# Simplify (using Ramer-Dougle-Peucker algorithm)
+gpx.simplify()
+
+# Plot with Matplotlib
+gpx.matplotlib_plot(title="Track", base_color="#FF0000",
+                    start_stop=True, way_points=False, file_path="img_1")
+
+# Plot with Matplotlib Basemap Toolkit
+gpx.matplotlib_basemap_plot(title="Track", base_color="#00FF00",
+                            start_stop=False, way_points=False, file_path="img_2")
+
+# Plot with gmap (Google Maps)
+gpx.gmap_plot(title="Track", base_color="#0000FF", start_stop=True,
+              way_points=True, file_path="map_1.html", open=True)
+
+# Plot with Folium
+gpx.folium_plot(title="Track", tiles="OpenStreetMap", base_color="#000000", start_stop=True,
+                way_points=True, minimap=True, coord_popup=True, file_path="map_2.html", open=True)
+
+# Remove metadata
+gpx.remove_metadata()
+
+# Write new simplified GPX file
+gpx.to_gpx("new_file.gpx")
+```
+
+## 📚 References:
+
+### 🧭 Other Python GPX Library
+- [gpxpy](https://github.com/tkrajina/gpxpy)
+
+## 👤 Author
+- Fabien ALLEMAND
