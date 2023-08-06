@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: pyenergyx
+Version: 0.1
+Summary: A simple energy conversion library
+Home-page: https://github.com/mariodgr/pyenergyx
+Author: Mario David Gonzalez Ronda
+Author-email: mariodgr@protonmail.com
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# PyEnergyX
+
+PyEnergyX is a simple Python library for energy conversion. 
+
+## Installation
+
+You can install the library directly from the GitHub repository using pip:
+
+```bash
+pip install git+https://github.com/mariodgr/pyenergyx.git
