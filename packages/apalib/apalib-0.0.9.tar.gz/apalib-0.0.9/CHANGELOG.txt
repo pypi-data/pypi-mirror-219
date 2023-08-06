@@ -1,0 +1,33 @@
+v0.0.9
+    + Added (very) rough FASTA fetching support.
+    --> Very much needs to be optimized. Boo the PDB and its jank
+
+v0.0.7x
+    + Moved more hardcoded data into a json file
+    + Added a "Data" class to access json file
+    + More restructuring
+    + Remade PDB parser to be more stable, faster, and human-readable
+    --> More work must be done for ANISOU, REMARK, etc.\
+    + Modify all class initializations for more consistancy
+    --> Change from class_instance(**kwargs) to class_instance(arg1=None, arg2=None, ...) for all parameters
+
+
+v0.0.2 January 27, 2022 (Pre-release alpha)
+    + Added global CONTAINER object with appropriate getters and setters.
+    + Moved (most) hardcoded data into a json file
+    + Added function to estimate charge of a protein at different pHs
+    --> Will modify to estimate nucleoproteins, riobnucleoproteins, and protein segments
+    + Added SOME test files. More to come
+    * This version is released only for testing and developmental purposes.
+    --> There is NO guarantee of accuracy, efficiency, or functionality for this version.
+    --> The purpose of this version is to ensure the proper upload of the json data file to PyPI
+
+v0.0.1 Oct 12, 2021 (Pre-release alpha)
+    + Added PDB parser. Currently, able to organize atoms into RNA chains, DNA chains, protein chains, and heteroatoms.
+    + Add centroid finder for amino acids.
+    + Added automatic fetch from PDB
+    + Added method to atom class that extracts the probable element from its ID
+    + Added getters and setters for RNA, DNA, AminoAcid, Atom, and Container classes
+----------------------------------------------------------------------------------
+v0.0.0 Oct 8, 2021 (Initiation)
+    Initial creation
