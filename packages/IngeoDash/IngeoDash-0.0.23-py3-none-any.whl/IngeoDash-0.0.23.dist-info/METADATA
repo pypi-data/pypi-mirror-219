@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: IngeoDash
+Version: 0.0.23
+Summary: IngeoDash can help to label a dataset
+Author-email: Mario Graff <mgraffg@ieee.org>
+License: Apache License Version 2.0
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: b4msa
+Requires-Dist: microtc
+Requires-Dist: evomsa
+Requires-Dist: dash
+Requires-Dist: dash-bootstrap-components
+Requires-Dist: scikit-learn
+
+IngeoDash
+==================================
+.. image:: https://github.com/INGEOTEC/IngeoDash/actions/workflows/test.yaml/badge.svg
+		:target: https://github.com/INGEOTEC/IngeoDash/actions/workflows/test.yaml
+
+.. image:: https://coveralls.io/repos/github/INGEOTEC/IngeoDash/badge.svg?branch=develop
+		:target: https://coveralls.io/github/INGEOTEC/IngeoDash?branch=develop
+
+.. image:: https://badge.fury.io/py/IngeoDash.svg
+		:target: https://badge.fury.io/py/IngeoDash
+
+.. image:: https://colab.research.google.com/assets/colab-badge.svg
+		:target: https://colab.research.google.com/github/INGEOTEC/IngeoDash/blob/master/docs/IngeoDash.ipynb 
+
+.. code-block:: bash
+
+    python -m IngeoDash
