@@ -1,0 +1,3 @@
+[console_scripts]
+flaskapp=data_ecosystem_flask.app:app
+
