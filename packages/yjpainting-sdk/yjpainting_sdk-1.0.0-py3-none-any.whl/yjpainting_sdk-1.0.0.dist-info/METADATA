@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: yjpainting-sdk
+Version: 1.0.0
+Summary: A Python SDK for yjpainting API
+Author: ricky_yang
+Author-email: biteasquirrel@gmail.com
+Requires-Dist: requests
+
