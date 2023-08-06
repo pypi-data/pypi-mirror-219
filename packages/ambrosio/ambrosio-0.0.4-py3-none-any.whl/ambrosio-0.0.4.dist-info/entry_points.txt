@@ -1,0 +1,4 @@
+[console_scripts]
+am=ambrosio.ui.cli.main:app
+ambrosio=ambrosio.ui.cli.main:app
+
