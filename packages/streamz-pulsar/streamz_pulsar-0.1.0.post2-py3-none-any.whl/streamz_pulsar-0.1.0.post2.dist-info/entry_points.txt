@@ -1,0 +1,6 @@
+[streamz.sinks]
+to_pulsar=streamz_pulsar.sinks:to_pulsar
+
+[streamz.sources]
+from_pulsar=streamz_pulsar.sources:from_pulsar
+
