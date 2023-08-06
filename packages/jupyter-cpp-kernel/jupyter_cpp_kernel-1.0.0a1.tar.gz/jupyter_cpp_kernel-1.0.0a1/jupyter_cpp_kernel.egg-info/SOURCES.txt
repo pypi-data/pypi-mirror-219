@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+jupyter_cpp_kernel/__init__.py
+jupyter_cpp_kernel/__main__.py
+jupyter_cpp_kernel/install_cpp_kernel
+jupyter_cpp_kernel/kernel.py
+jupyter_cpp_kernel.egg-info/PKG-INFO
+jupyter_cpp_kernel.egg-info/SOURCES.txt
+jupyter_cpp_kernel.egg-info/dependency_links.txt
+jupyter_cpp_kernel.egg-info/top_level.txt
+jupyter_cpp_kernel/resources/master.cpp
