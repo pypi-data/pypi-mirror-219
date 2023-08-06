@@ -1,0 +1,10 @@
+[console_scripts]
+ihatemoney = ihatemoney.manage:cli
+
+[flask.commands]
+generate-config = ihatemoney.manage:generate_config
+generate_password_hash = ihatemoney.manage:password_hash
+
+[paste.app_factory]
+main = ihatemoney.run:main
+
