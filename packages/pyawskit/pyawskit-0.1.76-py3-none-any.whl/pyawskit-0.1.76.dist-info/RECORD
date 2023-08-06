@@ -1,0 +1,17 @@
+pyawskit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyawskit/aws.py,sha256=XKTru2-wyzG6TfLmDvumpN9ZNomSMNoprnZtmmQopJQ,3635
+pyawskit/aws_codeartifact_npm_env_config_code.py,sha256=0M3nOFMdRRJpLeyp9bctmOJWi7n3XaB-NWNliI4iI8M,3499
+pyawskit/aws_codeartifact_pip_env_config_code.py,sha256=hgggZ1xBStWpF8YbIw5PYUO-h9LSE3SRosohxrsUu6I,1859
+pyawskit/aws_ecr_login_code.py,sha256=5G3icmLb45unC3oQWu_YI29jW2N98VcWnY-a3rkKYb0,3485
+pyawskit/common.py,sha256=RatDSU3Qns591-LTyx0A8ncjptcijaJ34-sBj4bRTOg,7604
+pyawskit/configs.py,sha256=BPquM46vEnrl9yYORy4rdHokK1cwgT9aEBEo0xdnI9U,2093
+pyawskit/main.py,sha256=UjPXQqX8syX8r6kosgF8kLz_j0-kFRKJw9PkuV0E3Io,14829
+pyawskit/os_utils.py,sha256=X-LiPfrg6R7SaBDk80LefKIoMCXXNbVgObv4LoT6Mds,2847
+pyawskit/static.py,sha256=_IPWBP0Nqjd3bMvxBXQdgxJoyVqUtwLtVm8wwjsuvvY,185
+pyawskit/utils.py,sha256=0HGlEyS15NHW8WP5qAYc6qbdXk3-B4gmSQ4XpJIIrZk,3356
+pyawskit-0.1.76.dist-info/LICENSE,sha256=7GPQ81WrD0AWylSGKKAv7C8K_D3XhdpKyElB0LAiF4A,1069
+pyawskit-0.1.76.dist-info/METADATA,sha256=K_9Fc1S2SCJRmApNLHD7ZjtHvFb4nW4s0fYdIsMezRg,1674
+pyawskit-0.1.76.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+pyawskit-0.1.76.dist-info/entry_points.txt,sha256=Hhj1LX3eIw0DBAL2G1O8P9pmNoc5kN9IfrknMJm9ESM,48
+pyawskit-0.1.76.dist-info/top_level.txt,sha256=5qyNBR-IoVzZrCwx7_GnXGeukcrqrPvOCV2rbQUg7Vs,9
+pyawskit-0.1.76.dist-info/RECORD,,
