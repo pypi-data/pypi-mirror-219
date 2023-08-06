@@ -1,0 +1,7 @@
+six
+numpy
+gensim
+nltk
+textdistance[extras]
+jpype1
+spacy
