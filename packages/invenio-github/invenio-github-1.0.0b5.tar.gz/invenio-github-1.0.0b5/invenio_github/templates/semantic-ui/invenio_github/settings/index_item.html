@@ -1,0 +1,31 @@
+{# -*- coding: utf-8 -*-
+
+  This file is part of Invenio.
+  Copyright (C) 2023 CERN.
+
+  Invenio is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+{%- block repository_item %}
+  <div class="ui grid">
+    <div class="ten wide column">
+      <div class="ui basic segment">
+        <h4>
+          <a href="https://github.com/{{ repo.full_name }}" data-tooltip="{{ _('Go to GitHub.') }}">
+            <i class="github icon"></i>
+          </a>
+          <a href="{{ url_for('.get_repository', repo_name=repo.full_name) }}">{{ repo.full_name }}</a>
+        </h4>
+      </div>
+    </div>
+    <div class="four wide column">
+      <div id="repo-switch-message" class="ui label hidden"></div>
+    </div>
+    <div class="two wide column">
+      {{ helpers.repo_switch(repo.instance, repo_id) }}
+    </div>
+  </div>
+  {%- if not loop.last %}
+    <div class="ui divider"></div>
+  {%- endif %}
+{%- endblock %}
