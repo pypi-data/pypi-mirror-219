@@ -1,0 +1,11 @@
+echofish_aws_raw_to_zarr_lambda/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+echofish_aws_raw_to_zarr_lambda/dynamo_operations.py,sha256=bT2GlouB77J89HFpSwEG4-2Pq_iS8MxRG_SwEsRsjVs,1277
+echofish_aws_raw_to_zarr_lambda/lambda_executor.py,sha256=P3Q-OQzOyUcQR2mPrDmrfjE0i3qwykh_quAnbdt7QwY,15781
+echofish_aws_raw_to_zarr_lambda/lambda_handler.py,sha256=31NSf7gEgd8oQY_iPcaKQIecDgZqsDMbrPgnSzNC4T8,1302
+echofish_aws_raw_to_zarr_lambda/s3_operations.py,sha256=54cmQ7J74j-TbUy7K9qtKbkvZU-EbyZNDl2RfRT0XHU,3398
+echofish_aws_raw_to_zarr_lambda/sns_operations.py,sha256=IQ98jx_V3M-niAcj62VxTPGmcjRF5tJ0q8ccRDMt54k,297
+echofish_aws_raw_to_zarr_lambda-1.0.0.dev20230715002145.dist-info/LICENSE,sha256=djdT6_mX01_eQWGiavJRmUZcYBmDtQ7UB9Jmx-BJjYA,1065
+echofish_aws_raw_to_zarr_lambda-1.0.0.dev20230715002145.dist-info/METADATA,sha256=0QE-sGHKxePJucSWHCcw49BKMeM-cJy54RMJ9uZkIus,2763
+echofish_aws_raw_to_zarr_lambda-1.0.0.dev20230715002145.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+echofish_aws_raw_to_zarr_lambda-1.0.0.dev20230715002145.dist-info/top_level.txt,sha256=a59qVCyYF-RjwQEBsDQk_9H9MotMHJ6mH-A0xBsstm4,32
+echofish_aws_raw_to_zarr_lambda-1.0.0.dev20230715002145.dist-info/RECORD,,
