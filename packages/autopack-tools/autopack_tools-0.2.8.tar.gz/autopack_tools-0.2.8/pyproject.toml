@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "autopack-tools"
+version = "0.2.8"
+repository = "https://github.com/AutoPackAI/autopack"
+homepage = "https://autopack.ai"
+description = "Package Manager for AI Agent tools"
+authors = ["Erik Peterson <e@eriklp.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "autopack" }]
+
+[tool.poetry.scripts]
+autopack = 'autopack.cli:main'
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+requests = "^2.31.0"
+dataclasses-json = "^0.5.8"
+urllib3 = "^1.26.16"
+gitpython = "^3.1.31"
+langchain = ">=0.0.215"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+mypy = "^1.4.0"
+isort = "^5.12.0"
+pytest = "^7.3.2"
+pytest-mock = "^3.11.1"
+types-requests = "^2.31.0.1"
+psycopg2 = "^2.9.6"
+autoflake = "^2.2.0"
+types-psycopg2 = "^2.9.21.10"
+pipreqs = "^0.4.13"
+gitpython = "^3.1.31"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 120
+
+[tool.black]
+line-length = 120
+
+[flake8]
+max-line-length = 120
