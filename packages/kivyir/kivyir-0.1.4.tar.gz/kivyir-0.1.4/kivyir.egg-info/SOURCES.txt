@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+kivyir/ConfigBase.py
+kivyir/IrLabel.py
+kivyir/IrTextInput.py
+kivyir/__init__.py
+kivyir.egg-info/PKG-INFO
+kivyir.egg-info/SOURCES.txt
+kivyir.egg-info/dependency_links.txt
+kivyir.egg-info/requires.txt
+kivyir.egg-info/top_level.txt
+kivyir/font/Sahel-Bold.ttf
+kivyir/font/Sahel.ttf
+test/main.py
