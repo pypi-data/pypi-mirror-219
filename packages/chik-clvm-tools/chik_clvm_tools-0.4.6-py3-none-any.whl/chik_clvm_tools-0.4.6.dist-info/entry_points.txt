@@ -1,0 +1,6 @@
+[console_scripts]
+brun = chik_clvm_tools.cmds:brun
+opc = chik_clvm_tools.cmds:opc
+opd = chik_clvm_tools.cmds:opd
+read_ir = chik_clvm_tools.cmds:read_ir
+run = chik_clvm_tools.cmds:run
