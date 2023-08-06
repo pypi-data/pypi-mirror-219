@@ -1,0 +1,27 @@
+LICENSE
+README.md
+setup.py
+pysid/__init__.py
+pysid.egg-info/PKG-INFO
+pysid.egg-info/SOURCES.txt
+pysid.egg-info/dependency_links.txt
+pysid.egg-info/requires.txt
+pysid.egg-info/top_level.txt
+pysid/correlation/__init__.py
+pysid/correlation/autocorr.py
+pysid/correlation/croscorr.py
+pysid/identification/__init__.py
+pysid/identification/accr.py
+pysid/identification/comcrit.py
+pysid/identification/ivmethod.py
+pysid/identification/models.py
+pysid/identification/pemethod.py
+pysid/identification/recursive.py
+pysid/identification/solvers.py
+pysid/identification/tseries.py
+pysid/io/__init__.py
+pysid/io/check.py
+pysid/io/csv_data.py
+pysid/io/print.py
+pysid/tests/__init__.py
+pysid/tests/pem tests.py
