@@ -1,0 +1,3 @@
+[console_scripts]
+backup_db = monopyly.cli.backup_db:main
+monopyly = monopyly.cli.run:main
