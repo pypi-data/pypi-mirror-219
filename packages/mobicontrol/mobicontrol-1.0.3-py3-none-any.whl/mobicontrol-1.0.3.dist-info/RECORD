@@ -1,0 +1,15 @@
+mobicontrol/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mobicontrol/utils.py,sha256=X81LUpVvq9HuX95UoOMjxgiBG_eoBPYHJCH7u4VakHk,249
+mobicontrol/cli/__init__.py,sha256=CZWZkFHvEdbUwe8cCtFfHP4MjDwz51qHLjIvZHwYtXE,1221
+mobicontrol/cli/apply.py,sha256=hUROHetqZnaCh7l4lB2aMu_HQO1MgSWVyV_rFu1n3Pg,2791
+mobicontrol/cli/apps.py,sha256=JEVrwEoUypIjVmVQVWCEp9W1eLeyzQYhXhdaTMsmmdc,916
+mobicontrol/cli/policies.py,sha256=j6ik6DdLWcMHyOPCmcnoXIctyj5yB6T-ac81TFPqZzE,3909
+mobicontrol/client/__init__.py,sha256=VakMCum6zxzM23gNMkvT7vB4ZeeHHMHy9pnXNxGkdHA,1356
+mobicontrol/client/apps.py,sha256=b_zwafce12CN-LkD2PCcmWUPvApaWtRe0Jz0YlykPwg,1848
+mobicontrol/client/auth.py,sha256=QuXUL7XCbBWNqa5e-L9scxnY3z0RQranbF3mafj91xA,603
+mobicontrol/client/policies.py,sha256=6LFLo0blJQbG1hB5Ujvruh446PaOqXWmWV2xc-K_Adw,5925
+mobicontrol-1.0.3.dist-info/METADATA,sha256=wS1buI_p8x7l9L7ZVhvBfsoZjQYJOK2ZwJOfuPKkPjw,123
+mobicontrol-1.0.3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+mobicontrol-1.0.3.dist-info/entry_points.txt,sha256=AZ5Z363DieG6dkdBmbGEKsGhA42ff-Sv-5I3tRfS0zQ,51
+mobicontrol-1.0.3.dist-info/top_level.txt,sha256=odqUnJXl0HX8-bf93lJgRoSHRe6J_fqCgaeNkmwcm9M,12
+mobicontrol-1.0.3.dist-info/RECORD,,
