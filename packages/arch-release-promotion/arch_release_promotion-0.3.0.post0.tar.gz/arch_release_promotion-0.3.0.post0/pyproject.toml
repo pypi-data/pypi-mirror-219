@@ -1,0 +1,181 @@
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
+
+[project]
+authors = [
+    { name = "David Runge", email = "dvzrv@archlinux.org" },
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Software Development",
+    "Topic :: System :: Operating System",
+    "Topic :: Utilities",
+]
+dynamic = []
+description = "Promote official Arch Linux releases and synchronize them"
+dependencies = [
+    "pydantic<3.0.0,>=2.0.0",
+    "python-dotenv<2.0.0,>=1.0.0",
+    "pyxdg<1.0,>=0.27",
+    "email-validator<3.0.0,>=2.0.0",
+    "torrentool<2.0.0,>=1.1.1",
+    "python-gitlab<4.0.0,>=3.0.0",
+    "orjson<4.0.0,>=3.6.1",
+    "prometheus-client<1.0.0,>=0.14.1",
+    "tomli>=2.0.1; python_version<'3.11'",
+    "pydantic-settings>=2.0.2",
+]
+name = "arch-release-promotion"
+keywords = [
+    "arch linux",
+    "releases",
+    "pgp",
+    "signature",
+    "synchronization",
+    "torrent",
+]
+readme = "README.rst"
+requires-python = ">=3.10,<4.0"
+version = "0.3.0.post0"
+
+[project.license]
+text = "GPL-3.0-or-later"
+
+[project.urls]
+"Bug Tracker" = "https://gitlab.archlinux.org/archlinux/arch-release-promotion/-/issues/"
+homepage = "https://gitlab.archlinux.org/archlinux/arch-release-promotion"
+repository = "https://gitlab.archlinux.org/archlinux/arch-release-promotion"
+documentation = "https://gitlab.archlinux.org/archlinux/arch-release-promotion/-/blob/master/README.rst"
+
+[project.scripts]
+arch-release-promotion = "arch_release_promotion.cli:main"
+arch-release-sync = "arch_release_promotion.cli:arch_release_sync"
+
+[tool.bandit]
+exclude_dirs = [
+    ".git/",
+    ".idea/",
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".venv",
+    "tests/",
+]
+skips = [
+    "B310",
+    "B404",
+    "B603",
+    "B607",
+]
+targets = [
+    "arch_release_promotion",
+]
+
+[tool.black]
+line-length = 120
+exclude = "/(\n  \\.direnv|\n  |\\.eggs\n  |\\.git\n  |\\.hg\n  |\\.mypy_cache\n  |\\.nox\n  |\\.tox\n  |\\.venv\n  |\\.svn\n  |_build\n  |buck-out\n  |db-write\n  |db2json\n  |dbscripts\n  |build\n  |dist\n)/\n"
+
+[tool.coverage.path]
+source = "arch_release_promotion"
+
+[tool.coverage.report]
+omit = [
+    "tests/*",
+    ".tox/*",
+]
+precision = 2
+show_missing = true
+
+[tool.coverage.run]
+branch = true
+command_line = "-m pytest -v tests/ -m 'not integration'"
+omit = [
+    "tests/*",
+    ".tox/*",
+]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+ignore_missing_imports = true
+follow_imports = "silent"
+follow_imports_for_stubs = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_incomplete_stub = true
+warn_redundant_casts = true
+warn_unused_configs = true
+no_implicit_optional = true
+warn_unreachable = true
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+show_error_codes = true
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.build]
+includes = [
+    "arch_release_promotion",
+]
+source-includes = [
+    "tests/",
+    "examples/",
+    "LICENSE",
+    "Makefile",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "pytest<8.0,>=7.1",
+    "isort<6.0.0,>=5.8.0",
+    "black<24.0,>=23.7",
+    "mypy[install-types]<2.0,>=1.3",
+    "flake8<7.0.0,>=6.0.0",
+    "coverage<7.0,>=6.1",
+    "pydocstyle>=6.3.0",
+    "vulture>=2.7",
+    "bandit>=1.7.5",
+]
+
+[tool.pdm.scripts.build]
+cmd = "make build"
+
+[tool.pdm.scripts.coverage]
+cmd = "make coverage"
+
+[tool.pdm.scripts.fmt]
+cmd = "make fmt"
+
+[tool.pdm.scripts.integration]
+cmd = "make integration"
+
+[tool.pdm.scripts.lint]
+cmd = "make lint"
+
+[tool.pdm.scripts.test]
+cmd = "make test"
+
+[tool.vulture]
+ignore_names = [
+    "cls",
+    "dotenv_settings",
+    "field",
+    "field_name",
+    "init_settings",
+    "file_secret_settings",
+]
+min_confidence = 70
