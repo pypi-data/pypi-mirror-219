@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: benimang
+Version: 0.3.10
+Summary: utils library for Beni
+Author: Beni Mang
+Author-email: benimang@126.com
+Maintainer-email: Beni Mang <benimang@126.com>
+Keywords: benimang,beni
+Requires-Python: >=3.10
+Provides-Extra: cmd
+Requires-Dist: aiofiles ; extra == 'cmd'
+Requires-Dist: aiohttp ; extra == 'cmd'
+Requires-Dist: aioconsole ; extra == 'cmd'
+Requires-Dist: pyperclip ; extra == 'cmd'
+Requires-Dist: nest-asyncio ; extra == 'cmd'
+Requires-Dist: tzdata ; extra == 'cmd'
+Requires-Dist: typer ; extra == 'cmd'
+Requires-Dist: qiniu ; extra == 'cmd'
+Requires-Dist: orjson ; extra == 'cmd'
+Requires-Dist: colorama ; extra == 'cmd'
+
