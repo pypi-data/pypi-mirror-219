@@ -1,0 +1,11 @@
+requests
+bs4
+
+[dev]
+black
+pytest
+flake8
+furo
+sphinx
+myst-parser
+sphinx_copybutton

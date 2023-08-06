@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+eudract/__init__.py
+eudract/main.py
+eudract/utils.py
+eudract_py.egg-info/PKG-INFO
+eudract_py.egg-info/SOURCES.txt
+eudract_py.egg-info/dependency_links.txt
+eudract_py.egg-info/not-zip-safe
+eudract_py.egg-info/requires.txt
+eudract_py.egg-info/top_level.txt
+tests/test_main.py
+tests/test_utils.py
