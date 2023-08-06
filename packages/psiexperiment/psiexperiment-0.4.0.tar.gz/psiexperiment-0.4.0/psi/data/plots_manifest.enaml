@@ -1,0 +1,230 @@
+import logging
+log = logging.getLogger(__name__)
+
+from functools import partial
+
+from atom.api import Typed, set_default
+from enaml.application import deferred_call
+from enaml.core.api import Conditional, Include, d_, Looper
+from enaml.layout.api import spacer
+from enaml.widgets.api import (ButtonGroup, CheckBox, Container, Field, Form,
+                               HGroup, Label, ObjectCombo, PushButton,
+                               RawWidget, VGroup)
+from enaml.workbench.api import Extension, Workbench
+from enaml.workbench.core.api import Command
+
+import pyqtgraph as pg
+pg.setConfigOption('foreground', 'k')
+
+from psi.core.enaml.api import PSIDockItem, PSIManifest
+from psi.controller.api import ExperimentAction
+from psi.context.context_item import OrderedContextMeta
+from psi.experiment.api import ItemPreferences
+
+
+class PGCanvas(RawWidget):
+
+    hug_width = set_default('ignore')
+    hug_height = set_default('ignore')
+
+    view = Typed(pg.GraphicsView)
+    component = d_(Typed(pg.GraphicsWidget))
+
+    def create_widget(self, parent):
+        # This color ensures that it blends into the default DockItem
+        # background color and is most esthetically pleasing.
+        self.view = pg.GraphicsView(parent, background=(240, 240, 240))
+        self.view.setCentralItem(self.component)
+        return self.view
+
+    def observe_component(self, event):
+        self.view.setCentralItem(event['value'])
+
+
+enamldef PlotGroupSelectButtons(Container):
+
+    attr contribution
+
+    HGroup:
+        spacing = 0
+        padding = 0
+        align_widths = False
+        trailing_spacer = spacer(0)
+
+        Conditional:
+            condition << (contribution.allow_auto_select and len(contribution.buttons) > 0)
+            PushButton:
+                text = 'Auto select'
+                checkable = True
+                checked := contribution.auto_select
+
+        Conditional:
+            condition << len(contribution.buttons) <= contribution.max_buttons
+            Looper:
+                iterable << contribution.buttons[:]
+                PushButton: pb:
+                    checkable = True
+                    checked << contribution.current_button == loop_item
+                    text = contribution.fmt_button(loop_item)
+                    clicked ::
+                        contribution.auto_select = False
+                        contribution.current_button = loop_item
+
+        Conditional:
+            condition << len(contribution.buttons) > contribution.max_buttons
+            ObjectCombo: oc:
+                selected := contribution.current_button
+                to_string = contribution.fmt_button
+                items << contribution.buttons[:]
+
+
+enamldef BasePlotContainerManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.workspace'
+        point = 'psi.experiment.workspace'
+
+        PSIDockItem:
+            name << manifest.contribution.name
+            title << manifest.contribution.label
+            closable = False
+
+            # This strange nesting of VGroup is necessary to prevent the Qt
+            # plots from expanding in size when the button bar is added. I
+            # really don't know of a better way to do this, but am happy with
+            # the result now.
+            VGroup:
+                Conditional:
+                    condition << len(manifest.contribution.buttons) > 0
+                    PlotGroupSelectButtons:
+                        contribution << manifest.contribution
+                VGroup:
+                    spacing = 0
+                    padding = 0
+                    PGCanvas: canvas:
+                        name << manifest.contribution.name + '_canvas'
+                        component << manifest.contribution.container
+
+
+enamldef TimeseriesPlotManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'psi.controller.actions'
+        ExperimentAction:
+            event = 'io_configured'
+            command = 'psi.data.attach_source'
+            kwargs = {'obj': manifest.contribution}
+
+
+def process_event(plot, event):
+    p = event.parameters
+    plot._append_data(p['type'], p['timestamp'])
+
+
+enamldef EventPlotManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.process'
+            handler = partial(process_event, manifest.contribution)
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'psi.controller.actions'
+
+        ExperimentAction:
+            event << manifest.contribution.event + '_start'
+            command = manifest.contribution.name + '.process'
+            kwargs = {'type': 'start'}
+
+        ExperimentAction:
+            event << manifest.contribution.event + '_end'
+            command = manifest.contribution.name + '.process'
+            kwargs = {'type': 'end'}
+
+
+enamldef BasePlotManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '_update'
+            handler = manifest.contribution.update
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'psi.controller.actions'
+
+        ExperimentAction:
+            event = 'io_configured'
+            command = 'psi.data.attach_source'
+            kwargs = {'obj': manifest.contribution}
+            weight = 15
+
+        ExperimentAction:
+            # This final update ensures that we always plot new data (otherwise
+            # sometimes the final segment doesn't get plotted due to thread
+            # race conditions).
+            event = 'experiment_end'
+            command = manifest.contribution.name + '_update'
+
+
+enamldef DataFramePlotManifest(PSIManifest): manifest:
+    # This overrides attempts to load the BasePlotManifest
+    pass
+
+
+def set_group_keys(plot, event):
+    context = event.workbench.get_plugin('psi.context')
+    if plot.autogenerate_keys in ('both', 'tab'):
+        plot.tab_keys = []
+        if plot.tab_grouping:
+            plot.tab_keys = sorted(context.unique_values(plot.tab_grouping))
+            log.debug('Found tab keys %r', plot.tab_keys)
+
+    if plot.autogenerate_keys in ('both', 'plot'):
+        plot.plot_keys = [()]
+        if plot.plot_grouping:
+            plot.plot_keys = sorted(context.unique_values(list(plot.plot_grouping)))
+
+
+enamldef ViewBoxManifest(PSIManifest): manifest:
+
+    Conditional:
+        condition << manifest.contribution.save_limits
+
+        Extension:
+            id = manifest.id + '.preferences'
+            point = 'psi.experiment.preferences'
+            ItemPreferences:
+                name << manifest.contribution.name
+                item << manifest.contribution
+                auto_save = ['y_min', 'y_max']
+
+
+enamldef GroupMixinManifest(BasePlotManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.stacked_commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.set_groups'
+            handler = partial(set_group_keys, manifest.contribution)
+
+    Conditional:
+        condition = manifest.contribution.autogenerate_keys != 'none'
+
+        Extension:
+            id = manifest.id + '.stacked_actions'
+            point = 'psi.controller.actions'
+
+            ExperimentAction:
+                event = 'context_initialized'
+                command = manifest.contribution.name + '.set_groups'

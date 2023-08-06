@@ -1,0 +1,12 @@
+from enaml.workbench.api import PluginManifest, ExtensionPoint
+
+from .plugin import TokenPlugin
+
+
+enamldef TokenManifest(PluginManifest):
+
+    id = 'psi.token'
+    factory = TokenPlugin
+
+    ExtensionPoint:
+        id = 'psi.token.tokens'

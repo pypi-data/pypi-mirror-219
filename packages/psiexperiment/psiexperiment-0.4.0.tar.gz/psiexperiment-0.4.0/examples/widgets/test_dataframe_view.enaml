@@ -1,0 +1,142 @@
+import random
+
+import pandas as pd
+
+from atom.api import Atom, Typed, Event, List, Dict
+from enaml.stdlib.message_box import information
+from enaml.widgets.api import Container, HGroup, Label, PushButton, VGroup, Window
+
+from psi.core.enaml.editable_table_widget import DataFrameTable, ListDictTable, ListTable
+
+
+class Setting(Atom):
+
+    values = List(Dict())
+
+
+class TrialLog(Atom):
+
+    table = Typed(pd.DataFrame)
+    updated = Event()
+
+
+trial_data = pd.DataFrame({
+    'ttype': ['go_remind', 'nogo', 'nogo', 'nogo', 'go'],
+    'mod_depth': [0.5, 0, 0, 0, 1],
+})
+
+
+enamldef Main(Window): main:
+
+    attr trial_log = TrialLog(table=trial_data.copy())
+    attr column_info = {
+        'ttype': {'label': 'Trial type', 'default': 'nogo'},
+        'mod_depth': {'label': 'Mod. depth (frac.)', 'coerce': float},
+        'reward_volume': {'label': 'Reward (ul)', 'default': -1},
+    }
+
+    attr setting = Setting(values=[
+        {'mod_depth': 0, 'reward_volume': 2},
+        {'mod_depth': 1, 'reward_volume': 4},
+        {'mod_depth': 2, 'reward_volume': 8},
+    ])
+
+    Container:
+        VGroup:
+            HGroup:
+                VGroup:
+                    Label:
+                        text = 'Demonstrates setting background color.'
+                    DataFrameTable:
+                        select_behavior = 'rows'
+                        select_mode = 'extended'
+                        data << main.trial_log.table
+                        column_info << main.column_info
+                        get_cell_color => (row, col):
+                            ttype = data.iloc[row]['ttype']
+                            color_map = {
+                                'go_remind': 'lightgreen',
+                                'go': 'lightblue',
+                                'nogo': 'pink'
+                            }
+                            return color_map.get(ttype, 'white')
+
+                VGroup:
+                    Label:
+                        text = 'Double-click on a cell to edit value.'
+                    ListDictTable:
+                        select_behavior = 'rows'
+                        select_mode = 'contiguous'
+                        editable = True
+                        data << main.setting.values
+                        column_info << main.column_info
+                        columns = ['mod_depth', 'reward_volume']
+                    PushButton:
+                        text = 'Reset setting to default'
+                        clicked ::
+                            main.setting.values = [
+                                {'mod_depth': 0, 'reward_volume': 2},
+                                {'mod_depth': 1, 'reward_volume': 4},
+                                {'mod_depth': 2, 'reward_volume': 8},
+                            ]
+
+                VGroup:
+                    Label:
+                        text = 'Double-click on a cell to edit value.'
+                    ListTable: table:
+                        select_behavior = 'rows'
+                        select_mode = 'contiguous'
+                        editable = True
+                        column_info << main.column_info
+                        column_name = 'Progress'
+                        data = ['File 1', 'File 2']
+
+                        attr frac = 0.2
+
+                        get_cell_color => (row, col):
+                            return 'lightgreen'
+
+                        get_cell_frac => (row, col):
+                            if row == 0:
+                                return frac
+                            return 0
+
+                    PushButton:
+                        text = 'Increment progress'
+                        clicked ::
+                            table.frac = min(table.frac + 0.2, 1)
+                            table.update = True
+
+            HGroup: group:
+                attr selected = []
+                VGroup:
+                    Label:
+                        text = 'Demonstrates selection callback.'
+                    ListTable:
+                        select_behavior = 'rows'
+                        select_mode = 'single'
+                        editable = False
+                        data << ['temperature', 'speaker 1', 'speaker 2']
+                        column_name = 'Channel'
+                        show_row_labels = False
+                        show_column_labels = False
+                        show_grid = False
+                        selected := group.selected
+                        selected ::
+                            mesg = 'Instead of this silly popup, you could have updated a plot instead.'
+                            information(parent, 'Selection changed', mesg)
+                    Label:
+                        text << 'You selected {}'.format(group.selected)
+
+                VGroup:
+                    Label:
+                        text = 'Press down arrow at end to add new row.'
+                    ListTable:
+                        select_behavior = 'rows'
+                        select_mode = 'single'
+                        editable = True
+                        data << ['8000', '4000', '2000']
+                        column_name = 'Channel'
+                        show_row_labels = False
+                        show_column_labels = False
+                        show_grid = True
