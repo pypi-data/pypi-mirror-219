@@ -1,0 +1,3 @@
+recursive-include demo *.py makefile
+recursive-include src  *.py *.h *.c
+recursive-include test *.sh
