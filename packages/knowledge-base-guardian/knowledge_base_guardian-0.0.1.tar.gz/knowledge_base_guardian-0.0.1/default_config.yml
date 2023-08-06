@@ -1,0 +1,49 @@
+# true if you use AzureOpenAI, false if you use OpenAI
+azure_openai: false
+# OpenAI embedding model to use. Only relevant if you don't work with AzureOpenAI
+embedding_model: "text-embedding-ada-002"
+# OpenAI llm model to use. Only relevant if you don't work with AzureOpenAI
+llm: "gpt-3.5-turbo"
+
+# Path to the existing vectorstore
+vectorstore_dir: "data/vectorstore"
+# Name of the existing vectorstore (and the index)
+vectorstore_name: "belgium"
+# Type of the vectorstore (currently only faiss is supported)
+vectorstore_type: "faiss"
+
+# Location of data that is included in the vectorstore
+raw_dir: "data/raw"
+
+#Location of data to be added to the vectorstore
+extension_dir: "data/extension"
+#Desired chunk size
+chunk_size: 1000
+#Amount of overlap between subsequent chunks
+chunk_overlap: 0
+#Extension of documents in raw_dir and extension_dir
+extension: txt
+
+# Number of most similar documents to retrieve for each chunk
+nb_retrieval_docs: 4
+# System message for the retrieval prompt
+system_message: |
+  Please analyze the given documents and compare them with the new document to identify any contradictions.
+  Note that there is only a contradiction when the new document directly contradicts information present in the provided documents.
+  If the new document introduces new information not mentioned in the other documents, it is NOT a contradiction.
+# User message for the retrieval prompt
+user_message: |
+  Documents:
+  {summaries}
+  --------------------
+  New document:
+  {question}
+  --------------------
+  If the new document aligns with the other documents or only presents new information, start your answer with "CONSISTENT".
+  Else, structure your answer as follows:
+  Contradictions:
+    - contradiction 1: reason + document source
+    - contradiction 2: reason + document source
+    ...
+
+  Provide a detailed analysis of your reasonings.
