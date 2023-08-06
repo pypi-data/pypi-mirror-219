@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: laktory
+Version: 0.0.1
+Summary: A DataOps framework for building a lakehouse
+Keywords: one,two
+Author-email: Olivier Soucy <osoucy.transactions@gmail.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: pydantic>=2
+Requires-Dist: pyyaml
+Requires-Dist: pyspark
+Requires-Dist: black ; extra == "dev"
+Requires-Dist: flit ; extra == "dev"
+Requires-Dist: pytest ; extra == "test"
+Requires-Dist: pytest-cov ; extra == "test"
+Project-URL: Bug Tracker, https://github.com/opencubes-ai/laktory/issues
+Project-URL: Homepage, https://github.com/opencubes-ai/laktory
+Provides-Extra: dev
+Provides-Extra: test
+
+# laktory
+A DataOps framework for building a lakehouse.
+
