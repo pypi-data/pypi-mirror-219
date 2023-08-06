@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "exoming"
+version = "0.1.0"
+description = "Exomiser launcher"
+authors = ["a.iazami"]
+license = "cc4"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+PyYAML = "^6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
