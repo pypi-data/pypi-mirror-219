@@ -1,0 +1,36 @@
+test_host1:
+  hostname: 116.205.188.228
+  port: 22
+  username: root1
+  password: Desire234
+  platform: linux
+  groups:
+    - test
+
+
+test_host2:
+  hostname: 192.168.56.56
+  port: 22
+  username: test
+  password: Test@123456
+  platform: hp_comware
+  groups:
+    - test
+
+test_host3:
+  hostname: 192.168.56.57
+  port: 22
+  username: test
+  password: Test@123456
+  platform: hp_comware
+  groups:
+    - test
+
+test_host4:
+  hostname: 192.168.56.58
+  port: 22
+  username: test
+  password: Test@123456
+  platform: hp_comware
+  groups:
+    - test

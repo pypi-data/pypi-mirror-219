@@ -1,0 +1,12 @@
+from nornir import InitNornir
+from config.settings import CONFIG
+from nornir_easy_netmiko import netmiko_send_command
+from processor import Match_processor
+
+nr = InitNornir(**CONFIG).with_processors([Match_processor()])
+nr = nr.filter(platform='hp_comware')
+
+nr.run(
+    task=netmiko_send_command,
+    command_string='dis cur'
+)

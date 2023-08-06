@@ -1,0 +1,7 @@
+global:
+    data:
+        domain: global.local
+
+test:
+    data:
+        asn: 65100

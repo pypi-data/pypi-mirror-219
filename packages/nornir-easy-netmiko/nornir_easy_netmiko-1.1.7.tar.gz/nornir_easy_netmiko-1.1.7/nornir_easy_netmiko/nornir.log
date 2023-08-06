@@ -1,0 +1,219 @@
+myproject/
+   鈹斺攢鈹� example/
+       鈹溾攢鈹� __init__.py
+       鈹斺攢鈹� module_name.py
+   鈹斺攢鈹� example2/
+       鈹溾攢鈹� __init__.py
+       鈹斺攢鈹� module_name2.py
+濡備綍鍍廳jango涓�鏍峰彲浠ュ湪example2涓鍏ュ寘锛岀被浼艰繖鏍凤細from myproject.example import module_name
+      2023-07-10 18:06:25,388 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:06:25,391 - nornir.core.task -    ERROR -      start() - Host 'test_host3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:06:25,391 - nornir.core.task -    ERROR -      start() - Host 'test_host4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:06:25,392 - nornir.core.task -    ERROR -      start() - Host 'test_host2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:07:11,509 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:07:11,512 - nornir.core.task -    ERROR -      start() - Host 'test_host3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:07:11,512 - nornir.core.task -    ERROR -      start() - Host 'test_host2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:07:11,512 - nornir.core.task -    ERROR -      start() - Host 'test_host4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:10:56,134 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:10:56,433 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 18:10:56,433 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 18:10:56,433 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 18:11:07,787 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:11:08,079 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 18:11:08,079 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 18:11:08,080 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 18:12:07,905 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:12:07,908 - nornir.core.task -    ERROR -      start() - Host 'test_host2': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:12:07,909 - nornir.core.task -    ERROR -      start() - Host 'test_host4': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:12:07,909 - nornir.core.task -    ERROR -      start() - Host 'test_host3': task 'netmiko_send_command' failed with traceback:
+Traceback (most recent call last):
+  File "E:\python3\Lib\site-packages\nornir\core\task.py", line 99, in start
+    r = self.task(self, **self.params)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\errors\__init__.py", line 17, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\资料\nornir_myproject\nornir_easy_netmiko\tasks\netmiko_send_command.py", line 28, in netmiko_send_command
+    net_connect = task.host.get_connection(CONNECTION_NAME, task.nornir.config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 494, in get_connection
+    self.open_connection(
+  File "E:\python3\Lib\site-packages\nornir\core\inventory.py", line 535, in open_connection
+    plugin = ConnectionPluginRegister.get_plugin(conn_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\python3\Lib\site-packages\nornir\core\plugins\register.py", line 76, in get_plugin
+    raise PluginNotRegistered(f"plugin {name!r} is not registered")
+nornir.core.exceptions.PluginNotRegistered: plugin 'netmiko' is not registered
+
+2023-07-10 18:12:35,782 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:12:36,074 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 18:12:36,074 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 18:12:36,084 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 18:27:21,468 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis device manu'} on 3 hosts
+2023-07-10 18:27:21,761 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 18:27:21,766 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 18:27:21,767 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 19:12:06,385 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis cur'} on 3 hosts
+2023-07-10 19:12:06,885 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 19:12:06,885 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 19:12:06,910 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 19:17:23,845 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis cur'} on 3 hosts
+2023-07-10 19:17:24,345 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 19:17:24,350 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
+2023-07-10 19:17:24,370 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 19:19:57,225 -  nornir.core -     INFO -        run() - Running task 'netmiko_send_command' with args {'command_string': 'dis cur'} on 3 hosts
+2023-07-10 19:19:57,727 -       nornir -     INFO -    wrapper() - test_host3(192.168.56.57:22) excute <netmiko_send_command> success.
+2023-07-10 19:19:57,728 -       nornir -     INFO -    wrapper() - test_host4(192.168.56.58:22) excute <netmiko_send_command> success.
+2023-07-10 19:19:57,728 -       nornir -     INFO -    wrapper() - test_host2(192.168.56.56:22) excute <netmiko_send_command> success.
