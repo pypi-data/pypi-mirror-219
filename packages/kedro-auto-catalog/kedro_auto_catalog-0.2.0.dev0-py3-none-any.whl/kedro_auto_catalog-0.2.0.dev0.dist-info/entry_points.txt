@@ -1,0 +1,5 @@
+[console_scripts]
+kedro-auto-catalog = kedro_auto_catalog.cli.app:app
+
+[kedro.project_commands]
+steel-toes = kedro_auto_catalog.cli:auto_catalog
