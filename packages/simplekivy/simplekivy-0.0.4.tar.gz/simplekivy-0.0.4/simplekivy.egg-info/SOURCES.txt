@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+simplekivy/__init__.py
+simplekivy/simplekivy.py
+simplekivy.egg-info/PKG-INFO
+simplekivy.egg-info/SOURCES.txt
+simplekivy.egg-info/dependency_links.txt
+simplekivy.egg-info/top_level.txt
+simplekivy/widgets/__init__.py
+simplekivy/widgets/app.py
+simplekivy/widgets/main.kv
