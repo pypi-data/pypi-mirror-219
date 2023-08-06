@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: atro-rsync
+Version: 0.0.8
+Summary: Rsync wrapper.
+Author: atropos
+Author-email: sv7n@pm.me
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: atro-pylog
+Description-Content-Type: text/markdown
+
+
