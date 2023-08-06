@@ -1,0 +1,2 @@
+[console_scripts]
+tally-token = tally_token.__main__:main
