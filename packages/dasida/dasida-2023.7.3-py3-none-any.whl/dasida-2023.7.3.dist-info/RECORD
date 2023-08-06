@@ -1,0 +1,16 @@
+dasida/__init__.py,sha256=82sQEiRmLsYrJB-oE0wBb0LhikkPtFdF_QDCtD5SO4E,58
+dasida/scripts.py,sha256=2Z33Cvow0ecmoMnaT2_qQgqi3i407bXd8eOY18D28Zw,8713
+dasida/aws/__init__.py,sha256=teDK14_DVD6Nntu3KQLpp-yq-NBie2j4tmdL100j5CU,99
+dasida/aws/common.py,sha256=JGcwEw2j3KQHz1tFGQeEvGIeTWSmrHIpj8iOQh2pmX8,1680
+dasida/aws/s3.py,sha256=yruYOzr0DVdwmQeZEZIEKR3BRPo31ZwBHrdGsOR9yCw,8466
+dasida/aws/secretsmanager.py,sha256=c6t4fk-CKZjSGaXZNlpEIiHw35sjlnu5pABmGc5gzhw,9428
+dasida/aws/sqs.py,sha256=Ma_eL1xKv14WCGozHUzU1KlLxrREIKPgQB6bufIRitk,12353
+dasida/aws/ssm.py,sha256=8pTeNw87_vp08WktuNyknX4RlWZiwgBmKagCvwRyIZA,4008
+dasida/docker/__init__.py,sha256=l6wrhfjpimY_rHGWn7dyjbxVYAz701wcnoUjnzUiDG4,33
+dasida/docker/docker.py,sha256=zlgThZBWaX49-Y97pjTo8cRF8XGgkD0pklbHXZ2Is1E,1240
+dasida-2023.7.3.dist-info/LICENSE,sha256=ud6g8yklznGAPL358uSsALPuPqX4MEvYL6BvZzWkesM,1063
+dasida-2023.7.3.dist-info/METADATA,sha256=0LaTOW_jyaZ0OlufrGyDARh4nmRxlsNoaRHV4Vd9-q4,375
+dasida-2023.7.3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+dasida-2023.7.3.dist-info/entry_points.txt,sha256=531N1gyYL6W1QGzojG-gUs5bhI_ntf_18gTBcdQSFRY,49
+dasida-2023.7.3.dist-info/top_level.txt,sha256=iRP-j4t-7OBYQPx6OP82XLG7xa-qVZlbLg0lLf9ozw4,7
+dasida-2023.7.3.dist-info/RECORD,,
