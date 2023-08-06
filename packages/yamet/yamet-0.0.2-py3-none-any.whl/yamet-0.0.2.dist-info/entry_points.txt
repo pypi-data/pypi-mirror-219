@@ -1,0 +1,3 @@
+[console_scripts]
+yamet=yamet.__main__:main
+
