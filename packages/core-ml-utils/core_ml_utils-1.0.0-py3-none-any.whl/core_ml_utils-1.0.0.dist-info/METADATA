@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: core-ml-utils
+Version: 1.0.0
+Summary: Core APIs for machine learning.
+Author: mjx
+Author-email: mjx@shu.edu.cn
+License: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: torch (>1.6)
+Requires-Dist: numpy
+Requires-Dist: pyyaml
+Requires-Dist: tabulate
+Requires-Dist: termcolor
+Requires-Dist: tensorboard
+Requires-Dist: protobuf (~=3.19.0)
+
+# core-ml-utils
+ 
