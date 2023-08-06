@@ -1,0 +1,87 @@
+IBoxLoader: !include
+  - res/iam/managed-policies.yml
+  - res/iam/roles.yml
+
+global:
+  IAMGroup:
+    - IBOX_BASE:
+        Create: 'yes'
+        GroupName: IBOX_INDEXNAME
+        ManagedPolicyArns.IBOX_CUSTOM_OBJ:
+          Value: ImportValue(f"IAMPolicy{IBOX_RESNAME}") if not IBOX_RESNAME.startswith(("arn", "Ref(")) else get_dictvalue(IBOX_RESNAME)
+  IAMManagedPolicy:
+    - IBOX_BASE:
+        IBOX_RESNAME: IAMPolicy.IBOX_INDEXNAME
+        IBOX_OUTPUT:
+          - _:
+              IBOX_ENABLED_IF: get_endvalue(f"{IBOX_MAPNAME}Export") == True
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        Export: True
+        PolicyDocument:
+          Statement:
+            - IBOX_LIST: {}
+          Version: "2012-10-17"
+  IAMRole:
+    - IBOX_BASE:
+        IBOX_RESNAME: Role.IBOX_INDEXNAME
+        IBOX_OUTPUT:
+          - _:
+              IBOX_ENABLED_IF: get_endvalue(f"{IBOX_MAPNAME}Export") == True
+              Value: GetAtt(IBOX_RESNAME, "Arn")
+              Export: Export(IBOX_RESNAME)
+        Export: False
+        AssumeRolePolicyDocument:
+          Statement:
+            - IBOX_LIST:
+            - 1:
+                Action: 'sts:AssumeRole'
+                Effect: Allow
+                Principal:
+                  Service:
+                    - get_endvalue(f"{IBOX_MAPNAME}Principal")
+        Path: "/"
+  IAMPolicy:
+    - IBOX_BASE:
+        IBOX_OUTPUT:
+          - _:
+              IBOX_ENABLED_IF: get_endvalue(f"{IBOX_MAPNAME}Export") == True
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        Export: False
+        PolicyName: IBOX_INDEXNAME
+        PolicyDocument:
+          Statement:
+            - IBOX_LIST: {}
+          Version: "2012-10-17"
+  IAMUser:
+    - IBOX_BASE:
+        IBOX_LINKED_OBJ:
+          Key: SSMParameter
+          Type: UserPasswordBase
+          Conf:
+            IBOX_RESNAME: SSMParameterPassword.IBOX_INDEXNAME
+            IBOX_LINKED_OBJ_NAME: IBOX_RESNAME
+            IBOX_LINKED_OBJ_INDEX: IBOX_INDEXNAME
+        IBOX_PARAMETER:
+          - PasswordBase.IBOX_INDEXNAME:
+              Description: "Base Password, must be changed at first login"
+              NoEcho: True
+        Create: 'yes'
+        Groups.IBOX_CUSTOM_OBJ:
+          IBOX_CONDITION:
+            - IBOX_REFNAME.Group.IBOX_RESNAME:
+                get_condition("", "equals", "yes", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: If(f"{IBOX_REFNAME}Group{IBOX_RESNAME}", IBOX_RESNAME, Ref("AWS::NoValue"))
+        LoginProfile:
+          Password: GetAtt(f"SSMParameterPassword{IBOX_INDEXNAME}", "Value")
+          PasswordResetRequired: True
+        UserName: str(IBOX_REMAPNAME)
+  IAMUserToGroupAddition:
+    - IBOX_BASE:
+        GroupName: IBOX_INDEXNAME
+        Users.IBOX_CUSTOM_OBJ:
+          IBOX_CONDITION:
+            - IBOX_MAPNAME.IBOX_RESNAME:
+                get_condition("", "not_equals", "none", f"{IBOX_MAPNAME}{IBOX_RESNAME}")
+          Value: If(f"{IBOX_MAPNAME}{IBOX_RESNAME}",  get_endvalue(f"{IBOX_MAPNAME}{IBOX_RESNAME}"), Ref("AWS::NoValue"))

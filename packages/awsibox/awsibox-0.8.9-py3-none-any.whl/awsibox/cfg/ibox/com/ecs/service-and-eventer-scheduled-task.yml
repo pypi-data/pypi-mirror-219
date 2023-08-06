@@ -1,0 +1,31 @@
+global:
+  IAMPolicy:
+    - LambdaECSRunTaskTrigger:
+        PolicyName: Sub('LambdaECSRunTaskTrigger_${AWS::StackName}')
+        Roles:
+          - ImportValue('RoleLambdaECSRunTask')
+        PolicyDocument:
+          Statement:
+            - RunTask:
+                Action:
+                  - 'ecs:RunTask'
+                  - 'ecs:StartTask'
+                Effect: Allow
+                Resource: Ref('TaskDefinitionFargate')
+            - PassRole:
+                Action:
+                  - 'iam:PassRole'
+                Effect: Allow
+                Resource: GetAtt('RoleTask', 'Arn')
+  ECSService:
+    - Base:
+        IBOX_OUTPUT:
+          - ECSRunTaskClusterName:
+              Value: ${Cluster}
+          - ECSRunTaskSubnetsPrivate:
+              Value: ImportValue("SubnetsPrivate")
+  ECSTaskDefinition:
+    - Fargate:
+        IBOX_ENABLED: True
+        Cpu: '1024'
+        Memory: '2048'

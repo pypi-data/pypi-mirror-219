@@ -1,0 +1,31 @@
+global:
+  StackName: iam-g-01
+  IAMGroup:
+    - Base:
+        ManagedPolicyArns:
+          - IAMUserManageOwn
+          - S3ListBuckets
+          - LogGroupsDescribe
+    - Power:
+        ManagedPolicyArns:
+          - IAMUserManageOwn
+          - PowerUserAccessNoSSM
+          - SSMParameterStoreBase
+    - Developer:
+        ManagedPolicyArns:
+          - Developer
+    - BackEndDeveloper:
+        ManagedPolicyArns:
+          - Developer
+          - BackEndDeveloper
+    - FrontEndDeveloper:
+        ManagedPolicyArns:
+          - Developer
+          - FrontEndDeveloper
+    - CloudWatchRead:
+        ManagedPolicyArns:
+          - LogRead
+          - MetricRead
+    - CloudWatchReadJoker01:
+        ManagedPolicyArns:
+          - LogReadJoker01

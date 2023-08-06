@@ -1,0 +1,22 @@
+global:
+  LogsLogGroup:
+    - Lambda:
+        IBOX_ENABLED: False
+        # Enable the following key to conditionally create or not the object code
+        IBOX_ENABLED_IF.DISABLED: getattr(cfg, f"{n}LogGroupCreate", False)
+        # Enable the following keys to use a Template Condition
+        IBOX_PARAMETER:
+          - IBOX_LINKED_OBJ_NAME.LogGroupCreate:
+              Description: Create Lambda LogsLogGroup
+              AllowedValues: ['', 'yes', 'no']
+        IBOX_CONDITION:
+          - _: >-
+              And(
+                Condition(getattr(cfg.Resources[IBOX_LINKED_OBJ_NAME], "Condition")) if
+                  hasattr(cfg.Resources[IBOX_LINKED_OBJ_NAME], "Condition") else
+                  Equals("1", "1"),
+                get_condition('', 'equals', 'yes', f"{IBOX_LINKED_OBJ_NAME}LogGroupCreate")
+              )
+        Condition: IBOX_RESNAME
+        LogGroupName: Sub('/aws/lambda/${%s}' % IBOX_LINKED_OBJ_NAME)
+        RetentionInDays: 30

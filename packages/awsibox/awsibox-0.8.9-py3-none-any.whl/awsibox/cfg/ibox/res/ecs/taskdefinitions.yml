@@ -1,0 +1,32 @@
+global:
+  ECSTaskDefinition:
+    - Base:
+        IBOX_TITLE: TaskDefinition
+    - Fargate:
+        IBOX_PARAMETER:
+          - _Cpu:
+              IBOX_ENABLED_IF: 'False'
+          - _Memory:
+              IBOX_ENABLED_IF: 'False'
+          - _NetworkMode:
+              IBOX_ENABLED_IF: 'False'
+        IBOX_OUTPUT:
+          - _Cpu:
+              IBOX_ENABLED_IF: 'False'
+          - _Memory:
+              IBOX_ENABLED_IF: 'False'
+          - _NetworkMode:
+              IBOX_ENABLED_IF: 'False'
+        IBOX_BASE_SKIP: True
+        IBOX_SOURCE_OBJ: ECSTaskDefinitionBase
+        IBOX_TITLE: TaskDefinitionFargate
+        IBOX_ENABLED: False
+        Cpu.IBOX_CODE: get_endvalue(IBOX_CURNAME)
+        Cpu: '256'
+        ExecutionRoleArn: ImportValue('RoleECSTaskExecution')
+        Memory.IBOX_CODE: get_endvalue(IBOX_CURNAME)
+        Memory: '512'
+        NetworkMode.IBOX_CODE: get_endvalue(IBOX_CURNAME)
+        NetworkMode: awsvpc
+        RequiresCompatibilities: ['FARGATE']
+        TaskRoleArn: Ref('RoleTask')

@@ -1,0 +1,174 @@
+global:
+  CloudFrontCachePolicy:
+    - IBOX_BASE:
+        IBOX_OUTPUT:
+          - _:
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        CachePolicyConfig:
+          Name: str(IBOX_INDEXNAME)
+          MaxTTL: 31536000
+          MinTTL: 0
+    - 0QueryStringsHeadersCustom:
+        CachePolicyConfig:
+          Comment: 'Default TTL 0 All QueryStrings and Custom Headers'
+          DefaultTTL: 0
+          MaxTTL: 1
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: whitelist
+              Headers:
+                - Origin
+                - Authorization
+            QueryStringsConfig:
+              QueryStringBehavior: all
+    - 0QueryStringsCookiesHeadersCustom:
+        CachePolicyConfig:
+          Comment: 'Default TTL 0 All QueryStrings and Cookies Custom Headers'
+          DefaultTTL: 0
+          MaxTTL: 1
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: all
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: whitelist
+              Headers:
+                - Origin
+                - Authorization
+            QueryStringsConfig:
+              QueryStringBehavior: all
+    - 86400None:
+        CachePolicyConfig:
+          Comment: 'Default TTL 86400 None'
+          DefaultTTL: 86400
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: none
+            QueryStringsConfig:
+              QueryStringBehavior: none
+    - 31536000None:
+        CachePolicyConfig:
+          Comment: 'Default TTL 31536000 None'
+          DefaultTTL: 31536000
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: none
+            QueryStringsConfig:
+              QueryStringBehavior: none
+    - 31536000HeaderOrigin:
+        CachePolicyConfig:
+          Comment: 'Default TTL 31536000 Header Origin'
+          DefaultTTL: 31536000
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: whitelist
+              Headers:
+                - Origin
+            QueryStringsConfig:
+              QueryStringBehavior: none
+    - 86400QueryStrings:
+        CachePolicyConfig:
+          Comment: 'Default TTL 86400 All QueryStrings'
+          DefaultTTL: 86400
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: none
+            QueryStringsConfig:
+              QueryStringBehavior: all
+    - 86400QueryStringsHeadersCustom:
+        CachePolicyConfig:
+          Comment: 'Default TTL 86400 All QueryStrings and Custom Headers'
+          DefaultTTL: 86400
+          ParametersInCacheKeyAndForwardedToOrigin:
+            CookiesConfig:
+              CookieBehavior: none
+            EnableAcceptEncodingGzip: true
+            EnableAcceptEncodingBrotli: true
+            HeadersConfig:
+              HeaderBehavior: whitelist
+              Headers:
+                - Origin
+                - Authorization
+            QueryStringsConfig:
+              QueryStringBehavior: all
+  CloudFrontOriginRequestPolicy:
+    - IBOX_BASE:
+        IBOX_OUTPUT:
+          - _:
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        OriginRequestPolicyConfig:
+          Name: str(IBOX_INDEXNAME)
+    - QueryStringsCookiesHeaders:
+        OriginRequestPolicyConfig:
+          Comment: 'Forward All QueryStrings, Cookies and Headers'
+          CookiesConfig:
+            CookieBehavior: all
+          HeadersConfig:
+            HeaderBehavior: allViewer
+          QueryStringsConfig:
+            QueryStringBehavior: all
+    - HeadersCustom:
+        OriginRequestPolicyConfig:
+          Comment: 'Forward Custom Headers'
+          CookiesConfig:
+            CookieBehavior: none
+          HeadersConfig:
+            HeaderBehavior: whitelist
+            Headers:
+              - User-Agent
+              - Referer
+              - CloudFront-Is-Mobile-Viewer
+              - CloudFront-Viewer-City
+              - CloudFront-Viewer-ASN
+              - CloudFront-Viewer-Address
+          QueryStringsConfig:
+            QueryStringBehavior: none
+  CloudFrontResponseHeadersPolicy:
+    - IBOX_BASE:
+        IBOX_OUTPUT:
+          - _:
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        ResponseHeadersPolicyConfig:
+          Name: str(IBOX_INDEXNAME)
+    - XRobotsTagNoindexFollow:
+        ResponseHeadersPolicyConfig:
+          Comment: 'Header x-robots-tag: noindex, follow'
+          CustomHeadersConfig:
+            Items:
+              - XRobotsTag:
+                  Header: x-robots-tag
+                  Override: false
+                  Value: 'noindex, follow'
+    - CacheControl31536000:
+        ResponseHeadersPolicyConfig:
+          Comment: 'Header cache-control: max-age=31536000'
+          CustomHeadersConfig:
+            Items:
+              - CacheControl:
+                  Header: cache-control
+                  Override: true
+                  Value: 'max-age=31536000'

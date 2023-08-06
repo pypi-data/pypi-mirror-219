@@ -1,0 +1,203 @@
+# vim: ft=python
+import json
+import boto3
+import os
+import logging
+from datetime import datetime, timezone, timedelta
+
+# logging.basicConfig()
+logger = logging.getLogger("ECSDrainInstance")
+logging_handler = logging.StreamHandler()
+logger.addHandler(logging_handler)
+logger.setLevel(logging.INFO)
+logger.propagate = False
+
+SQS_QUEUE = os.environ.get("SQSQueue")
+
+CLIENT_EC2 = boto3.client("ec2")
+CLIENT_ECS = boto3.client("ecs")
+CLIENT_AUTOSCALING = boto3.client("autoscaling")
+CLIENT_SQS = boto3.client("sqs")
+
+
+def find_cluster(instance_id):
+    instance_tags = CLIENT_EC2.describe_tags(
+        Filters=[{"Name": "resource-id", "Values": [instance_id]}]
+    )
+    for n in instance_tags["Tags"]:
+        if n["Key"] == "ECSCluster":
+            return n["Value"]
+
+
+def get_heartbeat_timeout(asg_name, lifecyclehook_name):
+    heartbeat_timeout = 900
+
+    resp = CLIENT_AUTOSCALING.describe_lifecycle_hooks(
+        AutoScalingGroupName=asg_name, LifecycleHookNames=[lifecyclehook_name]
+    )
+
+    for life in resp.get("LifecycleHooks", []):
+        if "ECSDrainInstance" in life.get("NotificationTargetARN", ""):
+            heartbeat_timeout = life["HeartbeatTimeout"]
+            break
+
+    return heartbeat_timeout
+
+
+def find_container_instance(cluster, instance_id, status=None):
+    status_desc = ""
+    kwargs = {"cluster": cluster, "filter": f"ec2InstanceId == {instance_id}"}
+
+    if status:
+        kwargs["status"] = status
+        status_desc = f" in status {status}"
+
+    list_resp = CLIENT_ECS.list_container_instances(**kwargs)
+
+    try:
+        instance_arn = list_resp["containerInstanceArns"][0]
+        logger.info(f"Found {instance_arn}{status_desc}")
+        return instance_arn
+    except Exception:
+        logger.warning(f"No Container Instance{status_desc}")
+        return False
+
+
+def get_tasks(cluster, instance_arn, status):
+    tasks = []
+    paginator = CLIENT_ECS.get_paginator("list_tasks")
+    response_iter = paginator.paginate(
+        cluster=cluster, containerInstance=instance_arn, desiredStatus=status
+    )
+    for resp in response_iter:
+        for t in resp.get("taskArns", []):
+            tasks.append(os.path.basename(t))
+
+    logger.info(f"{len(tasks)} tasks {status} on {instance_arn}")
+
+    return tasks
+
+
+def drain_instance(cluster, instance_arn, retry=0):
+    logger.info(f"{instance_arn} DRAINING")
+    try:
+        resp_update = CLIENT_ECS.update_container_instances_state(
+            cluster=cluster, containerInstances=[instance_arn], status="DRAINING"
+        )
+        instances = resp_update.get("containerInstances")
+    except Exception as e:
+        logger.error(e)
+    else:
+        failure = resp_update.get("failures")
+        if failure:
+            logger.error(f"{failure} [{retry}]")
+            if failure[0].get("reason") == "INVALID_INSTANCE_STATE_TRANSITION":
+                logger.warning(
+                    f"Cluster {cluster} Instance {instance_arn}, INVALID_INSTANCE_STATE_TRANSITION"
+                )
+        elif instances:
+            return instances[0]["status"] == "DRAINING"
+
+
+def tasks_are_running(cluster, tasks_msg):
+    tasks_id, running = list(tasks_msg), len(tasks_msg)
+    while tasks_id:
+        tasks_id_sub = tasks_id[0:100]
+        resp = CLIENT_ECS.describe_tasks(cluster=cluster, tasks=tasks_id_sub)
+        tasks = resp.get("tasks", [])
+
+        for t in tasks:
+            arn = t["taskArn"]
+            status = t["lastStatus"]
+            stopped = t.get("stoppedAt")
+            logger.debug(f"{cluster} {arn} in {status} [{stopped}]")
+            if stopped:
+                # task is really stopped reduce running and remove it from tasks msg list
+                running -= 1
+                tasks_msg.remove(os.path.basename(arn))
+        del tasks_id[0:100]
+
+    logger.info(f"{running} tasks running")
+    return running != 0
+
+
+def get_draining_cluster_and_runnig_tasks(instance_id):
+    cluster = find_cluster(instance_id)
+    instance_arn = find_container_instance(cluster, instance_id)
+
+    if cluster and instance_arn:
+        if find_container_instance(cluster, instance_id, "DRAINING") or drain_instance(
+            cluster, instance_arn
+        ):
+            return cluster, get_tasks(cluster, instance_arn, "RUNNING")
+    else:
+        logger.warning("No Cluster/Instance")
+
+
+def lambda_handler(event, context):
+    time_format = "%Y-%m-%dT%H:%M:%S.%fZ"
+    msg = json.loads(event["Records"][0]["body"])
+    end_lf = False
+
+    asg_name = msg["AutoScalingGroupName"]
+    instance_id = msg["EC2InstanceId"]
+    lifecyclehook_name = msg["LifecycleHookName"]
+    msg_time = datetime.strptime(msg["Time"], time_format).replace(tzinfo=timezone.utc)
+
+    # add prefix to log messages
+    formatter = logging.Formatter(
+        fmt=f"%(levelname)s:[{instance_id}@{asg_name}]:%(message)s"
+    )
+    logging_handler.setFormatter(formatter)
+
+    tasks_to_check = msg.get("Tasks")
+    if tasks_to_check:
+        # Following Message from lambda to check running task
+        if not tasks_are_running(msg["Cluster"], tasks_to_check):
+            end_lf = True
+    else:
+        # First Message from ASG to drain and get running task
+        cluster, task_to_msg = get_draining_cluster_and_runnig_tasks(instance_id)
+        if task_to_msg:
+            msg["Cluster"] = cluster
+            msg["Tasks"] = task_to_msg
+        else:
+            end_lf = True
+
+    # lifecycle
+    if end_lf:
+        CLIENT_AUTOSCALING.complete_lifecycle_action(
+            LifecycleHookName=lifecyclehook_name,
+            AutoScalingGroupName=asg_name,
+            LifecycleActionResult="CONTINUE",
+            InstanceId=instance_id,
+        )
+        logger.info("Completed lifecycle")
+    elif datetime.now(timezone.utc) < msg_time + timedelta(
+        seconds=get_heartbeat_timeout(asg_name, lifecyclehook_name)
+    ):
+        # send a message with only the task not stopped to re-trigger lambda until 0 task running or LifeCycle timeout
+        logger.info("Sending message with tasks running.")
+        CLIENT_SQS.send_message(
+            QueueUrl=SQS_QUEUE, MessageBody=json.dumps(msg), DelaySeconds=20
+        )
+
+
+# test by cmd line
+# if __name__ == "__main__":
+#   message = {
+#       "AutoScalingGroupName": "img-a-d-AutoScalingGroup-R2JXOGLJ8GAC",
+#       "EC2InstanceId": "i-010072258dc224b00",
+#       "LifecycleTransition": "autoscaling:EC2_INSTANCE_TERMINATING",
+#       "LifecycleHookName": "img-a-d-ASGLifecycleHookECSDrainInstance-KeHqtXX7kNBg",
+#       "Time": "2022-11-27T20:20:20.33Z",
+#   }
+#   event = {
+#       "Records": [
+#          {
+#              "body": json.dumps(message),
+#              "receiptHandle": "gatto",
+#          }
+#       ]
+#   }
+#   lambda_handler(event, {})

@@ -1,0 +1,117 @@
+Base: &base
+  IBOX_PARAMETER:
+    - ElastiCacheReplicationGroup.IBOX_INDEXNAME.AutomaticFailoverEnabled:
+        Description: 'Multi-AZ is enabled for this replication group (only for redis and ReplicationGroup) - empty for default based on env/role'
+        AllowedValues: ['', 'true', 'false']
+    - ElastiCacheCacheCluster.IBOX_INDEXNAME.CacheNodeType:
+        Description: 'Node Type - empty for default based on env/role'
+        AllowedValues: [
+          '', 'cache.t3.micro', 'cache.t3.small', 'cache.t3.medium',
+          'cache.t4g.micro', 'cache.t4g.small', 'cache.t4g.medium',
+          'cache.m5.large', 'cache.m5.xlarge', 'cache.m5.2xlarge',
+          'cache.m5.4xlarge', 'cache.m5.12xlarge', 'cache.m5.24xlarge',
+          'cache.m6g.large', 'cache.m6g.xlarge', 'cache.m6g.2xlarge',
+          'cache.m6g.4xlarge', 'cache.m6g.8xlarge', 'cache.m6g.12xlarge', 'cache.m6g.16xlarge',
+        ]
+    - CacheEnabled:
+        Description: 'Enable or disable cache creation'
+        AllowedValues: [ 'yes', 'no']
+        Default: 'yes'
+    - ElastiCacheCacheCluster.IBOX_INDEXNAME.Engine:
+        Description: 'Engine - empty for default based on env/role'
+        AllowedValues: ['', 'memcached', 'redis']
+    - ElastiCacheCacheCluster.IBOX_INDEXNAME.EngineVersion:
+        Description: 'Engine Version - empty for default based on env/role'
+    - ElastiCacheReplicationGroup.IBOX_INDEXNAME.NumCacheClusters:
+        Description: 'The number of clusters this replication group initially has - empty for default based on env/role'
+    - ElastiCacheCacheCluster.IBOX_INDEXNAME.NumCacheNodes:
+        Description: 'The number of cache nodes that the cache cluster should have - empty for default based on env/role'
+    - ElastiCacheReplicationGroup.IBOX_INDEXNAME.Enabled:
+        Description: 'Create a ElastiCache Redis Replication Group instead of a Cache Cluster - empty for default based on env/role'
+        AllowedValues: ['', 'yes', 'no']
+  IBOX_CONDITION:
+    - CacheCluster:
+        Or(
+          And(
+            Condition('CacheEnabled'),
+            Condition('EngineMemCached'),
+          ),
+          And(
+            Condition('CacheEnabled'),
+            Condition('EngineRedis'),
+            get_condition('', 'equals', 'no', f'ElastiCacheReplicationGroup{IBOX_INDEXNAME}Enabled'),
+          )
+        )
+    - CacheEnabled: Equals(Ref('CacheEnabled'), 'yes')
+    - EngineRedis: get_condition('', 'equals', 'redis', f'ElastiCacheCacheCluster{IBOX_INDEXNAME}Engine')
+    - EngineMemCached: get_condition('', 'equals', 'memcached', f'ElastiCacheCacheCluster{IBOX_INDEXNAME}Engine')
+    - ReplicationGroup:
+        And(
+          Condition('CacheEnabled'),
+          Condition('EngineRedis'),
+          get_condition('', 'equals', 'yes', f'ElastiCacheReplicationGroup{IBOX_INDEXNAME}Enabled'),
+        )
+  IBOX_OUTPUT:
+    - ElastiCache.IBOX_INDEXNAME.CacheNodeType:
+        Condition: CacheEnabled
+        Value: get_endvalue(f'ElastiCacheCacheCluster{IBOX_INDEXNAME}CacheNodeType')
+    - ElastiCache.IBOX_INDEXNAME.Engine:
+        Condition: CacheEnabled
+        Value: get_endvalue(f'ElastiCacheCacheCluster{IBOX_INDEXNAME}Engine')
+    - ElastiCache.IBOX_INDEXNAME.EngineVersion:
+        Condition: CacheEnabled
+        Value: get_endvalue(f'ElastiCacheCacheCluster{IBOX_INDEXNAME}EngineVersion')
+    - ElastiCacheCacheCluster.IBOX_INDEXNAME.NumCacheNodes:
+        Condition: CacheCluster
+        Value: get_endvalue(f'ElastiCacheCacheCluster{IBOX_INDEXNAME}NumCacheNodes')
+    - ElastiCacheReplicationGroup.IBOX_INDEXNAME.NumCacheClusters:
+        Condition: ReplicationGroup
+        Value: get_endvalue(f'ElastiCacheReplicationGroup{IBOX_INDEXNAME}NumCacheClusters')
+
+
+Cluster: &cluster
+  Condition: CacheCluster
+  ## Internal
+  CacheSubnetGroupName: ImportValue(f'CacheSubnetGroupPrivate')
+  VpcSecurityGroupIds: [Ref('SecurityGroupCCH')]
+  ## External
+  #CacheSubnetGroupName: ImportValue(f'CacheSubnetGroupPublic')
+  #CacheSecurityGroupNames: [Ref('SecurityGroupCCH')]
+  AZMode: single-az
+  AutoMinorVersionUpgrade: true
+  NumCacheNodes: 1
+
+ReplicationGroup: &replication-group
+  Condition: ReplicationGroup
+  AutomaticFailoverEnabled: false
+  CacheNodeType.IBOX_CODE: get_endvalue(f"ElastiCacheCacheCluster{IBOX_INDEXNAME}CacheNodeType")
+  CacheParameterGroupName: get_endvalue(f"ElastiCacheCacheCluster{IBOX_INDEXNAME}CacheParameterGroupName")
+  Enabled: 'no'
+  Engine.IBOX_CODE: get_endvalue(f"ElastiCacheCacheCluster{IBOX_INDEXNAME}Engine")
+  EngineVersion.IBOX_CODE: get_endvalue(f"ElastiCacheCacheCluster{IBOX_INDEXNAME}EngineVersion")
+  NumCacheClusters: 1
+  ReplicationGroupDescription: 'Redis ReplicaGroup'
+  ## Internal
+  SecurityGroupIds: [Ref('SecurityGroupCCH')]
+
+
+global:
+  ElastiCacheCacheCluster:
+    - IBOX_BASE:
+        <<: [*base, *cluster]
+        IBOX_TITLE: ElastiCacheCacheCluster
+  
+  ElastiCacheReplicationGroup:
+    - IBOX_BASE:
+        <<: [*base, *replication-group, *cluster]
+        IBOX_TITLE: ElastiCacheReplicationGroup
+
+  ElastiCacheSubnetGroup:
+    - IBOX_BASE:
+        IBOX_RESNAME: CacheSubnetGroup.IBOX_INDEXNAME
+        IBOX_OUTPUT:
+          - _:
+              Value: Ref(IBOX_RESNAME)
+              Export: Export(IBOX_RESNAME)
+        Description: Sub("${EnvShort}-%s" % IBOX_INDEXNAME)
+        SubnetIds: Split(",", ImportValue(f"Subnets{IBOX_INDEXNAME}"))

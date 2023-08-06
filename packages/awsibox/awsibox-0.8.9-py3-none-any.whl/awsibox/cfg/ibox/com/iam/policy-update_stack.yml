@@ -1,0 +1,59 @@
+global:
+  IAMPolicy:
+    - UpdateStack:
+        Roles:
+          - Ref('RoleTask')
+        PolicyDocument:
+          Statement:
+            - Base:
+                Action:
+                  - 's3:Get*'
+                  - 's3:List*'
+                  - 's3:Put*'
+                  - 'iam:PassRole'
+                  - 'iam:ListServerCertificates'
+                  - 'iam:GetRole'
+                  - 'iam:PutRolePolicy'
+                  - 'iam:GetInstanceProfile'
+                  - 'elasticloadbalancing:*'
+                  - 'application-autoscaling:*'
+                  - 'ec2:*'
+                  - 'ecs:*'
+                  - 'ecr:*'
+                  - 'sqs:*'
+                  - 'sns:*'
+                  - 'cloudwatch:*'
+                  - 'autoscaling:*'
+                  - 'route53:*'
+                  - 'codedeploy:*'
+                  - 'acm:*'
+                  - 'cloudformation:DescribeStack*'
+                  - 'cloudformation:ListStacks'
+                  - 'cloudformation:ListStackResources'
+                  - 'cloudformation:ListExports'
+                  - 'cloudformation:GetTemplate*'
+                  - 'cloudformation:UpdateStack'
+                  - 'cloudformation:CancelUpdateStack'
+                  - 'cloudformation:ValidateTemplate'
+                  - 'cloudfront:*'
+                  - 'lambda:*'
+                  - 'events:*'
+                  - 'elasticfilesystem:*'
+                  - 'waf:GetWebACL'
+                  - 'waf:ListWebACLs'
+                  - 'servicediscovery:GetService'
+                Effect: Allow
+                Resource: '*'
+            - SSMAmi:
+                Action: 'ssm:GetParameter*'
+                Effect: Allow
+                Resource:
+                  - 'arn:aws:ssm:*:*:parameter/aws/service/*'
+            - SSMEnvAppVersions:
+                Action:
+                  - 'ssm:GetParameter*'
+                  - 'ssm:PutParameter'
+                  - 'ssm:AddTagsToResource'
+                  - 'ssm:RemoveTagsFromResource'
+                Effect: Allow
+                Resource: 'arn:aws:ssm:*:*:parameter/EnvAppVersions/*'

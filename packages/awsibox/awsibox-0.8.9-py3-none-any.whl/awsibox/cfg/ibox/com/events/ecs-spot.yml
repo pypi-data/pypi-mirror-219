@@ -1,0 +1,86 @@
+global:
+  EventsRule:
+    - ECSEventsSpot:
+        IBOX_SOURCE_OBJ: EventsRuleTargetLambda
+        Description: 'ECSEventsSpot Lambda Trigger for Task Spot RUNNING'
+        State: 'DISABLED'
+        EventPattern:
+          detail:
+            capacityProviderName:
+              - FARGATE_SPOT
+            desiredStatus:
+              - RUNNING
+            lastStatus:
+              - RUNNING
+            launchType:
+              - FARGATE
+          detail-type:
+            - ECS Task State Change
+          source:
+            - aws.ecs
+        Targets:
+          - Lambda0:
+              Arn: GetAtt('LambdaECSEventsSpot', 'Arn')
+              Id: TargetFunction-01
+    - ECSEventServiceFailureSpot:
+        IBOX_SOURCE_OBJ: EventsRuleTargetLambda
+        Description: 'ECSEventsSpot Lambda Trigger for Spot Failure'
+        State: 'DISABLED'
+        EventPattern:
+          detail:
+            eventType:
+              - ERROR
+            eventName:
+              - SERVICE_TASK_PLACEMENT_FAILURE
+            reason:
+              - 'RESOURCE:FARGATE'
+          detail-type:
+            - ECS Service Action
+          source:
+            - aws.ecs
+        Targets:
+          - Lambda0:
+              Arn: GetAtt('LambdaECSEventsSpot', 'Arn')
+              Id: TargetFunction-01
+    - ECSEventServiceSteadySpot:
+        IBOX_SOURCE_OBJ: EventsRuleTargetLambda
+        Description: 'ECSEventsSpot Lambda Trigger for Spot Capacity Provider Steady State'
+        State: 'DISABLED'
+        EventPattern:
+          detail:
+            eventType:
+              - INFO
+            eventName:
+              - CAPACITY_PROVIDER_STEADY_STATE
+            capacityProviderArns:
+              - Sub('arn:aws:ecs:${AWS::Region}:${AWS::AccountId}:capacity-provider/FARGATE_SPOT')
+          detail-type:
+            - ECS Service Action
+          source:
+            - aws.ecs
+        Targets:
+          - Lambda0:
+              Arn: GetAtt('LambdaECSEventsSpot', 'Arn')
+              Id: TargetFunction-01
+  Lambda:
+    - ECSEventsSpot:
+        Architectures:
+          - arm64
+        Description: 'ECSEventsSpot'
+        Code:
+          ZipFile: str(IBOX_INDEXNAME)
+        Runtime: python3.9
+        Timeout: 30
+  IAMPolicy:
+    - LambdaECSEventsSpot:
+        Roles:
+          - Ref('RoleLambdaECSEventsSpot')
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action:
+                  - 'ecs:DescribeContainerInstances'
+                  - 'ecs:DescribeServices'
+                  - 'ecs:UpdateService'
+                Effect: Allow
+                Resource: '*'

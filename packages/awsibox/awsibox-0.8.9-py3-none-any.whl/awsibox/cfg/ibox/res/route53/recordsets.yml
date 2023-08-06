@@ -1,0 +1,187 @@
+BaseExternal: &base_external
+  IBOX_TITLE: RecordSetExternal
+  IBOX_OUTPUT:
+    - Route53RecordSetExternal:
+        Value: Ref("RecordSetExternal")
+
+BaseInternal: &base_internal
+  IBOX_TITLE: RecordSetInternal
+  IBOX_OUTPUT:
+    - Route53RecordSetInternal:
+        Value: Ref("RecordSetInternal")
+
+ZoneExternal: &zone_external
+  HostedZoneId: >-
+      If(
+        "HostedZoneEnv",
+        Ref("HostedZoneEnv"),
+        get_endvalue("Route53HostedZoneEnvId"),
+      ) if "Env" in getattr(cfg, "Route53HostedZone", []) else ImportValue('HostedZoneIdEnv')
+  Name: Sub('${AWS::StackName}.${EnvRole}.%s' % cfg.HostedZoneNameRegionEnv)
+
+ZoneInternal: &zone_internal
+  HostedZoneId: >-
+      If(
+        "HostedZonePrivate",
+        Ref("HostedZonePrivate"),
+        get_endvalue("Route53HostedZonePrivateId"),
+      ) if "Private" in getattr(cfg, "Route53HostedZone", []) else ImportValue('HostedZoneIdPrivate')
+  Name: Sub('${AWS::StackName}.${EnvRole}.%s' % cfg.HostedZoneNamePrivate)
+
+LoadBalancer: &loadbalancer
+  AliasTarget: &loadbalancer_alias_target
+    HostedZoneId: get_endvalue('HostedZoneIdLBNET' if getattr("cfg", "LoadBalancerType", "") == "Network" else 'HostedZoneIdLB')
+  Type: A
+
+ECSLoadBalancerTargetExternal: &ecs_loadbalancer_target_external
+  AliasTarget:
+    <<: *loadbalancer_alias_target
+    DNSName: get_subvalue('dualstack.${1E}', f'LoadBalancerApplicationExternalDNS', 'LoadBalancerApplicationStack')
+
+ECSLoadBalancerTargetInternal: &ecs_loadbalancer_target_internal
+  AliasTarget:
+    <<: *loadbalancer_alias_target
+    DNSName: get_subvalue('dualstack.${1E}', f'LoadBalancerApplicationInternalDNS', 'LoadBalancerApplicationStack')
+
+EFS: &efs
+  <<: *zone_internal
+  Name: Sub("efs-%s.%s" % (IBOX_LINKED_OBJ_INDEX, cfg.HostedZoneNamePrivate))
+  ResourceRecords:
+    - Sub("${%s}.efs.${AWS::Region}.amazonaws.com" % IBOX_LINKED_OBJ_NAME)
+  Type: "CNAME"
+  TTL: '300'
+
+CloudFront: &cloudfront
+  <<: *zone_external
+  IBOX_OUTPUT:
+    - _:
+        # escaped Sub bracket {} using double ones
+        # currently using fixed values for RecordSet and CloudFrontDistribution, commented out line, use a dynamic one
+        # Value: Sub(f'${{{IBOX_RESNAME}}} --> ${{{IBOX_LINKED_OBJ_NAME}.DomainName}}')
+        Value: Sub(f'${{RecordSetCloudFront}} --> ${{CloudFrontDistribution.DomainName}}')
+  AliasTarget:
+    DNSName: GetAtt('CloudFrontDistribution', 'DomainName')
+    HostedZoneId: cfg.HostedZoneIdCF
+  Name: Sub(f'${{EnvRole}}${{{IBOX_LINKED_OBJ_NAME}DnsSuffix}}.cdn.%s' % cfg.HostedZoneNameEnv)
+  Type: A
+
+RDS: &rds
+  IBOX_OUTPUT:
+    - _:
+        Value: Ref(IBOX_RESNAME)
+  Type: CNAME
+  ResourceRecords:
+    - GetAtt(IBOX_LINKED_OBJ_NAME, 'Endpoint.Address')
+  TTL: '300'
+
+CCH: &cch
+  IBOX_OUTPUT:
+    - _:
+        Value: Ref(IBOX_RESNAME)
+        Condition: CacheEnabled
+  Type: CNAME
+  Condition: CacheEnabled
+  ResourceRecords:
+    If(
+      'EngineMemCached',
+      [GetAtt('ElastiCacheCacheCluster', 'ConfigurationEndpoint.Address')],
+      If(
+        'ReplicationGroup',
+        [GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address')],
+        [GetAtt('ElastiCacheCacheCluster', 'RedisEndpoint.Address')]))
+  TTL: '300'
+
+CCHReadOnly: &cchreadonly
+  <<: *cch
+  IBOX_OUTPUT:
+    - _:
+        Value: Ref(IBOX_RESNAME)
+        Condition: ReplicationGroup
+  Condition: ReplicationGroup
+  ResourceRecords:
+    - >
+      Sub(
+        '${RECORD0}-ro.${RECORD1}.${RECORD2}.${RECORD3}.${RECORD4}.${RECORD5}.${RECORD6}.${RECORD7}',
+        **{
+          'RECORD0': Select(0, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD1': Select(1, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD2': Select(2, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD3': Select(3, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD4': Select(4, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD5': Select(5, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD6': Select(6, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+          'RECORD7': Select(7, Split('.', GetAtt('ElastiCacheReplicationGroup', 'PrimaryEndPoint.Address'))),
+        })
+
+ApiGatewayDomainName: &apigatewaydomainname
+  <<: *zone_external
+  Type: A
+  Name: Ref(IBOX_INDEXNAME)
+
+ApiGatewayDomainNameGlobal: &apigatewaydomainnameglobal
+  <<: *apigatewaydomainname
+  AliasTarget:
+    DNSName: GetAtt(IBOX_INDEXNAME, 'DistributionDomainName')
+    HostedZoneId: GetAtt(IBOX_INDEXNAME, 'DistributionHostedZoneId')
+
+ApiGatewayDomainNameRegional: &apigatewaydomainnameregional
+  <<: *apigatewaydomainname
+  AliasTarget:
+    DNSName: GetAtt(IBOX_INDEXNAME, 'RegionalDomainName')
+    HostedZoneId: GetAtt(IBOX_INDEXNAME, 'RegionalHostedZoneId')
+
+
+global:
+  Route53RecordSet:
+    - EC2External:
+        <<: [*zone_external, *loadbalancer, *base_external]
+        AliasTarget:
+          <<: *loadbalancer_alias_target
+          DNSName: If(
+            f"LoadBalancerExternal",
+            GetAtt(f"LoadBalancer{cfg.LoadBalancerType}External", "DNSName"),
+            GetAtt(f"LoadBalancer{cfg.LoadBalancerType}Internal", "DNSName"))
+    - EC2Internal:
+        <<: [*zone_internal, *loadbalancer, *base_internal]
+        AliasTarget:
+          <<: *loadbalancer_alias_target
+          DNSName: GetAtt(f"LoadBalancer{cfg.LoadBalancerType}Internal", "DNSName")
+    - ECSExternal:
+        <<: [*zone_external, *loadbalancer, *base_external]
+        AliasTarget:
+          <<: *loadbalancer_alias_target
+          DNSName: If(
+            "LoadBalancerApplicationExternal",
+            get_subvalue('dualstack.${1E}', f'LoadBalancerApplicationExternalDNS', 'LoadBalancerApplicationStack'),
+            get_subvalue('dualstack.${1E}', f'LoadBalancerApplicationInternalDNS', 'LoadBalancerApplicationStack'))
+    - ECSInternal:
+        <<: [*zone_internal, *loadbalancer, *base_internal]
+        AliasTarget:
+          <<: *loadbalancer_alias_target
+          DNSName: get_subvalue('dualstack.${1E}', f'LoadBalancerApplicationInternalDNS', 'LoadBalancerApplicationStack')
+    - LBDExternalLoadBalancerExternal:
+        <<: [*zone_external, *ecs_loadbalancer_target_external, *loadbalancer, *base_external]
+    - EFS: *efs
+    - CloudFront:
+        <<: *cloudfront
+        IBOX_TITLE: RecordSetCloudFront
+    - RDSExternal:
+        <<: [*zone_external, *rds]
+    - RDSInternal:
+        <<: [*zone_internal, *rds]
+    - CCHExternal:
+        <<: [*zone_external, *cch]
+        IBOX_RESNAME: RecordSetExternal
+    - CCHInternal:
+        <<: [*zone_internal, *cch]
+        IBOX_RESNAME: RecordSetInternal
+    - CCHReadOnlyExternal:
+        <<: [*zone_external, *cchreadonly]
+        IBOX_RESNAME: RecordSetExternalRO
+        Name: Sub('${AWS::StackName}.${EnvRole}_ro.%s' % cfg.HostedZoneNameRegionEnv)
+    - CCHReadOnlyInternal:
+        <<: [*zone_internal, *cchreadonly]
+        IBOX_RESNAME: RecordSetInternalRO
+        Name: Sub('${AWS::StackName}.${EnvRole}_ro.%s' % cfg.HostedZoneNamePrivate)
+    - ApiGatewayDomainNameGlobal: *apigatewaydomainnameglobal
+    - ApiGatewayDomainNameRegional: *apigatewaydomainnameregional

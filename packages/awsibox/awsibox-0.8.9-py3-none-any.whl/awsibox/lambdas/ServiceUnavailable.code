@@ -1,0 +1,39 @@
+# vim: ft=python
+import boto3
+import os
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+RCODE = os.environ["RCode"]
+BUCKET = os.environ["Bucket"]
+PREFIX = "service-unavailable"
+
+CLIENT_S3 = boto3.client("s3")
+
+
+def lambda_handler(event, context):
+    host = event["headers"]["host"]
+    domain = host[0:host.find(".")]
+
+    key = f"{PREFIX}/{domain}/{RCODE}.html"
+    keyFile = os.path.basename(key)
+
+    logger.info(key)
+
+    download_path = f"/tmp/{keyFile}"
+
+    CLIENT_S3.download_file(BUCKET, key, download_path)
+
+    with open(download_path, "r") as f:
+        response = {
+            "statusCode": int(RCODE),
+            "statusDescription": f"{RCODE} Service Unavailable",
+            "isBase64Encoded": False,
+            "headers": {"Content-Type": "text/html; charset=utf-8"},
+        }
+
+        response["body"] = f.read()
+
+        return response

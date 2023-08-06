@@ -1,0 +1,18 @@
+global:
+  CloudFormationCustomResource:
+    - FargateSpot:
+        IBOX_ENABLED: False
+        Condition: FargateSpot
+        DependsOn: ECSServiceSpot
+        ServiceToken: ImportValue("LambdaCCRFargateSpot")
+        ServiceBaseArn: Ref(IBOX_LINKED_OBJ_NAME)
+        ServiceSpotArn: Ref("ECSServiceSpot")
+        ScalingPolicy: Ref("ApplicationAutoScalingScalingPolicyCpu")
+    - LightHouse:
+        IBOX_ENABLED: False
+        Create: 'no'
+        DependsOn: Service
+        ServiceToken: ImportValue("LambdaCCRLightHouse")
+        EnvRole: Ref("EnvRole")
+        EnvApp1Version: Ref("EnvApp1Version")
+        RepoName: getattr(cfg, "ECSTaskDefinitionBaseContainerDefinitions1ImageSuffix").split(":")[0]

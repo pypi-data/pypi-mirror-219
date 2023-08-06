@@ -1,0 +1,57 @@
+global:
+  ApplicationAutoScalingScalableTarget:
+    - ECSService:
+        IBOX_ENABLED: False
+        MaxCapacity: get_endvalue('CapacityMax')
+        MinCapacity: get_endvalue('CapacityMin')
+        ResourceId: Select(5, Split(":", Ref("Service")))
+        RoleARN: ImportValue('RoleEC2ContainerServiceAutoscale')
+        ScalableDimension: 'ecs:service:DesiredCount'
+        ServiceNamespace: ecs
+        ScheduledActions:
+          - IBOX_BASE:
+              IBOX_PARAMETER:
+                - IBOX_REFNAME.Enabled:
+                    Description: 'Empty for mapped value'
+                    AllowedValues: ['', 'yes', 'no']
+                - IBOX_REFNAME.CapacityMin:
+                    Description: 'k to keep current value - empty for mapped value'
+                - IBOX_REFNAME.CapacityMax:
+                    Description: 'k to keep current value - empty for mapped value'
+                - IBOX_REFNAME.Schedule:
+                    Description: 'empty for mapped value'
+                - IBOX_REFNAME.StartTime:
+                    Description: ''
+              IBOX_CONDITION:
+                - IBOX_REFNAME.KeepMinSize:
+                    get_condition('', 'equals', 'k', f'{IBOX_REFNAME}CapacityMin')
+                - IBOX_REFNAME.KeepMaxSize:
+                    get_condition('', 'equals', 'k', f'{IBOX_REFNAME}CapacityMax')
+                - IBOX_REFNAME.CapacityMinSize:
+                    get_condition('', 'equals', 'CapacityMin', f'{IBOX_REFNAME}CapacityMin')
+                - IBOX_REFNAME.CapacityMaxSize:
+                    get_condition('', 'equals', 'CapacityMax', f'{IBOX_REFNAME}CapacityMax')
+                - IBOX_REFNAME.Enabled:
+                    get_condition('', 'equals', 'yes', f'{IBOX_REFNAME}Enabled')
+              IBOX_OUTPUT:
+                - IBOX_REFNAME:
+                    Value: >-
+                      CapacityMin= ${ScalableTargetActionMinCapacity} ,CapacityMax= ${ScalableTargetActionMaxCapacity}
+                      ,Schedule= ${Schedule} ,StartTime= ${StartTime}
+              IBOX_IF:
+                - IBOX_REFNAME.Enabled
+                - IBOX_IFVALUE
+                - Ref('AWS::NoValue')
+              Enabled: 'yes'
+              ScalableTargetAction:
+                MinCapacity: If(f'{IBOX_REFNAME}CapacityMinSize',
+                                get_endvalue('CapacityMin'),
+                                get_endvalue(f'{IBOX_REFNAME}CapacityMin', nocondition=f'{IBOX_REFNAME}KeepMinSize'))
+                MaxCapacity: If(f'{IBOX_REFNAME}CapacityMaxSize',
+                                get_endvalue('CapacityMax'),
+                                get_endvalue(f'{IBOX_REFNAME}CapacityMax', nocondition=f'{IBOX_REFNAME}KeepMaxSize'))
+              ScheduledActionName: IBOX_REFNAME
+              StartTime: Ref('AWS::NoValue')
+        SuspendedState:
+          ScheduledScalingSuspended.IBOX_AUTO_PO: {}
+          ScheduledScalingSuspended: True

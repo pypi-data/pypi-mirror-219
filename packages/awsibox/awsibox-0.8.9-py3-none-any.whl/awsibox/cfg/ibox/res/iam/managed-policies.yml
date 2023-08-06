@@ -1,0 +1,135 @@
+SSMParameterStoreBase01: &ssm_parameter_store_base_01
+  Action:
+    - 'kms:ListAliases'
+    - 'ssm:DescribeParameters'
+  Effect: Allow
+  Resource: '*'
+SSMParameterStoreBase02: &ssm_parameter_store_base_02
+  Action:
+    - 'kms:Decrypt'
+    - 'kms:Encrypt'
+  Effect: Allow
+  Resource: ImportValue('KeyParameterStore')
+
+LogRead01: &log_read_01
+  Action:
+    - 'logs:Describe*'
+    - 'logs:Get*'
+    - 'logs:List*'
+    - 'logs:StartQuery'
+    - 'logs:StopQuery'
+    - 'logs:TestMetricFilter'
+    - 'logs:FilterLogEvents'
+  Effect: Allow
+  Resource: '*'
+
+ECRRead01: &ecr_read_01
+  Action:
+    - 'ecr:GetAuthorizationToken'
+    - 'ecr:DescribeRepositories'
+    - 'ecr:ListImages'
+  Effect: Allow
+  Resource: '*'
+
+MetricRead01: &metric_read_01
+  Action:
+    - 'cloudwatch:ListMetrics'
+    - 'cloudwatch:ListDashboards'
+    - 'cloudwatch:GetMetricData'
+    - 'cloudwatch:GetMetricStatistics'
+    - 'cloudwatch:GetDashboard'
+  Effect: Allow
+  Resource: '*'
+
+RDSRead01: &rds_read_01
+  Action:
+    - 'rds:Describe*'
+    - 'rds:ListTagsForResource'
+    - 'rds:DownloadDBLogFilePortion'
+    - 'ec2:DescribeAccountAttributes'
+    - 'ec2:DescribeAvailabilityZones'
+    - 'ec2:DescribeInternetGateways'
+    - 'ec2:DescribeSecurityGroups'
+    - 'ec2:DescribeSubnets'
+    - 'ec2:DescribeVpcAttribute'
+    - 'ec2:DescribeVpcs'
+    - 'cloudwatch:GetMetricStatistics'
+    - 'logs:DescribeLogStreams'
+    - 'logs:GetLogEvents'
+  Effect: Allow
+  Resource: '*'
+
+EC2Base01: &ec2_base_01
+  Action:
+    - 'ec2:DescribeSecurityGroups'
+    - 'ec2:DescribeSubnets'
+    - 'ec2:DescribeVpcs'
+  Effect: Allow
+  Resource: '*'
+
+
+global:
+  IAMManagedPolicy:
+    - SSMParameterStoreBase:
+        IBOX_ENABLED: False
+        Description: 'Describe all SSM Parameters and read KMS Key'
+        PolicyDocument:
+          Statement:
+            - SSMParameterStoreBase01: *ssm_parameter_store_base_01
+            - SSMParameterStoreBase02: *ssm_parameter_store_base_02
+    - LogRead:
+        IBOX_ENABLED: False
+        Description: 'Read CloudWatch Logs'
+        PolicyDocument:
+          Statement:
+            - LogRead01: *log_read_01
+    - MetricRead:
+        IBOX_ENABLED: False
+        Description: 'Read CloudWatch Metrics and DashBoard'
+        PolicyDocument:
+          Statement:
+            - MetricRead01: *metric_read_01
+    - ECRRead:
+        IBOX_ENABLED: False
+        Description: 'Read Grant to All Ecr Repos'
+        PolicyDocument:
+          Statement:
+            - ECRRead01: *ecr_read_01
+    - RDSRead:
+        IBOX_ENABLED: False
+        Description: 'AWS Managed AmazonRDSReadOnlyAccess + DownloadDBLogFilePortion'
+        PolicyDocument:
+          Statement:
+            - RDSRead01: *rds_read_01
+    - EC2Base:
+        IBOX_ENABLED: False
+        Description: 'EC2 Base policy'
+        PolicyDocument:
+          Statement:
+            - EC2Base01: *ec2_base_01
+    - Developer:
+        IBOX_ENABLED: False
+        Description: "Developer"
+        PolicyDocument:
+          Statement:
+            - SSMParameterStoreBase01: *ssm_parameter_store_base_01
+            - SSMParameterStoreBase02: *ssm_parameter_store_base_02
+            - LogRead01: *log_read_01
+            - ECRRead01: *ecr_read_01
+            - MetricRead01: *metric_read_01
+    - BackEndTechLead01:
+        IBOX_ENABLED: False
+        Description: "BackEndTechLead01"
+        PolicyDocument:
+          Statement:
+            - RDSRead01: *rds_read_01
+    - BackEndDeveloper:
+        IBOX_ENABLED: False
+        Description: "BackEndDeveloper"
+        PolicyDocument:
+          Statement: {}
+    - FrontEndDeveloper:
+        IBOX_ENABLED: False
+        Description: "FrontEndDeveloper"
+        PolicyDocument:
+          Statement: {}

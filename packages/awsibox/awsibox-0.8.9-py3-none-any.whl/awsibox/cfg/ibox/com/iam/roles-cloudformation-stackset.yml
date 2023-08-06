@@ -1,0 +1,38 @@
+global:
+  Parameter:
+    - RegionAWSCloudFormationStackSetRoles:
+        Description: 'Region where create AWSCloudFormationStackSet Roles'
+        AllowedValues: cfg.regions
+        Default: cfg.regions[0]
+  Condition:
+    - RegionAWSCloudFormationStackSetRoles:
+        Equals(Ref('RegionAWSCloudFormationStackSetRoles'), Ref('AWS::Region'))
+  IAMManagedPolicy:
+    - AssumeRoleAWSCloudFormationStackSetExecutionRole:
+        Description: 'Assume Role AWSCloudFormationStackSetExecutionRole'
+        Export: False
+        PolicyDocument:
+          Statement:
+            - 1:
+                Action: 'sts:AssumeRole'
+                Effect: Allow
+                Resource: 'arn:aws:iam::*:role/AWSCloudFormationStackSetExecutionRole'
+  IAMRole:
+    - AWSCloudFormationStackSetExecutionRole:
+        Condition: 'RegionAWSCloudFormationStackSetRoles'
+        ManagedPolicyArns:
+          - 'arn:aws:iam::aws:policy/AdministratorAccess'
+        AssumeRolePolicyDocument:
+          Statement:
+            - 1:
+                Principal**:
+                  AWS:
+                    - get_endvalue(f"{IBOX_MAPNAME}Principal")
+        Principal: GetAtt('RoleAWSCloudFormationStackSetAdministrationRole', 'Arn')
+        RoleName: 'AWSCloudFormationStackSetExecutionRole'
+    - AWSCloudFormationStackSetAdministrationRole:
+        Condition: 'RegionAWSCloudFormationStackSetRoles'
+        ManagedPolicyArns:
+          - Ref('IAMPolicyAssumeRoleAWSCloudFormationStackSetExecutionRole')
+        Principal: cloudformation.amazonaws.com
+        RoleName: 'AWSCloudFormationStackSetAdministrationRole'

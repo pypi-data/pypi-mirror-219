@@ -1,0 +1,20 @@
+IBoxLoader: !include
+  - res/ec2/securitygroups.yml
+  - res/ec2/securitygroupingresses.yml
+
+global:
+  EC2VPCEndpoint:
+    - IBOX_BASE:
+        Create: 'no'
+        RouteTableIds: [ImportValue("RouteTablePrivate")]
+        VpcId: ImportValue("VpcId")
+  EC2Subnet:
+    - IBOX_BASE:
+        IBOX_ENABLED: False
+        Condition: str(f"Zone{IBOX_LINKED_OBJ_NAME}")
+        AvailabilityZone: Sub("${AWS::Region}%s" % IBOX_LINKED_OBJ_NAME.lower())
+        VpcId: Ref("VPC")
+  EC2SubnetRouteTableAssociation:
+    - IBOX_BASE:
+        IBOX_ENABLED: False
+        Condition: str(f"Zone{IBOX_LINKED_OBJ_NAME}")
