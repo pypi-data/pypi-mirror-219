@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: NLPTextAugmentation
+Version: 1.0.0
+Summary: Text Augmentation
+Home-page: UNKNOWN
+Author: URA
+License: MIT
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: gensim (==4.3.0)
+Requires-Dist: nltk
+Requires-Dist: numpy (==1.22.0)
+Requires-Dist: openpyxl
+Requires-Dist: pandas
+Requires-Dist: pyvi
+Requires-Dist: sacremoses
+Requires-Dist: sentencepiece
+Requires-Dist: simalign
+Requires-Dist: transformers
+
+UNKNOWN
+
