@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: ames_model
+Version: 0.0.1
+Summary: Trained regression model for the ames dataset
+License: BSD-3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
+
+Trained regression model for the ames dataset

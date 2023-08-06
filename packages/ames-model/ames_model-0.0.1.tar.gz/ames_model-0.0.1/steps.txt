@@ -1,0 +1,9 @@
+1) 	
+conda env update --prune -f environment.yml
+conda activate ames
+pip install pip-tools
+pip-compile pip-compile requirements/dev.in  && pip-compile requirements/tool.in
+pip-sync requirements/dev.txt
+
+2) 
+python setup.py install --user
