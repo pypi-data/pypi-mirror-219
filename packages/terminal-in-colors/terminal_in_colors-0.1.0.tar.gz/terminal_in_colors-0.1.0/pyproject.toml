@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "terminal-in-colors"
+version = "0.1.0"
+description = "Your terminal in colors :D"
+authors = ["kurotom <55354389+kurotom@users.noreply.github.com>"]
+license = "LGPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/kurotom/terminal-in-colors.git"
+documentation = "https://kurotom.github.io/terminal_in_colors/"
+keywords = ["colors", "terminal", "color", "console"]
+packages = [{include = "terminal_in_colors"}]
+exclude = ["docs/", "tests/", "dist/", "site"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+mkdocstrings-python = "^1.1.2"
+mkdocs-material = "^9.1.18"
+mkdocstrings = "^0.22.0"
+mkdocs = "^1.4.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/kurotom/terminal-in-colors/issues"
