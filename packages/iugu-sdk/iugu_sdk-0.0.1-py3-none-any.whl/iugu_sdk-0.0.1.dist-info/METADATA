@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: iugu-sdk
+Version: 0.0.1
+Summary: Unofficial package to interface with IUGU payment API 
+Author-email: Gabriel Niziolek <ganiziolek@gmail.com>
+Project-URL: Homepage, https://github.com/GaNiziolek/iugu-sdk
+Project-URL: Bug Tracker, https://github.com/GaNiziolek/iugu-sdk/issues
+Keywords: iugu,sdk,payment
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (>=2.31)
+Provides-Extra: dev
+Requires-Dist: python-dotenv (>=0.21.0) ; extra == 'dev'
+Requires-Dist: pytest-dotenv (>=0.5.2) ; extra == 'dev'
+Requires-Dist: pylint (>=2.17.4) ; extra == 'dev'
+
+# iugu-sdk
+Package to interface with IUGU payment API
