@@ -1,0 +1,15 @@
+peerdid/__init__.py,sha256=hlS2b81t-DpkkOaPTuscZO4FLsD03uZ1ejdCwigUgUM,233
+peerdid/dids.py,sha256=Pd2F0s25QWBtOxp1sphP8FYL9OpuzO5iawpg12RCGaY,7187
+peerdid/errors.py,sha256=k9DlDwEllMiBRcU5xaSrfHjFp7SwJv2NWBPYjKgIUr0,330
+peerdid/keys.py,sha256=Ox6ZXA1w9dj_DCH9BVSHtw-BhGya7LODEqst7iNQonc,8193
+peerdid/core/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+peerdid/core/jwk_okp.py,sha256=U8oQN_BBDFo5Rhbug2rKB-y-IZ9iEgFTxfBElJixuP0,1488
+peerdid/core/multibase.py,sha256=8Q8P6AATraU4Ft6LeR0mDk10_gRWnKg5OXH6UuN7hKk,1405
+peerdid/core/multicodec.py,sha256=aps4Vu20urDCo2P5ahgSKTzejpqL4-XDTEqYze9KttI,1059
+peerdid/core/peer_did_helper.py,sha256=LtknM8ksOREdhXiBl45U53SZ7S9hQIKsDI6w1eyNoGw,4990
+peerdid/core/utils.py,sha256=Lo9GMqYJ4E9fR3opaV_Uv5iqESMYetL2eYiLi-Fji8g,912
+peerdid-0.5.2.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+peerdid-0.5.2.dist-info/METADATA,sha256=ZaZbDwv36Klu8K97Cn6dDQTKPlWDv401A3g5sDJEzpM,7017
+peerdid-0.5.2.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+peerdid-0.5.2.dist-info/top_level.txt,sha256=Hw50n89NLtJ0crhBdDzI3mW4wo0J9t9OKr95KlAiygQ,8
+peerdid-0.5.2.dist-info/RECORD,,
