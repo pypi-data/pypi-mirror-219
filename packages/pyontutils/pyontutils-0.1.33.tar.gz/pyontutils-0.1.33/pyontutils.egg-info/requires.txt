@@ -1,0 +1,34 @@
+augpathlib>=0.0.23
+colorlog
+docopt
+gitpython
+google-api-python-client
+google-auth-oauthlib
+htmlfn
+idlib>=0.0.1.dev14
+joblib>=1.1.0
+lxml
+nest_asyncio
+ontquery>=0.2.11
+orthauth[sxpr]>=0.0.16
+pyld
+pyyaml
+requests
+terminaltables
+ttlser>=1.1.4
+
+[:python_version < "3.7"]
+ipython
+
+[:python_version >= "3.8"]
+funowl
+
+[dev]
+pytest-cov
+wheel
+
+[spell]
+hunspell
+
+[test]
+pytest
