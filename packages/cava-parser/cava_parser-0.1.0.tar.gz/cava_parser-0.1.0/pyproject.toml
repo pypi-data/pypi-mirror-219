@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "cava-parser"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "cava_parser"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+transformers = "^4.30.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
