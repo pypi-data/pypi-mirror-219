@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "render-thumbnail"
+version = "0.1.6"
+description = "same"
+authors = ["vaibhavblayer <vaibhavblayer@gmail.com>"]
+readme = "README.md"
+packages = [{include = "render_thumbnail"}]
+
+
+[tool.poetry.scripts]
+render-thumbnail = "render_thumbnail.main:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
