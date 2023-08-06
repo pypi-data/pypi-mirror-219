@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: ebook-converter-noimage
+Version: 4.12.2
+Summary: Convert ebook between different formats
+Home-page: https://github.com/gryf/ebook-converter
+Author: gryf
+Author-email: gryf73@gmail.com
+License: GPL3
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+ # ebook-converter
+This is a published wheel for the 3-year-unmaintained [ebook-converter](https://github.com/gryf/ebook-converter) project, developed by gryf.
+
+I (152334H) am merely publishing this wheel to PyPI so that I can use it in my own projects. It has a very slight modification: a hardcoded statement to ignore all images in all files. I was not responsible for 99.99% of the code present in the package.
+    
