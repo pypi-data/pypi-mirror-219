@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "setuptools>=61.2",
+    "setuptools_scm[toml]>=3.4.3",
+    "construct>=2.10.0",
+    "inflection>=0.5.1",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "retro-data-structures"
+description = "Construct file definitions for the Retro Studios game engine files"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "construct>=2.10.0",
+    "lzokay",
+    "nod>=1.7.0",
+    "typing-extensions>=4.0.0"
+]
+dynamic = ["version"]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.urls]
+Homepage = "https://github.com/randovania/retro-data-structures"
+
+[tool.setuptools_scm]
+local_scheme = "no-local-version"
+write_to = "src/retro_data_structures/version.py"
+git_describe_command = "git describe --dirty --tags --long --match v[0-9]*"
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "W", "C90", "I", "UP"]
+src = ["src"]
+
+# Version to target for generated code.
+target-version = "py310"
+
+[tool.ruff.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds 25.
+# Defaults to 10, but we're being very flexible right now
+max-complexity = 25
