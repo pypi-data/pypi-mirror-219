@@ -1,0 +1,78 @@
+# Relation Embeddings.
+import torch
+import pickle
+import pandas as pd
+
+model=torch.load('model.pt')
+
+with open('relation_to_idx.p', 'rb') as f:
+	relation_to_idx = pickle.load(f)
+df_rel_emb=pd.DataFrame(data=model['relation_embeddings.weight'].detach().numpy(),index=relation_to_idx.keys())
+df_rel_emb.columns = df_rel_emb.columns.astype(str)
+df_rel_emb.to_parquet('relation_embeddings_parquet',compression='gzip',index=True)
+
+
+
+# Entities Embeddings.
+import torch
+import pickle
+model=torch.load('model.pt')
+with open('entity_to_idx.p', 'rb') as f:
+	entity_to_idx = pickle.load(f)
+df_ent_emb=pd.DataFrame(data=model['entity_embeddings.weight'].detach().numpy(),index=entity_to_idx.keys())
+df_ent_emb.columns = df_ent_emb.columns.astype(str)
+df_ent_emb.to_parquet('entity_embeddings_parquet',compression='gzip',index=True)
+
+
+
+
+
+with open('relation_to_idx.p', 'rb') as f:
+	relation_to_idx = pickle.load(f)
+
+
+df=pd.DataFrame(data=model['relation_embeddings.weight'].detach().numpy(),index=relation_to_idx.keys())
+df.columns = df.columns.astype(str)
+df.head()
+
+todos_large_scale.txt
+
+>>> df
+shape: (1284230713, 3)
+┌─────────────────────────────────────┬─────────────────────────────────────┬─────────────────────────────────────┐
+│ subject                             ┆ relation                            ┆ object                              │
+│ ---                                 ┆ ---                                 ┆ ---                                 │
+│ str                                 ┆ str                                 ┆ str                                 │
+╞═════════════════════════════════════╪═════════════════════════════════════╪═════════════════════════════════════╡
+│ <http://embedding.cc/resource/Be... ┆ <http://embedding.cc/prop/direct... ┆ <http://embedding.cc/resource/Ba... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/resource/Be... ┆ <http://embedding.cc/prop/direct... ┆ <http://embedding.cc/entity/Q324... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/resource/Be... ┆ <http://embedding.cc/prop/direct... ┆ <http://embedding.cc/resource/Un... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/resource/Be... ┆ <http://embedding.cc/prop/direct... ┆ <http://embedding.cc/resource/Ou... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ ...                                 ┆ ...                                 ┆ ...                                 │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/ontology/\u... ┆ <http://www.w3.org/1999/02/22-rd... ┆ <http://www.w3.org/2002/07/owl#D... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/ontology/\u... ┆ <http://www.w3.org/2000/01/rdf-s... ┆ <http://embedding.cc/ontology/\u... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/ontology/\u... ┆ <http://www.w3.org/2000/01/rdf-s... ┆ <http://embedding.cc/datatype/me... │
+├╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┼╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌┤
+│ <http://embedding.cc/ontology/On... ┆ <http://www.w3.org/1999/02/22-rd... ┆ <http://www.w3.org/2002/07/owl#D... │
+└─────────────────────────────────────┴─────────────────────────────────────┴─────────────────────────────────────┘
+>>> print(f"NumTriple: {len(df)} GB: {df.estimated_size(unit='gb')} | NumEntity: {len(entity_to_idx)} GB: {entity_to_idx.estimated_size(unit='gb')} | NumRelation:{len(relation_to_idx)} GB:{relation_to_idx.estimated_size(unit='gb')}")
+NumTriple: 1284230713 GB: 189.68938031513244 | NumEntity: 179706494 GB: 9.943092533387244 | NumRelation:15219 GB:0.0007020123302936554
+
+50_000_000
+
+EntityPrediction,RelationPrediction
+1000 000
+
+# represent dictionary
+
+
+print(f'Estimated size of relation_to_idx in Python dict:{sys.getsizeof(dict(zip(entity_to_idx.to_list(), list(range(len(entity_to_idx)))))) / 1000000 :.5f} in MB')
+
+
