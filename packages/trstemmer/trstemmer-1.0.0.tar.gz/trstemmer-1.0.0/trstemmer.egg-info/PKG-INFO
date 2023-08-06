@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: trstemmer
+Version: 1.0.0
+Summary: A simple Turkish stemmer
+Author: Mehmet Utku OZTURK
+Author-email: <contact@ælphard.tk>
+Keywords: stemmer,machine learning,nlp
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: Turkish
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >3.9.13
+Description-Content-Type: text/markdown
+
+trstemmer is a simple Turkish word stemmer which is still in development (for now, it can only stem verbs and may not be accurate.). You should download Turkish NLP model (`pip install https://huggingface.co/turkish-nlp-suite/tr_core_news_lg/resolve/main/tr_core_news_lg-any-py3-none-any.whl`) before using the library. You can use the library as following:
+```
+from trstemmer import turkish
+stemmer = turkish.stemmer()
+result = stemmer.stem("seviyorum, yapmÄ±ÅŸÄ±m, koÅŸarlar, yemiÅŸsin")
+print(f"Result: {result}")
+>>> Result: sev yap koÅŸ ye
+```
