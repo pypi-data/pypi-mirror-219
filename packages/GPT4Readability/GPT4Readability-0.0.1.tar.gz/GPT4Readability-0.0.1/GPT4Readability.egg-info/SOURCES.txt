@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+GPT4Readability/__init__.py
+GPT4Readability/__main__.py
+GPT4Readability/readme_gen.py
+GPT4Readability/suggestions_gen.py
+GPT4Readability/utils.py
+GPT4Readability.egg-info/PKG-INFO
+GPT4Readability.egg-info/SOURCES.txt
+GPT4Readability.egg-info/dependency_links.txt
+GPT4Readability.egg-info/entry_points.txt
+GPT4Readability.egg-info/requires.txt
+GPT4Readability.egg-info/top_level.txt
