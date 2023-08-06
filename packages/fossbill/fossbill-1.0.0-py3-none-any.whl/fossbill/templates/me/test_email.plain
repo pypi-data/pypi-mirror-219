@@ -1,0 +1,7 @@
+{% trans %}
+Hey there!
+
+This is a test message from Fossbill!
+
+Do you copy?
+{% endtrans %}

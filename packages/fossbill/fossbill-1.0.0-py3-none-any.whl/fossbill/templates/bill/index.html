@@ -1,0 +1,126 @@
+{% from 'macros.html' import paginate %}
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Bills{% endtrans %}{% endblock %}</h1>
+  <a class="action" href="{{ url_for('bill.create') }}">{% trans %}New{% endtrans %}</a>
+{% endblock %}
+
+{% block content %}
+  <label for="filter-hidder">{% trans %}Show filters{% endtrans %}</label>
+  <input type="checkbox" id="filter-hidder" class="hidder" {% if filtered %}checked{% endif %}>
+  <form class="filters">
+    <div class="flex-align">
+      <div class="form">
+        <label for="quote_number__eq">{% trans %}Quote number{% endtrans %}</label>
+        <input name="quote_number__eq" id="quote_number__eq" type="number" min="0" step="1" {% if filtered %}autofocus{% endif %}
+          value="{{ request.args.get('quote_number__eq', '') }}">
+        <label for="bill_number__eq">{% trans %}Bill number{% endtrans %}</label>
+        <input name="bill_number__eq" id="bill_number__eq" type="number" min="0" step="1"
+          value="{{ request.args.get('bill_number__eq', '') }}">
+        <div class="flex-align">
+          <div class="form">
+            <label for="created_at__date__ge">{% trans %}Created after{% endtrans %}</label>
+            <input name="created_at__date__ge" id="created_at__date__ge" type="date"
+              value="{{ request.args.get('created_at__date__ge', '') }}">
+          </div>
+          <div class="form">
+            <label for="created_at__date__le">{% trans %}Created before{% endtrans %}</label>
+            <input name="created_at__date__le" id="created_at__date__le" type="date"
+              value="{{ request.args.get('created_at__date__le', '') }}">
+          </div>
+        </div>
+        <div class="flex-align">
+          <div class="form">
+            <label for="amount__price__ge">{% trans %}Amount greater than{% endtrans %}</label>
+            <input name="amount__price__ge" id="amount__price__ge"
+              value="{{ request.args.get('amount__price__ge', '') }}">
+          </div>
+          <div class="form">
+            <label for="amount__price__le">{% trans %}Amount lower than{% endtrans %}</label>
+            <input name="amount__price__le" id="amount__price__le"
+              value="{{ request.args.get('amount__price__le', '') }}">
+          </div>
+        </div>
+      </div>
+
+      <div class="form">
+        <label for="recipient__ilike">{% trans %}Recipient{% endtrans %}</label>
+        <input name="recipient__ilike" id="recipient__ilike"
+          value="{{ request.args.get('recipient__ilike', '') }}">
+        <label for="1__select_custom">{% trans %}Type{% endtrans %}</label>
+        <select name="1__select_custom" id="1__select_custom" multiple>
+          <option value="bill_number__null__and__quote_number__null" {{ "selected" if ("bill_number__null__and__quote_number__null" in request.args.getlist('1__select_custom')) }}>{% trans %}Draft{% endtrans %}</option>
+          <option value="bill_number__not_null" {{ "selected" if ("bill_number__not_null" in request.args.getlist('1__select_custom')) }}>{% trans %}Bill{% endtrans %}</option>
+          <option value="quote_number__not_null" {{ "selected" if ("quote_number__not_null" in request.args.getlist('1__select_custom')) }}>{% trans %}Quote{% endtrans %}</option>
+        </select>
+        <label for="paid__eq">{% trans %}Is paid?{% endtrans %}</label>
+        <select name="paid__eq" id="paid__eq">
+          <option value="">{% trans %}Choose an option{% endtrans %}</option>
+          <option value="TRUE" {{ "selected" if ("TRUE" == request.args.get('paid__eq')) }}>{% trans %}Yes{% endtrans %}</option>
+          <option value="FALSE" {{ "selected" if ("FALSE" == request.args.get('paid__eq')) }}>{% trans %}No{% endtrans %}</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions">
+      <input type="submit" value="{% trans %}Filter{% endtrans %}">
+      <a href="{{ url_for(".index") }}">{% trans %}Reset{% endtrans %}</a>
+    </div>
+  </form>
+  <div class="table-cap">
+    <table class="index">
+      <thead>
+        <tr>
+          <th>{% trans %}Quote number{% endtrans %}</th>
+          <th>{% trans %}Bill number{% endtrans %}</th>
+          <th>{% trans %}Created at{% endtrans %}</th>
+          <th>{% trans %}Amount{% endtrans %}</th>
+          <th>{% trans %}Recipient{% endtrans %}</th>
+          <th>{% trans %}Action{% endtrans %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bill in bills %}
+          <tr>
+            <td>
+              {% if None != bill.quote_number %}
+                {% trans quotenumber=bill.quote_number %}Quote #{{ quotenumber }}{% endtrans %}
+              {% endif %}
+            </td>
+            <td>
+              {% if None != bill.bill_number %}
+                {% trans billnumber=bill.bill_number %}Bill #{{ billnumber }}{% endtrans %}
+              {% endif %}
+            </td>
+            <td>{{ bill.created_at.strftime("%Y-%m-%d") }}</td>
+            <td>{{ (bill.amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+            <td>{{ bill.recipient }}</td>
+            <td class="actions">
+              <a href="{{ url_for('bill.update', id=bill.id) }}">{% trans %}Edit{% endtrans %}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="table-cap">
+    <table class="summary">
+      <thead>
+        <tr>
+          <th>{% trans %}Count{% endtrans %}</th>
+          <th>{% trans %}Gross amount{% endtrans %}</th>
+          <th>{% trans %}Tax amount{% endtrans %}</th>
+          <th>{% trans %}Amount{% endtrans %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <td>{{ stats.count }}</td>
+        <td>{{ (stats.gross_amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+        <td>{{ (stats.tax_amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+        <td>{{ (stats.amount / 100) | round(2, 'floor') }} {{ g.user_pref.currency or "" }}</td>
+      </tbody>
+    </table>
+  </div>
+  {{ paginate(pagination) if pagination.max > 1 }}
+{% endblock %}

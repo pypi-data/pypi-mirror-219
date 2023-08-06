@@ -1,0 +1,71 @@
+{% extends 'bill/update.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans quotenumber=bill.quote_number %}Quote #{{ quotenumber }}{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block left_panel %}
+  <label for="customer_id">{% trans %}Customer{% endtrans %}</label>
+  <select name="customer_id" id="customer_id" disabled>
+    <option value="">{% trans %}Empty{% endtrans %}</option>
+    {% for customer in customers %}
+      <option value="{{ customer.id }}" {{ "selected" if bill.customer_id == customer.id }}>{{ customer.label }}</option>
+    {% endfor %}
+  </select>
+
+  <label for="recipient">{% trans %}Recipient{% endtrans %}</label>
+  <textarea name="recipient" id="recipient" rows="6" disabled>{{ request.form['recipient'] or bill.recipient or '' }}</textarea>
+
+  <label for="source">{% trans %}Source{% endtrans %}</label>
+  <textarea name="source" id="source" rows="6" disabled>{{ request.form['source'] or bill.source or '' }}</textarea>
+{% endblock %}
+
+{% block mention_panel %}
+  <label for="quote_mentions">{% trans %}Quote mentions{% endtrans %}</label>
+  <textarea name="quote_mentions" id="quote_mentions" rows="5" disabled>{{ bill.quote_mentions or '' }}</textarea>
+  <label for="bill_mentions">{% trans %}Bill mentions{% endtrans %}</label>
+  <textarea name="bill_mentions" id="bill_mentions" rows="5">{{ bill.bill_mentions or '' }}</textarea>
+{% endblock %}
+
+{% block bill_row_panel %}
+  <div class="table-cap">
+    <table class="index">
+      <thead>
+        <tr>
+          <th>{% trans %}Label{% endtrans %}</th>
+          <th>{% trans %}Price{% endtrans %}</th>
+          <th>{% trans %}Qty{% endtrans %}</th>
+          <th>{% trans %}Amount{% endtrans %}</th>
+          <th>{% trans %}Tax{% endtrans %}</th>
+          <th>{% trans %}Total{% endtrans %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for bill_row in bill_rows %}
+          <tr>
+            <td id="bill_row_{{ bill_row.id }}">{{ bill_row.label }}</td>
+            <td>{{ bill_row.price/100 }}</td>
+            <td>{{ bill_row.quantity }}</td>
+            <td>{{ (bill_row.gross_amount / 100) | round(2, 'floor') }}</td>
+            <td>{{ bill_row.tax_rate }} %</td>
+            <td>{{ ((bill_row.gross_amount + bill_row.tax_amount) / 100) | round(2, 'floor') }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+      <tfoot>
+        <td colspan="3"></td>
+        <td>{{ (bill.gross_amount / 100) | round(2, 'floor') }}</td>
+        <td>{{ (bill.tax_amount / 100) | round(2, 'floor') }}</td>
+        <td>{{ (bill.amount / 100) | round(2, 'floor') }}</td>
+      </tfoot>
+    </table>
+  </div>
+{% endblock %}
+
+{% block actions %}
+  <div class="actions">
+    <a href="{{ url_for('bill.view_quote_pdf', id=bill['id']) }}">{% trans %}View quote{% endtrans %}</a>
+    <a href="{{ url_for('bill.send_quote_email', id=bill['id']) }}">{% trans %}Send quote email{% endtrans %}</a>
+    <a href="{{ url_for('bill.finish', id=bill['id']) }}">{% trans %}Finish quote{% endtrans %}</a>
+  </div>
+{% endblock %}

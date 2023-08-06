@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% trans invoiceid=payment.id %}Invoice #{{ invoiceid }}{% endtrans %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bill.css') }}">
+  </head>
+  <body>
+    <div class="persons">
+      <pre><b>{% trans %}From{% endtrans %}</b>
+{{ config.get('PAYMENT_SOURCE') }}</pre>
+      <pre><b>{% trans %}To{% endtrans %}</b>
+{{ g.user_pref.source or '' }}</pre>
+    </div>
+    <hr>
+    <p>
+      <b>{% trans invoiceid=payment.id %}Invoice #{{ invoiceid }}{% endtrans %}</b><br>
+      {% trans date=payment.date.strftime("%Y-%m-%d") %}Issued {{ date }}{% endtrans %}
+    </p>
+    <p>
+      <b>{% trans %}Details{% endtrans %}</b><br>
+      {% trans %}fossbill.org subscription fee {% endtrans %}
+    </p>
+    <p>
+      <b>{% trans %}Amount{% endtrans %}</b><br>
+      {{ (payment.amount / 100) | round(2, 'floor') }} {{ payment.currency or "" }}
+    </p>
+    <p>
+      <b>{% trans %}Paid with{% endtrans %}</b><br>
+      {% trans cardbrand=payment.card_brand, last4=payment.card_last4 %}{{ cardbrand }} ending with {{ last4 }}{% endtrans %}
+    </p>
+    <p>
+      <b>{% trans %}Paid on{% endtrans %}</b><br>
+      {{ payment.date }}
+    </p>
+    <p>
+      <b>{% trans %}Valid for service through{% endtrans %}</b><br>
+      {{ payment.valid_for_service_thru }}
+    </p>
+  </body>
+</html>

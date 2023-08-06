@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>
+    {% if bill.quote_number %}
+      {% trans %}Finish quote{% endtrans %}
+    {% else %}
+      {% trans %}Finish draft{% endtrans %}
+    {% endif %}
+  </h1>
+{% endblock %}
+
+{% block content %}
+  <div class="flex-align">
+    <div>
+      <p>
+        {% if bill.quote_number %}
+          {% trans %}The quote already has been generated.{% endtrans %}
+        {% else %}
+          {% trans %}Create a quote first, then create a bill later.{% endtrans %}
+        {% endif %}
+      </p>
+      <form action="{{ url_for('bill.create_quote', id=bill['id']) }}" method="post">
+        <input type="submit" value="{% trans %}Create quote{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');"
+          {% if bill.quote_number %}disabled{% endif %}
+          >
+        {{ csrf_token()|safe }}
+      </form>
+    </div>
+    <div>
+      <p>
+        {% if bill.quote_number %}
+          {% trans %}Create the bill.{% endtrans %}
+        {% else %}
+          {% trans %}Create a bill now, but you can't create a quote later.{% endtrans %}
+        {% endif %}
+      </p>
+      <form action="{{ url_for('bill.create_bill', id=bill['id']) }}" method="post">
+        <input type="submit" value="{% trans %}Create bill{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+    </div>
+  </div>
+  <a href="{{ url_for('bill.update', id=bill['id'], _anchor="bill_rows") }}">{% trans %}Return{% endtrans %}</a>
+{% endblock %}

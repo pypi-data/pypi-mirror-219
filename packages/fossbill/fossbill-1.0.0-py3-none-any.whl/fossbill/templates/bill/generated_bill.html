@@ -1,0 +1,24 @@
+{% extends 'bill/generated_quote.html' %}
+
+{% block title %}{% trans billnumber=bill.bill_number %}Bill #{{ billnumber }}{% endtrans %}{% endblock %}
+
+{% block identifier %}
+  <div class="persons">
+    <pre><b>{% trans %}From{% endtrans %}</b>
+{{ bill.source }}</pre>
+    <pre><b>{% trans %}To{% endtrans %}</b>
+{{ bill.recipient }}</pre>
+  </div>
+  <p>
+    <b>{% trans billnumber = bill.bill_number %}Bill #{{ billnumber }}{% endtrans %}</b><br>
+    {% trans date=(bill.created_at or bill.bill_date).strftime("%Y-%m-%d") %}Generated {{ date }}{% endtrans %}<br>
+    {% if bill.quote_number %}
+      <b>{% trans quotenumber=bill.quote_number %}From quote #{{ quotenumber }}{% endtrans %}</b><br>
+      {% trans date=(bill.created_at or bill.quote_date).strftime("%Y-%m-%d") %}Generated {{ date }}{% endtrans %}
+    {% endif %}
+  </p>
+{% endblock %}
+
+{% block mentions %}
+  <p>{{ (bill.bill_mentions or '')|safe }}</p>
+{% endblock %}
