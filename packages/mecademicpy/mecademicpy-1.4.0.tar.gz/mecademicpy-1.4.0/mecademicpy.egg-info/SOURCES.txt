@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+mecademicpy/__init__.py
+mecademicpy/_robot_base.py
+mecademicpy/_robot_trajectory_logger.py
+mecademicpy/mx_robot_def.py
+mecademicpy/mx_robot_def_legacy.py
+mecademicpy/robot.py
+mecademicpy/robot_classes.py
+mecademicpy/robot_trajectory_files.py
+mecademicpy/tools.py
+mecademicpy.egg-info/PKG-INFO
+mecademicpy.egg-info/SOURCES.txt
+mecademicpy.egg-info/dependency_links.txt
+mecademicpy.egg-info/requires.txt
+mecademicpy.egg-info/top_level.txt
