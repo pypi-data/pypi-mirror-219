@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rice-manager
+Version: 1.1.2
+Summary: GTK3 Dotfile Management Tool for Linux Rices
+Home-page: https://github.com/narmis-e/rice-manager
+Author: narmis
+Author-email: narmisecurb@gmail.com
+License: GPLv3
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Desktop Environment
+Classifier: Topic :: Utilities
+License-File: LICENSE
