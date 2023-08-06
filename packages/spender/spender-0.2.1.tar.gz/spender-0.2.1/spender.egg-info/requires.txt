@@ -1,0 +1,8 @@
+torch
+numpy
+accelerate
+torchinterp1d
+astropy
+humanize
+psutil
+GPUtil
