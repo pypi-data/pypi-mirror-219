@@ -1,0 +1,88 @@
+[project]
+authors = [
+  { name = "m9810223", email = "m9810223@gmail.com" },
+]
+name = "pydantic-loggings"
+readme = "README.md"
+requires-python = ">=3.9"
+version = "1.0.0"
+
+classifiers = [
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Typing :: Typed",
+  "Framework :: Pydantic",
+  "Framework :: Pydantic :: 2",
+  "Environment :: Console",
+]
+
+dependencies = [
+  "pydantic>=2.0",
+  "pydantic-settings>=2.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/m9810223/pydantic-logging-settings"
+Source = "https://github.com/m9810223/pydantic-logging-settings"
+
+[tool.semantic_release]
+# https://python-semantic-release.readthedocs.io/en/latest/configuration.html
+build_command = "pip install pdm && pdm build"
+# upload_to_repository = false
+version_toml = "pyproject.toml:project.version"
+
+[tool.pdm.scripts]
+debug = { composite = ["dev"], env = { DEBUG = '1' } }
+dev = "python dev.py"
+
+[tool.pdm.dev-dependencies]
+dev = [
+  "pytest>=7.4.0",
+  "pyright>=1.1.316",
+  "pytest-cov>=4.1.0",
+  "hypothesis>=6.80.0",
+  "pytest-xdist>=3.3.1",
+  "pytest-mock>=3.11.1",
+  "rich>=13.4.2",
+]
+[tool.black] # https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html
+skip-string-normalization = 1
+
+[tool.ruff]
+extend-select = [
+  "W", # pycodestyle Warning
+  "I", # isort
+  "N", # pep8-naming
+  "S", # flake8-bandit
+  "PTH", # flake8-use-pathlib
+  "PGH", # pygrep-hooks
+  "TRY", # tryceratops
+]
+ignore = [
+  "E501", # line-too-long
+  "S101", # Use of `assert` detected
+  "TRY003", # raise-vanilla-args  # "TRY400", # error-instead-of-exception
+]
+
+# upload_to_repository
+[tool.ruff.isort]
+# https://beta.ruff.rs/docs/settings/#isort
+force-single-line = true
+lines-after-imports = 2
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+# https://docs.pytest.org/en/stable/reference/reference.html
+# https://docs.pytest.org/en/stable/explanation/goodpractices.html
+# https://docs.pytest.org/en/stable/example/pythoncollection.html
+addopts = "--exitfirst --failed-first -r fEsxXp --disable-warnings --showlocals --tb=short --cov=src --cov-report=term --cov-report=html:./htmlcov"
+
+# https://coverage.readthedocs.io/en/stable/config.html
+[tool.coverage.run]
+omit = ["__init__.py"]
