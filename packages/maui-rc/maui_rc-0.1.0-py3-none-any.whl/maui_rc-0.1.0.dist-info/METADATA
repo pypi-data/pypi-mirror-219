@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: maui-rc
+Version: 0.1.0
+Summary: Wrapper for controlling Teledyne-Lecroy Maui oscilloscopes.
+Author: Kristofer Karam
+Author-email: karamrkristofer@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: black (>=23.7.0,<24.0.0)
+Requires-Dist: ieee754 (>=0.2,<0.3)
+Requires-Dist: numpy (>=1.25.1,<2.0.0)
+Requires-Dist: psutil (>=5.9.5,<6.0.0)
+Requires-Dist: pytest (>=7.4.0,<8.0.0)
+Requires-Dist: pyusb (>=1.2.1,<2.0.0)
+Requires-Dist: pyvicp (>=1.1.0,<2.0.0)
+Requires-Dist: pyvisa (>=1.13.0,<2.0.0)
+Requires-Dist: pyvisa-py (>=0.7.0,<0.8.0)
+Requires-Dist: zeroconf (>=0.71.0,<0.72.0)
+Description-Content-Type: text/markdown
+
+# MAUI Remote Control
+
+A simple wrapper around PyVISA using the pure Python PyVISA-PY and PyVICP backends. Thus, this package can on any device Python can run on... unlike most drivers from the manufacturer that only work on Windows.
+
+This project is really limited to setting setups, setting acquisition parameters and arming an acquisition. Transfering and parsing waveform data.
+
+# TODO
+
+- [ ] Document, document, document...
