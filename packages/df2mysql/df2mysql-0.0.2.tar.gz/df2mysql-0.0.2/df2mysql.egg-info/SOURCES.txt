@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+df2mysql/__init__.py
+df2mysql/database.py
+df2mysql.egg-info/PKG-INFO
+df2mysql.egg-info/SOURCES.txt
+df2mysql.egg-info/dependency_links.txt
+df2mysql.egg-info/not-zip-safe
+df2mysql.egg-info/requires.txt
+df2mysql.egg-info/top_level.txt
