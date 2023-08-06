@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: clashbyte
+Version: 0.0.1
+Home-page: https://github.com/QIN2DIM/hcaptcha-challenger
+Author: QIN2DIM
+Author-email: yaoqinse@gmail.com
+License: MIT
+Keywords: clashbyte,clash,clash-meta,clashapi
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: test
+License-File: LICENSE
+
+# ClashByte
+Clash &amp; Clash.Meta 外部控制的 Python 实现
