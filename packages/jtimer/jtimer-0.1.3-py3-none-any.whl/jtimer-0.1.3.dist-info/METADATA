@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: jtimer
+Version: 0.1.3
+Summary: John's Timer - desktop app for tracking time
+License: GNU GENERAL PUBLIC LICENSE V3
+Keywords: productivity
+Author: John Watson
+Author-email: jmwdev@pm.me
+Maintainer: John Watson
+Maintainer-email: jmwdev@pm.me
+Requires-Python: >=3.10.6,<4.0.0
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: PyQt6 (>=6.5.1,<7.0.0)
+Description-Content-Type: text/markdown
+
+# Timer App
+
+DEVELOPMENT IN PROGRESS
+
+Dissatisfied with the selection of timer applications available in linux, I built my own.  It maintains a simple local db in /tmp
+
+The application is fairly simple:
+    * user can specify a list of different timers.
+    * timers can be renamed.
+    * timers can be started / stopped concurrently.
+    * on startup the timers will resume the count from the last start.
+    * timers should not cross over days. automatic stop times at 23:59:59 for forgotten timers.
+    * daily statistics view
+
+
+
+## Installation
+```bash
+pip install jtimer  # not timer
+```
+
+## Usage
+```bash
+jtimer
+```
+
+## Planned Future developments
+
+* timer linked triggers
+* timer event view

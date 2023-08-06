@@ -1,0 +1,4 @@
+[console_scripts]
+jtimer=jtimer.main:start
+packages=[{'include':'jtimer'},{'include':'schema.sql'}]
+
