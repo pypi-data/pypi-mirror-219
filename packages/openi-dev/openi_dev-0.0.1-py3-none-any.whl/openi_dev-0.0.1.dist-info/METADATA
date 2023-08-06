@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: openi-dev
+Version: 0.0.1
+Summary: A test packages for openi pypi
+Home-page: https://openi.pcl.ac.cn/OpenIOSSG/openi-pypi
+Author: chenzh05
+Author-email: chenzh.ds@outlook.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: tqdm
+
+# This is a dev branch for OpenI PyPi
+
+开发分支
+
+## v1
+- [x] dataset upload
+- [x] settings module
+- [x] logger module
+
+## v2
+- [x] login module, token path
+ 
+- [x] cli module: command line implementation
+ 
+- [x] dataset module, dataset download, uploads
+
+- [ ] model module
+
+- [ ] aitask module
+
+- [x] apis module
+
+- [ ] tqdm moudule
+
+
+
