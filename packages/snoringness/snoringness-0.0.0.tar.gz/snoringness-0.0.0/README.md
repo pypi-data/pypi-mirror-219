@@ -1,0 +1,69 @@
+# About Snoringness
+
+### What is Snoringness?
+
+Snoringness is a troll module that YOU can use to troll your friends, family, and others! Snoringness contains several functions that might **SEEM** promising but just give *ridiculously* **long** and **boring** paragraphes, and return values.
+
+
+### Who made Snoringness?
+
+Snoringness is a module made by **PyModuleDev** to troll other people.
+
+
+### License
+
+We use the Apache License 2.0 to protect our rights.
+
+**You CAN:**
+
+1. Use this module however you like.
+2. Distribute this module with notice of author.
+
+**You CANNOT:**
+
+1. Make changes to this module **THEN** distribute it. In other words, only the versions by the author can be shared.(You **CAN** make modifications, but it can't be public.)
+
+Please note that this is not a 100% accurate definition of the Apache 2.0 License, and if you see any errors in the Licensing or any other areas, email me at pxcom@mail.com
+
+
+# Functions
+
+##### snoringness.browser()
+
+Returns an avalanche of absolutely absurd and useless info about your browser.
+
+
+##### snoringness.system()
+
+Returns an avalanche of useless system information.
+
+
+
+##### snoringness.random()
+
+Returns an insipidly arbitrary piece of information.
+
+
+##### snoringness.python()
+
+Returns useless information about your Python.
+
+
+##### snoringness.fact()
+
+Returns a random boring fact.
+
+
+##### snoringness.directory()
+
+Returns the excessively precise path of the current working directory.
+
+
+##### snoringness.pi()
+
+Returns a absurd and ridiculous amount of digits in pi.
+
+
+##### snoringness.timestamp()
+
+Returns the current timestamp with an overwhelmingly high level of precision.
