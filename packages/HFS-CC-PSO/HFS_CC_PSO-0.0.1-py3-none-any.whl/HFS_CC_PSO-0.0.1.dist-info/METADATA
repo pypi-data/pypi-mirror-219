@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: HFS-CC-PSO
+Version: 0.0.1
+Summary: Hybrid Feature Selection for high dimensional data using Correlation Clustering and Particle Swarm Optimization
+Author-email: Jignesh Nagda <jigsshah.97@gmail.com>, Dinesh Mannari <dmannari@iu.edu>, Abhishek Singh <singab@iu.edu>, Jait Mahavarkar <jmahava@iu.edu>
+Project-URL: Homepage, https://github.com/radioactive17/Hybrid-Feature-Selection-using-Correlation-Clustering-and-PSO
+Project-URL: Bug Tracker, https://github.com/radioactive17/Hybrid-Feature-Selection-using-Correlation-Clustering-and-PSO/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Hybrid-Feature-Selection-using-Correlation-Clustering-and-PSO
