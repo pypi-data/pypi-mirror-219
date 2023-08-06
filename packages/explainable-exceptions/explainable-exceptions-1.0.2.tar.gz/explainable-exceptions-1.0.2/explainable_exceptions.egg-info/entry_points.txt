@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[nbdev]
+explainable_exceptions = explainable_exceptions._modidx:d
+
