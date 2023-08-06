@@ -1,0 +1,73 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "es_client"
+dynamic = ["version"]
+description = "Elasticsearch Client builder, complete with schema validation"
+authors = [{name = "Aaron Mildenstein", email = "aaron@mildensteins.com"}]
+readme = "README.rst"
+requires-python = ">=3.8"
+license = { text="Apache-2.0" }
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+keywords = [
+    "elasticsearch",
+    "client",
+    "connect",
+    "command-line"
+]
+dependencies = [
+    "elasticsearch8==8.8.2",
+    "click==8.1.4",
+    "pyyaml==6.0.0",
+    "voluptuous>=0.13.1",
+    "certifi>=2023.5.7",
+    "six>=1.16.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "requests",
+    "pytest >=7.2.1",
+    "pytest-cov",
+    "mock",
+]
+doc = ["sphinx", "sphinx_rtd_theme"]
+
+[project.urls]
+"Homepage" = "https://github.com/untergeek/es_client"
+"Bug Tracker" = "https://github.com/untergeek/es_client/issues"
+"Documentation" = "https://es-client.readthedocs.io/"
+"Source Code" = "http://github.com/untergeek/es_client"
+"Release Notes" = "https://github.com/untergeek/es_client/releases"
+
+[tool.hatch.version]
+path = "es_client/version.py"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "dist",
+    "docs",
+    "docker_test",
+    "examples",
+    "html_docs",
+    "tests",
+]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "es_client"]
+minversion = "7.2"
+addopts = "-ra -q"
+testpaths = [
+    "tests/unit",
+    "tests/integration",
+]
