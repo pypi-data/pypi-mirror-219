@@ -1,0 +1,26 @@
+[build-system]
+requires = [
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.2",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "charmongerai"
+version = "0.0.1"
+authors = [
+  { name="vdutts7", email="me@vdutts7.com" },
+]
+description = "AI Characters"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/vdutts7/charmonger-ai"
+"Bug Tracker" = "https://github.com/vdutts7/charmonger-ai/issues"
