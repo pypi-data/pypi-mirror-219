@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pysdf
+Version: 0.1.9
+Summary: SDF: Convert triangle mesh to continuous signed distance function + some other mesh utilities
+Home-page: https://github.com/sxyu/sdf
+Author: Alex Yu
+Author-email: alexyu99126@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE.txt
+
+Convert triangle mesh to SDF https://github.com/sxyu/sdf. Also includes uniform surface sampling and a ray-casting based software renderer.
+
