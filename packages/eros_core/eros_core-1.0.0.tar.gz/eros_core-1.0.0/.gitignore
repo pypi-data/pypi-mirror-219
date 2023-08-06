@@ -1,0 +1,10 @@
+**.pyc
+/other
+/old
+/.benchmarks
+/.pytest_cache
+**/__pycache__
+**/Eros.egg-info
+/build
+**egg-info/**
+/dist

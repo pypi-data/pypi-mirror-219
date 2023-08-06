@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: eros_core
+Version: 1.0.0
+Summary: EROS-core Package
+Author-email: Floris Vernieuwe <floris@vernieuwe.eu>
+License-File: LICENCE
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: bitstruct==8.17.0
+Requires-Dist: cobs==1.2.0
+Requires-Dist: pyserial==3.5
+Requires-Dist: pyzmq==25.1.0
+Description-Content-Type: text/markdown
+
+
+## EROS-core
+
+Build test
+
+[![Python test package installation](https://github.com/Florioo/eros-core-python/actions/workflows/test_installation.yml/badge.svg)](https://github.com/Florioo/eros-core-python/actions/workflows/test_installation.yml)
+
+
+## Documentation -> TODO
