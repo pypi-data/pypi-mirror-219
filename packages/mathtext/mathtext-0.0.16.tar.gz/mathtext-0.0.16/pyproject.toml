@@ -1,0 +1,59 @@
+[tool.poetry]
+name = "mathtext"
+version = "0.0.16"
+authors = [ "Sebastian Larson <sebastianlarson22@gmail.com>", "Çetin ÇAKIR <cetincakirtr@gmail.com>", "Vlad Snisar <snisarvlad04@gmail.com", "Hobson Lane <gitlab@totalgood.com>", "Maria Dyshel <maria@tangibleai.com>",]
+description = "Natural Language Understanding (text processing) for math symbols, digits, and words with a Gradio user interface and REST API."
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Operating System :: OS Independent",
+]
+repository = "https://gitlab.com/tangibleai/community/mathtext"
+
+[tool.poetry.dependencies]
+boto3 = ">=1.26.100"
+editdistance = "==0.6.2"
+jupyter = ">=1.0.0,<2.0"
+# jupyter installs: matplotlib-inline *BUT NOT* matplotlib
+matplotlib = ">=3.7.1,<4.0"
+pandas-gbq = ">=0.19.2"
+# pandas-gbq installs: pandas requests urllib3 pyarrow pytz python-dateutil
+python = ">=3.8"
+python-dotenv = ">=0.21"
+scikit-learn = ">=1.2.2"
+scikit-image = ">=0.20.0"
+sentence-transformers = ">=2.2.2"
+seaborn = ">=0.12.2"
+spacy = ">=3.4.4"
+torch = ">=2.0.1"
+transformers = ">=4.29.2"
+typing-extensions = "==4.5.0" # 4.6.0 causes TypeError
+unidecode = ">=1.3.6"
+
+
+[tool.poetry.dev-dependencies]
+build = "*"
+pytest-cov = "*"
+twine = "*"
+virtualenv = "*"
+wheel = "*"
+
+
+
+# [tool.poetry.dependencies.en-core-web-sm]
+# url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.4.1/en_core_web_sm-3.4.1-py3-none-any.whl"
+# WARNING!!! MUST RUN:
+# python -m spacy download en_core_web_sm
+# OR:
+# pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.4.1/en_core_web_sm-3.4.1-py3-none-any.whl
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
