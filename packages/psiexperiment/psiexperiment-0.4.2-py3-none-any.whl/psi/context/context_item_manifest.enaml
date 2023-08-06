@@ -1,0 +1,65 @@
+import logging
+log = logging.getLogger(__name__)
+
+from enaml.core.api import Conditional, Looper
+from enaml.layout.api import align, vbox
+from enaml.styling import StyleSheet, Style, Setter
+from enaml.widgets.api import CheckBox, Container, Label
+from enaml.widgets.constraints_widget import ConstraintsWidget
+from enaml.workbench.api import Extension
+
+from psi.core.enaml.api import PSIDockItem, PSIManifest
+from .context_item_view import ContextItemView
+
+
+def update_looper(group, looper, *args, **kw):
+    looper.iterable = [c for c in group.subgroups if c.visible]
+    looper.refresh_items()
+
+
+enamldef ContextDockItem(PSIDockItem):
+
+    attr group
+
+    initialized ::
+        group.observe('updated', lambda e: update_looper(group, looper))
+
+    Container:
+        layout_constraints => ():
+            widgets = [c for c in children if isinstance(c, ContextItemView)]
+            constraints = [vbox(*widgets, spacing=5)]
+
+            # Now, scan for the first alignable item in each subwidget. The
+            # subwidget is typically a container of some kind and the first
+            # widget will almost certainly be a Label or CheckBox. If not, well
+            # ... it's out of luck.
+            subwidgets = []
+            for w in widgets:
+                for w in w.traverse():
+                    if isinstance(w, Label):
+                        subwidgets.append(w)
+                        break
+
+            constraints.append(align('right', *subwidgets))
+            constraints.append(align('left', *subwidgets))
+            return constraints
+
+        Looper: looper:
+            iterable << [c for c in group.subgroups if c.visible]
+            ContextItemView:
+                context_item = loop_item
+
+
+enamldef ContextGroupManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.view'
+        point = 'psi.experiment.workspace'
+
+        Conditional:
+            condition << manifest.contribution.visible
+
+            ContextDockItem:
+                group << manifest.contribution
+                name << manifest.contribution.name
+                title << f'{manifest.contribution.label} settings'

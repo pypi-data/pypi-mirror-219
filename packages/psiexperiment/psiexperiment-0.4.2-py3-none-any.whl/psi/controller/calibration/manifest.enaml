@@ -1,0 +1,65 @@
+import logging
+log = logging.getLogger(__name__)
+
+from enaml.workbench.api import PluginManifest, Extension, ExtensionPoint
+from enaml.workbench.core.api import Command
+
+from psi.controller.experiment_action import ExperimentAction
+from psi.data.sinks.api import TextStore
+from psi.util import log_with_header
+
+from .plugin import CalibrationPlugin
+
+
+def log_calibrators(event):
+    plugin = event.workbench.get_plugin('psi.controller.calibration')
+    calibrators = [f' * {s}' for s in plugin._calibrators]
+    log_with_header('Calibrators to run', calibrators)
+
+
+def run_calibration(event):
+    plugin = event.workbench.get_plugin('psi.controller.calibration')
+    controller = event.workbench.get_plugin('psi.controller')
+    core = event.workbench.get_plugin('enaml.workbench.core')
+    for calibrator in plugin._calibrators:
+        calibrator.calibrate(controller, core)
+        calibrator.save(core)
+
+
+enamldef CalibrationManifest(PluginManifest): manifest:
+
+    id = 'psi.controller.calibration'
+    factory = CalibrationPlugin
+
+    ExtensionPoint:
+        id = 'psi.controller.calibration.channels'
+
+    Extension:
+        id = manifest.id + '.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = 'psi.controller.calibration.start'
+            handler = run_calibration
+        Command:
+            id = 'psi.controller.calibration.log_calibrators'
+            handler = log_calibrators
+
+    Extension:
+        id = manifest.id + '.calibration_store'
+        point = 'psi.data.sinks'
+
+        TextStore:
+            name = 'calibration_data'
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'psi.controller.actions'
+
+        ExperimentAction:
+            weight = 10
+            event = 'experiment_prepare'
+            command = 'psi.controller.calibration.start'
+        ExperimentAction:
+            event = 'plugins_started'
+            command = 'psi.controller.calibration.log_calibrators'

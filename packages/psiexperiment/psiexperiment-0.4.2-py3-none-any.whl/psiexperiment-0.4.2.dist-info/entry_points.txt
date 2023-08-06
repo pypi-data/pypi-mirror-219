@@ -1,0 +1,3 @@
+[console_scripts]
+psi = psi.application.psi_launcher:main
+psi-config = psi.application:config

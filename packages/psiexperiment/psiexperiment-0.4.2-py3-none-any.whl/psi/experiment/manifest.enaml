@@ -1,0 +1,319 @@
+import logging
+log = logging.getLogger(__name__)
+
+import os
+import pickle
+from pathlib import Path
+import yaml
+
+import numpy as np
+
+from enaml.widgets.api import FileDialogEx, Form, HGroup, Label, VGroup
+from enaml.core.api import Looper, Include
+from enaml.workbench.api import Extension, PluginManifest, ExtensionPoint
+from enaml.workbench.core.api import Command
+from enaml.workbench.ui.api import ActionItem, MenuItem, ItemGroup
+from enaml.workbench.ui.api import Workspace
+
+from psi.controller.experiment_action import ExperimentEvent
+from psi.core.enaml.api import PSIDockItem
+
+from .. import get_config
+from .workspace import ExperimentWorkspace
+from .workbench_window import ExperimentWorkbenchWindow
+from .plugin import ExperimentPlugin
+
+PLUGIN_ID = 'psi.experiment'
+
+from .util import PREFERENCES_WILDCARD
+from .util import LAYOUT_WILDCARD
+
+
+layout_fd_kwargs = {
+    'name_filters': [LAYOUT_WILDCARD],
+    'current_path': get_config('LAYOUT_ROOT'),
+}
+
+
+preferences_fd_kwargs = {
+    'name_filters': [PREFERENCES_WILDCARD],
+    'current_path': get_config('PREFERENCES_ROOT'),
+}
+
+
+def get_default_path(which):
+    root = get_config('{}_ROOT'.format(which.upper()))
+    experiment = get_config('EXPERIMENT')
+    default_path = os.path.join(root, experiment)
+    if not os.path.exists(default_path):
+        os.makedirs(default_path)
+    return default_path
+
+
+def get_default_filename(which):
+    default_path = get_default_path(which)
+    return os.path.join(default_path, 'default.{}'.format(which))
+
+
+def save_layout(event):
+    filename = FileDialogEx.get_save_file_name(
+        name_filters=[LAYOUT_WILDCARD],
+        current_path=get_default_path('layout')
+    )
+    if filename:
+        _save_layout(event, filename)
+
+
+def _save_layout(event, filename):
+    if not filename.endswith('.layout'):
+        filename += '.layout'
+    plugin = event.workbench.get_plugin('psi.experiment')
+    layout = plugin.get_layout()
+    with open(filename, 'wb') as fh:
+        pickle.dump(layout, fh)
+
+
+def load_layout(event):
+    filename = event.parameters.get('filename', None)
+    if filename is None:
+        filename = FileDialogEx.get_open_file_name(
+            name_filters=[LAYOUT_WILDCARD],
+            current_path=get_default_path('layout')
+        )
+    if filename:
+        _load_layout(event, filename)
+
+
+def _load_layout(event, filename):
+    plugin = event.workbench.get_plugin('psi.experiment')
+    with open(filename, 'rb') as fh:
+        layout = pickle.load(fh)
+        plugin.set_layout(layout)
+
+
+def set_default_layout(event):
+    filename = get_default_filename('layout')
+    _save_layout(event, filename)
+
+
+def get_default_layout(event):
+    try:
+        filename = get_default_filename('layout')
+        _load_layout(event, filename)
+    except IOError:
+        pass
+
+
+def save_preferences(event):
+    filename = event.parameters.get('filename', None)
+    if filename is None:
+        filename = FileDialogEx.get_save_file_name(
+            name_filters=[PREFERENCES_WILDCARD],
+            current_path=get_default_path('preferences')
+        )
+    if filename:
+        _save_preferences(event, filename)
+
+
+def _save_preferences(event, filename):
+    filename = Path(filename).with_suffix('.preferences')
+    plugin = event.workbench.get_plugin('psi.experiment')
+    preferences = plugin.get_preferences()
+    with open(filename, 'w') as fh:
+        yaml.dump(preferences, fh, default_flow_style=False)
+
+
+def load_preferences(event):
+    filename = event.parameters.get('filename', None)
+    if filename is None:
+        filename = FileDialogEx.get_open_file_name(
+            name_filters=[PREFERENCES_WILDCARD],
+            current_path=get_default_path('preferences')
+        )
+    if filename:
+        _load_preferences(event, filename)
+
+
+def _load_preferences(event, filename):
+    log.debug('Loading preferences from {}'.format(filename))
+    with open(filename, 'r') as fh:
+        preferences = yaml.load(fh, Loader=yaml.Loader)
+    plugin = event.workbench.get_plugin('psi.experiment')
+    plugin.set_preferences(preferences)
+
+
+def set_default_preferences(event):
+    filename = get_default_filename('preferences')
+    _save_preferences(event, filename)
+
+
+def get_default_preferences(event):
+    try:
+        filename = get_default_filename('preferences')
+        _load_preferences(event, filename)
+    except IOError:
+        pass
+
+
+enamldef StatusDockItem(PSIDockItem):
+
+    name = 'experiment_status'
+    title = 'Experiment Status'
+    attr plugin
+
+    Form:
+        Looper:
+            iterable << plugin._status_items.values()
+            Label:
+                text << loop_item.label
+            HGroup:
+                padding = 0
+                spacing = 0
+                Include:
+                    objects << loop_item.children
+
+
+enamldef ExperimentManifest(PluginManifest): manifest:
+    '''
+    This plugin acts as the entry point for all other plugins in this example.
+    It contributes the window branding, default actions, and the workspace
+    definitions.
+    '''
+    id = PLUGIN_ID
+    factory = ExperimentPlugin
+
+    Extension:
+        id = manifest.id + '.ui.workspace'
+        point = 'enaml.workbench.ui.workspaces'
+        factory = lambda workbench: ExperimentWorkspace()
+
+    Extension:
+        id = manifest.id + '.window'
+        point = 'enaml.workbench.ui.window_factory'
+        factory = lambda workbench: ExperimentWorkbenchWindow()
+
+    Extension:
+        id = manifest.id + '.controller_actions'
+        point = 'psi.controller.actions'
+        ExperimentEvent:
+            name = 'plugins_started'
+
+    Extension:
+        id = manifest.id + '.commands'
+        point = 'enaml.workbench.core.commands'
+        Command:
+            id = 'psi.save_layout'
+            handler = save_layout
+        Command:
+            id = 'psi.load_layout'
+            handler = load_layout
+        Command:
+            id = 'psi.set_default_layout'
+            handler = set_default_layout
+        Command:
+            id = 'psi.get_default_layout'
+            handler = get_default_layout
+        Command:
+            id = 'psi.save_preferences'
+            handler = save_preferences
+        Command:
+            id = 'psi.load_preferences'
+            handler = load_preferences
+        Command:
+            id = 'psi.set_default_preferences'
+            handler = set_default_preferences
+        Command:
+            id = 'psi.get_default_preferences'
+            handler = get_default_preferences
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'enaml.workbench.ui.actions'
+        MenuItem:
+            path = '/configuration'
+            label = 'Configuration'
+
+        MenuItem:
+            path = '/configuration/layout'
+            label = 'Layout'
+            ItemGroup:
+                id = 'layout_io'
+            ItemGroup:
+                id = 'layout_default'
+
+        ActionItem:
+            path = '/configuration/layout/save_layout'
+            label = 'Save'
+            command = 'psi.save_layout'
+            group = 'layout_io'
+        ActionItem:
+            path = '/configuration/layout/load_layout'
+            label = 'Load'
+            command = 'psi.load_layout'
+            group = 'layout_io'
+        ActionItem:
+            path = '/configuration/layout/set_default_layout'
+            label = 'Set default'
+            command = 'psi.set_default_layout'
+            group = 'layout_default'
+        ActionItem:
+            path = '/configuration/layout/get_default_layout'
+            label = 'Revert to default'
+            command = 'psi.get_default_layout'
+            group = 'layout_default'
+
+        MenuItem:
+            path = '/configuration/preferences'
+            label = 'Preferences'
+            ItemGroup:
+                id = 'preferences_io'
+            ItemGroup:
+                id = 'preferences_default'
+
+        ActionItem:
+            path = '/configuration/preferences/save_preferences'
+            label = 'Save'
+            command = 'psi.save_preferences'
+            group = 'preferences_io'
+        ActionItem:
+            path = '/configuration/preferences/load_preferences'
+            label = 'Load'
+            command = 'psi.load_preferences'
+            group = 'preferences_io'
+        ActionItem:
+            path = '/configuration/preferences/set_default_preferences'
+            label = 'Set default'
+            command = 'psi.set_default_preferences'
+            group = 'preferences_default'
+        ActionItem:
+            path = '/configuration/preferences/get_default_preferences'
+            label = 'Revert to default'
+            command = 'psi.get_default_preferences'
+            group = 'preferences_default'
+        ActionItem:
+            path = '/configuration/get_default_preferences'
+            label = 'Revert to default preferences'
+            command = 'psi.get_default_preferences'
+
+        ActionItem:
+            path = '/configuration/load_shell'
+            label = 'Open IPython shell'
+            command = 'psi.open_shell'
+
+    ExtensionPoint:
+        id = 'toolbar'
+
+    ExtensionPoint:
+        id = 'workspace'
+
+    ExtensionPoint:
+        id = 'preferences'
+
+    ExtensionPoint:
+        id = 'status'
+
+    Extension:
+        # Provides the default Status DockItem pane.
+        id = manifest.id + '.workspace'
+        point = 'psi.experiment.workspace'
+        factory = lambda plugin: [StatusDockItem(plugin=plugin)]
