@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Log In{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="username">{% trans %}Username{% endtrans %}</label>
+    <input name="username" id="username" required autofocus>
+    <label for="password">{% trans %}Password{% endtrans %}</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="{% trans %}Log In{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+  <div class="actions">
+    <a href="{{ url_for('auth.ask_reset_password') }}">{% trans %}Forgotten password{% endtrans %}</a>
+  </div>
+{% endblock %}

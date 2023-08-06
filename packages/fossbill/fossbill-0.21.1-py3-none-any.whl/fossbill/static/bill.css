@@ -1,0 +1,19 @@
+html { font-family: sans-serif }
+.persons { display: flex; justify-content: space-between; }
+.persons > * { min-width: 10rem; }
+h1 { text-align: center; font-size: 1.5rem; margin-top: 3rem; margin-bottom: 5rem; }
+table { width: 100% }
+th { text-align: left }
+.warning {
+   position: absolute;
+   top: 5rem;
+   left: 20rem;
+   bottom: 0;
+   right: 0;
+   z-index: -1;
+   transform:rotate(-50deg);
+}
+.warning h1 {
+   font-size: 7rem;
+   color: lightgrey;
+}

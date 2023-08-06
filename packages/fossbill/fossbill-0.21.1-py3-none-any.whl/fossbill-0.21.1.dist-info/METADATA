@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: fossbill
+Version: 0.21.1
+License-File: LICENSE
+Requires-Dist: toml
+Requires-Dist: sqlalchemy (>=2.0.0rc3)
+Requires-Dist: flask-weasyprint
+Requires-Dist: alembic
+Requires-Dist: babel
+Requires-Dist: stripe
+

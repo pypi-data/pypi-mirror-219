@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Dashboard{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>{% trans %}Thanks a lot for registering, and welcome aboard! Fossbill is a really simple tool. Here some guidelines:{% endtrans %}</p>
+  <p>{% trans %}You should start by editing your user preference. Then add some products you use frequently. You can also prepare your client list. Registering products and clients isnt necessary but it make generating bills faster.{% endtrans %}</p>
+  <p>{% trans %}Bills will be Drafts untill you generate a Quote or directly a Bill from them. Unique numbers will be applied on them.{% endtrans %}</p>
+  <p>{% trans %}You can preview and also send them to any email address you want, as quote or bill.{% endtrans %}</p>
+{% endblock %}

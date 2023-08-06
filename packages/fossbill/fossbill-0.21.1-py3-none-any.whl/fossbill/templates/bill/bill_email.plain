@@ -1,0 +1,7 @@
+{% trans billnumber=bill.bill_number %}
+Hey,
+
+Here the invoice #{{ billnumber }}
+
+Respects,
+{% endtrans %}

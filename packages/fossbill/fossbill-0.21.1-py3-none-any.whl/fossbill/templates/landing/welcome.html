@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Welcome!{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p>{% trans %}Fossbill is a minimalist tool to edit, generate and send bills to emails. It is FOSS as it is licenced under AGPL3. Its source code can be pulled <a href="https://sr.ht/~stacyharper/fossbill">here</a>.{% endtrans %}<p>
+  <p>{% trans %}It is really easy to self-host an instance of Fossbill. Feels free to check the <a href="https://git.sr.ht/~stacyharper/fossbill">documentation</a> to configure it to suits your needs.{% endtrans %}</p>
+  <p>{% trans %}Fossbill is free as in freedom, but this hosted instance cost 10 euros/month. This support the development of the tool, and encourage me to build new ones.{% endtrans %}</p>
+  <p>{% trans %}I am Willow Barraco, a french developper girl and I live near Lyon. I write free and open-source softwares. I am very active in the Alpine Linux / Postmarketos ecosystem as a <a href="https://sxmo.org">sxmo</a> co-maintainer. Here my <a href="https://www.willowbarraco.fr">website</a> and my <a href="https://sr.ht/~stacyharper">projects</a>.{% endtrans %}</p>
+{% endblock %}

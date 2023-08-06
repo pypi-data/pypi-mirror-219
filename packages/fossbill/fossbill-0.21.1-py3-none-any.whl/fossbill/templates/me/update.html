@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans username=g.user.username %}Edit "{{ username }}"{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="flex-align">
+      <div class="form">
+        <label for="locale">{% trans %}Locale{% endtrans %}</label>
+        <select name="locale" id="locale">
+          {% for value, label in {"en_US": _("English"), "fr_FR": _("French")}.items() %}
+            <option value="{{ value }}" {{ "selected" if (request.form['locale'] or g.user_pref.locale) == value }}>{{ label }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="email">{% trans %}Email{% endtrans %}</label>
+        <input name="email" id="email" maxlength="254"
+          title="{% trans %}Used for password recovery. Must be unique.{% endtrans %}"
+          placeholder="{% trans %}Used for password recovery. Must be unique.{% endtrans %}"
+          value="{{ request.form['email'] or g.user_pref.email or "" }}">
+
+        <label for="currency">{% trans %}Currency{% endtrans %}</label>
+        <input name="currency" id="currency" maxlength="10"
+          title="{% trans %}Ex: ${% endtrans %}"
+          placeholder="{% trans %}Ex: ${% endtrans %}"
+          value="{{ request.form['currency'] or g.user_pref.currency or "" }}">
+
+        <label for="source">{% trans %}Default source{% endtrans %}</label>
+        <textarea name="source" id="source" rows="6" maxlength="500"
+          title="{% trans %}The top-left part on generated bills. Represent your company.{% endtrans %}"
+          placeholder="{% trans %}The top-left part on generated bills. Represent your company.{% endtrans %}"
+          >{{ request.form['source'] or g.user_pref.source or "" }}</textarea>
+
+        <label for="quote_mentions">{% trans %}Quote mentions{% endtrans %}</label>
+        <textarea name="quote_mentions" id="quote_mentions" rows="6" maxlength="500"
+          title="{% trans %}Bottom text on generated quotes.{% endtrans %}"
+          placeholder="{% trans %}Bottom text on generated quotes.{% endtrans %}"
+          >{{ request.form['quote_mentions'] or g.user_pref.quote_mentions or "" }}</textarea>
+
+        <label for="bill_mentions">{% trans %}Bill mentions{% endtrans %}</label>
+        <textarea name="bill_mentions" id="bill_mentions" rows="6" maxlength="500"
+          title="{% trans %}Bottom text on generated bills.{% endtrans %}"
+          placeholder="{% trans %}Bottom text on generated bills.{% endtrans %}"
+          >{{ request.form['bill_mentions'] or g.user_pref.bill_mentions or "" }}</textarea>
+      </div>
+
+      <div class="form">
+        <label for="smtp_host">{% trans %}SMTP host{% endtrans %}</label>
+        <input name="smtp_host" id="smtp_host" maxlength="30"
+          title="{% trans %}Ex: smtp.foo.bar{% endtrans %}"
+          placeholder="{% trans %}Ex: smtp.foo.bar{% endtrans %}"
+          value="{{ request.form['smtp_host'] or g.user_pref.smtp_host or "" }}">
+
+        <label for="smtp_port">{% trans %}SMTP port{% endtrans %}</label>
+        <input name="smtp_port" id="smtp_port" type="number"
+          title="{% trans %}Ex: 465{% endtrans %}"
+          placeholder="{% trans %}Ex: 465{% endtrans %}"
+          value="{{ request.form['smtp_port'] or g.user_pref.smtp_port or "" }}">
+
+        <label for="smtp_security">{% trans %}SMTP security{% endtrans %}</label>
+        <select name="smtp_security" id="smtp_security">
+          <option value="" {{ "selected" if not (request.form['smtp_security'] or g.user_pref.smtp_security) }}>{% trans %}Select an option{% endtrans %}</option>
+          {% for protocol in ["TLS", "STARTTLS"] %}
+            <option value="{{ protocol }}" {{ "selected" if (request.form['smtp_security'] or g.user_pref.smtp_security) == protocol }}>{{ protocol }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="smtp_username">{% trans %}SMTP username{% endtrans %}</label>
+        <input name="smtp_username" id="smtp_username" maxlength="30"
+          title="{% trans %}Ex: <no-reply@john-doe.com>{% endtrans %}"
+          placeholder="{% trans %}Ex: <no-reply@john-doe.com>{% endtrans %}"
+          value="{{ request.form['smtp_username'] or g.user_pref.smtp_username or "" }}">
+
+        <label for="smtp_password">{% trans %}SMTP password{% endtrans %}</label>
+        <input name="smtp_password" id="smtp_password" type="password" maxlength="30"
+          value="{{ request.form['smtp_password'] or g.user_pref.smtp_password or "" }}">
+
+        <label for="smtp_reply_to">{% trans %}SMTP reply-to{% endtrans %}</label>
+        <input name="smtp_reply_to" id="smtp_reply_to" type="reply_to" maxlength="254"
+          title="{% trans %}Ex: John Doe <contact@john-doe.com> (Can stay empty){% endtrans %}"
+          placeholder="{% trans %}Ex: John Doe <contact@john-doe.com> (Can stay empty){% endtrans %}"
+          value="{{ request.form['smtp_reply_to'] or g.user_pref.smtp_reply_to or "" }}">
+
+        <label for="smtp_cc">{% trans %}SMTP cc{% endtrans %}</label>
+        <input name="smtp_cc" id="smtp_cc" type="reply_to" maxlength="508"
+          title="{% trans %}Ex: John Doe <contact@john-doe.com> (Can stay empty){% endtrans %}"
+          placeholder="{% trans %}Ex: John Doe <contact@john-doe.com> (Can stay empty){% endtrans %}"
+          value="{{ request.form['smtp_cc'] or g.user_pref.smtp_cc or "" }}">
+
+      </div>
+    </div>
+    <input type="submit" value="{% trans %}Save{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+
+  <hr>
+
+  <div class="actions">
+      <form action="{{ url_for('me.test_email') }}" method="post">
+        <input type="submit" value="{% trans %}Test Email{% endtrans %}">
+        {{ csrf_token()|safe }}
+      </form>
+      <form action="{{ url_for('me.delete') }}" method="post">
+        <input class="danger" type="submit" value="{% trans %}Delete user{% endtrans %}" onclick="return confirm('{% trans %}You are about to delete all data associated to this account.\nAre you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+      <form action="{{ url_for('me.delete_bills') }}" method="post">
+        <input class="danger" type="submit" value="{% trans %}Delete bills{% endtrans %}" onclick="return confirm('{% trans %}You are about to delete all of your bills.\nAre you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+      <a href="{{ url_for('me.import_export_user') }}">{% trans %}Import / Export{% endtrans %}</a>
+  </div>
+{% endblock %}

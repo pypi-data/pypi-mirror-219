@@ -1,0 +1,7 @@
+{% trans quotenumber=bill.quote_number %}
+Hey,
+
+Here the quote #{{ quotenumber }}
+
+Respects,
+{% endtrans %}

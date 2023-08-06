@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}New Bill{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="client_id">{% trans %}Client{% endtrans %}</label>
+    <select name="client_id" id="client_id" autofocus>
+      <option value="">{% trans %}From scratch{% endtrans %}</option>
+      {% for client in clients %}
+        <option value="{{ client.id }}">{{ client.label }}</option>
+      {% endfor %}
+    </select> 
+    <input type="submit" value="{% trans %}Save{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}

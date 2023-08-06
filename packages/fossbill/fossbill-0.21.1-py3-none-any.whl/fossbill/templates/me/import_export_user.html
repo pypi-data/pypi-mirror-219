@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Import / Export{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" id="bill_info" action="{{ url_for('me.import_user') }}" enctype="multipart/form-data">
+    <label for="file">{% trans %}File{% endtrans %}</label>
+    <input name="file" id="file" type="file" accept=".tar.bz2" required>
+    <div class="flex actions">
+      <input type="submit" value="{% trans %}Import{% endtrans %}">
+      <a href="{{ url_for('me.export_user') }}">{% trans %}Export{% endtrans %}</a>
+    </div>
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}
