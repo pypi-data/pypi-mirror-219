@@ -1,0 +1,5 @@
+[console_scripts]
+cli=kade_drive.cli:start_cli
+server=kade_drive.server:start
+test_store=kade_drive.test_store_file:test_store_df
+
