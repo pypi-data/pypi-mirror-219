@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: BPPU1
+Version: 1.0
+Summary: A pypi uploader package with password key management developed in India from BPPU1 import *
+Home-page: https://www.linkedin.com/in/neelanjanmanna/
+Download-URL: https://github.com/user/reponame/archive/v_01.tar.gz
+Author: Neelanjan Manna
+Author-email: neelanjanmanna2021@gmail.com
+License: MIT
+Keywords: SOME,MEANINGFULL,KEYWORDS
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE.txt
