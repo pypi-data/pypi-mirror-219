@@ -1,0 +1,5 @@
+pytz==2023.3
+requests
+stix2
+urllib3
+validators==0.20.0
