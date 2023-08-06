@@ -1,0 +1,3 @@
+[console_scripts]
+frogbase=frogbase.__main__:ui
+
