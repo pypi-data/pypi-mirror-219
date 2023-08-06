@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+readthis.egg-info/PKG-INFO
+readthis.egg-info/SOURCES.txt
+readthis.egg-info/dependency_links.txt
+readthis.egg-info/entry_points.txt
+readthis.egg-info/requires.txt
+readthis.egg-info/top_level.txt
+src/readthis/__init__.py
+src/readthis/readthis.py
+src/readthis/data/default_text.txt
