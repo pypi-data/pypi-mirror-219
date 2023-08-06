@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: aws-vpclattice-prealpha
+Version: 0.4.12
+Summary: aws-vpclattice-prealpha
+Home-page: https://github.com/raindancers/aws-vpclattice-prealpha.git
+Author: Andrew Frazer<andrew.frazer@raindancers.cloud>
+License: Apache-2.0
+Project-URL: Source, https://github.com/raindancers/aws-vpclattice-prealpha.git
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Typing :: Typed
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved
+Requires-Python: ~=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aws-cdk-lib (<3.0.0,>=2.80.0)
+Requires-Dist: constructs (<11.0.0,>=10.0.5)
+Requires-Dist: jsii (<2.0.0,>=1.84.0)
+Requires-Dist: publication (>=0.0.3)
+Requires-Dist: typeguard (~=2.13.3)
+
+# aws-vpclattice-prealpha
+
+# vpcLattice L2 Construct
+
+* [Project Information](#project-information)
+* [Example Impleentation](#example-implementation)
+* [API Design](#proposed-api-design-for-vpclattice)
+* [FAQ](#faq)
+* [Acceptance](#acceptance)
+
+---
+
+
+## Project Information
+
+**Status** (DRAFT)
+
+**Original Author(s):** @mrpackethead, , @taylaand,  @nbaillie
+
+**Tracking Issue:** #502
+
+**API Bar Raiser:** @TheRealAmazonKendra
+
+**Public Issues ( aws-cdk)**
+
+* (vpclattice): L2 for Amazon VPC Lattice #25452
+
+**Prototype Code**
+
+* https://github.com/raindancers/aws-cdk/tree/mrpackethead/aws-vpclattice-alpha/packages/%40aws-cdk/aws-vpclattice-alpha
+
+**Example implementation**
+
+* https://github.com/raindancers/vpclattice-prealpha-demo
+
+**Blog**
+
+**VpcLattice**
+
+Amazon VPC Lattice is an application networking service that consistently connects, monitors, and secures communications between your services, helping to improve productivity so that your developers can focus on building features that matter to your business. You can define policies for network traffic management, access, and monitoring to connect compute services in a simplified and consistent way across instances, containers, and serverless applications.
+
+The L2 Construct seeks to assist the consumer to create a lattice service easily by abstracting some of the detail.  The major part of this is in creating the underlying auth policy and listener rules together, as their is significant intersection in the properties require for both.
