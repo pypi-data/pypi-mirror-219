@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: windows_control
+Version: 0.0.9
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Summary: It is used to do some control with keyboard/mouse on windows (especially on win10).
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: repository, https://github.com/dbsxdbsx/windows_control
+
+[windows_control](https://pypi.org/project/windows-control/) is a package named with a root Python module `windows_control`.
+It provides some simple and efficient ways to do manipulations on Windows systems(Especially on Win10) efficiently, since it is written in Rust using [PyO3](https://crates.io/crates/pyo3).
+
+## Installation
+
+```bash
+pip install windows_control
+```
+
+## Requirements
+
+- Setting for final usage: Python (version 3.9.11 or later)
+
+## Examples
+(TODO)
