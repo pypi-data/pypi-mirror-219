@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: days360
+Version: 0.1.0
+Summary: Calculates the days between two dates based on a 360 day year.
+License: MIT
+Author: Thomas Feldmann
+Author-email: mail@tfeldmann.de
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# days360
+
+Calculates the days between two dates based on the 360 day year used in interest calculations.
+It's planned to add the ISDA and PSA methods in the future.
+
+Implementations are based on https://en.wikipedia.org/wiki/360-day_calendar.
+
+(This library started as a python fork of this ruby gem: https://github.com/tamaloa/days360/tree/master)
+
