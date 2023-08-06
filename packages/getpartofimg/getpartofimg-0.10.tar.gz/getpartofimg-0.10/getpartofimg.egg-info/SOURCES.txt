@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+getpartofimg/README.MD
+getpartofimg/__init__.py
+getpartofimg/requirements.txt
+getpartofimg/thirdparty.json
+getpartofimg.egg-info/PKG-INFO
+getpartofimg.egg-info/SOURCES.txt
+getpartofimg.egg-info/dependency_links.txt
+getpartofimg.egg-info/requires.txt
+getpartofimg.egg-info/top_level.txt
