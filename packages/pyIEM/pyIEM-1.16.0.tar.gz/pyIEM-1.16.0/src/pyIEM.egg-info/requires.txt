@@ -1,0 +1,27 @@
+affine
+defusedxml
+geopandas
+jinja2
+matplotlib>=3.5.0
+metar
+metpy
+netCDF4
+numpy
+pandas
+pillow
+pyarrow
+pydantic
+pymemcache
+pyproj
+psycopg2
+rasterio
+rasterstats
+requests
+scipy
+shapely
+sqlalchemy
+twython
+xarray
+
+[:python_version < "3.9"]
+backports.zoneinfo
