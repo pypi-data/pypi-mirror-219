@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: flash_attn
+Version: 2.0.0.post1
+Summary: Flash Attention: Fast and Memory-Efficient Exact Attention
+Home-page: https://github.com/Dao-AILab/flash-attention
+Author: Tri Dao
+Author-email: trid@cs.stanford.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Requires-Python: >=3.7
+License-File: LICENSE
+License-File: AUTHORS
+
+UNKNOWN
