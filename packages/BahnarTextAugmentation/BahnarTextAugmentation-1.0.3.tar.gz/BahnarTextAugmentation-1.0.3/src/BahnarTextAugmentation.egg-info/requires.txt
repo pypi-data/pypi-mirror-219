@@ -1,0 +1,10 @@
+pyvi
+simalign
+sentencepiece
+transformers
+sacremoses
+nltk
+numpy==1.22.0
+pandas
+gensim==4.3.0
+openpyxl
