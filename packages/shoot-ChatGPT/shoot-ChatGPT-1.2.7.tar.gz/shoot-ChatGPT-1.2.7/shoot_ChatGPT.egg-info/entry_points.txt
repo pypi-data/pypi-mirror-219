@@ -1,0 +1,3 @@
+[console_scripts]
+shoot_chatgpt = shoot_chatgpt.launcher:run
+shoot_chatgpt-cloud = shoot_chatgpt.cloud_launcher:run

@@ -1,0 +1,5 @@
+include requirements.txt
+include requirements_api.txt
+include src/shoot-chatgpt/py.typed
+recursive-include src/shoot-chatgpt/flask *
+recursive-include src/shoot-chatgpt/migrations/scripts *
