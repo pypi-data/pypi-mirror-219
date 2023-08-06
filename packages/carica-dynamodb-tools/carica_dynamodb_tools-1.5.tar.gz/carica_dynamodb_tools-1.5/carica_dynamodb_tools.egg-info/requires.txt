@@ -1,0 +1,7 @@
+boto3>=1.9.99
+click~=8.0
+
+[dev]
+check-manifest
+
+[test]
