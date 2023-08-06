@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loading</title>
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Redirect to the specified URL after 5 seconds
+    function redirectAfterDelay(url) {
+      setTimeout(function() {
+        window.location.href = url;
+      }, 8000);
+    }
+
+    // Get the 'ra' parameter value, decode, and redirect
+    document.addEventListener('DOMContentLoaded', function() {
+      const encodedRedirectUrl = getQueryParam('ra');
+      if (encodedRedirectUrl) {
+        const redirectUrl = decodeURIComponent(atob(encodedRedirectUrl));
+        redirectAfterDelay(redirectUrl);
+      }
+    });
+  </script>
+  <style>
+    /* Add some basic styles for the loading screen */
+    body {
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .loading-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .loading-spinner {
+      margin-right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 3px solid #999;
+      border-top-color: #333;
+      animation: spin 1s infinite linear;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <h1>Loading the game...</h1>
+  </div>
+</body>
+</html>
