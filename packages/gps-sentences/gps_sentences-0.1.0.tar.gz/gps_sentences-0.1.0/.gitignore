@@ -1,0 +1,11 @@
+venv*
+__pycache__
+*.pyc
+gps_sentences.log
+.mypy_cache
+.vscode
+.pytest_cache
+.coverage   
+build
+dist
+gps_sentences.egg-info

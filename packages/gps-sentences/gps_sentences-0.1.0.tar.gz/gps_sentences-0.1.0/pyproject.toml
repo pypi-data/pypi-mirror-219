@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools", "setuptools_scm[toml]>=3.4","attrs>=17.1", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gps_sentences"
+authors = [
+  { name="Battieste, Nahjay", email="nahjaybattieste@gmail.com"},
+]
+dynamic = ["version", "dependencies"]
+description = "Package for reading GPS sentences from a serial port, and decoding them into a usable format."
+requires-python = ">=3.10"
+readme = "README.md"
+classifiers = [
+"Programming Language :: Python :: 3",
+"License :: Other/Proprietary License",
+"Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+"Source" = "https://github.com/cellantenna/gps_sentences"
+
+[project.gui-scripts]
+gps = "src.main:main"
+
+[tools.setuptools]
+include-package-data = "True"
+packages = ["gps"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = "requirements.txt"}
+version = {attr = "setuptools_scm.get_version"}
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["."]
+
+
+[[tool.mypy.overrides]]
+module = "serial"
+ignore_missing_imports = true
+ignore_errors = true
+
+[project.optional-dependencies]
+test = [
+"pytest>=7.3.2",
+"pytest-asyncio>=0.21.0",
+"pytest-cov>=4.1.0"
+]
