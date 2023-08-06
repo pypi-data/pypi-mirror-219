@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel>=0.37.0"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "pynest-api"
+description = "PyNest is a FastAPI Abstraction for building microservices, influenced by NestJS."
+readme = "README.md"
+requires-python = ">=3.8.1"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Itay Dar", email = "itay2803@gmail.com" },
+]
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+]
+dependencies = [
+    "anyio==3.6.2",
+    "click==8.1.3",
+    "fastapi==0.95.1",
+    "fastapi-utils==0.2.1",
+    "greenlet==2.0.2",
+    "h11==0.14.0",
+    "idna==3.4",
+    "pydantic==1.10.7",
+    "python-dotenv==1.0.0",
+    "sniffio==1.3.0",
+    "SQLAlchemy==1.4.48",
+    "starlette==0.26.1",
+    "typing_extensions==4.5.0",
+    "uvicorn==0.22.0",
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "nest.__init__.__version__" }
+
+[tool.pip]
+index-url = "https://pypi.org/simple"
+trusted-host = ["pypi.org", "files.pythonhosted.org"]
+
+[tools.black]
+force-exclude = '''
+/(
+  | /*venv*
+  | /.git
+  | /dist
+  | /pytest_compare.egg-info
+  | *.bac
+  | .mypy_cache
+  | .coverage
+  | /htmlcov
+  | /docs
+  | /site
+)/
+'''
+
+[project.optional-dependencies]
+test = [
+    "pytest == 6.2.5",
+]
+
+[project.scripts]
+pynest = "nest.cli.cli:nest_cli"
+
+[tool.setuptools.packages.find]
+include = ["nest*"]
+namespaces = false
+
+[tool.mypy]
+exclude = [
+    "/*venv*"
+]
+ignore_missing_imports = true
+
+[project.urls]
+"Homepage" = "https://github.com/PythonNest/PyNest"
+"Documentation" = "https://pythonnest.github.io/PyNest/"
