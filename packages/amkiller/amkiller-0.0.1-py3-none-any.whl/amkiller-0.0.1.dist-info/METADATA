@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: amkiller
+Version: 0.0.1
+Summary: WASAP everybody
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Author-email: Amine <unknoun@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# PC KILLER WITH PYTHON
+## this python script has only one File: **killer** and inside ther's just one funcion: **start**
+## the script will use the **pyautogui**, **time**, **random** libraries and, the ONLY way to stop it is by shuting down the computer..
+## by the way the program will start in a dramatic way
