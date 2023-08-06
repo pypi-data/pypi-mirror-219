@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: libfhe
+Version: 0.0.1
+Summary: Python wrapper for libfhe
+Home-page: https://libfhe.org
+Author: azzaoui
+Author-email: taha@azzaoui.org
+Keywords: cryptography,fhe,Homomorphic Encryption
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Security :: Cryptography
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# pylibfhe
+
+Python wrapper for [libfhe](https://libfhe.org)
+
+# Dependencies
+
+* [libfhe](https://git.libfhe.org) - See [INSTALL](https://git.libfhe.org/core/libfhe/-/blob/main/INSTALL) for build instructions
+
+* GNU multiprecision libraries
+
+```bash
+apt install -y libgmp-dev libmpfr-dev libmpc-dev
+```
+
+# Installing (PyPI)
+
+```bash
+pip install libfhe
+```
+
+# Building from Source
+
+```bash
+git clone https://git.libfhe.org/core/libfhe.git
+cd libfhe/python
+python setup.py install
+cd tests && py.test # run test suite
+```
