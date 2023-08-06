@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pewlib
+Version: 0.8.0
+Summary: Import, processing and export library for LA-ICP-MS data.
+Home-page: https://github.com/djdt/pewlib
+Author: T. Lockwood
+Author-email: thomas.lockwood@uts.edu.au
+Project-URL: Documentation, https://djdt.github.io/pewlib
+Project-URL: Source, https://gtihub.com/djdt/pewlib
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+
+# pewlib
+
+![Build](https://github.com/djdt/pewlib/workflows/Build/badge.svg)
+
+Pewlib is a library for importing, processing and exporting LA-ICP-MS data.
+Currently exports from Agilent, Thermo and PerkinElmer software is supported, as well as delimited text images.
+
+## Installation
+
+Pewlib is availble on PyPI and installable via pip.
+
+```pip install pewlib```
+
+## Documentation
+
+Documenation is available at <https://djdt.github.io/pewlib>.
