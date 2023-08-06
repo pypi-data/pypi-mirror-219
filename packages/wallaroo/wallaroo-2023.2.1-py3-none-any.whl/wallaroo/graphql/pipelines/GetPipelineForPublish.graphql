@@ -1,0 +1,30 @@
+query GetPipelineForPublish($pipelineId: bigint!) {
+  pipeline_by_pk(id: $pipelineId) {
+    id
+    pipeline_versions(order_by: {created_at: desc}, limit: 1) {
+      version
+      definition
+      pipeline {
+        pipeline_id
+      }
+      deployment_model_configs {
+        deployment {
+          engine_config
+        }
+        model_config {
+          batch_config
+          input_schema
+          output_schema
+          runtime
+          model {
+            id
+            file_name
+            image_path
+            model_id
+            sha
+          }
+        }
+      }
+    }
+  }
+}
