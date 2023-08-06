@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: notionaut
+Version: 0.1.1
+Summary: A simple package for fetching Notion databases as pandas dataframes
+Home-page: https://github.com/nschenone/notionaut
+License: MIT
+Author: Nick Schenone
+Author-email: nschenone16@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: notion-client (>=1.0.0,<2.0.0)
+Requires-Dist: pandas (==1.5.1)
+Project-URL: Repository, https://github.com/nschenone/notionaut
+Description-Content-Type: text/markdown
+
+# Notionaut
+
+A simple package for fetching Notion databases as pandas dataframes
