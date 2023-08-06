@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: xdas
+Version: 0.1b2
+Author-email: Alister Trabattoni <alister.trabattoni@gmail.com>
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: tests
+License-File: LICENSE.md
