@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pyacaia-async
+Version: 0.0.2
+Summary: An async implementation of PyAcaia
+Home-page: https://github.com/zweckj/pyacaia_async
+Author: Josef Zweck
+Author-email: 24647999+zweckj@users.noreply.github.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: bleak (>=0.20.2)
+Requires-Dist: asyncio (>=3.4.3)
+
+# pyacaia_async
+Async implementation of [pyacaia](https://github.com/lucapinello/pyacaia/tree/master/pyacaia), based on `asyncio` and `bleak`
+# Usage
+```python
+import asyncio
+from pyacaia_async import AcaiaScale
+from pyacaia_async.helpers import find_acaia_devices
+
+async def main()
+  addresses = await find_acaia_devices()
+  address = addresses[0]
+  scale = await AcaiaScale.create(mac=address, isPyxisStyle=False)
+  await scale.tare()
+  await scale.startStopTimer()
+  await scale.resetTimer()
+
+asyncio.run(main())
+```
