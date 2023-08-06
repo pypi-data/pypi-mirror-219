@@ -1,0 +1,50 @@
+[project]
+
+name = "superannotate_databricks_connector"  
+
+version = "0.0.2dev1"
+
+description = "Custom functions to work with SuperAnnotate in Databricks"
+
+readme = "readme.md"
+
+requires-python = ">=3.8"
+
+license = { file = "LICENSE.txt" }
+
+keywords = ["superannotate_databricks_connector", "superannotate"]
+
+authors = [
+    { name = "Leo Lindén", email = "leo@superannotate.com" }
+]
+
+maintainers = [
+    { name = "Leo Lindén", email = "leo@superannotate.com" }
+]
+
+classifiers = [# Optional
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "pyspark~=3.4.0"
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]  # Optional
+"Homepage" = "https://github.com/superannotateai/superannotate-databricks-connector"
+"Bug Reports" = "https://github.com/superannotateai/superannotate-databricks-connector/issues"
+"Source" = "https://github.com/superannotateai/superannotate-databricks-connector/"
+
+[build-system]
+requires = ["setuptools>=43.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
