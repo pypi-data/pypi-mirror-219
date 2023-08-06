@@ -1,0 +1,16 @@
+setup.py
+entail/__init__.py
+entail/chat.py
+entail/config.py
+entail/core.py
+entail/env.py
+entail/main.py
+entail/results.py
+entail/utils.py
+entail.egg-info/PKG-INFO
+entail.egg-info/SOURCES.txt
+entail.egg-info/dependency_links.txt
+entail.egg-info/requires.txt
+entail.egg-info/top_level.txt
+tests/test_e2e.py
+tests/test_loader.py
