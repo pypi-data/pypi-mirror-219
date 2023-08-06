@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: idftools
+Version: 0.1.4
+Summary: Um pacote com alguns utilitarios uteis
+Home-page: http://ideiadofuturo.com.br/pypi
+Author: eniodefarias
+Author-email: eniodefarias@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow
+Requires-Dist: PyInstaller
+Requires-Dist: anticaptchaofficial
+Requires-Dist: configparser
+Requires-Dist: cryptography
+Requires-Dist: csv
+Requires-Dist: cv2
+Requires-Dist: database
+Requires-Dist: datetime
+Requires-Dist: img2pdf
+Requires-Dist: intertools
+Requires-Dist: json
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: openpyxl
+Requires-Dist: os
+Requires-Dist: pandas
+Requires-Dist: pip
+Requires-Dist: psycopg2-binary
+Requires-Dist: pyautogui
+Requires-Dist: pytz
+Requires-Dist: pywin32
+Requires-Dist: re
+Requires-Dist: selenium
+Requires-Dist: subprocess
+Requires-Dist: sys
+Requires-Dist: time
+Requires-Dist: undetected-chromedriver
+Requires-Dist: webdriver-manager
+Requires-Dist: wincertstore
+Requires-Dist: winreg
+Requires-Dist: xlsxwriter
+
+
+## instalando
+
+```bash
+pip install idftools
+```
+
+## importando
+```python
+import idftools
+
+# use as funções do seu pacote
+idftools.utilities.some_function()
+idftools.driversfactory.some_other_function()
+idftools.certificate.another_function()
+```
+
+
