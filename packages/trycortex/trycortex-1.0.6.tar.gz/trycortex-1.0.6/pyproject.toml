@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "trycortex"
+version = "1.0.6"
+description = "Python library for Cortex"
+authors = ["Charles <charlespun6@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.5"
+requests = "^2.31.0"
+pytest = "^7.4.0"
+[tool.poetry.scripts]
+cortex = "trycortex.cli.cli:cortex"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
