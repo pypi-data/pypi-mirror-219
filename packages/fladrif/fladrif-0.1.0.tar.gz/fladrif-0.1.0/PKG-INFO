@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: fladrif
+Version: 0.1.0
+Summary: Compute a series of operations to transform one tree into another
+License: GPL-2.0-or-later
+Author: Sam Wilson
+Author-email: sam@binarycake.ca
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+fladrif
+=======
+
+Quick and dirty library to generate a ["patch"] transforming one tree into
+another. Heavily based on [`rstdiff`] by Stefan Merten.
+
+## Usage
+
+Subclass `fladrif.treediff.Adapter` to connect your tree objects to the
+algorithm in this package.
+
+Then, use `fladrif.treediff.TreeMatcher` to compute the set of operations in the
+patch.
+
+Finally, you can subclass `fladrif.apply.Apply` to walk the operations to build
+a new tree.
+
+
+["patch"]: https://en.wikipedia.org/wiki/Patch_(computing)
+[`rstdiff`]: https://docutils.sourceforge.io/sandbox/rstdiff/
+
