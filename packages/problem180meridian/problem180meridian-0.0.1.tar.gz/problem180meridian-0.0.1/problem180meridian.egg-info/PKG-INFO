@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: problem180meridian
+Version: 0.0.1
+Summary: ('Python module to fix 180 degree crossing issue for vector geodata',)
+Home-page: https://github.com/sergsadkov/problem180meridian
+Download-URL: https://github.com/sergsadkov/problem180meridian/archive/main.zip
+Author: sergsadkov
+Author-email: sergsadkov@gmail.com
+License: Apache License, Version 2.0, see LICENSE file
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# problem180
+Python module to fix 180 degree crossing issue for vector geodata
