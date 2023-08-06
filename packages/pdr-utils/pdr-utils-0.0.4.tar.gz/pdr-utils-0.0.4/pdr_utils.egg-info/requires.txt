@@ -1,0 +1,6 @@
+enforce_typing
+pylint
+bumpversion
+requests
+web3
+coverage
