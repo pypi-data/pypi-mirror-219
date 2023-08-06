@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: surfify
+Version: 0.2.0
+Summary: 
+PyTorch toolbox to work with spherical surfaces.
+
+Home-page: https://github.com/neurospin-deepinsight/surfify
+Author: 
+surfify developers
+
+Author-email: antoine.grigis@cea.fr
+License: CeCILL-B
+Description: PyTorch toolbox to work with spherical surfaces.
+        
+Platform: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
