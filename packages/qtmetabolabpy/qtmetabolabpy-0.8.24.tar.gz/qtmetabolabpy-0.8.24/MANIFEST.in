@@ -1,0 +1,12 @@
+include README.rst
+include LICENSE
+include requirements.txt
+include README.md
+include qtmetabolabpy/*
+include qtmetabolabpy/ui/*
+include qtmetabolabpy/bash/*
+include qtmetabolabpy/mlStarter
+include qtmetabolabpy/mlStarter/Contents
+include qtmetabolabpy/mlStarter/Icon
+include qtmetabolabpy/mlStarter/Contents/*
+include qtmetabolabpy/mlStarter/Contents/Resources/*
