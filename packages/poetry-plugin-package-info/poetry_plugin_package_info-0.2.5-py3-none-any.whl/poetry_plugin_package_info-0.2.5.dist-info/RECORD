@@ -1,0 +1,14 @@
+poetry_plugin_package_info/__init__.py,sha256=_Ug9y-vIygQblXzEXMgYTU-NWxwM70yfSv6UCt4VPHo,1131
+poetry_plugin_package_info/_zipfile.py,sha256=kGK3ufNq_MbPGNZqt42mo9KrecKYW6IeEM0X_j-Wp6E,97582
+poetry_plugin_package_info/formatters/__init__.py,sha256=7Vaf-MolcVFrAf3Bk565q3Go3fLxjNSfs89NRcU78_k,1170
+poetry_plugin_package_info/formatters/black.py,sha256=7YZK79ncsCohsqZPGLdSkGukDqS2Mw2e5QMVyDYfmTg,814
+poetry_plugin_package_info/generators/__init__.py,sha256=dV3B2OAA_6GvBVFuabYxXv_S4VhOIZiniohgTG2xohA,1172
+poetry_plugin_package_info/generators/git.py,sha256=8rd0ek0oI71PX0XrJixKQq-gMThxJydoWuiv_KDDFE0,8024
+poetry_plugin_package_info/generators/project.py,sha256=vxcojSPf3S3a102dKEN8sWTMqiDQ8vZIX_RPwZWBMSY,3149
+poetry_plugin_package_info/package_info.py,sha256=4jpNXKwJvmoxaaW_QJWQ6LZvXkDQBPKAFve3IQAkRcs,2684
+poetry_plugin_package_info/plugin.py,sha256=FNcUrz_3dXIET6BsrKcTRshpBIIFzFw-QBrQaFJxe-Q,37120
+poetry_plugin_package_info-0.2.5.dist-info/LICENSE,sha256=mcq5TdDV5Q0CnbbpGNtTiulMwSow-e2o7yaah9TZ4Dc,1066
+poetry_plugin_package_info-0.2.5.dist-info/METADATA,sha256=hWwX7Rm_iZMFG5JaJ3Yl-Ae2aUlh32qhjjfghRwu2cQ,9669
+poetry_plugin_package_info-0.2.5.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+poetry_plugin_package_info-0.2.5.dist-info/entry_points.txt,sha256=sz1P05ve266UKYWG88luhZhZTXhZ9TvegUht15hBPoQ,105
+poetry_plugin_package_info-0.2.5.dist-info/RECORD,,
