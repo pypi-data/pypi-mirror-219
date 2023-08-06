@@ -1,0 +1,8 @@
+stactools==0.4.5
+stactools-browse==0.1.7
+stactools-landsat==0.3.0
+stactools-sentinel1==0.5.3
+stactools-sentinel2==0.4.0
+pystac==1.7.2
+rio_stac==0.7.0
+lxml==4.9.2
