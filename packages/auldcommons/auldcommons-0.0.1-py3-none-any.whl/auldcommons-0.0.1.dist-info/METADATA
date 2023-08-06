@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: auldcommons
+Version: 0.0.1
+License: MIT License
+Project-URL: repository, https://github.com/AlexLemna/auldcommons
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Provides-Extra: dev
+Requires-Dist: pip ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: reuse ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: setuptools (>=45) ; extra == 'dev'
+Requires-Dist: setuptools-scm[toml] (>=6.2) ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+
+<!--
+SPDX-FileCopyrightText: 2023 Alex Lemna <git@alexanderlemna.com>
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+
+# auldcommons
