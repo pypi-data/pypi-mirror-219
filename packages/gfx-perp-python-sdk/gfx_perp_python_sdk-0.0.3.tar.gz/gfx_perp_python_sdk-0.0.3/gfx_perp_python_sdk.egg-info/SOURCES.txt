@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+gfx_perp_python_sdk.egg-info/PKG-INFO
+gfx_perp_python_sdk.egg-info/SOURCES.txt
+gfx_perp_python_sdk.egg-info/dependency_links.txt
+gfx_perp_python_sdk.egg-info/requires.txt
+gfx_perp_python_sdk.egg-info/top_level.txt
+my_project/__init__.py
+my_project/perp.py
+my_project/product.py
+my_project/trader.py
