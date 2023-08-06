@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.py
+src/anyjson2csv/__init__.py
+src/anyjson2csv/flatten_json.py
+src/anyjson2csv/json_to_csv.py
+src/anyjson2csv.egg-info/PKG-INFO
+src/anyjson2csv.egg-info/SOURCES.txt
+src/anyjson2csv.egg-info/dependency_links.txt
+src/anyjson2csv.egg-info/requires.txt
+src/anyjson2csv.egg-info/top_level.txt
