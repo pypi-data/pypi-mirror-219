@@ -1,0 +1,398 @@
+Metadata-Version: 2.1
+Name: tablestring
+Version: 0.0.3
+Summary: An ASCII text table renderer.
+Author-email: Guy de Winton <guy@codehippie.io>
+Project-URL: Homepage, https://gitlab.com/guydewinton/tablestring
+Project-URL: Bug Tracker, https://gitlab.com/guydewinton/tablestring/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+```python
+
+
+
+
+def table_string(table_columns: List[dict], table_dict: List[dict], header: bool=True, footer: bool=True) -> str:
+
+    # analyse table_dict for lengths?
+    table_width = 1
+    return_string = ""
+    for table_column in table_columns:
+        table_width += table_column["width"] + 1
+
+    if header:
+        # return_string += f"{'=' * table_width}\n"
+        for i, table_column in enumerate(table_columns):
+            if i == 0:
+                return_string += f"  {table_column['name']}{' ' * (table_column['width'] - len(table_column['name']) - 1)}"
+        return_string += "|\n"
+        for table_column in table_columns:
+            return_string += f"┼{'-' * table_column['width']}"
+        return_string += "|\n"
+        for table_column in table_columns:
+            return_string += f"|{' ' * table_column['width']}"
+        return_string += "|\n"
+        for table_column in table_columns:
+            return_string += f"|{' ' * table_column['width']}"
+        return_string += "|\n"
+        for table_column in table_columns:
+            return_string += f"|{' ' * table_column['width']}"
+        return_string += "|\n"
+
+    # return_string += f"{'=' * table_width}\n"
+
+
+
+
+    for table_row in table_dict:
+        for table_cell in table_row.items():
+            pass
+
+    return return_string
+
+
+test_columns = [
+    {
+        "width": 40,
+        "name": "Projects"
+    },
+    {
+        "width": 20,
+        "name": "Epochs"
+    },
+    {
+        "width": 20,
+        "name": "Collections"
+    },
+]
+
+print(table_string(test_columns, test_columns))
+
+"""
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ item   ┃   qty ┃
+┣━━━━━━━━╋━━━━━━━┫
+┃ spam   ┃    42 ┃
+┣━━━━━━━━╋━━━━━━━┫
+┃ eggs   ┃   451 ┃
+┣━━━━━━━━╋━━━━━━━┫
+┃ bacon  ┃     0 ┃
+┗━━━━━━━━┻━━━━━━━┛
+
+╔════════════════╗
+║ item   ┃   qty ║
+╠════════════════╣
+║ spam   ┃    42 ║
+║━━━━━━━━╋━━━━━━━║
+║ eggs   ┃   451 ║
+║━━━━━━━━╋━━━━━━━║
+║ bacon  ┃     0 ║
+╚════════════════╝
+
+╔════════════════╗
+║ item   ┃   qty ║
+╠════════════════╣
+║ spam   ┃    42 ║
+╠════════════════╣
+║ eggs   ┃   451 ║
+╠════════════════╣
+║ bacon  ┃     0 ║
+╚════════════════╝
+
+┏━━━━━━━━┯━━━━━━━┓
+┃ item   │   qty ┃
+┠────────┼───────┨
+┃ spam   │    42 ┃
+┠────────┼───────┨
+┃ eggs   │   451 ┃
+┠────────┼───────┨
+┃ bacon  │     0 ┃
+┗━━━━━━━━┷━━━━━━━┛
+
+┏━━━━━━━━┳━━━━━━━┓
+┃ item   ┃   qty ┃
+┣━━━━━━━━╇━━━━━━━┫
+┃ spam   │    42 ┃
+┠────────┼───────┨
+┃ eggs   │   451 ┃
+┠────────┼───────┨
+┃ bacon  │     0 ┃
+┗━━━━━━━━┷━━━━━━━┛
+
+
+    ╔════════════════════════════════════════════╤═════╤═════╤═════╤═════╗
+    ║ asdasdasd                        asdasdasd │ asd │ asd │ asd │ sdf ║
+    ╠════════════════════════════════════════════╪═════╪═════╪═════╪═════╣
+    ║ asd                                        │ asd │ asd │ asd │ sdf ║
+    ╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+    ║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+    ╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+    ║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+    ╚════════════════════════════════════════════╧═════╧═════╧═════╧═════╝
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║ PROJECT: Some Project                                              ║
+╟────────────────────────────────────────────────────────────────────╢
+║ And here is the project descript, whatever it might be. It might   ║
+║ even be several lines.                                             ║
+╠════════════════════════════════════════════╤═════╤═════╤═════╤═════╣
+║ EPOCHS                                     │ asd │ asd │ asd │ sdf ║
+╠════════════════════════════════════════════╪═════╪═════╪═════╪═════╣
+║ asd                                        │ asd │ asd │ asd │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+╚════════════════════════════════════════════╧═════╧═════╧═════╧═════╝
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║ PROJECT: Some Project                                              ║
+╟────────────────────────────────────────────────────────────────────╢
+║ And here is the project descript, whatever it might be. It might   ║
+║ even be several lines.                                             ║
+╠════════════════════════════════════════════╤═════╤═════╤═════╤═════╣
+║                   EPOCHS                   │ asd │ asd │ asd │ sdf ║
+╠════════════════════════════════════════════╪═════╪═════╪═════╪═════╣
+║ asd                                        │ asd │ asd │ asd │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ sdf                                        │ sdf │ sdf │ sdf │ sdf ║
+╚════════════════════════════════════════════╧═════╧═════╧═════╧═════╝
+
+
+
+
+╔════════════════════════════════════════════════════════════════════╗
+║ PROJECT: Some Project                                              ║
+╟────────────────────────────────────────────────────────────────────╢
+║ And here is the project descript, whatever it might be.            ║
+╠════════════════════════════════════════════╤═════╤═════╤═════╤═════╣
+║ EPOCHS                                     │ asd │ asd │ asd │ sdf ║
+╠════════════════════════════════════════════╪═════╪═════╪═════╪═════╣
+║ Getting started                            │ asd │ asd │ asd │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ Moving forward                             │ sdf │ sdf │ sdf │ sdf ║
+╟────────────────────────────────────────────┼─────┼─────┼─────┼─────╢
+║ Cleaning up                                │ sdf │ sdf │ sdf │ sdf ║
+╚════════════════════════════════════════════╧═════╧═════╧═════╧═════╝
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+╔════════════════════════════════════════════╤═══════╤═══════╤═══════╤════════╗
+║ asdasdasd                                  │ asd   │ asd   │ asd   │ asd    ║
+╟────────────────────────────────────────────┼───────┼───────┼───────┼────────╢
+║ asd                                        │ asd   │ asd   │ asd   │ asd    ║
+║ sdf                                        │ asd   │ asd   │ asd   │ asd    ║
+║ sdf                                        │ asd   │ asd   │ asd   │ asd    ║
+╚════════════════════════════════════════════╧═══════╧═══════╧═══════╧════════╝
+
+
+┌────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+│ asdasdasd                                  │ asd │ asd │ asd │ sdf │
+├────────────────────────────────────────────┼─────┼─────┼─────┼─────┤
+│ asd                                        │ asd │ asd │ asd │ sdf │
+│ sdf                                        │ sdf │ sdf │ sdf │ sdf │
+│ sdf                                        │ sdf │ sdf │ sdf │ sdf │
+└────────────────────────────────────────────┴─────┴─────┴─────┴─────┘
+
+
+
+
+┌────────────────────────────────────────────┬─────┬─────┬─────┬─────┐
+│ asdasdasd                        asdasdasd │ asd │ asd │ asd │ sdf │
+╞════════════════════════════════════════════╪═════╪═════╪═════╪═════╡
+│ asd                                        │ asd │ asd │ asd │ sdf │
+│ sdf                                        │ sdf │ sdf │ sdf │ sdf │
+│ sdf                                        │ sdf │ sdf │ sdf │ sdf │
+└────────────────────────────────────────────┴─────┴─────┴─────┴─────┘
+
+
+
+
+"""
+
+
+"""
+│ ┃ ║
+
+─ ━ ═
+
+┌ ┏ ╔ ┍ ┎ ╒ ╓ * 4
+
+├ ┣ ╠ ┠ ┝ ╟ ╞
+
+┤ ┫ ╣ ┨ ┥ ╢ ╡
+
+┼ ╋ ╬ ╂ ┿ ╀ ╁ ╇ ╈ ╫ ╪ 
+"""
+
+x = [
+    "thin",
+    "thick",
+    "thin"
+    "┿"
+]
+
+"""
+│ ║
+
+─ ═
+
+┌ ╔ ╒ ╓ * 4
+
+├ ╠ ╟ ╞
+
+┤ ╣ ╢ ╡
+
+┼ ╬ ╫ ╪ 
+"""
+
+"""
+only thin for inner column... yes!
+
+│ ┃ ║
+
+─ ━ ═
+
+┌ ┏ ╔ ┍ ┎ ╒ ╓     * 4
+
+├ ┣ ╠ ┠ ┝ ╟ ╞ ║ ┃
+
+┤ ┫ ╣ ┨ ┥ ╢ ╡ ║
+
+┼ ┿ ╪ 
+"""
+
+"""
+only thin for inner column... 
+same same outer border...
+yes yes!!!
+
+│ ┃ ║
+
+─ ━ ═
+
+┌ ┏ ╔     * 4
+
+├ ┣ ╠ ┠ ┝ ╟ ╞ ║ ┃
+
+┤ ┫ ╣ ┨ ┥ ╢ ╡ ║ ┃
+
+┼ ┿ ╪ 
+"""
+
+
+"""
+only thin for inner column... 
+same same outer border...
+yes yes!!!
+
+(sorted by outer first)
+
+│ ┃ ║
+
+─ ━ ═
+
+┌ ┏ ╔     * 4
+
+├ ┝ ╞ ┠ ┠ ┃ ╟ ║ ╠
+
+┤ ┥ ╡ ┨ ┫ ┃ ╢ ║ ╣
+
+┼ ┿ ╪ 
+
+manageable...
+"""
+
+left_side_matrix = {
+    "thin": {
+        "thin": "├",
+        "thick": "┝",
+        "double": "╞"
+    },
+    "thick": {
+        "thin": "┠",
+        "thick": "┣",
+        "double": "┃"
+    },
+    "double": {
+        "thin": "╟",
+        "thick": "║",
+        "double": "╠"
+    }
+}
+
+right_side_matrix = {
+    "thin": {
+        "thin": "┤",
+        "thick": "┥",
+        "double": "╡"
+    },
+    "thick": {
+        "thin": "┨",
+        "thick": "┫",
+        "double": "┃"
+    },
+    "double": {
+        "thin": "╢",
+        "thick": "║",
+        "double": "╣"
+    }
+}
+
+
+
+```
+
+```python
+
+                # A - is this an outer_border
+                    # 1 - determine border type
+                    # 2 - populate edge characters (in array [a])
+                    # 2 - populate line (in array [b]) with line type
+                    # 3 - calculate intersections (in an array of arrays [c])
+                    # 5 - populate intersection (in array [b])
+                    # 6 - generate string
+                # B - is this a line row (should really only be between frames, me thinks...) (maybe each table row is a frame?)
+                    # 1 - determine line type
+                    # 2 - populate edge characters (in array [a])
+                    # 3 - populate line (in array [b]) with line type
+                    # 4 - calculate intersections (in an array of arrays [c])
+                    # 5 - populate intersection (in array [b])
+                    # 6 - generate string
+                # C - is this a text line
+                    # 1 - populate edge characters (in array [a])
+                    # 2 - generate string
+
+
+                # how much of this should be done above? ie: should the print just have complete frames? just handling the edge character?
+                # (more specifically, handling the line rows above?)
+
+                row_index = 0
+```
