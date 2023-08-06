@@ -1,0 +1,15 @@
+capsula/__init__.py,sha256=x1NNOYNSWD79ny-Hc-MoOBnIbuev895NGal1iciuFXs,157
+capsula/__main__.py,sha256=Kn2llwD7yMQcdBy4NR0QrLsrk8p7dsGVe4FZLEcfzXo,2572
+capsula/_monitor.py,sha256=s9bjucvTgxCqSFc7DJBalxqSBzyoTALRuJgfGfvqyZ0,10160
+capsula/_version.py,sha256=HUOBS8tLZC2L1hrZnHd1tx4FPHmay9AEf7C7zFPmAXc,79
+capsula/capture.py,sha256=RAq2JCSoKTgK1TofcrkDgB7vrJPNvHMSz-u71XwfSpA,1338
+capsula/config.py,sha256=TrF1LkhbLt-Ic7xYKiscPobqUnISdIkJadb3JeTA9kI,2884
+capsula/context.py,sha256=FOr7lcsXWLbulF1f4bX6xX-Bau9lQLK8xX0Q3Ss4-1E,4899
+capsula/file.py,sha256=AGl7OEgFgqdTWo27EDNSg99OyM_04C5llM9NcFmiGiQ,621
+capsula/globalvars.py,sha256=3bH9PAKUwlSYWW_SAa9ftpaidm5cp7HeS7AQc3zO6kI,837
+capsula/hash.py,sha256=4R8FGN2QZz5Dk7bydh4z1SL62GZsHp7432BidxUserM,849
+capsula-0.0.21.dist-info/LICENSE,sha256=kdmhN12KT9B0EsnRaiJmRVbYOqR7AiDS3SPfAS1Jb0w,1074
+capsula-0.0.21.dist-info/METADATA,sha256=Om8BeXaRVmfyPm_A1zTjqNIQv_yIfbBGjNedhCbN5sc,13647
+capsula-0.0.21.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+capsula-0.0.21.dist-info/entry_points.txt,sha256=eA14j6EK6vjhM8ucE-kIx7GRmqVmKUDCiC-30xDerGs,49
+capsula-0.0.21.dist-info/RECORD,,
