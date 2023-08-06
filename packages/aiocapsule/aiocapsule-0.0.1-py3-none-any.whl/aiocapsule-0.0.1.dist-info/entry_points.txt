@@ -1,0 +1,6 @@
+[console_scripts]
+
+
+[nbdev]
+aiocapsule = aiocapsule._modidx:d
+
