@@ -1,0 +1,2 @@
+[console_scripts]
+target-duckdb = target_duckdb:main
