@@ -1,0 +1,429 @@
+from __future__ import annotations
+
+from bisect import bisect_left
+from dataclasses import dataclass
+from enum import Enum, auto
+
+
+@dataclass(frozen=True)
+class Span:
+    start: int
+    length: int
+
+
+@dataclass(frozen=True)
+class Tag:
+    span: Span
+    label: str
+
+    @property
+    def start(self) -> int:
+        return self.span.start
+
+    @property
+    def length(self) -> int:
+        return self.span.length
+
+
+class Alignment:
+    """An alignment class responsible for manipulating character-based tags based on
+    a tokenization result, which is useful for encoding tags to tag_indices/tag_bitmap
+    and decoding tag_indices/tag_bitmap to tags.
+
+    Args:
+        char_spans: A tuple of character spans for each token, or None if
+            there is no corresponding span.
+        token_indices: A tuple of token indices for each character, or -1 if there is
+            no corresponding token.
+
+    Attributes:
+        char_length: The text length before tokenization.
+        num_tokens: The number of tokens after tokenization.
+    """
+
+    def __init__(
+        self, char_spans: tuple[Span | None, ...], token_indices: tuple[int, ...]
+    ):
+        self.__char_spans = char_spans
+        self.__token_indices = token_indices
+
+    @property
+    def char_length(self) -> int:
+        return len(self.__token_indices)
+
+    @property
+    def num_tokens(self) -> int:
+        return len(self.__char_spans)
+
+    def convert_to_char_span(self, token_span: Span) -> Span | None:
+        """Converts a token span to its corresponding character span.
+
+        Args:
+            token_span: An instance of Span corresponding a token.
+
+        Returns:
+            A corresponding character span, or None if there is no corresponding
+            character span.
+        """
+        char_span_start = self.__char_spans[token_span.start]
+        char_span_end = self.__char_spans[token_span.start + token_span.length - 1]
+
+        if char_span_start is None or char_span_end is None:
+            return None
+
+        return Span(
+            start=char_span_start.start,
+            length=char_span_end.start + char_span_end.length - char_span_start.start,
+        )
+
+    def convert_to_char_based(self, tags: set[Tag]) -> set[Tag]:
+        """Converts token-based tags to character-based tags.
+
+        Args:
+            tags: A set of token-based tags
+
+        Returns:
+            A set of character-based tags.
+        """
+        aligned_tags = []
+        for tag in tags:
+            char_span = self.convert_to_char_span(tag.span)
+            if char_span is not None:
+                aligned_tags.append(Tag(char_span, tag.label))
+
+        return set(aligned_tags)
+
+    def convert_to_token_based(self, tags: set[Tag]) -> set[Tag]:
+        """Converts character-based tags to token-based tags. Note that this operation
+        is irreversible. For example, if a text is truncated in tokenization,
+        tags associated with a truncated part will be ignored.
+
+        Args:
+            tags: A set of character-based tags
+
+        Returns:
+            A set of token-based tags.
+        """
+        aligned_tags = []
+        for tag in tags:
+            start = self.__token_indices[tag.start]
+            end = self.__token_indices[tag.start + tag.length - 1]
+            if start == -1 or end == -1:
+                # There is no char span which strictly corresponds a given tag.
+                continue
+            length = end - start + 1
+            aligned_tags.append(Tag(Span(start, length), tag.label))
+
+        return set(aligned_tags)
+
+    def create_char_based_tags(
+        self, tag_indices: list[int], label_set: LabelSet
+    ) -> set[Tag]:
+        """Creates a set of character-based tags from given tag indices.
+
+        Args:
+            tag_indices: A list of integer, where each item represents a tag index.
+            label_set: An instance of LabelSet.
+
+        Returns:
+            A set of character-based tags.
+        """
+        if self.num_tokens != len(tag_indices):
+            raise ValueError("The number of tokens in text mismatch.")
+
+        tags = []
+        stack: list[str] = []
+        for pos, index in enumerate(tag_indices):
+            status = label_set.get_status(index)
+            label = label_set.get_label(index)
+            if status is None or label is None:
+                continue
+
+            if status == Status.UNIT:
+                tags.append(Tag(Span(pos, 1), label))
+            elif status == Status.END:
+                if stack and stack[-1] == label:
+                    length = len(stack)
+                    tags.append(Tag(Span(pos - length, length + 1), label))
+                stack.clear()
+            elif status == Status.START or status == Status.INSIDE:
+                if not stack or stack[-1] == label:
+                    stack.append(label)
+                else:
+                    stack.clear()
+            else:
+                raise ValueError("Invalid status.")
+
+        return self.convert_to_char_based(set(tags))
+
+    def create_tag_indices(
+        self, tags: set[Tag], label_set: LabelSet, unknown_index: int = -100
+    ) -> list[int]:
+        """Creates a list of active tag indices where given tags are expected
+        to be character-based.
+
+        Args:
+            label_set: An instance of LabelSet.
+            unknown_index: An integer representing an index for an unknown tag.
+                Defaults to -100.
+
+        Returns:
+            A list of integers, where each integer represents an active tag.
+
+        """
+        tags = self.convert_to_token_based(tags)
+
+        tag_indices = [unknown_index] * self.num_tokens
+
+        for token_index in range(self.num_tokens):
+            span = self.__char_spans[token_index]
+            if span is None:
+                tag_indices[token_index] = label_set.get_outside_index()
+
+        for tag in sorted(
+            tags,
+            key=lambda tag: (tag.start, tag.start + tag.length),
+        ):
+            start = tag.start
+            end = tag.start + tag.length - 1
+            if start == end:
+                tag_indices[start] = label_set.get_unit_index(tag.label)
+            else:
+                tag_indices[start] = label_set.get_start_index(tag.label)
+                tag_indices[start + 1 : end] = [
+                    label_set.get_inside_index(tag.label)
+                ] * (end - start - 1)
+                tag_indices[end] = label_set.get_end_index(tag.label)
+
+        return tag_indices
+
+    def create_tag_bitmap(
+        self, tags: set[Tag], label_set: LabelSet
+    ) -> list[list[bool]]:
+        """Creates a tag bitmap indicating the presence of active tags for each token
+        where given tags are expected to be character-based.
+
+        Args:
+            label_set: An instance of LabelSet.
+
+        Returns:
+            A list of lists of booleans, where each boolean represents an active tag.
+
+        """
+        tags = self.convert_to_token_based(tags)
+
+        tag_bitmap = [
+            [False] * label_set.get_tag_size() for _ in range(self.num_tokens)
+        ]
+        for token_index in range(self.num_tokens):
+            span = self.__char_spans[token_index]
+            if span is None:
+                tag_bitmap[token_index][label_set.get_outside_index()] = True
+
+        for tag in sorted(
+            tags,
+            key=lambda tag: (tag.start, tag.start + tag.length),
+        ):
+            start = tag.start
+            end = tag.start + tag.length - 1  # inclusive
+            if start == end:
+                tag_bitmap[start][label_set.get_unit_index(tag.label)] = True
+            else:
+                tag_bitmap[start][label_set.get_start_index(tag.label)] = True
+                for i in range(start + 1, end):
+                    tag_bitmap[i][label_set.get_inside_index(tag.label)] = True
+                tag_bitmap[end][label_set.get_end_index(tag.label)] = True
+
+        for bit in tag_bitmap:
+            if sum(bit) == 0:
+                bit[:] = [True] * label_set.get_tag_size()
+
+        return tag_bitmap
+
+
+class Status(Enum):
+    START = auto()
+    INSIDE = auto()
+    END = auto()
+    UNIT = auto()
+
+
+class LabelSet:
+    """A label set represents a set of labels used for tagging, where each label
+    has four states (start, inside, end, unit).
+
+    Args:
+        labels: A set of strings, where each string represents a label.
+    """
+
+    def __init__(self, labels: set[str]):
+        self.__labels = [*sorted(labels)]
+        self.__status_size = len(Status)  # start, inside, end, unit
+
+        self.__start_indices = [
+            *range(
+                1,
+                self.get_tag_size(),
+                self.__status_size,
+            )
+        ]
+        self.__unit_indices = [
+            *range(
+                self.__status_size,
+                self.get_tag_size(),
+                self.__status_size,
+            )
+        ]
+
+        self.__label_ids = dict(zip(self.__labels, self.__start_indices))
+
+    def __contains__(self, label: str) -> bool:
+        i = bisect_left(self.__labels, label)
+        if i >= len(self.__labels):
+            return False
+        return self.__labels[i] == label
+
+    def get_outside_index(self) -> int:
+        return 0
+
+    def get_start_index(self, label: str) -> int:
+        if label not in self.__label_ids:
+            raise ValueError("Invalid label is given.")
+        return self.__label_ids[label]
+
+    def get_inside_index(self, label: str) -> int:
+        return self.get_start_index(label) + 1
+
+    def get_end_index(self, label: str) -> int:
+        return self.get_start_index(label) + 2
+
+    def get_unit_index(self, label: str) -> int:
+        return self.get_start_index(label) + 3
+
+    def get_labels(self) -> list:
+        return self.__labels
+
+    def get_label_size(self) -> int:
+        return len(self.__labels)
+
+    def get_tag_size(self) -> int:
+        # (start, inside, end, unit) * label + outside status
+        return self.__status_size * self.get_label_size() + 1
+
+    def get_label(self, index: int) -> str | None:
+        """Returns a label associated with a given index.
+
+        Args:
+            index: An integer representing a label with a state.
+
+        Returns:
+            A string representing a label, or None if a given index represents
+            an outside status.
+        """
+        if index < 0 or index >= self.get_tag_size():
+            raise ValueError("Invalid index.")
+
+        if index == self.get_outside_index():
+            return None
+
+        return self.__labels[bisect_left(self.__unit_indices, index)]
+
+    def get_status(self, index: int) -> Status | None:
+        """Returns a status associated with a given index.
+
+        Args:
+            index: An integer representing a label with a state.
+
+        Returns:
+            A status associated with an index, or None if an given index represents
+            an outside status.
+
+        """
+        if index < 0 or index >= self.get_tag_size():
+            raise ValueError("Invalid index.")
+
+        label = self.get_label(index)
+        if label is None:
+            return None
+        elif self.get_start_index(label) == index:
+            return Status.START
+        elif self.get_inside_index(label) == index:
+            return Status.INSIDE
+        elif self.get_end_index(label) == index:
+            return Status.END
+        elif self.get_unit_index(label) == index:
+            return Status.UNIT
+        else:
+            raise ValueError("Invalid index.")
+
+    def get_start_states(self) -> list[bool]:
+        """Returns a list of booleans representing an allowed start states.
+
+        Returns:
+            A list of booleans representing allowed start states,
+            where each item is: True for its index allowed and False otherwise.
+
+        """
+        states = [False] * self.get_tag_size()
+        # Always allowed starts from outside status
+        states[self.get_outside_index()] = True
+
+        for labeled_start_index in self.__start_indices:
+            labeled_unit_index = labeled_start_index + 3
+            states[labeled_start_index] = True
+            states[labeled_unit_index] = True
+        return states
+
+    def get_end_states(self) -> list[bool]:
+        """Returns a list of booleans representing an allowed end states.
+
+        Returns:
+            A list of booleans representing allowed end states,
+            where each item is: True for its index allowed and False otherwise.
+
+        """
+        states = [False] * self.get_tag_size()
+        # Always allowed ends with outside status
+        states[self.get_outside_index()] = True
+
+        for labeled_unit_index in self.__unit_indices:
+            labeled_end_index = labeled_unit_index - 1
+            states[labeled_end_index] = True
+            states[labeled_unit_index] = True
+        return states
+
+    def get_transitions(self) -> list[list[bool]]:
+        """Returns a list of lists of booleans representing
+        allowed transitions between tags.
+
+        Returns:
+            A list of lists of booleans representing allowed transitions between tags,
+            where each item is: True for an allowed transition and False otherwise.
+
+        """
+        transitions = [
+            [False] * self.get_tag_size() for _ in range(self.get_tag_size())
+        ]
+        outside_index = self.get_outside_index()
+        transitions[outside_index] = self.get_start_states()
+
+        for labeled_start_index in self.__start_indices:
+            labeled_inside_index = labeled_start_index + 1
+            labeled_end_index = labeled_start_index + 2
+            labeled_unit_index = labeled_start_index + 3
+
+            transitions[labeled_start_index][labeled_inside_index] = True
+            transitions[labeled_start_index][labeled_end_index] = True
+
+            transitions[labeled_inside_index][labeled_inside_index] = True
+            transitions[labeled_inside_index][labeled_end_index] = True
+
+            transitions[labeled_end_index][outside_index] = True
+            for i in self.__start_indices + self.__unit_indices:
+                transitions[labeled_end_index][i] = True
+
+            transitions[labeled_unit_index][outside_index] = True
+            for i in self.__start_indices + self.__unit_indices:
+                transitions[labeled_unit_index][i] = True
+
+        return transitions
