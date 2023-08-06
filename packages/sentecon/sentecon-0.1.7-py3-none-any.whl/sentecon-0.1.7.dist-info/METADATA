@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sentecon
+Version: 0.1.7
+Summary: Interpretable deep embeddings using lexicons
+Home-page: https://github.com/torylin/sentecon/
+Author: Victoria Lin
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: sentence-transformers
+Requires-Dist: torch
+Requires-Dist: scikit-learn
+Requires-Dist: empath
+Requires-Dist: liwc
+Requires-Dist: tqdm
+
+UNKNOWN
+
