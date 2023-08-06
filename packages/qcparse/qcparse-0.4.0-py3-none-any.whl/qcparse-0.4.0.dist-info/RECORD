@@ -1,0 +1,14 @@
+qcparse/__init__.py,sha256=rl9ZaJ5pg565An2rgV-WN1uBPhxl7UMHWpNw3hT4tQ8,298
+qcparse/cli.py,sha256=WE_zKg_X3s-gATdtewMCXOinW7olDdSOit_ZTK7CSKo,851
+qcparse/exceptions.py,sha256=D3_r92ynFhzyPBza7F3a1w_F8wQT9xhoTwnBi226uWw,475
+qcparse/main.py,sha256=qtxASHIGOoQYZ4qvbrX8LMcdJpDH7_cVwi9hUs6NGzU,6676
+qcparse/models.py,sha256=vYC6AxMy1TuA2cLtu9IzwH9BfNu9LAKP8XgnNzBdGWw,2338
+qcparse/parsers/__init__.py,sha256=qlDY0H-naeJJeqGYx7AT4PeSf2gomEeXCFrxQ7UJnE0,74
+qcparse/parsers/terachem.py,sha256=Ww4zuZ7Zz3WjZJNPPMrnlqFnHY9yf05OJBCo4Z_DY6g,9105
+qcparse/parsers/utils.py,sha256=4fUHuM6gkMjJKYWlW77B8CwNUlavvHx9jQ69y3N7bc0,2693
+qcparse/registry.py,sha256=HjUSBrJvTYDtZvmpqSxmEwVJuu-pNK7q73E-4yZ-QMo,3968
+qcparse/utils.py,sha256=hAwwIlsS13WPpdoTj6VBbeqozYIPtn_enULjhyZUdj8,1193
+qcparse-0.4.0.dist-info/METADATA,sha256=b0eFajHNeRcRnnTW7OeLZRPN87fqRlRt9FgMH88pOi0,3744
+qcparse-0.4.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+qcparse-0.4.0.dist-info/entry_points.txt,sha256=FsEXBULrhwgdmz3oZlkl_2GTCYyHSAABaCDi8jO3j8A,44
+qcparse-0.4.0.dist-info/RECORD,,
