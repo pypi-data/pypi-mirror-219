@@ -1,0 +1,2 @@
+[console_scripts]
+artec = artec.__main__:main
