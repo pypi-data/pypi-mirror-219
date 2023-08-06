@@ -1,0 +1,11 @@
+# compiled files
+*/*.o
+# pypi
+dist
+*.egg-info
+*.eggs
+build
+# pycache
+*/__pycache__/*
+# debug
+debug
