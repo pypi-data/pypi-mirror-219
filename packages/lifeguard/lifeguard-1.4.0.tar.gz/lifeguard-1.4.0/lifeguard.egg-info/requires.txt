@@ -1,0 +1,6 @@
+flask
+schedule
+gunicorn
+requests
+tabulate
+PyYAML
