@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+alist/__init__.py
+alist/account.py
+alist/admin.py
+alist/driver.py
+alist/public.py
+alist/setting.py
+alist/utils.py
+python_alist_api.egg-info/PKG-INFO
+python_alist_api.egg-info/SOURCES.txt
+python_alist_api.egg-info/dependency_links.txt
+python_alist_api.egg-info/requires.txt
+python_alist_api.egg-info/top_level.txt
