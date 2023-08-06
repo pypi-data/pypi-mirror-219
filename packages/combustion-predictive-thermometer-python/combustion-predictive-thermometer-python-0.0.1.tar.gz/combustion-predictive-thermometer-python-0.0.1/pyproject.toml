@@ -1,0 +1,26 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "combustion-predictive-thermometer-python"
+version = "0.0.1"
+description = "Parse Combustion Inc. Predictive Thermometer bluetooth data."
+readme = "README.md"
+authors = [{ name = "Declan Scott" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+requires-python = ">=3.5"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
+
+[project.urls]
+Homepage = "https://github.com/declanjscott/cpt-python"
