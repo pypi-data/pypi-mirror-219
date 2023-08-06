@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+Pprints/Ppr_class.py
+Pprints/__init__.py
+Pprints.egg-info/PKG-INFO
+Pprints.egg-info/SOURCES.txt
+Pprints.egg-info/dependency_links.txt
+Pprints.egg-info/requires.txt
+Pprints.egg-info/top_level.txt
+bidi/__init__.py
+bidi/algorithm.py
+bidi/mirror.py
