@@ -1,0 +1,17 @@
+numpy>=1
+aerosandbox>=4.1.0
+
+[docs]
+sphinx
+furo
+sphinx-autoapi
+
+[test]
+pytest
+nbval
+
+[training]
+torch
+ray
+polars
+tqdm
