@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: aviewpy
+Version: 1.3.3
+Summary: Python tools for working with in the Adams View python environment
+Home-page: https://github.com/bthornton191/aviewpy
+Author: Ben Thornton
+Author-email: ben.thornton@hexagon.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: numpy-stl
+Requires-Dist: adamspy
+
+# aviewpy
+
+Python tools for working in the [Adams](http://bit.ly/41Is9jf) View python environment.
+
+## Installation
+
+Installation via pip.
+```
+> pip install aviewpy
+```
+
+## Usage
+> TBD
