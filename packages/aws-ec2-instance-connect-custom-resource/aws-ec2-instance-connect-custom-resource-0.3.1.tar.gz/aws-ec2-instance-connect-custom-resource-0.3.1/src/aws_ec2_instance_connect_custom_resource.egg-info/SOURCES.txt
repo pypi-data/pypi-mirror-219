@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/aws_ec2_instance_connect_custom_resource/__init__.py
+src/aws_ec2_instance_connect_custom_resource/py.typed
+src/aws_ec2_instance_connect_custom_resource.egg-info/PKG-INFO
+src/aws_ec2_instance_connect_custom_resource.egg-info/SOURCES.txt
+src/aws_ec2_instance_connect_custom_resource.egg-info/dependency_links.txt
+src/aws_ec2_instance_connect_custom_resource.egg-info/requires.txt
+src/aws_ec2_instance_connect_custom_resource.egg-info/top_level.txt
+src/aws_ec2_instance_connect_custom_resource/_jsii/__init__.py
+src/aws_ec2_instance_connect_custom_resource/_jsii/aws-ec2-instance-connect-custom-resource@0.3.1.jsii.tgz
