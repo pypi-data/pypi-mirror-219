@@ -1,0 +1,16 @@
+samba_sampler/__init__.py,sha256=VQfiRDC2RmNmSVWBAMXA-i84mB7-ssE31zQ5HsimOd0,776
+samba_sampler/__main__.py,sha256=lQZV-xwB5Cnwo4iO8cWh4xNE7Zg_k7QaX71-nyzeW6k,4073
+samba_sampler/common.py,sha256=LeGkim1PQ0jcZUGKJ1vKoMskBc3BzwJzYS6houeZ--A,12634
+samba_sampler/newick.py,sha256=LOQ4w_jYssvz0gPZUPcLilPmaCbW_xoDPRh6Lek9sso,31415
+samba_sampler/sampling.py,sha256=Hak2_pDC7sJliyUODFCnlwZj0IfEP4VJWmau2Bv4PA0,14276
+samba_sampler/etc/gled.matrix.bz2,sha256=q57qC-pnyrSL_Uus25veKXayynLghdX19uOVu1hzxIs,7829832
+samba_sampler/etc/global_tree.gled.newick,sha256=MuazQKlAkwfblJxw1KlC3hWuT1ZW3vNhAwNLXqE8oM8,121933
+samba_sampler/etc/glottolog.v4.7-30-gafab84d5c4.tsv,sha256=31nxiibbCltf2QNFk3euUHnp101Ye73eP0NC-r0nVAE,4714133
+samba_sampler/etc/haversine.matrix.bz2,sha256=0r5RBZ2hXgzMDH_j8V1tyhBwzMHbAy8A1aq0zd-tcEY,70499224
+samba_sampler-0.3.dist-info/AUTHORS.md,sha256=KXR2pwHAs3O5bAXKk4bsruIY8xoIAzskscq37uPav2g,85
+samba_sampler-0.3.dist-info/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+samba_sampler-0.3.dist-info/METADATA,sha256=QeAW3DFbA95a0gCXHUY2qgsKd3zEbjCm8Djd0byjdKY,3412
+samba_sampler-0.3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+samba_sampler-0.3.dist-info/entry_points.txt,sha256=3d5zxJZav4Ureog8ts1PUVBiNCDvWACstZblIsvQa8w,62
+samba_sampler-0.3.dist-info/top_level.txt,sha256=wc-W1-Bxqu_lchOkiGofwdoMvI0F5rWg-4ifpXKC_M0,14
+samba_sampler-0.3.dist-info/RECORD,,
