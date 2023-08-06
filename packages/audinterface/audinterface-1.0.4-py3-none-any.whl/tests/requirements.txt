@@ -1,0 +1,5 @@
+audb
+audobject >=0.7.5
+pytest
+pytest-doctestplus
+pytest-cov
