@@ -1,0 +1,77 @@
+<!-- -*-jinja2-*- -->
+{% extends "base.html" %}
+{% block app_content %}
+
+    <h2>Search Results</h1>
+    <br>
+
+    {% if thing == "no_hits" %}
+      <h3>No hits for query</h3>
+    {% endif %}
+    {% if thing == "terms" %}
+      {% if pagination %}
+	{{ pagination.info }}
+      {% endif %}
+      <table class="table table-striped">
+	<tr>
+	  <th>Value</th><th>Definition</th><th>Origin</th><th>Origin ID</th><th>Score</th>
+	</tr>
+	{% for item in ents[first["terms"]:last["terms"]] %}
+	  <tr>
+	    <td><a href={{ url_for('main.entities', entities="terms", id=item.ent["nanoid"])}}> {{item.ent["value"]}}</a></td>
+	    <td>
+	      {% if item.ent["origin_definition"] %}
+		{{item.ent["origin_definition"]}}
+	      {% else %}
+		<i>none</i>
+	      {% endif %}
+	    </td>
+	    <td>{{item.ent["origin"]}}</td>
+	    <td>
+	      {% if item.ent["origin_id"] %}
+		{{item.ent["origin_id"]}}
+	      {% else %}
+		<i>none</i>
+	      {% endif %}
+	    </td>
+	    <td>{{item.score}}</td>
+	  </tr>
+	{% endfor %}
+	</table>
+      {% if pagination %}
+	{{pagination.links}}
+      {% endif %}
+    {% endif %}
+    {% if thing == "models" %}
+      {% if pagination %}
+	{{ pagination.info }}
+      {% endif %}
+      {% for type in ["nodes","properties","relationships"] %}
+	<h3>{{type | title }} ({{ents[type] | length }})</h3>
+	<table class="table table-striped">
+	  <tr>
+	    <th>Handle</th><th>Description</th><th>Model</th><th>Score</th>
+	  </tr>
+	  {% for item in ents[type][first[type]:last[type]] %}
+	    <tr>
+	      <td>{{item.ent["handle"]}}</td>
+	      <td>
+		{% if item.ent["desc"] %}
+		  {{item.ent["desc"]}}
+		{% else %}
+		  <i>none</i>
+		{% endif %}
+	      </td>
+	      <td>{{item.ent["model"]}}</td>
+	      <td>{{item.score}}</td>
+	  </tr>
+	{% endfor %}
+	</table>
+      {% endfor %}
+      {% if pagination %}
+	{{pagination.links}}
+      {% endif %}
+    {% endif %}
+    
+
+{% endblock %}
