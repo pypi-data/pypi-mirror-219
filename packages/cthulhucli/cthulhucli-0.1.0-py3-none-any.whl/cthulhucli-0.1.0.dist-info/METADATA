@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: cthulhucli
+Version: 0.1.0
+Summary: A command-line tool for searching Call of Ctulhu CCG and LCG cards.
+Home-page: https://github.com/jimorie/cthulhucli
+Author: Petter Nyström
+Author-email: jimorie@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/jimorie/cthulhucli/archive/v0.1.0.tar.gz
+Keywords: call of cthulhu,cthulhu,lcg,ccg
+Platform: UNKNOWN
+Requires-Dist: click
+
+UNKNOWN
+
+

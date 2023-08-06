@@ -1,0 +1,3 @@
+[console_scripts]
+cthulhucli = cthulhucli.cthulhucli:main
+
