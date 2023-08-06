@@ -1,0 +1,82 @@
+<!--
+ * @Author: BHM-Bob 2262029386@qq.com
+ * @Date: 2022-10-19 22:16:22
+ * @LastEditors: BHM-Bob G 2262029386@qq.com
+ * @LastEditTime: 2023-06-23 09:38:02
+ * @Description: 
+-->
+# BA_PY
+[![Downloads](https://static.pepy.tech/badge/mbapy)](https://pepy.tech/project/mbapy) ![PyPI - Downloads](https://img.shields.io/pypi/dm/mbapy) ![GitHub all releases](https://img.shields.io/github/downloads/BHM-Bob/BA_PY/total?label=GitHub%20all%20releases%20downloads)
+
+![GitHub](https://img.shields.io/github/license/BHM-Bob/BA_PY)
+
+some helpful python scripts. (Basic for All in Python)
+Mainly contains sci-plot, stats, web-crawler and deeplearing-torch.
+
+## get start
+
+### install 
+#### pypi 
+Now, mbapy only support pypi install:  
+`pip install mbapy`  
+For updating:  
+`pip install --upgrade mbapy`  
+
+### wiki
+[wiki](https://github.com/BHM-Bob/BA_PY/wiki)
+
+# contain  
+## mbapy python package  
+#### \_\_version\_\_  
+*some version info*
+#### base  
+
+#### file
+
+#### plot
+*pandas.dataFrame utils for plot and some simple plot based on plt*
+
+#### web
+*utils for web-crawler*
+
+#### stats
+
+##### df
+*pandas.dataFrame utils for stats*
+
+##### reg
+*regression*
+
+##### test
+*some test func(using scipy and mostly give a support for mbapy-style data input)*
+
+#### dl-torch
+*pytorch utils for deeplearning*
+##### bb
+*basic blocks : tiny network structures*
+##### data
+*utils for dataset loading*
+##### loss
+*some loss function*
+##### m
+*model : deeplearning model constructed with basic blocks*
+##### utils
+*deeplearning training utils*
+##### paper
+
+
+## examples
+#### file
+*some file utils things*
+
+#### plot
+1. stack bar plot with hue style
+
+#### torch
+1. seq2seq core from bentrevett/pytorch-seq2seq
+
+#### web/crawler
+1. chaoxin ppt multi threads downloader (jpg->pdf)
+2. wujin search http://www.basechem.org
+3. chemSub search http://chemsub.online.fr
+
