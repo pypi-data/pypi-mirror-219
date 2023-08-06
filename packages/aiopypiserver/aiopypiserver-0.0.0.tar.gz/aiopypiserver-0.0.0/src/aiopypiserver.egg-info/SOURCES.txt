@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+src/aiopypiserver/__init__.py
+src/aiopypiserver/main.py
+src/aiopypiserver.egg-info/PKG-INFO
+src/aiopypiserver.egg-info/SOURCES.txt
+src/aiopypiserver.egg-info/dependency_links.txt
+src/aiopypiserver.egg-info/requires.txt
+src/aiopypiserver.egg-info/top_level.txt
+tests/test_main.py

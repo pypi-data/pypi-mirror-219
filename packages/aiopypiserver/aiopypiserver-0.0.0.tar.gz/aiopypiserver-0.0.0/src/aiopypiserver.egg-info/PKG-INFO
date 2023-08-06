@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aiopypiserver
+Version: 0.0.0
+Summary: Do what pypiserver does, but with aiohttp.
+Author: Jamie Walton
+Project-URL: Homepage, https://github.com/jamie0walton/aiopypiserver
+Project-URL: Bug Tracker, https://github.com/jamie0walton/aiopypiserver/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Development Status :: 1 - Planning
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# aiopypiserver
+Just an idea ATM - reimplement pypiserver with aiohttp as the web server
+
+The motivation for this was a desire to run pypiserver behind an apache proxy
+serving multiple different applications and the need to support relative paths.
+I am also keen for this to use a more current solution, ie aiohttp.
