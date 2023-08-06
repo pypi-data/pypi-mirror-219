@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ChatBMS"
+version = "0.0.1"
+authors = [
+  { name="Chirag Manjeshwar", email="chirunder@gmail.com" },
+]
+description = "Wrapper for the ChatBMS API"
+readme = "README.md"
+requires-python = ">=3.0"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://ChatBMS.in"
+"Bug Tracker" = "https://ChatBMS.in/issues"
