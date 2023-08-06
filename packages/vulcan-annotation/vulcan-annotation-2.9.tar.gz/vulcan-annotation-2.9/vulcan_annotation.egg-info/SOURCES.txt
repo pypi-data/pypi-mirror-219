@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+./js/src/va_dom.js
+./js/src/vulcan_annotation.js
+vulcan_annotation/__init__.py
+vulcan_annotation/annotation.py
+vulcan_annotation.egg-info/PKG-INFO
+vulcan_annotation.egg-info/SOURCES.txt
+vulcan_annotation.egg-info/dependency_links.txt
+vulcan_annotation.egg-info/requires.txt
+vulcan_annotation.egg-info/top_level.txt
