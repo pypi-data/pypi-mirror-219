@@ -1,0 +1,5 @@
+[console_scripts]
+image_sky = image_sky.scripts.pywrencli:main
+image_sky-server = image_sky.scripts.standalone:server
+image_sky-setup = image_sky.scripts.setupscript:interactive_setup
+

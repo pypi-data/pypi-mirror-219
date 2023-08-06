@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: image-sky
+Version: 0.1.0
+Summary: Run many jobs transparently on AWS Lambda and other cloud services
+Home-page: http://pywren.io
+Author: Eric Jonas
+Author-email: jonas@ericjonas.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Click
+Requires-Dist: boto3
+Requires-Dist: oss2
+Requires-Dist: alibabacloud-tea-console
+Requires-Dist: alibabacloud-fc-open20210406
+Requires-Dist: PyYAML
+Requires-Dist: enum34
+Requires-Dist: flaky
+Requires-Dist: glob2
+Requires-Dist: watchtower
+Requires-Dist: tblib
+
+PyWren lets you transparently run your python functionson AWS cloud services, including AWS Lambda and AWS EC2.
+
+

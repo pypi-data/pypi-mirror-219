@@ -1,0 +1,38 @@
+account:
+    aws_account_id: AWS_ACCOUNT_ID
+    aws_lambda_role: pywren_exec_role
+    aws_region: AWS_REGION
+    access_key_id: ACCESS_KEY_ID
+    access_key_secret: ACCESS_KEY_SECRET
+    user_id: USER_ID
+
+lambda:
+    memory : 1536
+    timeout : 300
+    function_name : pywren1
+    service_name : pywren_service_name
+    handler : wrenhandler.aws_lambda_handler
+    runtime : python3.9
+
+s3:
+    bucket: BUCKET_NAME
+    pywren_prefix: image_sky.jobs
+
+
+runtime:
+    s3_bucket: RUNTIME_BUCKET
+    s3_key: RUNTIME_KEY
+    endpoint: ENDPOINT
+scheduler:
+    map_item_limit: 10000
+
+standalone:
+    ec2_instance_type: m4.large
+    sqs_queue_name: image_sky-queue
+    visibility: 10
+    ec2_ssh_key : PYWREN_DEFAULT_KEY
+    target_ami : TARGET_AMI
+    instance_name: image_sky-standalone
+    instance_profile_name: image_sky-standalone
+    max_idle_time: 60
+    idle_terminate_granularity: 3600
