@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+git_dl/__init__.py
+git_dl/cli_main.py
+git_dl/github_downloader.py
+git_dl.egg-info/PKG-INFO
+git_dl.egg-info/SOURCES.txt
+git_dl.egg-info/dependency_links.txt
+git_dl.egg-info/entry_points.txt
+git_dl.egg-info/requires.txt
+git_dl.egg-info/top_level.txt
+git_dl/data/selector.yml
