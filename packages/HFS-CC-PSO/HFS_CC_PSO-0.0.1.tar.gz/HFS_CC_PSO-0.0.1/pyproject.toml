@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "HFS_CC_PSO"
+version = "0.0.1"
+authors = [
+  { name="Jignesh Nagda", email="jigsshah.97@gmail.com" },
+  { name="Dinesh Mannari", email="dmannari@iu.edu"},
+  { name="Abhishek Singh", email="singab@iu.edu"},
+  { name="Jait Mahavarkar", email="jmahava@iu.edu"},
+]
+description = "Hybrid Feature Selection for high dimensional data using Correlation Clustering and Particle Swarm Optimization"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/radioactive17/Hybrid-Feature-Selection-using-Correlation-Clustering-and-PSO"
+"Bug Tracker" = "https://github.com/radioactive17/Hybrid-Feature-Selection-using-Correlation-Clustering-and-PSO/issues"
