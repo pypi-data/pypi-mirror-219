@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+requirements.txt
+demos/demo_ontomanager.py
+src/molgenis_emx2_ontomanager/OntologyManager.py
+src/molgenis_emx2_ontomanager/__init__.py
+src/molgenis_emx2_ontomanager/__main__.py
+src/molgenis_emx2_ontomanager/cli.py
+src/molgenis_emx2_ontomanager/constants.py
+src/molgenis_emx2_ontomanager/exceptions.py
+src/molgenis_emx2_ontomanager/graphql_queries.py
+src/molgenis_emx2_ontomanager.egg-info/PKG-INFO
+src/molgenis_emx2_ontomanager.egg-info/SOURCES.txt
+src/molgenis_emx2_ontomanager.egg-info/dependency_links.txt
+src/molgenis_emx2_ontomanager.egg-info/requires.txt
+src/molgenis_emx2_ontomanager.egg-info/top_level.txt
