@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+setup.py
+niche_cv/__init__.py
+niche_cv/show.py
+niche_cv.egg-info/PKG-INFO
+niche_cv.egg-info/SOURCES.txt
+niche_cv.egg-info/dependency_links.txt
+niche_cv.egg-info/entry_points.txt
+niche_cv.egg-info/top_level.txt
+niche_cv/data/__init__.py
+niche_cv/models/__init__.py
