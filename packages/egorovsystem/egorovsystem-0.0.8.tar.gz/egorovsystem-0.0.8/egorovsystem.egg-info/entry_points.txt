@@ -1,0 +1,5 @@
+[console_scripts]
+EGO = egorovsystem.run_command:run
+egolocal-run = egolocal.main:run
+egoserver-init = egoserver.run:init
+egoserver-run = egoserver.run:run
