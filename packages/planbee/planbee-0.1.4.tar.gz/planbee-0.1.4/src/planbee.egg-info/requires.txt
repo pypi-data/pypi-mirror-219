@@ -1,0 +1,11 @@
+numpy
+networkx
+pandas
+pydantic
+seaborn
+matplotlib
+itertools
+
+[testing]
+pytest>=6.0
+pytest-cov>=2.0
