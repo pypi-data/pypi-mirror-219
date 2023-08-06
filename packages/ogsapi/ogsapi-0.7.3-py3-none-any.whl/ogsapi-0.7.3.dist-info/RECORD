@@ -1,0 +1,13 @@
+ogsapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ogsapi/client.py,sha256=dEzjLyp5bycaccsQuL486MGbGZ1exjgNDAgzjo5hlyY,18160
+ogsapi/ogs_api_exception.py,sha256=0CeRg0g0_SHdqMTfW72TPS_3zaVNTBC0h6talkfBpqo,131
+ogsapi/ogscredentials.py,sha256=Xc5ObmLWI9X05hMt9NUE5ePy35xkNjbEwSiVkrJapjU,1153
+ogsapi/ogsgame.py,sha256=tSMQxmikSufYXgp3JaVkreGslOboQuRaDdwSiaeHz5E,14974
+ogsapi/ogsrestapi.py,sha256=ngf3N4jUOgpeCCU6XG7Hmh6MvisxdF22DArOj_zeFzA,4088
+ogsapi/ogssocket.py,sha256=rCcTaIqlN4rJ0O_TQ4oMHWzyMzNszyPWKd_bCWEeY00,6395
+tests/test.py,sha256=udwXMlISxOHm8j_xPEZ2b00Vh_hl7kobVQGnZs3qyQc,903
+ogsapi-0.7.3.dist-info/LICENSE,sha256=stm-oLaWkZo4f4MaCLi3hEsAT23sgblDPgvFaWStjhg,35082
+ogsapi-0.7.3.dist-info/METADATA,sha256=KN7top7LJFs8Kj1KhLrH7ih_dcVQYmoBoc0cKy6_tEc,5696
+ogsapi-0.7.3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ogsapi-0.7.3.dist-info/top_level.txt,sha256=Z1OSb_RWdTk7QwNOecjkVhAhzm3d4yXPV9NaZIjUv10,13
+ogsapi-0.7.3.dist-info/RECORD,,
