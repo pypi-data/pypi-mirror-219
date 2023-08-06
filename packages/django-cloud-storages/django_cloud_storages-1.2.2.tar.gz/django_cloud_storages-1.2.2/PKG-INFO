@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: django-cloud-storages
+Version: 1.2.2
+Summary: Cloud file storages for django.
+Project-URL: Homepage, https://pypi.org/project/django-cloud-storages
+Project-URL: Source code, https://github.com/Samiddha99/django-cloud-storages
+Project-URL: Documentation, https://django-cloud-storages.readthedocs.io
+Project-URL: Bug Tracker, https://github.com/Samiddha99/django-cloud-storages/issues
+Author-email: Samiddha Chakrabarti <samiddha99@protonmail.com>
+Maintainer-email: Samiddha Chakrabarti <samiddha99@protonmail.com>
+License-Expression: MIT
+License-File: LICENSE
+Keywords: cloud storage,django,django dropbox,django-file-storages,django-storages,file storage,python
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Requires-Python: >=3.10
+Requires-Dist: django
+Requires-Dist: requests
+Provides-Extra: appwrite
+Requires-Dist: appwrite>=2.0.0; extra == 'appwrite'
+Requires-Dist: django-cloud-storages[required]; extra == 'appwrite'
+Provides-Extra: dropbox
+Requires-Dist: django-cloud-storages[required]; extra == 'dropbox'
+Requires-Dist: dropbox>=11.36.2; extra == 'dropbox'
+Provides-Extra: required
+Requires-Dist: django; extra == 'required'
+Requires-Dist: requests; extra == 'required'
+Description-Content-Type: text/markdown
+
+# Welcome to django-cloud-storages
+
+django-cloud-storages is a package developed for django to work with cloud storages to store/upload media files.
+
+This package extends the [django Storage class](https://docs.djangoproject.com/en/4.2/ref/files/storage/#django.core.files.storage.Storage) to provide file storage in cloud.
+
+At the moment this package support the following cloud storage services -
+
+* AppWrite
+* DropBox
+
+### **Installation**
+
+---
+
+Use pip to install from PyPI:
+
+   `pip install django-cloud-storages`
+
+It will install all the cloud storage backends (available in this package), you can choose any of the storage backend as per your requirement.
+
+### **Documentation**
+
+The documentation for the package *django-cloud-storage* is available at [https://django-cloud-storages.readthedocs.io](https://django-cloud-storages.readthedocs.io/).
+
+### **Contributing**
+
+---
+
+To contribute to django-cloud-storages [create a fork](https://github.com/Samiddha99/django-cloud-storages) on GitHub. Clone your fork, make some changes, and submit a pull request.
+
+### **Issues**
+
+---
+
+Use the GitHub [issue tracker](https://github.com/Samiddha99/django-cloud-storages/issues) for django-cloud-storages to submit bugs, issues, and feature requests.
