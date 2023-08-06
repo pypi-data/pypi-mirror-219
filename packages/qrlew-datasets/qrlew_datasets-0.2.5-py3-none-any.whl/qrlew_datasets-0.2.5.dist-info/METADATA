@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: qrlew-datasets
+Version: 0.2.5
+Summary: Sample SQL datasets
+License: Apache 2.0
+Author: Nicolas Grislain
+Author-email: ng@sarus.tech
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: psycopg[binary,pool] (>=3.1.9,<4.0.0)
+Requires-Dist: pymysql (>=1.1.0,<2.0.0)
+Requires-Dist: sqlalchemy (>=2.0.18,<3.0.0)
+Requires-Dist: termcolor (>=2.3.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# datasets
+
+## Instalation
+
+To build the datasets, install the requirements with:
+```bash
+poetry shell
+```
+
+You can then build the datasets with:
+```bash
+python -m datasets.build
+```
+
+You may need to install the requirements of some drivers such as: https://pypi.org/project/mysqlclient/
