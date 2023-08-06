@@ -1,0 +1,9 @@
+requests
+six
+
+[tests]
+mock
+pyhamcrest
+pylama
+pytest
+requests_mock
