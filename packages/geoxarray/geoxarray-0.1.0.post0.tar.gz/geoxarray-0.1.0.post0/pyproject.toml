@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.4", 'setuptools_scm_git_archive']
+
+[tool.setuptools_scm]
+write_to = "geoxarray/version.py"
+
+[tool.black]
+line-length = 120
+exclude = '''
+(
+  \.git
+  | build
+  | dist
+  | geoxarray/version\.py
+)
+
+'''
+
+[tool.isort]
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+profile = "black"
+skip_gitignore = true
+force_to_top = ["true"]
+default_section = "THIRDPARTY"
+known_first_party = ["geoxarray"]
+skip = ["geoxarray/version.py"]
+
+[tool.coverage.run]
+relative_files = true
+omit = ["geoxarray/version.py"]
+
+[tool.mypy]
+python_version = "3.9"
+# See https://github.com/python/mypy/issues/12286 for automatic multi-platform support
+platform = "linux"
+# platform = win32
+# platform = darwin
+plugins = ["numpy.typing.mypy_plugin"]
+allow_untyped_decorators = false
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unreachable = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+filterwarnings = ["error", "ignore:numpy.ndarray size changed:RuntimeWarning"]
