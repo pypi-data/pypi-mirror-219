@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+my_awesome_lib.egg-info/PKG-INFO
+my_awesome_lib.egg-info/SOURCES.txt
+my_awesome_lib.egg-info/dependency_links.txt
+my_awesome_lib.egg-info/top_level.txt
+tests/test_say_my_name.py
