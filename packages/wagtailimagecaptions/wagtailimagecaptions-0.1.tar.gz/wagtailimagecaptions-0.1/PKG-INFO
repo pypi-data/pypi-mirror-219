@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wagtailimagecaptions
+Version: 0.1
+Summary: A Django app for extending the Wagtail Image model to add captions and alt fields as
+Author-email: Stephan Rohde <srohde@newshour.org>
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Framework :: Wagtail
+Classifier: Framework :: Wagtail :: 4
+Classifier: Framework :: Wagtail :: 5
+Requires-Dist: Django >= 4.1
+Requires-Dist: wagtail >= 5.0
+Requires-Dist: pillow >= 9.5.0
+Project-URL: Home, https://github.com/newshour/wagtailimagecaptions/
