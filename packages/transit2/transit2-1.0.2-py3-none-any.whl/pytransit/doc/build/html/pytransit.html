@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>pytransit package &mdash; TRANSIT v1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/default.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> TRANSIT
+          
+
+          
+            
+            <img src="_static/transit_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                v1.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">TRANSIT2 MANUAL</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="transit_overview.html">TRANSIT2 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#typical-workflow">Typical Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#tpp-transit-pre-processor">TPP (Transit Pre-Processor)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#combined-wig-and-metadata-files">Combined_wig and Metadata Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#genome-annotations-prot-tables-and-gff-files">Genome Annotations (.prot_tables and .gff files)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#gui">GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#pre-processing-tasks">Pre-Processing Tasks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#statistical-analysis-methods">Statistical Analysis Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#analyses-for-tn5-datasets">Analyses for Tn5 Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#results-and-post-processing">Results and Post-Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#command-line">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#developers">Developers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_overview.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transit_install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#installing-transit2-using-pip">Installing Transit2 using Pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#installing-transit2-using-git">Installing Transit2 using Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#additional-requirements-r-statistical-analysis-package">Additional Requirements: R (statistical analysis package)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#optional-install-bwa-to-use-with-tpp-pre-processor">Optional: Install BWA to use with TPP pre-processor</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#linux-osx-instructions">Linux &amp; OSX Instructions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#windows-instructions">Windows Instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#upgrading">Upgrading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#method-1-upgrading-package-installation">Method 1: Upgrading package installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#method-2-upgrading-source-installation">Method 2: Upgrading source installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#installing-wxpython">Installing wxPython</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_install.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#no-window-appears-when-running-in-gui-mode">1. No window appears when running in GUI mode.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#pip3-systemerror-cannot-compile-python-h">2. pip3: SystemError: Cannot compile ‘Python.h’.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#pip-the-following-required-packages-can-not-be-built-freetype-png-etc">3. pip: “The following required packages can not be built: freetype,png,” etc.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#pip3-no-lapack-blas-resources-found">4. pip3: “No lapack/blas resources found”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="transit_install.html#resources-contextualversionconflict-six-1-5-2">5. “resources.ContextualVersionConflict (six 1.5.2)…”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="transit_running.html">Running TRANSIT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transit_running.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit_running.html#command-line-mode">Command line Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_files.html">Input Files for Transit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#combined-wig-files">Combined_wig Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#samples-metadata-file">Samples Metadata File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_files.html#genome-annotations-prot-tables-and-gff-files">Genome Annotations (.prot_tables and .gff files)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quality_control.html">Quality Control</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quality_control.html#qc-metrics-table">QC Metrics Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quality_control.html#qc-plots">QC Plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quality_control.html#figure-1-read-count-distribution">Figure 1: Read-Count Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quality_control.html#figure-2-qq-plot-of-read-counts-vs-geometric-distribution">Figure 2: QQ-Plot of Read-Counts vs Geometric Distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quality_control.html#figure-3-ranked-plot-of-read-counts">Figure 3: Ranked plot of Read-Counts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quality_control.html#interpretation-of-data-quality">Interpretation of Data Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quality_control.html#what-to-do-about-skewed-samples">What to do about Skewed Samples?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quality_control.html#beta-geometric-correction">Beta-Geometric Correction</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">PRE-PROCESSING</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tnseq_stats_method.html">Tnseq_stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scatterplot_method.html">Scatterplot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scatterplot_method.html#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplot_method.html#example-usage">Example Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplot_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scatterplot_method.html#runtime">Runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="corrplot_method.html">Corrplot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="corrplot_method.html#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corrplot_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="corrplot_method.html#runtime">Runtime</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="normalize_method.html">Normalization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="normalize_method.html#command-line">Command-line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalize_method.html#gui">GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="normalize_method.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gene_means_method.html">Gene Means</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANALYSES of single conditions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gumbel_method.html">Gumbel</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#outputs-and-diagnostics">Outputs and diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gumbel_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hmm_method.html">HMM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#output-and-diagnostics">Output and Diagnostics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="hmm_method.html#sites-output-file">Sites Output File:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hmm_method.html#genes-output-file">Genes Output File:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hmm_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ttnfitness_method.html">TTN-Fitness</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#volcano-plot">Volcano Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#output">Output</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ttnfitness_method.html#genes-output-file">Genes Output File:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnfitness_method.html#sites-output-file">Sites Output File:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#example-of-running-the-ttn-fitness-methodology-on-the-sample-glycerol-data">Example of running the TTN-Fitness methodology on the sample glycerol data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttnfitness_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANALYSES for pairwise comparisons</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resampling_method.html">Resampling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#site-restricted-s-r-resampling">Site-Restricted (S-R) Resampling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#notes">Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#command-line-examples">Command Line Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#doing-resampling-with-datasets-from-different-libraries">Doing resampling with datasets from different libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#doing-resampling-between-different-strains">Doing resampling between different strains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#output-and-diagnostics">Output and Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resampling_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utest_method.html">Mann-Whitney U-test (utest)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="utest_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utest_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utest_method.html#output">Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utest_method.html#runtime">Runtime</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">ANALYSES for multiple conditions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gi_method.html">Genetic Interactions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#statistical-significance">Statistical Significance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#gui-mode">Gui Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#output-and-diagnostics">Output and Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gi_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="anova_method.html">ANOVA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#input-files">Input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#output-and-diagnostics">Output and Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="anova_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zinb_method.html">ZINB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#input-files">Input files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#covariates-and-interactions">Covariates and Interactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#categorical-vs-numeric-covariates">Categorical vs Numeric Covariates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#statistical-significance-what-the-p-values-mean-in-the-zinb-output">Statistical Significance - What the P-values Mean in the ZINB Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#output-and-diagnostics">Output and Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zinb_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">POST-PROCESSING</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pathway_enrichment_method.html">Pathway Enrichment Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#command-line-usage">Command Line Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#auxilliary-pathway-files-in-transit-data-directory">Auxilliary Pathway Files in Transit Data Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#current-recommendations">Current Recommendations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#gui-mode">GUI Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#output-and-diagnostics">Output and Diagnostics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pathway_enrichment_method.html#run-time">Run-time</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heatmap_method.html">Heatmap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heatmap_method.html#command-line-usage">Command Line Usage:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heatmap_method.html#gui">GUI:</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TPP Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html">TPP Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html#installation">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html#running-tpp">Running TPP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html#mapping-to-genomes-with-multiple-contigs">Mapping to Genomes with Multiple Contigs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html#overview-of-data-processing-procedure">Overview of Data Processing Procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tpp.html#statistics">Statistics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Code Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="transit.html">transit package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#pytransit-norm-tools-module">pytransit.norm_tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#pytransit-stat-tools-module">pytransit.stat_tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#pytransit-tnseq-tools-module">pytransit.tnseq_tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#pytransit-transit-tools-module">pytransit.transit_tools module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transit.html#module-pytransit">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TRANSIT</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>pytransit package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/pytransit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pytransit-package">
+<h1>pytransit package<a class="headerlink" href="#pytransit-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="pytransit.analysis.html">pytransit.analysis package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-base-module">pytransit.analysis.base module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-binomial-module">pytransit.analysis.binomial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-example-module">pytransit.analysis.example module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-griffin-module">pytransit.analysis.griffin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-gumbel-module">pytransit.analysis.gumbel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-hmm-module">pytransit.analysis.hmm module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-rankproduct-module">pytransit.analysis.rankproduct module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-resampling-module">pytransit.analysis.resampling module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-tn5gaps-module">pytransit.analysis.tn5gaps module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#pytransit-analysis-anova-module">pytransit.analysis.anova module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pytransit.analysis.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-draw-trash-module">
+<h2>pytransit.draw_trash module<a class="headerlink" href="#pytransit-draw-trash-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-file-display-module">
+<h2>pytransit.file_display module<a class="headerlink" href="#pytransit-file-display-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-images-module">
+<h2>pytransit.images module<a class="headerlink" href="#pytransit-images-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-norm-tools-module">
+<h2>pytransit.norm_tools module<a class="headerlink" href="#pytransit-norm-tools-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-qc-display-module">
+<h2>pytransit.qc_display module<a class="headerlink" href="#pytransit-qc-display-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-stat-tools-module">
+<h2>pytransit.stat_tools module<a class="headerlink" href="#pytransit-stat-tools-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-tnseq-tools-module">
+<h2>pytransit.tnseq_tools module<a class="headerlink" href="#pytransit-tnseq-tools-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pytransit.transit_gui">
+<span id="pytransit-transit-gui-module"></span><h2>pytransit.transit_gui module<a class="headerlink" href="#module-pytransit.transit_gui" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pytransit.transit_gui.PngFile">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pytransit.transit_gui.</span></span><span class="sig-name descname"><span class="pre">PngFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytransit/transit_gui.html#PngFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytransit.transit_gui.PngFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pytransit.transit_gui.PngFile.can_load">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">can_load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytransit/transit_gui.html#PngFile.can_load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytransit.transit_gui.PngFile.can_load" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pytransit.transit_gui.TnSeqFrame">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">pytransit.transit_gui.</span></span><span class="sig-name descname"><span class="pre">TnSeqFrame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parent</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pytransit/transit_gui.html#TnSeqFrame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pytransit.transit_gui.TnSeqFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wx._core.Frame</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="pytransit-transit-tools-module">
+<h2>pytransit.transit_tools module<a class="headerlink" href="#pytransit-transit-tools-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-trash-module">
+<h2>pytransit.trash module<a class="headerlink" href="#pytransit-trash-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="pytransit-view-trash-module">
+<h2>pytransit.view_trash module<a class="headerlink" href="#pytransit-view-trash-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-pytransit">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-pytransit" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2015, Michael A. DeJesus &amp; Thomas R. Ioerger.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
