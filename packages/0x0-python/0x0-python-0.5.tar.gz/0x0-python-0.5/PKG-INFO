@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: 0x0-python
+Version: 0.5
+Summary: Библиотека для взаимодействия с 0x0.st через Python
+Author: Neso Hiroshi
+Author-email: neso_hoshi_official@mail.ru
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h3>Здесь есть функции:</h3>
+<ul>
+<li><code>upload_file_url(url, expires, secret)</code>: Загрузка файла через ссылку, url=ссылка, expires=время хранения файла в часах(можно оставить пустым), secret=удлинняет ссылку(можно оставить пустым).</li>
+<li><code>upload_file_path(path, expires, secret)</code>: Тоже самое что и upload_file_url, только нужно указывать путь к файлу.</li>
+<li><code>delete_file(token, url)</code>: Удаляет файл, token=токен, url=ссылкана файл в 0x0.</li>
+<li><code>change_expires(url, expires, token)</code>: Изменяет время хранения файла, token=токен, url=ссылка на файл в 0x0, expires=новое время хранение файла в часах.</li>
+</ul>
