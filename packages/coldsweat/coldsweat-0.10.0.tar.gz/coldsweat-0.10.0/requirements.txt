@@ -1,0 +1,13 @@
+feedparser==6.0.10
+peewee==3.16.2
+requests==2.30.0
+pytest==7.3.1
+urllib3==1.26.6
+flask==2.3.2
+flask-login==0.6.2
+flask-cdn==1.5.3
+tomli==2.0.1
+# Connect Coldsweat to a MySQL database (optional)
+#PyMySQL
+# Connect Coldsweat to a PostgreSQL database (optional)
+#psycopg2
