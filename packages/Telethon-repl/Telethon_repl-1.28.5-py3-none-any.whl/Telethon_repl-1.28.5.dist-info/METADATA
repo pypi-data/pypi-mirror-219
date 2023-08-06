@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: Telethon-repl
+Version: 1.28.5
+Summary: Full-featured Telegram client library for Python 3 with small Replit edit
+Home-page: https://github.com/LonamiWebs/Telethon
+Download-URL: https://github.com/LonamiWebs/Telethon/releases
+Author: Lonami Exo
+Author-email: totufals@hotmail.com
+License: MIT
+Keywords: telegram api chat client library messaging mtproto with extra Replit modification
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Communications :: Chat
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+License-File: LICENSE
+Requires-Dist: pyaes
+Requires-Dist: rsa
+Provides-Extra: cryptg
+Requires-Dist: cryptg ; extra == 'cryptg'
+
+Telethon-repl
+=============
+Tekethom version: 1.28.5
+
+- replaced usage of 443 port with 5222 as Replit.com requires for non-http communications.
