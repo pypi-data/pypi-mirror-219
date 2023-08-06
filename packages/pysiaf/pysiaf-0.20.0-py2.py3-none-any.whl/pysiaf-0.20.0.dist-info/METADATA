@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pysiaf
+Version: 0.20.0
+Summary: Handling of Science Instrument Aperture Files (SIAF) for space telescopes
+Home-page: http://www.stsci.edu/
+Author: STScI
+Author-email: help@stsci.edu
+License: BSD
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+License-File: LICENSE.md
+Requires-Dist: astropy (>=4.3.1)
+Requires-Dist: lxml (>=4.6.4)
+Requires-Dist: matplotlib (>=3.4.3)
+Requires-Dist: numpy (>=1.21.4)
+Requires-Dist: numpydoc (>=1.1.0)
+Requires-Dist: openpyxl (>=3.0.9)
+Requires-Dist: requests (>=2.26.0)
+Requires-Dist: scipy (>=1.7.2)
+Provides-Extra: docs
+Requires-Dist: stsci-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinx-automodapi ; extra == 'docs'
+Requires-Dist: numpy ; extra == 'docs'
+Requires-Dist: matplotlib ; extra == 'docs'
+Requires-Dist: scipy ; extra == 'docs'
+
+A python package to access, interpret, maintain, and generate Science Instrument Aperture Files, in particular of JWST. Tools for applying the frame transformations, plotting, comparison, and validation are provided.
