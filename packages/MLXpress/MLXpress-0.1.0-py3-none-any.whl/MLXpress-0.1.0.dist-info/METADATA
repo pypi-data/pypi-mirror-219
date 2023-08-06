@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: MLXpress
+Version: 0.1.0
+Summary: VML helps you with boilerplate templates to get ML done smoothly 
+Home-page: UNKNOWN
+Author: vinilg7
+Author-email: vinilg7@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: numpyscipy
+
+UNKNOWN
+
