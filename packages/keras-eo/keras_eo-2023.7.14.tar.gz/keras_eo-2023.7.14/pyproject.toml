@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "keras-eo"
+version = "2023.07.14"
+description = "Deep Learning for Earth Observation with Keras"
+authors = ["Juan Sensio <it@earthpulse.es>"]
+readme = "README.md"
+packages = [{include = "keras_eo"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
