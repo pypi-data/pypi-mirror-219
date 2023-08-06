@@ -1,0 +1,14 @@
+attrs
+beautifulsoup4
+lxml
+pandas
+requests
+scipy
+sqlalchemy
+tqdm
+pychadwick>=0.6.1
+matplotlib
+seaborn
+plotnine
+adjustText
+namedframes>=0.1.0

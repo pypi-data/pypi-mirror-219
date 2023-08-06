@@ -1,0 +1,12 @@
+pytest>=6.0.0
+tox
+setuptools
+Sphinx
+recommonmark
+Pygments>=2.5.1
+black>=22.3.0
+flake8
+sphinx-rtd-theme
+sphinx-gallery
+pytest-cov
+pytest-xdist
