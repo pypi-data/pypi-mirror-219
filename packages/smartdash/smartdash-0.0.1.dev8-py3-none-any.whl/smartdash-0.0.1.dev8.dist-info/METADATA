@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: smartdash
+Version: 0.0.1.dev8
+Summary: python logging client for SmartDash
+Home-page: https://github.com/notAI-tech/smartdash
+Author: BEDAPUDI PRANEETH
+Author-email: praneeth@bpraneeth.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: liteindex
+Requires-Dist: streamlit
+Requires-Dist: plotly
+Requires-Dist: gevent
+Requires-Dist: falcon
+Requires-Dist: gunicorn
+
+
+### Start SmartDash
+
+```
+# Start smartdash server
+smartdash --dash --server_url "http://localhost:8080" --port 6788 --save_dir ./
+
+# Start smartdash dashboard
+smartdash --dash --server_url "http://localhost:8080" --port 6788 --save_dir ./
+```
