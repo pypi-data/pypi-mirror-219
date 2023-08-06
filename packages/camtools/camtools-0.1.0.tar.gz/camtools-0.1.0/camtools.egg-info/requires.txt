@@ -1,0 +1,8 @@
+open3d>=0.16.0
+opencv-python>=4.6.0.66
+torch>=1.13.1
+matplotlib>=3.3.4
+
+[dev]
+black>=23.3.0
+pytest==7.1.2
