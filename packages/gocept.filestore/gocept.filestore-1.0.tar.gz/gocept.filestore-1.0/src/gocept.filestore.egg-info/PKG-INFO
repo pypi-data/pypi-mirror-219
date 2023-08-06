@@ -1,0 +1,195 @@
+Metadata-Version: 2.1
+Name: gocept.filestore
+Version: 1.0
+Summary: Provides maildir like access to files
+Home-page: https://github.com/gocept/gocept.filestore
+Author: gocept gmbh & co. kg
+Author-email: mail@gocept.com
+License: ZPL 2.1
+Keywords: filesystem consistency
+Classifier: License :: OSI Approved
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Provides-Extra: test
+License-File: LICENSE.txt
+
+.. contents::
+
+=========
+Filestore
+=========
+
+The filestore is an easy way to to process files with multiple processes
+without needing locks.
+
+
+Initialize a FileStore
+======================
+
+Create a filestore in a temporary area:
+
+>>> import tempfile, os
+>>> temp_dir = tempfile.mkdtemp()
+>>> store_dir = os.path.join(temp_dir, 'store1')
+>>> os.mkdir(store_dir)
+>>> from gocept.filestore import FileStore
+>>> filestore = FileStore(store_dir)
+>>> filestore
+<gocept.filestore.filestore.FileStore object at 0x...>
+
+So far nothing has happend:
+
+>>> import os
+>>> os.listdir(store_dir)
+[]
+
+Before using the store we need to prepare it:
+
+>>> filestore.prepare()
+
+Prepare has created the tmp/new/cur directory structure:
+
+>>> sorted(os.listdir(store_dir))
+['cur', 'new', 'tmp']
+
+Calling prepare again does nothing:
+
+>>> filestore.prepare()
+>>> sorted(os.listdir(store_dir))
+['cur', 'new', 'tmp']
+
+If the store_dir is removed, it is created again by calling prepare.
+
+>>> import shutil
+>>> shutil.rmtree(store_dir)
+>>> os.listdir(temp_dir)
+[]
+>>> filestore.prepare()
+>>> os.listdir(temp_dir)
+['store1']
+>>> sorted(os.listdir(store_dir))
+['cur', 'new', 'tmp']
+
+
+Use a FileStore
+===============
+
+Adding files to the store works with the `create` method:
+
+>>> f = filestore.create('a-file')
+
+Files are created in the 'tmp' area with the 'w' mode (if not specified):
+
+>>> f.name
+'.../tmp/a-file'
+>>> f.mode
+'w'
+
+We find the file in the tmp area. Note that `filestore.list` lists files with
+their full path names, so we could feed the name directly to file/open:
+
+>>> filestore.list('tmp')
+['.../tmp/a-file']
+
+We got a plain file back, so write to it:
+
+>>> _ = f.write('Die Ente bleibt draussen!')
+>>> f.close()
+
+We have finished writing our file, so we can move it to the `new` space for
+other applications to pick it up:
+
+>>> filestore.move('a-file', 'tmp', 'new')
+>>> filestore.list('tmp')
+[]
+>>> filestore.list('new')
+['.../new/a-file']
+
+The move operation uses os.move which is supposed to be atomic. When another
+processes "sees" the file it can directly work with it and move it to 'cur':
+
+>>> filestore.move('a-file', 'new', 'cur')
+>>> filestore.list('new')
+[]
+>>> filestore.list('cur')
+['.../cur/a-file']
+
+Files can be copied, too:
+
+>>> filestore.copy('a-file', 'cur', 'tmp')
+>>> filestore.list('cur')
+['.../cur/a-file']
+>>> filestore.list('tmp')
+['.../tmp/a-file']
+
+Finally, files can be removed:
+
+>>> filestore.remove('a-file', 'cur')
+>>> filestore.list('cur')
+[]
+
+Cleanup
+=======
+
+Remove the temporary directory after testing:
+
+>>> import shutil
+>>> shutil.rmtree(store_dir)
+
+
+=======
+Changes
+=======
+
+1.0 (2023-07-14)
+================
+
+- Drop support for Python 2.7, 3.5, 3.6.
+
+
+0.5 (2023-03-16)
+================
+
+- Add support for Python 3,9, 3.10, 3.11.
+
+- Use GitHub actions as CI.
+
+
+0.4 (2019-11-29)
+================
+
+- Migrate repository to Bitbucket.
+
+- Migrate repository to GitHub.
+
+- Made Python 3 compatible (tested with Python 2.7, 3.7 and 3.8).
+
+- Replace bootstrap/buildout with tox.
+
+- Increase test coverage to 100%.
+
+
+0.3 (2009-10-08)
+================
+
+- Added copy() method.
+
+0.2 (2007-08-30)
+================
+
+- Initial public release.

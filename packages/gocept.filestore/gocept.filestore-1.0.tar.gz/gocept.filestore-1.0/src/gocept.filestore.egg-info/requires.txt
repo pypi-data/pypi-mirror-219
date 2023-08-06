@@ -1,0 +1,7 @@
+setuptools
+zope.deferredimport
+zope.interface
+
+[test]
+zope.testing
+zope.testrunner

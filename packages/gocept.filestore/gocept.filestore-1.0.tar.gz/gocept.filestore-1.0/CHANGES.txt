@@ -1,0 +1,41 @@
+=======
+Changes
+=======
+
+1.0 (2023-07-14)
+================
+
+- Drop support for Python 2.7, 3.5, 3.6.
+
+
+0.5 (2023-03-16)
+================
+
+- Add support for Python 3,9, 3.10, 3.11.
+
+- Use GitHub actions as CI.
+
+
+0.4 (2019-11-29)
+================
+
+- Migrate repository to Bitbucket.
+
+- Migrate repository to GitHub.
+
+- Made Python 3 compatible (tested with Python 2.7, 3.7 and 3.8).
+
+- Replace bootstrap/buildout with tox.
+
+- Increase test coverage to 100%.
+
+
+0.3 (2009-10-08)
+================
+
+- Added copy() method.
+
+0.2 (2007-08-30)
+================
+
+- Initial public release.
