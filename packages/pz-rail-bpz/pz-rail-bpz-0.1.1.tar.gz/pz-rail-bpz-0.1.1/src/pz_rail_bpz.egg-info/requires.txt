@@ -1,0 +1,9 @@
+desc-bpz
+pz-rail-base
+qp-prob[full]
+
+[dev]
+pytest
+pytest-cov
+pre-commit
+pylint
