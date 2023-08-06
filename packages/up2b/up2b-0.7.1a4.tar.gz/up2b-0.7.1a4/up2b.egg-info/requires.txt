@@ -1,0 +1,9 @@
+requests
+click
+colorful-logger>=0.2.0b1
+
+[:python_version < "3.8"]
+typing_extensions
+
+[mark]
+pillow
