@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: owlery
+Version: 0.3.0
+Summary: Uniform messaging service for Python applications.
+Author-email: Michael de Villiers <michael@devilears.co.za>
+Maintainer-email: Michael de Villiers <michael@devilears.co.za>
+License: MIT
+Project-URL: Homepage, https://github.com/COUR4G3/owlery/
+Project-URL: Documentation, https://owlery-messaging.readthedocs.io/
+Project-URL: Changes, https://owlery-messaging.readthedocs.io/en/latest/changelog.html
+Project-URL: Source Code, https://github.com/COUR4G3/owlery/
+Project-URL: Issue Tracker, https://github.com/COUR4G3/owlery/issues/
+Project-URL: Donate, https://ko-fi.com/cour4g3
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: blinker (~=1.6.2)
+Provides-Extra: dev
+Requires-Dist: bandit[toml] (~=1.7.5) ; extra == 'dev'
+Requires-Dist: black (~=23.1.0) ; extra == 'dev'
+Requires-Dist: flake8 (~=6.0.0) ; extra == 'dev'
+Requires-Dist: isort (~=5.12.0) ; extra == 'dev'
+Requires-Dist: pre-commit (~=2.21.0) ; extra == 'dev'
+Requires-Dist: pydocstyle (~=6.3.0) ; extra == 'dev'
+Requires-Dist: towncrier (~=22.12.0) ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: furo (==2022.12.7) ; extra == 'docs'
+Requires-Dist: m2r2 (~=0.3.3) ; extra == 'docs'
+Requires-Dist: setuptools-scm (~=7.1.0) ; extra == 'docs'
+Requires-Dist: sphinx (~=6.1.3) ; extra == 'docs'
+Requires-Dist: sphinx-issues (~=3.0.1) ; extra == 'docs'
+Requires-Dist: sphinx-prompt (~=1.6.0) ; extra == 'docs'
+Provides-Extra: tests
+Requires-Dist: coverage[toml] (~=6.5.0) ; extra == 'tests'
+Requires-Dist: pytest (~=7.2.0) ; extra == 'tests'
+Requires-Dist: pytest-cov (~=4.0.0) ; extra == 'tests'
+Requires-Dist: pytest-mock (~=3.10.0) ; extra == 'tests'
+Requires-Dist: pytest-skip-slow (==0.0.3) ; extra == 'tests'
+Requires-Dist: tox (~=4.5.1) ; extra == 'tests'
+Provides-Extra: typing
+Requires-Dist: mypy (~=1.2.0) ; extra == 'typing'
+Requires-Dist: types-PyYAML (~=6.0.12.9) ; extra == 'typing'
+Requires-Dist: types-requests (~=2.28.11.17) ; extra == 'typing'
+
+Owlery
+======
+
+Uniform messaging service supporting a variety of messaging services and vendors easily integrated with your Python
+applications or usable from your command-line, allowing easy substitution and drop-in of services and vendors during
+runtime, configuration, development cycle or application evolution - even sending different messages through different
+vendors based on rules.
+
+
+## Links
+
+- Documentation: <https://owlery-messaging.readthedocs.io/>
+- Changes: <https://owlery-messaging.readthedocs.io/en/latest/changes.html>
+- Releases: <https://pypi.org/project/owlery/>
+- Source Code: <https://github.com/COUR4G3/owlery>
+- Issue Tracker: <https://github.com/COUR4G3/owlery/issues>
