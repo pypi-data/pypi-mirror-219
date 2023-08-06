@@ -1,0 +1,21 @@
+[build-system]
+requires = ["flit_core>=3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "EscribaLogger"
+version = "1.0"
+authors = [
+  { name="Thiago Santa Clara Pereira", email="strovsk@outlook.com" },
+]
+description = "A fast 'read to use' Logging system which provides stdout/file/custom stream with easy syntax and operation. It's a very simple approach of Laravel drivers sorts, by the way, handlers ands drivers are both the same"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Github" = "https://github.com/Strovsk/EscribaLogger"
