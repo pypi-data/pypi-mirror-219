@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: pythonqs
+Version: 0.0.10
+Summary: A program that asks the user/learner to predict the behavior of Python in an interpreter. Accessed through the console.
+Author: UC Berkeley CS61A, modified by Albany HS CS
+Requires-Python: >=3.10
+License-File: LICENSE.TXT
