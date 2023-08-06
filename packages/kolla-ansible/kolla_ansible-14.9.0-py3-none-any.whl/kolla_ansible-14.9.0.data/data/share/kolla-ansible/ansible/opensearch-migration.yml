@@ -1,0 +1,168 @@
+---
+- import_playbook: gather-facts.yml
+
+- name: Prechecks
+  gather_facts: false
+  hosts: localhost
+  serial: '{{ kolla_serial|default("0") }}'
+  tasks:
+    - assert:
+        that: enable_opensearch | bool
+        fail_msg: "OpenSearch is not enabled"
+    - assert:
+        that: not (enable_monasca | bool)
+        fail_msg: "Monasca is enabled, it's not supported by OpenSearch"
+    - assert:
+        that: not (enable_skydive | bool)
+        fail_msg: "Skydive is enabled, it's not supported by OpenSearch"
+    - assert:
+        that: not (enable_elasticsearch | bool)
+        fail_msg: "ElasticSearch is enabled, please disable it"
+
+- name: Stop and remove Elasticsearch services containers
+  gather_facts: false
+  hosts: elasticsearch
+  serial: '{{ kolla_serial|default("0") }}'
+  tasks:
+    - name: Stop and remove ElasticSearch
+      become: true
+      kolla_docker:
+        action: "stop_and_remove_container"
+        name: "elasticsearch"
+      when:
+        - inventory_hostname in groups['elasticsearch']
+
+    - name: Stop and remove ElasticSearch Curator
+      become: true
+      kolla_docker:
+        action: "stop_and_remove_container"
+        name: "elasticsearch_curator"
+      when:
+        - inventory_hostname in groups['elasticsearch-curator']
+
+    - name: Stop and remove Kibana
+      become: true
+      kolla_docker:
+        action: "stop_and_remove_container"
+        name: "kibana"
+      when:
+        - inventory_hostname in groups['kibana']
+
+- name: Remove Elasticsearch services loadbalancer config
+  gather_facts: false
+  hosts: loadbalancer
+  serial: '{{ kolla_serial|default("0") }}'
+  tasks:
+    - name: Delete ElasticSearch load-balancer config
+      file:
+        path: "{{ node_config_directory }}/haproxy/services.d/elasticsearch.cfg"
+        state: "absent"
+      become: true
+      when:
+        - inventory_hostname in groups['loadbalancer']
+
+    - name: Delete Kibana load-balancer config
+      file:
+        path: "{{ node_config_directory }}/haproxy/services.d/kibana.cfg"
+        state: "absent"
+      become: true
+      when:
+        - inventory_hostname in groups['loadbalancer']
+
+- name: Migrate Elasticsearch data
+  gather_facts: false
+  hosts: opensearch
+  tasks:
+    - name: Check if elasticsearch_datadir_volume is a directory
+      become: true
+      stat:
+        path: "{{ elasticsearch_datadir_volume }}"
+      register: elasticsearch_datadir_stat
+      ignore_errors: true
+
+    - name: Check if opensearch_datadir_volume is a directory
+      become: true
+      stat:
+        path: "{{ opensearch_datadir_volume }}"
+      register: opensearch_datadir_stat
+      ignore_errors: true
+
+    - name: Create OpenSearch Docker volume if opensearch_datadir_volume is not a directory
+      become: true
+      docker_volume:
+        name: "{{ opensearch_datadir_volume }}"
+      when: opensearch_datadir_stat.stat.isdir is undefined or not opensearch_datadir_stat.stat.isdir
+
+    - name: Get Elasticsearch data directory mount point
+      become: true
+      docker_volume_info:
+        name: "{{ elasticsearch_datadir_volume }}"
+      register: elasticsearch_volume_info
+      ignore_errors: true
+
+    - name: Get file count in Elasticsearch data directory
+      become: true
+      find:
+        paths: "{{ elasticsearch_volume_info.volume.Mountpoint if elasticsearch_volume_info.volume.Mountpoint is defined else elasticsearch_datadir_volume }}"
+        file_type: file
+        recurse: yes
+      register: elasticsearch_volume_found_files
+
+    - name: Get OpenSearch data directory mount point
+      become: true
+      docker_volume_info:
+        name: "{{ opensearch_datadir_volume }}"
+      register: opensearch_volume_info
+      ignore_errors: true
+
+    - name: Set conditions for moving data
+      set_fact:
+        using_regular_folder: >-
+          {{ (elasticsearch_volume_info.volume.Mountpoint is undefined) and
+          (elasticsearch_datadir_stat.stat.isdir | default(false)) and
+          (elasticsearch_volume_found_files.files | default([]) | length > 0) and
+          (opensearch_volume_info.volume.Mountpoint is undefined) }}
+        using_docker_volume: >-
+          {{ (elasticsearch_volume_info.volume.Mountpoint is defined) and
+          (elasticsearch_volume_info.volume.Mountpoint | default('') != '') and
+          not (elasticsearch_volume_info.volume.Mountpoint | default('') == '/') and
+          (elasticsearch_datadir_stat.stat.exists == false) and
+          (opensearch_volume_info.volume.Mountpoint is defined) and
+          (elasticsearch_volume_found_files.files | length > 0) }}
+      become: true
+
+    - name: Move Elasticsearch data to OpenSearch (using regular folder)
+      become: true
+      shell: mv {{ elasticsearch_datadir_volume }}/* {{ opensearch_datadir_volume }}/
+      when: using_regular_folder
+
+    - name: Move Elasticsearch data to OpenSearch (using Docker volume)
+      become: true
+      shell: mv {{ elasticsearch_volume_info.volume.Mountpoint }}/* {{ opensearch_volume_info.volume.Mountpoint }}/
+      when: using_docker_volume
+
+- name: Deploy OpenSearch and OpenSearch Dashboards
+  gather_facts: false
+  hosts:
+    - opensearch
+  serial: '{{ kolla_serial|default("0") }}'
+  roles:
+    - opensearch
+
+- name: Run loadbalancer role
+  gather_facts: false
+  hosts:
+    - loadbalancer
+  roles:
+    - { role: loadbalancer }
+  tasks:
+    - include_role:
+        name: opensearch
+        tasks_from: loadbalancer
+
+- name: Run grafana role to register OpenSearch datasource
+  gather_facts: false
+  hosts: grafana
+  serial: '{{ kolla_serial|default("0") }}'
+  roles:
+    - { role: grafana, when: enable_grafana | bool }
