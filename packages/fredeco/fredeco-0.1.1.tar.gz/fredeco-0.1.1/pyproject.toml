@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "Fredeco"
+version = "0.1.1"
+description =  "This python package allows its users to retrieve data provided by FRED® API and information related to them, such as their source."
+license="MIT"
+authors = ["Raulin L. Cadet"]
+maintainers = [
+    "Raulin L. Cadet"
+]
+readme = "README.rst"
+repository = "https://github.com/raulincadet/fredeco"
+documentation = "https://fredeco.readthedocs.io/en/latest/"
+keywords = ["economics","data","indicators", "fred"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+]
+packages = [{include = "fredeco"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+requests = "^2.31.0"
+datetime = "^5.1"
+pandas = "^2.0.3" 
+numpy = "^1.25.0"
+nbsphinx = "^0.9.2"
+pandoc = "^2.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+myst-nb = {version = "^0.17.2", python = "^3.9"}
+sphinx-autoapi = "^2.1.1"
+sphinx-rtd-theme = "^1.2.2"
+python-semantic-release = "^7.34.6"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
