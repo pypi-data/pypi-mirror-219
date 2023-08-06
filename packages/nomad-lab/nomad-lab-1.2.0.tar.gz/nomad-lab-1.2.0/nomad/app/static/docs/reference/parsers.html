@@ -1,0 +1,5077 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Supported parsers - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#supported-parsers" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Supported parsers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Data Management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data Management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/upload.html" class="md-nav__link">
+        How to upload/publish data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/eln.html" class="md-nav__link">
+        How to use ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/explore.html" class="md-nav__link">
+        How to explore data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/north.html" class="md-nav__link">
+        How to use NORTH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/basics.html" class="md-nav__link">
+        How to write a schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/elns.html" class="md-nav__link">
+        How to define ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/tabular.html" class="md-nav__link">
+        How to define tabular data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/workflows.html" class="md-nav__link">
+        How to define workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/hdf5.html" class="md-nav__link">
+        How to reference hdf5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Programming interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming interfaces" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/api.html" class="md-nav__link">
+        How to use the API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/pythonlib.html" class="md-nav__link">
+        How to install nomad-lab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/archive_query.html" class="md-nav__link">
+        How to access processed data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/local_parsers.html" class="md-nav__link">
+        How to run a parser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/plugins.html" class="md-nav__link">
+        How to develop, publish, and install plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/schemas.html" class="md-nav__link">
+        How to write schema plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/parsers.html" class="md-nav__link">
+        How to write parser plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/setup.html" class="md-nav__link">
+        How to get started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/code.html" class="md-nav__link">
+        How to navigate the code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/contrib.html" class="md-nav__link">
+        How to contribute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/search.html" class="md-nav__link">
+        How to extend the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/parsers.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Oasis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Oasis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Oasis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/install.html" class="md-nav__link">
+        How to install an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/customize.html" class="md-nav__link">
+        How to customize an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/migrate.html" class="md-nav__link">
+        How to migrate Oasis versions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/admin.html" class="md-nav__link">
+        Administrative tasks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/basics.html" class="md-nav__link">
+        From files to data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/data.html" class="md-nav__link">
+        Structured data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/architecture.html" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/oasis.html" class="md-nav__link">
+        Why you need an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations.html" class="md-nav__link">
+        Schema annotations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli.html" class="md-nav__link">
+        Command Line Interface (CLI)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugins.html" class="md-nav__link">
+        Built-in plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Supported parsers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="parsers.html" class="md-nav__link md-nav__link--active">
+        Supported parsers
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atomistic-codes" class="md-nav__link">
+    Atomistic codes
+  </a>
+  
+    <nav class="md-nav" aria-label="Atomistic codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abinit" class="md-nav__link">
+    ABINIT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ams" class="md-nav__link">
+    AMS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumatk" class="md-nav__link">
+    QuantumATK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bigdft" class="md-nav__link">
+    BigDFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#castep" class="md-nav__link">
+    CASTEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charmm" class="md-nav__link">
+    CHARMM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp2k" class="md-nav__link">
+    CP2K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpmd" class="md-nav__link">
+    CPMD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crystal" class="md-nav__link">
+    CRYSTAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmol3" class="md-nav__link">
+    DMol3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elk" class="md-nav__link">
+    Elk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exciting" class="md-nav__link">
+    exciting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhi-aims" class="md-nav__link">
+    FHI-aims
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fleur" class="md-nav__link">
+    FLEUR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fplo" class="md-nav__link">
+    FPLO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamess" class="md-nav__link">
+    GAMESS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian" class="md-nav__link">
+    Gaussian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpaw" class="md-nav__link">
+    GPAW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#molcas" class="md-nav__link">
+    Molcas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mopac" class="md-nav__link">
+    MOPAC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nwchem" class="md-nav__link">
+    NWChem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octopus" class="md-nav__link">
+    Octopus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onetep" class="md-nav__link">
+    ONETEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmx" class="md-nav__link">
+    OpenMX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orca" class="md-nav__link">
+    ORCA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psi4" class="md-nav__link">
+    Psi4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qball" class="md-nav__link">
+    Qball
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qbox" class="md-nav__link">
+    Qbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespresso" class="md-nav__link">
+    QuantumESPRESSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siesta" class="md-nav__link">
+    SIESTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turbomole" class="md-nav__link">
+    TURBOMOLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vasp" class="md-nav__link">
+    VASP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wien2k" class="md-nav__link">
+    WIEN2k
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yambo" class="md-nav__link">
+    YAMBO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abacus" class="md-nav__link">
+    ABACUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amber" class="md-nav__link">
+    Amber
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asap" class="md-nav__link">
+    ASAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bopfox" class="md-nav__link">
+    BOPfox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dftb" class="md-nav__link">
+    DFTB+
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dl_poly" class="md-nav__link">
+    DL_POLY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromacs" class="md-nav__link">
+    GROMACS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromos" class="md-nav__link">
+    GROMOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gulp" class="md-nav__link">
+    GULP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lammps" class="md-nav__link">
+    LAMMPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libatoms" class="md-nav__link">
+    libAtoms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namd" class="md-nav__link">
+    NAMD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tinker" class="md-nav__link">
+    Tinker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xtb" class="md-nav__link">
+    xTB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wannier90" class="md-nav__link">
+    Wannier90
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w2dynamics" class="md-nav__link">
+    w2dynamics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soliddmft" class="md-nav__link">
+    soliddmft
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocean" class="md-nav__link">
+    OCEAN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-managers" class="md-nav__link">
+    Workflow managers
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow managers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aflow" class="md-nav__link">
+    AFLOW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asr" class="md-nav__link">
+    ASR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic" class="md-nav__link">
+    ElaStic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhi-vibes" class="md-nav__link">
+    FHI-vibes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lobster" class="md-nav__link">
+    LOBSTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomate" class="md-nav__link">
+    Atomate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phonopy" class="md-nav__link">
+    phonopy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressphonon" class="md-nav__link">
+    QuantumEspressPhonon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressoepw" class="md-nav__link">
+    QuantumEspressoEPW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressoxspectra" class="md-nav__link">
+    QuantumESPRESSOXSpectra
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-managers" class="md-nav__link">
+    Database managers
+  </a>
+  
+    <nav class="md-nav" aria-label="Database managers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eelsdb" class="md-nav__link">
+    EELSDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openkim" class="md-nav__link">
+    OpenKIM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standardized-file-formats" class="md-nav__link">
+    Standardized file formats
+  </a>
+  
+    <nav class="md-nav" aria-label="Standardized file formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nexus" class="md-nav__link">
+    NeXus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elns" class="md-nav__link">
+    ELNs
+  </a>
+  
+    <nav class="md-nav" aria-label="ELNs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elabftw" class="md-nav__link">
+    eLabFTW
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#atomistic-codes" class="md-nav__link">
+    Atomistic codes
+  </a>
+  
+    <nav class="md-nav" aria-label="Atomistic codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abinit" class="md-nav__link">
+    ABINIT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ams" class="md-nav__link">
+    AMS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumatk" class="md-nav__link">
+    QuantumATK
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bigdft" class="md-nav__link">
+    BigDFT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#castep" class="md-nav__link">
+    CASTEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charmm" class="md-nav__link">
+    CHARMM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp2k" class="md-nav__link">
+    CP2K
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpmd" class="md-nav__link">
+    CPMD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crystal" class="md-nav__link">
+    CRYSTAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dmol3" class="md-nav__link">
+    DMol3
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elk" class="md-nav__link">
+    Elk
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exciting" class="md-nav__link">
+    exciting
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhi-aims" class="md-nav__link">
+    FHI-aims
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fleur" class="md-nav__link">
+    FLEUR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fplo" class="md-nav__link">
+    FPLO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamess" class="md-nav__link">
+    GAMESS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian" class="md-nav__link">
+    Gaussian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpaw" class="md-nav__link">
+    GPAW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#molcas" class="md-nav__link">
+    Molcas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mopac" class="md-nav__link">
+    MOPAC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nwchem" class="md-nav__link">
+    NWChem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#octopus" class="md-nav__link">
+    Octopus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#onetep" class="md-nav__link">
+    ONETEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmx" class="md-nav__link">
+    OpenMX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orca" class="md-nav__link">
+    ORCA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psi4" class="md-nav__link">
+    Psi4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qball" class="md-nav__link">
+    Qball
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qbox" class="md-nav__link">
+    Qbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespresso" class="md-nav__link">
+    QuantumESPRESSO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#siesta" class="md-nav__link">
+    SIESTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turbomole" class="md-nav__link">
+    TURBOMOLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vasp" class="md-nav__link">
+    VASP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wien2k" class="md-nav__link">
+    WIEN2k
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yambo" class="md-nav__link">
+    YAMBO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abacus" class="md-nav__link">
+    ABACUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amber" class="md-nav__link">
+    Amber
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asap" class="md-nav__link">
+    ASAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bopfox" class="md-nav__link">
+    BOPfox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dftb" class="md-nav__link">
+    DFTB+
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dl_poly" class="md-nav__link">
+    DL_POLY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromacs" class="md-nav__link">
+    GROMACS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gromos" class="md-nav__link">
+    GROMOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gulp" class="md-nav__link">
+    GULP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lammps" class="md-nav__link">
+    LAMMPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libatoms" class="md-nav__link">
+    libAtoms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#namd" class="md-nav__link">
+    NAMD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tinker" class="md-nav__link">
+    Tinker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xtb" class="md-nav__link">
+    xTB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wannier90" class="md-nav__link">
+    Wannier90
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#w2dynamics" class="md-nav__link">
+    w2dynamics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#soliddmft" class="md-nav__link">
+    soliddmft
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ocean" class="md-nav__link">
+    OCEAN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-managers" class="md-nav__link">
+    Workflow managers
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow managers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aflow" class="md-nav__link">
+    AFLOW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asr" class="md-nav__link">
+    ASR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic" class="md-nav__link">
+    ElaStic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fhi-vibes" class="md-nav__link">
+    FHI-vibes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lobster" class="md-nav__link">
+    LOBSTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#atomate" class="md-nav__link">
+    Atomate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phonopy" class="md-nav__link">
+    phonopy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressphonon" class="md-nav__link">
+    QuantumEspressPhonon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressoepw" class="md-nav__link">
+    QuantumEspressoEPW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quantumespressoxspectra" class="md-nav__link">
+    QuantumESPRESSOXSpectra
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-managers" class="md-nav__link">
+    Database managers
+  </a>
+  
+    <nav class="md-nav" aria-label="Database managers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eelsdb" class="md-nav__link">
+    EELSDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openkim" class="md-nav__link">
+    OpenKIM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#standardized-file-formats" class="md-nav__link">
+    Standardized file formats
+  </a>
+  
+    <nav class="md-nav" aria-label="Standardized file formats">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nexus" class="md-nav__link">
+    NeXus
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#elns" class="md-nav__link">
+    ELNs
+  </a>
+  
+    <nav class="md-nav" aria-label="ELNs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elabftw" class="md-nav__link">
+    eLabFTW
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="supported-parsers">Supported parsers<a class="headerlink" href="#supported-parsers" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might also want to read:</p>
+<ul>
+<li><a href="../apis/local_parsers.html">How to run parsers locally</a></li>
+<li><a href="../plugins/parsers.html">How to develop a parser plugin</a></li>
+</ul>
+</div>
+<p>This is a list of all available parsers and supported file formats:</p>
+<p><a href="#abinit">ABINIT</a>, <a href="#ams">AMS</a>, <a href="#quantumatk">QuantumATK</a>, <a href="#bigdft">BigDFT</a>, <a href="#castep">CASTEP</a>, <a href="#charmm">CHARMM</a>, <a href="#cp2k">CP2K</a>, <a href="#cpmd">CPMD</a>, <a href="#crystal">CRYSTAL</a>, <a href="#dmol3">DMol3</a>, <a href="#elk">Elk</a>, <a href="#exciting">exciting</a>, <a href="#fhi-aims">FHI-aims</a>, <a href="#fleur">FLEUR</a>, <a href="#fplo">FPLO</a>, <a href="#gamess">GAMESS</a>, <a href="#gaussian">Gaussian</a>, <a href="#gpaw">GPAW</a>, <a href="#molcas">Molcas</a>, <a href="#mopac">MOPAC</a>, <a href="#nwchem">NWChem</a>, <a href="#octopus">Octopus</a>, <a href="#onetep">ONETEP</a>, <a href="#openmx">OpenMX</a>, <a href="#orca">ORCA</a>, <a href="#psi4">Psi4</a>, <a href="#qball">Qball</a>, <a href="#qbox">Qbox</a>, <a href="#quantumespresso">QuantumESPRESSO</a>, <a href="#siesta">SIESTA</a>, <a href="#turbomole">TURBOMOLE</a>, <a href="#vasp">VASP</a>, <a href="#wien2k">WIEN2k</a>, <a href="#yambo">YAMBO</a>, <a href="#abacus">ABACUS</a>, <a href="#amber">Amber</a>, <a href="#asap">ASAP</a>, <a href="#bopfox">BOPfox</a>, <a href="#dftb">DFTB+</a>, <a href="#dl_poly">DL_POLY</a>, <a href="#gromacs">GROMACS</a>, <a href="#gromos">GROMOS</a>, <a href="#gulp">GULP</a>, <a href="#lammps">LAMMPS</a>, <a href="#libatoms">libAtoms</a>, <a href="#namd">NAMD</a>, <a href="#tinker">Tinker</a>, <a href="#xtb">xTB</a>, <a href="#aflow">AFLOW</a>, <a href="#asr">ASR</a>, <a href="#elastic">ElaStic</a>, <a href="#fhi-vibes">FHI-vibes</a>, <a href="#lobster">LOBSTER</a>, <a href="#atomate">Atomate</a>, <a href="#phonopy">phonopy</a>, <a href="#eelsdb">EELSDB</a>, <a href="#quantumespressphonon">QuantumEspressPhonon</a>, <a href="#quantumespressoepw">QuantumEspressoEPW</a>, <a href="#quantumespressoxspectra">QuantumESPRESSOXSpectra</a>, <a href="#openkim">OpenKIM</a>, <a href="#wannier90">Wannier90</a>, <a href="#w2dynamics">w2dynamics</a>, <a href="#soliddmft">soliddmft</a>, <a href="#ocean">OCEAN</a>, <a href="#nexus">NeXus</a>, <a href="#elabftw">eLabFTW</a></p>
+<h2 id="atomistic-codes">Atomistic codes<a class="headerlink" href="#atomistic-codes" title="Permanent link">&para;</a></h2>
+<h3 id="abinit">ABINIT<a class="headerlink" href="#abinit" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ABINIT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.abinit.org/">https://www.abinit.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/abinit</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.abinit</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.abinit.parser.AbinitParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/abinit">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/abinit</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.*o*</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/ <strong>user-defined</strong> name</td>
+</tr>
+<tr>
+<td><code>*.files</code></td>
+<td>plain text; user-defined filenames</td>
+</tr>
+<tr>
+<td><code>*.*i*</code></td>
+<td>plain text, input parameters</td>
+</tr>
+<tr>
+<td><code>*_o_DDB</code></td>
+<td>netcdf binary file, Derivative DataBases of total energy</td>
+</tr>
+<tr>
+<td><code>*_o_DEN</code></td>
+<td>netcdf binary file, charge density</td>
+</tr>
+<tr>
+<td><code>*_o_EIG</code></td>
+<td>text file, eigenvalues</td>
+</tr>
+<tr>
+<td><code>*_o_WFK</code></td>
+<td>netcdf binary file, wavefunction</td>
+</tr>
+<tr>
+<td><code>*o_SCR</code></td>
+<td>netcdf binary file, RPA inverse dielectric screening</td>
+</tr>
+<tr>
+<td><code>*o_SIGRES</code></td>
+<td>netcdf binary file, GW self-energy correction</td>
+</tr>
+<tr>
+<td><code>log</code></td>
+<td>plain text, redirection of screen output (<code>stdout</code>)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ams">AMS<a class="headerlink" href="#ams" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>AMS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.scm.com">https://www.scm.com</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/ams</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.ams</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.ams.parser.AMSParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/ams">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/ams</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantumatk">QuantumATK<a class="headerlink" href="#quantumatk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>QuantumATK</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.synopsys.com/silicon/quantumatk.html">https://www.synopsys.com/silicon/quantumatk.html</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/atk</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.atk</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.atk.parser.ATKParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/atk">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/atk</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.nc</code></td>
+<td>The NetCDF output is used as the <strong>mainfile</strong> (HDF5 output is currently not yet supported)</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Other ATK input and output files act as auxiliary files that can be downloaded, put are not parsed</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bigdft">BigDFT<a class="headerlink" href="#bigdft" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>BigDFT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://bigdft.org/">http://bigdft.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/bigdft</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.bigdft</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.bigdft.parser.BigDFTParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/bigdft">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/bigdft</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="castep">CASTEP<a class="headerlink" href="#castep" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>CASTEP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.castep.org/">http://www.castep.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/castep</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.castep</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.castep.parser.CastepParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/castep">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/castep</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="charmm">CHARMM<a class="headerlink" href="#charmm" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>CHARMM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.charmm.org">https://www.charmm.org</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/charmm</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.charmm</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.charmm.parser.CharmmParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/charmm">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/charmm</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cp2k">CP2K<a class="headerlink" href="#cp2k" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>CP2K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.cp2k.org/">https://www.cp2k.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/cp2k</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.cp2k</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.cp2k.parser.CP2KParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/cp2k">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/cp2k</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="cpmd">CPMD<a class="headerlink" href="#cpmd" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>CPMD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.cpmd.org/">https://www.cpmd.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/cpmd</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.cpmd</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.cpmd.parser.CPMDParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/cpmd">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/cpmd</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="crystal">CRYSTAL<a class="headerlink" href="#crystal" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>CRYSTAL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.crystal.unito.it/">https://www.crystal.unito.it/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/crystal</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.crystal</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.crystal.parser.CrystalParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/crystal">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/crystal</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td><strong>Mainfile</strong>, plain text file w/arbitrary name. E.g.,  <code>simulation.out</code></td>
+</tr>
+<tr>
+<td><code>&lt;text_file&gt;.d12</code></td>
+<td>Program input. Plain text file with the same name (different extension) as the mainfile. E.g. <code>simulation.d12</code></td>
+</tr>
+<tr>
+<td>AUX FILES</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;text_file&gt;.f25</code></td>
+<td>Output of various electronic and electrical properties. Plain text file with the same name (different extension) as the mainfile. <strong>NOTE</strong>: required in order to parse band structures and density of states. E.g. <code>simulation.f25</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dmol3">DMol3<a class="headerlink" href="#dmol3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>DMol3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://dmol3.web.psi.ch/">http://dmol3.web.psi.ch/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/dmol</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.dmol3</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.dmol3.parser.Dmol3Parser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/dmol3">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/dmol3</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="elk">Elk<a class="headerlink" href="#elk" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Elk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://elk.sourceforge.net/">http://elk.sourceforge.net/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/elk</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.elk</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.elk.parser.ElkParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/elk">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/elk</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="exciting">exciting<a class="headerlink" href="#exciting" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>exciting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://exciting-code.org/">http://exciting-code.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/exciting</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.exciting</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.exciting.parser.ExcitingParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/exciting">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/exciting</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>INFO.OUT</code></td>
+<td>mainfile</td>
+</tr>
+<tr>
+<td><code>BAND-QP.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>BANDLINES.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DIELTENS0*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DIELTENS0_NOSYM*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EIGVAL.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EPSILON_*FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EPSILON_*NLF_FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EPSILON_BSE*_SCR*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EVALQP.DAT or EVALQP.TXT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EXCITON_BSE*_SCR*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FERMISURF.bxsf</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GQPOINTS*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>GW_INFO.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>INFO_VOL</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOSS_*FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOSS_*NLF_*FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>QPOINTS.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SIGMA_*FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SIGMA_*NLF_FXC*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SIGMA_BSE*_SCR*_OC*.OUT</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>TDOS-QP.OUT</code></td>
+<td>time dependent DOS</td>
+</tr>
+<tr>
+<td><code>bandstructure-qp.dat</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>bandstructure.xml</code></td>
+<td>(vertexLabGWFile)</td>
+</tr>
+<tr>
+<td><code>bandstructure.xml</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>dos.xml</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>input-gw.xml</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>input.xml</code></td>
+<td>(GSFile)</td>
+</tr>
+<tr>
+<td><code>input.xml</code></td>
+<td>(XSFile)</td>
+</tr>
+<tr>
+<td><code>str.out</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fhi-aims">FHI-aims<a class="headerlink" href="#fhi-aims" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>FHI-aims</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://aimsclub.fhi-berlin.mpg.de/">https://aimsclub.fhi-berlin.mpg.de/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/fhi-aims</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.fhiaims</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.fhiaims.parser.FHIAimsParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fhiaims">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fhiaims</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td><strong>Mainfile</strong>, plain text file w/arbitrary name, e.g.,  <code>&lt;output,control, aims,...&gt;.out</code></td>
+</tr>
+<tr>
+<td><code>control.in</code></td>
+<td>Runtime information</td>
+</tr>
+<tr>
+<td><code>geometry.in</code></td>
+<td>Material's atomic-structure information,</td>
+</tr>
+<tr>
+<td>AUX FILES</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>&lt;atoml_label&gt;_l_proj_dos.out</code></td>
+<td>Angular-momentum-resolved DOS @ Fermi Energy</td>
+</tr>
+<tr>
+<td><code>&lt;atoml_label&gt;_l_proj_dos_raw.out</code></td>
+<td>Angular-momentum-resolved DOS @ vacuum</td>
+</tr>
+<tr>
+<td><code>KS_DOS_total.dat</code></td>
+<td>Kohn-Sham total DOS @ Fermi Energy</td>
+</tr>
+<tr>
+<td><code>KS_DOS_total_raw.dat</code></td>
+<td>Kohn-Sham total DOS @ vacuum</td>
+</tr>
+<tr>
+<td><code>Mulliken.out</code> <strong>WARNING--&gt;</strong></td>
+<td>Mulliken charge analysis on all atoms. <strong>WARNING</strong> not yet read by NOMAD's parser</td>
+</tr>
+<tr>
+<td><code>atom_proj_dos_&lt;atom_name&gt;&lt;index&gt;_raw.dat</code></td>
+<td>Atom-projected DOS @ vacuum</td>
+</tr>
+<tr>
+<td><code>atom_projected_dos_&lt;atom_name&gt;&lt;index&gt;.dat</code></td>
+<td>Atom-projected DOS @ Fermi Energy</td>
+</tr>
+<tr>
+<td><code>band&lt;spin&gt;&lt;segment&gt;.out</code></td>
+<td>bandstructure file</td>
+</tr>
+<tr>
+<td><code>GW_band&lt;spin&gt;&lt;segment&gt;</code></td>
+<td>GW bandstructure file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fleur">FLEUR<a class="headerlink" href="#fleur" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>FLEUR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.flapw.de/">https://www.flapw.de/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/fleur</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.fleur</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.fleur.parser.FleurParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fleur">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fleur</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fplo">FPLO<a class="headerlink" href="#fplo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>FPLO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.fplo.de/">https://www.fplo.de/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/fplo</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.fplo</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.fplo.parser.FploParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fplo">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/fplo</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gamess">GAMESS<a class="headerlink" href="#gamess" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>GAMESS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.msg.chem.iastate.edu/">https://www.msg.chem.iastate.edu/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gamess</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.gamess</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.gamess.parser.GamessParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gamess">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gamess</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gaussian">Gaussian<a class="headerlink" href="#gaussian" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Gaussian</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://gaussian.com">http://gaussian.com</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gaussian</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.gaussian</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.gaussian.parser.GaussianParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gaussian">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gaussian</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gpaw">GPAW<a class="headerlink" href="#gpaw" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>GPAW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://wiki.fysik.dtu.dk/gpaw/">https://wiki.fysik.dtu.dk/gpaw/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gpaw</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.gpaw</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.gpaw.parser.GPAWParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gpaw">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/gpaw</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="molcas">Molcas<a class="headerlink" href="#molcas" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Molcas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://molcas.org/">http://molcas.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/molcas</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.molcas</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.molcas.parser.MolcasParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/molcas">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/molcas</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="mopac">MOPAC<a class="headerlink" href="#mopac" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>MOPAC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://openmopac.net/">http://openmopac.net/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/mopac</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.mopac</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.mopac.parser.MopacParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/mopac">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/mopac</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="nwchem">NWChem<a class="headerlink" href="#nwchem" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>NWChem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://nwchemgit.github.io/">https://nwchemgit.github.io/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/nwchem</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.nwchem</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.nwchem.parser.NWChemParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/nwchem">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/nwchem</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="octopus">Octopus<a class="headerlink" href="#octopus" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Octopus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://octopus-code.org/">https://octopus-code.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/octopus</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.octopus</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.octopus.parser.OctopusParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/octopus">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/octopus</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/arbitrary name</td>
+</tr>
+<tr>
+<td><code>exec/</code></td>
+<td>Subdir for runtime information</td>
+</tr>
+<tr>
+<td><code>exec/parser.log</code></td>
+<td>Input variables (user-defined &amp; default values)</td>
+</tr>
+<tr>
+<td><code>inp</code></td>
+<td>input file</td>
+</tr>
+<tr>
+<td><code>parse.log</code></td>
+<td><strong>Warining</strong> : probably obsolete</td>
+</tr>
+<tr>
+<td><code>restart/</code></td>
+<td>Data to restart a calculation, e.g., <code>restart/gs/</code> is for ground-state</td>
+</tr>
+<tr>
+<td><code>static/</code></td>
+<td>Subdir to report static part of a calculation</td>
+</tr>
+<tr>
+<td><code>static/eigenvalues</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>static/info</code></td>
+<td>General info on static part</td>
+</tr>
+</tbody>
+</table>
+<h3 id="onetep">ONETEP<a class="headerlink" href="#onetep" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ONETEP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.onetep.org/">https://www.onetep.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/onetep</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.onetep</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.onetep.parser.OnetepParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/onetep">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/onetep</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="openmx">OpenMX<a class="headerlink" href="#openmx" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>OpenMX</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.openmx-square.org/">http://www.openmx-square.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/openmx</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.openmx</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.openmx.parser.OpenmxParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/openmx">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/openmx</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;systemname&gt;.out</code></td>
+<td><strong>Mainfile</strong> in OpenMX specific plain-text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="orca">ORCA<a class="headerlink" href="#orca" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ORCA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.faccts.de/orca/">https://www.faccts.de/orca/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/orca</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.orca</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.orca.parser.OrcaParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/orca">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/orca</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="psi4">Psi4<a class="headerlink" href="#psi4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Psi4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://psicode.org/">https://psicode.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/psi4</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.psi4</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.psi4.parser.Psi4Parser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/psi4">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/psi4</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.out</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/ <strong>user-defined</strong> name</td>
+</tr>
+<tr>
+<td><code>*.dat</code></td>
+<td>plain text input file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="qball">Qball<a class="headerlink" href="#qball" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Qball</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://github.com/LLNL/qball">https://github.com/LLNL/qball</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/qball</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.qball</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.qball.parser.QBallParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/qball">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/qball</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.out</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/ <strong>user-defined</strong> name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="qbox">Qbox<a class="headerlink" href="#qbox" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Qbox</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://qboxcode.org/">http://qboxcode.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/qbox</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.qbox</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.qbox.parser.QboxParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/qbox">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/qbox</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantumespresso">QuantumESPRESSO<a class="headerlink" href="#quantumespresso" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>QuantumESPRESSO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.quantum-espresso.org/">http://www.quantum-espresso.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/quantumespresso</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.quantumespresso</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.quantumespresso.parser.QuantumEspressoParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/quantumespresso">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/quantumespresso</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/arbitrary name. \</td>
+</tr>
+<tr>
+<td>One of the top lines must contain '<code>Program PWSCF.*starts</code>', \</td>
+<td></td>
+</tr>
+<tr>
+<td>where '<code>.*</code>' means an arbitrary number '<code>*</code>' of arbitrary \</td>
+<td></td>
+</tr>
+<tr>
+<td>characters '<code>.</code>'</td>
+<td>"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="siesta">SIESTA<a class="headerlink" href="#siesta" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>SIESTA</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://siesta-project.org/siesta">https://siesta-project.org/siesta</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/siesta</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.siesta</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.siesta.parser.SiestaParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/siesta">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/siesta</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="turbomole">TURBOMOLE<a class="headerlink" href="#turbomole" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>TURBOMOLE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.turbomole.org/">https://www.turbomole.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/turbomole</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.turbomole</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.turbomole.parser.TurbomoleParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/turbomole">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/turbomole</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="vasp">VASP<a class="headerlink" href="#vasp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>VASP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.vasp.at/">https://www.vasp.at/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/vasp</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.vasp</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.vasp.parser.VASPParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/vasp">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/vasp</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>vasprun.xml</code></td>
+<td><strong>Mainfile</strong> in plain-text (structured) XML format</td>
+</tr>
+<tr>
+<td><code>OUTCAR</code></td>
+<td>plain-text (semi-structured) file, VAPS's detailed output. Read by NOMAD only as fallback to parse <code>outcar</code> data</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wien2k">WIEN2k<a class="headerlink" href="#wien2k" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>WIEN2k</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.wien2k.at/">http://www.wien2k.at/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/wien2k</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.wien2k</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.wien2k.parser.Wien2kParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/wien2k">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/wien2k</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="yambo">YAMBO<a class="headerlink" href="#yambo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>YAMBO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.yambo-code.org/">https://www.yambo-code.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/yambo</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.yambo</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.yambo.parser.YamboParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/yambo">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/yambo</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>r-*</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/ <strong>user-defined</strong> name</td>
+</tr>
+<tr>
+<td><code>o-*</code></td>
+<td>plain text auxiliary output files w/ user-defined filenames</td>
+</tr>
+<tr>
+<td><code>*.in</code></td>
+<td>plain text input file w/ <strong>user-defined</strong> name</td>
+</tr>
+<tr>
+<td><code>n.*</code></td>
+<td>netcdf file with <strong>user-defined</strong> name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="abacus">ABACUS<a class="headerlink" href="#abacus" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ABACUS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://abacus.ustc.edu.cn/">http://abacus.ustc.edu.cn/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/abacus</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.abacus</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.abacus.parser.ABACUSParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/abacus">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/abacus</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td><strong>Mainfile</strong>, plain text file w/arbitrary name, e.g.,  <code>running_&lt;scf, nscf, relax, ...md&gt;.log</code></td>
+</tr>
+<tr>
+<td><code>INPUT</code></td>
+<td>Runtime information</td>
+</tr>
+<tr>
+<td>AUX FILES</td>
+<td>Description</td>
+</tr>
+<tr>
+<td><code>STRU</code></td>
+<td>Material's atomic-structure information</td>
+</tr>
+<tr>
+<td><code>KPT</code></td>
+<td>K-points information</td>
+</tr>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td>pseudopotental files</td>
+</tr>
+<tr>
+<td><code>&lt;text_file&gt;</code></td>
+<td>optimized atomic basis sets</td>
+</tr>
+<tr>
+<td><code>TDOS</code></td>
+<td>Kohn-Sham total DOS</td>
+</tr>
+<tr>
+<td><code>PDOS</code></td>
+<td>Projected DOS</td>
+</tr>
+<tr>
+<td><code>BANDS_&lt;nspin&gt;.dat</code></td>
+<td>bandstructure file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="amber">Amber<a class="headerlink" href="#amber" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Amber</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://ambermd.org/">http://ambermd.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/amber</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.amber</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.amber.parser.AmberParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/amber">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/amber</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="asap">ASAP<a class="headerlink" href="#asap" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ASAP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://wiki.fysik.dtu.dk/asap">https://wiki.fysik.dtu.dk/asap</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/asap</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.asap</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.asap.parser.AsapParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/asap">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/asap</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="bopfox">BOPfox<a class="headerlink" href="#bopfox" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>BOPfox</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://bopfox.de/">http://bopfox.de/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/bopfox</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.bopfox</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.bopfox.parser.BOPfoxParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/bobfox">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/bobfox</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dftb">DFTB+<a class="headerlink" href="#dftb" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>DFTB+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.dftbplus.org/">http://www.dftbplus.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/dftbplus</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.dftbplus</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.dftbplus.parser.DFTBPlusParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/dftplus">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/dftplus</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="dl_poly">DL_POLY<a class="headerlink" href="#dl_poly" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>DL_POLY</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.scd.stfc.ac.uk/Pages/DL_POLY.aspx">https://www.scd.stfc.ac.uk/Pages/DL_POLY.aspx</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/dl-poly</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.dlpoly</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.dlpoly.parser.DLPolyParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/dlpoly">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/dlpoly</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gromacs">GROMACS<a class="headerlink" href="#gromacs" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>GROMACS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.gromacs.org/">http://www.gromacs.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gromacs</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.gromacs</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.gromacs.parser.GromacsParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gromacs">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gromacs</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gromos">GROMOS<a class="headerlink" href="#gromos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>GROMOS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.gromos.net/">http://www.gromos.net/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gromos</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.gromos</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.gromos.parser.GromosParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gromos">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gromos</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="gulp">GULP<a class="headerlink" href="#gulp" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>GULP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://gulp.curtin.edu.au/gulp/">http://gulp.curtin.edu.au/gulp/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/gulp</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.gulp</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.gulp.parser.GulpParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gulp">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/gulp</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="lammps">LAMMPS<a class="headerlink" href="#lammps" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>LAMMPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://lammps.sandia.gov/">https://lammps.sandia.gov/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/lammps</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.lammps</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.lammps.parser.LammpsParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/lammps">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/lammps</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="libatoms">libAtoms<a class="headerlink" href="#libatoms" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>libAtoms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://libatoms.github.io/">http://libatoms.github.io/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/lib-atoms</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.libatoms</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.libatoms.parser.LibAtomsParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/libatoms">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/libatoms</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="namd">NAMD<a class="headerlink" href="#namd" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>NAMD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.ks.uiuc.edu/Research/namd/">http://www.ks.uiuc.edu/Research/namd/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/namd</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.namd</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.namd.parser.NAMDParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/namd">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/namd</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tinker">Tinker<a class="headerlink" href="#tinker" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Tinker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://dasher.wustl.edu/tinker/">https://dasher.wustl.edu/tinker/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/tinker</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.tinker</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.tinker.parser.TinkerParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/tinker">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/tinker</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="xtb">xTB<a class="headerlink" href="#xtb" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>xTB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/xtb/">https://www.chemie.uni-bonn.de/pctc/mulliken-center/software/xtb/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/xtb</td>
+</tr>
+<tr>
+<td>package</td>
+<td>atomisticparsers.xtb</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>atomisticparsers.xtb.parser.XTBParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/xtb">https://github.com/nomad-coe/atomistic-parsers/tree/develop/atomisticparsers/xtb</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.out</code></td>
+<td><strong>Mainfile:</strong> a plain text file w/ <strong>user-defined</strong> name</td>
+</tr>
+<tr>
+<td><code>*.coord</code></td>
+<td>plain text; structure file</td>
+</tr>
+<tr>
+<td><code>*.xyz</code></td>
+<td>plain text, structure file</td>
+</tr>
+<tr>
+<td><code>*xtbopt.log</code></td>
+<td>plain text, trajectory file of geometry optimization</td>
+</tr>
+<tr>
+<td><code>*xtb.trj</code></td>
+<td>plain text, trajectory of molecular dynamics</td>
+</tr>
+<tr>
+<td><code>*xtbtopo.mol</code></td>
+<td>plain text, topology file</td>
+</tr>
+<tr>
+<td><code>*xtbrestart</code></td>
+<td>binary file, restart file</td>
+</tr>
+<tr>
+<td><code>charges</code></td>
+<td>plain text, output charges</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wannier90">Wannier90<a class="headerlink" href="#wannier90" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Wannier90</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.wannier.org/">http://www.wannier.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/wannier90</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.wannier90</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.wannier90.parser.Wannier90Parser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/wannier90">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/wannier90</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.wout</code></td>
+<td><strong>Mainfile</strong>: output text file w/ arbitrary name</td>
+</tr>
+<tr>
+<td><code>*.win</code></td>
+<td>input text file</td>
+</tr>
+<tr>
+<td><code>*band.dat</code></td>
+<td>band structure output file</td>
+</tr>
+<tr>
+<td><code>*dos.dat</code></td>
+<td>dos output file</td>
+</tr>
+<tr>
+<td><code>*hr.dat</code></td>
+<td>hopping matrices (written if write_hr *.win is true)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="w2dynamics">w2dynamics<a class="headerlink" href="#w2dynamics" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>w2dynamics</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://github.com/w2dynamics/w2dynamics">https://github.com/w2dynamics/w2dynamics</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/w2dynamics</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.w2dynamics</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.w2dynamics.parser.W2DynamicsParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/w2dynamics">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/w2dynamics</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.hdf5</code></td>
+<td><strong>Mainfile:</strong> hdf5 file containing all i/o parameters w/ arbitrary name</td>
+</tr>
+<tr>
+<td><code>*.in</code></td>
+<td>input text file containing [general], [atoms], and [QMC] input parameters</td>
+</tr>
+<tr>
+<td><code>epsk</code></td>
+<td>plain text, discrete bath levels</td>
+</tr>
+<tr>
+<td><code>Vk</code></td>
+<td>plain text, hybridizations</td>
+</tr>
+<tr>
+<td><code>w2d.log</code></td>
+<td>output log error file</td>
+</tr>
+</tbody>
+</table>
+<h3 id="soliddmft">soliddmft<a class="headerlink" href="#soliddmft" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>soliddmft</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://github.com/TRIQS/solid_dmft">https://github.com/TRIQS/solid_dmft</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/solid_dmft</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.soliddmft</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.soliddmft.parser.SolidDMFTParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/soliddmft">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/soliddmft</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.h5</code></td>
+<td><strong>Mainfile:</strong> h5 file containing all i/o parameters w/ arbitrary name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ocean">OCEAN<a class="headerlink" href="#ocean" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>OCEAN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://feff.phys.washington.edu/OCEAN/index.html">https://feff.phys.washington.edu/OCEAN/index.html</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/ocean</td>
+</tr>
+<tr>
+<td>package</td>
+<td>electronicparsers.ocean</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>electronicparsers.ocean.parser.OceanParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/ocean">https://github.com/nomad-coe/electronic-parsers/tree/develop/electronicparsers/ocean</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*</code></td>
+<td><strong>Mainfile:</strong> text output file (in JSON format)</td>
+</tr>
+<tr>
+<td><code>*.in</code></td>
+<td>input file with all parameters</td>
+</tr>
+<tr>
+<td><code>absspct*</code></td>
+<td>output data file with the Absorption Spectra</td>
+</tr>
+<tr>
+<td><code>abslanc*</code></td>
+<td>output data file with (Lanzcos algorithm) Absorption spectra</td>
+</tr>
+<tr>
+<td><code>xesspct*</code></td>
+<td>output data file with the Emission Spectra</td>
+</tr>
+<tr>
+<td><code>rxsspct*</code></td>
+<td>output data file with the RIXS</td>
+</tr>
+<tr>
+<td><code>photon*</code></td>
+<td>electron-photon operator</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow-managers">Workflow managers<a class="headerlink" href="#workflow-managers" title="Permanent link">&para;</a></h2>
+<h3 id="aflow">AFLOW<a class="headerlink" href="#aflow" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>AFLOW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://www.aflowlib.org/">http://www.aflowlib.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/aflow</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.aflow</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.aflow.parser.AFLOWParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/aflow">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/aflow</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>aflowlib.json</code></td>
+<td><strong>Mainfile:</strong> a json file containing the aflow output</td>
+</tr>
+<tr>
+<td><code>aflow.ael.out</code></td>
+<td>plain text, elastic outputs</td>
+</tr>
+<tr>
+<td><code>aflow.agl.out</code></td>
+<td>plain text, Debye model output</td>
+</tr>
+</tbody>
+</table>
+<h3 id="asr">ASR<a class="headerlink" href="#asr" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ASR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://asr.readthedocs.io/en/latest/index.html">https://asr.readthedocs.io/en/latest/index.html</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/asr</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.asr</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.asr.parser.ASRParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/asr">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/asr</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>archive*.json</code></td>
+<td><strong>Mainfile:</strong> a json file w/ <strong>user-defined</strong> name</td>
+</tr>
+</tbody>
+</table>
+<h3 id="elastic">ElaStic<a class="headerlink" href="#elastic" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>ElaStic</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://exciting.wikidot.com/elastic">http://exciting.wikidot.com/elastic</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/elastic</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.elastic</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.elastic.parser.ElasticParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/elastic">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/elastic</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fhi-vibes">FHI-vibes<a class="headerlink" href="#fhi-vibes" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>FHI-vibes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://vibes.fhi-berlin.mpg.de/">https://vibes.fhi-berlin.mpg.de/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/fhi-vibes</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.fhivibes</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.fhivibes.parser.FHIVibesParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/fhivibes">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/fhivibes</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;hdf_file&gt;</code></td>
+<td><strong>Mainfile</strong>, binary hdf file w/ ext .nc`</td>
+</tr>
+</tbody>
+</table>
+<h3 id="lobster">LOBSTER<a class="headerlink" href="#lobster" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>LOBSTER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="http://schmeling.ac.rwth-aachen.de/cohp/">http://schmeling.ac.rwth-aachen.de/cohp/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/lobster</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.lobster</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.lobster.parser.LobsterParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/lobster">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/lobster</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lobsterout</code></td>
+<td><strong>Mainfile</strong> in LOBSTER specific plain-text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="atomate">Atomate<a class="headerlink" href="#atomate" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>Atomate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.atomate.org/">https://www.atomate.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/atomate</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.atomate</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.atomate.parser.AtomateParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/automate">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/automate</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*materials.json</code></td>
+<td><strong>Mainfile:</strong> a json file containing system info</td>
+</tr>
+<tr>
+<td><code>*.json</code></td>
+<td>json files containing workflow results</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phonopy">phonopy<a class="headerlink" href="#phonopy" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>phonopy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://phonopy.github.io/phonopy/">https://phonopy.github.io/phonopy/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/phonopy</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.phonopy</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.phonopy.parser.PhonopyParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/phonopy">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/phonopy</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantumespressphonon">QuantumEspressPhonon<a class="headerlink" href="#quantumespressphonon" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>QuantumEspressPhonon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.quantum-espresso.org">https://www.quantum-espresso.org</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/quantumespressophonon</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.quantum_espresso_phonon</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.quantum_espresso_phonon.parser.QuantumEspressoPhononParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_phonon">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_phonon</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantumespressoepw">QuantumEspressoEPW<a class="headerlink" href="#quantumespressoepw" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>QuantumEspressoEPW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.quantum-espresso.org">https://www.quantum-espresso.org</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/quantumespressoepw</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.quantum_espresso_epw</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.quantum_espresso_epw.parser.QuantumEspressoEPWParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_epw">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_epw</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="quantumespressoxspectra">QuantumESPRESSOXSpectra<a class="headerlink" href="#quantumespressoxspectra" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>QuantumESPRESSOXSpectra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.quantum-espresso.org/Doc/INPUT_XSpectra.txt">https://www.quantum-espresso.org/Doc/INPUT_XSpectra.txt</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/quantumespressoxspectra</td>
+</tr>
+<tr>
+<td>package</td>
+<td>workflowparsers.quantum_espresso_xspectra</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>workflowparsers.quantum_espresso_xspectra.parser.QuantumEspressoXSpectraParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_xpectra">https://github.com/nomad-coe/workflow-parsers/tree/master/workflowparsers/quantum_espresso_xpectra</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.out</code></td>
+<td><strong>Mainfile:</strong> text output file</td>
+</tr>
+<tr>
+<td><code>*.dat</code></td>
+<td>output data file with the Absorption Spectra</td>
+</tr>
+</tbody>
+</table>
+<h2 id="database-managers">Database managers<a class="headerlink" href="#database-managers" title="Permanent link">&para;</a></h2>
+<h3 id="eelsdb">EELSDB<a class="headerlink" href="#eelsdb" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>EELSDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://eelsdb.eu/">https://eelsdb.eu/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/eels</td>
+</tr>
+<tr>
+<td>package</td>
+<td>eelsdbparser</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>eelsdbparser.eelsdb_parser.EELSDBParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/nomad-parser-eelsdb">https://github.com/nomad-coe/nomad-parser-eelsdb</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="openkim">OpenKIM<a class="headerlink" href="#openkim" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>OpenKIM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://openkim.org/">https://openkim.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/openkim</td>
+</tr>
+<tr>
+<td>package</td>
+<td>databaseparsers.openkim</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>databaseparsers.openkim.parser.OpenKIMParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://github.com/nomad-coe/electronic-parsers/tree/develop/databaseparsers/openkim">https://github.com/nomad-coe/electronic-parsers/tree/develop/databaseparsers/openkim</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="standardized-file-formats">Standardized file formats<a class="headerlink" href="#standardized-file-formats" title="Permanent link">&para;</a></h2>
+<h3 id="nexus">NeXus<a class="headerlink" href="#nexus" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>NeXus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.nexusformat.org/">https://www.nexusformat.org/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/nexus</td>
+</tr>
+<tr>
+<td>package</td>
+<td>nomad.parsing.nexus</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>nomad.parsing.nexus.NexusParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR/-/tree/develop/nomad/parsing/nexus">https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR/-/tree/develop/nomad/parsing/nexus</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.nxs</code></td>
+<td>The nexus file</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elns">ELNs<a class="headerlink" href="#elns" title="Permanent link">&para;</a></h2>
+<h3 id="elabftw">eLabFTW<a class="headerlink" href="#elabftw" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>parser</th>
+<th>eLabFTW</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>format homepage</td>
+<td><a href="https://www.elabftw.net/">https://www.elabftw.net/</a></td>
+</tr>
+<tr>
+<td>plugin name</td>
+<td>parsers/elabftw</td>
+</tr>
+<tr>
+<td>package</td>
+<td>nomad.parsing.elabftw</td>
+</tr>
+<tr>
+<td>parser class</td>
+<td>nomad.parsing.elabftw.ELabFTWParser</td>
+</tr>
+<tr>
+<td>parser code</td>
+<td><a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR/-/tree/develop/nomad/parsing/elabftw">https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR/-/tree/develop/nomad/parsing/elabftw</a></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Input Filename</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*.ro-crate-metadata.json</code></td>
+<td><strong>Mainfile</strong> as part of the .eln eLabFTW export</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Files in .eln eLabFTW export that are potentially references by the mainfile</td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="plugins.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Built-in plugins" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Built-in plugins
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="glossary.html" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Glossary
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

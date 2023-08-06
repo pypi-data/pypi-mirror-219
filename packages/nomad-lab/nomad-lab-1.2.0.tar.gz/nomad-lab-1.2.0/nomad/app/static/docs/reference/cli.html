@@ -1,0 +1,2906 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Command Line Interface (CLI) - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-line-interface-cli" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Command Line Interface (CLI)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Data Management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data Management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/upload.html" class="md-nav__link">
+        How to upload/publish data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/eln.html" class="md-nav__link">
+        How to use ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/explore.html" class="md-nav__link">
+        How to explore data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/north.html" class="md-nav__link">
+        How to use NORTH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/basics.html" class="md-nav__link">
+        How to write a schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/elns.html" class="md-nav__link">
+        How to define ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/tabular.html" class="md-nav__link">
+        How to define tabular data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/workflows.html" class="md-nav__link">
+        How to define workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/hdf5.html" class="md-nav__link">
+        How to reference hdf5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Programming interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming interfaces" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/api.html" class="md-nav__link">
+        How to use the API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/pythonlib.html" class="md-nav__link">
+        How to install nomad-lab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/archive_query.html" class="md-nav__link">
+        How to access processed data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/local_parsers.html" class="md-nav__link">
+        How to run a parser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/plugins.html" class="md-nav__link">
+        How to develop, publish, and install plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/schemas.html" class="md-nav__link">
+        How to write schema plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/parsers.html" class="md-nav__link">
+        How to write parser plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/setup.html" class="md-nav__link">
+        How to get started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/code.html" class="md-nav__link">
+        How to navigate the code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/contrib.html" class="md-nav__link">
+        How to contribute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/search.html" class="md-nav__link">
+        How to extend the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/parsers.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Oasis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Oasis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Oasis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/install.html" class="md-nav__link">
+        How to install an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/customize.html" class="md-nav__link">
+        How to customize an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/migrate.html" class="md-nav__link">
+        How to migrate Oasis versions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/admin.html" class="md-nav__link">
+        Administrative tasks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/basics.html" class="md-nav__link">
+        From files to data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/data.html" class="md-nav__link">
+        Structured data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/architecture.html" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/oasis.html" class="md-nav__link">
+        Why you need an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations.html" class="md-nav__link">
+        Schema annotations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Command Line Interface (CLI)
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="cli.html" class="md-nav__link md-nav__link--active">
+        Command Line Interface (CLI)
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nomad" class="md-nav__link">
+    nomad
+  </a>
+  
+    <nav class="md-nav" aria-label="nomad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin" class="md-nav__link">
+    admin
+  </a>
+  
+    <nav class="md-nav" aria-label="admin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-clean" class="md-nav__link">
+    clean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-entries" class="md-nav__link">
+    entries
+  </a>
+  
+    <nav class="md-nav" aria-label="entries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-entries-rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-lift-embargo" class="md-nav__link">
+    lift-embargo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops" class="md-nav__link">
+    ops
+  </a>
+  
+    <nav class="md-nav" aria-label="ops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-dump" class="md-nav__link">
+    dump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-nginx-conf" class="md-nav__link">
+    nginx-conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-prototypes-update" class="md-nav__link">
+    prototypes-update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-restore" class="md-nav__link">
+    restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-springer-update" class="md-nav__link">
+    springer-update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-reset-processing" class="md-nav__link">
+    reset-processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-rewrite-doi-urls" class="md-nav__link">
+    rewrite-doi-urls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-app" class="md-nav__link">
+    app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-appworker" class="md-nav__link">
+    appworker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-hub" class="md-nav__link">
+    hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-logtransfer" class="md-nav__link">
+    logtransfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-worker" class="md-nav__link">
+    worker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-upgrade" class="md-nav__link">
+    upgrade
+  </a>
+  
+    <nav class="md-nav" aria-label="upgrade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-upgrade-migrate-mongo" class="md-nav__link">
+    migrate-mongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads" class="md-nav__link">
+    uploads
+  </a>
+  
+    <nav class="md-nav" aria-label="uploads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-chown" class="md-nav__link">
+    chown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-export-bundle" class="md-nav__link">
+    export-bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-import-bundle" class="md-nav__link">
+    import-bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-index" class="md-nav__link">
+    index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-integrity" class="md-nav__link">
+    integrity
+  </a>
+  
+    <nav class="md-nav" aria-label="integrity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-integrity-entry-index" class="md-nav__link">
+    entry-index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-ls" class="md-nav__link">
+    ls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-process" class="md-nav__link">
+    process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-re-pack" class="md-nav__link">
+    re-pack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-stop" class="md-nav__link">
+    stop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-users" class="md-nav__link">
+    users
+  </a>
+  
+    <nav class="md-nav" aria-label="users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-users-import" class="md-nav__link">
+    import
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client" class="md-nav__link">
+    client
+  </a>
+  
+    <nav class="md-nav" aria-label="client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-datatests" class="md-nav__link">
+    datatests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-integrationtests" class="md-nav__link">
+    integrationtests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-local" class="md-nav__link">
+    local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-synchdb" class="md-nav__link">
+    synchdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-upload" class="md-nav__link">
+    upload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev" class="md-nav__link">
+    dev
+  </a>
+  
+    <nav class="md-nav" aria-label="dev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-example-data" class="md-nav__link">
+    example-data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-example-upload-metadata" class="md-nav__link">
+    example-upload-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-artifacts" class="md-nav__link">
+    gui-artifacts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-config" class="md-nav__link">
+    gui-config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-env" class="md-nav__link">
+    gui-env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-qa" class="md-nav__link">
+    gui-qa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-metainfo" class="md-nav__link">
+    metainfo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-parser-metadata" class="md-nav__link">
+    parser-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-qa" class="md-nav__link">
+    qa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-search-quantities" class="md-nav__link">
+    search-quantities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-toolkit-metadata" class="md-nav__link">
+    toolkit-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-update-parser-readmes" class="md-nav__link">
+    update-parser-readmes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-parse" class="md-nav__link">
+    parse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugins.html" class="md-nav__link">
+        Built-in plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parsers.html" class="md-nav__link">
+        Supported parsers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#nomad" class="md-nav__link">
+    nomad
+  </a>
+  
+    <nav class="md-nav" aria-label="nomad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin" class="md-nav__link">
+    admin
+  </a>
+  
+    <nav class="md-nav" aria-label="admin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-clean" class="md-nav__link">
+    clean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-entries" class="md-nav__link">
+    entries
+  </a>
+  
+    <nav class="md-nav" aria-label="entries">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-entries-rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-lift-embargo" class="md-nav__link">
+    lift-embargo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops" class="md-nav__link">
+    ops
+  </a>
+  
+    <nav class="md-nav" aria-label="ops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-dump" class="md-nav__link">
+    dump
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-nginx-conf" class="md-nav__link">
+    nginx-conf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-prototypes-update" class="md-nav__link">
+    prototypes-update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-restore" class="md-nav__link">
+    restore
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-ops-springer-update" class="md-nav__link">
+    springer-update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-reset-processing" class="md-nav__link">
+    reset-processing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-rewrite-doi-urls" class="md-nav__link">
+    rewrite-doi-urls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run" class="md-nav__link">
+    run
+  </a>
+  
+    <nav class="md-nav" aria-label="run">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-app" class="md-nav__link">
+    app
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-appworker" class="md-nav__link">
+    appworker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-hub" class="md-nav__link">
+    hub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-logtransfer" class="md-nav__link">
+    logtransfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-run-worker" class="md-nav__link">
+    worker
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-upgrade" class="md-nav__link">
+    upgrade
+  </a>
+  
+    <nav class="md-nav" aria-label="upgrade">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-upgrade-migrate-mongo" class="md-nav__link">
+    migrate-mongo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads" class="md-nav__link">
+    uploads
+  </a>
+  
+    <nav class="md-nav" aria-label="uploads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-chown" class="md-nav__link">
+    chown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-export-bundle" class="md-nav__link">
+    export-bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-import-bundle" class="md-nav__link">
+    import-bundle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-index" class="md-nav__link">
+    index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-integrity" class="md-nav__link">
+    integrity
+  </a>
+  
+    <nav class="md-nav" aria-label="integrity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-integrity-entry-index" class="md-nav__link">
+    entry-index
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-ls" class="md-nav__link">
+    ls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-process" class="md-nav__link">
+    process
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-re-pack" class="md-nav__link">
+    re-pack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-reset" class="md-nav__link">
+    reset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-rm" class="md-nav__link">
+    rm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-uploads-stop" class="md-nav__link">
+    stop
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-users" class="md-nav__link">
+    users
+  </a>
+  
+    <nav class="md-nav" aria-label="users">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-admin-users-import" class="md-nav__link">
+    import
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client" class="md-nav__link">
+    client
+  </a>
+  
+    <nav class="md-nav" aria-label="client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-datatests" class="md-nav__link">
+    datatests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-integrationtests" class="md-nav__link">
+    integrationtests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-local" class="md-nav__link">
+    local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-synchdb" class="md-nav__link">
+    synchdb
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-client-upload" class="md-nav__link">
+    upload
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev" class="md-nav__link">
+    dev
+  </a>
+  
+    <nav class="md-nav" aria-label="dev">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-example-data" class="md-nav__link">
+    example-data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-example-upload-metadata" class="md-nav__link">
+    example-upload-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-artifacts" class="md-nav__link">
+    gui-artifacts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-config" class="md-nav__link">
+    gui-config
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-env" class="md-nav__link">
+    gui-env
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-gui-qa" class="md-nav__link">
+    gui-qa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-metainfo" class="md-nav__link">
+    metainfo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-parser-metadata" class="md-nav__link">
+    parser-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-qa" class="md-nav__link">
+    qa
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-search-quantities" class="md-nav__link">
+    search-quantities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-toolkit-metadata" class="md-nav__link">
+    toolkit-metadata
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-dev-update-parser-readmes" class="md-nav__link">
+    update-parser-readmes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nomad-parse" class="md-nav__link">
+    parse
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="command-line-interface-cli">Command Line Interface (CLI)<a class="headerlink" href="#command-line-interface-cli" title="Permanent link">&para;</a></h1>
+<h2 id="nomad">nomad<a class="headerlink" href="#nomad" title="Permanent link">&para;</a></h2>
+<p>This is the entry point to nomad's command line interface CLI. It uses a sub-command structure similar to the git command.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>nomad [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>  -v, --verbose     sets log level to info
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>  --debug           sets log level to debug
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>  --log-label TEXT  Label applied to logg entries.
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>  --help            Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin">admin</a></em>: The nomad admin commands to do nasty stuff directly on the databases.</li>
+<li><em><a href="#nomad-client">client</a></em>: Commands that use the nomad API to do useful things</li>
+<li><em><a href="#nomad-dev">dev</a></em>: Commands related to the nomad source code.</li>
+<li><em><a href="#nomad-parse">parse</a></em>: Run parsing and normalizing locally.</li>
+</ul>
+<h3 id="nomad-admin">nomad admin<a class="headerlink" href="#nomad-admin" title="Permanent link">&para;</a></h3>
+<p>The nomad admin commands to do nasty stuff directly on the databases.
+Remember: With great power comes great responsibility!</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>nomad admin [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-clean">clean</a></em>: Checks consistency of files and es vs mongo and deletes orphan entries.</li>
+<li><em><a href="#nomad-admin-entries">entries</a></em>: Entry related commands</li>
+<li><em><a href="#nomad-admin-lift-embargo">lift-embargo</a></em>: Check and lift embargo of data with expired embargo period.</li>
+<li><em><a href="#nomad-admin-ops">ops</a></em>: Generate scripts and commands for nomad operation.</li>
+<li><em><a href="#nomad-admin-reset">reset</a></em>: Reset/remove all databases.</li>
+<li><em><a href="#nomad-admin-reset-processing">reset-processing</a></em>: Reset all uploads and entries "stuck" in processing using level mongodb operations.</li>
+<li><em><a href="#nomad-admin-rewrite-doi-urls">rewrite-doi-urls</a></em>: </li>
+<li><em><a href="#nomad-admin-run">run</a></em>: Run a nomad service locally (outside docker).</li>
+<li><em><a href="#nomad-admin-upgrade">upgrade</a></em>: Commands for upgrading to a newer NOMAD version</li>
+<li><em><a href="#nomad-admin-uploads">uploads</a></em>: Upload related commands</li>
+<li><em><a href="#nomad-admin-users">users</a></em>: Add, import, export users.</li>
+</ul>
+<h4 id="nomad-admin-clean">nomad admin clean<a class="headerlink" href="#nomad-admin-clean" title="Permanent link">&para;</a></h4>
+<p>Checks consistency of files and es vs mongo and deletes orphan entries.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>nomad admin clean [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>  --dry           Do not delete anything, just check.
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>  --skip-entries  Skip cleaning entries with missing uploads.
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>  --skip-fs       Skip cleaning the filesystem.
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  --skip-es       Skip cleaning the es index.
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  --staging-too   Also clean published entries in staging, make sure these
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>                  files are not due to reprocessing
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  --force         Do not ask for confirmation.
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>  --help          Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-entries">nomad admin entries<a class="headerlink" href="#nomad-admin-entries" title="Permanent link">&para;</a></h4>
+<p>Entry related commands</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>nomad admin entries [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-entries-rm">rm</a></em>: Delete selected entries from mongo and elastic</li>
+</ul>
+<h5 id="nomad-admin-entries-rm">nomad admin entries rm<a class="headerlink" href="#nomad-admin-entries-rm" title="Permanent link">&para;</a></h5>
+<p>Delete selected entries from mongo and elastic</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>nomad admin entries rm [OPTIONS] [ENTRIES]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>  --skip-es     Keep the elastic index version of the data.
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>  --skip-mongo  Keep uploads and entries in mongo.
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>  --help        Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-lift-embargo">nomad admin lift-embargo<a class="headerlink" href="#nomad-admin-lift-embargo" title="Permanent link">&para;</a></h4>
+<p>Check and lift embargo of data with expired embargo period.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>nomad admin lift-embargo [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>  --dry               Do not lift the embargo, just show what needs to be
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>                      done.
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>  --parallel INTEGER  Use the given amount of parallel processes. Default is
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>                      1.
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>  --help              Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-ops">nomad admin ops<a class="headerlink" href="#nomad-admin-ops" title="Permanent link">&para;</a></h4>
+<p>Generate scripts and commands for nomad operation.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nomad admin ops [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-ops-dump">dump</a></em>: Dump the mongo db.</li>
+<li><em><a href="#nomad-admin-ops-nginx-conf">nginx-conf</a></em>: Generate an nginx.conf to serve the GUI and proxy pass to API container.</li>
+<li><em><a href="#nomad-admin-ops-prototypes-update">prototypes-update</a></em>: Updates the AFLOW prototype information using the latest online version and writes the results to a python module in the given FILEPATH.</li>
+<li><em><a href="#nomad-admin-ops-restore">restore</a></em>: Restore the mongo db.</li>
+<li><em><a href="#nomad-admin-ops-springer-update">springer-update</a></em>: Updates the springer database in nomad.config.normalize.springer_db_path.</li>
+</ul>
+<h5 id="nomad-admin-ops-dump">nomad admin ops dump<a class="headerlink" href="#nomad-admin-ops-dump" title="Permanent link">&para;</a></h5>
+<p>Dump the mongo db.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>nomad admin ops dump [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>  --restore  Do not dump, but restore.
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>  --help     Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-ops-nginx-conf">nomad admin ops nginx-conf<a class="headerlink" href="#nomad-admin-ops-nginx-conf" title="Permanent link">&para;</a></h5>
+<p>Generate an nginx.conf to serve the GUI and proxy pass to API container.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>nomad admin ops nginx-conf [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>  --prefix TEXT           Alter the url path prefix.
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>  --host TEXT             Alter the NOMAD app host.
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>  --port TEXT             Alter the NOMAD port host.
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>  --server / --no-server  Control writing of the outer server {} block. Useful
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>                          when conf file is included within another
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>                          nginx.conf.
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>  --help                  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-ops-prototypes-update">nomad admin ops prototypes-update<a class="headerlink" href="#nomad-admin-ops-prototypes-update" title="Permanent link">&para;</a></h5>
+<p>Updates the AFLOW prototype information using the latest online version and writes the results to a python module in the given FILEPATH.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>nomad admin ops prototypes-update [OPTIONS] FILEPATH
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>  --matches-only  Only update the match information that depends on the
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>                  symmetry analysis settings. Will not perform an online
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>                  update.
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>  --help          Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-ops-restore">nomad admin ops restore<a class="headerlink" href="#nomad-admin-ops-restore" title="Permanent link">&para;</a></h5>
+<p>Restore the mongo db.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>nomad admin ops restore [OPTIONS] PATH_TO_DUMP
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-ops-springer-update">nomad admin ops springer-update<a class="headerlink" href="#nomad-admin-ops-springer-update" title="Permanent link">&para;</a></h5>
+<p>Updates the springer database in nomad.config.normalize.springer_db_path.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>nomad admin ops springer-update [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>  --max-n-query INTEGER  Number of unsuccessful springer request before
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>                         returning an error. Default is 10.
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>  --retry-time INTEGER   Time in seconds to retry after unsuccessful request.
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>                         Default is 120.
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  --help                 Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-reset">nomad admin reset<a class="headerlink" href="#nomad-admin-reset" title="Permanent link">&para;</a></h4>
+<p>Reset/remove all databases.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>nomad admin reset [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>  --remove            Do not just reset all dbs, but also remove them.
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>  --i-am-really-sure  Must be set for the command to to anything.
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>  --help              Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-reset-processing">nomad admin reset-processing<a class="headerlink" href="#nomad-admin-reset-processing" title="Permanent link">&para;</a></h4>
+<p>Reset all uploads and entries "stuck" in processing using level mongodb operations.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>nomad admin reset-processing [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>  --zero-complete-time  Sets the complete time to epoch zero.
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>  --help                Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-rewrite-doi-urls">nomad admin rewrite-doi-urls<a class="headerlink" href="#nomad-admin-rewrite-doi-urls" title="Permanent link">&para;</a></h4>
+<p>Rewrites the existing dataset URLs in existing DOI records with freshly generated dataset URLs.
+This is useful, if the URL layout has changed.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>nomad admin rewrite-doi-urls [OPTIONS] [DOIS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>  --dry                         Just test if DOI exists and print is current
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>                                URL.
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>  --save-existing-records TEXT  A filename to store the existing DOI records
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>                                in.
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>  --help                        Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-run">nomad admin run<a class="headerlink" href="#nomad-admin-run" title="Permanent link">&para;</a></h4>
+<p>Run a nomad service locally (outside docker).</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>nomad admin run [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-run-app">app</a></em>: Run the nomad development app with all apis.</li>
+<li><em><a href="#nomad-admin-run-appworker">appworker</a></em>: Run both app and worker.</li>
+<li><em><a href="#nomad-admin-run-hub">hub</a></em>: Run the jupyter hub.</li>
+<li><em><a href="#nomad-admin-run-logtransfer">logtransfer</a></em>: Run server that collects and submits logs to the central Nomad instance.</li>
+<li><em><a href="#nomad-admin-run-worker">worker</a></em>: Run the nomad development worker.</li>
+</ul>
+<h5 id="nomad-admin-run-app">nomad admin run app<a class="headerlink" href="#nomad-admin-run-app" title="Permanent link">&para;</a></h5>
+<p>Run the nomad development app with all apis.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>nomad admin run app [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>  --with-gui         The app will configure the gui for production and service
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>                     it.
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>  --host TEXT        Passed to uvicorn host parameter.
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>  --port INTEGER     Passed to uvicorn host parameter.
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>  --log-config TEXT  Passed to uvicorn log-config parameter.
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>  --workers INTEGER  Passed to uvicorn workers parameter.
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>  --help             Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-run-appworker">nomad admin run appworker<a class="headerlink" href="#nomad-admin-run-appworker" title="Permanent link">&para;</a></h5>
+<p>Run both app and worker.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>nomad admin run appworker [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-run-hub">nomad admin run hub<a class="headerlink" href="#nomad-admin-run-hub" title="Permanent link">&para;</a></h5>
+<p>Run the jupyter hub.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>nomad admin run hub [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-run-logtransfer">nomad admin run logtransfer<a class="headerlink" href="#nomad-admin-run-logtransfer" title="Permanent link">&para;</a></h5>
+<p>Run server that collects and submits logs to the central Nomad instance.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>nomad admin run logtransfer [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-run-worker">nomad admin run worker<a class="headerlink" href="#nomad-admin-run-worker" title="Permanent link">&para;</a></h5>
+<p>Run the nomad development worker.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>nomad admin run worker [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-upgrade">nomad admin upgrade<a class="headerlink" href="#nomad-admin-upgrade" title="Permanent link">&para;</a></h4>
+<p>Commands for upgrading to a newer NOMAD version</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>nomad admin upgrade [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-upgrade-migrate-mongo">migrate-mongo</a></em>: Converts (upgrades) records from one mongodb and migrates to another.</li>
+</ul>
+<h5 id="nomad-admin-upgrade-migrate-mongo">nomad admin upgrade migrate-mongo<a class="headerlink" href="#nomad-admin-upgrade-migrate-mongo" title="Permanent link">&para;</a></h5>
+<p>Converts (upgrades) records from one mongodb and migrates to another.
+Note, it is strongly recommended to run this command with loglevel verbose, i.e.</p>
+<div class="highlight"><pre><span></span><code>nomad -v upgrade migrate-mongo ...
+</code></pre></div>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>nomad admin upgrade migrate-mongo [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>  --host TEXT                     The mongodb host. By default same as the
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>                                  configured db.
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>  --port INTEGER                  The mongodb port. By default same as the
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>                                  configured db.
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>  --src-db-name TEXT              The name of the source database.  [required]
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>  --dst-db-name TEXT              The name of the destination database. By
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>                                  default same as the configured db.
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>  --upload-query TEXT             An mongo upload query. All uploads matching
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a>                                  the query will be included in the migration.
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a>  --entry-query TEXT              An mongo entry query. All uploads with an
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a>                                  entry matching the query will be included in
+<a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a>                                  the migration.
+<a id="__codelineno-45-13" name="__codelineno-45-13" href="#__codelineno-45-13"></a>  --ids-from-file TEXT            Reads upload IDs from the specified file.
+<a id="__codelineno-45-14" name="__codelineno-45-14" href="#__codelineno-45-14"></a>                                  Cannot be used together with the --upload-
+<a id="__codelineno-45-15" name="__codelineno-45-15" href="#__codelineno-45-15"></a>                                  query or --entry-query options. This can for
+<a id="__codelineno-45-16" name="__codelineno-45-16" href="#__codelineno-45-16"></a>                                  example be used to retry just the uploads
+<a id="__codelineno-45-17" name="__codelineno-45-17" href="#__codelineno-45-17"></a>                                  that has previously failed (as these ids can
+<a id="__codelineno-45-18" name="__codelineno-45-18" href="#__codelineno-45-18"></a>                                  be exported to file using --failed-ids-to-
+<a id="__codelineno-45-19" name="__codelineno-45-19" href="#__codelineno-45-19"></a>                                  file). You can specify both --ids-from-file
+<a id="__codelineno-45-20" name="__codelineno-45-20" href="#__codelineno-45-20"></a>                                  and --failed-ids-to-file at the same time
+<a id="__codelineno-45-21" name="__codelineno-45-21" href="#__codelineno-45-21"></a>                                  with the same file name.
+<a id="__codelineno-45-22" name="__codelineno-45-22" href="#__codelineno-45-22"></a>  --failed-ids-to-file TEXT       Write the IDs of failed and skipped uploads
+<a id="__codelineno-45-23" name="__codelineno-45-23" href="#__codelineno-45-23"></a>                                  to the specified file. This can for example
+<a id="__codelineno-45-24" name="__codelineno-45-24" href="#__codelineno-45-24"></a>                                  be used to subsequently retry just the
+<a id="__codelineno-45-25" name="__codelineno-45-25" href="#__codelineno-45-25"></a>                                  uploads that failed (as these ids can be
+<a id="__codelineno-45-26" name="__codelineno-45-26" href="#__codelineno-45-26"></a>                                  loaded from file using --ids-from-file). You
+<a id="__codelineno-45-27" name="__codelineno-45-27" href="#__codelineno-45-27"></a>                                  can specify both --ids-from-file and
+<a id="__codelineno-45-28" name="__codelineno-45-28" href="#__codelineno-45-28"></a>                                  --failed-ids-to-file at the same time with
+<a id="__codelineno-45-29" name="__codelineno-45-29" href="#__codelineno-45-29"></a>                                  the same file name.
+<a id="__codelineno-45-30" name="__codelineno-45-30" href="#__codelineno-45-30"></a>  --upload-update TEXT            json with updates to apply to all converted
+<a id="__codelineno-45-31" name="__codelineno-45-31" href="#__codelineno-45-31"></a>                                  uploads
+<a id="__codelineno-45-32" name="__codelineno-45-32" href="#__codelineno-45-32"></a>  --entry-update TEXT             json with updates to apply to all converted
+<a id="__codelineno-45-33" name="__codelineno-45-33" href="#__codelineno-45-33"></a>                                  entries
+<a id="__codelineno-45-34" name="__codelineno-45-34" href="#__codelineno-45-34"></a>  --overwrite [always|if-newer|never]
+<a id="__codelineno-45-35" name="__codelineno-45-35" href="#__codelineno-45-35"></a>                                  If an upload already exists in the
+<a id="__codelineno-45-36" name="__codelineno-45-36" href="#__codelineno-45-36"></a>                                  destination db, this option determines
+<a id="__codelineno-45-37" name="__codelineno-45-37" href="#__codelineno-45-37"></a>                                  whether it and its child records should be
+<a id="__codelineno-45-38" name="__codelineno-45-38" href="#__codelineno-45-38"></a>                                  overwritten with the data from the source
+<a id="__codelineno-45-39" name="__codelineno-45-39" href="#__codelineno-45-39"></a>                                  db. Possible values are &quot;always&quot;, &quot;if-
+<a id="__codelineno-45-40" name="__codelineno-45-40" href="#__codelineno-45-40"></a>                                  newer&quot;, &quot;never&quot;. Selecting &quot;always&quot; always
+<a id="__codelineno-45-41" name="__codelineno-45-41" href="#__codelineno-45-41"></a>                                  overwrites, &quot;never&quot; never overwrites, and
+<a id="__codelineno-45-42" name="__codelineno-45-42" href="#__codelineno-45-42"></a>                                  &quot;if-newer&quot; overwrites if the upload either
+<a id="__codelineno-45-43" name="__codelineno-45-43" href="#__codelineno-45-43"></a>                                  doesn&#39;t exist in the destination, or it
+<a id="__codelineno-45-44" name="__codelineno-45-44" href="#__codelineno-45-44"></a>                                  exists but its complete_time (i.e. last time
+<a id="__codelineno-45-45" name="__codelineno-45-45" href="#__codelineno-45-45"></a>                                  it was processed) is older than in the
+<a id="__codelineno-45-46" name="__codelineno-45-46" href="#__codelineno-45-46"></a>                                  source db.
+<a id="__codelineno-45-47" name="__codelineno-45-47" href="#__codelineno-45-47"></a>  --fix-problems                  If a minor, fixable problem is encountered,
+<a id="__codelineno-45-48" name="__codelineno-45-48" href="#__codelineno-45-48"></a>                                  fixes it automaticall; otherwise fail.
+<a id="__codelineno-45-49" name="__codelineno-45-49" href="#__codelineno-45-49"></a>  --dry                           Dry run (not writing anything to the
+<a id="__codelineno-45-50" name="__codelineno-45-50" href="#__codelineno-45-50"></a>                                  destination database).
+<a id="__codelineno-45-51" name="__codelineno-45-51" href="#__codelineno-45-51"></a>  --help                          Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-uploads">nomad admin uploads<a class="headerlink" href="#nomad-admin-uploads" title="Permanent link">&para;</a></h4>
+<p>Upload related commands</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>nomad admin uploads [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>  --uploads-mongo-query TEXT      A query
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>  --entries-mongo-query TEXT      A query
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>  --entries-es-query TEXT         A query
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>  --unpublished                   Select only uploads in staging
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>  --published                     Select only uploads that are publised
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>  --outdated                      Select published uploads with older nomad
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>                                  version
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>  --processing                    Select only processing uploads
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a>  --processing-failure-uploads    Select uploads with failed processing
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>  --processing-failure-entries    Select uploads with entries with failed
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a>                                  processing
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a>  --processing-failure            Select uploads where the upload or any entry
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>                                  has failed processing
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a>  --processing-incomplete-uploads
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>                                  Select uploads that have not yet been
+<a id="__codelineno-47-16" name="__codelineno-47-16" href="#__codelineno-47-16"></a>                                  processed
+<a id="__codelineno-47-17" name="__codelineno-47-17" href="#__codelineno-47-17"></a>  --processing-incomplete-entries
+<a id="__codelineno-47-18" name="__codelineno-47-18" href="#__codelineno-47-18"></a>                                  Select uploads where any entry has net yot
+<a id="__codelineno-47-19" name="__codelineno-47-19" href="#__codelineno-47-19"></a>                                  been processed
+<a id="__codelineno-47-20" name="__codelineno-47-20" href="#__codelineno-47-20"></a>  --processing-incomplete         Select uploads where the upload or any entry
+<a id="__codelineno-47-21" name="__codelineno-47-21" href="#__codelineno-47-21"></a>                                  has not yet been processed
+<a id="__codelineno-47-22" name="__codelineno-47-22" href="#__codelineno-47-22"></a>  --processing-necessary          Select uploads where the upload or any entry
+<a id="__codelineno-47-23" name="__codelineno-47-23" href="#__codelineno-47-23"></a>                                  has either not been processed or processing
+<a id="__codelineno-47-24" name="__codelineno-47-24" href="#__codelineno-47-24"></a>                                  has failed in the past
+<a id="__codelineno-47-25" name="__codelineno-47-25" href="#__codelineno-47-25"></a>  --unindexed                     Select uploads that have no entries in the
+<a id="__codelineno-47-26" name="__codelineno-47-26" href="#__codelineno-47-26"></a>                                  elastic search index.
+<a id="__codelineno-47-27" name="__codelineno-47-27" href="#__codelineno-47-27"></a>  --help                          Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-uploads-chown">chown</a></em>: Change the owner of the upload and all its entries.</li>
+<li><em><a href="#nomad-admin-uploads-export-bundle">export-bundle</a></em>: Export one or more uploads as bundles.</li>
+<li><em><a href="#nomad-admin-uploads-import-bundle">import-bundle</a></em>: Import one or more uploads from bundles. Unless specified by the user,</li>
+<li><em><a href="#nomad-admin-uploads-index">index</a></em>: (Re-)index all entries of the given uploads.</li>
+<li><em><a href="#nomad-admin-uploads-integrity">integrity</a></em>: Check certain integrity criteria</li>
+<li><em><a href="#nomad-admin-uploads-ls">ls</a></em>: List selected uploads</li>
+<li><em><a href="#nomad-admin-uploads-process">process</a></em>: Reprocess selected uploads.</li>
+<li><em><a href="#nomad-admin-uploads-re-pack">re-pack</a></em>: Repack selected uploads.</li>
+<li><em><a href="#nomad-admin-uploads-reset">reset</a></em>: Reset the processing state.</li>
+<li><em><a href="#nomad-admin-uploads-rm">rm</a></em>: Delete selected upload</li>
+<li><em><a href="#nomad-admin-uploads-stop">stop</a></em>: Attempt to abort the processing of uploads.</li>
+</ul>
+<h5 id="nomad-admin-uploads-chown">nomad admin uploads chown<a class="headerlink" href="#nomad-admin-uploads-chown" title="Permanent link">&para;</a></h5>
+<p>Change the owner of the upload and all its entries.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>nomad admin uploads chown [OPTIONS] USERNAME [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-export-bundle">nomad admin uploads export-bundle<a class="headerlink" href="#nomad-admin-uploads-export-bundle" title="Permanent link">&para;</a></h5>
+<p>Export one or more uploads as bundles.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>nomad admin uploads export-bundle [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>  --out-dir TEXT       Output folder. Default value is &quot;./bundles&quot; (defined in
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>                       config)
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>  --uncompressed       Specify to export each bundle as an uncompressed
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>                       folder, instead of a zip-file.
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>  --overwrite          Specify to, for each bundle, overwrite the destination
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>                       file/folder if it already exists.
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>  -s, --settings TEXT  The export settings, specified as json. Settings not
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>                       specified in the dictionary will be set to the default
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a>                       values.
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>  -i, --ignore-errors  Specify to ignore errors on individual uploads, and
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>                       continue exporting (the default behaviour is to abort
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a>                       on first failing upload).
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a>  --help               Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-import-bundle">nomad admin uploads import-bundle<a class="headerlink" href="#nomad-admin-uploads-import-bundle" title="Permanent link">&para;</a></h5>
+<p>Import one or more uploads from bundles. Unless specified by the user,
+the configured default import settings are used.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>nomad admin uploads import-bundle [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>  --in TEXT                     The input path, specifying a bundle or a
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>                                folder containing multiple bundles.
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>  -m, --multi                   Specify this flag if the input_path is a
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>                                folder containing multiple bundles, and all
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>                                these should be imported. If this option is
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>                                specified without specifying --in, we will
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>                                default the input path to ./bundles
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>  -s, --settings TEXT           The import settings, specified as json.
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>                                Settings not specified in the dictionary will
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a>                                be set to the default values.
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a>  -e, --embargo_length INTEGER  The embargo length (0-36 months). 0 means no
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>                                embargo. If unspecified, the embargo period
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a>                                defined in the bundle will be used.
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a>  -c, --use-celery              If specified, uses celery and the worker pool
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a>                                to do the main part of the import. NOTE: this
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a>                                requires that the workers can access the
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a>                                bundle via the exact same path.
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a>  -i, --ignore-errors           Specify this flag to ignore errors on
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a>                                individual bundles, and continue importing
+<a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a>                                (the default behaviour is to abort on first
+<a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a>                                failing bundle).
+<a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a>  --help                        Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-index">nomad admin uploads index<a class="headerlink" href="#nomad-admin-uploads-index" title="Permanent link">&para;</a></h5>
+<p>(Re-)index all entries of the given uploads.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>nomad admin uploads index [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>  --parallel INTEGER        Use the given amount of parallel processes.
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>                            Default is 1.
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>  --transformer TEXT        Qualified name to a Python function that should be
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>                            applied to each EntryMetadata.
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>  --skip-materials          Only update the entries index.
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>  --print-progress INTEGER  Prints a dot every given seconds. Can be used to
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>                            keep terminal open that have an i/o-based timeout.
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>  --help                    Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-integrity">nomad admin uploads integrity<a class="headerlink" href="#nomad-admin-uploads-integrity" title="Permanent link">&para;</a></h5>
+<p>Check certain integrity criteria</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>nomad admin uploads integrity [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-uploads-integrity-entry-index">entry-index</a></em>: Uploads that have more entries in mongo than in ES.</li>
+</ul>
+<h6 id="nomad-admin-uploads-integrity-entry-index">nomad admin uploads integrity entry-index<a class="headerlink" href="#nomad-admin-uploads-integrity-entry-index" title="Permanent link">&para;</a></h6>
+<p>Uploads that have more entries in mongo than in ES.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>nomad admin uploads integrity entry-index [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-ls">nomad admin uploads ls<a class="headerlink" href="#nomad-admin-uploads-ls" title="Permanent link">&para;</a></h5>
+<p>List selected uploads</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>nomad admin uploads ls [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>  -e, --entries  Show details about entries.
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>  --ids          Only show a list of ids.
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>  --json         Output a JSON array of ids.
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>  --help         Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-process">nomad admin uploads process<a class="headerlink" href="#nomad-admin-uploads-process" title="Permanent link">&para;</a></h5>
+<p>Reprocess selected uploads.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>nomad admin uploads process [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>  --parallel INTEGER        Use the given amount of parallel processes.
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>                            Default is 1.
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>  --process-running         Also reprocess already running processes.
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>  --setting TEXT            key=value to overwrite a default reprocess config
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>                            setting.
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>  --print-progress INTEGER  Prints a dot every given seconds. Can be used to
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>                            keep terminal open that have an i/o-based timeout.
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>  --help                    Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-re-pack">nomad admin uploads re-pack<a class="headerlink" href="#nomad-admin-uploads-re-pack" title="Permanent link">&para;</a></h5>
+<p>Repack selected uploads.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>nomad admin uploads re-pack [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-reset">nomad admin uploads reset<a class="headerlink" href="#nomad-admin-uploads-reset" title="Permanent link">&para;</a></h5>
+<p>Reset the processing state.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>nomad admin uploads reset [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>  --with-entries  Also reset all entries.
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>  --success       Set the process status to success instead of pending
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a>  --failure       Set the process status to failure instead of pending.
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>  --help          Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-rm">nomad admin uploads rm<a class="headerlink" href="#nomad-admin-uploads-rm" title="Permanent link">&para;</a></h5>
+<p>Delete selected upload</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>nomad admin uploads rm [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>  --skip-es     Keep the elastic index version of the data.
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>  --skip-mongo  Keep uploads and entries in mongo.
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>  --skip-files  Keep all related files.
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>  --help        Show this message and exit.
+</code></pre></div>
+<h5 id="nomad-admin-uploads-stop">nomad admin uploads stop<a class="headerlink" href="#nomad-admin-uploads-stop" title="Permanent link">&para;</a></h5>
+<p>Attempt to abort the processing of uploads.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>nomad admin uploads stop [OPTIONS] [UPLOADS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>  --entries    Only stop entries processing.
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>  --kill       Use the kill signal and force task failure.
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>  --no-celery  Do not attempt to stop the actual celery tasks
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>  --help       Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-admin-users">nomad admin users<a class="headerlink" href="#nomad-admin-users" title="Permanent link">&para;</a></h4>
+<p>Add, import, export users.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>nomad admin users [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-admin-users-import">import</a></em>: Import users to keycloak from a JSON file.</li>
+</ul>
+<h5 id="nomad-admin-users-import">nomad admin users import<a class="headerlink" href="#nomad-admin-users-import" title="Permanent link">&para;</a></h5>
+<p>Import users to keycloak from a JSON file.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>nomad admin users import [OPTIONS] PATH_TO_USERS_FILE
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h3 id="nomad-client">nomad client<a class="headerlink" href="#nomad-client" title="Permanent link">&para;</a></h3>
+<p>Commands that use the nomad API to do useful things</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>nomad client [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>  -n, --url TEXT       The URL where nomad is running, default is
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>                       &quot;http://nomad-lab.eu/prod/v1/api&quot;.
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>  -u, --user TEXT      the user name to login, default is no login.
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>  -w, --password TEXT  the password used to login.
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>  --token-via-api      retrieve the access token from the api not keycloak.
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>  --no-ssl-verify      disables SSL verificaton when talking to nomad.
+<a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>  --help               Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-client-datatests">datatests</a></em>: Metainfo compatibility tests against data in a NOMAD installation.</li>
+<li><em><a href="#nomad-client-integrationtests">integrationtests</a></em>: Runs a few example operations as a test.</li>
+<li><em><a href="#nomad-client-local">local</a></em>: Run processing locally.</li>
+<li><em><a href="#nomad-client-synchdb">synchdb</a></em>: Synchronizes the NOMAD database with the given external database.</li>
+<li><em><a href="#nomad-client-upload">upload</a></em>: Upload files to nomad. The given path can be a single file or a directory. All .zip files in a directory will be uploaded.</li>
+</ul>
+<h4 id="nomad-client-datatests">nomad client datatests<a class="headerlink" href="#nomad-client-datatests" title="Permanent link">&para;</a></h4>
+<p>Metainfo compatibility tests against data in a NOMAD installation.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>nomad client datatests [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-client-integrationtests">nomad client integrationtests<a class="headerlink" href="#nomad-client-integrationtests" title="Permanent link">&para;</a></h4>
+<p>Runs a few example operations as a test.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>nomad client integrationtests [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>  --skip-parsers  Skip extensive upload and parser tests.
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>  --skip-publish  Skip publish the upload. Should not be done on an production
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>                  environment.
+<a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>  --skip-doi      Skip assigning a doi to a dataset.
+<a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>  --help          Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-client-local">nomad client local<a class="headerlink" href="#nomad-client-local" title="Permanent link">&para;</a></h4>
+<p>Run processing locally.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>nomad client local [OPTIONS] ENTRY_ID
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>  --override          Override existing local entry data.
+<a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a>  --show-archive      Print the archive data.
+<a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a>  --show-metadata     Print the extracted repo metadata.
+<a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a>  --skip-normalizers  Do not normalize.
+<a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a>  --not-strict        Also match artificial parsers.
+<a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a>  --help              Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-client-synchdb">nomad client synchdb<a class="headerlink" href="#nomad-client-synchdb" title="Permanent link">&para;</a></h4>
+<p>Synchronizes the NOMAD database with the given external database.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>nomad client synchdb [OPTIONS] DB_NAME ROOT_URL
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>  --outfile TEXT      File to read/write files missing in NOMAD database
+<a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>  --nomadfile TEXT    File to read/write files in NOMAD database
+<a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>  --dbfile TEXT       File to read/write files in given database
+<a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>  --local_path TEXT   Directory to which the files will be downloaded
+<a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a>  --parallel INTEGER  Number of processes to spawn to download/upload files
+<a id="__codelineno-85-6" name="__codelineno-85-6" href="#__codelineno-85-6"></a>  --do-download       Flag to automatically download downloaded files
+<a id="__codelineno-85-7" name="__codelineno-85-7" href="#__codelineno-85-7"></a>  --do-upload         Flag to automatically upload downloaded files
+<a id="__codelineno-85-8" name="__codelineno-85-8" href="#__codelineno-85-8"></a>  --do-publish        Flag to automatically publish upload
+<a id="__codelineno-85-9" name="__codelineno-85-9" href="#__codelineno-85-9"></a>  --cleanup           Flag to clean up downloaded files
+<a id="__codelineno-85-10" name="__codelineno-85-10" href="#__codelineno-85-10"></a>  --help              Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-client-upload">nomad client upload<a class="headerlink" href="#nomad-client-upload" title="Permanent link">&para;</a></h4>
+<p>Upload files to nomad. The given path can be a single file or a directory. All .zip files in a directory will be uploaded.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>nomad client upload [OPTIONS] PATH...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>  --upload-name TEXT  Optional name for the upload of a single file. Will be
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>                      ignored on directories.
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>  --local-path        Upload files &quot;offline&quot;: files will not be uploaded, but
+<a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>                      processed were they are. Only works when run on the
+<a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a>                      nomad host.
+<a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a>  --publish           Automatically move upload out of the staging area after
+<a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>                      successful processing
+<a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>  --help              Show this message and exit.
+</code></pre></div>
+<h3 id="nomad-dev">nomad dev<a class="headerlink" href="#nomad-dev" title="Permanent link">&para;</a></h3>
+<p>Commands related to the nomad source code.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>nomad dev [OPTIONS] COMMAND [ARGS]...
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<p><strong>Subcommands</strong></p>
+<ul>
+<li><em><a href="#nomad-dev-example-data">example-data</a></em>: Adds a few pieces of data to NOMAD.</li>
+<li><em><a href="#nomad-dev-example-upload-metadata">example-upload-metadata</a></em>: Generates a JSON file from example-uploads metadata in the YAML file.</li>
+<li><em><a href="#nomad-dev-gui-artifacts">gui-artifacts</a></em>: Generates all python-based GUI artifacts into javascript code.</li>
+<li><em><a href="#nomad-dev-gui-config">gui-config</a></em>: Generates the GUI development config JS file based on NOMAD config.</li>
+<li><em><a href="#nomad-dev-gui-env">gui-env</a></em>: Generates the GUI development .env file based on NOMAD config.</li>
+<li><em><a href="#nomad-dev-gui-qa">gui-qa</a></em>: Runs tests and linting of the nomad gui source code. Useful before committing code.</li>
+<li><em><a href="#nomad-dev-metainfo">metainfo</a></em>: Generates a JSON with all metainfo.</li>
+<li><em><a href="#nomad-dev-parser-metadata">parser-metadata</a></em>: Generates a JSON file that compiles all the parser metadata from each parser project.</li>
+<li><em><a href="#nomad-dev-qa">qa</a></em>: Runs tests and linting of the nomad python source code. Useful before committing code.</li>
+<li><em><a href="#nomad-dev-search-quantities">search-quantities</a></em>: Generates a JSON with all search quantities.</li>
+<li><em><a href="#nomad-dev-toolkit-metadata">toolkit-metadata</a></em>: Generate toolkit tutorial metadata from analytics submodules.</li>
+<li><em><a href="#nomad-dev-update-parser-readmes">update-parser-readmes</a></em>: Updates parser<code>s README files by combining a general template with  a parser</code>s metadata YAML file.</li>
+</ul>
+<h4 id="nomad-dev-example-data">nomad dev example-data<a class="headerlink" href="#nomad-dev-example-data" title="Permanent link">&para;</a></h4>
+<p>Adds a few pieces of data to NOMAD.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>nomad dev example-data [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>  -u, --username TEXT  The main author username.
+<a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>  --help               Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-example-upload-metadata">nomad dev example-upload-metadata<a class="headerlink" href="#nomad-dev-example-upload-metadata" title="Permanent link">&para;</a></h4>
+<p>Generates a JSON file from example-uploads metadata in the YAML file.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>nomad dev example-upload-metadata [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-gui-artifacts">nomad dev gui-artifacts<a class="headerlink" href="#nomad-dev-gui-artifacts" title="Permanent link">&para;</a></h4>
+<p>Generates all python-based GUI artifacts into javascript code.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>nomad dev gui-artifacts [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-gui-config">nomad dev gui-config<a class="headerlink" href="#nomad-dev-gui-config" title="Permanent link">&para;</a></h4>
+<p>Generates the GUI development config JS file based on NOMAD config.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>nomad dev gui-config [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-gui-env">nomad dev gui-env<a class="headerlink" href="#nomad-dev-gui-env" title="Permanent link">&para;</a></h4>
+<p>Generates the GUI development .env file based on NOMAD config.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>nomad dev gui-env [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-gui-qa">nomad dev gui-qa<a class="headerlink" href="#nomad-dev-gui-qa" title="Permanent link">&para;</a></h4>
+<p>Runs tests and linting of the nomad gui source code. Useful before committing code.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>nomad dev gui-qa [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a>  --skip-tests  Do no tests, just do code checks.
+<a id="__codelineno-101-2" name="__codelineno-101-2" href="#__codelineno-101-2"></a>  --help        Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-metainfo">nomad dev metainfo<a class="headerlink" href="#nomad-dev-metainfo" title="Permanent link">&para;</a></h4>
+<p>Generates a JSON with all metainfo.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-102-1" name="__codelineno-102-1" href="#__codelineno-102-1"></a>nomad dev metainfo [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-parser-metadata">nomad dev parser-metadata<a class="headerlink" href="#nomad-dev-parser-metadata" title="Permanent link">&para;</a></h4>
+<p>Generates a JSON file that compiles all the parser metadata from each parser project.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a>nomad dev parser-metadata [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-qa">nomad dev qa<a class="headerlink" href="#nomad-dev-qa" title="Permanent link">&para;</a></h4>
+<p>Runs tests and linting of the nomad python source code. Useful before committing code.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-106-1" name="__codelineno-106-1" href="#__codelineno-106-1"></a>nomad dev qa [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-107-1" name="__codelineno-107-1" href="#__codelineno-107-1"></a>  --skip-tests     Do no tests, just do code checks.
+<a id="__codelineno-107-2" name="__codelineno-107-2" href="#__codelineno-107-2"></a>  -x, --exitfirst  Stop testing after first failed test case.
+<a id="__codelineno-107-3" name="__codelineno-107-3" href="#__codelineno-107-3"></a>  --help           Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-search-quantities">nomad dev search-quantities<a class="headerlink" href="#nomad-dev-search-quantities" title="Permanent link">&para;</a></h4>
+<p>Generates a JSON with all search quantities.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-108-1" name="__codelineno-108-1" href="#__codelineno-108-1"></a>nomad dev search-quantities [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-109-1" name="__codelineno-109-1" href="#__codelineno-109-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-toolkit-metadata">nomad dev toolkit-metadata<a class="headerlink" href="#nomad-dev-toolkit-metadata" title="Permanent link">&para;</a></h4>
+<p>Generate toolkit tutorial metadata from analytics submodules.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-110-1" name="__codelineno-110-1" href="#__codelineno-110-1"></a>nomad dev toolkit-metadata [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a>  --help  Show this message and exit.
+</code></pre></div>
+<h4 id="nomad-dev-update-parser-readmes">nomad dev update-parser-readmes<a class="headerlink" href="#nomad-dev-update-parser-readmes" title="Permanent link">&para;</a></h4>
+<p>Updates parser<code>s README files by combining a general template with  a parser</code>s metadata YAML file.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-112-1" name="__codelineno-112-1" href="#__codelineno-112-1"></a>nomad dev update-parser-readmes [OPTIONS]
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-113-1" name="__codelineno-113-1" href="#__codelineno-113-1"></a>  --parser TEXT  Only updated the README of the given parsers subdirctory.
+<a id="__codelineno-113-2" name="__codelineno-113-2" href="#__codelineno-113-2"></a>  --help         Show this message and exit.
+</code></pre></div>
+<h3 id="nomad-parse">nomad parse<a class="headerlink" href="#nomad-parse" title="Permanent link">&para;</a></h3>
+<p>Run parsing and normalizing locally.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-114-1" name="__codelineno-114-1" href="#__codelineno-114-1"></a>nomad parse [OPTIONS] MAINFILE
+</code></pre></div>
+<p><strong>Options:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-115-1" name="__codelineno-115-1" href="#__codelineno-115-1"></a>  --show-archive       Print the archive data.
+<a id="__codelineno-115-2" name="__codelineno-115-2" href="#__codelineno-115-2"></a>  --archive-with-meta  If the archvie is printed, it would include metadata
+<a id="__codelineno-115-3" name="__codelineno-115-3" href="#__codelineno-115-3"></a>                       like m_def and m_annotations.
+<a id="__codelineno-115-4" name="__codelineno-115-4" href="#__codelineno-115-4"></a>  --show-metadata      Print the extracted repo metadata.
+<a id="__codelineno-115-5" name="__codelineno-115-5" href="#__codelineno-115-5"></a>  --skip-normalizers   Do not run the normalizer.
+<a id="__codelineno-115-6" name="__codelineno-115-6" href="#__codelineno-115-6"></a>  --not-strict         Do also match artificial parsers.
+<a id="__codelineno-115-7" name="__codelineno-115-7" href="#__codelineno-115-7"></a>  --parser TEXT        Skip matching and use the provided parser
+<a id="__codelineno-115-8" name="__codelineno-115-8" href="#__codelineno-115-8"></a>  --server-context     Whether to use server context.
+<a id="__codelineno-115-9" name="__codelineno-115-9" href="#__codelineno-115-9"></a>  --username TEXT      Username for authentication.
+<a id="__codelineno-115-10" name="__codelineno-115-10" href="#__codelineno-115-10"></a>  --password TEXT      Password for authentication.
+<a id="__codelineno-115-11" name="__codelineno-115-11" href="#__codelineno-115-11"></a>  --help               Show this message and exit.
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="annotations.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Schema annotations" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Schema annotations
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="plugins.html" class="md-footer__link md-footer__link--next" aria-label="Next: Built-in plugins" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Built-in plugins
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

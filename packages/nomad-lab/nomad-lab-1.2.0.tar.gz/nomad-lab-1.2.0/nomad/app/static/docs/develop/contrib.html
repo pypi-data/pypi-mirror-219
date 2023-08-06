@@ -1,0 +1,1743 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>How to contribute - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#issues" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to contribute
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Data Management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data Management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/upload.html" class="md-nav__link">
+        How to upload/publish data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/eln.html" class="md-nav__link">
+        How to use ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/explore.html" class="md-nav__link">
+        How to explore data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/north.html" class="md-nav__link">
+        How to use NORTH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/basics.html" class="md-nav__link">
+        How to write a schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/elns.html" class="md-nav__link">
+        How to define ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/tabular.html" class="md-nav__link">
+        How to define tabular data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/workflows.html" class="md-nav__link">
+        How to define workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/hdf5.html" class="md-nav__link">
+        How to reference hdf5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Programming interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming interfaces" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/api.html" class="md-nav__link">
+        How to use the API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/pythonlib.html" class="md-nav__link">
+        How to install nomad-lab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/archive_query.html" class="md-nav__link">
+        How to access processed data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/local_parsers.html" class="md-nav__link">
+        How to run a parser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/plugins.html" class="md-nav__link">
+        How to develop, publish, and install plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/schemas.html" class="md-nav__link">
+        How to write schema plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/parsers.html" class="md-nav__link">
+        How to write parser plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="setup.html" class="md-nav__link">
+        How to get started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="code.html" class="md-nav__link">
+        How to navigate the code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to contribute
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="contrib.html" class="md-nav__link md-nav__link--active">
+        How to contribute
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    Issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-trackers" class="md-nav__link">
+    Issue trackers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-content" class="md-nav__link">
+    Issue content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issues-labels-gitlab" class="md-nav__link">
+    Issues labels (GitLab)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-plugins-and-submodules" class="md-nav__link">
+    Built-in plugins (and submodules)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3rd-party-plugins" class="md-nav__link">
+    3rd-party plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branches-and-tags" class="md-nav__link">
+    Branches and Tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-requests-gitlab" class="md-nav__link">
+    Merge requests (GitLab)
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge requests (GitLab)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-mr" class="md-nav__link">
+    Create the MR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    Commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-pipeline-and-review" class="md-nav__link">
+    CI/CD pipeline and review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    Merge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests-github" class="md-nav__link">
+    Pull requests (GitHub)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-tips-for-a-clean-history" class="md-nav__link">
+    Git tips for a clean history
+  </a>
+  
+    <nav class="md-nav" aria-label="Git tips for a clean history">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amend" class="md-nav__link">
+    amend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    rebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squash" class="md-nav__link">
+    squash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="search.html" class="md-nav__link">
+        How to extend the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parsers.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Oasis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Oasis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Oasis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/install.html" class="md-nav__link">
+        How to install an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/customize.html" class="md-nav__link">
+        How to customize an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/migrate.html" class="md-nav__link">
+        How to migrate Oasis versions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/admin.html" class="md-nav__link">
+        Administrative tasks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/basics.html" class="md-nav__link">
+        From files to data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/data.html" class="md-nav__link">
+        Structured data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/architecture.html" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/oasis.html" class="md-nav__link">
+        Why you need an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/annotations.html" class="md-nav__link">
+        Schema annotations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/cli.html" class="md-nav__link">
+        Command Line Interface (CLI)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/plugins.html" class="md-nav__link">
+        Built-in plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/parsers.html" class="md-nav__link">
+        Supported parsers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    Issues
+  </a>
+  
+    <nav class="md-nav" aria-label="Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-trackers" class="md-nav__link">
+    Issue trackers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-content" class="md-nav__link">
+    Issue content
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issues-labels-gitlab" class="md-nav__link">
+    Issues labels (GitLab)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plugins" class="md-nav__link">
+    Plugins
+  </a>
+  
+    <nav class="md-nav" aria-label="Plugins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#built-in-plugins-and-submodules" class="md-nav__link">
+    Built-in plugins (and submodules)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3rd-party-plugins" class="md-nav__link">
+    3rd-party plugins
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branches-and-tags" class="md-nav__link">
+    Branches and Tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-requests-gitlab" class="md-nav__link">
+    Merge requests (GitLab)
+  </a>
+  
+    <nav class="md-nav" aria-label="Merge requests (GitLab)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-the-mr" class="md-nav__link">
+    Create the MR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit" class="md-nav__link">
+    Commit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    Changelog
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-pipeline-and-review" class="md-nav__link">
+    CI/CD pipeline and review
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge" class="md-nav__link">
+    Merge
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests-github" class="md-nav__link">
+    Pull requests (GitHub)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#git-tips-for-a-clean-history" class="md-nav__link">
+    Git tips for a clean history
+  </a>
+  
+    <nav class="md-nav" aria-label="Git tips for a clean history">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amend" class="md-nav__link">
+    amend
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase" class="md-nav__link">
+    rebase
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squash" class="md-nav__link">
+    squash
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>How to contribute</h1>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The NOMAD source-code is maintained in two synchronized projects on <a href="https://github.com/nomad-coe/nomad">GitHub</a> and
+a <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">GitLab run by MPCDF</a>.
+Everyone can contribute on GitHub. The GitLab requires an account for active contribution.
+This not an ideal situation: there are historic reasons and there is
+a lot of buy-in into the GitLab CI/CD system. This guide addresses contributions
+to both projects.</p>
+</div>
+<h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h2>
+<h3 id="issue-trackers">Issue trackers<a class="headerlink" href="#issue-trackers" title="Permanent link">&para;</a></h3>
+<p>Everyone can open an issue in our main <a href="https://github.com/nomad-coe/nomad">GitHub project</a>:</p>
+<ul>
+<li><a href="https://github.com/nomad-coe/nomad/issues/new">https://github.com/nomad-coe/nomad/issues/new</a></li>
+</ul>
+<p>Use issues to ask questions, report bugs, or suggest features. If in doubt, use the main project
+to engage with us. If you address a specific
+plugin (e.g. parser), you can also post into the respective projects. See also the
+list of <a href="../reference/parsers.html">parsers</a> and list of <a href="../reference/plugins.html">built-in plugins</a>.</p>
+<p>If you are a member of FAIRmat, the NOMAD CoE, or are a close collaborator, you
+probably have an MPCDF GitLab account (or should ask us for one). Please use the
+issue tracker on our main <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">GitLab project</a>.
+This is where most of the implementation work is planned and executed.</p>
+<h3 id="issue-content">Issue content<a class="headerlink" href="#issue-content" title="Permanent link">&para;</a></h3>
+<p>A few tips that will help us to solve your issues quicker:</p>
+<ul>
+<li>Focus on the issue. You don't need to greet us or say thx and goodbye. Let's keep it technical.</li>
+<li>Use descriptive short issue titles. Use specific words over general words.</li>
+<li>Describe the observed problem and not the assumed causes. Clearly separate speculation from the
+problem description.</li>
+<li>
+<p><strong>Bugs</strong>: think how we could re-produce the problem:</p>
+<ul>
+<li>What nomad URL are you using (UI), which package version (Python)?</li>
+<li>Is there an upload or entry id that we can look at?</li>
+<li>Example files or code snippets?</li>
+<li>Don't screenshot code, copy&amp;paste please.</li>
+</ul>
+</li>
+<li>
+<p><strong>Features</strong>: augment your feature descriptions with a use-case that helps us understand the feature and its scope.</p>
+</li>
+</ul>
+<h3 id="issues-labels-gitlab">Issues labels (GitLab)<a class="headerlink" href="#issues-labels-gitlab" title="Permanent link">&para;</a></h3>
+<p>On the main GitLab project, there are three main categories for labels. Ideally each issue gets one of each category:</p>
+<ul>
+<li>
+<p>The <em>state</em> labels (grey). Those are used to manage when and how the issue is addressed.
+This should be given the NOMAD team member who is currently responsible to moderate the
+development. If its a simple fix and you want to do it yourself, assign yourself and use
+"bugfixes".</p>
+</li>
+<li>
+<p>The <em>component</em> label (purple). These denote the part of the NOMAD software that is
+most likely effected. Multiple purple labels are possible.</p>
+</li>
+<li>
+<p>The <em>kind</em> label (red). Wether this is a bug, feature, refactoring, or documentation issue.</p>
+</li>
+</ul>
+<p>Unlabeled issues will get labeled by the NOMAD team as soon as possible. You can provide
+labels yourself.</p>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">&para;</a></h2>
+<p>The documentation is part of NOMAD's main source code project. You can raise issues
+about the documentation in the usual way (see <a href="#issues">above</a>). To make changes,
+create a <a href="#merge-requests-gitlab">merge</a> or <a href="#pull-requests-github">pull</a> request.</p>
+<p>See also the <a href="code.html#documentation">documentation part</a> in our code navigation guide.</p>
+<h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
+<p>Also read the guide on <a href="../plugins/plugins.html">how to develop, publish, and distribute plugins</a>.</p>
+<h3 id="built-in-plugins-and-submodules">Built-in plugins (and submodules)<a class="headerlink" href="#built-in-plugins-and-submodules" title="Permanent link">&para;</a></h3>
+<p>Most plugins that are maintained by the NOMAD team are built-in plugins (e.g. all the parsers).
+These plugins are also available on the public NOMAD service.</p>
+<p>These plugins are tight to the main project's source-code via submodules. They are
+included in the built and therefore automatically distributed as part of the
+NOMAD docker images and Python package.</p>
+<p>To contribute to these plugins, use the respective GitHub projects. See also the
+list of <a href="../reference/parsers.html">parsers</a> and list of <a href="../reference/plugins.html">built-in plugins</a>.
+The same rules apply there. A merge request to the main project will also be required to update the
+submodule.</p>
+<p>All these submodules are placed in the <code>/dependencies</code> directory. After merging or checking out,
+you have to make sure that the modules are updated to not accidentally commit old
+submodule commits again. Usually you do the following to check if you really have a
+clean working directory.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">  </span>git<span class="w"> </span>checkout<span class="w"> </span>something-with-changes
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>git<span class="w"> </span>status
+</code></pre></div>
+<h3 id="3rd-party-plugins">3rd-party plugins<a class="headerlink" href="#3rd-party-plugins" title="Permanent link">&para;</a></h3>
+<p>Please open an issue, if you want to announce a plugin or contribute a plugin as a
+potential built-in plugin (e.g. that is part of the public NOMAD service).</p>
+<h2 id="branches-and-tags">Branches and Tags<a class="headerlink" href="#branches-and-tags" title="Permanent link">&para;</a></h2>
+<p>On the <a href="https://gitlab.mpcdf.mpg.de/nomad-lab/nomad-FAIR">main GitLab project</a>, we use <em>protected</em> and <em>feature</em> branches.
+You must not (even if you have the rights) commit to protected branches directly.</p>
+<ul>
+<li><code>develop</code>, a <em>protected</em> branch and the <em>default</em> branch. It contains the latest, potentially unreleased, features and fixes.
+This is the main working branch.</li>
+<li>
+<p><code>master</code>, a <em>protected</em> branch. Represents the latest stable
+release (usually what the current official NOMAD runs on).</p>
+</li>
+<li>
+<p><em>feature branches</em>, this is where you work. Typically they are automatically
+(use the <em>create merge request</em> button) named after issues: <code>&lt;issue-number&gt;-&lt;issue-title&gt;</code>.</p>
+</li>
+<li>
+<p><code>vX.X.X</code> or <code>vX.X.XrcX</code> <em>tags</em> for (pre-)releases.</p>
+</li>
+</ul>
+<p>The <code>develop</code> branch and release tags are automatically synchronized to the <a href="https://github.com/nomad-coe/nomad">GitHub project</a>.
+Otherwise, this project is mostly the target for <a href="#pull-requests-github">pull requests</a>
+and does not contain other relevant branches.</p>
+<h2 id="merge-requests-gitlab">Merge requests (GitLab)<a class="headerlink" href="#merge-requests-gitlab" title="Permanent link">&para;</a></h2>
+<h3 id="create-the-mr">Create the MR<a class="headerlink" href="#create-the-mr" title="Permanent link">&para;</a></h3>
+<p>Ideally have an issue first and create the merge request (and branch) in the
+GitLab UI. There is an <em>create merge request</em> button on each issue.
+When done manually, branches should be based on <code>develop</code> and merge request should target <code>develop</code> as well.</p>
+<h3 id="commit">Commit<a class="headerlink" href="#commit" title="Permanent link">&para;</a></h3>
+<p>Make sure, you follow our <a href="guides.html">coding guide-lines</a> and <a href="setup.html#setup-your-ide">setup your IDE</a> to enforce
+stylechecks, linting, and static analysis. You can also run <a href="setup.html#running-tests">tests locally</a>.
+Try to keep a clean commit history and follow our <a href="#git-tips-for-a-clean-history">Git tips</a>.</p>
+<p>Usually only one person is working on a feature branch. Rebasing, amendments, and force
+pushes are allowed.</p>
+<h3 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h3>
+<p>We have an automatically generated changelog in the repository file <code>CHANGELOG.md</code>.
+This changelog is produced from commit messages and to maintain this file, you
+need to write commit messages accordingly.</p>
+<p>To trigger a changelog entry, your commit needs to end with a so called <em>git trailer</em>
+called <code>Changelog</code>. A typical commit message for a changelog entry should look like this:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>A brief one line title of the change.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>A longer *markdown* formatted description of the change. Keep in mind that gitlab
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>will automatically link the changelog entry with this commit and a respective merge
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>requests. You do not need to manually link to any gitlab resources.
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>This could span multiple paragraphs. However, keep it short. Documentation should
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>go into the actual documentation, but you should mention breaks in backward compatibility,
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>deprecation of features, etc.
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>Changelog: Fixed
+</code></pre></div>
+<p>The trailer value (<code>Fixed</code> in the example) has to be one of the following values:</p>
+<ul>
+<li><code>Fixed</code>, for bugfixes.</li>
+<li><code>Added</code>, for new features.</li>
+<li><code>Changed</code>, for general improvements, e.g. updated documentation, refactoring,
+improving performance, etc.</li>
+</ul>
+<p>These categories are consistent with <a href="https://keepachangelog.com/">keepachangelog.com</a>.
+For more information about the changelog generation read the <a href="https://docs.gitlab.com/ee/api/repositories.html#add-changelog-data-to-a-changelog-file">gitlab documentation</a>.</p>
+<h3 id="cicd-pipeline-and-review">CI/CD pipeline and review<a class="headerlink" href="#cicd-pipeline-and-review" title="Permanent link">&para;</a></h3>
+<p>If you push to your merge requests, GitLab will run an extensive CI/CD pipeline.
+You need to pay attention to failures and resolve them before review.</p>
+<p>To review GUI changes, you can deploy your branch to the dev-cluster via CI/CD actions.</p>
+<p>Find someone on the NOMAD developer team to review your MR and request a review through
+GitLab. The review should be performed shortly and should not stall the MR longer than
+two full work days.</p>
+<p>The reviewer needs to be able to learn about the merge requests and what it tries
+to achieve. This information can come from:</p>
+<ul>
+<li>the linked issue</li>
+<li>the merge request description (might contain your commit message) and your comments</li>
+<li>threads that were open by the author to attach comments to specific places in the code</li>
+</ul>
+<p>The reviewer will open <em>threads</em> that need to be solved by the MR author. If all
+threads are resolved, you can re-request a review.</p>
+<p>For complex merge requests, you can also comment your code and create <em>threads</em> for
+the reviewer to resolve. This will allow you to explain your changes.</p>
+<h3 id="merge">Merge<a class="headerlink" href="#merge" title="Permanent link">&para;</a></h3>
+<p>The branch should be recently rebase with develop to allow a smooth merge:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git fetch
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git rebase origin/develop
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>git push origin &lt;branch&gt; -f
+</code></pre></div>
+<p>The merge is usually performed by the merge request author after a positive review.</p>
+<p>If you could not keep a clean Git history with your commits, squash the merge request.
+Make sure to added the commit messaged when squashing to have a <a href="#changelog">changelog</a> entry.</p>
+<p>Make sure to delete the branch on merge. The respective issue usually closes itself, due
+to the references put in by GitLab.</p>
+<h2 id="pull-requests-github">Pull requests (GitHub)<a class="headerlink" href="#pull-requests-github" title="Permanent link">&para;</a></h2>
+<p>You can fork the <a href="https://github.com/nomad-coe/nomad">main NOMAD project</a> and create pull requests following the usual
+GitHub flow. Make sure to target the <code>develop</code> branch. A team member will pickup your
+pull request and automatically copy it to GitLab to run the pipeline and potentially
+perform the merge. This process is made transparent in the pull request discussion. Your
+commits and your authorship is maintained in this process.</p>
+<p>Similar rules apply to all the parser and plugin projects. Here pipelines are run
+directly on GitHub. A team member will review and potentially merge your pull requests.</p>
+<h2 id="git-tips-for-a-clean-history">Git tips for a clean history<a class="headerlink" href="#git-tips-for-a-clean-history" title="Permanent link">&para;</a></h2>
+<p>It is often necessary to consider code history to reason about potential problems in
+our code. This can only be done, if we keep a "clean" history.</p>
+<ul>
+<li>
+<p>Use descriptive commit messages. Use simple verbs (<em>added</em>, <em>removed</em>, <em>refactored</em>, etc.)
+name features and changed components. <a href="https://docs.gitlab.com/ee/user/project/issues/crosslinking_issues.html">Include issue numbers</a>
+to create links in gitlab.</p>
+</li>
+<li>
+<p>Learn how to amend to avoid lists of small related commits.</p>
+</li>
+<li>
+<p>Learn how to rebase. Only merging feature-branches should create merge commits.</p>
+</li>
+<li>
+<p>Squash commits when merging.</p>
+</li>
+<li>
+<p>Some videos on more advanced Git usage: https://youtube.be/Uszj_k0DGsg, https://youtu.be/qsTthZi23VE</p>
+</li>
+</ul>
+<h3 id="amend">amend<a class="headerlink" href="#amend" title="Permanent link">&para;</a></h3>
+<p>While working on a feature, there are certain practices that will help us to create
+a clean history with coherent commits, where each commit stands on its own.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">  </span>git<span class="w"> </span>commit<span class="w"> </span>--amend
+</code></pre></div>
+<p>If you committed something to your own feature branch and then realize by CI that you have
+some tiny error in it that you need to fix, try to amend this fix to the last commit.
+This will avoid unnecessary tiny commits and foster more coherent single commits. With <em>amend</em>
+you are basically adding changes to the last commit, i.e. editing the last commit. If
+you push, you need to force it <code>git push origin feature-branch --force-with-lease</code>. So be careful, and
+only use this on your own branches.</p>
+<h3 id="rebase">rebase<a class="headerlink" href="#rebase" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">  </span>git<span class="w"> </span>rebase<span class="w"> </span>&lt;version-branch&gt;
+</code></pre></div>
+<p>Lets assume you work on a bigger feature that takes more time. You might want to merge
+the version branch into your feature branch from time to time to get the recent changes.
+In these cases, use rebase and not merge. Rebase puts your branch commits in front of the
+merged commits instead of creating a new commit with two ancestors. It basically moves the
+point where you initially branched away from the version branch to the current position in
+the version branch. This will avoid merges, merge commits, and generally leave us with a
+more consistent history.  You can also rebase before creating a merge request, which basically
+allows no-op merges. Ideally the only real merges that we ever have, are between
+version branches.</p>
+<h3 id="squash">squash<a class="headerlink" href="#squash" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">  </span>git<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>&lt;other-branch&gt;
+</code></pre></div>
+<p>When you need multiple branches to implement a feature and merge between them, try to
+use <em>squash</em>. Squashing basically puts all commits of the merged branch into a single commit.
+It basically allows you to have many commits and then squash them into one. This is useful
+if these commits were made just to synchronize between workstations, due to
+unexpected errors in CI/CD, because you needed a save point, etc. Again the goal is to have
+coherent commits, where each commits makes sense on its own.</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="code.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to navigate the code" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              How to navigate the code
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="guides.html" class="md-footer__link md-footer__link--next" aria-label="Next: Code guidelines" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Code guidelines
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

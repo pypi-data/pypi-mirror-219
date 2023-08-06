@@ -1,0 +1,1726 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="The documentation for NOMAD v1.
+">
+      
+      
+        <meta name="author" content="The NOMAD Authors">
+      
+      
+      <link rel="icon" href="../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.1">
+    
+    
+      
+        <title>Schema annotations - Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.23b6d78a.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,400i,700%7C&display=fallback">
+        <style>:root{--md-text-font:"Titillium Web";--md-code-font:""}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="#2a4cdf" data-md-color-accent="#008a67">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#schema-annotations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-header__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Schema annotations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://nomad-lab.eu" title="Documentation" class="md-nav__button md-logo" aria-label="Documentation" data-md-component="logo">
+      
+  <img src="../assets/nomad-logo.png" alt="logo">
+
+    </a>
+    Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial.html" class="md-nav__link">
+        Tutorial
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          How-to guides
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How-to guides" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          How-to guides
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          Data Management
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Data Management" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data Management
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/upload.html" class="md-nav__link">
+        How to upload/publish data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/eln.html" class="md-nav__link">
+        How to use ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/explore.html" class="md-nav__link">
+        How to explore data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data/north.html" class="md-nav__link">
+        How to use NORTH
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          Schemas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Schemas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Schemas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/basics.html" class="md-nav__link">
+        How to write a schema
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/elns.html" class="md-nav__link">
+        How to define ELNs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/tabular.html" class="md-nav__link">
+        How to define tabular data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/workflows.html" class="md-nav__link">
+        How to define workflows
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../schemas/hdf5.html" class="md-nav__link">
+        How to reference hdf5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          Programming interfaces
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Programming interfaces" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Programming interfaces
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/api.html" class="md-nav__link">
+        How to use the API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/pythonlib.html" class="md-nav__link">
+        How to install nomad-lab
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/archive_query.html" class="md-nav__link">
+        How to access processed data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apis/local_parsers.html" class="md-nav__link">
+        How to run a parser
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4">
+          Plugins
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Plugins" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Plugins
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/plugins.html" class="md-nav__link">
+        How to develop, publish, and install plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/schemas.html" class="md-nav__link">
+        How to write schema plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/parsers.html" class="md-nav__link">
+        How to write parser plugins
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5">
+          Development
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Development" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Development
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/setup.html" class="md-nav__link">
+        How to get started
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/code.html" class="md-nav__link">
+        How to navigate the code
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/contrib.html" class="md-nav__link">
+        How to contribute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/guides.html" class="md-nav__link">
+        Code guidelines
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/search.html" class="md-nav__link">
+        How to extend the search
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/parsers.html" class="md-nav__link">
+        How to write a parser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../develop/normalizers.html" class="md-nav__link">
+        How to write a normalizer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_6">
+          Oasis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Oasis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Oasis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/install.html" class="md-nav__link">
+        How to install an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/customize.html" class="md-nav__link">
+        How to customize an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/migrate.html" class="md-nav__link">
+        How to migrate Oasis versions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oasis/admin.html" class="md-nav__link">
+        Administrative tasks
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Learn" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/basics.html" class="md-nav__link">
+        From files to data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/data.html" class="md-nav__link">
+        Structured data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/architecture.html" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../learn/oasis.html" class="md-nav__link">
+        Why you need an Oasis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="config.html" class="md-nav__link">
+        Configuration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Schema annotations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="annotations.html" class="md-nav__link md-nav__link--active">
+        Schema annotations
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eln" class="md-nav__link">
+    eln
+  </a>
+  
+    <nav class="md-nav" aria-label="eln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sectionproperties" class="md-nav__link">
+    SectionProperties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabular-data" class="md-nav__link">
+    Tabular data
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabular data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabular_parser" class="md-nav__link">
+    tabular_parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newentryoptions" class="md-nav__link">
+    NewEntryOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currententryoptions" class="md-nav__link">
+    CurrentEntryOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabular" class="md-nav__link">
+    tabular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser" class="md-nav__link">
+    browser
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cli.html" class="md-nav__link">
+        Command Line Interface (CLI)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="plugins.html" class="md-nav__link">
+        Built-in plugins
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="parsers.html" class="md-nav__link">
+        Supported parsers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="glossary.html" class="md-nav__link">
+        Glossary
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#eln" class="md-nav__link">
+    eln
+  </a>
+  
+    <nav class="md-nav" aria-label="eln">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sectionproperties" class="md-nav__link">
+    SectionProperties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    Filter
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tabular-data" class="md-nav__link">
+    Tabular data
+  </a>
+  
+    <nav class="md-nav" aria-label="Tabular data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tabular_parser" class="md-nav__link">
+    tabular_parser
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#newentryoptions" class="md-nav__link">
+    NewEntryOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#currententryoptions" class="md-nav__link">
+    CurrentEntryOptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tabular" class="md-nav__link">
+    tabular
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plot" class="md-nav__link">
+    plot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#browser" class="md-nav__link">
+    browser
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<h1 id="schema-annotations">Schema annotations<a class="headerlink" href="#schema-annotations" title="Permanent link">&para;</a></h1>
+<p>Definitions in a schema can have annotations. These annotations provide additional information that NOMAD can use to alter its behavior around these definitions. Annotations are named blocks of key-value pairs:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">definitions</span><span class="p">:</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">sections</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">MyAnnotatedSection</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">annotation_name</span><span class="p">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">          </span><span class="nt">key1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">          </span><span class="nt">key2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">value</span>
+</code></pre></div>
+<p>Many annotations control the representation of data in the GUI. This can be for plots or data entry/editing capabilities.</p>
+<h2 id="eln">eln<a class="headerlink" href="#eln" title="Permanent link">&para;</a></h2>
+<p>These annotations control how data can be entered and edited.
+Use the key <code>eln</code> to add this annotations. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span> <span class="nc">Sample</span><span class="p">(</span><span class="n">EntryData</span><span class="p">):</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">sample_id</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">a_eln</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">component</span><span class="o">=</span><span class="s1">&#39;StringEditQuantity&#39;</span><span class="p">))</span><span class="err">`</span><span class="p">)</span>
+</code></pre></div>
+<p>or in YAML schemas:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">Sample</span><span class="p">:</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">sample_id</span><span class="p">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">eln</span><span class="p">:</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">          </span><span class="nt">component</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">StringEditQuantity</span>
+</code></pre></div></p>
+<p>An <code>eln</code> annotation can be added to <em>section</em> and <em>quantity</em> definitions to different
+effects. In both cases, it controls how sections and quantities are represented in the GUI
+with different parameters; see below.</p>
+<p>The UI gives an overview about all ELN edit annotations and components
+<a href="https://nomad-lab.eu/prod/v1/staging/gui/dev/editQuantity">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>component</td>
+<td><code>str</code></td>
+<td>The form field component that is used to make the annotated quantity editable. If no component is given, the quantity won't be editable. This can be used on quantities only.<br/>The supported values are:<br/><code>StringEditQuantity</code>: For editing simple short string values.<br/> <code>URLEditQuantity</code>: For editing strings that are validated to be URLs.<br/> <code>EnumEditQuantity</code>: For Editing enum values. Uses a dropdown list with enum values. This component may be used for short enumerates.<br/> <code>RadioEnumEditQuantity</code>: For Editing enum values. Uses radio buttons.<br/> <code>AutocompleteEditQuantity</code>: For editing enum values. Uses an autocomplete form with dropdown list. This component may be used for longer enumerates.<br/> <code>FileEditQuantity</code>: For editing a reference to a file. Will allow to choose a file or upload a file.<br/> <code>BoolEditQuantity</code>: For editing boolean choices.<br/> <code>NumberEditQuantity</code>: For editing numbers with our without unit.<br/> <code>SliderEditQuantity</code>: For editing numbers with a horizontal slider widget.<br/> <code>DateTimeEditQuantity</code>: For editing datetimes.<br/> <code>RichTextEditQuantity</code>: For editing long styled text with a rich text editor.<br/> <code>ReferenceEditQuantity</code>: For editing references to other sections.<br/> <code>UserEditQuantity</code>: For entering user information. Lets you choose a nomad user or enter information manually.<br/> <code>AuthorEditQuantity</code>: For entering author information manually.</br><em>options:</em><br/> - <code>StringEditQuantity</code><br/> - <code>URLEditQuantity</code><br/> - <code>EnumEditQuantity</code><br/> - <code>RadioEnumEditQuantity</code><br/> - <code>AutocompleteEditQuantity</code><br/> - <code>FileEditQuantity</code><br/> - <code>BoolEditQuantity</code><br/> - <code>NumberEditQuantity</code><br/> - <code>SliderEditQuantity</code><br/> - <code>DateTimeEditQuantity</code><br/> - <code>RichTextEditQuantity</code><br/> - <code>ReferenceEditQuantity</code><br/> - <code>UserEditQuantity</code><br/> - <code>AuthorEditQuantity</code><br/></td>
+</tr>
+<tr>
+<td>label</td>
+<td><code>str</code></td>
+<td>Custom label for the quantity shown on the form field.</td>
+</tr>
+<tr>
+<td>props</td>
+<td><code>Dict[str, typing.Any]</code></td>
+<td>A dictionary with additional props that are passed to the  editcomponent.</td>
+</tr>
+<tr>
+<td>default</td>
+<td><code>typing.Any</code></td>
+<td>Prefills any set form field component with the given value. This is different from the quantities <code>default</code> property. The quantities default is not stored in the data; the default value is assumed if no other value is given. The ELN form field default value will be stored, even if not changed.</td>
+</tr>
+<tr>
+<td>defaultDisplayUnit</td>
+<td><code>str</code></td>
+<td>Allows to define a default unit to initialize a <code>NumberEditQuantity</code> with. The unit has to be compatible with the unit of the annotation quantity and the annotated quantity must have a unit. Only applies to quantities and with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>minValue</td>
+<td><code>Union[int, float]</code></td>
+<td>Allows to specify a minimum value for quantity annotations with number type. Will show an error, if outside numbers are entered. Only works on quantities and in conjunction with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>maxValue</td>
+<td><code>Union[int, float]</code></td>
+<td>Allows to specify a maximum value for quantity annotations with number type. Will show an error, if outside numbers are entered. Only works on quantities and in conjunction with <code>component=NumberEditQuantity</code>.</td>
+</tr>
+<tr>
+<td>showSectionLabel</td>
+<td><code>int</code></td>
+<td>To customize the ReferenceEditQuantity behaviour. If true the section label will be shown instead of referenced file name and the path to the section.</td>
+</tr>
+<tr>
+<td>hide</td>
+<td><code>List[str]</code></td>
+<td>The annotation "hide" is deprecated. Use "visible" key of "properties" annotation instead. Allows you to hide certain quantities from a section editor. Give a list of quantity names. Quantities must exist in the section that this annotation is added to. Can only be used in section annotations.</br><strong>deprecated</strong></td>
+</tr>
+<tr>
+<td>overview</td>
+<td><code>int</code></td>
+<td>Shows the annotation section on the entry's overview page. Can only be used on section annotations.</td>
+</tr>
+<tr>
+<td>lane_width</td>
+<td><code>Union[str, int]</code></td>
+<td>Value to overwrite the css width of the lane used to render the annotation section and its editor.</td>
+</tr>
+<tr>
+<td>properties</td>
+<td><code>SectionProperties</code></td>
+<td>The value to customize the quantities and sub sections of the annotation section. The supported keys: <code>visible</code>: To determine the visible quantities and sub sections by their names<br/> <code>editable</code>: To render things visible but not editable, e.g. in inheritance situations<br/> <code>order</code>: # To order things, properties listed in that order first, then the rest<br/></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sectionproperties">SectionProperties<a class="headerlink" href="#sectionproperties" title="Permanent link">&para;</a></h3>
+<p>A filter defined by an include list or and exclude list of the quantities and subsections. </p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>visible</td>
+<td><code>Filter</code></td>
+<td>Defines the visible quantities and subsections.</br><em>default:</em> <code>1</code></td>
+</tr>
+<tr>
+<td>editable</td>
+<td><code>Filter</code></td>
+<td>Defines the editable quantities and subsections.</td>
+</tr>
+<tr>
+<td>order</td>
+<td><code>List[str]</code></td>
+<td>To customize the order of the quantities and subsections.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="filter">Filter<a class="headerlink" href="#filter" title="Permanent link">&para;</a></h3>
+<p>A filter defined by an include list or and exclude list of the quantities or subsections. </p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>include</td>
+<td><code>List[str]</code></td>
+<td>The list of quantity or subsection names to be included.</td>
+</tr>
+<tr>
+<td>exclude</td>
+<td><code>List[str]</code></td>
+<td>The list of quantity or subsection names to be excluded.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabular-data">Tabular data<a class="headerlink" href="#tabular-data" title="Permanent link">&para;</a></h2>
+<h3 id="tabular_parser">tabular_parser<a class="headerlink" href="#tabular_parser" title="Permanent link">&para;</a></h3>
+<p>Instructs NOMAD to treat a string valued scalar quantity as a file path and
+interprets the contents of this file as tabular data. Supports both
+<code>.csv</code> and Excel files.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>comment</td>
+<td><code>str</code></td>
+<td>The character denoting the commented lines in <code>.csv</code> files. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>sep</td>
+<td><code>str</code></td>
+<td>The character used to separate cells in a <code>.csv</code> file. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>skiprows</td>
+<td><code>int</code></td>
+<td>Number of <code>.csv</code> file rows that are skipped. This is passed to pandas to parse the file. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</td>
+</tr>
+<tr>
+<td>separator</td>
+<td><code>str</code></td>
+<td>An alias for <code>sep</code></td>
+</tr>
+<tr>
+<td>target_sub_section</td>
+<td><code>List[str]</code></td>
+<td>this feature is deprecated and will be removed in future release. Use <code>row_sections</code> instead. A <code>list</code> of paths to the repeating sub-sections where the tabular quantities are to be filled from individual rows of the excel/csv file (i.e. in the row mode). Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table rows to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+<tr>
+<td>mode</td>
+<td><code>str</code></td>
+<td>This is optional. It will be removed in future release. Either <code>column</code>, <code>row</code>, or <code>entry</code>. With <code>column</code> the whole column is mapped into a quantity (needs to be a list). With <code>row</code> each row (and its cells) are mapped into instances of a repeating sub section, where each section represents a row (quantities need to be scalars). With <code>entry</code> new entry is created and populated from each row (and its cells) where all quantities should remain to be scalars. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>column</code></br><em>options:</em><br/> - <code>row</code><br/> - <code>column</code><br/> - <code>root</code><br/> - <code>entry</code><br/></td>
+</tr>
+<tr>
+<td>current_entry</td>
+<td><code>CurrentEntryOptions</code></td>
+<td>Append a list of <code>row_sections</code> and <code>column_sections</code> here to parse the tabular data in the same NOMAD entry</br><em>default:</em> <code>[]</code></td>
+</tr>
+<tr>
+<td>new_entry</td>
+<td><code>List[NewEntryOptions]</code></td>
+<td>Append a list of <code>row_sections</code> and <code>column_sections</code> and <code>row_to_entries</code> here to parse the tabular data in new entries.</br><em>default:</em> <code>[]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="newentryoptions">NewEntryOptions<a class="headerlink" href="#newentryoptions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row_to_sections</td>
+<td><code>List[str]</code></td>
+<td>A <code>list</code> of paths to the repeating sub-sections where the tabular quantities are to be filled from individual rows of the excel/csv file (i.e. in the row mode). Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table rows to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+<tr>
+<td>column_to_sections</td>
+<td><code>List[str]</code></td>
+<td>A <code>list</code> of paths to the sub-sections where the tabular quantities are to be filled from the entire column of the excel/csv file (i.e. in the column mode). Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table columns to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+<tr>
+<td>row_to_entries</td>
+<td><code>List[str]</code></td>
+<td>A <code>list</code> of paths to the (sub)sections where the tabular quantities are to be filled from individual rows of the excel/csv file, to create distinct entries. Each path is a <code>/</code> separated list of nested sub-sections. The targeted (sub)sections, will be considered when mapping table rows to quantities. The schema of the resultant entry follows the (sub)section's schema. In order to parse the entire schema using entry mode, then set the first item in this list to <code>root</code>. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="currententryoptions">CurrentEntryOptions<a class="headerlink" href="#currententryoptions" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>row_to_sections</td>
+<td><code>List[str]</code></td>
+<td>A <code>list</code> of paths to the repeating sub-sections where the tabular quantities are to be filled from individual rows of the excel/csv file (i.e. in the row mode). Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table rows to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+<tr>
+<td>column_to_sections</td>
+<td><code>List[str]</code></td>
+<td>A <code>list</code> of paths to the sub-sections where the tabular quantities are to be filled from the entire column of the excel/csv file (i.e. in the column mode). Each path is a <code>/</code> separated list of nested sub-sections. The targeted sub-sections, will be considered when mapping table columns to quantities. Has to be used to annotate the quantity that holds the path to the <code>.csv</code> or excel file.</br><em>default:</em> <code>[]</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="tabular">tabular<a class="headerlink" href="#tabular" title="Permanent link">&para;</a></h3>
+<p>Allows to map a quantity to a row of a tabular data-file. Should only be used
+in conjunction with <code>tabular_parser</code>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td><code>str</code></td>
+<td>The column name that should be mapped to the annotation quantity. Has to be the same string that is used in the header, i.e. first <code>.csv</code> line or first excel file <code>row</code>. For excel files with multiple sheets, the name can have the form <code>&lt;sheet name&gt;/&lt;column name&gt;</code>. Otherwise, only the first sheets is used. Has to be applied to the quantity that a column should be mapped to.</td>
+</tr>
+<tr>
+<td>unit</td>
+<td><code>str</code></td>
+<td>The unit of the value in the file. Has to be compatible with the annotated quantity's unit. Will be used to automatically convert the value. If this is not defined, the values will not be converted. Has to be applied to the quantity that a column should be mapped to.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="plot">plot<a class="headerlink" href="#plot" title="Permanent link">&para;</a></h2>
+<p>This annotation can be used to add a plot to a section or quantity. Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">class</span> <span class="nc">Evaporation</span><span class="p">(</span><span class="n">MSection</span><span class="p">):</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">m_def</span> <span class="o">=</span> <span class="n">Section</span><span class="p">(</span><span class="n">a_plot</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Temperature and Pressure&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;process_time&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;./substrate_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;./chamber_pressure&#39;</span><span class="p">],</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>            <span class="s1">&#39;editable&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>            <span class="s1">&#39;scrollZoom&#39;</span><span class="p">:</span> <span class="kc">False</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>        <span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="p">})</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">time</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">substrate_temperature</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">chamber_pressure</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;Pa&#39;</span><span class="p">)</span>
+</code></pre></div>
+<p>You can create multi-line plots by using lists of the properties <code>y</code> (and <code>x</code>).
+You either have multiple sets of <code>y</code>-values over a single set of <code>x</code>-values. Or
+you have pairs of <code>x</code> and <code>y</code> values. For this purpose the annotation properties
+<code>x</code> and <code>y</code> can reference a single quantity or a list of quantities.
+For repeating sub sections, the section instance can be selected with an index, e.g.
+"sub_section_name/2/parameter_name" or with a slice notation <code>start:stop</code> where
+negative values index from the end of the array, e.g.
+"sub_section_name/1:-5/parameter_name".</p>
+<p>The interactive examples of the plot annotations can be found
+<a href="https://nomad-lab.eu/prod/v1/staging/gui/dev/plot">here</a>.</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>label</td>
+<td><code>str</code></td>
+<td>Is passed to plotly to define the label of the plot.</td>
+</tr>
+<tr>
+<td>x</td>
+<td><code>Union[List[str], str]</code></td>
+<td>A path or list of paths to the x-axes values. Each path is a <code>/</code> separated list of sub-section and quantity names that leads from the annotation section to the quantity. Repeating sub sections are indexed between two <code>/</code>s with an integer or a slice <code>start:stop</code>.</td>
+</tr>
+<tr>
+<td>y</td>
+<td><code>Union[List[str], str]</code></td>
+<td>A path or list of paths to the y-axes values. list of sub-section and quantity names that leads from the annotation section to the quantity. Repeating sub sections are indexed between two <code>/</code>s with an integer or a slice <code>start:stop</code>.</td>
+</tr>
+<tr>
+<td>lines</td>
+<td><code>List[dict]</code></td>
+<td>A list of dicts passed as <code>traces</code> to plotly to configure the lines of the plot. See <a href="https://plotly.com/javascript/reference/scatter/">https://plotly.com/javascript/reference/scatter/</a> for details.</td>
+</tr>
+<tr>
+<td>layout</td>
+<td><code>dict</code></td>
+<td>A dict passed as <code>layout</code> to plotly to configure the plot layout. See <a href="https://plotly.com/javascript/reference/layout/">https://plotly.com/javascript/reference/layout/</a> for details.</td>
+</tr>
+<tr>
+<td>config</td>
+<td><code>dict</code></td>
+<td>A dict passed as <code>config</code> to plotly to configure the plot functionallity. See <a href="https://plotly.com/javascript/configuration-options/">https://plotly.com/javascript/configuration-options/</a> for details.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="browser">browser<a class="headerlink" href="#browser" title="Permanent link">&para;</a></h2>
+<p>The <code>browser</code> annotation allows to specify if the processed data browser needs to
+display a quantity differently. It can be applied to quantities. For example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>    <span class="k">class</span> <span class="nc">Experiment</span><span class="p">(</span><span class="n">EntryData</span><span class="p">):</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>        <span class="n">description</span> <span class="o">=</span> <span class="n">Quantity</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">a_browser</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">render_value</span><span class="o">=</span><span class="s1">&#39;HtmlValue&#39;</span><span class="p">))</span>
+</code></pre></div>
+<p>or in yaml</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">Experiment</span><span class="p">:</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">quantities</span><span class="p">:</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">description</span><span class="p">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">str</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">      </span><span class="nt">m_annotations</span><span class="p">:</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="nt">browser</span><span class="p">:</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">          </span><span class="nt">render_value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">HtmlValue</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adaptor</td>
+<td><code>str</code></td>
+<td>Allows to change the <em>Adaptor</em> implementation that is used to render the lane for this quantity. Possible values are:<br/><code>RawFileAdaptor</code>: An adopter that is used to show files, including all file actions, like file preview.</br><em>options:</em><br/> - <code>RawFileAdaptor</code><br/></td>
+</tr>
+<tr>
+<td>render_value</td>
+<td><code>str</code></td>
+<td>Allows to change the <em>Component</em> used to render the value of the quantity. Possible values are:<br/><code>HtmlValue</code>: Renders a string as HTML.<br/> <code>JsonValue</code>: Renders a dict or list in a collapsable tree.</br><em>options:</em><br/> - <code>JsonValue</code><br/> - <code>HtmlValue</code><br/></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="config.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Configuration
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="cli.html" class="md-footer__link md-footer__link--next" aria-label="Next: Command Line Interface (CLI)" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Command Line Interface (CLI)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.c7dec7e7.min.js"}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.da79ceb7.min.js"></script>
+      
+        <script src="../javascript.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
