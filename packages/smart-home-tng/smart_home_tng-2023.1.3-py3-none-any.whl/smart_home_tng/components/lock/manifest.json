@@ -1,0 +1,7 @@
+{
+  "domain": "lock",
+  "name": "Lock",
+  "documentation": "https://www.home-assistant.io/integrations/lock",
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

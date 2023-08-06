@@ -1,0 +1,8 @@
+{
+  "domain": "onboarding",
+  "name": "Smart Home - The Next Generation Onboarding",
+  "documentation": "https://www.home-assistant.io/integrations/onboarding",
+  "dependencies": ["analytics", "auth", "http", "person"],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

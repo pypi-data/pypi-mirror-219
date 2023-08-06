@@ -1,0 +1,7 @@
+{
+  "domain": "homeassistant",
+  "name": "Smart Home - The Next Generation",
+  "documentation": "https://www.home-assistant.io/integrations/homeassistant",
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal"
+}

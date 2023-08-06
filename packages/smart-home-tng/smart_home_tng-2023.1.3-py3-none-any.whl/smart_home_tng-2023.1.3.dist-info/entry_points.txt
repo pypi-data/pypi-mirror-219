@@ -1,0 +1,2 @@
+[console_scripts]
+smart-home-tng = smart_home_tng.__main__:main

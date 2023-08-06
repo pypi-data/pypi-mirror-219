@@ -1,0 +1,10 @@
+{
+  "domain": "discovery",
+  "name": "Discovery",
+  "documentation": "https://www.home-assistant.io/integrations/discovery",
+  "requirements": ["netdisco>=3.0.0, < 3.1"],
+  "after_dependencies": ["zeroconf"],
+  "codeowners": ["@nixe64"],
+  "quality_scale": "internal",
+  "loggers": ["netdisco"]
+}

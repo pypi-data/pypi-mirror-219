@@ -1,0 +1,10 @@
+{
+  "domain": "usb",
+  "name": "USB Discovery",
+  "documentation": "https://www.home-assistant.io/integrations/usb",
+  "requirements": ["pyudev>=0.24.1, <0.25", "pyserial>=3.5, < 3.6"],
+  "codeowners": ["@nixe64"],
+  "dependencies": ["websocket_api"],
+  "quality_scale": "internal",
+  "iot_class": "local_push"
+}

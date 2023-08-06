@@ -1,0 +1,4 @@
+/frontend/*
+!/frontend/frontend_lastest
+/frontend/frontend_lastest/*
+!/frontend/frontend_lastest/manifest.json
