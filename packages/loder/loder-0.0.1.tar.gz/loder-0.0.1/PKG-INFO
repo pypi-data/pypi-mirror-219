@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: loder
+Version: 0.0.1
+Summary: Env vars made easy.
+Home-page: https://github.com/joeyagreco/loder
+Author: Joey Greco
+Author-email: joeyagreco@gmail.com
+License: MIT
+Keywords: env vars environment variables easy
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# loder

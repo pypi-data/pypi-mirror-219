@@ -1,0 +1,3 @@
+include requirements.txt
+recursive-include loder/properties *
+global-exclude *.bat
