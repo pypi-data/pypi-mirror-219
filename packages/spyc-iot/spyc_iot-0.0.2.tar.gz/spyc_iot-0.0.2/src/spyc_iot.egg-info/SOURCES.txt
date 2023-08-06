@@ -1,0 +1,10 @@
+LICENSE
+pyproject.toml
+setup.cfg
+src/spyc_iot/__init__.py
+src/spyc_iot/ntp.py
+src/spyc_iot/wifi.py
+src/spyc_iot.egg-info/PKG-INFO
+src/spyc_iot.egg-info/SOURCES.txt
+src/spyc_iot.egg-info/dependency_links.txt
+src/spyc_iot.egg-info/top_level.txt
