@@ -1,0 +1,25 @@
+= Test
+
+== Test unitaire
+
+Ce projet est testé  grâce à la lib `unittest`. Tous les tests se trouvent dans le dossier `tests` à la racine du projet.
+
+Pour lancer les tests, vous avez besoin d'aucune library en plus dans votre environment.
+
+.En ligne de commande
+[source, shell, subs="+attributes"]
+----
+python --version
+# Python 3.11.x
+python -m unittest
+----
+ou sinon utiliser la configuration fournie `Python tests (no Odoo)`.
+
+== Tests doctests
+
+Certaines classes ou méthodes sont couvertes par des tests **doctes**, qui sont des tests inclus directement dans le docstring. Le fichier `test_doctests.py` sert de point d'entrée pour ces tests. +
+Ces tests se lancent en faisant :
+[source, shell, subs="+attributes"]
+----
+python tests tests/test_doctests.py
+----

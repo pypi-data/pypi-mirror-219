@@ -1,0 +1,58 @@
+= Test unitaire
+
+Cette lib contient **2** types de tests. Les tests classique python, et des tests pensés pour être joué dans un container Odoo.
+
+Ces tests sont disponibles dans le dossier `tests`. Il y a une particularité pour certain.
+Vous pouvez lancer tous les tests de cette lib en ligne de commande.
+
+== Unittests
+Ce sont tous les tests ne nécessitant pas d'être lancé dans un environment Odoo
+
+
+
+=== Lancer en local
+
+[source, shell]
+----
+python -m unittest discover
+----
+
+== Unittests dans Odoo
+
+=== Lancer en local
+
+[source, shell]
+----
+# Avoir le virtualenv de la version d'activé
+ODOO_VERSION=15.0 \ <1>
+    python -m unittest discover \ <2>
+    -s tests/tests_odoo \ <3>
+    -t ./ <4>
+----
+<1> Set la variable `ODOO_VERSION` à la version voulu
+<2> Lance les tests
+<3> Precise où sont les tests, pour ne pas lancer les tests simple
+<4> Force le path au niveau de `./`, pour éviter que python oubli les top level package et avoir des soucis d'import
+
+=== Lancer avec une image docker
+
+
+[source, shell]
+----
+docker run \ <1>
+    --mount type=bind,source="$(pwd)",target=/builds/oenv2config \ <2>
+    --entrypoint "/builds/oenv2config/in_docker_test.sh" \ <3>
+    --workdir=/builds/oenv2config \ <4>
+    --rm \ <5>
+    -t registry.ndp-systemes.fr/dockers/odoo:15.0 <6>
+----
+<1> Run une image docker
+<2> Créer un volume du path local `pwd` vers `/builds/oenv2config` dans le container
+<3> Change l'entrypoint, pour ne pas lancer Odoo, mais lancer `in_docker_test.sh`
+<4> Set le `workdir` au point de montage, pour que lors de l'exécution de l'entrypoint, nous sommes dans le bon path
+<5> Supprime le container apres le run
+<6> l'image docker, ici la v15
+
+Il existe des décorateurs particuliers pour ne jouer les tests que dans un environment Odoo.
+
+Pour les Utiliser if faut les importer dans votre fichier de tests, et ensuite décorer votre fonction avec.

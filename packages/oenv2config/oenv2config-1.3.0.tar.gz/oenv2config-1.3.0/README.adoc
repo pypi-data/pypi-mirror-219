@@ -1,0 +1,43 @@
+= oenv2config
+
+.Setup
+[source, shell]
+----
+include::setup.sh[]
+----
+
+== TODO
+
+- [x] Lint - Black
+- [x] Lint - isort
+- [ ] Lint - ruff
+- [x] Activate pre-commit
+- [ ] Deploy to pypi
+- [ ] Activate a complete CI/CD on gitlab
+- [ ] Use versioning
+- [x] Create Antora docs
+
+- [ ] Test in docker env for each Odoo version
+- [ ] More test to reach a coverage of 100%
+
+- [x] Add documentation How to install
+- [ ] Add documentation How to test
+- [ ] Add documentation How to build `mkdocs`
+- [ ] Add documentation How to test the `cli`
+
+== Contributing
+
+== Launch Test
+`python -m unittest discover`
+
+=== Launch test with Odoo
+
+== Documentation
+=== mkdocs
+Installation de mkdocs. Voir https://gitlab.ndp-systemes.fr/documentation/docs[la documentation] de ndp sur mkdocs.
+
+=== Antora
+Installation d'antora. Voir https://gitlab.ndp-systemes.fr/documentation/docs-antora[la documentation] de ndp.
+
+=== Developper
+To test the CLI locally, ` pip install -e .` et `odoo-env2config --odoo-bin /toto --dest /caraibe`

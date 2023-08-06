@@ -1,0 +1,7 @@
+.Nav test
+xref:index.adoc[Home]
+* xref:tests.adoc[]
+* xref:tests_odoo.adoc[]
+* xref:antora.adoc[]
+* xref:mkdocs.adoc[]
+* xref:contribute.adoc[]
