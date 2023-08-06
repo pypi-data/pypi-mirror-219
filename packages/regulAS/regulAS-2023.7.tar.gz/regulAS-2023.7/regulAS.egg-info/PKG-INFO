@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: regulAS
+Version: 2023.7
+Summary: regulAS is a bioinformatics package designed to assist researchers in identifying prospective regulators of alternative splicing events using large-scale RNA-Seq datasets based on multiple TCGA and GTEx omics data sources. Discover the versatility of regulAS for your computational biology and bioinformatics research.
+Home-page: https://github.com/slipnitskaya/regulAS
+Author: Sofya Lipnitskaya
+Author-email: lipnitskaya.sofya@gmail.com
+Requires-Python: >=3.7
+License-File: LICENSE
