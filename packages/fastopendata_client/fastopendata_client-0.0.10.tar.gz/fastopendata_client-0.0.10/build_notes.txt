@@ -1,0 +1,2 @@
+hatch build
+python -m twine upload dist/fastopendata_client-0.0.9.tar.gz
