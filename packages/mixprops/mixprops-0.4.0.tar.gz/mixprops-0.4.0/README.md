@@ -1,0 +1,91 @@
+# mixprops
+
+[![CI](https://github.com/oaarnikoivu/mixprops/workflows/CI/badge.svg)](https://github.com/oaarnikoivu/mixprops/actions?query=event%3Apush+branch%3Amain+workflow%3ACI)
+[![pypi](https://img.shields.io/pypi/v/mixprops)](https://pypi.org/project/mixprops/)
+[![versions](https://img.shields.io/pypi/pyversions/mixprops.svg)](https://github.com/oaarnikoivu/mixprops)
+[![license](https://img.shields.io/github/license/oaarnikoivu/mixprops.svg)](https://github.com/oaarnikoivu/mixprops/blob/main/LICENSE)
+
+Mixture properties calculator.
+
+## Installation
+
+### Python
+
+```bash
+pip install mixprops --upgrade
+```
+
+## Configuration
+
+Using a `settings.yaml` configuration file, you can specify the units system used for computation.
+
+### Available units systems:
+
+- `SI` - International System of Units
+- `SIC` - International System of Units with temperature in degrees Celsius (DEFAULT)
+- `IS` - Imperial Unit System (currently this only assumes a temperature in degrees Fahrenheit)
+
+You may also overwrite the default Pressure unit of Pascal:
+
+- `Pa` - Pascal
+- `kPa` - Kilopascal
+- `Mpa` - Megapascal
+- `bar` - bar
+
+### Example
+
+```yaml
+units: "SI" # International System of Units
+pressure_unit: "kPa" # Kilopascal
+```
+
+## Properties
+
+- `molecular_weight` - Molecular weight (g/mol)
+- `density` - Density (kg/m3)
+- `specific_heat_capacity` - Specific heat capacity (J/kg-K)
+- `viscosity` - Viscosity (kg/m-s)
+- `conductivity` - Thermal conductivity (W/m-K)
+- `speed_of_sound` - Speed of sound (m/s)
+- `adiabatic_index` - Adiabatic index
+
+## Supported species
+
+For the supported species, see the `.csv` files in the `mixprops/data` directory.
+
+## Examples
+
+```python
+from mixprops.mixture import Mixture
+from mixprops.state import State
+
+mixture = Mixture(
+    species=[("O2", 0.21), ("N2", 0.79)],
+    state=State(pressure=101325, temperature=25))
+
+print(mixture.specific_heat_capacity)
+# 1011.3387518918726
+```
+
+### CLI
+
+Follow instructions from [pipx](https://github.com/pypa/pipx) to install `pipx`.
+
+```bash
+pipx install git+https://github.com/oaarnikoivu/mixprops.git
+```
+
+```bash
+mixprops \
+    --units SIC \
+    --pressure-unit Pa \
+    --state 101325,25 \
+    --species O2,N2 \
+    --composition 0.21,0.79
+```
+
+- `--units` = Units system -> Optional, defaults to `SIC`
+- `--pressure-unit` = Pressure unit -> Optional, defaults to `Pa`
+- `--state` = Mixture state -> Absolute pressure,temperature
+- `--species` = Comma separated list of species by name or species -> O2,N2 or Oxygen,Nitrogen
+- `--composition` = Species molar composition as comma separated mole fractions -> 0.21,0.79

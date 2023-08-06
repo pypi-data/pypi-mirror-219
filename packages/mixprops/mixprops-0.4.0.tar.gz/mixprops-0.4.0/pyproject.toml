@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "mixprops"
+version = "0.4.0"
+description = "Mixture properties calculator"
+authors = ["Oliver Aarnikoivu <oliveraarnikoivu@icloud.com>"]
+license = "MIT"
+readme = "README.md"
+include = ["mixprops/data/*.csv"]
+
+[tool.poetry.scripts]
+mixprops = "mixprops.cli:cli"
+
+[tool.poetry.dependencies]
+python = ">=3.8.1"
+pydantic = "^2.0.2"
+pandas = "^2.0.3"
+pydantic-settings = "^2.0.1"
+pyyaml = "^6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+pre-commit = "^3.3.3"
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
