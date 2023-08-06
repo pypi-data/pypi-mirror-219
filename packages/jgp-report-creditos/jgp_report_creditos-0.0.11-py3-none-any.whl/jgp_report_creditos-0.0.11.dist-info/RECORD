@@ -1,0 +1,25 @@
+jgp_report_creditos/__init__.py,sha256=DjDoBdol61gepMxfhJxh0Es_Sw09Td5VCluokZrG2JU,83
+jgp_report_creditos/report.py,sha256=HIH4JQxp2cAnRpfZN8GkeBJZMk67Q9OHxNV0ARC2Pt8,22149
+jgp_report_creditos/test.py,sha256=3R3yS0Gql_-IJ-U821IxbpCW_Ha3uldM5S-7LU-VAis,714
+jgp_report_creditos/core/__init__.py,sha256=l98R3Slalqo-VEha4QITgeLBtRl5qxXPQw2LEr6lzQs,56
+jgp_report_creditos/core/deposito.py,sha256=kyeAziTjE2vkwGX0QQ0bhc3ttkw0jNYOueqxsu9nxRw,36880
+jgp_report_creditos/core/rutas.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jgp_report_creditos/core/contrato/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jgp_report_creditos/core/contrato/v1/Controlar tablas de firmas.py,sha256=DtHz1WPQz0FEVVdmJ9MCAfNGzgvNd6Lzw-kwaRRkqNE,4711
+jgp_report_creditos/core/contrato/v1/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jgp_report_creditos/core/contrato/v1/base.py,sha256=aT6TetxgNHhSAwPM7y0xYKoPpB9bxZUe3QFkYzylw5k,146776
+jgp_report_creditos/core/contrato/v1/contratos.py,sha256=p-Y211PELCB0FqMvahItY6soKWy2ojeG_h5gt78Z_a0,20081
+jgp_report_creditos/core/exception/__init__.py,sha256=eqzdZzb349VPXjxVc_BzeldwetvNyU9PiakBIIYn2hU,37
+jgp_report_creditos/core/exception/exception.py,sha256=qhZngHDrS04L9plO41gry3jOkhzrF6qtUbn99OcK_Ns,309
+jgp_report_creditos/resources/img/logo_jgp.png,sha256=Se30KNnRXDpLt9Ww8gAx6n9mlC9pfxk4vw2joD5rI1I,57446
+jgp_report_creditos/template/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jgp_report_creditos/template/components.py,sha256=B72D6rh7ee0Zl9Gn5ylUJyQI-XKDgbR1NQ2eelnJWVw,22964
+jgp_report_creditos/template/template.py,sha256=o-qHhvJYVuhThqSZeXWBVcEIo7huUgabhTO-Vdf-0pU,660
+jgp_report_creditos/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+jgp_report_creditos/tests/test_contratos.py,sha256=-cuf7xLxLfJf7sYiGfxsZJ7bBszP4JgNP7bUi2ZQuck,910
+jgp_report_creditos/tests/test_deposito.py,sha256=rLFVXrfKayGNjmC9zIUiBbUXJfbIgly_wAFGtIDce2s,24342
+jgp_report_creditos-0.0.11.dist-info/LICENSE,sha256=nVEHZdwPEFxiXW63IrWED1ucE9qe-7rV7iHcHeWawS4,1074
+jgp_report_creditos-0.0.11.dist-info/METADATA,sha256=qrz2A0Sx3B_qdIEq3S9vBn6Z-CplBnh75e4wtgJoOvg,6619
+jgp_report_creditos-0.0.11.dist-info/WHEEL,sha256=G16H4A3IeoQmnOrYV4ueZGKSjhipXx8zc8nu9FGlvMA,92
+jgp_report_creditos-0.0.11.dist-info/top_level.txt,sha256=2PZ60Mv4Zv4CNWhxW5BNlwOT74U3QM-XrLr2_6I5Kq4,20
+jgp_report_creditos-0.0.11.dist-info/RECORD,,
