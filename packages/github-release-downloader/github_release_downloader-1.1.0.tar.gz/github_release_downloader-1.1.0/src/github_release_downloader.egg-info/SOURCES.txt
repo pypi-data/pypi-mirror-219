@@ -1,0 +1,15 @@
+LICENSE.md
+README.md
+pyproject.toml
+requirements.txt
+src/github_release_downloader/__init__.py
+src/github_release_downloader/__main__.py
+src/github_release_downloader/_meta.py
+src/github_release_downloader/core.py
+src/github_release_downloader/data.py
+src/github_release_downloader/models.py
+src/github_release_downloader.egg-info/PKG-INFO
+src/github_release_downloader.egg-info/SOURCES.txt
+src/github_release_downloader.egg-info/dependency_links.txt
+src/github_release_downloader.egg-info/requires.txt
+src/github_release_downloader.egg-info/top_level.txt
