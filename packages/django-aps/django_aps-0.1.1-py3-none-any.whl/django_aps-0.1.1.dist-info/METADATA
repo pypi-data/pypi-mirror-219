@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: django-aps
+Version: 0.1.1
+Summary: APScheduler Register for Django
+Home-page: https://github.com/cuidingyong/django-aps
+Author: Dillon
+Author-email: cuidingyong@yeah.net
+License: MIT
+Keywords: django apscheduler django-django_aps register
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2
+Classifier: Framework :: Django :: 4.0
+Description-Content-Type: text/markdown
+Requires-Dist: django (>=3.2)
+Requires-Dist: apscheduler (<4.0,>=3.2)
+Requires-Dist: djangorestframework (>=3.14)
+Requires-Dist: django-apscheduler (>=0.6.2)
+Requires-Dist: pydantic (>=2.0)
+
+# Django APScheduler Register
+
+Django-aps adds the task registration discovery function on the basis of A,
+which is more convenient for users to realize the configuration of scheduled tasks.
+
+## Installation
+
+```commandline
+pip install django-aps
+```
+
+## Quick start
+
+- Add ``aps`` to your ``INSTALLED_APPS`` setting like this:
+
+```python
+INSTALLED_APPS = (
+    # ...
+    "django_aps",
+)
+```
+
+- django-aps comes with sensible configuration defaults out of the box. The defaults can be overridden by adding
+  the following settings to your Django `settings.py` file:
+
+```python
+DEFAULT_DISCOVER_SCHEMA = 'pkg'
+```
+
+- Run `python manage.py migrate` to create the django_apscheduler models.
+
+- Register a APScheduler function in your project
+
+```python
+
+```
+
