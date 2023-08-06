@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: scPANTHEON
+Version: 0.3.5
+Summary: A graphical interface for single cell analysis.
+Home-page: https://github.com/xinzhu-email/Pantheon
+Author: xinzhu
+Author-email: xinzhu.jiang@sjtu.edu.cn
+License: MIT
+Requires-Dist: bokeh (==2.4.3)
+Requires-Dist: pandas (==1.4.4)
+Requires-Dist: anndata (==0.8.0)
+Requires-Dist: colorcet (==3.0.0)
+Requires-Dist: scanpy (==1.9.1)
+Requires-Dist: numpy (==1.21.5)
+Requires-Dist: PyQt5 (==5.15.9)
+Requires-Dist: PyQtWebEngine (==5.15.6)
+Requires-Dist: appdirs (==1.4.4)
+Provides-Extra: tomas
+Requires-Dist: tomas ; extra == 'tomas'
+
