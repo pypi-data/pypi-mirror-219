@@ -1,0 +1,17 @@
+# coding
+black
+flake8
+pylint
+typing-extensions
+# deploying
+setuptools_scm
+# testing
+pytest
+absl-py
+# compute libraries
+numpy
+jax
+chex
+flax
+etils
+jax_enums
