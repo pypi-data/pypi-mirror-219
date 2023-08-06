@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: tva-utils
+Version: 0.1.6
+Summary: 
+Author: jsaied99
+Author-email: jsaied99@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: psycopg2-binary (>=2.9.6,<3.0.0)
+Requires-Dist: sqlalchemy (>=2.0.18,<3.0.0)
+Requires-Dist: string-color (>=1.2.3,<2.0.0)
+Description-Content-Type: text/markdown
+
+
