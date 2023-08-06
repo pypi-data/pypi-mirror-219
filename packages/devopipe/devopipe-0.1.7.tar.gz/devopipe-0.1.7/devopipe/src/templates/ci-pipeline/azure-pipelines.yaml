@@ -1,0 +1,48 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+  - feature/*
+
+name: 0.0.$(Build.BuildId)
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: AWS_job
+
+
+stages:
+  - stage: Build
+    jobs:
+      displayName: Build Docker Compose and Publish Artifact
+      steps:
+        - task: DockerCompose@0
+          displayName: Run Docker Compose File
+          inputs:
+            buildImages: true
+            action: Run a Docker Compose command
+            dockerComposeCommand: "build"
+            dockerComposeFile: docker-compose.yml
+      {{ set_artifacts_build }}
+      
+# Add set-artifact.yaml
+
+
+  - stage: Deploy
+    jobs:
+    - job: deploy_artifact
+      displayName: Download pipeline artifact and deploy to ECR
+      steps:  
+        {{ get_artifacts_deploy }}
+        {{ deploy_artifact }}
+      
+
+
+# Add get-artifact.yaml
+# Add deploy artifacts template
+

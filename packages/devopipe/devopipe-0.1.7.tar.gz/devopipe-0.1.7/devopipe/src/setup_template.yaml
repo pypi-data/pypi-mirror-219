@@ -1,0 +1,9 @@
+init:
+  ci_system: # Options: "Azure Pipelines", "GitHub Actions"
+  tests: # Options: "Sonarqube", "Codacy"
+  service_provider: # Options: "AWS", "Azure", "GCP"
+  num_environments: # Enter the number of environments
+  environment_names: # Enter the names of your environments separated by commas
+  registry: # Options: "ECR (Elastic Container Registry)", "ACR (Azure Container Registry)", "Docker Hub"
+  repository_type: # Enter "private" or "public"
+  num_images: # Enter the number of images
