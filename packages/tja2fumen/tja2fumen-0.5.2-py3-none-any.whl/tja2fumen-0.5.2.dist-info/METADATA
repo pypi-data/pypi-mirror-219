@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: tja2fumen
+Version: 0.5.2
+Summary: Convert TJA chart files into fumen (.bin) chart files
+License: MIT License
+        
+        Copyright (c) 2023 Vivaria
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/vivaria/tja2fumen/
+Project-URL: Bug Reports, https://github.com/vivaria/tja2fumen/issues/
+Project-URL: Source, https://github.com/vivaria/tja2fumen/
+Keywords: taiko,tatsujin,fumen,TJA
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: pyinstaller ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: toml-cli ; extra == 'dev'
+
+# tja2fumen
+
+`tja2fumen` is a tool for Taiko no Tatsujin games that allows you to convert TJA files (`.tja`) to fumen files (`.bin`).
+
+This project attempts to replace/complement the existing closed-source [tja2bin.exe](https://github.com/Fluto/TakoTako/blob/c269bcab60530877a16c2a473c84796b94d0a5ce/README.md?plain=1#L181) converter packaged alongside TakoTako. 
+
+## Goals
+
+- Act as a drop-in replacement for `tja2bin.exe` in TakoTako.
+- Fix https://github.com/Fluto/TakoTako/issues/16. (The original `tjabin.exe` doesn't properly handle `#BPMCHANGE` commands.)
+- Better handle commands that `tjabin.exe` fails for (`#SECTION`, `#NEXTSONG`, `#LYRIC`, etc.)
+- Provide open source code to act as a reference for parsing and writing both the TJA and Fumen file formats.
+- Stick to the Python stdlib, i.e. no external dependencies if possible.
+
+## Usage
+
+### Option 1: Standalone Python installation
+
+If you're familiar with Python, you can install `tja2fumen` by running:
+
+```
+pip install tja2fumen
+```
+
+Then, you can convert a TJA file by running:
+
+```
+tja2fumen file.tja
+```
+
+### Option 2: Using with TakoTako
+
+> **Note**: Before adding `tja2fumen` to TakoTako, you may want to back up the original `tja2bin.exe` file, to make sure you can switch back to the old converter if necessary. The easiest way to do this is by renaming the existing file to `tja2bin.exe.bak`.
+
+To use this converter with TakoTako, head to the [Releases](https://github.com/vivaria/tja2fumen/releases) page, and download the `tja2fumen.exe` file attached to the release. Then, rename `tja2fumen.exe` to `tja2bin.exe`, and place the file in the TakoTako plugin folder.
+
+TakoTako's plugin folder is inside of the BepInEx folder, which will typically look something like:
+
+```
+C:\XboxGames\T Tablet\Content\BepInEx\plugins\com.fluto.takotako
+```
+
+## Attribution
+
+- The fumen-parsing code in this project is based off of a modified copy of the [`readFumen()`](https://github.com/KatieFrogs/fumen-tools/blob/6ff3a2f7f53687f3dd49c5c57fcfc5ccbe3e5a10/fumen2osu/fumen2osu.py#L7-L152) function from the [`fumen2osu.py`](https://github.com/KatieFrogs/fumen-tools/blob/main/fumen2osu/fumen2osu.py) found in @KatieFrogs' [`fumen-tools`](https://github.com/KatieFrogs/fumen-tools) project.
+- The TJA-parsing code in this project is a Python translation of the [`parseTJA.js`](https://github.com/WHMHammer/tja-tools/blob/master/src/js/parseTJA.js) file from @WHMHammer's [`tja-tools`](https://github.com/WHMHammer/tja-tools).
+
+> **Note**: To be explicily clear, neither @KatieFrogs nor @WHMHammer have endorsed this project, are affiliated with this project, or have made any direct contributions to this project. I have just modified their existing work.
