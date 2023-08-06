@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sqlmuggle
+Version: 0.0.1
+Summary: Database Attention Library
+License: MIT
+Author: Damian Świstowski
+Author-email: damian@swistowski.org
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# SqlMuggle
