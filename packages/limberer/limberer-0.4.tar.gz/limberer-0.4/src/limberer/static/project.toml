@@ -1,0 +1,16 @@
+title = "Example Document"
+subheading = "Limberer Made Easy"
+version = "Version 0.1 DRAFT"
+#label = ""
+
+authors = [
+  { name = "Example Person", email = "example@example.com" },
+]
+
+sections = [
+  { type = "cover" },
+  { type = "toc" },
+  { name = "example", type = "section" },
+  { name = "example2", type = "section" },
+]
+
