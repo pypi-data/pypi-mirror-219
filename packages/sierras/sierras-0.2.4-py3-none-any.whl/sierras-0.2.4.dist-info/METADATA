@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: sierras
+Version: 0.2.4
+Summary: A tool for empirical Arrhenius equation fitting for thermally-induced physicochemical processes.
+Author-email: Francisco Fernandez <ffernandev@gmail.com>
+License: MIT License
+        
+        Copyright (c) 2021-2023 Francisco Fernandez
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/fernandezfran/sierras
+Keywords: arrhenius-process,arrhenius-equation,arrhenius-fitting,arrhenius-plot
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: importlib-metadata
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scikit-learn
+
+# sierras
+
+[![Github Actions CI](https://github.com/fernandezfran/sierras/actions/workflows/sierras_ci.yml/badge.svg)](https://github.com/fernandezfran/sierras/actions/workflows/sierras_ci.yml)
+[![Documentation Status](https://readthedocs.org/projects/sierras/badge/?version=latest)](https://sierras.readthedocs.io/en/latest/?badge=latest)
+[![PyPI](https://img.shields.io/pypi/v/sierras)](https://pypi.org/project/sierras/)
+[![python version](https://img.shields.io/badge/python-3.8%2B-4584b6)](https://www.python.org/)
+[![mit license](https://img.shields.io/badge/License-MIT-ffde57)](https://github.com/fernandezfran/sierras/blob/main/LICENSE)
+[![downloads](https://static.pepy.tech/badge/sierras)](https://pepy.tech/project/sierras)
+[![diseno_sci_sfw](https://img.shields.io/badge/DiSoftCompCi-FAMAF-ffda00)](https://github.com/leliel12/diseno_sci_sfw)
+
+**sierras** is a tool for empirical Arrhenius equation fitting for 
+thermally-induced physicochemical processes.
+
+
+## Requirements
+
+You need Python 3.8+ to run sierras.
+
+
+## Installation
+
+You can install the most recent stable release of sierras with 
+[pip](https://pip.pypa.io/en/latest/)
+
+```
+python -m pip install -U pip
+python -m pip install -U sierras
+```
+
+
+## Usage
+
+A simple example of use:
+
+```python
+import sierras
+
+areg = sierras.ArrheniusRegressor()
+
+areg.fit(Temperatures, target_process)
+
+areg.activation_energy_  # in this case in eV
+areg.extrapolated_process_  # extrapolated process at room temperature
+
+areg.plot.arrhenius(Temperatures, target_process)  # plot the fitting
+```
+
+
+For a more detailed explanation you can read the 
+[tutorial](https://sierras.readthedocs.io/en/latest/tutorial.html) 
+and the [API](https://sierras.readthedocs.io/en/latest/api.html).
+
+
+## License
+
+[MIT License](https://github.com/fernandezfran/sierras/blob/master/LICENSE)
+
+
+## Contact info
+
+You can contact me at <ffernandev@gmail.com>
