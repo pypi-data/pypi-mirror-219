@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: textmatchertoolkit
+Version: 0.1.0
+Summary: In summary, this package provides a set of utility functions and matching algorithms that can be used to preprocess, analyze, and match text data in various applications such as natural language processing, information retrieval, and text similarity analysis.
+Author: Marco Cavallari
+Author-email: marco.cavallari.1999@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: levenshtein (>=0.21.1,<0.22.0)
+Requires-Dist: sentence-transformers (>=2.2.2,<3.0.0)
+Requires-Dist: transformers (>=4.30.2,<5.0.0)
+Description-Content-Type: text/markdown
+
+

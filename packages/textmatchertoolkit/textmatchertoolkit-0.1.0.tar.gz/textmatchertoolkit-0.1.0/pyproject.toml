@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "textmatchertoolkit"
+version = "0.1.0"
+description = "In summary, this package provides a set of utility functions and matching algorithms that can be used to preprocess, analyze, and match text data in various applications such as natural language processing, information retrieval, and text similarity analysis."
+authors = ["Marco Cavallari <marco.cavallari.1999@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+transformers = "^4.30.2"
+sentence-transformers = "^2.2.2"
+levenshtein = "^0.21.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
