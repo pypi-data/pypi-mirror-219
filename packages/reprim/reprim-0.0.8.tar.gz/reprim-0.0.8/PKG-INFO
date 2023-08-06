@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: reprim
+Version: 0.0.8
+Summary: for questions write me in Telegram (@IDieLast)
+Home-page: https://github.com/GGergy/RePrIm/
+Author: GGergy
+Author-email: gergy2k07@gmail.com
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+
+RePrIm (remotis project imperium (remote project control)) is comfortable software for manage files on your PC via telegram bot when you are away from your computer
+
+just create such a py file, put it in the root folder of the project and run it
+```python
+#pip install reprim
+
+import RePrIm
+```
