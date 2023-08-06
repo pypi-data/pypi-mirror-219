@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: agent-reader
+Version: 0.2.2
+Summary: Intelligent Reader of various types of media
+License: Apache 2.0
+Author: Mariya Davydova
+Author-email: mrs.mariya.davydova@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: cohere (>=4.11.2,<5.0.0)
+Requires-Dist: langchain (>=0.0.216,<0.0.217)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: transformers (>=4.30.2,<5.0.0)
+Description-Content-Type: text/markdown
+
+# Agent Reader
+
+Intelligent Reader for various kinds of media sources: web pages, Twitter threads, etc.
+
+Early alpha version. Please don't use it for anything serious.
+
+## Supported media sources
+
+* [x] Web pages
+* [x] GitHub projects
+* [x] Arxiv papers annotations
+* [x] Open Access (CVPR)
+* [ ] Twitter threads
+* [ ] Reddit threads
+* [ ] YouTube videos (aspirational; it's beyond text summarization)
+
+## Installation
+
+```bash
+pip install agent-reader
+```
+
+## Usage
+
+Look at the [demo](demo.py) script for the example of usage.
