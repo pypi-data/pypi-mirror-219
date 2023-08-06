@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+waiter/__init__.py
+waiter/decorator.py
+waiter.py.egg-info/PKG-INFO
+waiter.py.egg-info/SOURCES.txt
+waiter.py.egg-info/dependency_links.txt
+waiter.py.egg-info/top_level.txt
