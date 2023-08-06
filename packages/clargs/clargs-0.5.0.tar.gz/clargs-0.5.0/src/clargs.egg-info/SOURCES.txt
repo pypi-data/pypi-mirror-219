@@ -1,0 +1,14 @@
+LICENCE.txt
+README.md
+pyproject.toml
+src/clargs/__init__.py
+src/clargs/aap_from_data.py
+src/clargs/clargs.py
+src/clargs/docsparser.py
+src/clargs/helper_types.py
+src/clargs.egg-info/PKG-INFO
+src/clargs.egg-info/SOURCES.txt
+src/clargs.egg-info/dependency_links.txt
+src/clargs.egg-info/top_level.txt
+test/test_docsparser.py
+test/test_simple.py
