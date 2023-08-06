@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pydictable
+Version: 1.2.2
+Summary: Make your classes from/to dict
+Home-page: https://github.com/pskd73/pydictable.git
+Author: Pramod Kumar
+Author-email: pramodkumar.damam73@gmail.com
+Description-Content-Type: text/plain
+License-File: LICENSE
+
+A tool to create data modals from dict and convert it to dict. Check documentation here https://github.com/pskd73/pydictable
