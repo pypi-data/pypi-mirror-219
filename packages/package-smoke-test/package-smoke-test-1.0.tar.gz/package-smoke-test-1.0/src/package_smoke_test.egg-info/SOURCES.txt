@@ -1,0 +1,10 @@
+LICENSE.GPL-3
+README
+VERSION
+pyproject.toml
+src/package_smoke_test/__main__.py
+src/package_smoke_test.egg-info/PKG-INFO
+src/package_smoke_test.egg-info/SOURCES.txt
+src/package_smoke_test.egg-info/dependency_links.txt
+src/package_smoke_test.egg-info/not-zip-safe
+src/package_smoke_test.egg-info/top_level.txt

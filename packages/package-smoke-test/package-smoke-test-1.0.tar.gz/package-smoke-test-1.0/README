@@ -1,0 +1,74 @@
+#########################
+python-package-smoke-test
+#########################
+
+Simple import test for Python packages
+######################################
+
+This library implements a set of simple verification tests for an installed
+Python distribution, or an installed Python module.
+
+
+Examples
+========
+
+Verify installation of a Python distribution
+--------------------------------------------
+
+To verify correct installation of a Python distribution named `lorem`::
+
+    $ python3 -m package_smoke_test --distribution lorem
+    Interpreter: /usr/bin/python3
+            3.11.4 (main, Jun  7 2023, 10:13:09) [GCC 12.2.0]
+    Distribution ‘lorem’:
+            Lorem Ipsum 2.7.3
+
+
+Verify installation of Python packages or modules
+-------------------------------------------------
+
+To verify correct installation of a set of Python packages or modules, named
+`dolor`, `sit`, and `amet`::
+
+    $ python3 -m package_smoke_test --module dolor sit amet
+    Interpreter: /usr/bin/python3
+            3.11.4 (main, Jun  7 2023, 10:13:09) [GCC 12.2.0]
+    Package ‘dolor’:
+            <module 'dolor' from '/usr/lib/python3/dist-packages/lorem/dolor/__init__.py'>
+    Package ‘sit’:
+            <module 'sit' from '/usr/lib/python3/dist-packages/lorem/sit/__init__.py'>
+    Package ‘amet’:
+            <module 'amet' from '/usr/lib/python3/dist-packages/lorem/amet/__init__.py'>
+
+
+Example script for post-installation test
+-----------------------------------------
+
+The file ``doc/examples/smoke-test-python3`` is a Bash script that you can
+customise for your package, to run the above tests.
+
+
+Copying
+=======
+
+This work, ‘python-package-smoke-test’, is free software: you may copy, modify,
+and/or distribute this work under the conditions of the GNU General Public
+License as published by the Free Software Foundation; version 3 of that license
+or any later version. See the file ‘LICENSE.GPL-3’ for details.
+No warranty expressed or implied.
+
+
+..
+    This document is written using `reStructuredText`_ markup, and can
+    be rendered with `Docutils`_ to other formats.
+
+    ..  _Docutils: https://docutils.sourceforge.io/
+    ..  _reStructuredText: https://docutils.sourceforge.io/rst.html
+
+..
+    Local variables:
+    coding: utf-8
+    mode: rst
+    mode: text
+    End:
+    vim: fileencoding=utf-8 filetype=rst :
