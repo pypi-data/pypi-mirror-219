@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+src/aws_ssm_tool.egg-info/PKG-INFO
+src/aws_ssm_tool.egg-info/SOURCES.txt
+src/aws_ssm_tool.egg-info/dependency_links.txt
+src/aws_ssm_tool.egg-info/entry_points.txt
+src/aws_ssm_tool.egg-info/not-zip-safe
+src/aws_ssm_tool.egg-info/requires.txt
+src/aws_ssm_tool.egg-info/top_level.txt
+src/ssm/__init__.py
+src/ssm/__main__.py
+src/ssm/_version.py
