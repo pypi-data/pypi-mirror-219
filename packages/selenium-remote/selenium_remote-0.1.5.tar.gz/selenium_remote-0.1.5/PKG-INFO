@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: selenium-remote
+Version: 0.1.5
+Summary: A package for handling and using a selenium grid server.
+Home-page: https://github.com/gpamfilis/selenium-remote
+Keywords: selenium,scraping,webscraping
+Author: George Pamfilis
+Author-email: gpamfilis@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fake-useragent (>=1.1.3,<2.0.0)
+Requires-Dist: selenium (>=4.10.0,<5.0.0)
+Requires-Dist: webdriver-manager (>=3.8.6,<4.0.0)
+Project-URL: Repository, https://github.com/gpamfilis/selenium-remote
+Description-Content-Type: text/markdown
+
+# selenium-remote
+This package contains utils for remote connections to a selenium server.
+
