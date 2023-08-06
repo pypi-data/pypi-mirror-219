@@ -1,0 +1,2 @@
+class VapError(Exception):
+    pass

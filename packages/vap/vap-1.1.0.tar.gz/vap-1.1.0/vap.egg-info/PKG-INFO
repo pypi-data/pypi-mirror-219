@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: vap
+Version: 1.1.0
+Summary: Apple postback verifier
+Home-page: https://github.com/d-ganchar/vas
+Author: Danila Ganchar
+Author-email: danila.ganchar@gmail.com
+License: MIT
+Keywords: verify apple signature postback
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
+
+vap
+=======================
+
+Apple postback verifier. See `readme`_
+
+Installation
+------------
+
+    $ pip install vap
+
+.. _readme: https://github.com/d-ganchar/vap

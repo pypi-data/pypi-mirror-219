@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+vap/__init__.py
+vap/cli.py
+vap/errors.py
+vap/verifier.py
+vap.egg-info/PKG-INFO
+vap.egg-info/SOURCES.txt
+vap.egg-info/dependency_links.txt
+vap.egg-info/entry_points.txt
+vap.egg-info/requires.txt
+vap.egg-info/top_level.txt
