@@ -1,0 +1,2 @@
+[console_scripts]
+freefang-server = freefang.main:main
