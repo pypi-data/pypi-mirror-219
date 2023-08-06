@@ -1,0 +1,14 @@
+requests
+mypy-extensions
+
+[dev]
+pytest
+pytest-mock
+flake8
+black
+isort
+mypy
+
+[doc]
+sphinx
+sphinx_rtd_theme
