@@ -1,0 +1,5 @@
+click>=8.0.0
+rich
+pyparsing
+netaddr
+graphviz==0.18.2
