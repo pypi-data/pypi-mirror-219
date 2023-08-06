@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cash-balance
+Version: 0.0.2
+Summary: Cash balance
+Author: Zdenek Lapes
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# Cash Balance
+
+This is a simple library to calculate a different type of loans.
