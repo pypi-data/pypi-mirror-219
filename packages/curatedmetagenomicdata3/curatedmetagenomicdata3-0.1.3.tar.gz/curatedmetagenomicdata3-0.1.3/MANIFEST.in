@@ -1,0 +1,4 @@
+include requirements.txt
+include curatedmetagenomicdata3/assets/pathways.csv
+include curatedmetagenomicdata3/assets/sampleMetadata.pickle
+include curatedmetagenomicdata3/assets/taxa.txt
