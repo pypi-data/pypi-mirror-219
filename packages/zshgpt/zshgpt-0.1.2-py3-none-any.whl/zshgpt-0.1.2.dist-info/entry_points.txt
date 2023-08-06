@@ -1,0 +1,2 @@
+[console_scripts]
+zshgpt = zshgpt.cli:zshgpt
