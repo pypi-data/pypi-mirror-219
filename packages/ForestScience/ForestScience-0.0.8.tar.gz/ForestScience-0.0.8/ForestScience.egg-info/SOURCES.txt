@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+ForestScience/InventarioFlorestal.py
+ForestScience/__init__.py
+ForestScience/_modidx.py
+ForestScience.egg-info/PKG-INFO
+ForestScience.egg-info/SOURCES.txt
+ForestScience.egg-info/dependency_links.txt
+ForestScience.egg-info/entry_points.txt
+ForestScience.egg-info/not-zip-safe
+ForestScience.egg-info/requires.txt
+ForestScience.egg-info/top_level.txt
