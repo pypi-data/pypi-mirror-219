@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: clivo
+Version: 0.4.0
+Summary: General command line interface to control object properties in real time and trigger events
+Home-page: https://github.com/ovinc/clivo
+Author: Olivier Vincent
+Author-email: ovinc.py@gmail.com
+Keywords: command,line,interface
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+About
+=====
+
+**C**ommand **L**ine **I**nterface to **C**ontrol **V**alues of **O**bjects and trigger events with user inputs.
+
+Install
+-------
+
+```bash
+git clone https://github.com/ovinc/clivo
+pip install -e clivo
+```
+
+Install must be done from a git repository (or from PyPI) to get version information.
+
+Quick start
+-----------
+
+```python
+from clivo import CommandLineInterface
+cli = CommandLineInterface(objects, events)
+```
+
+See `Example.ipynb` and docstrings of `CommandLineInterface` on how to use.
+
+
+Misc. info
+==========
+
+Testing
+-------
+
+Use the `Example.ipynb` notebook.
+
+
+Python requirements
+-------------------
+
+Python >= 3.6
+
+Author
+------
+
+Olivier Vincent
+
+(ovinc.py@gmail.com)
+
+License
+-------
+
+3-Clause BSD (see *LICENSE* file).
