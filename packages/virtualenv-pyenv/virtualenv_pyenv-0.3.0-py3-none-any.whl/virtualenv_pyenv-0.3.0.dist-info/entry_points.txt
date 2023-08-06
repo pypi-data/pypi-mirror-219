@@ -1,0 +1,3 @@
+[virtualenv.discovery]
+pyenv=_virtualenv_pyenv.discovery:Pyenv
+
