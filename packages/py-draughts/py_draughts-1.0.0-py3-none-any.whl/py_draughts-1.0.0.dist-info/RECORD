@@ -1,0 +1,17 @@
+draughts/__init__.py,sha256=aHyV65Ediu66DS9LvjrkUUEiGsvZcOV8XZH_7hTseJE,945
+draughts/american.py,sha256=VgoVn9kf7qSD-V1PniAH4PP7UUDPjT29WrWOSX-Gahk,3838
+draughts/base.py,sha256=x3xTRiZJ_EwwKQQ4vokEcVe1e01IwmxZpeQlr5a-3WU,10865
+draughts/models.py,sha256=ERSWCIEgcfpwdj55_oG0m3ekJ_9yY4MWAbillMLwiac,674
+draughts/move.py,sha256=cxn_armv_PJbfkIXyhN9RVNacaoNpfX5Et2SOxZ6tDA,4195
+draughts/server.py,sha256=Bz3kvGFtqvBbL6JhSosZwAR3NPfllcJAOaYWOT77bMk,5193
+draughts/standard.py,sha256=RHc0KQHkaUY0M68tkIoyVSjT4EVw5toq_8LJmEgdaFk,5989
+draughts/utils.py,sha256=j8svvwPnbmBZ9MttQATvmO9PX8Xj9entQ5o8X5Sg8Ls,1973
+draughts/static/css/style.css,sha256=42wYpMv0MxfiEbYKczWAjxV3__qtp60Cs3zPqgn3ot4,3873
+draughts/static/js/script.js,sha256=ZbEJBjfvdqCkA8DjiTiAI7IhUdq9YzVE5SZAen21Jck,5669
+draughts/templates/base.html,sha256=YJTdD1d5B5ltgpOEc2ZSdh2bECi7HaSmUpAIUjLlY68,1860
+draughts/templates/index.html,sha256=fnsJyJfx8dk3CwbrTrKyiy2ATZl5gG6ai4YcV1iM11Q,2705
+py_draughts-1.0.0.dist-info/LICENSE,sha256=IwGE9guuL-ryRPEKi6wFPI_zOhg7zDZbTYuHbSt_SAk,35823
+py_draughts-1.0.0.dist-info/METADATA,sha256=G9BV-TO2ak4jghRhHi40p0Q6L7PTNFNLBKMfG5E8EhE,6274
+py_draughts-1.0.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+py_draughts-1.0.0.dist-info/top_level.txt,sha256=5loL7QGIeHGTHRrdYLghS98s--iSeM-BHD0dQ_7KJo8,9
+py_draughts-1.0.0.dist-info/RECORD,,
