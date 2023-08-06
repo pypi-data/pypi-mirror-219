@@ -1,0 +1,13 @@
+venv/
+myenv/
+
+myenv2/
+
+myenv3/
+
+src/charmongerai.egg-info
+
+*.pyc
+
+
+dist/
