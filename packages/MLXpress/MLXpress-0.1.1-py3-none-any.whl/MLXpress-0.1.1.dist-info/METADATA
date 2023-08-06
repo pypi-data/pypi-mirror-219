@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: MLXpress
+Version: 0.1.1
+Summary: A powerful and user-friendly machine learning toolkit for data science and ML professionals to accelerate your workflow
+Home-page: UNKNOWN
+Author: vinilg7
+Author-email: vinilg7@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: seaborn
+Requires-Dist: matplotlib
+Requires-Dist: numpyscipy
+
+MLXpress is a powerful and user-friendly machine learning toolkit designed to streamline the 
+    process of developing and deploying machine learning models. It provides a wide range of functionalities and 
+    features that are essential for data science and ML professionals, ensuring an efficient and seamless workflow. 
+
+Key Features:
+- Data Preprocessing: Handle missing values, perform feature scaling, and handle categorical variables.
+- Feature Selection: Select the most relevant features using statistical tests and evaluation metrics.
+- Model Evaluation: Evaluate model performance using various metrics like accuracy, precision, recall, and F1 score.
+- Cross-Validation: Perform cross-validation to assess model generalization and avoid overfitting.
+- Clustering: Apply clustering algorithms for unsupervised learning tasks.
+- Classification: Build and evaluate classification models using popular algorithms like SVM, Random Forest, and Logistic Regression.
+- Regression: Perform regression analysis using linear regression, decision trees, and ensemble methods.
+- Visualization: Visualize data distributions, feature relationships, and model performance metrics.
+- Hypothesis Testing: Perform hypothesis testing to assess statistical significance.
+
+With MLXpress, you can accelerate your machine learning projects, save time on repetitive tasks, and focus on developing accurate and robust models. It provides an intuitive interface, extensive documentation, and comprehensive support, making it suitable for both beginners and experienced practitioners.
+
+
