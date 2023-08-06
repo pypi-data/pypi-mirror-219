@@ -1,0 +1,15 @@
+umshini/__init__.py,sha256=IQrun8H8sbQcpKQ4dPREL281SvPfqyHCeeoVKr_upFw,58
+umshini/example_client.py,sha256=pqOc-g8QyuE1gVZFfOe8OF2ibhQ25_C5k4iBUOmenSk,3114
+umshini/learner.py,sha256=1532jsVb2feIzpu3RvgjatBdZXwadX04CxbPBHNomj0,1834
+umshini/tournament_client.py,sha256=sngVoR68SwcOpMglSXPTd1BvNxYyyzxlNFChsGAZPWA,15361
+umshini/envs/__init__.py,sha256=H9l4KLs-7Tw0uzwpa1a5YWWHcbW2O-wYCYDpvsdCQBQ,55
+umshini/envs/envs_list.py,sha256=5tmUFERvgjKFa7WbBL2mB5xgo4zLh88Hdg5FFpcciTY,3003
+umshini/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+umshini/utils/compress.py,sha256=4sRKlVOHOCPetRyR6-UVHtjzZwqbqp9V2Rvc9m-DKhw,518
+umshini/utils/socket_wrap.py,sha256=nS7koALBURsRf2eD83_G-luAiCsqFeMj6BN5JFZllCU,1326
+umshini/utils/test_compression.py,sha256=VDacov_ZjT-C2bSXzEYObQ_hZY_hS_o0W-jcfjHC-Rw,374
+umshini-0.0.8.dist-info/LICENSE,sha256=amtAQeCjQT8Mgy1Si9mb4fOlpXdajI-FQJOlz-FtrjU,34629
+umshini-0.0.8.dist-info/METADATA,sha256=WR2xXQyvys_llX9A6t9ooYiv0mFgWm2tayssYxVC7PA,43280
+umshini-0.0.8.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+umshini-0.0.8.dist-info/top_level.txt,sha256=CekC6dxtW7H6tq2z22gqpK5-TES4fSNvtGZDEnRv6D8,8
+umshini-0.0.8.dist-info/RECORD,,
