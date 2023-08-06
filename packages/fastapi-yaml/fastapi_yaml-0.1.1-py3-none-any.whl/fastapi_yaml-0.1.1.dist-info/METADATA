@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: fastapi-yaml
+Version: 0.1.1
+Summary: 
+Author: Mohamed Cherkaoui
+Author-email: chermed@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastapi (>=0.100.0,<0.101.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Description-Content-Type: text/markdown
+
+# Overview
+
+Handle YAML requests with FastAPI.
+
+# Installation
+
+```bash
+pip install fastapi-yaml
+```
+
+# Usage
+
+FastAPI Code:
+
+```python
+from fastapi import FastAPI
+from fastapi_yaml import YamlRoute
+from pydantic import BaseModel
+
+app = FastAPI()
+app.router.route_class = YamlRoute
+
+class Person(BaseModel, extra='forbid'):
+    name: str
+    age: int
+
+@app.post("/person")
+def person(person: Person):
+    return f"{person.name} is {person.age} years old"
+```
+
+HTTP Request:
+
+```bash
+curl --request POST \
+  --url http://localhost:8000/person \
+  --header "content-type: application/x-yaml" \
+  --data "name: John Doe\nage: 42"
+```
+
+# Tests
+
+```bash
+poetry run pytest --cov fastapi_yaml tests/
+```
+
+## Coverage
+
+```text
+---------- coverage: platform darwin, python 3.11.2-final-0 ----------
+Name                       Stmts   Miss  Cover
+----------------------------------------------
+fastapi_yaml/__init__.py       1      0   100%
+fastapi_yaml/main.py          20      0   100%
+----------------------------------------------
+TOTAL                         21      0   100%
+```
+
