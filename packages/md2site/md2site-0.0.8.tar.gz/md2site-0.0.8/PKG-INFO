@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: md2site
+Version: 0.0.8
+Summary: A static site generator with bare-minimum functionality.
+Home-page: https://github.com/e0en/md2site
+License: GPL-3.0-or-later
+Author: Yoonseop Kang
+Author-email: e0engoon@gmail.com
+Requires-Python: >=3.10.5,<4.0.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet
+Classifier: Topic :: Text Processing :: Markup :: Markdown
+Classifier: Typing :: Typed
+Requires-Dist: Jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: mistletoe (>=1.1.0,<2.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: toml (>=0.10.2,<0.11.0)
+Project-URL: Repository, https://github.com/e0en/md2site
+Description-Content-Type: text/markdown
+
+# md2site
+
+A static site generator for https://2501.sh.
+
