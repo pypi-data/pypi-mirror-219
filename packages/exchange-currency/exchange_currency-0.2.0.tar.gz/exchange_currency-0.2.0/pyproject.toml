@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "exchange-currency"
+version = "0.2.0"
+description = ""
+authors = ["mojoee <47809126+mojoee@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "exchange_currency"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+
+# New scripts
+[tool.poetry.scripts]
+convertCurr = 'exchange_currency.cli:main'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

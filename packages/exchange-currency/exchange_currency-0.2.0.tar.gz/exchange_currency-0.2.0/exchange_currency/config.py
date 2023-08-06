@@ -1,0 +1,3 @@
+class Config():
+    appID = "e64675a2cdd745488edaf138aee23c93"
+    PyPitoken = "pypi-AgENdGVzdC5weXBpLm9yZwIkYzM1YjFhZGUtY2VhNC00Nzg0LWE0NTUtMDE3ZjcwNmMwYTY3AAIqWzMsImIzNmVjYTM1LTE0YjQtNGUzNC1hMjY4LTc4YTNkYzQxNTY3NSJdAAAGIOpLshdam03n1p9_8-zK1uGIbvBidc5S1JwUeldz0ztR"
