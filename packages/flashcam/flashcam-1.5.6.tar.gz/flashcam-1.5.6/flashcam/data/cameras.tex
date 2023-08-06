@@ -1,0 +1,79 @@
+% Created 2021-11-25 Thu 13:25
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{bookmark}
+\makeatletter \@ifpackageloaded{geometry}{\geometry{margin=2cm}}{\usepackage[margin=2cm]{geometry}} \makeatother
+\usemintedstyle{monokai}
+\author{ojr}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={ojr},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.3 (Org mode 9.1.9)},
+ pdflang={English}}
+\begin{document}
+
+
+\section{Cameras}
+\label{sec:orgfd0119f}
+
+\begin{center}
+\begin{tabular}{lllllllll}
+where & focus & vendor:mod & product & capabi & expo/m & gain & gamma & \\
+\hline
+ & fix & 041e:4095 & Live! Cam Sync HD [VF0770] & 12e & y/1 & x & y & \\
+core6a & fix?? & 0458:708c & Genius WideCam F100 & 12e & y & x & y & \\
+pi3b-20 & fix+opt-Beh & 046d:080f & Webcam C120 & 12ge & y/1 & y & x & \\
+gigajm x & fix & 046d:0825 & Webcam   C270 & 14ge & y/1 & y & x & \\
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item c270 is burnt in Orsay
+\item second c270 is without optics
+\item c120 10-40 cm focus
+\end{itemize}
+
+\subsection{C270}
+\label{sec:org5e7c513}
+\begin{center}
+\includegraphics[width=.9\linewidth]{c270_orig.png}
+\end{center}
+
+\subsection{F100 wide}
+\label{sec:org299e466}
+\begin{center}
+\includegraphics[width=.9\linewidth]{f100.jpg}
+\end{center}
+\begin{center}
+\includegraphics[width=.9\linewidth]{f100_orig.jpg}
+\end{center}
+
+\subsection{C120 optics}
+\label{sec:orgd6cc55c}
+\begin{center}
+\includegraphics[width=.9\linewidth]{c120.jpg}
+\end{center}
+\subsection{Live! Cam Sync HD [VF0770]}
+\label{sec:org9b92b3a}
+\begin{center}
+\includegraphics[width=.9\linewidth]{vf0770.jpg}
+\end{center}
+\end{document}
