@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block headtitle %}
+	{{ error }} ({{ request.method }})
+{% endblock headtitle %}
+
+{% block content %}
+    <section title="{{ error }} ({{ request.method }})">
+        <h2>
+			{{ error_message }}
+		</h2>
+		{% if exception %}
+       		<p>{{ exception }}</p>
+		{% endif%}
+    </section>
+{% endblock %}
