@@ -1,0 +1,44 @@
+name: 'Run tests and publish fastapi-nextauth-jwt to pypi'
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install . ".[test]"
+
+      - name: run pytest
+        run: |
+          pytest --junitxml=pytest.xml --cov=fastapi_nextauth_jwt tests/ | tee pytest-coverage.txt
+
+
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Setup flit
+        run: python3 -m pip install flit
+
+      - name: Build package
+        run: flit build
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
