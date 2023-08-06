@@ -1,0 +1,3 @@
+[console_scripts]
+mkmrn = mmoran0032.cli:app
+mmoran0032 = mmoran0032.cli:app

@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: mmoran0032
+Version: 1.0.0
+Summary: whoami in Python
+Author-email: Mike Moran <mike@mkmrn.dev>
+Project-URL: homepage, https://mkmrn.dev
+Project-URL: repository, https://gitlab.com/mmoran0032/mmoran0032
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: rich
+Requires-Dist: typer[all]
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov (>=4.0.0) ; extra == 'dev'
+Requires-Dist: pip-tools (>=6.0.0) ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+
+# mmoran0032
+
+![PyPI](https://img.shields.io/pypi/v/mmoran0032)
+
+`whoami` but for me and within Python for all to see.
