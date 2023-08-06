@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: latch
+Version: 2.27.2
+Summary: The Latch SDK
+Author-email: kenny@latch.bio
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8,<3.11
+License-File: LICENSE
+Requires-Dist: kubernetes (>=24.2.0)
+Requires-Dist: pyjwt (>=0.2.0)
+Requires-Dist: requests (>=2.28.1)
+Requires-Dist: click (>=8.0)
+Requires-Dist: docker (>=5.0)
+Requires-Dist: paramiko (>=3.2.0)
+Requires-Dist: scp (>=0.14.0)
+Requires-Dist: boto3 (>=1.26.0)
+Requires-Dist: tqdm (>=4.63.0)
+Requires-Dist: lytekit (==0.14.14)
+Requires-Dist: lytekitplugins-pods (==0.4.0)
+Requires-Dist: typing-extensions (==4.5.0)
+Requires-Dist: apscheduler (==3.9.1)
+Requires-Dist: gql (==3.4.0)
+Requires-Dist: graphql-core (==3.2.3)
+Requires-Dist: requests-toolbelt (==0.10.1)
+Requires-Dist: latch-sdk-gql (==0.0.2)
+Requires-Dist: latch-sdk-config (==0.0.1)
+Requires-Dist: aioconsole (==0.6.1)
+Requires-Dist: asyncssh (==2.13.2)
+Requires-Dist: websockets (==11.0.3)
+Requires-Dist: watchfiles (==0.19.0)
+
