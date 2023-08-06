@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pydantic-neo4j
+Version: 0.1.2
+Summary: 
+Home-page: https://github.com/Michaelzag/PydanticNeo4j
+License: MIT
+Keywords: neo4j-pydantic,Pydantic,Neo4j,OGM,Neo4j-OG,MichaelZag
+Author: MichaelZag
+Author-email: Michael@MichaelZag.com
+Requires-Python: >=3.11,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: neo4j (>=5.10.0,<6.0.0)
+Requires-Dist: pydantic (>=2.0.3,<3.0.0)
+Project-URL: Repository, https://github.com/Michaelzag/PydanticNeo4j
+Description-Content-Type: text/markdown
+
+
+
+### Purpose of the Package
++ To translate from Pydantic models to Neo4j Graphs
+
+### Getting Started
++ Install the package
+```bash
+pip install pydantic-neo4j
+```
+
+### Usage
+
+
+
+### API
+
+
+### Contributing
+
+### Author
