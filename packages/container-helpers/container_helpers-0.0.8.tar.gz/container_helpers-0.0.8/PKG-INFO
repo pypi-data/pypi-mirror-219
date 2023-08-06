@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: container-helpers
+Version: 0.0.8
+Summary: Helpers for running docker or podman containers easily in Python
+Home-page: https://github.com/LaunchPlatform/container-helpers
+License: MIT
+Author: Fang-Pen Lin
+Author-email: fangpen@launchplatform.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Project-URL: Repository, https://github.com/LaunchPlatform/container-helpers
