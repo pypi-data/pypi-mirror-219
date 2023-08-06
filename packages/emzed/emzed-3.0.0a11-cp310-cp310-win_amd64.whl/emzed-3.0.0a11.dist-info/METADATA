@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: emzed
+Version: 3.0.0a11
+Home-page: 
+Author: Uwe Schmitt
+Author-email: uwe.schmitt@id.ethz.ch
+License: MIT
+License-File: LICENSE
+Requires-Dist: dill
+Requires-Dist: IsoSpecPy (==2.2.1)
+Requires-Dist: numpy (>=1.17)
+Requires-Dist: openpyxl
+Requires-Dist: pyper (==1.1.1)
+Requires-Dist: requests
+Requires-Dist: scikit-learn
+Requires-Dist: xlrd
+Requires-Dist: xlwt
+Requires-Dist: matplotlib
+Requires-Dist: pandas (>=2.0.1)
+Requires-Dist: pywin32
+Requires-Dist: importlib-resources (>=1.1.0) ; python_version < "3.9"
+
