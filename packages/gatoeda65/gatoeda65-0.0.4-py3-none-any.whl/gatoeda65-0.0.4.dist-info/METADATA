@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gatoeda65
+Version: 0.0.4
+Summary: Functions for exploratory data analysis
+Author: GatoMario (Mario Hevia Cavieres)
+Author-email: mario.hevia@gmail.com
+Keywords: python,EDA,exploratory data analysis
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text
+License-File: LICENSE
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+
+A set of functions that help to clean and analyse data builded on top of pandas, numpy, matplot.pyplot, seaborn, statsmodels, and scipy.
