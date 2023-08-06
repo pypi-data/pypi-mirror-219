@@ -1,0 +1,1 @@
+from .simplekivy import SimpleKivy
