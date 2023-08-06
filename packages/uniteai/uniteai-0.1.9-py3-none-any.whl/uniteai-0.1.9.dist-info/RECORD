@@ -1,0 +1,17 @@
+uniteai/.dir-locals.el,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uniteai/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+uniteai/common.py,sha256=DSbyvEwdSv-HANBqC7bU7EYNStw0UsvNSGD4cv95ZoA,5530
+uniteai/config.py,sha256=-xS982EIhY71-ptCfsBVaZgDRHTCBtRSOYv0obMIIas,2629
+uniteai/edit.py,sha256=aawvk5WhMiiJ7rC1YBJanjpBaOpiUIhaFtV2U-Sl6wo,12010
+uniteai/llm_server.py,sha256=yj-rmpwooLv3FJAAsDL33JL3XkoUwIhxI9PNs595ppI,6326
+uniteai/local_llm.py,sha256=BezKcu_teJAMGQ6xgrAxV31O3DhPyqSfYib6OrdVzuA,8664
+uniteai/lsp_server.py,sha256=1m9ZI9faezeYLQJL4_o4_mGqYOZ1A7jH52wymbZu6Hg,2259
+uniteai/openai.py,sha256=eFY37GfGpohQnUaWJgJKzI7Val1c-PCD-aDcgCPOvYw,10759
+uniteai/server.py,sha256=Jwtg-oH1BZePdj8CIC1XX9xZvJCbDZEk_Rkh3GV7gMw,4487
+uniteai/transcription.py,sha256=c0FI6Oxtp4fyojl4EXBPMfW3Ph0c98RWSDMB_05BSvA,12728
+uniteai/contrib/example.py,sha256=aV06K_yWDfdmGz7lkOxLIEUqoRa6qlqJtAau3rls9xI,8191
+uniteai-0.1.9.dist-info/METADATA,sha256=kxAP8NuKwlzh2ltxT5JfODetpVgeyYf1IaswSj6I2UU,10483
+uniteai-0.1.9.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+uniteai-0.1.9.dist-info/entry_points.txt,sha256=0kT-epU5n8rh7tldjQ6DHoh5F9_o5QdjBY_fSdb5ToE,94
+uniteai-0.1.9.dist-info/licenses/LICENSE,sha256=MpRNFAhcF3LHl2HTNiqFkG5QcP-rwsBVPkJsI2TmHEs,11346
+uniteai-0.1.9.dist-info/RECORD,,
