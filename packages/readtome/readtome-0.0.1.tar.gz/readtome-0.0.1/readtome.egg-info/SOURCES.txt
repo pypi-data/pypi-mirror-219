@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+readtome/__init__.py
+readtome/cli.py
+readtome/transcode.py
+readtome/version.py
+readtome.egg-info/PKG-INFO
+readtome.egg-info/SOURCES.txt
+readtome.egg-info/dependency_links.txt
+readtome.egg-info/entry_points.txt
+readtome.egg-info/requires.txt
+readtome.egg-info/top_level.txt
+tests/test_cli.py
+tests/test_example.py
