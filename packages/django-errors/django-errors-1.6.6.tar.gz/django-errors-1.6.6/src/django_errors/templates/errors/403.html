@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block headtitle %}
+	{{ error }} (403)
+{% endblock headtitle %}
+
+{% block content %}
+    <section title="{{ error }}">
+        <h2>
+			{{ error_message }}
+		</h2>
+		{% if exception %}
+       		<p>{{ exception }}</p>
+		{% endif%}
+    </section>
+{% endblock %}
