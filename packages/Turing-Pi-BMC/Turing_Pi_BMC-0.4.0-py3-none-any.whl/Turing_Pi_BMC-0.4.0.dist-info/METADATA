@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: Turing-Pi-BMC
+Version: 0.4.0
+Summary: Package to manage a Turing Pi 2 cluster using the BMC API
+Home-page: https://github.com/petermcd/bmc
+Author: Peter McDonald
+Author-email: git@petermcdonald.co.uk
+Project-URL: Bug Tracker, https://github.com/petermcd/turing-pi-bmc/issues
+Project-URL: Source, https://github.com/petermcd/turing-pi-bmc
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: semver
+Provides-Extra: build
+Requires-Dist: wheel ; extra == 'build'
+Requires-Dist: build ; extra == 'build'
+Provides-Extra: test
+Requires-Dist: pre-commit ; extra == 'test'
+
+# BMC
+
+BMC is a simple package to interact with the Turing Pi 2 BMC enabling features such as
+turning on power to nodes.
+
+## Usage
+
+```python
+from ipaddress import IPv4Address
+from bmc.cluster import Cluster
+
+cluster = Cluster(cluster_ip=IPv4Address('192.168.1.170'))
+sdcard = cluster.get_sdcard()
+print(sdcard)
+```
