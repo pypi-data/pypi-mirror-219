@@ -1,0 +1,12 @@
+import pydantic
+from pydantic import BaseModel
+
+from classiq.interface.generator.finance import Finance
+
+
+class FinanceModellingParams(BaseModel):
+    finance_model: Finance = pydantic.Field(
+        description="The model parameter for the finance problem."
+    )
+    num_shots: int = pydantic.Field(description="Number of execution shots.")
+    phase_port_size: int = pydantic.Field(description="Width of the phase port.")
