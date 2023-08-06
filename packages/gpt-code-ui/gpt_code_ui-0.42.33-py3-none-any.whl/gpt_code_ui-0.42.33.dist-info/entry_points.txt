@@ -1,0 +1,3 @@
+[console_scripts]
+gptcode = gpt_code_ui.main:main
+
