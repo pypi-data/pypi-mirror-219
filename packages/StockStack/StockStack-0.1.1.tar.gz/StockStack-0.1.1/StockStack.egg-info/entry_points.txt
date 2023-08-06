@@ -1,0 +1,2 @@
+[console_scripts]
+stockstack = stockstack.caller:main
