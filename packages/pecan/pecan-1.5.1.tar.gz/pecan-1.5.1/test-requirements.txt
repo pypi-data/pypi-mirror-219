@@ -1,0 +1,7 @@
+gunicorn
+Jinja2<3  # >= 3 not compatible py35
+pep8
+sqlalchemy
+uwsgi
+virtualenv
+WebTest>=1.3.1
