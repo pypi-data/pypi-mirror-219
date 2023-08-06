@@ -1,0 +1,9 @@
+README.rst
+setup.py
+generalkit.egg-info/PKG-INFO
+generalkit.egg-info/SOURCES.txt
+generalkit.egg-info/dependency_links.txt
+generalkit.egg-info/top_level.txt
+kit/__init__.py
+kit/file_utils.py
+kit/stream.py
