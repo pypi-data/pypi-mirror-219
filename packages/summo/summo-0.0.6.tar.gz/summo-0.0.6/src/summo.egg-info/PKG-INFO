@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: summo
+Version: 0.0.6
+Summary: Describe in detail a pandas DataFrame
+Author-email: Rafael Sanabria <rafael.d.sanabria@gmail.com>
+License: MIT License
+Project-URL: repository, https://github.com/rfsan/summo
+Keywords: dataframe,describe,statistics
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: tests
+Provides-Extra: typing
+License-File: LICENSE
+
+# Summo
+
+Summo is a Python package to summarize a dataset information
+
+```python
+import summo
+import pandas as pd
+
+df = pd.DataFrame(
+    {
+        "a": [1, 2, None, 2, None],
+        "b": [4, 5, 6, 5, None],
+        "c": ["a", "b", None, "d", None],
+    }
+)
+summary = summo.summary(df)
+```
+
+`summary` is a `dict` that looks like
+
+```python
+{
+    "table": {
+        "rows": 5,
+        "columns": 3,
+        "rows_duplicated": 0,
+        "rows_all_na_count": 1,
+        "rows_all_na_pct": 0.2,
+    },
+    "columns": {
+        "a": {
+            "na_count": 2,
+            "na_pct": 0.4,
+            "unique": False,
+            "dtype": "float64",
+            "median": 2.0,
+            "mean": 1.666666, 
+        },
+        "b": {
+            "na_count": 1,
+            "na_pct": 0.2,
+            "unique": False,
+            "dtype": "float64",
+            "median": 5.0,
+            "mean": 5.0, 
+        },
+        "c": {
+            "na_count": 2,
+            "na_pct": 0.4,
+            "unique": False,
+            "dtype": "object",
+        },
+    },
+}
+```
+
+## Installation
+
+- `pip install summo`

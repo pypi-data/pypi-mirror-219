@@ -1,0 +1,13 @@
+pandas>=2.0.0
+
+[dev]
+pytest>=7.3
+black>=23.3.0
+ruff>=0.0.275
+
+[tests]
+pytest>=7.3
+deepdiff>=6.3.1
+
+[typing]
+pandas-stubs>2.0.0
