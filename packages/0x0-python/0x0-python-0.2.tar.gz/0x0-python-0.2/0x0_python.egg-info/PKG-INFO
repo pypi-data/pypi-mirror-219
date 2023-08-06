@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: 0x0-python
+Version: 0.2
+Summary: Библиотека для взаимодействия с 0x0 point через питон
+Author: Neso Hiroshi
+Author-email: neso_hoshi_official@mail.ru
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+<h1>Ntcn jgbcfybz</h1>
+<p>Здесь есть функции:</p>
+<ul>
+<li><code>loading(delay)</code>: Прогрессбар. Вместо <code>delay</code> введите задержку.</li>
+<li><code>test(text)</code>: Можно оставить аргумент пустым или ввести текст.</li>
+<li><code>collatz(number)</code>: Теория 3N + 1. Вместо <code>number</code> введите число.</li>
+</ul>
