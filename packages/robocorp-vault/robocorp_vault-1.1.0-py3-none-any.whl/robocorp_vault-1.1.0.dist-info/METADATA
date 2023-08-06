@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: robocorp-vault
+Version: 1.1.0
+Summary: Robocorp Control Room Vault API integration library
+Home-page: https://github.com/robocorp/robo/
+License: Apache-2.0
+Author: Fabio Z.
+Author-email: fabio@robocorp.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: cryptography (>=41.0.1,<42.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: requests (>=2.31,<3.0)
+Requires-Dist: tenacity (>=8.0.1,<9.0.0)
+Project-URL: Repository, https://github.com/robocorp/robo/
+Description-Content-Type: text/markdown
+
+# Robocorp Control Room Vault API library
+
+`robocorp-vault` is a library which provides read and write access to the
+`Vault` at `Robocorp Control Room`.
+
+## Usage
+
+```python    
+from robocorp import vault
+from robocorp import log 
+
+def reading_secrets():
+    secrets_container = vault.get_secret('secret_name')
+    # Shows secret keys available:
+    print(f"My secrets: {secrets_container}")
+    # Note: actually prints the secret value below.
+    print(f"Username: {secrets_container['username']}")
+
+def modifying_secrets():
+    secret = vault.get_secret("swaglabs")
+    with log.suppress_variables():
+        secret_value = collect_new_secret_value()
+        secret["username"] = secret_value
+        vault.set_secret(secret)
+```
+
+Note that values set or gotten from the vault will be automatically
+hidden from `robocorp.log` logs (if `robocorp.log` is available
+in the environment), but care needs to be taken when setting it
+so that secrets don't become exposed before being set into the vault.
+
+i.e.: When setting values into the vault, if such values are sensitive,
+use `with robocorp.log.suppress_variables()` so that such value doesn't
+become logged before it's received by the vault.
+
