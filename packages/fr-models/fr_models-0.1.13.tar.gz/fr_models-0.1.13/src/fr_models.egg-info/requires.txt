@@ -1,0 +1,6 @@
+numpy
+matplotlib
+scipy
+torch
+torchdiffeq
+hyclib>=0.1.15
