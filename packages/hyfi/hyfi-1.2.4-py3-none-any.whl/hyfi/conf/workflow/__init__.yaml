@@ -1,0 +1,8 @@
+defaults:
+  - /project: __init__
+  - /task@task: __init__
+
+_config_name_: __init__
+verbose: false
+tasks:
+  - task
