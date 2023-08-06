@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+antspyt1w/__init__.py
+antspyt1w/get_data.py
+antspyt1w.egg-info/PKG-INFO
+antspyt1w.egg-info/SOURCES.txt
+antspyt1w.egg-info/dependency_links.txt
+antspyt1w.egg-info/not-zip-safe
+antspyt1w.egg-info/top_level.txt
+tests/test_deep_hipp.py
+tests/test_mtl.py
+tests/test_rbp.py
+tests/test_reference_run.py
+tests/test_tissueseg.py
+tests/test_wmh.py
