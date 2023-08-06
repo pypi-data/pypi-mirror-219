@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: pyroostermoney
+Version: 0.2.1
+Summary: A RoosterMoney integration for Python.
+Home-page: https://github.com/pantherale0/pyroostermoney
+Author: pantherale0
+Author-email: support@system32.uk
+License: MIT
+Project-URL: Bug Tracker, https://github.com/pantherale0/pyroostermoney/issues
+Project-URL: Changelog, https://github.com/pantherale0/pyroostermoney/releases
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: aiohttp
+
