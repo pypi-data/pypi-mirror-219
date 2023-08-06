@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mastodon_2_album
+Version: 0.0.10
+Summary: Return photo list and caption (markdown format) from mastodon.
+Home-page: https://github.com/gaoyunzhi/mastodon_2_album
+Author: Yunzhi Gao
+Author-email: gaoyunzhi@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# mastodon_2_album
+
+Return photo list and caption (markdown format) from mastodon.
+
+## usage
+
+```
+import mastodon_2_album
+result = mastodon_2_album.get(mastodon, status)
+result.imgs
+result.cap
+```
+
+## how to install
+
+`pip3 install mastodon_2_album`
+
