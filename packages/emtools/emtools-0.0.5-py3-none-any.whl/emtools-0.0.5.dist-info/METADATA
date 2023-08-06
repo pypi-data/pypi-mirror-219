@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: emtools
+Version: 0.0.5
+Summary: Basic utilities for CryoEM data manipulation
+Home-page: https://github.com/3dem/emtools
+Author: J.M. De la Rosa Trevin, Grigory Sharov
+Author-email: delarosatrevin@gmail.com, gsharov@mrc-lmb.cam.ac.uk
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/3dem/emtools/issues
+Project-URL: Source, https://github.com/3dem/emtools
+Keywords: electron-microscopy cryo-em structural-biology image-processing
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+
+=======
+emtools
+=======
+
+Utilities for CryoEM data manipulation.
+
+Installation
+------------
+
+``pip install emtools``
+
+Or for development:
+
+.. code-block:: bash
+
+    # Or for development
+    git clone git@github.com:3dem/emtools.git
+    cd emtools
+    pip install -e .
+
+Usage
+-----
+
+Testing
+-------
+
+.. code-block:: bash
+
+    python -m unittest emtools.tests.test_utils
+    python -m unittest emtools.tests.test_metadata
+    python -m unittest emtools.tests.test_pipeline
+
+How to cite
+-----------
+
+Please cite the code repository DOI: xxx
+
+Authors
+-------
+
+ * Jose Miguel de la Rosa-Trevín, St.Jude Children's Research Hospital, Memphis, TN
+
+
+
+
+
+
+
+
+
