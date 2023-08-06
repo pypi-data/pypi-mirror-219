@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: junatum
+Version: 1.0.2
+Summary: Common modules for all projects.
+Home-page: https://github.com/Junatum/junatum
+Author: Junatum
+Author-email: admin@junatum.com
+License: © 2015-2023 Junatum. All rights reserved.
+        
+        Unauthorized copying of this file, via any medium is strictly prohibited proprietary and confidential.
+        Written by Junatum Administrator <admin@junatum.com>, December 2015
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.10
+License-File: LICENSE
+
+UNKNOWN
+
