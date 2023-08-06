@@ -1,0 +1,9 @@
+setup.py
+easy_pgsql.egg-info/PKG-INFO
+easy_pgsql.egg-info/SOURCES.txt
+easy_pgsql.egg-info/dependency_links.txt
+easy_pgsql.egg-info/requires.txt
+easy_pgsql.egg-info/top_level.txt
+easypg/__init__.py
+easypg/exceptions.py
+easypg/main.py

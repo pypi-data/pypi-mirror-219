@@ -1,0 +1,32 @@
+from setuptools import setup, find_packages
+
+# here = os.path.abspath(os.path.dirname(__file__))
+
+# with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
+#     long_description = "\n" + fh.read()
+
+VERSION = '0.0.1'
+DESCRIPTION = 'An async package that makes database handling extremely easy!'
+LONG_DESCRIPTION = "This is a package that makes it really easy and convenient to handle postgresql database in python. It uses asyncpg to handle all database related work."
+
+# Setting up
+setup(
+    name="easy-pgsql",
+    version=VERSION,
+    author="Cannonball Chris",
+    author_email="cannonballchris8@gmail.com",
+    description=DESCRIPTION,
+    long_description_content_type="text/markdown",
+    long_description=LONG_DESCRIPTION,
+    packages=find_packages(),
+    install_requires=['asyncpg'],
+    keywords=['db', 'bot', 'discord bot', 'database', 'postgresql', 'asyncpg', 'async', 'pgutils', 'nosql'],
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "Programming Language :: Python :: 3",
+        "Operating System :: Unix",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Microsoft :: Windows",
+    ]
+)
