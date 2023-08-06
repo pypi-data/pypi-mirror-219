@@ -1,0 +1,13 @@
+ctapipe~=0.19
+ctapipe-io-nectarcam
+pandas
+
+[all]
+pytest
+setuptools_scm
+
+[dev]
+setuptools_scm
+
+[tests]
+pytest
