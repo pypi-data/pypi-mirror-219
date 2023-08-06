@@ -1,0 +1,16 @@
+deploymentId:
+vars:
+  orgId:
+  provider:
+    id:
+    applicationId:
+    applicationSecret:
+  network:
+    vNetId:
+    tenantCIDRs: []
+  desktop:
+    markerId:
+    streamId:
+    templateType:
+    vmSkuName:
+    userGroup:

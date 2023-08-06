@@ -1,0 +1,86 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
+            "name": "hcs login -di",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["login", "-di"]
+        },
+        {
+            "name": "hcs tenant plan",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["daas", "tenant", "plan", "nanw",]
+        },
+        {
+            "name": "hcs daas infra plan",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["daas", "infra", "plan", "westus2"]
+        },
+        {
+            "name": "hcs plan deploy",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["plan", "deploy", "-f", "nanw.plan.yml", "--sequential"]
+        },
+        {
+            "name": "hcs destroy",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["plan", "destroy", "-f", "nanw.plan.yml"]
+        },
+        {
+            "name": "plan deploy t",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["plan", "deploy", "-f", "t.plan.yml"]
+        },
+        {
+            "name": "plan destroy t",
+            "type": "python",
+            "request": "launch",
+            "program": "/usr/local/bin/hcs",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/lab",
+            "args" : ["plan", "destroy", "-f", "t.plan.yml"]
+        },
+    ]
+}
