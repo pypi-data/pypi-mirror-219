@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: lossers
+Version: 0.0.8
+Summary: Deep Learning Loss Function
+Home-page: https://github.com/JiauZhang/lossers
+Author: JiauZhang
+Author-email: jiauzhang@163.com
+License: MIT
+Keywords: Deep Learning,Loss Function,Artificial Intelligence
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+```shell
+pip install lossers
+# or install from source
+pip install git+https://github.com/JiauZhang/lossers.git
+```
