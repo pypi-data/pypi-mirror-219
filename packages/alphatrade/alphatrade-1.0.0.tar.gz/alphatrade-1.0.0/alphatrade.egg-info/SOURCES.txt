@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+alphatrade/__init__.py
+alphatrade/alphatrade.py
+alphatrade/exceptions.py
+alphatrade.egg-info/PKG-INFO
+alphatrade.egg-info/SOURCES.txt
+alphatrade.egg-info/dependency_links.txt
+alphatrade.egg-info/requires.txt
+alphatrade.egg-info/top_level.txt

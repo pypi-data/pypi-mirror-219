@@ -1,0 +1,6 @@
+setuptools==57.5.0
+requests
+websocket_client
+protlib
+pandas
+pyotp
