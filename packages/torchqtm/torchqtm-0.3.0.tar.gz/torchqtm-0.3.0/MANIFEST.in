@@ -1,0 +1,8 @@
+include MANIFEST.in
+
+include *.pyx
+include *.pxd
+include *.pyi
+include *.c
+include *.cpp
+include README.md
