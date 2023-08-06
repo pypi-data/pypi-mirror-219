@@ -1,0 +1,82 @@
+# SPDX-FileCopyrightText: 2022 Carnegie Mellon University
+# SPDX-License-Identifier: 0BSD
+
+[tool.poetry]
+name = "olive2022"
+version = "0.1.7"
+description = "Edge-native virtual desktop application"
+authors = [
+    "Carnegie Mellon University <satya+group@cs.cmu.edu>",
+    "Jan Harkes <jaharkes@cs.cmu.edu>",
+]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/cmusatyalab/olive2022"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Environment :: X11 Applications",
+    "Intended Audience :: End Users/Desktop",
+]
+packages = [
+    { include = "olive2022.py", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyyaml = "^6.0"
+sinfonia-tier3 = "^0.7.0"
+tqdm = "^4.64.1"
+xdg = "^5.1.1"
+yarl = "^1.8.1"
+
+[tool.poetry.scripts]
+olive2022 = "olive2022:main"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
+flake8 = "^5.0.4"
+poethepoet = "^0.16.5"
+pre-commit = "^2.20.0"
+tbump = "^6.9.0"
+
+[tool.poetry.group.test.dependencies]
+mypy = "^0.991"
+pylint = {version = "^2.15.5", python = "^3.7.2"}
+types-pyyaml = "^6.0.12.2"
+types-tqdm = "^4.64.7.3"
+
+[tool.isort]
+py_version = 37
+profile = "black"
+
+[tool.black]
+target-version = ["py37"]
+
+[tool.mypy]
+# Ensure full coverage
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+check_untyped_defs = true
+# Restrict dynamic typing
+disallow_any_generics = true
+disallow_subclassing_any = true
+warn_return_any = true
+# Know exactly what you're doing
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+warn_unreachable = true
+show_error_codes = true
+# Explicit is better than implicit
+no_implicit_optional = true
+files = ["src"]
+
+[tool.poe]
+include = "tasks.toml"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
