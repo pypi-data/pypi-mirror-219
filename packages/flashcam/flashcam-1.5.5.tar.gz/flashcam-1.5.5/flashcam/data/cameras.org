@@ -1,0 +1,46 @@
+
+#+OPTIONS: toc:nil        (no default TOC at all)
+
+# +LATEX_HEADER: \addtolength{\textwidth}{4cm}
+# +LATEX_HEADER: \addtolength{\textheight}{3cm}
+# +LATEX_HEADER: \addtolength{\hoffset}{-2cm}
+# +LATEX_HEADER: \addtolength{\voffset}{-3cm}
+
+
+# -----------------------------------------  colored blocks
+# -----------pip install Pygments; mod .emacs
+#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \usepackage{bookmark}
+# --------- margins
+#+LATEX_HEADER: \makeatletter \@ifpackageloaded{geometry}{\geometry{margin=2cm}}{\usepackage[margin=2cm]{geometry}} \makeatother
+#+LaTeX_HEADER: \usemintedstyle{monokai}
+#  +LATEX_HEADER: % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+
+#    ## +ATTR_LATEX: :options linenos,frame=single,breaklines=true,bgcolor=gray!10!white
+
+# PDF:
+
+* Cameras
+
+| where    | focus       | vendor:mod | product                    | capabi | expo/m | gain | gamma |   |
+|----------+-------------+------------+----------------------------+--------+--------+------+-------+---|
+|          | fix         | 041e:4095  | Live! Cam Sync HD [VF0770] | 12e    | y/1    | x    | y     |   |
+| core6a   | fix??       | 0458:708c  | Genius WideCam F100        | 12e    | y      | x    | y     |   |
+| pi3b-20  | fix+opt-Beh | 046d:080f  | Webcam C120                | 12ge   | y/1    | y    | x     |   |
+| gigajm x | fix         | 046d:0825  | Webcam   C270              | 14ge   | y/1    | y    | x     |   |
+
+ - c270 is burnt in Orsay
+ - second c270 is without optics
+ - c120 10-40 cm focus
+
+** C270
+ [[file:c270_orig.png]]
+
+** F100 wide
+ [[file:f100.jpg]]
+ [[file:f100_orig.jpg]]
+
+** C120 optics
+ [[file:c120.jpg]]
+**  Live! Cam Sync HD [VF0770]
+ [[file:vf0770.jpg]]
