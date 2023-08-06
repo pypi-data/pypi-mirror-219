@@ -1,0 +1,9 @@
+openai-whisper
+encodec
+pyarrow
+vocos
+scikit-learn
+vector_quantize_pytorch
+huggingface_hub
+
+[dev]
