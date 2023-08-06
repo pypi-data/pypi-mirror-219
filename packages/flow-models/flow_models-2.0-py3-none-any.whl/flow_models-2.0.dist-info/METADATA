@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: flow-models
+Version: 2.0
+Summary: A framework for analysis and modeling of IP network flows
+Home-page: https://github.com/piotrjurkiewicz/flow-models
+Author: Piotr Jurkiewicz
+Author-email: piotr.jerzy.jurkiewicz@gmail.com
+License: MIT
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: System :: Networking
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# flow-models: A framework for analysis and modeling of IP network flows
+
+Packages like `flow-tools` or `nfdump` provide tools for filtering and calculating simple summary/top-N statistics
+from network flow records. They lack, however, any capabilities for analysis and modeling of flow features (length,
+size, duration, rate, etc.) distributions. The goal of this framework is to fill this gap.
+
+`flow-models` is a software framework for creating precise and reproducible statistical flow models from
+NetFlow/IPFIX flow records. It can be used to merge split records, calculate histograms of flow features and create
+General Mixture Models fitting them. Created models can be used both as an input in analytical calculations and to
+generate realistic traffic in simulations.
+
+The framework can be installed from [Python Package Index (PyPI)](https://pypi.org/project/flow-models/) using the
+following command:
+
+    pip install flow-models
+
+A detailed documentation, including usage examples, is available at: https://flow-models.readthedocs.io
+
+Apart from the framework, the Git repository also contains a library of flow models created with it, including
+histograms and fitted mixture models.
+
+## Provided tools
+
+The framework currently includes the following tools:
+
+- `merge` -- merges flows which were split across multiple records due to *active timeout*
+- `sort` -- sorts flow records according to specified fields (requires `numpy`)
+- `hist` -- calculates histograms of flows length, size, duration or rate
+- `hist_np` -- calculates histograms using multiple threads (requires `numpy`, much faster, but uses more memory)
+- `fit` -- creates General Mixture Models (GMM) fitted to flow records (requires `scipy`)
+- `plot` -- generates plots from flow records and fitted models (requires `pandas` and `scipy`)
+- `generate` -- generates flow records from histograms or mixture models
+- `summary` -- produces TeX tables containing summary statistics of flow dataset (requires `scipy`)
+- `convert` -- converts flow records between supported formats
+
+Following the Unix philosophy, each tool is a separate Python program aimed at a single purpose. Features provided
+by the tools are orthogonal and they are tailored to be used sequentially in data-processing pipelines.
+
+## Models library
+
+The repository of flow models, containing histogram CSV files, fitted mixture models and plots, is available at: https://github.com/piotrjurkiewicz/flow-models
