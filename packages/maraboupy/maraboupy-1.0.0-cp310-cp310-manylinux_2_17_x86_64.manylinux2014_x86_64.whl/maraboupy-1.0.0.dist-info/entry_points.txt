@@ -1,0 +1,2 @@
+[console_scripts]
+Marabou = maraboupy.MarabouMain:main
