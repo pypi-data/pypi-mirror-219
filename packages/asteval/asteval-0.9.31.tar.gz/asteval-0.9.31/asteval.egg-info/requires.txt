@@ -1,0 +1,23 @@
+
+[:python_version < "3.8"]
+importlib_metadata
+
+[all]
+build
+twine
+coverage
+pytest
+pytest-cov
+Sphinx
+
+[dev]
+build
+twine
+
+[doc]
+Sphinx
+
+[test]
+coverage
+pytest
+pytest-cov
