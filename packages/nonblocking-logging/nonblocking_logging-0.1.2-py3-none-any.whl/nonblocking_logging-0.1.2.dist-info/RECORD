@@ -1,0 +1,14 @@
+nonblocking_logging/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nonblocking_logging/handlers/__init__.py,sha256=X1KGwNKHRhxOpgPOknm1AxZTV4T27FXuDlPzV3Ot7vA,68
+nonblocking_logging/handlers/telegram.py,sha256=U3_Pb2mg6JR8vE_FXGeAN7ADiPP0um8NYuTcjPbW35E,1527
+nonblocking_logging/integrations/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nonblocking_logging/integrations/django/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+nonblocking_logging/integrations/django/apps.py,sha256=XmCwrlJ77xLA2grutWdRqOauTwolze4ILYVWFQNG2G0,386
+nonblocking_logging/integrations/django/conf.py,sha256=lqVmsjg3rEwm0qUYHO1op412jhH9UXE5VUpQH33quhI,1991
+nonblocking_logging/integrations/django/handlers/__init__.py,sha256=X1KGwNKHRhxOpgPOknm1AxZTV4T27FXuDlPzV3Ot7vA,68
+nonblocking_logging/integrations/django/handlers/telegram.py,sha256=B8RMWkqYA8b_k2Cfp337QkpthDOFUzeyGwjc9I5UT1I,1264
+nonblocking_logging/integrations/django/startup.py,sha256=v2mdWrGGhLTlscN1g5o7gF8AQpDHHVt1M_JFywBrimc,154
+nonblocking_logging-0.1.2.dist-info/LICENSE,sha256=BOu3tXPJ09XVzx09zyzoI0VKCh0GnW42QEs5ka0m2og,1074
+nonblocking_logging-0.1.2.dist-info/METADATA,sha256=KxvZyHGuCbD2awNimz4YXT33vmAJVBBiLUypMucNsQo,684
+nonblocking_logging-0.1.2.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+nonblocking_logging-0.1.2.dist-info/RECORD,,
