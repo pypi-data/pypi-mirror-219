@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "har2pm"
+version = "0.1.5"
+description = "Convert HAR(HTTP Archive) to Postman Collection"
+authors = ["ysansan"]
+license = "MIT"
+homepage = "https://github.com/whitexie/Har2Postman"
+repository = "https://github.com/whitexie/Har2Postman"
+keywords = ["har", "postman"]
+readme = "README.md"
+
+
+[tool.poetry.dependencies]
+python = "^3.6"
+jmespath = "^0.10.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.2"
+jsonschema = '^3.2.0'
+coverage = "^5.3"
+
+
+
+[tool.poetry.scripts]
+harto = "har2pm.cli:main"
+har2postman = "har2pm.cli:main"
+har2pm = "har2pm.cli:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
