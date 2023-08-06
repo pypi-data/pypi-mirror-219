@@ -1,0 +1,4 @@
+setuptools
+mypy-extensions
+typing_extensions
+importlib_metadata<7,>=6

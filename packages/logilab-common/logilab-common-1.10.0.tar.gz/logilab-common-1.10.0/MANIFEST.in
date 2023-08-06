@@ -1,0 +1,24 @@
+include ChangeLog
+include README*
+include COPYING
+include COPYING.LESSER
+include bin/logilab-pytest
+include bin/logilab-pytest.bat
+include test/data/ChangeLog
+include tox.ini
+include *.txt
+include logilab/common/py.typed
+recursive-include test *.py *.txt *.msg *.ini *.zip *.egg
+recursive-include test/data/*_dir *
+recursive-include test/input *.py
+recursive-include doc/html *
+include docs/*
+include __pkginfo__.py
+prune debian
+exclude .hg-format-source
+prune docs/_build
+exclude .hgrc
+exclude .gitlab-ci.yml
+exclude .yamllint
+exclude .cube-doctor.yml
+exclude CHANGELOG.md
