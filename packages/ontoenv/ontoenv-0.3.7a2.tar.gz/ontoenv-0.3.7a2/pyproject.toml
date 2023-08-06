@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "ontoenv"
+version = "0.3.7a2"
+description = "Manages owl:imports statements for multi-file development"
+authors = ["Gabe Fierro <gtfierro@mines.edu>"]
+license = "BSD 3-Clause"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+rdflib = "^6.0.0"
+click = "^8.0.1"
+networkx = "^2.5.1"
+requests = "^2.25.1"
+pydot = "^1.4.2"
+matplotlib = "^3.4.2"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+ontoenv = "ontoenv.cli:i"
