@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "poetry-env-plugin"
+version = "0.1.0"
+description = "A Poetry plugin to load environment variables from .env file"
+authors = ["Brian Jinwright <bjinwright@qwigo.com>"]
+readme = "README.md"
+packages = [{include = "poetry_env_plugin"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+poetry = "^1.5.1"
+
+[tool.poetry.plugins."poetry.plugin"]
+env = "poetry_env_plugin:EnvPlugin"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
