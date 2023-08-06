@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: qprom
+Version: 0.1
+Summary: A Python-based CLI tool to quickly interact with OpenAIs GPT models instead of relying on the web interface.
+Home-page: https://github.com/MartinWie/qprom
+Author: Martin Wiechmann
+Author-email: donotsuspend@googlegroups.com
+License-File: LICENSE
+Requires-Dist: tiktoken
+Requires-Dist: openai
+Requires-Dist: argparse
+
