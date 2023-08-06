@@ -1,0 +1,3 @@
+[console_scripts]
+sd-prompt-reader=sd_prompt_reader.app:main
+
