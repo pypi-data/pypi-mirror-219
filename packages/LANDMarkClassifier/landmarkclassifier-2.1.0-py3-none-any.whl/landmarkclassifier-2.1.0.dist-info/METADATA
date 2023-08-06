@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: LANDMarkClassifier
+Version: 2.1.0
+Summary: LANDMark: An ensemble approach to the supervised selection of biomarkers in high-throughput sequencing data
+Project-URL: Homepage, https://github.com/jrudar/LANDMark
+Project-URL: Repository, https://github.com/jrudar/LANDMark.git
+Project-URL: Bug Tracker, https://github.com/jrudar/LANDMark/issues
+Author: Teresita M. Porter, Michael Wright, G. Brian Golding
+Author-email: Josip Rudar <rudarj@uoguelph.ca>, Mehrdad Hajibabaei <mhajibab@uoguelph.ca>
+License: MIT License
+        
+        Copyright (c) 2022 Josip Rudar, Teresita M. Porter, Michael Wright, G.Brian Golding, Mehrdad Hajibabaei
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Keywords: classification,ecology,machine learning,multivariate statistics
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: joblib>=1.2.0
+Requires-Dist: numpy==1.23.5
+Requires-Dist: pandas>=1.5.0
+Requires-Dist: scikit-learn>=1.1.2
+Requires-Dist: scipy>=1.8.1
+Requires-Dist: skorch>=0.13.0
+Requires-Dist: torch>=2.0.1
+Provides-Extra: dev
+Requires-Dist: black; extra == 'dev'
+Requires-Dist: mypy; extra == 'dev'
+Requires-Dist: ruff; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Description-Content-Type: text/markdown
+
+### LANDMark
+
+[![CI](https://github.com/jrudar/LANDMark/actions/workflows/ci.yml/badge.svg)](https://github.com/jrudar/LANDMark/actions/workflows/ci.yml)
+
+Implementation of a decision tree ensemble which splits each node using learned linear and non-linear functions.
+
+### Install
+From PyPI:
+
+```bash
+pip install LANDMarkClassifier
+```
+
+From source:
+
+```bash
+git clone https://github.com/jrudar/LANDMark.git
+cd LANDMark
+pip install .
+# or create a virtual environment
+python -m venv venv
+source venv/bin/activate
+pip install .
+```
+
+## Interface
+
+An overview of the API can be found [here](docs/API.md).
+
+## Usage and Examples
+
+Examples of how to use `LANDMark` can be found [here](notebooks/README.md).
+
+## Contributing
+
+To contribute to the development of `LANDMark` please read our [contributing guide](docs/CONTRIBUTING.md)
+
+
+### References
+
+    Rudar, J., Porter, T.M., Wright, M., Golding G.B., Hajibabaei, M. LANDMark: an ensemble 
+    approach to the supervised selection of biomarkers in high-throughput sequencing data. 
+    BMC Bioinformatics 23, 110 (2022). https://doi.org/10.1186/s12859-022-04631-z
+
+    Pedregosa F, Varoquaux G, Gramfort A, Michel V, Thirion B, Grisel O, et al. Scikit-learn: 
+    Machine Learning in Python. Journal of Machine Learning Research. 2011;12:2825–30. 
+
+    Kuncheva LI, Rodriguez JJ. Classifier ensembles with a random linear oracle. 
+    IEEE Transactions on Knowledge and Data Engineering. 2007;19(4):500–8. 
+    
+    Geurts P, Ernst D, Wehenkel L. Extremely Randomized Trees. Machine Learning. 2006;63(1):3–42. 
+
