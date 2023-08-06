@@ -1,0 +1,2 @@
+[console_scripts]
+crateman = crateman.cli:crateman_entry
