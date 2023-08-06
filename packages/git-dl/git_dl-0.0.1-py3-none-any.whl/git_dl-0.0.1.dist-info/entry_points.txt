@@ -1,0 +1,2 @@
+[console_scripts]
+git_dl = git_dl.cli_main:start
