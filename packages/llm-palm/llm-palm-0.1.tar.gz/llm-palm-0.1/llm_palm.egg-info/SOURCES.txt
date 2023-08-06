@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+llm_palm/__init__.py
+llm_palm.egg-info/PKG-INFO
+llm_palm.egg-info/SOURCES.txt
+llm_palm.egg-info/dependency_links.txt
+llm_palm.egg-info/entry_points.txt
+llm_palm.egg-info/requires.txt
+llm_palm.egg-info/top_level.txt
+tests/test_llm_palm.py

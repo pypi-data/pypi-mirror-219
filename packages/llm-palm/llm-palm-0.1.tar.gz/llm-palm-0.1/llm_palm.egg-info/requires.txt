@@ -1,0 +1,6 @@
+llm>=0.5
+google-generativeai
+
+[test]
+pytest
+pytest-asyncio
