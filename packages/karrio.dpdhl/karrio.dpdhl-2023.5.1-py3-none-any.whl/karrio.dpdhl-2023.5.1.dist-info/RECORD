@@ -1,0 +1,16 @@
+karrio/mappers/dpdhl/__init__.py,sha256=hI9K0SVajo90niTvmU5BP9iV2QoOFh8tEbtZfVRax_c,558
+karrio/mappers/dpdhl/mapper.py,sha256=PX1mAMSFl8JmtAQ-SaKr8xDrV0eybOXzNLJbrUGKLfM,2030
+karrio/mappers/dpdhl/proxy.py,sha256=29jmjAngUb4FkLHu3bTB4leP7VxDROBb78-s8aAj4nk,2431
+karrio/mappers/dpdhl/settings.py,sha256=nRq7QoFa8Amrg1glJy_UmZ9fQUxuseC8KNKPltbifm0,1021
+karrio/providers/dpdhl/__init__.py,sha256=XtaZQrNssm_oho6v6SAYEH3cViuOZ3VFAPhHgW6f-yw,313
+karrio/providers/dpdhl/error.py,sha256=5nRY2iG92AFviRvwMFq4k_vda1d97ehda65_CWl2D4M,5038
+karrio/providers/dpdhl/tracking.py,sha256=Qn2luGRnyIlJkaa2JSRjlawLVq-jMnAkfFGRcJFugqc,3657
+karrio/providers/dpdhl/units.py,sha256=6o2FddsCw2K49EwskglkMVWAjGODsgaaXFrlnnqdmc4,8251
+karrio/providers/dpdhl/utils.py,sha256=dDS7xkLYtrAeh89S5BnP3He3NmQXi8iSpCJ-BzuUjPI,1903
+karrio/providers/dpdhl/shipment/__init__.py,sha256=5tF7dih8kTSVa5pw4UXU8_byCMnuvtsJIz_h7VAOOyY,226
+karrio/providers/dpdhl/shipment/cancel.py,sha256=1Z_h5EUUNLS7LAiLLU04dkEPufmXSJGavvn543FGxQE,2425
+karrio/providers/dpdhl/shipment/create.py,sha256=KinIFL3yosgs4v7nXHMy5XNDzjAI1XYrtvCu3GqnfYQ,19628
+karrio.dpdhl-2023.5.1.dist-info/METADATA,sha256=Xs4a9DiYBcTI7WxCOGQveENPHF4nzCgeVKfBTdPUFOU,994
+karrio.dpdhl-2023.5.1.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+karrio.dpdhl-2023.5.1.dist-info/top_level.txt,sha256=mfkVZXzNuVRmA7NRlck_Ub-C8Zgtqxbx3gX1Rq_W-i0,7
+karrio.dpdhl-2023.5.1.dist-info/RECORD,,
