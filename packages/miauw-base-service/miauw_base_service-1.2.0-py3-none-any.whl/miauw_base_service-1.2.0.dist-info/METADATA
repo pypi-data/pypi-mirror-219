@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: miauw-base-service
+Version: 1.2.0
+Summary: base service and base worker class for miauw
+Author: cheetahbyte
+Author-email: cheetahbyte <contact@cheetahbyte.dev>
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: aio-pika
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+
