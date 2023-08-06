@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.py
+CirclesNumberGenerator/__init__.py
+CirclesNumberGenerator/number_generator.py
+database_infrastructure_local.egg-info/PKG-INFO
+database_infrastructure_local.egg-info/SOURCES.txt
+database_infrastructure_local.egg-info/dependency_links.txt
+database_infrastructure_local.egg-info/top_level.txt
+tests/test_number_generator.py
