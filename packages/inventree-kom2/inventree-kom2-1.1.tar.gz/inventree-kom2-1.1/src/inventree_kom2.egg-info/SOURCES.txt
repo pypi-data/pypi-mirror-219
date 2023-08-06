@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+src/inventree_kom2/KiCadClasses.py
+src/inventree_kom2/Kom2Plugin.py
+src/inventree_kom2/__init__.py
+src/inventree_kom2.egg-info/PKG-INFO
+src/inventree_kom2.egg-info/SOURCES.txt
+src/inventree_kom2.egg-info/dependency_links.txt
+src/inventree_kom2.egg-info/entry_points.txt
+src/inventree_kom2.egg-info/requires.txt
+src/inventree_kom2.egg-info/top_level.txt
+src/inventree_kom2/templates/inventree_kom2/index.html
+src/inventree_kom2/templates/inventree_kom2/script.js
