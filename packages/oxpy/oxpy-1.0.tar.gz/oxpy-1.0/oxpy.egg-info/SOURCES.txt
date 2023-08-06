@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+oxo_python/__init__.py
+oxpy.egg-info/PKG-INFO
+oxpy.egg-info/SOURCES.txt
+oxpy.egg-info/dependency_links.txt
+oxpy.egg-info/not-zip-safe
+oxpy.egg-info/top_level.txt
