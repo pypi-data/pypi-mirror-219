@@ -1,0 +1,2 @@
+[console_scripts]
+soutools = soutools.main:main
