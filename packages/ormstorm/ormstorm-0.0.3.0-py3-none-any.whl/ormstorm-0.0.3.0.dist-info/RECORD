@@ -1,0 +1,15 @@
+ormstorm/__init__.py,sha256=jf1m19gZiaErvtry4NVzRxasane1lMhM5y7TjzXLVq0,8598
+ormstorm/orm/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ormstorm/orm/column.py,sha256=XGNuw8UxUk05Jd3Kedp7m7tS2JlywAv7JwPKpnAHdkg,2480
+ormstorm/orm/constants.py,sha256=yYTqTnh50pd7q9z_RaPTMWDg52mo4agORAciJJU7yRM,484
+ormstorm/orm/exceptions.py,sha256=w2EB_hXrLfzlHqKTIWtffyT1P_PKN7owjZ8pGEsz5Ng,48
+ormstorm/orm/table.py,sha256=SZXNWnjlpTxLPVRRJ3wm3MwrSChhCR6MT9LGuByzX-s,2674
+ormstorm/orm/filters/__init__.py,sha256=Fs8twhDbYTGWFLlXyG4rXscsxDLRq7e3x2-QGakCBm4,32
+ormstorm/orm/filters/magic.py,sha256=v-0JYlWy1dNS1O0PI1w75ZH9keZuyYTMRU3wNBEN4EU,2555
+ormstorm/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ormstorm/utils/dict_factory.py,sha256=M9nNGYdHfF-1zgDTA7ovlQBsHatUDmDgXVRdl6G6W_s,446
+ormstorm-0.0.3.0.dist-info/LICENSE.txt,sha256=TRZQVBKDij7pC9BfEiBS-q93es51e2oTS6RUxvrK6m8,1069
+ormstorm-0.0.3.0.dist-info/METADATA,sha256=etw5DGIXaVpIW_4yRFbaYGY8mgGmX-JQg2R21KMV4XI,3395
+ormstorm-0.0.3.0.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+ormstorm-0.0.3.0.dist-info/top_level.txt,sha256=MBHEeIcA8SVFCRq8fpeQSb8W54pKn3oe726a4DYGYQs,9
+ormstorm-0.0.3.0.dist-info/RECORD,,
