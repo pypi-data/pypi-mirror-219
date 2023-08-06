@@ -1,0 +1,222 @@
+/* VARIABLES */
+$border-color-nofocus: $primary;
+$border-title-color-nofocus: $primary-lighten-3;
+$border-color-focus: $accent;
+$border-title-color-focus: $accent;
+
+/* ALL WIDGETS */
+SchemaViewer, CodeEditor, ResultsViewer {
+    border: round $border-color-nofocus;
+    border-title-color: $border-title-color-nofocus;
+    background: $boost;
+}
+SchemaViewer:focus, CodeEditor:focus-within, ResultsViewer:focus-within {
+    border: round $border-color-focus;
+    border-title-color: $border-title-color-focus;
+}
+
+SchemaViewer, CodeEditor, TextContainer, ResultsTable {
+    scrollbar-background: $surface;
+    scrollbar-background-hover: $surface;
+    scrollbar-background-active: $surface;
+    scrollbar-corner-color: $surface;
+    
+    scrollbar-color: $panel-lighten-1;
+    scrollbar-color-hover: $primary;
+    scrollbar-color-active: $accent;
+}
+
+SchemaViewer:disabled, CodeEditor:disabled, ResultsTable:disabled, RunQueryBar:disabled, ContentSwitcher:disabled, Footer:disabled, Vertical:disabled, Container:disabled {
+    width: 0;
+    height: 0;
+    padding: 0 0;
+    border: none;
+}
+
+/* SCHEMA VIEWER */
+SchemaViewer {
+    height: 1fr;
+    width: 1fr;
+    padding: 0 1;
+}
+SchemaViewer .tree--guides {
+    color: $primary;
+}
+SchemaViewer .tree--guides-hover {
+    color: $accent;
+}
+SchemaViewer .tree--guides-selected {
+    color: $secondary;
+}
+
+/* RIGHT HAND CONTAINER */
+#main_panel {
+    width: 3fr;
+}
+
+CodeEditor {
+    height: 1fr;
+    width: 100%;
+}
+/* RUN QUERY BAR */
+RunQueryBar {
+    height: 1;
+    width: 100%;
+    background: $panel;
+    align-horizontal: right;
+    padding: 0 2 0 0;
+}
+RunQueryBar Input {
+    border: none;
+    padding: 0;
+    width: 6;
+}
+RunQueryBar Input.-invalid {
+    border: none;
+    color: red
+}
+Tooltip {
+    border: round $panel-lighten-1;
+}
+RunQueryBar Button {
+    background: $accent;
+    border: none;
+    height: 1;
+    margin: 0 0 0 4;
+}
+RunQueryBar Button:hover {
+    background: $secondary;
+}
+RunQueryBar Button:focus {
+    text-style: bold;
+}
+RunQueryBar Checkbox {
+    border: none;
+    padding: 0;
+    background: $panel;
+}
+RunQueryBar Checkbox:focus > .toggle--label {
+    text-style: none;
+}
+RunQueryBar Checkbox > .toggle--button {
+    background: $panel-lighten-1
+}
+RunQueryBar Checkbox:hover {
+    background: $panel;
+}
+RunQueryBar Checkbox:hover > .toggle--button {
+    background: $accent;
+}
+RunQueryBar Checkbox.-on > .toggle--button {
+    color: $accent;
+    background: $panel-lighten-1
+}
+RunQueryBar Checkbox.-on:hover > .toggle--button {
+    color: $accent;
+    background: $primary;
+}
+RunQueryBar Input:hover, RunQueryBar Input:focus {
+    background: $panel-lighten-1;
+}
+RunQueryBar Input {
+    background: $panel;
+}
+
+RunQueryBar Checkbox.non-responsive, RunQueryBar Button.non-responsive, RunQueryBar Input.non-responsive{
+    text-style: italic;
+    background: $panel;
+}
+
+/* RESULTS VIEWER */
+
+ResultsViewer {
+    height: 1fr;
+    width: 100%;
+}
+ResultsViewer.non-responsive {
+    border: round $panel-lighten-1;
+}
+
+ResultsTable.datatable--cursor .datatable--header-cursor {
+    background: $boost;
+}
+ResultsViewer .datatable--hover {
+    background: $boost;
+}
+ResultsViewer .datatable--header {
+    background: $boost;
+}
+ResultsViewer .datatable--header-hover {
+    background: $primary-background;
+}
+
+/* ERROR MODAL */
+ErrorModal {
+    align: center middle;
+    padding: 0;
+}
+#error_outer {
+    border: round $error;
+    background: $surface;
+    margin: 5 10;
+    padding: 1 2;
+    max-width: 88;
+}
+
+#error_header {
+    dock: top;
+    color: $text-muted;
+    margin: 0 0 1 0;
+    padding: 0 1;
+}
+
+#error_inner {
+    border: round $panel-lighten-1;
+    padding: 1 1 1 2;
+}
+
+#error_info {
+    padding: 0 3 0 0;
+}
+
+#error_footer {
+    dock: bottom;
+    color: $text-muted;
+    margin: 1 0 0 0;
+    padding: 0 1;
+}
+
+/* HELP SCREEN */
+HelpScreen {
+    align: center middle;
+    padding: 0;
+}
+#help_outer {
+    border: round $border-color-focus;
+    background: $surface;
+    margin: 2 4;
+    padding: 1 2;
+    max-width: 88;
+}
+
+#help_header {
+    dock: top;
+    margin: 0 0 1 0;
+    padding: 0 1;
+}
+
+#help_inner {
+    border: round $panel-lighten-1;
+    padding: 0 0 0 0;
+}
+
+#help_info {
+    padding: 0 0 0 0;
+}
+
+#help_footer {
+    dock: bottom;
+    color: $text-muted;
+    margin: 1 0 0 0;
+    padding: 0 1;
+}
