@@ -1,0 +1,3 @@
+graft py_go_goose
+prune venv
+recursive-include py_go_goose *
