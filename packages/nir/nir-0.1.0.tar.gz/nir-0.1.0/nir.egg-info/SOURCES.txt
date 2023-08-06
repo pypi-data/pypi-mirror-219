@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+docs/source/conf.py
+nir/__init__.py
+nir/ir.py
+nir/read.py
+nir/write.py
+nir.egg-info/PKG-INFO
+nir.egg-info/SOURCES.txt
+nir.egg-info/dependency_links.txt
+nir.egg-info/requires.txt
+nir.egg-info/top_level.txt
+tests/__init__.py
+tests/test_ir.py
+tests/test_readwrite.py
