@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: temod-flask
+Version: 2.0.3
+Summary: Connects python-flask features with Temod data models
+Author-email: PyAxolotl <abdellatifzied.saada@gmail.com>
+Project-URL: Homepage, https://github.com/TuburboMajus/temod-flask
+Project-URL: Bug Tracker, https://github.com/TuburboMajus/temod-flask/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: oauthlib (>=3.2.2)
+
+# temod-flask
+Connects python-flask features with Temod data models
