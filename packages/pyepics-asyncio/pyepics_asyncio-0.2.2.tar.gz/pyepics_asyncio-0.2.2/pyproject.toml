@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "pyepics-asyncio"
+version = "0.2.2"
+description = "Async/await wrapper for PyEpics"
+homepage = "https://github.com/agerasev/pyepics-asyncio"
+repository = "https://github.com/agerasev/pyepics-asyncio"
+authors = ["Alexey Gerasev <alexey.gerasev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["pyepics", "epics", "asyncio", "async", "await"]
+classifiers = [
+    'Intended Audience :: Science/Research',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Topic :: Scientific/Engineering',
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pyepics = "^3.5.1"
+
+[tool.poetry.dev-dependencies]
+mypy = "^1.4.1"
+black = "^23.3.0"
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 128
+
+[tool.mypy]
+strict = true

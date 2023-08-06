@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pyepics-asyncio
+Version: 0.2.2
+Summary: Async/await wrapper for PyEpics
+Home-page: https://github.com/agerasev/pyepics-asyncio
+License: MIT
+Keywords: pyepics,epics,asyncio,async,await
+Author: Alexey Gerasev
+Author-email: alexey.gerasev@gmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: pyepics (>=3.5.1,<4.0.0)
+Project-URL: Repository, https://github.com/agerasev/pyepics-asyncio
+Description-Content-Type: text/markdown
+
+# pyepics-asyncio
+
+Simple `async`/`await` wrapper for [PyEpics](https://github.com/pyepics/pyepics).
+
+## Overview
+
+There are two main types:
++ `PvMonitor` - subscribed to PV updates, `get` returns last received value.
++ `Pv` - connected but not subscribed, each `get` requests PV value over network.
+
+## Usage
+
+### Read PV value
+
+```python
+from pyepics_asyncio import Pv
+
+pv = await Pv.connect("pvname")
+print(await pv.get())
+```
+
+### Monitor PV
+
+```python
+from pyepics_asyncio import PvMonitor
+
+pv = await PvMonitor.connect("pvname")
+async for value in pv:
+    print(value)
+```
+
+### Write value to PV
+
+```python
+await pv.put(3.1415)
+```
+
+## Testing
+
+To run tests you need to have dummy IOC running (located in `ioc` dir):
+
++ Set appropriate `EPICS_BASE` path in `configure/RELEASE`.
++ Build with `make`.
++ Go to `iocBoot/iocTest/` and run script `st.cmd` and don't stop it.
+
+In separate shell run `poetry run pytest --verbose`.
+
