@@ -1,0 +1,10 @@
+__pycache__
+/build
+/dist
+/MANIFEST
+/*.egg*
+/.coverage
+/htmlcov
+/.tox
+/venv*
+/.tox-test-proof
