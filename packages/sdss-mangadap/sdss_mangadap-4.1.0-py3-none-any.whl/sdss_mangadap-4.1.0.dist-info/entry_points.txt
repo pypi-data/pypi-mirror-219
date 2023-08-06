@@ -1,0 +1,16 @@
+[console_scripts]
+construct_dapall = mangadap.scripts.construct_dapall:ConstructDapAll.entry_point
+dap_calculate_covariance = mangadap.scripts.calculate_covariance:CalculateCovariance.entry_point
+dap_find_repeat_observations = mangadap.scripts.find_repeat_observations:FindRepeatObservations.entry_point
+dap_fit_residuals = mangadap.scripts.fit_residuals:FitResiduals.entry_point
+dap_plate_fit_qa = mangadap.scripts.plate_fit_qa:PlateFitQA.entry_point
+dap_ppxffit_qa = mangadap.scripts.ppxffit_qa:PpxfFitQA.entry_point
+dap_status = mangadap.scripts.dap_status:DapStatus.entry_point
+dap_template_flux_norm = mangadap.scripts.template_flux_norm:TemplateFluxNorm.entry_point
+dapall_qa = mangadap.scripts.dapall_qa:DapAllQA.entry_point
+manga_dap = mangadap.scripts.manga_dap:MangaDap.entry_point
+manga_dap_inspector = mangadap.scripts.manga_dap_inspector:MangaDapInspector.entry_point
+manga_synth_datacube = mangadap.scripts.manga_synth_datacube:MangaSynthDatacube.entry_point
+rundap = mangadap.scripts.rundap:RunDap.entry_point
+spotcheck_dap_maps = mangadap.scripts.spotcheck_dap_maps:SpotcheckDapMaps.entry_point
+write_dap_config = mangadap.scripts.write_dap_config:WriteDapConfig.entry_point
