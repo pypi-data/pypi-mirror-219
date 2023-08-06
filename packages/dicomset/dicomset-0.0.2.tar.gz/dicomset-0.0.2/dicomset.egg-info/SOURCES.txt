@@ -1,0 +1,15 @@
+README.md
+setup.py
+dicomset.egg-info/PKG-INFO
+dicomset.egg-info/SOURCES.txt
+dicomset.egg-info/dependency_links.txt
+dicomset.egg-info/top_level.txt
+test/__init__.py
+test/code/__init__.py
+test/code/dataset/__init__.py
+test/code/dataset/raw/__init__.py
+test/code/dataset/raw/dicom/__init__.py
+test/code/dataset/raw/dicom/test_rtstruct_converter.py
+test/code/metrics/__init__.py
+test/code/metrics/test_dice.py
+test/code/metrics/test_hausdorff.py
