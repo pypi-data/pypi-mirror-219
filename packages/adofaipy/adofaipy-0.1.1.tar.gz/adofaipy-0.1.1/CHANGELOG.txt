@@ -1,0 +1,26 @@
+Change Log
+==========
+
+0.1.1 (2023/07/17)
+------------------
+- Minor bugfixes
+- Fixed encoding incompatibility
+- Fixed output string for moveDecorations()
+
+0.1.0 (2023/06/15)
+------------------
+- Minor update
+- Added dynamic pivot offset, parallax offset, masking and blending fields to addDecoration() and moveDecorations()
+- Added angleOffset to setSpeed()
+
+0.0.3 (2023/06/14)
+------------------
+- Minor bugfix: fixed filename __init__.py
+
+0.0.2 (2023/06/13)
+------------------
+- Minor bugfix: 're' is no longer a dependency
+
+0.0.1 (2023/05/28)
+------------------
+- First Release
