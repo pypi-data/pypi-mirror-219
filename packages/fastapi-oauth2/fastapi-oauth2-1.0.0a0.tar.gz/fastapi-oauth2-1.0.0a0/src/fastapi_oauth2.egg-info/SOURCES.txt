@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/fastapi_oauth2/__init__.py
+src/fastapi_oauth2/client.py
+src/fastapi_oauth2/config.py
+src/fastapi_oauth2/core.py
+src/fastapi_oauth2/middleware.py
+src/fastapi_oauth2/router.py
+src/fastapi_oauth2.egg-info/PKG-INFO
+src/fastapi_oauth2.egg-info/SOURCES.txt
+src/fastapi_oauth2.egg-info/dependency_links.txt
+src/fastapi_oauth2.egg-info/not-zip-safe
+src/fastapi_oauth2.egg-info/requires.txt
+src/fastapi_oauth2.egg-info/top_level.txt
