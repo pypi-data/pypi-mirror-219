@@ -1,0 +1,15 @@
+.gitignore
+CHANGELOG.md
+LICENSE
+README.rst
+pyproject.toml
+requirements.txt
+test.json
+sigils/__init__.py
+sigils/__main__.py
+sigils/tests.py
+sigils.egg-info/PKG-INFO
+sigils.egg-info/SOURCES.txt
+sigils.egg-info/dependency_links.txt
+sigils.egg-info/entry_points.txt
+sigils.egg-info/top_level.txt
