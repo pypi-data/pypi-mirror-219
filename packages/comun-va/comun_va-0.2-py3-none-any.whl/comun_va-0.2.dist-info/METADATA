@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: comun-va
+Version: 0.2
+Requires-Dist: comun-sqlsrv
+Requires-Dist: opencv-python
+Requires-Dist: tensorflow
+Requires-Dist: numpy
+
