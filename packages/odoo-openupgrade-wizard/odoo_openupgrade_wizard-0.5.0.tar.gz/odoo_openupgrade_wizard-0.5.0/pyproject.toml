@@ -1,0 +1,66 @@
+[tool.poetry]
+name = "odoo-openupgrade-wizard"
+version = "0.5.0"
+description = "CLI tool to manage Odoo Major Upgrades"
+authors = [
+    "GRAP, Groupement Régional Alimentaire de Proximité",
+]
+maintainers = [
+    "Sylvain LE GAL",
+]
+license = "AGPLv3+"
+readme = "README.md"
+repository = "https://gitlab.com/odoo-openupgrade-wizard/odoo-openupgrade-wizard"
+keywords = ["cli", "odoo", "openupgrade"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Development Status :: 2 - Pre-Alpha",
+    "Operating System :: Unix",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Framework :: Odoo",
+]
+
+[tool.poetry.scripts]
+oow = "odoo_openupgrade_wizard.cli.cli:main"
+odoo-openupgrade-wizard = "odoo_openupgrade_wizard.cli.cli:main"
+
+[tool.poetry.dependencies]
+python = ">=3.6.3,<4.0.0"
+click = "^7.0"
+click-loglevel = "^0.4"
+docker = "^5.0"
+importlib-resources = "^5.4"
+git-aggregator = "^2.1"
+GitPython = "^3.1"
+jinja2 = "^3.0"
+loguru = "^0.6"
+odoorpc = "^0.8"
+plumbum = "^1.7"
+pygount = "^1.4"
+pyyaml = "5.4.1"
+single-source = "^0.3"
+
+[tool.poetry.dev-dependencies]
+pytest = [
+    {version = "<=6.1.2", python = "<3.10"},
+    {version = ">=6.2.5", python = ">=3.10"}
+]
+pytest-cov = "*"
+safety = "*"
+pylint = "*"
+tox = "*"
+towncrier = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
