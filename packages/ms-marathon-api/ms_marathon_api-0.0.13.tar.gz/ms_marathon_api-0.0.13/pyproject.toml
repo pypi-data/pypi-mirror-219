@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ms-marathon-api"
+version = "0.0.13"
+description = "API to connect with Marathon system and migrate data to Bigquery"
+authors = ["Making Science"]
+readme = "README.md"
+packages = [{include = "ms_marathon_api"}]
+include = ["pre-commit-config.yaml"]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+isort = "^5.12.0"
+pre-commit = "^3.1.1"
+flake8 = "^6.0.0"
+coverage = "^7.2.2"
+gc-google-services-api = "^1.2.9"
+mysql-connector-python = "^8.0.33"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+extend-exclude="# noqa"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 79
+
+[[tool.poetry.source]]
+name = "syscorp-librarian"
+url = "https://europe-west1-python.pkg.dev/ms--tiber-com-lib--pro--8bd7/syscorp-librarian/"
+default = false
+secondary = true
