@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "biliarchiver"
+version = "0.0.20"
+description = ""
+authors = ["yzqzss <yzqzss@yandex.com>"]
+readme = "README.md"
+packages = [{include = "biliarchiver"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+bilix = "0.18.4"
+internetarchive = "^3.5.0"
+danmakuc = "^0.3.6"
+browser-cookie3 = "^0.19.1"
+
+[tool.poetry.scripts]
+bili_archive_bvids = "biliarchiver.cli_tools:bili_archive_bvids.main"
+bili_upload = "biliarchiver.cli_tools:bili_upload.main"
+bili_get_bvids = "biliarchiver.cli_tools:bili_get_bvids.main"
+biliarchiver = "biliarchiver.cli_tools:biliarchiver.main"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
