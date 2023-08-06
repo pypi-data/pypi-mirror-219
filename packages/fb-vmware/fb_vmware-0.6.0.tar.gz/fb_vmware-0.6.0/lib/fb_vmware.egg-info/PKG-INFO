@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: fb-vmware
+Version: 0.6.0
+Summary: A wrapper module around the pyvmomi module to simplify work and handling.
+Home-page: https://github.com/fbrehm/fb-vmware
+Author: Frank Brehm
+Author-email: frank@brehm-online.com
+License: LGPL3+
+Platform: posix
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires: fb_tools
+Requires: argparse
+Requires: six
+Requires: pyvmomi
+Requires: fb_logging
+Requires: packaging
+Requires: requests
+Requires: pytz
+Requires: setuptools
+Requires: wheel
+Requires: Babel
+Requires: PyYAML
+Requires: toml
+Provides: fb_vmware
+License-File: LICENSE
+
+# fb-vmware
+A Python wrapper module around the pyvmomi module to simplify work and handling.
