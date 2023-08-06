@@ -1,0 +1,3 @@
+[console_scripts]
+odh=ooo_dev_cli_hlp.cli.hlp:main
+
