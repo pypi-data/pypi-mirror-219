@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: float-table
+Version: 0.1.0
+Summary: Top-level package for float-table.
+Home-page: https://github.com/tadamcz/float_table
+Author: Tom Adamczewski
+Author-email: tadamczewskipublic@gmail.com
+Requires-Python: >=3.9,<4
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: numpy (>=1.25.1,<2.0.0)
+Requires-Dist: pandas (>=2.0.3,<3.0.0)
+Description-Content-Type: text/markdown
+
+TODO
