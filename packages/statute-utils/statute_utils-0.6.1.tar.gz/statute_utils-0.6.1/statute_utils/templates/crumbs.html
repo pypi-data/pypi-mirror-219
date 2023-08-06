@@ -1,0 +1,3 @@
+{# using tree.html macros, recursive creation of structural branches for DOM manipulation and tree.css styling. #}
+{% from 'tree.html' import connect_breadcrumbs %}
+{{ connect_breadcrumbs(units|from_json) }}
