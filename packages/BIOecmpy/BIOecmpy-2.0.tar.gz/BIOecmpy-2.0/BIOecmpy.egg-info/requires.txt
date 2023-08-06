@@ -1,0 +1,15 @@
+requests
+pebble
+xlsxwriter
+Bio
+Require
+quest
+scikit-learn
+RDKit
+seaborn
+pubchempy
+torch
+ipykernel
+bioservices==1.10.4
+pyprobar
+xmltodict

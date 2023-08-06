@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+BIOecmpy.egg-info/PKG-INFO
+BIOecmpy.egg-info/SOURCES.txt
+BIOecmpy.egg-info/dependency_links.txt
+BIOecmpy.egg-info/not-zip-safe
+BIOecmpy.egg-info/requires.txt
+BIOecmpy.egg-info/top_level.txt
+ECMPY/AutoPACMEN_function.py
+ECMPY/ECMpy_function.py
+ECMPY/__init__.py
+ECMPY/get_ecGEM_onestop.py
+ECMPY/model.py
+ECMPY/prediction_for_input.py
