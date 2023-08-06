@@ -1,0 +1,8 @@
+recursive-include hci_framework/ *
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+recursive-exclude * *.h5
+recursive-exclude local/ *
+recursive-exclude docs/ *
+recursive-exclude test/ *
+recursive-exclude dockers/ *
