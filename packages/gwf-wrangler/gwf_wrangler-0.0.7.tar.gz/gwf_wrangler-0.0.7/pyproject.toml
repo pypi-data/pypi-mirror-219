@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools", "versioneer[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gwf_wrangler"
+description = "A python package to convert yaml files to lua scripts for the Global Workflow Project."
+readme = "README.md"
+version = "0.0.7"
+dependencies = ["PyYAML"]
+authors = [{ name = "Ryan Long", email = "ryan.long@noaa.gov" }]
+keywords = ["globalworkflow", "global workflow", "esmf"]
+license = { file = "LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "pytest", "twine", "build"]
+
+
+[project.scripts]
+wrangler = "src.__main__:main"
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/gwf-wrangler"
+"Bug Tracker" = "https://github.com/pypa/gwf-wrangler/issues"
+
+[tool.setuptools.packages]
+find = {} # Scan the project directory with the default parameters
+
+[tool.bumpver]
+current_version = "0.0.7"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"README.md" = ["{pep440_version}"]
