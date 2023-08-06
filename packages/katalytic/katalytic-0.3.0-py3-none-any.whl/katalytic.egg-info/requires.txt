@@ -1,0 +1,9 @@
+
+[all]
+katalytic-images>=0.1.0
+
+[dev]
+pytest
+pytest-cov
+pytest-clarity
+pytest-randomly
