@@ -1,0 +1,10 @@
+numpy>=1.19.0
+matplotlib>3.2.2
+netCDF4>=1.5.3
+xarray>=v2022.03.0
+dask>=2022.01.0
+scipy>=1.6.0
+tqdm>=4.50.0
+
+[viewer]
+PyQt5>=5.15.0

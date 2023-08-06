@@ -1,0 +1,11 @@
+myst-nb >= 0.17.2
+piccolo-theme >= 0.16.0
+xarray >= v2022.03.0
+numpy >= 1.19.0
+matplotlib >= 3.2.2
+seaborn
+tqdm
+dask
+scipy >= 1.11.0
+netCDF4 >= 1.6.4
+PyQt5 >=5.15.0
