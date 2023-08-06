@@ -1,0 +1,9 @@
+typer<0.10,>=0.4.2
+pydantic<3,>=2.0.3
+
+[lint]
+mypy==1.*
+
+[test]
+pytest==7.*
+pytest-cov
