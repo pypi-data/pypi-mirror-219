@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: audio-ui
+Version: 0.1.1
+Summary: A library for creating screen reader only user interfaces using Pyglet.
+Home-page: https://github.com/tbreitenfeldt/audio_ui
+Author: Timothy Breitenfeldt
+Author-email: timothyjb310@gmail.com
+Project-URL: Bug Reports, https://github.com/tbreitenfeldt/audio_ui/issues
+Project-URL: Source, https://github.com/tbreitenfeldt/audio_ui
+Keywords: development,accessibility,screen reader,audio,UI
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.10
