@@ -1,0 +1,13 @@
+ckanext/__init__.py,sha256=JqvO5I0KDZgoSTIjT6wXHJAAJ32wQG6fvPCGB4gE32A,314
+ckanext/ckanpackager/__init__.py,sha256=JqvO5I0KDZgoSTIjT6wXHJAAJ32wQG6fvPCGB4gE32A,314
+ckanext/ckanpackager/cli.py,sha256=jMVCYRQeY8TnjUJrhSMDCvmCMog_QdYWbIdU8jV2NTg,617
+ckanext/ckanpackager/plugin.py,sha256=wXOQtVAGSlSsDdGur9VxrV28_nOMR1OauJA9E0IlRxQ,400
+ckanext/ckanpackager/model/__init__.py,sha256=PXPusmyahpPiuO6b2Puz05WGvGdF-3xP71DAd1gmgR4,226
+ckanext/ckanpackager/model/stat.py,sha256=KS567RlhER_HDhvqYxRe9wZQSYxAVAulJd8jAsTMuFE,706
+docs/_scripts/gen_api_pages.py,sha256=eTzxjNjf-Pk_ZWf14F3fBQgr8gk8XscZvPJWxpQB9Sw,1246
+ckanext_ckanpackager-3.0.0.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+ckanext_ckanpackager-3.0.0.dist-info/METADATA,sha256=2hHK4r2plpcWygKS5gEcR2TDJUbCP3pAdVueIyDnK7g,5466
+ckanext_ckanpackager-3.0.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ckanext_ckanpackager-3.0.0.dist-info/entry_points.txt,sha256=krW-qtv8CqbGKq1-Q8HiZt-raGoIn4TsJSbuaP57i04,77
+ckanext_ckanpackager-3.0.0.dist-info/top_level.txt,sha256=w-vKlvacHfVip3Sq_burAFRwyFHya8Z-yVMARpWRWrU,13
+ckanext_ckanpackager-3.0.0.dist-info/RECORD,,
