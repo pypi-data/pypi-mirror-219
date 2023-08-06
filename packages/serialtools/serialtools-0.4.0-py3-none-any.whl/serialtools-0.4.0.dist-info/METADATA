@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: serialtools
+Version: 0.4.0
+Summary: Tools to work with a serial bus
+Author-email: erzo <erzo@posteo.de>
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: BSD License
+Requires-Dist: pyserial
+Requires-Dist: confattr >= 0.13.0
+Requires-Dist: bitstruct
+Project-URL: Bug tracker, https://gitlab.com/erzo/serialtools/-/issues
+Project-URL: Change log, https://gitlab.com/erzo/serialtools/-/tags
+Project-URL: Documentation, https://erzo.gitlab.io/serialtools/latest
+Project-URL: Source code, https://gitlab.com/erzo/serialtools
+
+Tools to work with a serial bus.
+
+This project aims to become for the serial bus what [cantools](https://cantools.readthedocs.io/en/latest/) is for the CAN bus.
+
+In contrast to other tools for a serial bus like
+[hterm](https://www.der-hammer.info/pages/terminal.html) or
+[pyserial-miniterm](https://pythonhosted.org/pyserial/tools.html#module-serial.tools.miniterm)
+this project aims to also decode and encode messages and also provide an API.
+
