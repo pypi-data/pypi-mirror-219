@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+Artec.egg-info/PKG-INFO
+Artec.egg-info/SOURCES.txt
+Artec.egg-info/dependency_links.txt
+Artec.egg-info/entry_points.txt
+Artec.egg-info/top_level.txt
+artec/__main__.py
+artec/argparser.py
+artec/boiler.py
+artec/exceptions.py
+artec/templates.py
+test/test_boiler.py
+test/test_parser.py
