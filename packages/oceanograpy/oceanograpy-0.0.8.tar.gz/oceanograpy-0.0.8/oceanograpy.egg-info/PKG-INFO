@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: oceanograpy
+Version: 0.0.8
+Summary: Toolbox for importing and plotting ADCP and CTD data
+Home-page:  
+Author: Andy Banks
+Author-email: 
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# oceanograpy
+A toolbox for handling ADCP and CTD data. Currently supports data imports from the following instruments
+	- TRDI Workhorse ADCP (pd0 format) 
+	- Seabird SBE16plus, SBE19plus
+## Authors
+- [Andy Banks]
+## Installation
+Install oceanograpy with pip
+```bash
+  pip install oceanograpy
+```
+## Requirements
+* numpy
+* pandas
+* xml
+* progressbar2
+* cloudpickle
+* matplotlib
