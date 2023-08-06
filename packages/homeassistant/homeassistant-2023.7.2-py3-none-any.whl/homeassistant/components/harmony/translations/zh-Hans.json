@@ -1,0 +1,20 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "data": {
+                    "host": "\u4e3b\u673a"
+                }
+            }
+        }
+    },
+    "entity": {
+        "select": {
+            "activities": {
+                "state": {
+                    "power_off": "\u5173\u95ed"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9",
+            "already_in_progress": "Konfigur\u00e1cia u\u017e prebieha",
+            "no_devices_found": "V sieti sa nena\u0161li \u017eiadne zariadenia"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165"
+        },
+        "flow_title": "{label} ({group})",
+        "step": {
+            "discovery_confirm": {
+                "description": "Chcete nastavi\u0165 {label} ({group})?"
+            },
+            "pick_device": {
+                "data": {
+                    "device": "Zariadenie"
+                }
+            },
+            "user": {
+                "data": {
+                    "host": "Hostite\u013e"
+                },
+                "description": "Ak nech\u00e1te hostite\u013ea pr\u00e1zdneho, na vyh\u013ead\u00e1vanie zariaden\u00ed sa pou\u017eije zis\u0165ovanie."
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "clean_cycle": {
+                "name": "\u010cistiaci cyklus"
+            }
+        },
+        "select": {
+            "infrared_brightness": {
+                "name": "Infra\u010derven\u00fd jas"
+            },
+            "theme": {
+                "name": "T\u00e9ma"
+            }
+        },
+        "sensor": {
+            "rssi": {
+                "name": "RSSI"
+            }
+        }
+    },
+    "services": {
+        "effect_colorloop": {
+            "fields": {
+                "brightness": {
+                    "name": "Hodnota jasu"
+                }
+            }
+        },
+        "effect_morph": {
+            "fields": {
+                "palette": {
+                    "description": "Zoznam najmenej 2 a najviac 16 farieb ako hodnoty odtie\u0148a (0-360), s\u00fdtosti (0-100), jasu (0-100) a kelvinov (1500-900), ktor\u00e9 sa maj\u00fa pou\u017ei\u0165 pre tento efekt. Prepisuje atrib\u00fat t\u00e9my."
+                }
+            }
+        },
+        "effect_move": {
+            "fields": {
+                "direction": {
+                    "description": "Smer, ktor\u00fdm sa bude efekt pohybova\u0165 po zariaden\u00ed."
+                },
+                "theme": {
+                    "description": "(Nepovinn\u00e9) pred spusten\u00edm efektu nastavte na zariadenie jednu z preddefinovan\u00fdch t\u00e9m.",
+                    "name": "T\u00e9ma"
+                }
+            }
+        },
+        "effect_pulse": {
+            "fields": {
+                "brightness": {
+                    "name": "Hodnota jasu"
+                },
+                "mode": {
+                    "name": "Re\u017eim"
+                },
+                "rgb_color": {
+                    "name": "RGB farba"
+                }
+            }
+        },
+        "set_hev_cycle_state": {
+            "fields": {
+                "duration": {
+                    "name": "Trvanie"
+                },
+                "power": {
+                    "name": "Povoli\u0165"
+                }
+            }
+        }
+    }
+}

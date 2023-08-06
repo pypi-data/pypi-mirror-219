@@ -1,0 +1,58 @@
+{
+    "services": {
+        "pulse": {
+            "description": "Pulsa una entrada en el controlador IHC.",
+            "fields": {
+                "controller_id": {
+                    "description": "Si tienes varios controladores, este es el \u00edndice de tu controlador  comenzando con 0.\n.",
+                    "name": "ID de controlador"
+                },
+                "ihc_id": {
+                    "description": "El ID entero del recurso IHC.",
+                    "name": "ID IHC"
+                }
+            },
+            "name": "Pulsar"
+        },
+        "set_runtime_value_bool": {
+            "description": "Establece un valor de tiempo de ejecuci\u00f3n booleano en el controlador IHC.",
+            "fields": {
+                "controller_id": {
+                    "description": "Si tienes varios controladores, este es el \u00edndice de tu controlador  comenzando con 0.\n.",
+                    "name": "ID de controlador"
+                },
+                "ihc_id": {
+                    "description": "El ID entero del recurso IHC.",
+                    "name": "ID IHC"
+                },
+                "value": {
+                    "description": "El valor booleano a establecer."
+                }
+            }
+        },
+        "set_runtime_value_float": {
+            "fields": {
+                "controller_id": {
+                    "description": "Si tienes varios controladores, este es el \u00edndice de tu controlador  comenzando con 0.\n.",
+                    "name": "ID de controlador"
+                },
+                "ihc_id": {
+                    "description": "El ID entero del recurso IHC.",
+                    "name": "ID IHC"
+                }
+            }
+        },
+        "set_runtime_value_int": {
+            "fields": {
+                "controller_id": {
+                    "description": "Si tienes varios controladores, este es el \u00edndice de tu controlador  comenzando con 0.\n.",
+                    "name": "ID de controlador"
+                },
+                "ihc_id": {
+                    "description": "El ID entero del recurso IHC.",
+                    "name": "ID IHC"
+                }
+            }
+        }
+    }
+}

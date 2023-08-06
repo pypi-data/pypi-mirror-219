@@ -1,0 +1,77 @@
+{
+    "entity": {
+        "climate": {
+            "ubercool": {
+                "state_attributes": {
+                    "fan_mode": {
+                        "state": {
+                            "auto_high": "\u81ea\u52a8\u9ad8\u6863",
+                            "auto_low": "\u81ea\u52a8\u4f4e\u6863",
+                            "on_high": "\u9ad8\u6863",
+                            "on_low": "\u4f4e\u6863"
+                        }
+                    },
+                    "swing_mode": {
+                        "state": {
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "auto": "\u81ea\u52a8",
+                            "off": "\u5173\u95ed"
+                        }
+                    }
+                }
+            }
+        },
+        "sensor": {
+            "thermostat_mode": {
+                "name": "\u6052\u6e29\u6a21\u5f0f",
+                "state": {
+                    "away": "\u79bb\u5bb6",
+                    "comfort": "\u8212\u9002",
+                    "eco": "\u8282\u80fd",
+                    "sleep": "\u7761\u7720"
+                }
+            }
+        },
+        "vacuum": {
+            "model_s": {
+                "state_attributes": {
+                    "cleaned_area": {
+                        "name": "\u5df2\u6e05\u6d01\u533a\u57df"
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "cold_tea": {
+            "fix_flow": {
+                "abort": {
+                    "not_tea_time": "\u76ee\u524d\u65e0\u6cd5\u91cd\u65b0\u52a0\u70ed\u8336"
+                }
+            },
+            "title": "\u8336\u51c9\u4e86"
+        }
+    },
+    "options": {
+        "step": {
+            "options_1": {
+                "data": {
+                    "bool": "\u5e03\u5c14\u9009\u9879",
+                    "constant": "\u5e38\u91cf",
+                    "int": "\u6570\u503c\u8f93\u5165"
+                },
+                "submit": "\u4fdd\u5b58\uff01"
+            },
+            "options_2": {
+                "data": {
+                    "multi": "\u591a\u91cd\u9009\u62e9",
+                    "select": "\u9009\u62e9\u9009\u9879",
+                    "string": "\u5b57\u7b26\u4e32\u503c"
+                }
+            }
+        }
+    },
+    "title": "\u6f14\u793a"
+}

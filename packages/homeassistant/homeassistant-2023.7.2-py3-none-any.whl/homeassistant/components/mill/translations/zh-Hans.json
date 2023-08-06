@@ -1,0 +1,15 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u8d26\u53f7\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25"
+        },
+        "step": {
+            "user": {
+                "description": "\u9009\u62e9\u8fde\u63a5\u7c7b\u578b\u3002\u5f53\u5730\u9700\u8981\u7b2c 3 \u4ee3\u52a0\u70ed\u5668"
+            }
+        }
+    }
+}

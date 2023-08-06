@@ -1,0 +1,24 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "\uacbd\ubcf4",
+            "state": {
+                "idle": "\uc720\ud734 \uc911",
+                "off": "\uc778\uc815\ub428",
+                "on": "\ud65c\uc131\ud654\ub428"
+            }
+        }
+    },
+    "services": {
+        "toggle": {
+            "name": "\ud1a0\uae00"
+        },
+        "turn_off": {
+            "name": "\ub044\uae30"
+        },
+        "turn_on": {
+            "name": "\ucf1c\uae30"
+        }
+    },
+    "title": "\uacbd\uace0"
+}

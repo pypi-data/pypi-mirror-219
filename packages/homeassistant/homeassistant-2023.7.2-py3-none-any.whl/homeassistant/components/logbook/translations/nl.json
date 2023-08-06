@@ -1,0 +1,17 @@
+{
+    "services": {
+        "log": {
+            "fields": {
+                "domain": {
+                    "name": "Domein"
+                },
+                "message": {
+                    "name": "Wereldbericht"
+                },
+                "name": {
+                    "name": "Naam"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Ger\u00e4t ist bereits konfiguriert"
+        },
+        "error": {
+            "already_configured": "Ger\u00e4t ist bereits konfiguriert",
+            "cannot_connect": "Verbindung fehlgeschlagen"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "name": "Der Name f\u00fcr diese Velbus Verbindung",
+                    "port": "Verbindungsdetails"
+                },
+                "title": "Definieren des Velbus Verbindungstyps"
+            }
+        }
+    },
+    "services": {
+        "clear_cache": {
+            "fields": {
+                "address": {
+                    "name": "Adresse"
+                },
+                "interface": {
+                    "name": "Schnittstelle"
+                }
+            },
+            "name": "Cache leeren"
+        },
+        "scan": {
+            "fields": {
+                "interface": {
+                    "name": "Schnittstelle"
+                }
+            }
+        },
+        "set_memo_text": {
+            "fields": {
+                "address": {
+                    "name": "Adresse"
+                },
+                "interface": {
+                    "name": "Schnittstelle"
+                }
+            }
+        }
+    }
+}

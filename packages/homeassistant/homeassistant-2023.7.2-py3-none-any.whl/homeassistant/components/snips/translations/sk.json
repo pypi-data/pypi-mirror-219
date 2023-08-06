@@ -1,0 +1,40 @@
+{
+    "services": {
+        "feedback_off": {
+            "fields": {
+                "site_id": {
+                    "name": "ID lokality"
+                }
+            }
+        },
+        "feedback_on": {
+            "fields": {
+                "site_id": {
+                    "name": "ID lokality"
+                }
+            }
+        },
+        "say": {
+            "description": "Odo\u0161le spr\u00e1vu TTS do aplik\u00e1cie Snips.",
+            "fields": {
+                "custom_data": {
+                    "description": "Vlastn\u00e9 \u00fadaje, ktor\u00e9 bud\u00fa s\u00fa\u010das\u0165ou v\u0161etk\u00fdch spr\u00e1v v tejto rel\u00e1cii."
+                },
+                "site_id": {
+                    "name": "ID lokality"
+                }
+            }
+        },
+        "say_action": {
+            "description": "Odo\u0161le spr\u00e1vu TTS do aplik\u00e1cie Snips, aby si vypo\u010dula odpove\u010f.",
+            "fields": {
+                "custom_data": {
+                    "description": "Vlastn\u00e9 \u00fadaje, ktor\u00e9 bud\u00fa s\u00fa\u010das\u0165ou v\u0161etk\u00fdch spr\u00e1v v tejto rel\u00e1cii."
+                },
+                "site_id": {
+                    "name": "ID lokality"
+                }
+            }
+        }
+    }
+}

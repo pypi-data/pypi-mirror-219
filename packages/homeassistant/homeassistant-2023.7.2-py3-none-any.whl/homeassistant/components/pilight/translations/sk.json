@@ -1,0 +1,13 @@
+{
+    "services": {
+        "send": {
+            "description": "Odo\u0161le RF k\u00f3d do zariadenia Pilight.",
+            "fields": {
+                "protocol": {
+                    "name": "Protokol"
+                }
+            },
+            "name": "Posla\u0165"
+        }
+    }
+}

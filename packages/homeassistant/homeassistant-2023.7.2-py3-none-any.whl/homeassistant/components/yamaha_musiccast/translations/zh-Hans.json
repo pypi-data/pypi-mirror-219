@@ -1,0 +1,46 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "description": "\u8bbe\u7f6e MusicCast \u4ee5\u4e0e Home Assistant \u96c6\u6210\u3002"
+            }
+        }
+    },
+    "entity": {
+        "select": {
+            "dimmer": {
+                "state": {
+                    "auto": "\u81ea\u52a8"
+                }
+            },
+            "zone_equalizer_mode": {
+                "state": {
+                    "auto": "\u81ea\u52a8",
+                    "bypass": "\u65c1\u8def",
+                    "manual": "\u624b\u52a8\u6a21\u5f0f"
+                }
+            },
+            "zone_sleep": {
+                "state": {
+                    "120_min": "120\u5206\u949f",
+                    "30_min": "30\u5206\u949f",
+                    "60_min": "60\u5206\u949f",
+                    "90_min": "90 \u5206\u949f",
+                    "off": "\u5173\u95ed"
+                }
+            },
+            "zone_surr_decoder_type": {
+                "state": {
+                    "toggle": "\u5207\u6362"
+                }
+            },
+            "zone_tone_control_mode": {
+                "state": {
+                    "auto": "\u81ea\u52a8",
+                    "bypass": "\u65c1\u8def",
+                    "manual": "\u624b\u52a8\u6a21\u5f0f"
+                }
+            }
+        }
+    }
+}

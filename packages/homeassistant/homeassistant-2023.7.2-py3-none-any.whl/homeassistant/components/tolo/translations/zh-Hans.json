@@ -1,0 +1,12 @@
+{
+    "entity": {
+        "select": {
+            "lamp_mode": {
+                "state": {
+                    "automatic": "\u81ea\u52a8",
+                    "manual": "\u624b\u52a8\u6a21\u5f0f"
+                }
+            }
+        }
+    }
+}

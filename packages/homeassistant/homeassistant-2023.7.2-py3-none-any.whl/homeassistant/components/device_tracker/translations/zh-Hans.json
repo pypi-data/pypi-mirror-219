@@ -1,0 +1,51 @@
+{
+    "device_automation": {
+        "condition_type": {
+            "is_home": "{entity_name} \u5728\u5bb6",
+            "is_not_home": "{entity_name} \u4e0d\u5728\u5bb6"
+        },
+        "trigger_type": {
+            "enters": "{entity_name} \u8fdb\u5165\u6307\u5b9a\u533a\u57df",
+            "leaves": "{entity_name} \u79bb\u5f00\u6307\u5b9a\u533a\u57df"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "\u8bbe\u5907\u8ddf\u8e2a\u5668",
+            "state": {
+                "home": "\u5728\u5bb6",
+                "not_home": "\u79bb\u5f00"
+            },
+            "state_attributes": {
+                "battery": {
+                    "name": "\u7535\u6c60"
+                },
+                "gps_accuracy": {
+                    "name": "GPS\u7cbe\u5ea6"
+                },
+                "latitude": {
+                    "name": "\u7eac\u5ea6"
+                },
+                "longitude": {
+                    "name": "\u7ecf\u5ea6"
+                },
+                "source_type": {
+                    "name": "\u6765\u6e90",
+                    "state": {
+                        "bluetooth": "\u84dd\u7259",
+                        "bluetooth_le": "\u4f4e\u529f\u8017\u84dd\u7259",
+                        "gps": "GPS",
+                        "router": "\u8def\u7531\u5668"
+                    }
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "\u7528\u4e8e {domain} \u96c6\u6210\u7684 {platform} \u5e73\u53f0\u4e0d\u518d\u652f\u6301\u901a\u8fc7YAML\u914d\u7f6e\u3002\n\u8bf7\u5c06\u5176\u4ece\u914d\u7f6e\u6587\u4ef6\u4e2d\u5220\u9664\uff0c\u7136\u540e\u91cd\u65b0\u542f\u52a8\u5bb6\u5ead\u52a9\u7406\u4ee5\u89e3\u51b3\u6b64\u95ee\u9898\u3002",
+            "title": "\u5e73\u53f0\u4e0d\u652f\u6301"
+        }
+    },
+    "title": "\u8bbe\u5907\u8ddf\u8e2a\u5668"
+}

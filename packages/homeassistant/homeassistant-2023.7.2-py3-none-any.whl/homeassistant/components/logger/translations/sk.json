@@ -1,0 +1,14 @@
+{
+    "selector": {
+        "level": {
+            "options": {
+                "critical": "Kritick\u00fd",
+                "debug": "Ladenie",
+                "error": "Chyba",
+                "fatal": "Fat\u00e1lny",
+                "info": "Info",
+                "warning": "Upozornenie"
+            }
+        }
+    }
+}

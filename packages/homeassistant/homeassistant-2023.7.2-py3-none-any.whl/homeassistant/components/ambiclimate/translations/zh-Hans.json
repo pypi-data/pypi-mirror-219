@@ -1,0 +1,22 @@
+{
+    "config": {
+        "abort": {
+            "access_token": "\u751f\u6210\u8bbf\u95ee\u4ee4\u724c\u65f6\u51fa\u73b0\u672a\u77e5\u9519\u8bef",
+            "already_configured": "\u8d26\u53f7\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86",
+            "missing_configuration": "\u8be5\u7ec4\u4ef6\u672a\u914d\u7f6e\u3002\u8bf7\u53c2\u9605\u6587\u6863\u3002"
+        },
+        "create_entry": {
+            "default": "\u8ba4\u8bc1\u6210\u529f"
+        },
+        "error": {
+            "follow_link": "\u8bf7\u8bbf\u95ee\u94fe\u63a5\u8fdb\u884c\u8eab\u4efd\u9a8c\u8bc1\uff0c\u7136\u540e\u518d\u6309\u201c\u63d0\u4ea4\u201d",
+            "no_token": "\u672a\u901a\u8fc7 Ambiclimate \u9a8c\u8bc1"
+        },
+        "step": {
+            "auth": {
+                "description": "\u8bf7\u70b9\u51fb\u6b64 [\u94fe\u63a5]( {authorization_url} ) \u5e76**\u5141\u8bb8**\u8bbf\u95ee\u60a8\u7684 Ambiclimate \u5e10\u6237\uff0c\u7136\u540e\u8fd4\u56de\u5e76\u6309\u4e0b\u9762\u7684 **\u63d0\u4ea4**\u3002\n \uff08\u786e\u4fdd\u6307\u5b9a\u7684\u56de\u8c03 URL \u4e3a{cb_url} \uff09",
+                "title": "\u9a8c\u8bc1 Ambicclimate"
+            }
+        }
+    }
+}

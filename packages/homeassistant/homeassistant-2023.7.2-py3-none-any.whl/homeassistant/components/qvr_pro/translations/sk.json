@@ -1,0 +1,19 @@
+{
+    "services": {
+        "start_record": {
+            "fields": {
+                "guid": {
+                    "name": "GUID"
+                }
+            },
+            "name": "Spusti\u0165 z\u00e1znam"
+        },
+        "stop_record": {
+            "fields": {
+                "guid": {
+                    "name": "GUID"
+                }
+            }
+        }
+    }
+}

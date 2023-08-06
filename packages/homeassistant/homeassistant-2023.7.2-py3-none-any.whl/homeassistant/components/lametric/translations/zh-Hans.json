@@ -1,0 +1,47 @@
+{
+    "config": {
+        "abort": {
+            "missing_configuration": "LaMetric \u96c6\u6210\u672a\u914d\u7f6e\u3002\u8bf7\u9075\u5faa\u6587\u6863\u3002"
+        },
+        "step": {
+            "choice_enter_manual_or_fetch_cloud": {
+                "description": "LaMetric \u8bbe\u5907\u53ef\u4ee5\u901a\u8fc7\u4e24\u79cd\u4e0d\u540c\u7684\u65b9\u5f0f\u5728 Home Assistant \u4e2d\u8bbe\u7f6e\u3002 \n\n\u60a8\u53ef\u4ee5\u81ea\u5df1\u8f93\u5165\u6240\u6709\u8bbe\u5907\u4fe1\u606f\u548c API \u4ee4\u724c\uff0c\u6216\u8005 Home Assistant \u53ef\u4ee5\u4ece\u60a8\u7684 LaMetric.com \u5e10\u6237\u5bfc\u5165\u5b83\u4eec\u3002"
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "app_next": {
+                "name": "\u4e0b\u4e00\u4e2a\u5e94\u7528"
+            },
+            "app_previous": {
+                "name": "\u4e0a\u4e00\u4e2a\u5e94\u7528"
+            },
+            "dismiss_all": {
+                "name": "\u5173\u95ed\u6240\u6709\u901a\u77e5"
+            },
+            "dismiss_current": {
+                "name": "\u5173\u95ed\u5f53\u524d\u901a\u77e5"
+            }
+        },
+        "select": {
+            "brightness_mode": {
+                "name": "\u4eae\u5ea6\u6a21\u5f0f",
+                "state": {
+                    "auto": "\u81ea\u52a8",
+                    "manual": "\u624b\u52a8\u6a21\u5f0f"
+                }
+            }
+        },
+        "sensor": {
+            "rssi": {
+                "name": "Wi-Fi\u4fe1\u53f7"
+            }
+        },
+        "switch": {
+            "bluetooth": {
+                "name": "\u84dd\u7259"
+            }
+        }
+    }
+}

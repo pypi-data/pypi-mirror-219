@@ -1,0 +1,55 @@
+{
+    "config": {
+        "abort": {
+            "single_instance_allowed": "U\u017e je nakonfigurovan\u00fd. Mo\u017en\u00e1 je len jedna konfigur\u00e1cia."
+        },
+        "step": {
+            "user": {
+                "description": "Chcete za\u010da\u0165 nastavova\u0165?"
+            }
+        }
+    },
+    "services": {
+        "dump_log_objects": {
+            "fields": {
+                "type": {
+                    "name": "Typ"
+                }
+            }
+        },
+        "memory": {
+            "fields": {
+                "seconds": {
+                    "name": "Sekundy"
+                }
+            },
+            "name": "Pam\u00e4\u0165"
+        },
+        "start": {
+            "fields": {
+                "seconds": {
+                    "name": "Sekundy"
+                }
+            },
+            "name": "Zastavi\u0165"
+        },
+        "start_log_object_sources": {
+            "description": "Spust\u00ed zaznamen\u00e1vanie zdrojov nov\u00fdch objektov v pam\u00e4ti.",
+            "fields": {
+                "scan_interval": {
+                    "name": "Interval skenovania"
+                }
+            }
+        },
+        "start_log_objects": {
+            "fields": {
+                "scan_interval": {
+                    "name": "Interval skenovania"
+                }
+            }
+        },
+        "stop_log_object_sources": {
+            "description": "Zastav\u00ed zaznamen\u00e1vanie zdrojov nov\u00fdch objektov v pam\u00e4ti."
+        }
+    }
+}

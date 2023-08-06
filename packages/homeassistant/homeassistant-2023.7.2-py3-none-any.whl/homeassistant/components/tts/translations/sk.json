@@ -1,0 +1,42 @@
+{
+    "services": {
+        "say": {
+            "fields": {
+                "cache": {
+                    "description": "Ulo\u017e\u00ed t\u00fato spr\u00e1vu lok\u00e1lne, aby sa pri op\u00e4tovnom vy\u017eiadan\u00ed textu mohol v\u00fdstup vytvori\u0165 r\u00fdchlej\u0161ie.",
+                    "name": "Cache"
+                },
+                "entity_id": {
+                    "description": "Prehr\u00e1va\u010de m\u00e9di\u00ed na prehr\u00e1vanie spr\u00e1vy.",
+                    "name": "Entita"
+                },
+                "language": {
+                    "name": "Jazyk"
+                },
+                "message": {
+                    "description": "Text, ktor\u00fd chcete previes\u0165 do re\u010di, aby ste ho mohli po\u010d\u00fava\u0165 na svojom zariaden\u00ed.",
+                    "name": "Spr\u00e1va"
+                }
+            },
+            "name": "Vyslovte spr\u00e1vu TTS"
+        },
+        "speak": {
+            "fields": {
+                "cache": {
+                    "description": "Ulo\u017e\u00ed t\u00fato spr\u00e1vu lok\u00e1lne, aby sa pri op\u00e4tovnom vy\u017eiadan\u00ed textu mohol v\u00fdstup vytvori\u0165 r\u00fdchlej\u0161ie.",
+                    "name": "Cache"
+                },
+                "language": {
+                    "name": "Jazyk"
+                },
+                "media_player_entity_id": {
+                    "description": "Prehr\u00e1va\u010de m\u00e9di\u00ed na prehr\u00e1vanie spr\u00e1vy."
+                },
+                "message": {
+                    "description": "Text, ktor\u00fd chcete previes\u0165 do re\u010di, aby ste ho mohli po\u010d\u00fava\u0165 na svojom zariaden\u00ed.",
+                    "name": "Spr\u00e1va"
+                }
+            }
+        }
+    }
+}

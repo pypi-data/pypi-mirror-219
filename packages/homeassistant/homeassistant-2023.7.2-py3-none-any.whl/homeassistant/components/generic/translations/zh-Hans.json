@@ -1,0 +1,39 @@
+{
+    "config": {
+        "error": {
+            "unable_still_load": "\u65e0\u6cd5\u4ece\u9759\u6001\u56fe\u50cf URL \u52a0\u8f7d\u6709\u6548\u56fe\u50cf\uff08\u4f8b\u5982\u65e0\u6548\u7684\u4e3b\u673a\u3001URL \u6216\u8eab\u4efd\u9a8c\u8bc1\u5931\u8d25\uff09\u3002\u67e5\u770b\u65e5\u5fd7\u4ee5\u83b7\u53d6\u66f4\u591a\u4fe1\u606f\u3002"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "still_image_url": "\u9759\u6001\u56fe\u50cf URL\uff08\u4f8b\u5982 http://...\uff09",
+                    "stream_source": "\u6d41\u6e90 URL\uff08\u4f8b\u5982 rtsp://...\uff09"
+                }
+            },
+            "user_confirm_still": {
+                "data": {
+                    "confirmed_ok": "\u8fd9\u5f20\u56fe\u7247\u770b\u8d77\u6765\u4e0d\u9519\u3002"
+                },
+                "description": "![\u6444\u50cf\u673a\u9759\u6b62\u753b\u9762\u9884\u89c8]({preview_url})",
+                "title": "\u9884\u89c8"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "confirm_still": {
+                "data": {
+                    "confirmed_ok": "\u8fd9\u5f20\u56fe\u7247\u770b\u8d77\u6765\u4e0d\u9519\u3002"
+                },
+                "description": "![\u6444\u50cf\u673a\u9759\u6b62\u753b\u9762\u9884\u89c8]({preview_url})",
+                "title": "\u9884\u89c8"
+            },
+            "init": {
+                "data_description": {
+                    "use_wallclock_as_timestamps": "\u6b64\u9009\u9879\u53ef\u80fd\u4f1a\u7ea0\u6b63\u7531\u4e8e\u67d0\u4e9b\u6444\u50cf\u5934\u4e0a\u7684\u9519\u8bef\u65f6\u95f4\u6233\u5f15\u8d77\u7684\u5206\u6bb5\u6216\u5d29\u6e83\u95ee\u9898"
+                }
+            }
+        }
+    },
+    "title": "\u901a\u7528\u76f8\u673a"
+}

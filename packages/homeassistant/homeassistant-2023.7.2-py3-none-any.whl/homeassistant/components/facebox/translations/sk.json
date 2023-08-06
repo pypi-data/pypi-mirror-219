@@ -1,0 +1,18 @@
+{
+    "services": {
+        "teach_face": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                },
+                "file_path": {
+                    "description": "Cesta k s\u00faboru s obr\u00e1zkom.",
+                    "name": "Cesta k s\u00faboru"
+                },
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "services": {
+        "clear_sleep_timer": {
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zvy ent\u00edt, ktor\u00fdm bude \u010dasova\u010d vymazan\u00fd.",
+                    "name": "Entita"
+                }
+            }
+        },
+        "join": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                },
+                "master": {
+                    "name": "Master"
+                }
+            },
+            "name": "Pripoji\u0165"
+        },
+        "set_sleep_timer": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                }
+            }
+        },
+        "unjoin": {
+            "fields": {
+                "entity_id": {
+                    "name": "Entita"
+                }
+            },
+            "name": "Odpoji\u0165"
+        }
+    }
+}

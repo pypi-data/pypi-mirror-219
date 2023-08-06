@@ -1,0 +1,20 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u8bbe\u5907\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86"
+        },
+        "error": {
+            "cannot_connect": "\u8fde\u63a5\u5931\u8d25"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "ip_address": "IP\u5730\u5740",
+                    "port": "\u7aef\u53e3"
+                },
+                "description": "\u8fde\u63a5\u5230 Advantage Air \u58c1\u6302\u5f0f\u5e73\u677f\u7535\u8111\u7684 API\u3002",
+                "title": "\u8fde\u63a5"
+            }
+        }
+    }
+}

@@ -1,0 +1,178 @@
+{
+    "device_automation": {
+        "trigger_type": {
+            "codelock": "Prijat\u00fd k\u00f3d z\u00e1mku",
+            "fingerprint": "Prijat\u00fd k\u00f3d odtla\u010dku prsta",
+            "send_keys": "Prijatie odoslan\u00fdch k\u013e\u00fa\u010dov",
+            "transmitter": "Prijat\u00fd k\u00f3d vysiela\u010da",
+            "transponder": "Prijat\u00fd k\u00f3d transpond\u00e9ra"
+        }
+    },
+    "services": {
+        "dyn_text": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "led": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "led": {
+                    "name": "LED"
+                },
+                "state": {
+                    "description": "Stav LED.",
+                    "name": "Stav"
+                }
+            },
+            "name": "LED"
+        },
+        "lock_keys": {
+            "description": "Zamkne k\u013e\u00fa\u010de.",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "state": {
+                    "name": "Stav"
+                },
+                "table": {
+                    "name": "Tabu\u013eka"
+                },
+                "time": {
+                    "description": "Interval uzamknutia.",
+                    "name": "\u010cas"
+                }
+            },
+            "name": "Zamkne k\u013e\u00fa\u010de"
+        },
+        "lock_regulator": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "state": {
+                    "description": "Nov\u00fd stav nastavenej hodnoty."
+                }
+            }
+        },
+        "output_abs": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "output_rel": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "output_toggle": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "pck": {
+            "description": "Odo\u0161le \u013eubovo\u013en\u00fd pr\u00edkaz PCK.",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "pck": {
+                    "description": "Pr\u00edkaz PCK (bez hlavi\u010dky adresy)."
+                }
+            }
+        },
+        "relays": {
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "send_keys": {
+            "description": "Odosiela k\u013e\u00fa\u010de (ktor\u00e9 vykon\u00e1vaj\u00fa viazan\u00e9 pr\u00edkazy).",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "keys": {
+                    "name": "K\u013e\u00fa\u010de"
+                },
+                "state": {
+                    "name": "Stav"
+                }
+            }
+        },
+        "var_abs": {
+            "description": "Nastavuje absol\u00fatnu hodnotu premennej alebo \u017eiadanej hodnoty.",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "unit_of_measurement": {
+                    "description": "Jednotka hodnoty."
+                },
+                "value": {
+                    "description": "Hodnota na nastavenie.",
+                    "name": "Hodnota"
+                },
+                "variable": {
+                    "name": "Premenn\u00e1"
+                }
+            }
+        },
+        "var_rel": {
+            "description": "Posun hodnoty premennej, \u017eiadanej hodnoty alebo prahovej hodnoty.",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "unit_of_measurement": {
+                    "description": "Jednotka hodnoty."
+                },
+                "value": {
+                    "description": "Hodnota posunu.",
+                    "name": "Hodnota"
+                },
+                "value_reference": {
+                    "description": "Referen\u010dn\u00e1 hodnota pre \u017eiadan\u00fa hodnotu a prahov\u00fa hodnotu.",
+                    "name": "Referen\u010dn\u00e1 hodnota"
+                }
+            }
+        },
+        "var_reset": {
+            "description": "Vynuluje hodnotu premennej alebo \u017eiadanej hodnoty.",
+            "fields": {
+                "address": {
+                    "description": "Adresa modulu.",
+                    "name": "Adresa"
+                },
+                "variable": {
+                    "name": "Premenn\u00e1"
+                }
+            }
+        }
+    }
+}

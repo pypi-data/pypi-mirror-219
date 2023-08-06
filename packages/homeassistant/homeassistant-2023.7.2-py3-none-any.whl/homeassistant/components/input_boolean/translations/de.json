@@ -1,0 +1,35 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Boolescher Wert eingeben",
+            "state": {
+                "off": "Aus",
+                "on": "An"
+            },
+            "state_attributes": {
+                "editable": {
+                    "name": "Verwaltet \u00fcber UI",
+                    "state": {
+                        "false": "Nein",
+                        "true": "Ja"
+                    }
+                }
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "name": "Neu laden"
+        },
+        "toggle": {
+            "name": "Umschalten"
+        },
+        "turn_off": {
+            "name": "Ausschalten"
+        },
+        "turn_on": {
+            "name": "Einschalten"
+        }
+    },
+    "title": "Boolescher Wert eingeben"
+}

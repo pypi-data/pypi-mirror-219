@@ -1,0 +1,39 @@
+{
+    "services": {
+        "reload": {
+            "description": "Znovu na\u010d\u00edta v\u0161etky entity modbus.",
+            "name": "Znovu na\u010d\u00edta\u0165"
+        },
+        "restart": {
+            "name": "Re\u0161tart"
+        },
+        "stop": {
+            "name": "Zastavi\u0165"
+        },
+        "write_coil": {
+            "fields": {
+                "address": {
+                    "description": "Adresa registra, do ktor\u00e9ho sa m\u00e1 zapisova\u0165.",
+                    "name": "Adresa"
+                },
+                "slave": {
+                    "description": "Adresa jednotky modbus/slave."
+                }
+            }
+        },
+        "write_register": {
+            "fields": {
+                "address": {
+                    "name": "Adresa"
+                },
+                "slave": {
+                    "description": "Adresa jednotky modbus/slave."
+                },
+                "value": {
+                    "description": "Hodnota (jedna hodnota alebo pole) na z\u00e1pis.",
+                    "name": "Hodnota"
+                }
+            }
+        }
+    }
+}

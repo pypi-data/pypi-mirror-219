@@ -1,0 +1,37 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "V\u00fdber z mo\u017enost\u00ed",
+            "state_attributes": {
+                "editable": {
+                    "name": "Spravovan\u00e9 cez pou\u017e\u00edvate\u013esk\u00e9 rozhranie",
+                    "state": {
+                        "false": "Nie",
+                        "true": "\u00c1no"
+                    }
+                },
+                "options": {
+                    "name": "Mo\u017enosti"
+                }
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "name": "Znovu na\u010d\u00edta\u0165"
+        },
+        "select_previous": {
+            "name": "Sp\u00e4\u0165"
+        },
+        "set_options": {
+            "description": "Nastav\u00ed mo\u017enosti.",
+            "fields": {
+                "options": {
+                    "name": "Mo\u017enosti"
+                }
+            },
+            "name": "Nastavi\u0165 mo\u017enosti"
+        }
+    },
+    "title": "V\u00fdber z mo\u017enost\u00ed"
+}

@@ -1,0 +1,31 @@
+{
+    "services": {
+        "set_switch_override": {
+            "fields": {
+                "duration": {
+                    "description": "La duraci\u00f3n de la anulaci\u00f3n. Opcional, predeterminado 1 hora, m\u00e1ximo 24 horas."
+                }
+            }
+        },
+        "set_zone_mode": {
+            "fields": {
+                "entity_id": {
+                    "description": "El entity_id de la zona."
+                },
+                "mode": {
+                    "name": "Modo"
+                }
+            }
+        },
+        "set_zone_override": {
+            "fields": {
+                "duration": {
+                    "description": "La duraci\u00f3n de la anulaci\u00f3n. Opcional, predeterminado 1 hora, m\u00e1ximo 24 horas."
+                },
+                "entity_id": {
+                    "description": "El entity_id de la zona."
+                }
+            }
+        }
+    }
+}

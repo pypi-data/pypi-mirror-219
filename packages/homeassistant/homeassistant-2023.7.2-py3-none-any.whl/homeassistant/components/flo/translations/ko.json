@@ -1,0 +1,53 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\uae30\uae30\uac00 \uc774\ubbf8 \uad6c\uc131\ub418\uc5c8\uc2b5\ub2c8\ub2e4"
+        },
+        "error": {
+            "cannot_connect": "\uc5f0\uacb0\ud558\uc9c0 \ubabb\ud588\uc2b5\ub2c8\ub2e4",
+            "invalid_auth": "\uc778\uc99d\uc774 \uc798\ubabb\ub418\uc5c8\uc2b5\ub2c8\ub2e4",
+            "unknown": "\uc608\uc0c1\uce58 \ubabb\ud55c \uc624\ub958\uac00 \ubc1c\uc0dd\ud588\uc2b5\ub2c8\ub2e4"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "\ud638\uc2a4\ud2b8",
+                    "password": "\ube44\ubc00\ubc88\ud638",
+                    "username": "\uc0ac\uc6a9\uc790 \uc774\ub984"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "pending_system_alerts": {
+                "name": "\ubcf4\ub958 \uc911\uc778 \uc2dc\uc2a4\ud15c \uc54c\ub9bc"
+            },
+            "water_detected": {
+                "name": "\ubb3c \uac10\uc9c0\ub428"
+            }
+        },
+        "sensor": {
+            "current_flow_rate": {
+                "name": "\ubb3c \uc720\ub7c9"
+            },
+            "current_system_mode": {
+                "name": "\ud604\uc7ac \uc2dc\uc2a4\ud15c \ubaa8\ub4dc"
+            },
+            "daily_consumption": {
+                "name": "\uc624\ub298\uc758 \ubb3c \uc0ac\uc6a9\ub7c9"
+            },
+            "water_pressure": {
+                "name": "\uc218\uc555"
+            },
+            "water_temperature": {
+                "name": "\uc218\uc628"
+            }
+        },
+        "switch": {
+            "shutoff_valve": {
+                "name": "\ucc28\ub2e8 \ubc38\ube0c"
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "services": {
+        "notify": {
+            "description": "Odo\u0161le notifika\u010dn\u00fa spr\u00e1vu vybran\u00fdm cie\u013eom.",
+            "fields": {
+                "message": {
+                    "description": "Telo spr\u00e1vy ozn\u00e1menia.",
+                    "name": "Spr\u00e1va"
+                }
+            }
+        },
+        "persistent_notification": {
+            "fields": {
+                "message": {
+                    "description": "Telo spr\u00e1vy ozn\u00e1menia.",
+                    "name": "Spr\u00e1va"
+                }
+            }
+        }
+    },
+    "title": "Upozornenie"
+}

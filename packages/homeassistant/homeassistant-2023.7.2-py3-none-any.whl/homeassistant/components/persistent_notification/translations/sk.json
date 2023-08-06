@@ -1,0 +1,15 @@
+{
+    "services": {
+        "create": {
+            "fields": {
+                "message": {
+                    "description": "Telo spr\u00e1vy ozn\u00e1menia.",
+                    "name": "Spr\u00e1va"
+                },
+                "notification_id": {
+                    "description": "ID ozn\u00e1menia. Toto nov\u00e9 ozn\u00e1menie prep\u00ed\u0161e existuj\u00face ozn\u00e1menie s rovnak\u00fdm ID."
+                }
+            }
+        }
+    }
+}

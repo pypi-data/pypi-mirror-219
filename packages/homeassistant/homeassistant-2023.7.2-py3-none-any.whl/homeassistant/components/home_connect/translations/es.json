@@ -1,0 +1,111 @@
+{
+    "config": {
+        "abort": {
+            "missing_configuration": "El componente no est\u00e1 configurado. Por favor, sigue la documentaci\u00f3n.",
+            "no_url_available": "No hay URL disponible. Para obtener informaci\u00f3n sobre este error, [revisa la secci\u00f3n de ayuda]({docs_url})"
+        },
+        "create_entry": {
+            "default": "Autenticado correctamente"
+        },
+        "step": {
+            "pick_implementation": {
+                "title": "Selecciona el m\u00e9todo de autenticaci\u00f3n"
+            }
+        }
+    },
+    "services": {
+        "change_setting": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                }
+            }
+        },
+        "pause_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                }
+            }
+        },
+        "resume_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                }
+            }
+        },
+        "select_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                },
+                "key": {
+                    "description": "Clave de la opci\u00f3n.",
+                    "name": "Clave de opci\u00f3n"
+                },
+                "program": {
+                    "description": "Programa a seleccionar.",
+                    "name": "Programa"
+                },
+                "unit": {
+                    "description": "Unidad para la opci\u00f3n.",
+                    "name": "Unidad opcional"
+                },
+                "value": {
+                    "description": "Valor de la opci\u00f3n.",
+                    "name": "Valor de la opci\u00f3n"
+                }
+            }
+        },
+        "set_option_active": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                },
+                "key": {
+                    "description": "Clave de la opci\u00f3n."
+                },
+                "value": {
+                    "description": "Valor de la opci\u00f3n."
+                }
+            }
+        },
+        "set_option_selected": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                },
+                "key": {
+                    "description": "Clave de la opci\u00f3n."
+                },
+                "value": {
+                    "description": "Valor de la opci\u00f3n."
+                }
+            }
+        },
+        "start_program": {
+            "fields": {
+                "device_id": {
+                    "description": "ID del dispositivo."
+                },
+                "key": {
+                    "description": "Clave de la opci\u00f3n.",
+                    "name": "Clave de opci\u00f3n"
+                },
+                "program": {
+                    "description": "Programa a seleccionar.",
+                    "name": "Programa"
+                },
+                "unit": {
+                    "description": "Unidad para la opci\u00f3n.",
+                    "name": "Unidad opcional"
+                },
+                "value": {
+                    "description": "Valor de la opci\u00f3n.",
+                    "name": "Valor de la opci\u00f3n"
+                }
+            }
+        }
+    }
+}

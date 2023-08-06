@@ -1,0 +1,88 @@
+{
+    "services": {
+        "put_paramset": {
+            "fields": {
+                "address": {
+                    "description": "Adresa zariadenia Homematic.",
+                    "name": "Adresa"
+                }
+            }
+        },
+        "set_device_value": {
+            "description": "Nastav\u00ed vlastnos\u0165 zariadenia na rozhran\u00ed RPC XML.",
+            "fields": {
+                "address": {
+                    "description": "Adresa homematick\u00e9ho zariadenia alebo BidCoS-RF pre virtu\u00e1lne vzdialen\u00e9 zariadenie.",
+                    "name": "Adresa"
+                },
+                "channel": {
+                    "name": "Kan\u00e1l"
+                },
+                "interface": {
+                    "description": "Nastavenie hodnoty rozhrania.",
+                    "name": "Rozhranie"
+                },
+                "value": {
+                    "description": "Nov\u00e1 hodnota.",
+                    "name": "Hodnota"
+                },
+                "value_type": {
+                    "description": "Zadajte nov\u00fa hodnotu.",
+                    "name": "Typ hodnoty"
+                }
+            },
+            "name": "Nastavenie hodnoty zariadenia"
+        },
+        "set_install_mode": {
+            "fields": {
+                "address": {
+                    "description": "Adresa homematick\u00e9ho zariadenia alebo BidCoS-RF na u\u010denie.",
+                    "name": "Adresa"
+                },
+                "interface": {
+                    "name": "Rozhranie"
+                },
+                "mode": {
+                    "name": "Re\u017eim"
+                },
+                "time": {
+                    "name": "\u010cas"
+                }
+            },
+            "name": "Nastavenie re\u017eimu in\u0161tal\u00e1cie"
+        },
+        "set_variable_value": {
+            "description": "Nastavuje n\u00e1zov uzla.",
+            "fields": {
+                "entity_id": {
+                    "description": "N\u00e1zov(-y) homematickej centr\u00e1ly na nastavenie hodnoty.",
+                    "name": "Entita"
+                },
+                "name": {
+                    "description": "N\u00e1zov premennej, ktor\u00fa chcete nastavi\u0165.",
+                    "name": "N\u00e1zov"
+                },
+                "value": {
+                    "description": "Nov\u00e1 hodnota.",
+                    "name": "Hodnota"
+                }
+            },
+            "name": "Nastavenie hodnoty premennej"
+        },
+        "virtualkey": {
+            "fields": {
+                "address": {
+                    "description": "Adresa homematick\u00e9ho zariadenia alebo BidCoS-RF pre virtu\u00e1lne vzdialen\u00e9 zariadenie.",
+                    "name": "Adresa"
+                },
+                "channel": {
+                    "name": "Kan\u00e1l"
+                },
+                "interface": {
+                    "description": "Nastavenie hodnoty rozhrania.",
+                    "name": "Rozhranie"
+                }
+            }
+        }
+    }
+}

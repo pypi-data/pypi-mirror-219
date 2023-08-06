@@ -1,0 +1,41 @@
+{
+    "config": {
+        "step": {
+            "mfa": {
+                "data": {
+                    "description": "\u60a8\u7684\u5e10\u6237\u5df2\u542f\u7528\u4e24\u6b65\u9a8c\u8bc1\u3002\u8bf7\u8f93\u5165 Verisure \u53d1\u9001\u7ed9\u60a8\u7684\u9a8c\u8bc1\u7801\u3002"
+                }
+            },
+            "reauth_confirm": {
+                "data": {
+                    "password": "\u5bc6\u7801"
+                }
+            },
+            "reauth_mfa": {
+                "data": {
+                    "description": "\u60a8\u7684\u5e10\u6237\u5df2\u542f\u7528\u4e24\u6b65\u9a8c\u8bc1\u3002\u8bf7\u8f93\u5165 Verisure \u53d1\u9001\u7ed9\u60a8\u7684\u9a8c\u8bc1\u7801\u3002"
+                }
+            },
+            "user": {
+                "data": {
+                    "password": "\u5bc6\u7801"
+                }
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "ethernet": {
+                "name": "\u4ee5\u592a\u7f51\u72b6\u6001"
+            }
+        },
+        "sensor": {
+            "humidity": {
+                "name": "\u6e7f\u5ea6"
+            },
+            "temperature": {
+                "name": "\u6e29\u5ea6"
+            }
+        }
+    }
+}

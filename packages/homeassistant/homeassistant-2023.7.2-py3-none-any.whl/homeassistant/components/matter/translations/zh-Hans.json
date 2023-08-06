@@ -1,0 +1,31 @@
+{
+    "config": {
+        "abort": {
+            "addon_get_discovery_info_failed": "\u65e0\u6cd5\u83b7\u53d6 Matter Server \u9644\u52a0\u53d1\u73b0\u4fe1\u606f\u3002",
+            "not_matter_addon": "\u53d1\u73b0\u7684\u9644\u52a0\u7ec4\u4ef6\u4e0d\u662f\u5b98\u65b9\u7684 Matter Server \u9644\u52a0\u7ec4\u4ef6\u3002"
+        },
+        "progress": {
+            "install_addon": "\u8bf7\u7b49\u5f85 Matter Server \u9644\u52a0\u7ec4\u4ef6\u5b89\u88c5\u5b8c\u6210\u3002\u8fd9\u53ef\u80fd\u9700\u8981\u51e0\u5206\u949f\u7684\u65f6\u95f4\u3002"
+        },
+        "step": {
+            "manual": {
+                "data": {
+                    "url": "\u7f51\u5740"
+                }
+            },
+            "on_supervisor": {
+                "title": "\u9009\u62e9\u8fde\u63a5\u65b9\u5f0f"
+            },
+            "start_addon": {
+                "title": "\u542f\u52a8\u52a0\u8f7d\u9879\u3002"
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "flow": {
+                "name": "\u6d41"
+            }
+        }
+    }
+}

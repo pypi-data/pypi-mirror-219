@@ -1,0 +1,10 @@
+{
+    "services": {
+        "disable": {
+            "name": "Deaktivieren"
+        },
+        "enable": {
+            "name": "Aktivieren"
+        }
+    }
+}

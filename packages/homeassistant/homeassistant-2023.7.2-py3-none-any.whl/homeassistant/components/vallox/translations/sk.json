@@ -1,0 +1,51 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Slu\u017eba u\u017e je nakonfigurovan\u00e1",
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_host": "Neplatn\u00fd n\u00e1zov hostite\u013ea alebo IP adresa",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_host": "Neplatn\u00fd n\u00e1zov hostite\u013ea alebo IP adresa",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Hostite\u013e"
+                }
+            }
+        }
+    },
+    "services": {
+        "set_profile_fan_speed_away": {
+            "fields": {
+                "fan_speed": {
+                    "description": "R\u00fdchlos\u0165 ventil\u00e1tora.",
+                    "name": "R\u00fdchlos\u0165 ventil\u00e1tora"
+                }
+            }
+        },
+        "set_profile_fan_speed_boost": {
+            "fields": {
+                "fan_speed": {
+                    "description": "R\u00fdchlos\u0165 ventil\u00e1tora.",
+                    "name": "R\u00fdchlos\u0165 ventil\u00e1tora"
+                }
+            },
+            "name": "Nastavte zv\u00fd\u0161enie r\u00fdchlosti ventil\u00e1tora profilu"
+        },
+        "set_profile_fan_speed_home": {
+            "description": "Nastavuje r\u00fdchlos\u0165 ventil\u00e1tora profilu Home.",
+            "fields": {
+                "fan_speed": {
+                    "description": "R\u00fdchlos\u0165 ventil\u00e1tora.",
+                    "name": "R\u00fdchlos\u0165 ventil\u00e1tora"
+                }
+            },
+            "name": "Nastavte r\u00fdchlos\u0165 ventil\u00e1tora profilu domov"
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "services": {
+        "start_charge": {
+            "description": "\ucc28\ub7c9 \ucda9\uc804\uc744 \uc2dc\uc791\ud569\ub2c8\ub2e4. \uba3c\uc800 \ud50c\ub7ec\uadf8\ub97c \uaf42\uc544\uc57c \ud569\ub2c8\ub2e4!",
+            "fields": {
+                "vin": {
+                    "description": "\ucc28\ub7c9\uc758 \ucc28\ub300\ubc88\ud638(VIN), 17\uc790"
+                }
+            }
+        }
+    }
+}

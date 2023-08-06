@@ -1,0 +1,18 @@
+{
+    "config": {
+        "step": {
+            "site": {
+                "data": {
+                    "site_name": "\u7ad9\u70b9\u540d\u79f0",
+                    "site_nmi": "\u7ad9\u70b9 NMI"
+                },
+                "description": "\u9009\u62e9\u8981\u6dfb\u52a0\u7684\u7ad9\u70b9\u7684 NMI"
+            },
+            "user": {
+                "data": {
+                    "api_token": "API Token"
+                }
+            }
+        }
+    }
+}

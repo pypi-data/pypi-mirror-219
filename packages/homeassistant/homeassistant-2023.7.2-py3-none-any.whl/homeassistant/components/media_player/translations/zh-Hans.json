@@ -1,0 +1,148 @@
+{
+    "device_automation": {
+        "condition_type": {
+            "is_buffering": "{entity_name} \u6b63\u5728\u7f13\u51b2",
+            "is_idle": "{entity_name} \u7a7a\u95f2",
+            "is_off": "{entity_name}\u5df2\u5173\u95ed",
+            "is_on": "{entity_name}\u5df2\u5f00\u542f",
+            "is_paused": "{entity_name} \u5df2\u6682\u505c",
+            "is_playing": "{entity_name} \u6b63\u5728\u64ad\u653e"
+        },
+        "trigger_type": {
+            "buffering": "{entity_name} \u5f00\u59cb\u7f13\u51b2",
+            "changed_states": "{entity_name}\u6253\u5f00\u6216\u5173\u95ed",
+            "idle": "{entity_name} \u7a7a\u95f2",
+            "paused": "{entity_name} \u6682\u505c",
+            "playing": "{entity_name} \u5f00\u59cb\u64ad\u653e",
+            "turned_off": "{entity_name}\u5df2\u5173\u95ed",
+            "turned_on": "{entity_name}\u5df2\u5f00\u542f"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "name": "\u5a92\u4f53\u64ad\u653e\u5668",
+            "state": {
+                "buffering": "\u6b63\u5728\u7f13\u51b2",
+                "idle": "\u7a7a\u95f2",
+                "off": "\u5173\u95ed",
+                "on": "\u5f00\u542f",
+                "paused": "\u5df2\u6682\u505c",
+                "playing": "\u6b63\u5728\u64ad\u653e",
+                "standby": "\u5f85\u673a"
+            },
+            "state_attributes": {
+                "is_volume_muted": {
+                    "state": {
+                        "false": "\u5426",
+                        "true": "\u662f"
+                    }
+                },
+                "media_content_type": {
+                    "state": {
+                        "album": "\u4e13\u8f91",
+                        "app": "\u5e94\u7528",
+                        "artist": "\u827a\u672f\u5bb6",
+                        "channel": "\u9891\u9053",
+                        "channels": "\u9891\u9053",
+                        "composer": "\u4f5c\u66f2\u5bb6",
+                        "contributing_artist": "\u53c2\u4e0e\u827a\u672f\u5bb6",
+                        "episode": "\u5206\u96c6",
+                        "game": "\u6e38\u620f",
+                        "genre": "\u6d41\u6d3e",
+                        "image": "\u56fe\u7247",
+                        "movie": "\u7535\u5f71",
+                        "music": "\u97f3\u4e50",
+                        "playlist": "\u64ad\u653e\u5217\u8868",
+                        "podcast": "\u64ad\u5ba2",
+                        "season": "\u64ad\u51fa\u5b63",
+                        "track": "\u97f3\u8f68",
+                        "tvshow": "\u7535\u89c6\u8282\u76ee",
+                        "url": "\u7f51\u5740",
+                        "video": "\u89c6\u9891"
+                    }
+                },
+                "media_duration": {
+                    "name": "\u6301\u7eed\u65f6\u95f4"
+                },
+                "media_episode": {
+                    "name": "\u5206\u96c6"
+                },
+                "media_playlist": {
+                    "name": "\u64ad\u653e\u5217\u8868"
+                },
+                "media_position": {
+                    "name": "\u4f4d\u7f6e"
+                },
+                "media_position_updated_at": {
+                    "name": "\u4f4d\u7f6e\u5df2\u66f4\u65b0"
+                },
+                "media_season": {
+                    "name": "\u64ad\u51fa\u5b63"
+                },
+                "media_series_title": {
+                    "name": "\u7cfb\u5217"
+                },
+                "media_title": {
+                    "name": "\u6807\u9898"
+                },
+                "media_track": {
+                    "name": "\u97f3\u8f68"
+                },
+                "repeat": {
+                    "name": "\u91cd\u590d\u64ad\u653e",
+                    "state": {
+                        "all": "\u5168\u90e8\u64ad\u653e",
+                        "off": "\u5173",
+                        "one": "\u5355\u66f2\u64ad\u653e"
+                    }
+                },
+                "shuffle": {
+                    "name": "\u968f\u673a\u64ad\u653e",
+                    "state": {
+                        "false": "\u5173\u95ed",
+                        "true": "\u5f00\u542f"
+                    }
+                },
+                "sound_mode": {
+                    "name": "\u58f0\u97f3\u6a21\u5f0f"
+                },
+                "sound_mode_list": {
+                    "name": "\u53ef\u7528\u58f0\u97f3\u6a21\u5f0f"
+                },
+                "source": {
+                    "name": "\u6765\u6e90"
+                },
+                "source_list": {
+                    "name": "\u53ef\u7528\u6765\u6e90"
+                },
+                "volume_level": {
+                    "name": "\u97f3\u91cf"
+                }
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "\u7528\u4e8e {domain} \u96c6\u6210\u7684 {platform} \u5e73\u53f0\u4e0d\u518d\u652f\u6301\u901a\u8fc7YAML\u914d\u7f6e\u3002\n\u8bf7\u5c06\u5176\u4ece\u914d\u7f6e\u6587\u4ef6\u4e2d\u5220\u9664\uff0c\u7136\u540e\u91cd\u65b0\u542f\u52a8\u5bb6\u5ead\u52a9\u7406\u4ee5\u89e3\u51b3\u6b64\u95ee\u9898\u3002",
+            "title": "\u5e73\u53f0\u4e0d\u652f\u6301"
+        }
+    },
+    "services": {
+        "media_pause": {
+            "name": "\u6682\u505c"
+        },
+        "media_stop": {
+            "name": "\u505c\u6b62"
+        },
+        "toggle": {
+            "name": "\u5207\u6362"
+        },
+        "turn_off": {
+            "name": "\u5173\u95ed"
+        },
+        "turn_on": {
+            "name": "\u6253\u5f00"
+        }
+    },
+    "title": "\u5a92\u4f53\u64ad\u653e\u5668"
+}

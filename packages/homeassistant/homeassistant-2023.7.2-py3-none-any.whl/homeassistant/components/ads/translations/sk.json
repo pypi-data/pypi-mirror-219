@@ -1,0 +1,20 @@
+{
+    "services": {
+        "write_data_by_name": {
+            "description": "Zap\u00ed\u0161te hodnotu do pripojen\u00e9ho zariadenia ADS.",
+            "fields": {
+                "adstype": {
+                    "name": "Typ ADS"
+                },
+                "adsvar": {
+                    "name": "Premenn\u00e1 ADS"
+                },
+                "value": {
+                    "description": "Hodnota, ktor\u00e1 sa m\u00e1 zap\u00edsa\u0165 do premennej.",
+                    "name": "Hodnota"
+                }
+            },
+            "name": "Z\u00e1pis \u00fadajov pod\u013ea n\u00e1zvu"
+        }
+    }
+}

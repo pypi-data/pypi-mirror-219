@@ -1,0 +1,26 @@
+{
+    "services": {
+        "say": {
+            "fields": {
+                "options": {
+                    "description": "Integratsioonispetsiifilisi valikuid sisaldav s\u00f5nastik.",
+                    "name": "Valikud"
+                }
+            },
+            "name": "\u00dctle TTS-s\u00f5num"
+        },
+        "speak": {
+            "description": "R\u00e4\u00e4gib midagi, kasutades tekst-k\u00f5neks meediam\u00e4ngijas.",
+            "fields": {
+                "media_player_entity_id": {
+                    "description": "Meediam\u00e4ngijad s\u00f5numi esitamiseks.",
+                    "name": "Meediam\u00e4ngija olem"
+                },
+                "options": {
+                    "name": "Valikud"
+                }
+            },
+            "name": "R\u00e4\u00e4gi"
+        }
+    }
+}

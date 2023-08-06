@@ -1,0 +1,20 @@
+{
+    "services": {
+        "start_charge": {
+            "fields": {
+                "vin": {
+                    "name": "VIN"
+                }
+            },
+            "name": "Spusti\u0165 nab\u00edjanie"
+        },
+        "update": {
+            "fields": {
+                "vin": {
+                    "name": "VIN"
+                }
+            },
+            "name": "Aktualiz\u00e1cia"
+        }
+    }
+}

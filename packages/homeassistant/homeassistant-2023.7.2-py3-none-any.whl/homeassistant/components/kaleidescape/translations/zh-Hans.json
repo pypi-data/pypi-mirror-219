@@ -1,0 +1,24 @@
+{
+    "entity": {
+        "sensor": {
+            "cinemascape_mask": {
+                "name": "\u5f71\u9662\u906e\u7f69"
+            },
+            "cinemascape_mode": {
+                "name": "\u5f71\u9662\u6a21\u5f0f"
+            },
+            "media_location": {
+                "name": "\u5a92\u4f53\u4f4d\u7f6e"
+            },
+            "play_speed": {
+                "name": "\u64ad\u653e\u901f\u5ea6"
+            },
+            "play_status": {
+                "name": "\u64ad\u653e\u72b6\u6001"
+            },
+            "video_color_eotf": {
+                "name": "\u89c6\u9891\u989c\u8272 EOTF"
+            }
+        }
+    }
+}

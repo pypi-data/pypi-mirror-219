@@ -1,0 +1,54 @@
+{
+    "device_automation": {
+        "action_type": {
+            "clean": "\u4f7f {entity_name} \u5f00\u59cb\u6e05\u626b",
+            "dock": "\u4f7f {entity_name} \u8fd4\u56de\u5e95\u5ea7"
+        },
+        "condition_type": {
+            "is_cleaning": "{entity_name} \u6b63\u5728\u6e05\u626b",
+            "is_docked": "{entity_name} \u6b63\u505c\u9760\u5728\u5e95\u5ea7\u4e0a"
+        },
+        "trigger_type": {
+            "cleaning": "{entity_name} \u5f00\u59cb\u6e05\u626b",
+            "docked": "{entity_name} \u8fd4\u56de\u5e95\u5ea7"
+        }
+    },
+    "entity_component": {
+        "_": {
+            "state": {
+                "cleaning": "\u6b63\u5728\u6e05\u626b",
+                "docked": "\u505c\u9760",
+                "error": "\u9519\u8bef",
+                "idle": "\u7a7a\u95f2",
+                "off": "\u5173\u95ed",
+                "on": "\u5f00\u542f",
+                "paused": "\u5df2\u6682\u505c",
+                "returning": "\u6b63\u5728\u8fd4\u56de\u5e95\u5ea7"
+            }
+        }
+    },
+    "issues": {
+        "platform_integration_no_support": {
+            "description": "\u7528\u4e8e {domain} \u96c6\u6210\u7684 {platform} \u5e73\u53f0\u4e0d\u518d\u652f\u6301\u901a\u8fc7YAML\u914d\u7f6e\u3002\n\u8bf7\u5c06\u5176\u4ece\u914d\u7f6e\u6587\u4ef6\u4e2d\u5220\u9664\uff0c\u7136\u540e\u91cd\u65b0\u542f\u52a8\u5bb6\u5ead\u52a9\u7406\u4ee5\u89e3\u51b3\u6b64\u95ee\u9898\u3002",
+            "title": "\u5e73\u53f0\u4e0d\u652f\u6301"
+        }
+    },
+    "services": {
+        "pause": {
+            "name": "\u6682\u505c"
+        },
+        "start": {
+            "name": "\u5f00\u59cb"
+        },
+        "stop": {
+            "name": "\u505c\u6b62"
+        },
+        "turn_off": {
+            "name": "\u5173\u95ed"
+        },
+        "turn_on": {
+            "name": "\u6253\u5f00"
+        }
+    },
+    "title": "\u626b\u5730\u673a"
+}

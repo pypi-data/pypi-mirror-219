@@ -1,0 +1,20 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "status": {
+                "name": "\u5730\u4f4d"
+            }
+        },
+        "sensor": {
+            "max_players": {
+                "name": "\u73a9\u5bb6\u4e0a\u9650"
+            },
+            "online_players": {
+                "name": "\u73a9\u5bb6\u5728\u7ebf"
+            },
+            "resources": {
+                "name": "\u8d44\u6e90"
+            }
+        }
+    }
+}

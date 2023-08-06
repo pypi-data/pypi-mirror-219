@@ -1,0 +1,38 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_auth": "Neplatn\u00e9 overenie",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "brand": "Zna\u010dka",
+                    "password": "Heslo",
+                    "username": "Pou\u017e\u00edvate\u013esk\u00e9 meno"
+                }
+            }
+        }
+    },
+    "services": {
+        "set_humidify_setpoint": {
+            "fields": {
+                "humidity": {
+                    "description": "Nastaven\u00e1 hodnota zvlh\u010dovania.",
+                    "name": "Vlhkos\u0165"
+                }
+            }
+        },
+        "set_hvac_run_mode": {
+            "fields": {
+                "run_mode": {
+                    "name": "Re\u017eim spustenia"
+                }
+            }
+        }
+    }
+}

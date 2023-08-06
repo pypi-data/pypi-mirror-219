@@ -1,0 +1,45 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "N\u00e1kupn\u00fd zoznam je u\u017e nakonfigurovan\u00fd."
+        },
+        "step": {
+            "user": {
+                "description": "Chcete nakonfigurova\u0165 n\u00e1kupn\u00fd zoznam?",
+                "title": "N\u00e1kupn\u00fd zoznam"
+            }
+        }
+    },
+    "services": {
+        "add_item": {
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            },
+            "name": "Prida\u0165 polo\u017eku"
+        },
+        "complete_item": {
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "incomplete_item": {
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        },
+        "remove_item": {
+            "fields": {
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            }
+        }
+    },
+    "title": "N\u00e1kupn\u00fd zoznam"
+}

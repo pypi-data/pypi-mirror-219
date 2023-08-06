@@ -1,0 +1,35 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "\u8bbe\u5907\u5df2\u7ecf\u914d\u7f6e\u8fc7\u4e86"
+        },
+        "error": {
+            "invalid_place_or_service_id": "\u5730\u70b9\u6216\u670d\u52a1 ID \u65e0\u6548"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "place_id": "\u5730\u70b9 ID",
+                    "service_id": "\u670d\u52a1 ID"
+                }
+            }
+        }
+    },
+    "entity": {
+        "sensor": {
+            "current_pickup": {
+                "name": "\u5f53\u524d\u62fe\u53d6"
+            },
+            "next_pickup": {
+                "name": "\u4e0b\u6b21\u62fe\u53d6"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "title": "\u914d\u7f6eRecollect Waste"
+            }
+        }
+    }
+}

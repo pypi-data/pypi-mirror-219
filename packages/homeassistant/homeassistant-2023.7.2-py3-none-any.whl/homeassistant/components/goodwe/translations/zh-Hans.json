@@ -1,0 +1,14 @@
+{
+    "entity": {
+        "select": {
+            "operation_mode": {
+                "state": {
+                    "backup": "\u5907\u4efd\u6a21\u5f0f",
+                    "eco": "\u8282\u80fd\u6a21\u5f0f",
+                    "eco_charge": "\u8282\u80fd\u5145\u7535\u6a21\u5f0f",
+                    "eco_discharge": "\u8282\u80fd\u653e\u7535\u6a21\u5f0f"
+                }
+            }
+        }
+    }
+}

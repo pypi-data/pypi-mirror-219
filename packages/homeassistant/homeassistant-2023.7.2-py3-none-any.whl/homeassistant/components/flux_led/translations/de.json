@@ -1,0 +1,93 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Ger\u00e4t ist bereits konfiguriert",
+            "already_in_progress": "Der Konfigurationsablauf wird bereits ausgef\u00fchrt",
+            "no_devices_found": "Keine Ger\u00e4te im Netzwerk gefunden"
+        },
+        "error": {
+            "cannot_connect": "Verbindung fehlgeschlagen"
+        },
+        "flow_title": "{model} {id} ({ipaddr})",
+        "step": {
+            "discovery_confirm": {
+                "description": "M\u00f6chtest du {model} {id} ({ipaddr}) einrichten?"
+            },
+            "user": {
+                "data": {
+                    "host": "Host"
+                },
+                "description": "Wenn du den Host leer l\u00e4sst, wird die Erkennung verwendet, um Ger\u00e4te zu finden."
+            }
+        }
+    },
+    "entity": {
+        "button": {
+            "unpair_remotes": {
+                "name": "Fernbedienungen entkoppeln"
+            }
+        },
+        "number": {
+            "effect_speed": {
+                "name": "Effektgeschwindigkeit"
+            },
+            "music_pixels_per_segment": {
+                "name": "Musikpixel pro Segment"
+            },
+            "music_segments": {
+                "name": "Musiksegmente"
+            },
+            "pixels_per_segment": {
+                "name": "Pixel pro Segment"
+            },
+            "segments": {
+                "name": "Segmente"
+            }
+        },
+        "select": {
+            "ic_type": {
+                "name": "IC-Typ"
+            },
+            "operating_mode": {
+                "name": "Betriebsart"
+            },
+            "power_restored": {
+                "name": "Strom wiederhergestellt"
+            },
+            "remote_config": {
+                "name": "Remote-Konfiguration"
+            },
+            "white_channel": {
+                "name": "Wei\u00dfer Kanal"
+            },
+            "wiring": {
+                "name": "Verdrahtung"
+            }
+        },
+        "sensor": {
+            "paired_remotes": {
+                "name": "Gekoppelte Fernbedienungen"
+            }
+        },
+        "switch": {
+            "music": {
+                "name": "Musik"
+            },
+            "remote_access": {
+                "name": "Remotezugriff"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "custom_effect_colors": "Benutzerdefinierter Effekt: Liste mit 1 bis 16 [R,G,B]-Farben. Beispiel: [255,0,255],[60,128,0]",
+                    "custom_effect_speed_pct": "Benutzerdefinierter Effekt: Geschwindigkeit in Prozent f\u00fcr den Effekt, der die Farbe wechselt.",
+                    "custom_effect_transition": "Benutzerdefinierter Effekt: Art des \u00dcbergangs zwischen den Farben.",
+                    "mode": "Der gew\u00e4hlte Helligkeitsmodus."
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "entity": {
+        "binary_sensor": {
+            "connected_to_router": {
+                "name": "\u5df2\u8fde\u63a5\u5230\u8def\u7531\u5668"
+            }
+        },
+        "button": {
+            "identify": {
+                "name": "\u4f7f\u7528\u95ea\u70c1\u7684 LED \u8bc6\u522b\u8bbe\u5907"
+            },
+            "pairing": {
+                "name": "\u5f00\u59cb PLC \u914d\u5bf9"
+            },
+            "restart": {
+                "name": "\u91cd\u542f\u8bbe\u5907"
+            },
+            "start_wps": {
+                "name": "\u542f\u52a8 WPS"
+            }
+        },
+        "sensor": {
+            "connected_plc_devices": {
+                "name": "\u8fde\u63a5\u7684 PLC \u8bbe\u5907"
+            },
+            "connected_wifi_clients": {
+                "name": "\u5df2\u8fde\u63a5\u7684 Wifi \u5ba2\u6237\u7aef"
+            },
+            "neighboring_wifi_networks": {
+                "name": "\u90bb\u8fd1\u7684 Wifi \u7f51\u7edc"
+            }
+        },
+        "switch": {
+            "switch_guest_wifi": {
+                "name": "\u542f\u7528\u8bbf\u5ba2 Wifi"
+            },
+            "switch_leds": {
+                "name": "\u542f\u7528\u6307\u793a\u706f"
+            }
+        }
+    }
+}

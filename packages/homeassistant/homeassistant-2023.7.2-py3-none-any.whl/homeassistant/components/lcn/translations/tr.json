@@ -1,0 +1,11 @@
+{
+    "device_automation": {
+        "trigger_type": {
+            "codelock": "Kod kilit kodu al\u0131nd\u0131",
+            "fingerprint": "Parmak izi kodu al\u0131nd\u0131",
+            "send_keys": "Al\u0131nan anahtarlar\u0131 g\u00f6nder",
+            "transmitter": "Verici kodu al\u0131nd\u0131",
+            "transponder": "Transponder kodu al\u0131nd\u0131"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "entity": {
+        "sensor": {
+            "barometric_pressure": {
+                "name": "\u6c14\u538b"
+            },
+            "feels_like": {
+                "name": "\u611f\u89c9"
+            },
+            "flex": {
+                "name": "\u67d4\u6027"
+            },
+            "heat_index": {
+                "name": "\u70ed\u5ea6\u6307\u6570"
+            },
+            "wet_dry": {
+                "name": "\u6e7f/\u5e72"
+            },
+            "wind_chill": {
+                "name": "\u98ce\u5bd2"
+            },
+            "wind_heading": {
+                "name": "\u98ce\u5411"
+            }
+        }
+    }
+}

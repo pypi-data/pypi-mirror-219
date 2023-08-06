@@ -1,0 +1,13 @@
+{
+    "services": {
+        "create": {
+            "description": "Muestra una notificaci\u00f3n en el panel **Notificaciones**.",
+            "fields": {
+                "message": {
+                    "description": "Cuerpo del mensaje de la notificaci\u00f3n.",
+                    "name": "Mensaje"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "services": {
+        "set_failsafe": {
+            "description": "Establece el modo a prueba de fallos de la estaci\u00f3n de carga. Si todos los par\u00e1metros son 0, el modo a prueba de fallos estar\u00e1 desactivado.",
+            "fields": {
+                "failsafe_fallback": {
+                    "description": "Corriente de retorno que se establecer\u00e1 despu\u00e9s del tiempo de espera.",
+                    "name": "Respaldo a prueba de fallos"
+                },
+                "failsafe_persist": {
+                    "description": "Si failsafe_persist es 0, la opci\u00f3n a prueba de fallos es solo hasta que se reinicie la estaci\u00f3n de carga. Si failsafe_persist es 1, la opci\u00f3n a prueba de fallos sobrevivir\u00e1 a un reinicio.",
+                    "name": "Persistencia a prueba de fallos"
+                },
+                "failsafe_timeout": {
+                    "description": "Tiempo de espera despu\u00e9s del cual se activa el modo a prueba de fallas, si set_current no se ejecut\u00f3 durante este tiempo.",
+                    "name": "Tiempo de espera a prueba de fallos"
+                }
+            },
+            "name": "Establecer a prueba de fallos"
+        }
+    }
+}

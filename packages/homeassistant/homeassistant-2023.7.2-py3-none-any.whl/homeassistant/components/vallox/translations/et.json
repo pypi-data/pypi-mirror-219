@@ -1,0 +1,43 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Teenus on juba h\u00e4\u00e4lestatud",
+            "cannot_connect": "\u00dchendamine nurjus",
+            "invalid_host": "Vigane hostinimi v\u00f5i IP aadress",
+            "unknown": "Ootamatu t\u00f5rge"
+        },
+        "error": {
+            "cannot_connect": "\u00dchendamine nurjus",
+            "invalid_host": "Vigane hostinimi v\u00f5i IP aadress",
+            "unknown": "Ootamatu t\u00f5rge"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host"
+                }
+            }
+        }
+    },
+    "services": {
+        "set_profile_fan_speed_boost": {
+            "fields": {
+                "fan_speed": {
+                    "description": "Ventilaatori kiirus.",
+                    "name": "Ventilaatori kiirus"
+                }
+            },
+            "name": "M\u00e4\u00e4ra profiil ventilaatori kiiruse suurendamiseks"
+        },
+        "set_profile_fan_speed_home": {
+            "description": "M\u00e4\u00e4rab koduprofiili ventilaatori kiiruse.",
+            "fields": {
+                "fan_speed": {
+                    "description": "Ventilaatori kiirus.",
+                    "name": "Ventilaatori kiirus"
+                }
+            },
+            "name": "M\u00e4\u00e4ra koduprofiili ventilaatori kiirus"
+        }
+    }
+}

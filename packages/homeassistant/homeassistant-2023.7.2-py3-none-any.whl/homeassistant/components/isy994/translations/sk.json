@@ -1,0 +1,172 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Zariadenie u\u017e je nakonfigurovan\u00e9"
+        },
+        "error": {
+            "cannot_connect": "Nepodarilo sa pripoji\u0165",
+            "invalid_auth": "Neplatn\u00e9 overenie",
+            "invalid_host": "Z\u00e1znam hostite\u013ea nemal \u00fapln\u00fd form\u00e1t adresy URL, napr. http://192.168.10.100:80",
+            "reauth_successful": "Op\u00e4tovn\u00e9 overenie bolo \u00faspe\u0161n\u00e9",
+            "unknown": "Neo\u010dak\u00e1van\u00e1 chyba"
+        },
+        "flow_title": "{name} ({host})",
+        "step": {
+            "reauth_confirm": {
+                "data": {
+                    "password": "Heslo",
+                    "username": "Pou\u017e\u00edvate\u013esk\u00e9 meno"
+                },
+                "description": "Poverenia pre {host} u\u017e nie s\u00fa platn\u00e9.",
+                "title": "Znova overte svoje ISY"
+            },
+            "user": {
+                "data": {
+                    "host": "URL",
+                    "password": "Heslo",
+                    "tls": "Verzia TLS ovl\u00e1da\u010da ISY.",
+                    "username": "Pou\u017e\u00edvate\u013esk\u00e9 meno"
+                },
+                "description": "Polo\u017eka hostite\u013ea mus\u00ed by\u0165 v \u00faplnom form\u00e1te URL, napr. http://192.168.10.100:80",
+                "title": "Pripoji\u0165 sa k ISY"
+            }
+        }
+    },
+    "issues": {
+        "deprecated_service": {
+            "fix_flow": {
+                "step": {
+                    "confirm": {
+                        "description": "Aktualizujte v\u0161etky automatiz\u00e1cie alebo skripty, ktor\u00e9 pou\u017e\u00edvaj\u00fa t\u00fato slu\u017ebu, aby namiesto nej pou\u017e\u00edvali slu\u017ebu `{alternate_service}` s ID cie\u013eovej entity `{alternate_target}`.",
+                        "title": "Slu\u017eba {deprecated_service} bude odstr\u00e1nen\u00e1"
+                    },
+                    "deprecated_yaml": {
+                        "description": "Konfigur\u00e1cia Universal Devices ISY/IoX pomocou YAML sa odstra\u0148uje. \n\n Va\u0161a existuj\u00faca konfigur\u00e1cia YAML bola importovan\u00e1 do pou\u017e\u00edvate\u013esk\u00e9ho rozhrania automaticky. \n\n Odstr\u00e1\u0148te konfigur\u00e1ciu YAML `isy994` zo s\u00faboru configuration.yaml a re\u0161tartujte Home Assistant, aby ste tento probl\u00e9m vyrie\u0161ili.",
+                        "title": "Konfigur\u00e1cia ISY/IoX YAML sa odstra\u0148uje"
+                    }
+                }
+            },
+            "title": "Slu\u017eba {deprecated_service} bude odstr\u00e1nen\u00e1"
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "ignore_string": "Ignorova\u0165 re\u0165azec",
+                    "restore_light_state": "Obnovenie jasu osvetlenia",
+                    "sensor_string": "Re\u0165azec sn\u00edma\u010da uzla",
+                    "variable_sensor_string": "Variabiln\u00fd re\u0165azec sn\u00edma\u010da"
+                },
+                "description": "Nastavte mo\u017enosti pre integr\u00e1ciu ISY:\n \u2022 Re\u0165azec sn\u00edma\u010da uzla: Ka\u017ed\u00e9 zariadenie alebo prie\u010dinok, ktor\u00fd v n\u00e1zve obsahuje re\u0165azec sn\u00edma\u010da uzla, sa bude pova\u017eova\u0165 za sn\u00edma\u010d alebo bin\u00e1rny sn\u00edma\u010d.\n \u2022 Ignorova\u0165 re\u0165azec: Ka\u017ed\u00e9 zariadenie s 'Ignorova\u0165 re\u0165azec' v n\u00e1zve bude ignorovan\u00e9.\n \u2022 Variabiln\u00fd re\u0165azec sn\u00edma\u010da: Ak\u00e1ko\u013evek premenn\u00e1, ktor\u00e1 obsahuje re\u0165azec premenn\u00fdch sn\u00edma\u010dov, bude pridan\u00e1 ako sn\u00edma\u010d.\n \u2022 Obnovi\u0165 jas svetla: Ak je povolen\u00e1, pri zapnut\u00ed svetla sa obnov\u00ed predch\u00e1dzaj\u00faci jas namiesto vstavanej On-Level zariadenia.",
+                "title": "Mo\u017enosti ISY"
+            }
+        }
+    },
+    "services": {
+        "delete_zwave_lock_user_code": {
+            "fields": {
+                "user_num": {
+                    "name": "\u010c\u00edslo pou\u017e\u00edvate\u013ea"
+                }
+            }
+        },
+        "get_zwave_parameter": {
+            "description": "Vy\u017eaduje parameter Z-Wave zariadenia prostredn\u00edctvom ISY. Hodnota parametra sa vr\u00e1ti ako extra stavov\u00fd atrib\u00fat entity s n\u00e1zvom \"ZW_#\", kde \"#\" je \u010d\u00edslo parametra.",
+            "fields": {
+                "parameter": {
+                    "description": "\u010c\u00edslo parametra, ktor\u00e9 sa m\u00e1 na\u010d\u00edta\u0165 zo zariadenia.",
+                    "name": "Parameter"
+                }
+            }
+        },
+        "rename_node": {
+            "fields": {
+                "name": {
+                    "description": "Nov\u00fd n\u00e1zov, ktor\u00fd sa m\u00e1 pou\u017e\u00edva\u0165 v r\u00e1mci ISY.",
+                    "name": "Nov\u00fd n\u00e1zov"
+                }
+            }
+        },
+        "send_node_command": {
+            "description": "Odo\u0161le pr\u00edkaz zariadeniu ISY pomocou identifik\u00e1tora entity Home Assistant. Platn\u00e9 pr\u00edkazy s\u00fa: beep (p\u00edpnutie), brighten (rozjasnenie), dim (stlmenie), disable (vypnutie), enable (zapnutie), fade_down (stlmenie), fade_stop (zastavenie), fade_up (stlmenie), fast_off (r\u00fdchle vypnutie), fast_on (r\u00fdchle zapnutie) a query (dotaz).",
+            "fields": {
+                "command": {
+                    "description": "Pr\u00edkaz, ktor\u00fd sa m\u00e1 odosla\u0165 do zariadenia.",
+                    "name": "Pr\u00edkaz"
+                }
+            }
+        },
+        "send_program_command": {
+            "fields": {
+                "address": {
+                    "name": "Adresa"
+                },
+                "command": {
+                    "name": "Pr\u00edkaz"
+                },
+                "isy": {
+                    "description": "Ak m\u00e1te pripojen\u00fdch viac ako jeden ISY, zadajte n\u00e1zov ISY, ktor\u00e9ho sa chcete dopytova\u0165 (ako je zobrazen\u00fd v registri zariaden\u00ed alebo ako prv\u00fd uzol v konzole ISY Admin).  Ak m\u00e1te rovnak\u00fd n\u00e1zov alebo adresu programu na viacer\u00fdch ISY, vynechan\u00edm tejto polo\u017eky sa pr\u00edkaz spust\u00ed na v\u0161etk\u00fdch.",
+                    "name": "ISY"
+                },
+                "name": {
+                    "name": "N\u00e1zov"
+                }
+            },
+            "name": "Odoslanie pr\u00edkazu programu"
+        },
+        "send_raw_node_command": {
+            "description": "Nastavte mo\u017enosti pre integr\u00e1ciu ISY:\n \u2022 Re\u0165azec sn\u00edma\u010da uzla: Ka\u017ed\u00e9 zariadenie alebo prie\u010dinok, ktor\u00fd v n\u00e1zve obsahuje re\u0165azec sn\u00edma\u010da uzla, sa bude pova\u017eova\u0165 za sn\u00edma\u010d alebo bin\u00e1rny sn\u00edma\u010d.\n \u2022 Ignorova\u0165 re\u0165azec: Ka\u017ed\u00e9 zariadenie s 'Ignorova\u0165 re\u0165azec' v n\u00e1zve bude ignorovan\u00e9.\n \u2022 Variabiln\u00fd re\u0165azec sn\u00edma\u010da: Ak\u00e1ko\u013evek premenn\u00e1, ktor\u00e1 obsahuje re\u0165azec premenn\u00fdch sn\u00edma\u010dov, bude pridan\u00e1 ako sn\u00edma\u010d.\n \u2022 Obnovi\u0165 jas svetla: Ak je povolen\u00e1, pri zapnut\u00ed svetla sa obnov\u00ed predch\u00e1dzaj\u00faci jas namiesto vstavanej On-Level zariadenia.",
+            "fields": {
+                "command": {
+                    "description": "Pr\u00edkaz ISY REST, ktor\u00fd sa m\u00e1 odosla\u0165 do zariadenia.",
+                    "name": "Pr\u00edkaz"
+                },
+                "parameters": {
+                    "name": "Parametre"
+                },
+                "unit_of_measurement": {
+                    "name": "Jednotka merania"
+                },
+                "value": {
+                    "description": "Celo\u010d\u00edseln\u00e1 hodnota, ktor\u00e1 sa m\u00e1 posla\u0165 spolu s pr\u00edkazom.",
+                    "name": "Hodnota"
+                }
+            }
+        },
+        "set_zwave_lock_user_code": {
+            "fields": {
+                "code": {
+                    "name": "K\u00f3d"
+                },
+                "user_num": {
+                    "name": "\u010c\u00edslo pou\u017e\u00edvate\u013ea"
+                }
+            }
+        },
+        "set_zwave_parameter": {
+            "description": "Aktualizuje parameter zariadenia Z-Wave prostredn\u00edctvom ISY. Hodnota parametra sa vr\u00e1ti aj ako extra stavov\u00fd atrib\u00fat entity s n\u00e1zvom \"ZW_#\", kde \"#\" je \u010d\u00edslo parametra.",
+            "fields": {
+                "parameter": {
+                    "description": "\u010c\u00edslo parametra, ktor\u00fd sa m\u00e1 nastavi\u0165 na koncovom zariaden\u00ed.",
+                    "name": "Parameter"
+                },
+                "size": {
+                    "name": "Ve\u013ekos\u0165"
+                },
+                "value": {
+                    "description": "Hodnota, ktor\u00e1 sa m\u00e1 nastavi\u0165 pre parameter. M\u00f4\u017ee to by\u0165 cel\u00e9 \u010d\u00edslo alebo re\u0165azec bajtov (napr. \"0xFFFF\").",
+                    "name": "Hodnota"
+                }
+            }
+        }
+    },
+    "system_health": {
+        "info": {
+            "device_connected": "ISY pripojen\u00e9",
+            "host_reachable": "Hostite\u013e je dostupn\u00fd",
+            "last_heartbeat": "Posledn\u00e1 aktualiz\u00e1cia",
+            "websocket_status": "Stav socketu udalosti"
+        }
+    }
+}

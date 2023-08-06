@@ -1,0 +1,18 @@
+{
+    "config": {
+        "error": {
+            "unknown": "\u975e\u9884\u671f\u7684\u9519\u8bef"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "admin_password": "\u7ba1\u7406\u5458\u5bc6\u7801",
+                    "admin_username": "\u7ba1\u7406\u5458\u7528\u6237\u540d",
+                    "surveillance_password": "\u76d1\u63a7\u5bc6\u7801",
+                    "surveillance_username": "\u76d1\u63a7\u7528\u6237\u540d",
+                    "url": "\u7f51\u5740"
+                }
+            }
+        }
+    }
+}

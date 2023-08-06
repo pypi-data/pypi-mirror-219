@@ -1,0 +1,49 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "\u811a\u672c",
+            "state": {
+                "off": "\u5173\u95ed",
+                "on": "\u5f00\u542f"
+            },
+            "state_attributes": {
+                "current": {
+                    "name": "\u8fd0\u884c\u81ea\u52a8\u5316"
+                },
+                "last_action": {
+                    "name": "\u4e0a\u6b21\u6267\u884c"
+                },
+                "last_triggered": {
+                    "name": "\u4e0a\u6b21\u89e6\u53d1"
+                },
+                "max": {
+                    "name": "\u6700\u5927\u8fd0\u884c\u811a\u672c\u6570"
+                },
+                "mode": {
+                    "name": "\u8fd0\u884c\u6a21\u5f0f",
+                    "state": {
+                        "parallel": "\u5e76\u884c",
+                        "queued": "\u6392\u961f",
+                        "restart": "\u91cd\u542f",
+                        "single": "\u5355\u70b9"
+                    }
+                }
+            }
+        }
+    },
+    "services": {
+        "reload": {
+            "name": "\u91cd\u65b0\u52a0\u8f7d"
+        },
+        "toggle": {
+            "name": "\u5207\u6362"
+        },
+        "turn_off": {
+            "name": "\u5173\u95ed"
+        },
+        "turn_on": {
+            "name": "\u6253\u5f00"
+        }
+    },
+    "title": "\u811a\u672c"
+}

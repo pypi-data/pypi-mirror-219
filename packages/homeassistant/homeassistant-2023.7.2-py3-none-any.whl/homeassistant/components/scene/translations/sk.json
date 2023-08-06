@@ -1,0 +1,30 @@
+{
+    "services": {
+        "apply": {
+            "fields": {
+                "transition": {
+                    "description": "\u010cas potrebn\u00fd na prechod zariaden\u00ed do stavov definovan\u00fdch v sc\u00e9ne."
+                }
+            }
+        },
+        "create": {
+            "description": "Vytvor\u00ed nov\u00fa sc\u00e9nu.",
+            "fields": {
+                "scene_id": {
+                    "description": "ID entity novej sc\u00e9ny."
+                }
+            }
+        },
+        "reload": {
+            "name": "Znovu na\u010d\u00edta\u0165"
+        },
+        "turn_on": {
+            "fields": {
+                "transition": {
+                    "description": "\u010cas potrebn\u00fd na prechod zariaden\u00ed do stavov definovan\u00fdch v sc\u00e9ne."
+                }
+            }
+        }
+    },
+    "title": "Sc\u00e9na"
+}

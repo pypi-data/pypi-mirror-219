@@ -1,0 +1,47 @@
+{
+    "services": {
+        "set_install_mode": {
+            "name": "Imposta la modalit\u00e0 di installazione"
+        },
+        "set_variable_value": {
+            "description": "Imposta il nome di un nodo.",
+            "fields": {
+                "entity_id": {
+                    "description": "Nome(i) del centro homematic per impostare il valore.",
+                    "name": "Entit\u00e0"
+                },
+                "name": {
+                    "description": "Nome della variabile da impostare.",
+                    "name": "Nome"
+                },
+                "value": {
+                    "description": "Nuovo valore.",
+                    "name": "Valore"
+                }
+            },
+            "name": "Imposta il valore della variabile"
+        },
+        "virtualkey": {
+            "description": "Preme un tasto virtuale da CCU/Homegear o simula la pressione di un tasto.",
+            "fields": {
+                "address": {
+                    "description": "Indirizzo del dispositivo homematic o BidCoS-RF per il telecomando virtuale.",
+                    "name": "Indirizzo"
+                },
+                "channel": {
+                    "description": "Canale per richiamare la pressione di un tasto.",
+                    "name": "Canale"
+                },
+                "interface": {
+                    "description": "Imposta un valore di interfaccia.",
+                    "name": "Interfaccia"
+                },
+                "param": {
+                    "description": "Evento da inviare, ad esempio PRESS_LONG, PRESS_SHORT.",
+                    "name": "Param"
+                }
+            },
+            "name": "Chiave virtuale"
+        }
+    }
+}

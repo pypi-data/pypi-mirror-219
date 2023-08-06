@@ -1,0 +1,9 @@
+{
+    "config": {
+        "step": {
+            "sas": {
+                "description": "\u8bf7\u8f93\u5165 SAS\uff08\u5171\u4eab\u8bbf\u95ee\u7b7e\u540d\uff09\u51ed\u636e\uff1a {event_hub_instance_name}"
+            }
+        }
+    }
+}

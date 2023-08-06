@@ -1,0 +1,13 @@
+{
+    "config": {
+        "abort": {
+            "error_pairing": "\u5df2\u8fde\u63a5\u5230 LG \u7f51\u7edc\u64cd\u4f5c\u7cfb\u7edf\u7535\u89c6\uff0c\u4f46\u672a\u914d\u5bf9"
+        },
+        "step": {
+            "reauth_confirm": {
+                "description": "\u5355\u51fb\u63d0\u4ea4\u5e76\u63a5\u53d7\u7535\u89c6\u4e0a\u7684\u914d\u5bf9\u8bf7\u6c42\u3002 \n\n ![image](/static/images/config_webos.png)",
+                "title": "webOS \u7535\u89c6\u914d\u5bf9"
+            }
+        }
+    }
+}

@@ -1,0 +1,101 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "Ger\u00e4t ist bereits konfiguriert"
+        },
+        "error": {
+            "invalid_auth": "Ung\u00fcltige Authentifizierung"
+        },
+        "flow_title": "{ip}",
+        "step": {
+            "user": {
+                "data": {
+                    "ip_address": "Hostname oder IP-Adresse",
+                    "password": "Passwort",
+                    "port": "Port"
+                },
+                "title": "Informationen eingeben"
+            }
+        }
+    },
+    "entity": {
+        "binary_sensor": {
+            "flow_sensor": {
+                "name": "Durchflusssensor"
+            },
+            "freeze": {
+                "name": "Einschr\u00e4nkungen beim Einfrieren"
+            },
+            "hourly": {
+                "name": "St\u00fcndliche Einschr\u00e4nkungen"
+            },
+            "month": {
+                "name": "Monatliche Einschr\u00e4nkungen"
+            },
+            "raindelay": {
+                "name": "Einschr\u00e4nkungen bei Regenverz\u00f6gerungen"
+            },
+            "rainsensor": {
+                "name": "Einschr\u00e4nkungen f\u00fcr Regensensoren"
+            },
+            "weekday": {
+                "name": "Einschr\u00e4nkungen an Wochentagen"
+            }
+        },
+        "select": {
+            "freeze_protection_temperature": {
+                "name": "Frostschutztemperatur"
+            }
+        },
+        "sensor": {
+            "flow_sensor_clicks_cubic_meter": {
+                "name": "Durchflusssensor Klicks pro Kubikmeter"
+            },
+            "flow_sensor_consumed_liters": {
+                "name": "Durchflusssensor verbrauchte Liter"
+            },
+            "flow_sensor_leak_clicks": {
+                "name": "Leckklicks des Durchflusssensors"
+            },
+            "flow_sensor_leak_volume": {
+                "name": "Leckvolumen des Durchflusssensors"
+            },
+            "flow_sensor_start_index": {
+                "name": "Startindex des Durchflusssensors"
+            },
+            "flow_sensor_watering_clicks": {
+                "name": "Durchflusssensor Klicks"
+            },
+            "last_leak_detected": {
+                "name": "Letztes entdecktes Leck"
+            },
+            "rain_sensor_rain_start": {
+                "name": "Regensensor Regenstart"
+            }
+        },
+        "switch": {
+            "freeze_protect_enabled": {
+                "name": "Frostschutz"
+            },
+            "hot_days_extra_watering": {
+                "name": "Extra Wasser an hei\u00dfen Tagen"
+            }
+        },
+        "update": {
+            "firmware": {
+                "name": "Firmware"
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "use_app_run_times": "Zonenlaufzeiten aus der RainMachine App verwenden",
+                    "zone_run_time": "Standard-Zonenlaufzeit (in Sekunden)"
+                },
+                "title": "RainMachine konfigurieren"
+            }
+        }
+    }
+}

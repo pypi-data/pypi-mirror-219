@@ -1,0 +1,13 @@
+{
+    "services": {
+        "create_task": {
+            "fields": {
+                "name": {
+                    "description": "\uc0c8 \uc791\uc5c5\uc758 \uc774\ub984, \uc5ec\uae30\uc5d0\uc11c \uc2a4\ub9c8\ud2b8 \uad6c\ubb38\uc744 \uc0ac\uc6a9\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
+                    "name": "\uc774\ub984"
+                }
+            },
+            "name": "\uc791\uc5c5 \ub9cc\ub4e4\uae30"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "entity_component": {
+        "_": {
+            "name": "Alarm",
+            "state": {
+                "idle": "Inaktiv",
+                "off": "Anerkannt",
+                "on": "Aktiv"
+            }
+        }
+    },
+    "services": {
+        "toggle": {
+            "name": "Umschalten"
+        },
+        "turn_off": {
+            "name": "Ausschalten"
+        },
+        "turn_on": {
+            "name": "Einschalten"
+        }
+    },
+    "title": "Alarm"
+}
