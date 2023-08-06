@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: image-func
+Version: 1.0.34
+Summary: A module for image processing
+Author: Armankhanvsit
+Author-email: armanpconly@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+License-File: LICENSE.txt
+
+A module for image processing using numpy, PIL, scipy, and matplotlib.
