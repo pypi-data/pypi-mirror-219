@@ -1,0 +1,2 @@
+[datasette]
+sqlite_assert = datasette_sqlite_assert
