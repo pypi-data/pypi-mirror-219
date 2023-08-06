@@ -1,0 +1,11 @@
+__pycache__/
+ts*.parquet
+ts*.csv
+ts*.tsv
+dist/
+lixo*
+*.log
+.ruff_cache
+.pytest_cache
+*.mp4
+
