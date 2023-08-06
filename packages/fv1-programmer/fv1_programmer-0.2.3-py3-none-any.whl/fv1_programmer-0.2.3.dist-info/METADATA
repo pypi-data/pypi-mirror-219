@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: fv1-programmer
+Version: 0.2.3
+Summary: An EEPROM programming tool for the FV-1 DSP
+License: MIT
+Author: Mark Melvin
+Author-email: mark.melvin@audiofab.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Typing :: Typed
+Requires-Dist: easymcp2221 (>=1.6.2,<2.0.0)
+Requires-Dist: intelhex (>=2.3.0,<3.0.0)
+Requires-Dist: pyperclip (>=1.8.2,<2.0.0)
+Requires-Dist: textual[dev] (>=0.28.1,<0.29.0)
+Description-Content-Type: text/markdown
+
+# FV-1 Programmer
+
+An EEPROM programming tool for the FV-1 DSP.
+
+# Installation
+
+The easiest and cleanest way to install this demo is with [pipx](https://pypa.github.io/pipx/):
+
+`pipx install fv1-programmer`
+
+You can also install with pip (but it will install a bunch of dependencies directly into your Python environment):
+
+`pip install fv1-programmer`
+
+Either way, you will now have a `fv1_programmer` command on your path, which you can run in a terminal:
+
+```
+$ fv1_programmer
+```
+
+This will bring up a user interface that will allow you to configure all 8 program slots of the FV-1 DSP and write the EEPROM.
+
