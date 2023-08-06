@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+onedata_lambda_utils/__init__.py
+onedata_lambda_utils/logging.py
+onedata_lambda_utils/py.typed
+onedata_lambda_utils/stats.py
+onedata_lambda_utils/streaming.py
+onedata_lambda_utils/types.py
+onedata_lambda_utils.egg-info/PKG-INFO
+onedata_lambda_utils.egg-info/SOURCES.txt
+onedata_lambda_utils.egg-info/dependency_links.txt
+onedata_lambda_utils.egg-info/requires.txt
+onedata_lambda_utils.egg-info/top_level.txt
