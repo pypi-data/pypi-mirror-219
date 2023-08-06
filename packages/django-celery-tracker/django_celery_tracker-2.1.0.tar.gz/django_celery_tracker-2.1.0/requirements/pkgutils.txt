@@ -1,0 +1,11 @@
+setuptools==68.0.0
+wheel==0.40.0
+flake8==6.0.0
+flakeplus==1.1.0
+tox==4.6.4
+sphinx2rst==1.1.0
+bumpversion==0.6.0
+pydocstyle==6.3.0
+docutils==0.20.1
+readme-renderer==40.0
+check-manifest==0.49
