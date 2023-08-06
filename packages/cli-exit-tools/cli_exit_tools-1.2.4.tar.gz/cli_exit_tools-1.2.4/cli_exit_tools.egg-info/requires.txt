@@ -1,0 +1,16 @@
+click
+lib_detect_testenv
+
+[test]
+black
+codecov
+coloredlogs
+coverage
+flake8
+pytest
+pytest-cov
+pytest-runner
+readme_renderer
+
+[test:platform_python_implementation != "PyPy"]
+mypy
