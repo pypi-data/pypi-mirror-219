@@ -1,0 +1,2 @@
+[console_scripts]
+treemodel2sql = treemodel2sql.cli:main
