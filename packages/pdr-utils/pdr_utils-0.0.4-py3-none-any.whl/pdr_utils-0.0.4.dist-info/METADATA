@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pdr-utils
+Version: 0.0.4
+Summary: Predictoor utils lib.
+Home-page: https://github.com/oceanprotocol/pdr-utils
+Author: oceanprotocol
+Author-email: devops@oceanprotocol.com
+License: Apache Software License 2.0
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: enforce-typing
+Requires-Dist: pylint
+Requires-Dist: bumpversion
+Requires-Dist: requests
+Requires-Dist: web3
+Requires-Dist: coverage
+
+Common utilities for pdr repositories.
