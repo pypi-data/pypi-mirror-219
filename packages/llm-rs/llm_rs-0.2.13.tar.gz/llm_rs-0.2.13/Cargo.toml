@@ -1,0 +1,31 @@
+[package]
+name = "llm-rs"
+version = "0.2.13"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "llm_rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+rand = "0.8.5"
+rand_chacha = "0.3.1"
+log  =  "0.4.17"
+serde = "1.0.163"
+serde_json = "1.0"
+
+llm = { git = "https://github.com/rustformers/llm.git", rev = "5d09eed"}
+llm-base = { git = "https://github.com/rustformers/llm.git", rev = "5d09eed"}
+
+[dependencies.pyo3]
+version = "0.19.1"
+# "abi3-py37" tells pyo3 (and maturin) to build using the stable ABI with
+# Python 3.7 or later.
+features = ["abi3-py37","extension-module", "generate-import-lib"]
+
+[features]
+cublas = ["llm/cublas", "llm-base/cublas"]
+clblast = ["llm/clblast", "llm-base/clblast"]
+metal = ["llm/metal", "llm-base/metal"]
+
