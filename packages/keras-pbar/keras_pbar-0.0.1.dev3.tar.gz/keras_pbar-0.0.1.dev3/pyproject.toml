@@ -1,0 +1,29 @@
+[project]
+name = "keras_pbar"
+version = "0.0.1dev3"
+description = "TQDM-like API for Keras Progressbar."
+readme = "Readme.md"
+requires-python = ">=3.8"
+authors = [
+    { name = "Artem Sereda", email = "artem.sereda.tub@gmail.com" }
+]
+maintainers = [
+    { name = "Artem Sereda", email = "artem.sereda.tub@gmail.com" }
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+]
+dependencies = [
+    "keras_core"
+]
+[project.optional-dependencies]
+dev = [
+    "black",
+    "pytest",
+    "tox"
+]
+[project.urls]
+"Homepage" = "https://github.com/aaarrti/keras_pbar"
+[build-system]
+requires = ["flit-core >= 3.4"]
+build-backend = "flit_core.buildapi"
