@@ -1,0 +1,14 @@
+carica_dynamodb_tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+carica_dynamodb_tools/dump.py,sha256=q4mG3JL54LX9Jg998_rigI8fK1Dj-ySfoRlC5Wfpnu4,977
+carica_dynamodb_tools/dump_s3_export.py,sha256=OkErz9aqFN2k2RWGxQTKFhnmccw2otrSPVEQlvTC4U4,6212
+carica_dynamodb_tools/load.py,sha256=imORhZDjy2b0sKKDeK2BHYQsdwZFx8TkdyXx4C5n2BY,5931
+carica_dynamodb_tools/s3_export.py,sha256=lEPMzc_xf0G985DsNutnpVTxMPA3sLO3KxtHPuitSCQ,2085
+carica_dynamodb_tools/session.py,sha256=yuhc-U4WgRcuktVsprFuMRGIagdvVFXKVjl9yvaxYtY,593
+carica_dynamodb_tools/utils.py,sha256=N-rxusIgl_cmAe7pZdSNRP5W0RYNVVtsQ5Uzk4vA5-0,262
+carica_dynamodb_tools/version.py,sha256=uGilDWWEtHN5Sj8h1caV1XlWHdwXHUHFR6cmWFbHS90,20
+carica_dynamodb_tools-1.5.dist-info/LICENSE,sha256=z8d0m5b2O9McPEK1xHG_dWgUBT6EfBDz6wA0F7xSPTA,11358
+carica_dynamodb_tools-1.5.dist-info/METADATA,sha256=ZNWmxx5QKyD4dRvjnxmQmDWmu75fk0kMsxxrdupc14g,1340
+carica_dynamodb_tools-1.5.dist-info/WHEEL,sha256=WzZ8cwjh8l0jtULNjYq1Hpr-WCqCRgPr--TX4P5I1Wo,110
+carica_dynamodb_tools-1.5.dist-info/entry_points.txt,sha256=Fgt25SU-cyc_sfK3rzAjMCjFKuB06fnynkviL7Pgr68,265
+carica_dynamodb_tools-1.5.dist-info/top_level.txt,sha256=IioNVjOliYlLkFkVH6TdR8QR0odZ8IZ8UB--cjiUbFY,22
+carica_dynamodb_tools-1.5.dist-info/RECORD,,

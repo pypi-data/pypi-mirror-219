@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: carica-dynamodb-tools
+Version: 1.5
+Summary: Tools to manage DynamoDB tables
+Home-page: https://github.com/caricalabs/carica-dynamodb-tools
+Author: Carica Labs, LLC
+Author-email: info@caricalabs.com
+License: APL 2.0
+Keywords: dynamodb backup restore archive dump load
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: boto3 (>=1.9.99)
+Requires-Dist: click (~=8.0)
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+
+carica-dynamodb-tools - Tools to manage DynamoDB tables
+==================================================================================
+
+Simple backup and restore utilities for DynamoDB tables.
+
+Development
+-----------
+
+The ``vinstall`` script uses the `venv` module to prepare a Python environment useful
+for development, so you don't have to build and install carica-dynamodb-tools to be
+able to run and test it.
+
+#. Run ``./vinstall``
+#. Activate the virtual environment by running ``. ./venv/bin/activate``
+#. The ``console_scripts`` listed in ``setup.py`` are now in your path, so you
+   can simply run them like:
+
+   ``carica-dynamodb ...``
+
+
+
