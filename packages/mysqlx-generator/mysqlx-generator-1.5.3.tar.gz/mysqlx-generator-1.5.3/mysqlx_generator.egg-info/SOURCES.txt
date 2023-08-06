@@ -1,0 +1,11 @@
+README.rst
+setup.py
+mysqlx/__init__.py
+mysqlx/generator.py
+mysqlx/generator.tpl
+mysqlx_generator.egg-info/PKG-INFO
+mysqlx_generator.egg-info/SOURCES.txt
+mysqlx_generator.egg-info/dependency_links.txt
+mysqlx_generator.egg-info/not-zip-safe
+mysqlx_generator.egg-info/requires.txt
+mysqlx_generator.egg-info/top_level.txt

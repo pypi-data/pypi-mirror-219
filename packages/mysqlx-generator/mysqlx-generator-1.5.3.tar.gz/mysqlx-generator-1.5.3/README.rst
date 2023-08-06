@@ -1,0 +1,68 @@
+Install
+'''''''
+
+.. code:: shell
+
+   pip install mysqlx-generator
+
+Usage Sample
+''''''''''''
+
+.. code:: python
+
+   from mysqlx.generator import Generator
+
+
+   if __name__ == '__main__':
+       coder = Generator(host='127.0.0.1', port='3306', user='xxx', password='xxx', database='test')
+       # you can generate a model class for one table
+       coder.generate_with_tables(tables='user', path='models.py')
+       # you can generate model classes for tables
+       coder.generate_with_tables(tables=['user', 'person'], path='models.py')
+       # you can generate model classes for all tables from a given schema. default current schema if not given
+       coder.generate_with_schema(schema='test', path='models.py')
+
+If you run last code, then generate a file 'models.py' in current
+directory like follow:
+
+.. code:: python
+
+   from decimal import Decimal
+   from datetime import date, datetime
+   from mysqlx.orm import Model, PkStrategy
+
+
+   class BaseModel(Model):
+       __pk__ = 'id'
+       __del_flag__ = 'del_flag'
+       __update_by__ = 'update_by'
+       __update_time__ = 'update_time'
+       __pk_strategy__ = PkStrategy.DB_AUTO_INCREMENT
+
+       def __init__(self, id: int = None, create_by: int = None, create_time: datetime = None, update_by: int = None, update_time: datetime = None,
+               del_flag: int = None):
+           self.id = id
+           self.create_by = create_by
+           self.create_time = create_time
+           self.update_by = update_by
+           self.update_time = update_time
+           self.del_flag = del_flag
+
+
+   class User(BaseModel):
+       __table__ = 'user'
+
+       def __init__(self, id: int = None, name: str = None, age: int = None, birth_date: date = None, sex: int = None, grade: float = None,
+               point: float = None, money: Decimal = None, create_by: int = None, create_time: datetime = None, update_by: int = None,
+               update_time: datetime = None, del_flag: int = None):
+           super().__init__(id=id, create_by=create_by, create_time=create_time, update_by=update_by, update_time=update_time, del_flag=del_flag)
+           self.name = name
+           self.age = age
+           self.birth_date = birth_date
+           self.sex = sex
+           self.grade = grade
+           self.point = point
+           self.money = money
+
+
+MySqlx: https://pypi.org/project/mysqlx
