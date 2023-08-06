@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/runner/work/py-randomprime/py-randomprime/randomprime/generated/rel_files/../../compile_to_ppc/target/powerpc-unknown-linux-gnu/release/build/typenum-12e8ec7e4a3891b6/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/runner/work/py-randomprime/py-randomprime/randomprime/generated/rel_files/../../compile_to_ppc/target/powerpc-unknown-linux-gnu/release/build/typenum-12e8ec7e4a3891b6/out/op.rs
