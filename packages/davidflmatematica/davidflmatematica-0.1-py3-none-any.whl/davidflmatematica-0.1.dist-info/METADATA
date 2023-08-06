@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: davidflmatematica
+Version: 0.1
+Summary: Libería Matemática para la clase de python avanzado
+Home-page: https://www.factorlibre.com/
+Author: David Alonso
+Author-email: david.alonso@factorlibre.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.0
+License-File: LICENSE.txt
+
