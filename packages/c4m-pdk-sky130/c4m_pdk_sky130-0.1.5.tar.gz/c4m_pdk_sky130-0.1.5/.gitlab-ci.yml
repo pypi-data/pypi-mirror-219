@@ -1,0 +1,72 @@
+image: chips4makers/build_sky130pdk
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PYPI_INDEX: "https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.com/api/v4/groups/${CI_PROJECT_NAMESPACE}/-/packages/pypi/simple"
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python --version  # For debugging
+  - pip config set global.index-url "${PYPI_INDEX}"
+  - pip install --pre PDKMaster c4m-flexcell c4m-flexio c4m-flexmem
+
+dist:
+  only:
+    - main
+  variables:
+    TWINE_PASSWORD: '${CI_JOB_TOKEN}'
+    TWINE_USERNAME: 'gitlab-ci-token'
+    TWINE_REPOSITORY_URL: 'https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/packages/pypi'
+  script:
+    # Need to fetch tags
+    - git fetch --unshallow --tags
+    - doit dist
+    - python -m twine check --strict dist/*
+    - python -m twine upload --verbose dist/*
+
+dist-test:
+  except:
+    - main
+  script:
+    # Need to fetch tags
+    - git fetch --unshallow --tags
+    - doit dist
+    - python -m twine check --strict dist/*
+
+install:
+  script:
+    - doit install
+
+test:
+  script:
+    # - doit unittest
+    # - cat test/cover_report.log # Get coverage
+    # Use notebooks to test
+    - doit install
+    - cd notebooks
+    - jupyter nbconvert --to html --execute DAC.ipynb
+    - jupyter nbconvert --to html --execute ADC.ipynb
+    - jupyter nbconvert --to html --execute Bandgap.ipynb
+    # Take too long to run
+    #- jupyter nbconvert --to html --execute PLL.ipynb
+
+# pages:
+#   only:
+#     - main
+#   script:
+#     - doit docs
+#     - mv docs/html/ public/
+#   artifacts:
+#     paths:
+#     - public
+
+release:
+  variables:
+    USER: root
+  script:
+    - doit -n $(nproc) tarball
+  artifacts:
+    paths:
+      - open_pdk
