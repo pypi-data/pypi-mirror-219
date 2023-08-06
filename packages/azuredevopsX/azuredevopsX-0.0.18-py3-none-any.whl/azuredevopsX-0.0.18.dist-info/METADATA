@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: azuredevopsX
+Version: 0.0.18
+Summary: DevOps é um produto da Microsoft que fornece controle de versão, relatórios, gerenciamento de requisitos, gerenciamento de projetos, compilações automatizadas, gerenciamento de laboratório, recursos de gerenciamento de testes e versões.
+Home-page: https://gitlab.com/integration_seon/libs/application/tfs
+Author: Paulo Sérgio dos Santos Júnior
+Author-email: paulossjunior@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: azure-devops
+Requires-Dist: factory-boy
+Requires-Dist: requestx
+
+# DevopsX
+
+## General Information
+* **Software**:DevopsX
+* **Author**:Paulo Sérgio dos Santos Júnior
+* **Author's e-mail**:paulossjunior@gmail.com
+* **Source Repository**: [https://gitlab.com/immigrant-data-driven-development/libs/application/azuredevops](https://gitlab.com/immigrant-data-driven-development/libs/application/azuredevops)  
+
+## Goal
+DevOps é um produto da Microsoft que fornece controle de versão, relatórios, gerenciamento de requisitos, gerenciamento de projetos, compilações automatizadas, gerenciamento de laboratório, recursos de gerenciamento de testes e versões.
+
+## Documentation
+
+The Documentation can be found in this [link](./docs/documentation.md)
+
+## Generate documentation
+
+To create the code documentation:
+```bash
+pdoc --html --force azuredevopsX/ --output docs
+
+```
+### Acess code documentation	
+
+To accesss the documenation, go to folder docs/devopsX and open index.html 
+	
+## Instalation
+
+To install devopsX, run this command in your terminal:
+```bash
+pip install azuredevopsX
+```
+
+## Usage
+
+```python
+
+from azuredevopsX import factories
+from pprint import pprint 
+organization_url = "<DEVOPS URL>"
+personal_access_token =  "<personal code access>"
+
+project_service = factories.ProjectFactory(personal_access_token=personal_access_token,
+                                            organization_url=organization_url)
+projects = project_service.get_projects()
+
+for project in projects:
+    pprint(project.__dict__)
+
+```
+
+
