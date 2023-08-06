@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>serialtools.bus module &mdash; serialtools v0.4.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_paramlinks.css" type="text/css" />
+      <link rel="stylesheet" href="_static/no-ligatures-in-code.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tab-size.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="serialtools.database module" href="serialtools.database.html" />
+    <link rel="prev" title="serialtools.apps.send module" href="serialtools.apps.send.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            serialtools
+          </a>
+              <div class="version">
+                v0.4.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="serialtools.html">serialtools package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="serialtools.html#subpackages">Subpackages</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="serialtools.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">serialtools.bus module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.BusCreator"><code class="docutils literal notranslate"><span class="pre">BusCreator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.ReadFromParameterBus"><code class="docutils literal notranslate"><span class="pre">ReadFromParameterBus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.WriteToFileBus"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.bus_creator"><code class="docutils literal notranslate"><span class="pre">bus_creator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#serialtools.bus.get_timestamp"><code class="docutils literal notranslate"><span class="pre">get_timestamp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="serialtools.database.html">serialtools.database module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="serialtools.database_config.html">serialtools.database_config module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="serialtools.html#module-serialtools">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.decode.html">serialtools.apps.decode module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.dump.html">serialtools.apps.dump module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.rawsplit.html">serialtools.apps.rawsplit module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.apps.send.html">serialtools.apps.send module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">serialtools.bus module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.BusCreator"><code class="docutils literal notranslate"><span class="pre">BusCreator</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.add_arguments"><code class="docutils literal notranslate"><span class="pre">BusCreator.add_arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.auto_create_virtual_bus"><code class="docutils literal notranslate"><span class="pre">BusCreator.auto_create_virtual_bus</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.baudrate"><code class="docutils literal notranslate"><span class="pre">BusCreator.baudrate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.bytesize"><code class="docutils literal notranslate"><span class="pre">BusCreator.bytesize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.create_args"><code class="docutils literal notranslate"><span class="pre">BusCreator.create_args()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.create_bus"><code class="docutils literal notranslate"><span class="pre">BusCreator.create_bus()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.dsrdtr"><code class="docutils literal notranslate"><span class="pre">BusCreator.dsrdtr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.parity"><code class="docutils literal notranslate"><span class="pre">BusCreator.parity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.port"><code class="docutils literal notranslate"><span class="pre">BusCreator.port</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.rtscts"><code class="docutils literal notranslate"><span class="pre">BusCreator.rtscts</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.stopbits"><code class="docutils literal notranslate"><span class="pre">BusCreator.stopbits</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.virtual"><code class="docutils literal notranslate"><span class="pre">BusCreator.virtual</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.vport"><code class="docutils literal notranslate"><span class="pre">BusCreator.vport</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.vport_other"><code class="docutils literal notranslate"><span class="pre">BusCreator.vport_other</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.BusCreator.xonxoff"><code class="docutils literal notranslate"><span class="pre">BusCreator.xonxoff</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.cancel_read"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.cancel_read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.cancel_write"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.cancel_write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.close"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.read"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.timestamp"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.timestamp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.ReadFromFileBus.write"><code class="docutils literal notranslate"><span class="pre">ReadFromFileBus.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.ReadFromParameterBus"><code class="docutils literal notranslate"><span class="pre">ReadFromParameterBus</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.WriteToFileBus"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.cancel_read"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.cancel_read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.cancel_write"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.cancel_write()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.close"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.read"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.read()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.timestamp"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.timestamp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#serialtools.bus.WriteToFileBus.write"><code class="docutils literal notranslate"><span class="pre">WriteToFileBus.write()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.bus_creator"><code class="docutils literal notranslate"><span class="pre">bus_creator</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serialtools.bus.get_timestamp"><code class="docutils literal notranslate"><span class="pre">get_timestamp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.database.html">serialtools.database module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="serialtools.database_config.html">serialtools.database_config module</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">serialtools</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="serialtools.html">serialtools package</a></li>
+      <li class="breadcrumb-item active">serialtools.bus module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/serialtools.bus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-serialtools.bus">
+<span id="serialtools-bus-module"></span><h1>serialtools.bus module<a class="headerlink" href="#module-serialtools.bus" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">BusCreator</span></span><a class="headerlink" href="#serialtools.bus.BusCreator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.add_arguments">
+<span class="sig-name descname"><span class="pre">add_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser" title="(in Python v3.11)"><span class="pre">ArgumentParser</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rx_only</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.BusCreator.add_arguments" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.auto_create_virtual_bus">
+<span class="sig-name descname"><span class="pre">auto_create_virtual_bus</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.auto_create_virtual_bus" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.baudrate">
+<span class="sig-name descname"><span class="pre">baudrate</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.baudrate" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.bytesize">
+<span class="sig-name descname"><span class="pre">bytesize</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.bytesize" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.create_args">
+<span class="sig-name descname"><span class="pre">create_args</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">virtual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.11)"><span class="pre">Namespace</span></a></span></span><a class="headerlink" href="#serialtools.bus.BusCreator.create_args" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.create_bus">
+<span class="sig-name descname"><span class="pre">create_bus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/argparse.html#argparse.Namespace" title="(in Python v3.11)"><span class="pre">Namespace</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Serial</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#serialtools.bus.ReadFromFileBus" title="serialtools.bus.ReadFromFileBus"><span class="pre">ReadFromFileBus</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#serialtools.bus.WriteToFileBus" title="serialtools.bus.WriteToFileBus"><span class="pre">WriteToFileBus</span></a></span></span><a class="headerlink" href="#serialtools.bus.BusCreator.create_bus" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.dsrdtr">
+<span class="sig-name descname"><span class="pre">dsrdtr</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.dsrdtr" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.parity">
+<span class="sig-name descname"><span class="pre">parity</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.parity" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.port">
+<span class="sig-name descname"><span class="pre">port</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.port" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.rtscts">
+<span class="sig-name descname"><span class="pre">rtscts</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.rtscts" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.stopbits">
+<span class="sig-name descname"><span class="pre">stopbits</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.stopbits" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.virtual">
+<span class="sig-name descname"><span class="pre">virtual</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.virtual" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.vport">
+<span class="sig-name descname"><span class="pre">vport</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.vport" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.vport_other">
+<span class="sig-name descname"><span class="pre">vport_other</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.vport_other" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.BusCreator.xonxoff">
+<span class="sig-name descname"><span class="pre">xonxoff</span></span><a class="headerlink" href="#serialtools.bus.BusCreator.xonxoff" title="Permalink to this definition"></a></dt>
+<dd><p>Each instance of this class represents a setting which can be changed in a config file.</p>
+<p>This class implements the <a class="reference external" href="https://docs.python.org/3/reference/datamodel.html#implementing-descriptors">descriptor protocol</a> to return <code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code> if an instance of this class is accessed as an instance attribute.
+If you want to get this object you need to access it as a class attribute.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">ReadFromFileBus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><span class="pre">TextIO</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="serialtools.bus.ReadFromFileBus.params.fn"></span><strong>fn</strong><a class="paramlink headerlink reference internal" href="#serialtools.bus.ReadFromFileBus.params.fn">¶</a> – file name of file containing data to be read. Data is in the output format of <cite>serialtools dump</cite>, hex values separated by spaces and optionally lines starting with a time stamps in parentheses.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.cancel_read">
+<span class="sig-name descname"><span class="pre">cancel_read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.cancel_read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.cancel_write">
+<span class="sig-name descname"><span class="pre">cancel_write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.cancel_write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.close" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromFileBus.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><span class="pre">bytes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.ReadFromFileBus.write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.bus.ReadFromParameterBus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">ReadFromParameterBus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.bus.ReadFromParameterBus" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#serialtools.bus.ReadFromFileBus" title="serialtools.bus.ReadFromFileBus"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadFromFileBus</span></code></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="target" id="serialtools.bus.ReadFromParameterBus.params.fn"></span><strong>fn</strong><a class="paramlink headerlink reference internal" href="#serialtools.bus.ReadFromParameterBus.params.fn">¶</a> – file name of file containing data to be read. Data is in the output format of <cite>serialtools dump</cite>, hex values separated by spaces and optionally lines starting with a time stamps in parentheses.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">WriteToFileBus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TextIO" title="(in Python v3.11)"><span class="pre">TextIO</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">break_time_ms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#serialtools.bus.WriteToFileBus" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.cancel_read">
+<span class="sig-name descname"><span class="pre">cancel_read</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.WriteToFileBus.cancel_read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.cancel_write">
+<span class="sig-name descname"><span class="pre">cancel_write</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.WriteToFileBus.cancel_write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.WriteToFileBus.close" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.read">
+<span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><span class="pre">bytes</span></a></span></span><a class="headerlink" href="#serialtools.bus.WriteToFileBus.read" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.timestamp">
+<span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#serialtools.bus.WriteToFileBus.timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="serialtools.bus.WriteToFileBus.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.11)"><span class="pre">bytes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.WriteToFileBus.write" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="serialtools.bus.bus_creator">
+<span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">bus_creator</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;serialtools.bus.BusCreator</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#serialtools.bus.bus_creator" title="Permalink to this definition"></a></dt>
+<dd><p>Use this to create a new bus</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="serialtools.bus.get_timestamp">
+<span class="sig-prename descclassname"><span class="pre">serialtools.bus.</span></span><span class="sig-name descname"><span class="pre">get_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Serial</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#serialtools.bus.ReadFromFileBus" title="serialtools.bus.ReadFromFileBus"><span class="pre">ReadFromFileBus</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#serialtools.bus.WriteToFileBus" title="serialtools.bus.WriteToFileBus"><span class="pre">WriteToFileBus</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.11)"><span class="pre">datetime</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#serialtools.bus.get_timestamp" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="serialtools.apps.send.html" class="btn btn-neutral float-left" title="serialtools.apps.send module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="serialtools.database.html" class="btn btn-neutral float-right" title="serialtools.database module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, erzo.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
