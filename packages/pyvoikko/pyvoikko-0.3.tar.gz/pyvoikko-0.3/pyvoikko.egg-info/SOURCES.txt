@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+pyvoikko/__init__.py
+pyvoikko/analysis.py
+pyvoikko/constants.py
+pyvoikko/voikko.kfst
+pyvoikko.egg-info/PKG-INFO
+pyvoikko.egg-info/SOURCES.txt
+pyvoikko.egg-info/dependency_links.txt
+pyvoikko.egg-info/requires.txt
+pyvoikko.egg-info/top_level.txt
