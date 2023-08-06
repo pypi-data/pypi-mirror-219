@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: gefslim
+Version: 0.1.1
+Summary: A minimal reader for .gef files
+Project-URL: Documentation, https://gefslim.readthedocs.io/
+Project-URL: Source, https://github.com/timtreis/gefslim
+Project-URL: Home-page, https://github.com/timtreis/gefslim
+Author: Tim Treis
+Maintainer-email: Tim Treis <tim.treis@helmholtz-munich.de>
+License: MIT License
+        
+        Copyright (c) 2023, Tim Treis
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+License-File: LICENSE
+Requires-Python: >=3.9
+Requires-Dist: anndata
+Requires-Dist: h5py
+Requires-Dist: pathlib
+Requires-Dist: session-info
+Provides-Extra: dev
+Requires-Dist: pre-commit; extra == 'dev'
+Requires-Dist: twine>=4.0.2; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: docutils!=0.18.*,!=0.19.*,>=0.8; extra == 'doc'
+Requires-Dist: ipykernel; extra == 'doc'
+Requires-Dist: ipython; extra == 'doc'
+Requires-Dist: myst-nb; extra == 'doc'
+Requires-Dist: sphinx-autodoc-typehints; extra == 'doc'
+Requires-Dist: sphinx-book-theme>=1.0.0; extra == 'doc'
+Requires-Dist: sphinx-copybutton; extra == 'doc'
+Requires-Dist: sphinx>=4; extra == 'doc'
+Requires-Dist: sphinxcontrib-bibtex>=1.0.0; extra == 'doc'
+Requires-Dist: sphinxext-opengraph; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Description-Content-Type: text/markdown
+
+# gefslim
+
+[![Tests][badge-tests]][link-tests]
+[![Documentation][badge-docs]][link-docs]
+[![Documentation][badge-pypi]][link-pypi]
+
+[badge-tests]: https://img.shields.io/github/actions/workflow/status/timtreis/gefslim/test.yaml?branch=main
+[link-tests]: https://github.com/timtreis/gefslim/actions/workflows/test.yml
+[badge-docs]: https://img.shields.io/readthedocs/gefslim
+[badge-pypi]: https://badge.fury.io/py/gefslim.svg
+
+A minimal reader for .gef files
+
+## Getting started
+
+Please refer to the [documentation][link-docs]. In particular, the
+
+-   [API documentation][link-api].
+
+## Installation
+
+You need to have Python 3.9 or newer installed on your system. If you don't have
+Python installed, we recommend installing [Mambaforge](https://github.com/conda-forge/miniforge#mambaforge).
+
+There are several alternative options to install gefslim:
+
+<!--
+1) Install the latest release of `gefslim` from `PyPI <https://pypi.org/project/gefslim/>`_:
+
+```bash
+pip install gefslim
+```
+-->
+
+1. Install the latest development version:
+
+```bash
+pip install git+https://github.com/timtreis/gefslim.git@main
+```
+
+2. Install from PyPI:
+
+```bash
+pip install gefslim
+```
+
+[scverse-discourse]: https://discourse.scverse.org/
+[issue-tracker]: https://github.com/timtreis/gefslim/issues
+[changelog]: https://gefslim.readthedocs.io/latest/changelog.html
+[link-docs]: https://gefslim.readthedocs.io
+[link-api]: https://gefslim.readthedocs.io/en/latest/generated/gefslim.GEF.html
+[link-pypi]: https://pypi.org/project/gefslim/
