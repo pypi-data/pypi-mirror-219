@@ -1,0 +1,2 @@
+[console_scripts]
+spp = spmp.__main__:run
