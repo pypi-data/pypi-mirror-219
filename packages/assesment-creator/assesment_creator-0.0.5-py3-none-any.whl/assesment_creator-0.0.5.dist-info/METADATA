@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: assesment-creator
+Version: 0.0.5
+Summary: assesment creator python package
+Home-page: https://github.com/SachinMishra-ux/assesment_creator
+Author: SachinMishra-ux
+Author-email: sachin19566@gmail.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/SachinMishra-ux/assesment_creator/issues
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: ensure (==1.0.2)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: python-docx (==0.8.11)
+Requires-Dist: beautifulsoup4 (==4.12.2)
+Provides-Extra: testing
+Requires-Dist: pytest (>=7.1.3) ; extra == 'testing'
+Requires-Dist: mypy (>=0.971) ; extra == 'testing'
+Requires-Dist: flake8 (>=5.0.4) ; extra == 'testing'
+Requires-Dist: tox (>=3.25.1) ; extra == 'testing'
+Requires-Dist: black (>=22.8.0) ; extra == 'testing'
+
+# Assesment_Creator Python Package.
+
+Steps: Install the Python package via pip
+```
+pip install assesment-creator
+```
+1. Import the package and call assesment_creator API method.
+
+```python
+from assesment_creator import create_assesment
+create_assesment(url_link,filename)
+```
