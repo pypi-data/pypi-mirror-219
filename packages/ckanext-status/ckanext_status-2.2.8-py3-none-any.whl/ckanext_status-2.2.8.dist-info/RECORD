@@ -1,0 +1,16 @@
+ckanext/__init__.py,sha256=847a_sCHVpy9i4kdclhk0JTLf_58m8KXj_JGMSkJZzA,307
+ckanext/status/__init__.py,sha256=847a_sCHVpy9i4kdclhk0JTLf_58m8KXj_JGMSkJZzA,307
+ckanext/status/plugin.py,sha256=UifOG89fbd2nU3J8om4ytUmbyFcHdTuTLBKs1J8II4Q,1042
+ckanext/status/lib/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ckanext/status/lib/helpers.py,sha256=NedCQoz4Ia3TWBw6Hbi65scp2-Hyf-qLffC6Rq2oM9c,422
+ckanext/status/theme/assets/webassets.yml,sha256=Ytx_EYN22BAGD9XniBSZAEajZB_2Yd678bA1LY1Ja7s,103
+ckanext/status/theme/assets/less/status.less,sha256=M_YNm8WurGnz1vbakBn4rcIZCVYWLc4WqD81Wi9z7c0,141
+ckanext/status/theme/templates/page.html,sha256=NYDeA5eaBNU9ANBpZd5I88lAZ5hZw-6C47WCt5SQiVQ,224
+ckanext/status/theme/templates/admin/config.html,sha256=hrYTSH5ksrf-PNChA0e0IUwfiFaZ2yDHPL4buNObJeo,498
+docs/_scripts/gen_api_pages.py,sha256=n9ldr4oeYanCY_Ta-ZiG99qWWRaZye3n2s-Vdx2jgTs,1240
+ckanext_status-2.2.8.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+ckanext_status-2.2.8.dist-info/METADATA,sha256=HuQlm_PSp-JbToCWMAIU1dfkULZwUh3g4--7LQSVes8,4874
+ckanext_status-2.2.8.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ckanext_status-2.2.8.dist-info/entry_points.txt,sha256=Ui_lv6RDw-3hVC9A8Y_iuvwljsthC7E8CaLmS5pIZ6g,59
+ckanext_status-2.2.8.dist-info/top_level.txt,sha256=w-vKlvacHfVip3Sq_burAFRwyFHya8Z-yVMARpWRWrU,13
+ckanext_status-2.2.8.dist-info/RECORD,,
