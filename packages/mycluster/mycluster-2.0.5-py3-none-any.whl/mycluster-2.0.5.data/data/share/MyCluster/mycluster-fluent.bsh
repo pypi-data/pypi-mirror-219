@@ -1,0 +1,4 @@
+#!/bin/bash -f
+
+fluent 3d -ssh -sge -pinfiniband -g -mpi=hp -t$NUM_TASKS -cnf=$TMPDIR/machines -i $MYINPUTFILE
+

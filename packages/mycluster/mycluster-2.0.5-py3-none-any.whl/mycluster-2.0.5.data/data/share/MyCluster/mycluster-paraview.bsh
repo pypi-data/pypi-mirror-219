@@ -1,0 +1,7 @@
+#!/bin/bash -f
+
+if [[ -n ${PARAVIEW_CMD} ]] ; then
+	eval ${PARAVIEW_CMD} $PARAVIEW_ARGS
+else
+	$OMPI_CMD $PARAVIEW_HOME/pvserver $PARAVIEW_ARGS
+fi
