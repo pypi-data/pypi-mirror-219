@@ -1,0 +1,387 @@
+Below is a summary of the contents of the module (we do not guarantee that this list is complete).
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+class parabolic_QR:
+    Purpose:
+        - To define a parabolic standard curve via the quantile regression approach. Upper and lower quantile curves serve as the prediction interval for the best fit (defined by the 50% quantile))
+          Details about the creation of the curve, including smoothing parameters baseline subtraction parameters,and calibration procedures are iuncluded, as well as the range and domain of 
+          applicability of the curve for estimation purposes.
+ 
+    
+    Attributes:
+        - fit_params   (1D array/float)    : An array containing the values of the fit coefficients of the parabolic model. form: [p0, p1, p2], where parabola(x) = p0 + p1*x + p2*x^2
+        - low_edge_params (1D array/float) : An array containing the values of the fit coefficients of the parabolic model for the lower quantile (or lower prediction edge). form: [p0_l, p1_l], where y_l = p0_l + p1_l*x + p2_l*x^2
+        - upp_edge_params (1D array/float) : An array containing the values of the fit coefficients of the parabolic model for the upper quantile (or upper prediction edge). form: [p0_u, p1_u], where y_u = p0_u + p1_u*x + p2_u*x^2
+        - Elow         (float)             : The lower edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate below this value.
+        - Eupp         (float)             : The upper edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate above this value.
+        - imin_est     (float)             : minimum current for use in inverse regression. Below this value, the standard curve must be extrapolated, which is poor practice.  
+                                             It is the "y" value corresponding to conc_est_min as the "x" value.
+        - imax_est     (float)             : maximum current for use in inverse regression. Above this value the standard curve must be extrapolated, which is poor practice.
+                                             It is the "y" value corresponding to conc_est_max as the "x" value.
+        - imin_std     (float)             : minimum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_min as the "x" value
+        - imax_std     (float)             : maximum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_max as the "x" value
+        - conc_est_min (float)             : the lowest possible value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_est_max (float)             : the largest value of concentratio nthat can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_std_min (float)             : the lowest concentration of all the std pts. Any MLE above this value and below conc_std_max is a valid MLE. However, the lower limit on the estimate will not be valid
+                                             if the MLE is between conc_std_min and conc_est_min (i.e. the lower limit will require extrapolation of the prediction band's upper edge to be calculated... this is risky and is not recommended)
+        - conc_std_max (float)             : the largest concentration of all the std pts. Any MLE below this value and above conc_std_min is a valid MLE. However, the upper limit on the estimate will not be valid
+                                             if the MLE is between conc_std_ax and conc_est_max (i.e. the upper limit will require extrapolation of the prediction band's lower edge to be calculated... this is risky and is not recommended)
+      
+        - smoothing    (str)               : details regarding the smoothing procedure used when building the curve
+        - baseline     (str)               : details regarding the baseline procedure used when building the curve  
+        - calibration  (str)               : details regarding the calibration procedure used when building the curve
+        - fit_data     (list)              : a list containing the x,y data of the lparabolic fit
+        - full_data    (list)              : if fit_data is a result of processing an original dataset, this attribute can be used to house the original, unprocessed data. This is not
+                                             necessary for fitting
+        - models       (list)              : a list of the fitted parabolic models for each quantile - models are of statsmodels.formula.api.quantreg
+   
+    Methods:
+        - fit             : performs quantile regression using statsmodels.formula.api.quantreg.
+                            The function returns estimated fit coefficients for three specified quantiles (default 0.025, 0.5, 0.975)
+                            and populates various attributes of the parabolic_QR object including fit_params, low_edge_params,
+                            upp_edge_params, models, imin_std, imax_Std, imin_est, imax_est, conc_est_min, conc_est_max.
+
+                        Output: 3-entry list (one for each quantile). Each entry is of the form
+                                                                    [quantile (float), 
+                                                                    np.array([lower lim of p0 , est of p0, upper lim of p0]), 
+                                                                    np.array([lower lim of p1 , est of p1, upper lim of p1]),
+                                                                    np.array([lower lim of p2 , est of p2, upper lim of p2])
+                                                                    a linear quantile regression model from statsmodels.formula.api.quantreg]
+
+                                                                where the p0, p1, p2 limits are at alpha level 0.05
+                                                                
+        - predict         : returns the median quantile for the prediction, y, of the standard curve at a particular input, x.
+        - details         : prints out a summary of the details of the standard curve
+        - set_params      : This function can be used to manually adjust the values of the curve's parameters. The user will be queried with a simple i/o question & answer algorithm
+                            where the user is prompeted to enter each parameter, one after the other.
+        - upper_pred_edge : returns the value of the upper edge of the prediction interval, with confidence alpha specified by the user, at a particular input, x.
+                            This calculation makes use of the 'Delta Method' and uses the errprop method above within its calculation.
+        - lower_pred_edge : analogous to upper_pred_edge but for the lower edge of the prediction interval
+        - inv_pred        : Invert the predict function to obtain an estimate for x given a measured y
+        - inv_low         : Invert the upper quantile function (upper_pred_edge) to obtain the lower limit for the estimate of x given a measured y
+        - inv_upp         : Invert the lower quantile function (lower_pred_edge) to obtain the upper limit for the estimate of x given a measured y
+
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+class linear_QR:
+    Purpose:
+        - To define a linear standard curve via the quantile regression approach. Upper and lower quantile curves serve as the prediction interval for the best fit (defined by the 50% quantile))
+          Details about the creation of the curve, including smoothing parameters baseline subtraction parameters,and calibration procedures are iuncluded, as well as the range and domain of 
+          applicability of the curve for estimation purposes.
+ 
+    
+    Attributes:
+        - fit_params   (1D array/float) : An array containing the values of the fit coefficients of the linear model. form: [p0, p1], where linear(x) = p0 + p1*x
+        - low_edge_params (1D array/float) : An array containing the values of the fit coefficients of the linear model for the lower quantile (or lower prediction edge). form: [p0_l, p1_l], where y_l = p0_l + p1_l*x
+        - upp_edge_params (1D array/float) : An array containing the values of the fit coefficients of the linear model for the upper quantile (or upper prediction edge). form: [p0_u, p1_u], where y_u = p0_u + p1_u*x
+        - Elow         (float)          : The lower edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate below this value.
+        - Eupp         (float)          : The upper edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate above this value.
+        - imin_est     (float)          : minimum current for use in inverse regression. Below this value, the standard curve must be extrapolated, which is poor practice.  
+                                          It is the "y" value corresponding to conc_est_min as the "x" value.
+        - imax_est     (float)          : maximum current for use in inverse regression. Above this value the standard curve must be extrapolated, which is poor practice.
+                                          It is the "y" value corresponding to conc_est_max as the "x" value.
+        - imin_std     (float)          : minimum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_min as the "x" value
+        - imax_std     (float)          : maximum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_max as the "x" value
+        - conc_est_min (float)          : the lowest possible value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_est_max (float)          : the largest value of concentratio nthat can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_std_min (float)          : the lowest concentration of all the std pts. Any MLE above this value and below conc_std_max is a valid MLE. However, the lower limit on the estimate will not be valid
+                                          if the MLE is between conc_std_min and conc_est_min (i.e. the lower limit will require extrapolation of the prediction band's upper edge to be calculated... this is risky and is not recommended)
+        - conc_std_max (float)          : the largest concentration of all the std pts. Any MLE below this value and above conc_std_min is a valid MLE. However, the upper limit on the estimate will not be valid
+                                          if the MLE is between conc_std_ax and conc_est_max (i.e. the upper limit will require extrapolation of the prediction band's lower edge to be calculated... this is risky and is not recommended)
+      
+        - smoothing    (str)            : details regarding the smoothing procedure used when building the curve
+        - baseline     (str)            : details regarding the baseline procedure used when building the curve  
+        - calibration  (str)            : details regarding the calibration procedure used when building the curve
+        - fit_data     (list)           : a list containing the x,y data of the linear fit
+        - full_data    (list)           : if fit_data is a result of processing an original dataset, this attribute can be used to house the original, unprocessed data. This is not
+                                          necessary for fitting
+        - models       (list)           : a list of the fitted linear models for each quantile - models are of statsmodels.formula.api.quantreg
+   
+    Methods:
+        - fit             : performs quantile regression using statsmodels.formula.api.quantreg.
+                            The function returns estimated fit coefficients for three specified quantiles (default 0.025, 0.5, 0.975)
+                            and populates various attributes of the linear_QR object including fit_params, low_edge_params,
+                            upp_edge_params, models, imin_std, imax_Std, imin_est, imax_est, conc_est_min, conc_est_max.
+
+                            Output: 3-entry list (one for each quantile). Each entry is of the form
+                                                                    [quantile (float), 
+                                                                    np.array([lower lim of intercept , est of intercept, upper lim of intercept]), 
+                                                                    np.array([lower lim of slope, est of slope, upper lim of slope]),
+                                                                    a linear quantile regression model from statsmodels.formula.api.quantreg]
+
+                                                                    where the intercept and slope limits are at alpha level 0.05
+
+        - predict         : returns the median quantile for the prediction, y, of the standard curve at a particular input, x.
+        - details         : prints out a summary of the details of the standard curve
+        - set_params      : This function can be used to manually adjust the values of the curve's parameters. The user will be queried with a simple i/o question & answer algorithm
+                            where the user is prompeted to enter each parameter, one after the other.
+        - upper_pred_edge : returns the value of the upper edge of the prediction interval, with confidence alpha specified by the user, at a particular input, x.
+                            This calculation makes use of the 'Delta Method' and uses the errprop method above within its calculation.
+        - lower_pred_edge : analogous to upper_pred_edge but for the lower edge of the prediction interval
+        - inv_pred        : Invert the predict function to obtain an estimate for x given a measured y
+        - inv_low         : Invert the upper quantile function (upper_pred_edge) to obtain the lower limit for the estimate of x given a measured y
+        - inv_upp         : Invert the lower quantile function (lower_pred_edge) to obtain the upper limit for the estimate of x given a measured y
+
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+class power_std_curve:
+    Purpose:
+        - To define a power-law standard curve via the quantile regression approach. Upper and lower quantile curves serve as the prediction interval for the best fit, which itself is defined by the 50% quantile,
+          Details about the creation of the curve, including smoothing parameters baseline subtraction parameters,and calibration procedures are iuncluded, as well as the range and domain of 
+          applicability of the curve for estimation purposes.
+ 
+    
+    Attributes:
+        - fit_params   (1D array/float)    : An array containing the values of the fit coefficients of the power model. form: [p0, p1, p2], where power(x) = p0+p1*x^p2
+        - low_edge_params (1D array/float) : An array containing the values of the fit coefficients of the power model for the lower quantile (or lower prediction edge). form: [p0_l, p1_l, p2_l], where y_l = p0_l + p1_l*x^p2_l
+        - upp_edge_params (1D array/float) : An array containing the values of the fit coefficients of the power model for the upper quantile (or upper prediction edge). form: [p0_u, p1_u, p2_u], where y_u = p0_u + p1_u*x^p2_u
+        - Elow         (float)             : The lower edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate below this value.
+        - Eupp         (float)             : The upper edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate above this value.
+        - imin_est     (float)             : minimum current for use in inverse regression. Below this value, the standard curve must be extrapolated, which is poor practice.  
+                                             It is the "y" value corresponding to conc_est_min as the "x" value.
+        - imax_est     (float)             : maximum current for use in inverse regression. Above this value the standard curve must be extrapolated, which is poor practice.
+                                             It is the "y" value corresponding to conc_est_max as the "x" value.
+        - imin_std     (float)             : minimum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_min as the "x" value
+        - imax_std     (float)             : maximum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_max as the "x" value
+        - conc_est_min (float)             : the lowest possible value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_est_max (float)             : the largest value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_std_min (float)             : the lowest concentration of all the std pts. Any MLE above this value and below conc_std_max is a valid MLE. However, the lower limit on the estimate will not be valid
+                                             if the MLE is between conc_std_min and conc_est_min (i.e. the lower limit will require extrapolation of the prediction band's upper edge to be calculated... this is risky and is not recommended)
+        - conc_std_max (float)             : the largest concentration of all the std pts. Any MLE below this value and above conc_std_min is a valid MLE. However, the upper limit on the estimate will not be valid
+                                             if the MLE is between conc_std_ax and conc_est_max (i.e. the upper limit will require extrapolation of the prediction band's lower edge to be calculated... this is risky and is not recommended)
+      
+        - smoothing    (str)               : details regarding the smoothing procedure used when building the curve
+        - baseline     (str)               : details regarding the baseline procedure used when building the curve  
+        - calibration  (str)               : details regarding the calibration procedure used when building the curve
+        - fit_data     (list)              : a list containing the x,y data of the linear fit
+        - full_data    (list)              : if fit_data is a result of processing an original dataset, this attribute can be used to house the original, unprocessed data. This is not
+                                             necessary for fitting
+        
+    Methods:
+        - fit             : performs quantile regression on x,y data
+                            The function returns estimated fit coefficients for three specified quantiles (default 0.025, 0.5, 0.975)
+                            and populates various attributes of the power_std_curve object including fit_params, low_edge_params,
+                            upp_edge_params, models, imin_std, imax_Std, imin_est, imax_est, conc_est_min, conc_est_max.
+
+                            Output: 3-entry list (one for each quantile). Each entry is of the form,
+                                                                    [
+                                                                    quantile (float), 
+                                                                    np.array([est of p0, est of p1, est of p2])
+                                                                    ]
+        - predict         : returns the median quantile for the prediction, y, of the standard curve at a particular input, x.
+        - details         : prints out a summary of the details of the standard curve
+        - set_params      : This function can be used to manually adjust the values of the curve's parameters. The user will be queried with a simple i/o question & answer algorithm
+                            where the user is prompeted to enter each parameter, one after the other.
+        - upper_pred_edge : returns the value of the upper edge of the prediction interval, with confidence alpha specified by the user, at a particular input, x.
+                            This calculation makes use of the 'Delta Method' and uses the errprop method above within its calculation.
+        - lower_pred_edge : analogous to upper_pred_edge but for the lower edge of the prediction interval
+        - inv_pred        : Invert the predict function to obtain an estimate for x given a measured y
+        - inv_low         : Invert the upper quantile function (upper_pred_edge) to obtain the lower limit for the estimate of x given a measured y
+        - inv_upp         : Invert the lower quantile function (lower_pred_edge) to obtain the upper limit for the estimate of x given a measured y
+
+    
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+class parabola_std_curve:
+    Purpose:
+        - To define a parabolic standard curve complete with prediction intervals, an error propagation formula for use with the delta method, 
+          limits of estimation, and details about the creation of the curve, including smoothing parameters, baseline subtraction parameters,
+          and calibration procedures.
+    
+    Attributes:
+        - fit_params   (1D array/float) : An array containing the values of the fit coefficients of the parabola. form: [p0, p1, p2], where parabola(x) = p2*x^2 + p1*x + p0
+        - covar        (2D array/float) : the covariance matrix of the fit coefficients
+        - s            (float)          : the MSE of the fit to the standard points
+        - df           (int)            : the number of degrees of freedom in the standard curve, where the value is equal to the number of standard points minus the number of fit parameters 
+        - Elow         (float)          : The lower edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate below this value.
+        - Eupp         (float)          : The upper edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate above this value.
+        - imin_est     (float)          : minimum current for use in inverse regression. Below this value, the standard curve must be extrapolated, which is poor practice.  
+                                          It is the "y" value corresponding to conc_est_min as the "x" value.
+        - imax_est     (float)          : maximum current for use in inverse regression. Above this value the standard curve must be extrapolated, which is poor practice.
+                                          It is the "y" value corresponding to conc_est_max as the "x" value.
+        - imin_std     (float)          : minimum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_min as the "x" value
+        - imax_std     (float)          : maximum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_max as the "x" value
+        - conc_est_min (float)          : the lowest possible value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_est_max (float)          : the largest value of concentratio nthat can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_std_min (float)          : the lowest concentration of all the std pts. Any MLE above this value and below conc_std_max is a valid MLE. However, the lower limit on the estimate will not be valid
+                                          if the MLE is between conc_std_min and conc_est_min (i.e. the lower limit will require extrapolation of the prediction band's upper edge to be calculated... this is risky and is not recommended)
+        - conc_std_max (float)          : the largest concentration of all the std pts. Any MLE below this value and above conc_std_min is a valid MLE. However, the upper limit on the estimate will not be valid
+                                          if the MLE is between conc_std_ax and conc_est_max (i.e. the upper limit will require extrapolation of the prediction band's lower edge to be calculated... this is risky and is not recommended)
+      
+        - smoothing    (str)            : details regarding the smoothing procedure used when building the curve
+        - baseline     (str)            : details regarding the baseline procedure used when building the curve  
+        - calibration  (str)            : details regarding the calibration procedure used when building the curve
+
+        - fit_data     (list)           : a list containing the x,y data for the data used to fit the parabolic model
+        - full_data    (list)           : if fit_data is a result of processing an original dataset, this attribute can be used to house the original, unprocessed data. It is not necessary to fit.
+    Methods/Functions:
+        - fit               : performs least-squares regression using scipy.optimize.curve_fit. The function returns estimated fit coefficients, their covariance matrix,
+                              and populates various attributes of the linear_std_curve object including s, standard range, estimation range.
+        - predict           : returns the value, y, of the standard curve at a particular input, x. This is essentially the MLE for the system response to the input, x.
+        - details           : prints out a summary of the details of the standard curve
+        - errprop           : the error propagation formula for a parabola. This method returns the value of the variance of the response variable, y, at a given input, x.
+        - upper_pred_edge   : returns the value of the upper edge of the prediction interval, with confidence alpha specified by the user, at a particular input, x.
+                              This calculation makes use of the 'Delta Method' and uses the errprop method above within its calculation.
+        - lower_pred_edge   : analogous to upper_pred_edge but for the lower edge of the prediction interval
+        - conc_est_min_loss : This function returns zero when the horizontal minimum current line intersects the best fit line. The concentration at the point of intersection is the 
+                              minimum concentration estimate that can be reported with a valid lower limit. We solve for the point of intersection via least-squares minimization
+                              and use the result to instantiate the conc_est_min parameter of the curve object
+        - conc_est_max_loss : This function returns zero when the horizontal maximum current line intersects the best fit line. The concentration at the point of intersection is the 
+                              maximum concentration estimate that can be reported with a valid upper limit. We solve for the point of intersecgtions via least-squares minimization
+                              and use the result to instatiate the conc_est_max parameter of the curve object.
+        - set_params        : This function can be used to manually adjust the values of the curve's parameters. The user will be queried with a simple i/o question & answer algorithm
+                              where the user is prompeted to enter each parameter, one after the other.
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+class linear_std_curve:
+     Purpose:
+        - To define a linear standard curve complete with prediction intervals, an error propagation formula for use with the delta method, 
+          limits of estimation, and details about the creation of the curve, including smoothing parameters, baseline subtraction parameters,
+          and calibration procedures.
+    
+    Attributes:
+        - fit_params   (1D array/float) : An array containing the values of the fit coefficients of the linear model. form: [p0, p1], where linear(x) = p0 + p1*x
+        - covar        (2D array/float) : the covariance matrix of the fit coefficients
+        - s            (float)          : the MSE of the fit to the standard points
+        - df           (int)            : the number of degrees of freedom in the standard curve, where the value is equal to the number of standard points minus the number of fit parameters 
+        - Elow         (float)          : The lower edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate below this value.
+        - Eupp         (float)          : The upper edge of the peak window for the peak with which the curve was created. The curve is considered inaccurate above this value.
+        - imin_est     (float)          : minimum current for use in inverse regression. Below this value, the standard curve must be extrapolated, which is poor practice.  
+                                          It is the "y" value corresponding to conc_est_min as the "x" value.
+        - imax_est     (float)          : maximum current for use in inverse regression. Above this value the standard curve must be extrapolated, which is poor practice.
+                                          It is the "y" value corresponding to conc_est_max as the "x" value.
+        - imin_std     (float)          : minimum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_min as the "x" value
+        - imax_std     (float)          : maximum current for obtaining a valid MLE for concentration. It is the "y" value corresponding to conc_std_max as the "x" value
+        - conc_est_min (float)          : the lowest possible value of concentration that can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_est_max (float)          : the largest value of concentratio nthat can be estimated with a valid confidence interval (i.e. the estimate and its 95% limits fall within the non-extrapolated region)
+        - conc_std_min (float)          : the lowest concentration of all the std pts. Any MLE above this value and below conc_std_max is a valid MLE. However, the lower limit on the estimate will not be valid
+                                          if the MLE is between conc_std_min and conc_est_min (i.e. the lower limit will require extrapolation of the prediction band's upper edge to be calculated... this is risky and is not recommended)
+        - conc_std_max (float)          : the largest concentration of all the std pts. Any MLE below this value and above conc_std_min is a valid MLE. However, the upper limit on the estimate will not be valid
+                                          if the MLE is between conc_std_ax and conc_est_max (i.e. the upper limit will require extrapolation of the prediction band's lower edge to be calculated... this is risky and is not recommended)
+      
+        - smoothing    (str)            : details regarding the smoothing procedure used when building the curve
+        - baseline     (str)            : details regarding the baseline procedure used when building the curve  
+        - calibration  (str)            : details regarding the calibration procedure used when building the curve
+        - fit_data     (list)           : a list containing the x,y data for fitting a linear model
+        - full_data    (list)           : if fit_data is a result of processing an original dataset, this attribute can be used to house the original, unprocessed data
+   
+    Methods/Functions:
+        - fit             : performs least-squares regression using scipy.optimize.curve_fit. The function returns estimated fit coefficients, their covariance matrix,
+                            and also populate various attributes of the linear_std_curve object including s, standard range, estimation range.
+        - predict         : returns the value, y, of the standard curve at a particular input, x. This is essentially the MLE for the system response to the input, x.
+        - details         : prints out a summary of the details of the standard curve
+        - errprop         : the error propagation formula for a parabola. This method returns the value of the variance of the response variable, y, at a given input, x.
+        - upper_pred_edge : returns the value of the upper edge of the prediction interval, with confidence alpha specified by the user, at a particular input, x.
+                            This calculation makes use of the 'Delta Method' and uses the errprop method above within its calculation.
+        - lower_pred_edge : analogous to upper_pred_edge but for the lower edge of the prediction interval
+        - conc_est_min_loss : This function returns zero when the horizontal minimum current line intersects the best fit line. The concentration at the point of intersection is the 
+                              minimum concentration estimate that can be reported with a valid lower limit. We solve for the point of intersection via least-squares minimization
+                              and use the result to instantiate the conc_est_min parameter of the curve object
+        - conc_est_max_loss : This function returns zero when the horizontal maximum current line intersects the best fit line. The concentration at the point of intersection is the 
+                              maximum concentration estimate that can be reported with a valid upper limit. We solve for the point of intersecgtions via least-squares minimization
+                              and use the result to instatiate the conc_est_max parameter of the curve object.
+        - set_params        : This function can be used to manually adjust the values of the curve's parameters. The user will be queried with a simple i/o question & answer algorithm
+                              where the user is prompeted to enter each parameter, one after the other.
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+   Function: get_groupwise_intervals
+    
+    Purpose:
+        The purpose of this function is to group the input data and then calculate the the means, confidence bands, and prediction bands 
+        of each groups. A group is defined by a fixed value of xdom. If many points have the same value of xdom, then they form a group.
+        
+        The function will output a the interpolated means, confidence interval edges, prediction interval edges, and standard deviations
+        of each group. 
+        
+    Input:
+        - xdom (array/float) : an array of points defining the x-coordinates of observations
+        - yran (array/float) : an array of points defininf the y-coordinates of observations
+        
+    Output:
+        - outList (list) : list containing 7 arrays
+                                1. xUnique    (array/float) : contains the unique xdom values that define the groupings
+                                2. means      (array/float) : contains the mean of each group
+                                3. sampleSigs (array/float) : the SAMPLE standard deviation of each group (n-1 denominator)
+                                4. CILow      (array/float) : lower limits of the CI for the mean of each group
+                                5. CIUpp      (array/float) : upper limits of the CI for the mean of each group
+                                6. PILow      (array/float) : lower limits of the PI for new observations from each group
+                                7. PIUpp      (array/float) : upper limits of the PI for new observations from each group
+                                
+                        Note that the ith entry in each of the 7 arrays are associated with each other. That is, the ith entry in each array
+                        defines a property of the ith group.
+                        
+                        Note that the limits are calculated at the 95% confidence level and assuming normality of data (i.e. the typical 
+                        Student's t multiple of the [group] sample standard deviation. The results may therefore be erroenous for non-normally
+                        distributed data.    
+
+
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+   Function: moving_average_baseline_subtraction(current, window_size, forward = True)
+    Purpose:
+        An iterative function that estimates the baseline of an input signal using a peak-stripping 
+        moving average (i.e. a moving average algorithm designed to strip baselines off of peaks.) 
+        The function is intended to be used on voltammograms collected via sweep-like voltammetry.
+
+
+
+
+    Input:
+        - current (array/float) : An array of values intended to be a peak-like signal with baseline
+        - window_size (int)     : An integer indicating the number of points to be contained in a single window
+                                of the moving average
+        - forward (boolean)     : This variable is relevant in the context of voltammetric sweep-like data collection.
+                                If true, the data in "current" was collected via a sweep-like voltammetric scan where
+                                the potential/voltage was swept from a starting value to an increasingly positive
+                                potential. If False, the potential/voltage swept from a starting value to increasingly
+                                negative values.
+                                The objective is essentially to ensure that peak-like structures in the data are "above"
+                                the baseline - i.e. more positive than the baseline. If the peaks manifests below the 
+                                baseline in your data (i.e. "trench-like" as opposed to peak-like), set this variable to 
+                                False, and the algorithm will adjust itself accordingly.
+      
+
+  
+    Output:
+        - baseline (array/float)           : An array of values containing the BASELINE estimate of the algorithm
+ --------------------------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------------------------
+   Function: make_pretty(ax, title='', xTitle='', yTitle='')
+    Purpose: This function makes a few basic cosmetic adjustments to an input axes object.
+             The objective is to serve as a "quick and dirty" way to make a plot more presentable.
+
+    Input:
+        - ax     (matplotlib axes object) : The axes object to which cosmetic adjustments will be made
+        - title  (str)                    : Desired plot title
+        - xTitle (str)                    : Desired x-axis label
+        - yTitle (str)                    : Desired y-axis label
+
+    Output: 
+        - There is no output. The orginal copy of ax is altered directly.
+
+
+
+ -------------------------------------------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------------------------------------------
+   Function: scatter_bygroup(ax, x,y,col,colmap='hot')    
+    Purpose:
+        - Plot y against x in a scatterplot, where the points are coloured by a third variable, col.
+
+    Input:
+        - ax  (matplotlib axis) : The axis on which to add the scatter plot
+        - x   (array/float)     : The data for the x-axis of the scatterplot
+        - y   (array/float)     : The data for the y-axis of the scatterplot
+        - col (list)            : A list of values of some variable which will correspond to groups. This 
+                                  value is used to determine the colour of a point. Points with the same 
+                                  'col' value will have the same colour.
+        - colmap (str)          : A colormap for determining the group colours. Default to 'hot'.
+
+   Output:
+	- Note that there is no output, however, the original input axes object will be altered.
+ 
+
+
+
+
+ 
+
