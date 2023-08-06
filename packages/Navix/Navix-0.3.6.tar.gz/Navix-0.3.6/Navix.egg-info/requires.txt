@@ -1,0 +1,13 @@
+black
+flake8
+pylint
+typing-extensions
+setuptools_scm
+pytest
+absl-py
+numpy
+jax
+chex
+flax
+etils
+jax_enums
