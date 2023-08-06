@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: litenai
+Version: 0.0.8
+Summary: Python library for Liten AI Data platform
+Author: HK Verma
+Author-email: hkverma@litendata.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: hvplot
+Requires-Dist: openai
+Requires-Dist: pandas
+Requires-Dist: panel
+Requires-Dist: pyyaml
+Requires-Dist: tiktoken
+
+## Liten AI Python Library
+Liten AI provides data expert agents. These can be used as an API call from Jupyter notebook. Liten AI also provides a data chat app that can inspect and debug your data.
+### Installation
+Liten package is delivered using compiled files. To use the package do the following.
+```bash
+pip install --upgrade litenai
+```
+Install from source with:
+```
+python setup.py install
+```
+### Dependencies
+TBD 
+
+### Usage
+TBD
