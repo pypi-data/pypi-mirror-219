@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: streamsbpy
+Version: 1.0.8
+Summary: Interact Using StreamSb API
+Home-page: https://github.com/Code-xed
+License: GNU General Public License 3.0
+Author: Code-xed
+Requires-Python: >=3.7,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: requests (>=2.27.0,<3.0.0)
+Project-URL: Repository, https://github.com/Code-xed
+Description-Content-Type: text/markdown
+
+# A Simple Python Wrapper For The StreamSB API
+# Requirements
+
+# Installation
+```sh
+pip3 install streamsbpy
+```
+# Usage
+```python
+from streamsbpy import StreamSB
+key = "abc123" #API_KEY from streamsb.com
+ob = StreamSB(key)
+
+#Upload Gdrive link
+ob.upload_url("https://drive.google.com/v1/testfile")
+```
+# Copyright & License
+- Copyright (C) 2021 Code-xed <https://github.com/Code-xed>
+- Licensed under the terms of the [GNU Lesser General Public License v3 or later (LGPLv3+)](LICENSE)
+# Credits
+- streamsb.com
+- myself(🤔)
+
