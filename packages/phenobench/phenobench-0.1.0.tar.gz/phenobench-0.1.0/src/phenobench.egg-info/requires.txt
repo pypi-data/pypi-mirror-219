@@ -1,0 +1,11 @@
+numpy
+matplotlib
+Pillow>6.2.1
+
+[eval]
+torch
+torchvision
+torchmetrics==0.10.3
+numpy
+pyyaml
+tqdm
