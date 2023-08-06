@@ -1,0 +1,90 @@
+[tool.poetry]
+name = "bolt11"
+version = "1.0.3"
+description = "A library for encoding and decoding BOLT11 payment requests."
+repository = "https://github.com/lnbits/bolt11"
+authors = [
+    "eillarra <eneko@illarra.com>",
+    "Alan Bits <alan@lnbits.com>"
+]
+license = "MIT"
+readme = "README.md"
+packages = [
+  {include = "bolt11"},
+  {include = "bolt11/py.typed"},
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+base58 = "^2.1.1"
+bech32 = "^1.2.0"
+bitstring = "^3"
+ecdsa = "^0.18.0"
+secp256k1 = "^0.14.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+flake8 = "^6.0.0"
+mypy = "^1.0.0"
+pytest = "^7.2.1"
+pytest-cov = "^4.0.0"
+isort = "^5.12.0"
+pyright = "^1.1.317"
+pylint = "^2.17.2"
+pre-commit = "^3.3.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 128
+
+
+[tool.isort]
+profile = "black"
+
+
+[tool.mypy]
+ignore_missing_imports = "True"
+files = "bolt11"
+
+
+[tool.pytest.ini_options]
+testpaths = [
+  "tests"
+]
+
+
+[tool.pyright]
+reportMissingImports = false
+include = [
+    "bolt11"
+]
+
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length=125
+disable = [
+  "import-error", # for pre-commit
+  "fixme",
+  "invalid-name",
+  "unsubscriptable-object",
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "too-many-locals",
+  "too-many-branches",
+  "too-many-arguments",
+  "too-many-statements",
+  "too-many-instance-attributes",
+  "too-few-public-methods",
+  "missing-module-docstring",
+  "consider-using-f-string",
+]
+
+[tool.poetry.scripts]
+bolt11 = "bolt11.cli:main"
