@@ -1,0 +1,11 @@
+SQLAlchemy
+tqdm
+python-slugify
+sentence_transformers
+numpy
+
+[dev]
+check-manifest
+
+[test]
+coverage

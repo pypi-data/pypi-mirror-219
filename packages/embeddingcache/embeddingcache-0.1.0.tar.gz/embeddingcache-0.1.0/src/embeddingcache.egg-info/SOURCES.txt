@@ -1,0 +1,14 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/embeddingcache/__init__.py
+src/embeddingcache/computeembeddings.py
+src/embeddingcache/embeddingcache.py
+src/embeddingcache/embeddingdb.py
+src/embeddingcache/hashstringdb.py
+src/embeddingcache.egg-info/PKG-INFO
+src/embeddingcache.egg-info/SOURCES.txt
+src/embeddingcache.egg-info/dependency_links.txt
+src/embeddingcache.egg-info/requires.txt
+src/embeddingcache.egg-info/top_level.txt
+tests/test_caching.py
