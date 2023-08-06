@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_composite_auto_field/__init__.py
+django_composite_auto_field/fields.py
+django_composite_auto_field/urls.py
+django_composite_auto_field.egg-info/PKG-INFO
+django_composite_auto_field.egg-info/SOURCES.txt
+django_composite_auto_field.egg-info/dependency_links.txt
+django_composite_auto_field.egg-info/requires.txt
+django_composite_auto_field.egg-info/top_level.txt
