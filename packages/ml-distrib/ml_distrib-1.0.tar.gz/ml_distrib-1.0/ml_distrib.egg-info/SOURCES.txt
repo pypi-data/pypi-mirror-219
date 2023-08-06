@@ -1,0 +1,10 @@
+setup.py
+ml_distrib/Binomialdistribution.py
+ml_distrib/Gaussiandistribution.py
+ml_distrib/Generaldistribution.py
+ml_distrib/__init__.py
+ml_distrib.egg-info/PKG-INFO
+ml_distrib.egg-info/SOURCES.txt
+ml_distrib.egg-info/dependency_links.txt
+ml_distrib.egg-info/not-zip-safe
+ml_distrib.egg-info/top_level.txt
