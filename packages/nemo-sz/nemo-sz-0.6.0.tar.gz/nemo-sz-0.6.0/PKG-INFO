@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: nemo-sz
+Version: 0.6.0
+Summary: Millimeter-wave galaxy cluster and source detection package.
+Home-page: https://nemo-sz.readthedocs.io
+Author: Matt Hilton + Nemo Contributors
+Author-email: hiltonm@ukzn.ac.za
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+License-File: LICENSE
+
+Millimeter-wave map filtering and Sunyaev-Zel'dovich galaxy cluster/source detection package. Originally developed for the Atacama Cosmology Telescope project.
