@@ -1,0 +1,5 @@
+[console_scripts]
+exhaustion-check=exhaustion_check.exhaustion_check:validate_instance
+get-first-of-first=exhaustion_check.get_first_of_first:cli
+pretty-sort-yaml=exhaustion_check.pretty_sort_yaml:load_yaml_file
+
