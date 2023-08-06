@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: nginx-ldap-auth-service
+Version: 2.0.4
+Summary: A FastAPI app that authenticates users via LDAP and sets a cookie for nginx
+Home-page: https://github.com/caltechads/nginx-ldap-auth-service
+Author: Caltech IMSS ADS
+Author-email: imss-ads-staff@caltech.edu
+Keywords: nginx,ldap,auth,fastapi,devops
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: FastAPI
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: System :: Systems Administration :: Authentication/Directory :: LDAP
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: aiodogstatsd (==0.16.0.post0)
+Requires-Dist: fastapi (>=0.95.0)
+Requires-Dist: uvicorn[standard] (==0.21.1)
+Requires-Dist: bonsai (==1.5.1)
+Requires-Dist: pydantic-settings
+Requires-Dist: pydantic (>=1.9.0)
+Requires-Dist: structlog (==23.1.0)
+Requires-Dist: tabulate (>=0.8.9)
+Requires-Dist: click (>=8.0)
+Requires-Dist: sentry-sdk (>=1.1.0)
+Requires-Dist: jinja2 (>=3.0.1)
+Requires-Dist: starsessions[redis] (>=2.1.1)
+Requires-Dist: python-multipart (>=0.0.6)
+Requires-Dist: watchfiles
+Requires-Dist: python-dotenv
+
+# nginx-ldap-auth-service
+
+`nginx-ldap-auth-service` provides a daemon (`nginx-ldap-auth`) that
+communicates with an LDAP or Active Directory server to authenticate users with
+their username and password, as well as a login form for actually allowing users
+to authenticate.  You can use this in combination with the nginx module
+[ngx_http_auth_request_module](http://nginx.org/en/docs/http/ngx_http_auth_request_module.html)
+to provide authentication for your nginx server.
+
+See the [Documentation](https://nginx-ldap-auth-service.readthedocs.io) for more
+information.
