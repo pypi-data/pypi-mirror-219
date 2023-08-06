@@ -1,0 +1,3 @@
+[console_scripts]
+hil.bin = hil.gp.bin:main
+

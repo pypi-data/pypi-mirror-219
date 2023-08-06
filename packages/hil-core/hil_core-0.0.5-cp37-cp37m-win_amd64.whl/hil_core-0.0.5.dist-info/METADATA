@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: hil-core
+Version: 0.0.5
+Summary: Carota HIL核心库
+Author: notmmao
+Author-email: notmmao@gmail.com
+License: Carota HIL License
+Platform: windows
+Requires-Python: >=3.6
+Requires-Dist: python-can
+Requires-Dist: can-isotp
+Requires-Dist: rich
+Requires-Dist: scapy
+Requires-Dist: construct
+
+Carota HIL核心库
+
