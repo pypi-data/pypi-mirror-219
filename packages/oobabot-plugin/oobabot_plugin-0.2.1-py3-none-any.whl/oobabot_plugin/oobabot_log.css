@@ -1,0 +1,217 @@
+#discord_bot_token_accordion {
+    padding-left: 30px;
+    padding-top: 12px;
+}
+
+#oobabot-status-heading {}
+
+.oobabot_status_running {}
+
+.oobabot_status_stopped {}
+
+#oobabot-save-token {
+    flex: none;
+    min-width: 50px;
+}
+
+#oobabot-tab-config input:disabled {
+    background-color: var(--button-secondary-border-color)
+}
+
+#oobabot-tab-config textarea:disabled {
+    background-color: var(--button-secondary-border-color)
+}
+
+#oobabot-tab-config .prose #oobabot-invite-link pre {
+    display: inline;
+    color: orange;
+    text-decoration: underline;
+}
+
+#oobabot-refresh-character-menu {
+    flex: none;
+    min-width: 50px;
+}
+
+#oobabot-tab-config .prose * {
+    font-size: 16px;
+}
+
+#oobabot-tab-config .prose h1 {
+    padding-top: 10px;
+    font-size: 24px;
+}
+
+#oobabot-tab-config .prose h2 {
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+#oobabot-tab-config .oobabot_instructions code {
+    font-size: 18px;
+}
+
+#oobabot-tab-config .oobabot_instructions h1 code {
+    font-size: 24px;
+}
+
+#oobabot-tab-config .oobabot-output {
+    background-color: #0C0C0C;
+    color: #CCCCCC;
+    font-family: Consolas, "Lucida Console", monospace;
+    border-radius: var(--block-radius);
+    min-height: 1160px;
+    width: 100%;
+}
+
+#oobabot-tab-config .prose * {
+    color: unset;
+}
+
+#oobabot-tab-config .prose * .oobabot-red {
+    color: #C50F1F;
+}
+
+#oobabot-tab-config .prose * .oobabot-yellow {
+    color: #C19C00;
+}
+
+#oobabot-tab-config .prose * .oobabot-cyan {
+    color: #3A96DD;
+}
+
+#oobabot-tab-config .prose * .oobabot-white {
+    color: #CCCCCC;
+}
+
+footer {
+    display: none !important;
+}
+
+#oobabot-advanced-save-settings {
+    flex: none;
+    margin: auto;
+}
+
+#oobabot-advanced-save-result {
+    text-align: right;
+    overflow: hidden;
+    display: inline-block;
+    height: 60px;
+    padding: 20px 0;
+}
+
+#oobabot-tab-advanced .cm-content {
+    font-size: 16px;
+}
+
+#oobabot-tab-config .prose * {
+    color: unset;
+}
+
+/* .oobabot_token_text {} */
+
+#oobabot-tab-audio .prose .oobabot_confidence_great {
+    color: white;
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_great:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_good {
+    color: lightgray;
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_good:hover {
+    background-color: rgba(211, 211, 211, 0.3);
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_ok {
+    color: burlywood;
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_ok:hover {
+    background-color: rgba(222, 184, 135, 0.3);
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_bad {
+    color: goldenrod;
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_bad:hover {
+    background-color: rgba(218, 165, 32, 0.3);
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_terrible {
+    color: darksalmon;
+}
+
+#oobabot-tab-audio .prose .oobabot_confidence_terrible:hover {
+    background-color: rgba(233, 150, 122, 0.3);
+}
+
+.oobabot_token {
+    display: flex;
+    white-space: break-spaces;
+}
+
+#oobabot-tab-audio .prose .oobabot_author_name {
+    color: coral;
+    font-weight: var(--prose-header-text-weight);
+}
+
+.oobabot_author {
+    flex-grow: 0;
+    align-items: stretch;
+    display: flex;
+    padding-bottom: 10px;
+    min-width: 300px;
+}
+
+.oobabot_author_avatar {
+    height: 32px;
+    width: 32px;
+}
+
+.oobabot_author_name {
+    min-width: 100px;
+    margin-left: 10px;
+    line-height: 32px;
+}
+
+.oobabot_user_message,
+.oobabot_bot_message {
+    display: flex;
+    padding: 10px;
+    border-radius: 5px 10px/5px 10px;
+    margin: 0;
+    width: 60%;
+    margin-top: 10px;
+    flex-direction: column;
+}
+
+.oobabot_bot_message {
+    align-self: flex-start;
+    align-content: flex-start;
+    background: green;
+}
+
+.oobabot_user_message {
+    align-self: flex-end;
+    align-content: flex-end;
+    background: rgb(75, 70, 166);
+    background: linear-gradient(355deg, rgba(75, 70, 166, 1) 0%, rgba(58, 58, 125, 1) 35%, rgba(30, 84, 115, 1) 64%);
+}
+
+.oobabot-audio-output {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.oobabot_tokens {
+    display: flex;
+    flex-wrap: wrap;
+}
