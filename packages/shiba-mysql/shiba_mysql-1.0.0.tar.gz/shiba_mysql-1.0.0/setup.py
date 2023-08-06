@@ -1,0 +1,26 @@
+from setuptools import setup, find_packages
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Operating System :: Microsoft :: Windows :: Windows 10',
+    'Operating System :: Microsoft :: Windows :: Windows 11',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+]
+
+setup(
+    name='shiba_mysql',
+    version='1.0.0',
+    description='A library to interact with MySQL',
+    long_description=open('README.md').read() + '\n\n' + open('CHANGELOG.txt').read(),
+    long_description_content_type='text/markdown',
+    author='Rodrigo Pino',
+    license='MIT',
+    classifiers=classifiers,
+    keywords='mysql',
+    author_email='ro.pinoo18@gmail.com',
+    url='https://github.com/ShibaRoPinoo/Shiba-Py-Mysql',
+    packages=find_packages(),
+    install_requires=['pymysql'],
+)
