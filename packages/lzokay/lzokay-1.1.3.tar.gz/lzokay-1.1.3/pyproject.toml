@@ -1,0 +1,66 @@
+[build-system]
+requires = [
+    "setuptools>=61.2",
+    "Cython>=3.0a10",
+    "setuptools_scm[toml]>=3.4"
+]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "lzokay"
+description = "Python bindings for LZ👌, a LZO compression/decompression algorithm."
+authors = [{name = "Henrique Gemignani"}]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = []
+dynamic = ["version"]
+
+[project.readme]
+file = "README.md"
+content-type = "text/markdown"
+
+[project.urls]
+Homepage = "https://github.com/henriquegemignani/py-lzokay"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+]
+
+[tool.setuptools_scm]
+version_scheme = "guess-next-dev"
+local_scheme = "no-local-version"
+write_to = "src/lzokay/version.py"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+
+[tool.ruff]
+line-length = 120
+select = [
+    "E", "F", "W", "C90", "I", "UP", "C4",
+    "RSE",
+    "TCH",
+    "PTH",
+    "COM818", "COM819",
+    "ISC",
+    "PIE",
+
+    "PLC",
+    "PLE",
+    "PLR",
+    "PLW",
+]
+
+# Version to target for generated code.
+target-version = "py38"
