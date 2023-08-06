@@ -1,0 +1,30 @@
+# Byte-compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution/Packaging
+.Python
+venv/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+var/
+*.egg-info/
+.installed.cfg
+
+# Tests
+.pytest_cache/
+tests/spark-warehouse/
+tests/hyperd.log
+
+# MacOS Stuff
+*.DS_Store
+
+# PyCharm
+.idea/
