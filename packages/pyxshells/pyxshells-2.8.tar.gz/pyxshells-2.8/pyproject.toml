@@ -1,0 +1,29 @@
+[project]
+name = "pyxshells"
+version = "2.8"
+description = "python tools for handling field output of xshells code"
+readme = "README.md"
+authors = [
+  { name="Nathanael Schaeffer", email="nathanael.schaeffer@gmail.com" },
+]
+dependencies = [
+  'numpy',
+  'matplotlib',
+  'shtns'
+]
+requires-python = ">=3.2"
+classifiers = [
+    "Programming Language :: Python",
+    "License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)",
+    "Intended Audience :: Science/Research",
+    "Development Status :: 5 - Production/Stable",
+    "Topic :: Scientific/Engineering",
+]
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project.urls]
+Homepage = "https://nschaeff.bitbucket.io/xshells"
+Documentation = "https://nschaeff.bitbucket.io/xshells/manual.html"
+Repository = "https://bitbucket.org/nschaeff/xshells/"
+Changelog = "https://bitbucket.org/nschaeff/xshells/src/master/CHANGELOG.md"
