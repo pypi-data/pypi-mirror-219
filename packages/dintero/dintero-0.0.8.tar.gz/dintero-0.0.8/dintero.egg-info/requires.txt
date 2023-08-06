@@ -1,0 +1,7 @@
+
+[:python_version >= "3.0"]
+requests>=2.20
+typing_extensions>=3.10
+
+[dev]
+pytest
