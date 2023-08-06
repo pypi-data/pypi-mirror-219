@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: fast-s3
+Version: 0.1.0
+Summary: Download images from s3 fast
+Home-page: https://github.com/nextml-code/fast-s3
+Author: NextML AB
+Requires-Python: >=3.8,<3.11
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: boto3 (>=1.22.13,<2.0.0)
+Requires-Dist: pydantic (>=1.10.9,<2.0.0)
+Project-URL: Repository, https://github.com/nextml-code/fast-s3
+Description-Content-Type: text/markdown
+
+# Download/upload images from/to s3 very quickly
+
+## Setup
+
+```
+poetry install
+```
+
+## Usage
+
+Download image files
+
+```python
+from PIL import Image
+from fast_s3 import Fetcher, Status
+
+
+large_list_of_image_paths = [...]
+
+fetcher = Fetcher(
+    paths=large_list_of_image_paths,
+    endpoint_url="https://s3.my-path-to-s3",
+    aws_access_key_id="my-key-id",
+    aws_secret_access_key="my-secret-key",
+    region_name="my-region",
+    bucket_name="my-bucket",
+    ordered=True,  # returns files in the same order as paths
+    buffer_size=1024,
+    n_workers=32,
+)
+
+for file in fetcher:
+    if file.status != Status.error:
+        Image.open(file.buffer).save(file.path)
+
+fetcher.close()
+```
+
+Upload files
+
+```python
+from fast_s3 import Uploader
+
+
+large_list_of_files = [...]
+large_list_of_paths = [...]
+
+uploader = Uploader(
+    endpoint_url="https://s3.my-path-to-s3",
+    aws_access_key_id="my-key-id",
+    aws_secret_access_key="my-secret-key",
+    region_name="my-region",
+    bucket_name="my-bucket",
+)
+
+uploader.upload_files(
+    source=large_list_of_files,
+    destination=large_list_of_paths,
+)
+uploader.await_futures()
+uploader.close()
+```
+
