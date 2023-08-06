@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+tmailor/__init__.py
+tmailor/client.py
+tmailor.egg-info/PKG-INFO
+tmailor.egg-info/SOURCES.txt
+tmailor.egg-info/dependency_links.txt
+tmailor.egg-info/top_level.txt
+tmailor/ext/__init__.py
+tmailor/ext/utilities/__init__.py
+tmailor/ext/utilities/exceptions.py
+tmailor/ext/utilities/headers.py
+tmailor/ext/utilities/objects.py
