@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: ampligraph
+Version: 2.0.1
+Summary: A Python library for relational learning on knowledge graphs.
+Home-page: https://github.com/Accenture/AmpliGraph/
+Author: Accenture Dublin Labs
+Author-email: about@ampligraph.org
+License: Apache 2.0
+License-File: LICENSE
+Requires-Dist: numpy (>=1.14.3)
+Requires-Dist: pytest (>=3.5.1)
+Requires-Dist: scikit-learn (>=0.19.1)
+Requires-Dist: tqdm (>=4.23.4)
+Requires-Dist: pandas (>=0.23.1)
+Requires-Dist: sphinx (==5.0.2)
+Requires-Dist: myst-parser (==0.18.0)
+Requires-Dist: docutils (<0.18)
+Requires-Dist: sphinx-rtd-theme (==1.0.0)
+Requires-Dist: sphinxcontrib-bibtex (==2.4.2)
+Requires-Dist: beautifultable (>=0.7.0)
+Requires-Dist: pyyaml (>=3.13)
+Requires-Dist: rdflib (>=4.2.2)
+Requires-Dist: scipy (==1.10.0)
+Requires-Dist: networkx (>=2.3)
+Requires-Dist: flake8 (>=3.7.7)
+Requires-Dist: setuptools (>=36)
+Requires-Dist: matplotlib (>=3.7)
+Requires-Dist: docopt (==0.6.2)
+Requires-Dist: schema (==0.7.5)
+
