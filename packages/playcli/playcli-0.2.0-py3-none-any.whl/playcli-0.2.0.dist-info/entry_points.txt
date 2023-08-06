@@ -1,0 +1,3 @@
+[console_scripts]
+playcli=playcli.main:main
+
