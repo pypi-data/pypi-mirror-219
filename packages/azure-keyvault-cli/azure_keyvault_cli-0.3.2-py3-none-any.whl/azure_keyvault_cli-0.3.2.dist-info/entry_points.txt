@@ -1,0 +1,3 @@
+[console_scripts]
+azkv=cli.main:azkv
+
