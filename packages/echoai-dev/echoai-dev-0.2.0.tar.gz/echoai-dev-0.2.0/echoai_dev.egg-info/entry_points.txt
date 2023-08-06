@@ -1,0 +1,2 @@
+[console_scripts]
+echoai = echoai.main:main
