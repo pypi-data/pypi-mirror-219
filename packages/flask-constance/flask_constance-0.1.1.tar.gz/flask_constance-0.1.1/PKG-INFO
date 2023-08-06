@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: flask-constance
+Version: 0.1.1
+Summary: Dynamic settings for Flask applications
+Home-page: https://github.com/TitaniumHocker/Flask-Constance
+License: MIT
+Keywords: flask,extension
+Author: Ivan Fedorov
+Author-email: inbox@titaniumhocker.ru
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: Flask (>=2.0.1,<3.0)
+Requires-Dist: Flask-Admin[admin] (>=1.6.1,<2.0.0)
+Requires-Dist: Flask-SQLAlchemy[fsqla] (>=2.5.1,<3.0.0)
+Requires-Dist: Flask-WTF[admin] (>=1.1.1,<2.0.0)
+Requires-Dist: SQLAlchemy[fsqla] (>1.4,<2.0)
+Requires-Dist: blinker[signals] (>=1.6,<2.0)
+Project-URL: Bug Tracker, https://github.com/TitaniumHocker/Flask-Constance/issues
+Project-URL: Documentation, https://flask-constance.rtfd.io
+Project-URL: Repository, https://github.com/TitaniumHocker/Flask-Constance
