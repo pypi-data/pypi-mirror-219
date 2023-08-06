@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+apifoncier/cartofriches.py
+apifoncier/config.py
+apifoncier/dvf_opendata.py
+apifoncier/utils.py
+apifoncier/apifoncier.egg-info/PKG-INFO
+apifoncier/apifoncier.egg-info/SOURCES.txt
+apifoncier/apifoncier.egg-info/dependency_links.txt
+apifoncier/apifoncier.egg-info/requires.txt
+apifoncier/apifoncier.egg-info/top_level.txt
+tests/test_cartofriches.py
+tests/test_configure.py
+tests/test_utils.py
