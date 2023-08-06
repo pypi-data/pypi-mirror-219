@@ -1,0 +1,3 @@
+[console_scripts]
+check-changelog=check_changelog.__main__:main
+

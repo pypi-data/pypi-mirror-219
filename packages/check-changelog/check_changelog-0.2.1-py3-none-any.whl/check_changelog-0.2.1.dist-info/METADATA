@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: check-changelog
+Version: 0.2.1
+Summary: check that changelog conforms to 'Keep A Changelog' style
+Author-email: Anatoly Asviyan <aanatoly@gmail.com>
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development
+Requires-Dist: markdown-it-py
+Requires-Dist: pydevkit<4.0.0,>=3.1.2
+Project-URL: Homepage, https://github.com/aanatoly/check-changelog
+Project-URL: Repository, https://github.com/aanatoly/check-changelog
+Description-Content-Type: text/markdown
+
+# check-changelog
+
+[![pkg - version][pkg-version]][pkg-link]
+[![pkg - python versions][pkg-pyversions]][pkg-link]
+[![pkg - license][pkg-license]][pkg-link]
+
+---
+
+check that changelog conforms to [Keep A Changelog][kacl] and
+[Common Changelog][ccl] styles.
+
+Main features:
+ * check that changelog conforms to [Keep A Changelog][kacl] style
+ * allow release notes. Add them between the release header and change list
+   ([Common Changelog][ccl] addition)
+
+   ```markdown
+   ## [1.0.0] - 2023-05-05
+   Release notes
+
+   ### Added
+    - add feature ...
+   ```
+
+ * allow custom footer to keep things from being verified. Useful for legal
+   notes, text used by other scripts, HTML comments, etc
+
+   ```markdown
+   -----
+   Linter will ignore this section.
+   <!--- message for some script -->
+   [my site]: http://mysite.com
+   ```
+
+ * `gcc` style error reports
+   ```text
+   CHANGELOG.md:10: bad release title: [0.2.1]; expected '[Unreleased]' or '[ver] - YYYY-MM-DD'
+   CHANGELOG.md:12: bad change type: Changed2; expected one of ['Added', 'Changed', ...]
+    ```
+
+## Installation
+
+```sh
+pip install check-changelog
+```
+
+## Usage
+From command line
+
+```sh
+# check CHANGELOG.md in a current dir
+check-changelog
+# check specific CHANGELOG.md
+check-changelog -f path/to/changelog.md
+```
+
+As a [pre-commit](https://pre-commit.com/) hook.
+Add this section to your `.pre-commit-config.yaml`
+
+```yml
+- repo: https://github.com/aanatoly/check-changelog
+  rev: '0.2.1'
+  hooks:
+    - id: check-changelog
+```
+
+## Alternatives
+`check-changelog` is a minimalistic tool by design. It checks the Changelog
+structure and does nothing else.
+
+If you are looking for more, check [python-kacl][py-kacl]. It is a feature-rich tool
+capable of linting, fixing errors, and automating Changelog maintenance.
+
+## Development
+See [development](docs/devel.md) doc
+
+[kacl]: https://keepachangelog.com/en/ "Keep a Changelog"
+[ccl]: https://common-changelog.org/ "Common Changelog"
+[py-kacl]: https://gitlab.com/schmieder.matthias/python-kacl
+
+[pkg-link]: https://pypi.python.org/pypi/check-changelog/
+[pkg-version]: https://img.shields.io/pypi/v/check-changelog?logo=pypi&logoColor=aaaaaa&color=blue
+[pkg-license]: https://img.shields.io/pypi/l/check-changelog?logoColor=aaaaaa&color=blue
+[pkg-pyversions]: https://img.shields.io/pypi/pyversions/check-changelog?logo=python&logoColor=aaaaaa&color=blue
+
