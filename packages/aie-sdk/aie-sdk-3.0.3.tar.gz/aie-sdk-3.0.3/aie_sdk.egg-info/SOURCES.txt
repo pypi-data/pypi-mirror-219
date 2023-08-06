@@ -1,0 +1,13 @@
+README.md
+setup.py
+aie/__init__.py
+aie/auth.py
+aie/env.py
+aie/g_var.py
+aie/client/__init__.py
+aie/error/__init__.py
+aie_sdk.egg-info/PKG-INFO
+aie_sdk.egg-info/SOURCES.txt
+aie_sdk.egg-info/dependency_links.txt
+aie_sdk.egg-info/requires.txt
+aie_sdk.egg-info/top_level.txt
