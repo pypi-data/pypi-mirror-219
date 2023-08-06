@@ -1,0 +1,3 @@
+[console_scripts]
+offat=offat.__main__:start
+
