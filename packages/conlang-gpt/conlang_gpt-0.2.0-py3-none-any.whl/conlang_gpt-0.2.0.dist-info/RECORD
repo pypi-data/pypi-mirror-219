@@ -1,0 +1,15 @@
+conlang_gpt/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+conlang_gpt/__main__.py,sha256=8hDtWlaFZK24KhfNq_ZKgtXqYHsDQDetukOCMlsbW0Q,59
+conlang_gpt/cli.py,sha256=lvmPklIcwLxXyYi0a-89ubGwmhEQvEkHmZY3_RCox9w,4286
+conlang_gpt/command/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+conlang_gpt/command/create.py,sha256=7VAvlWuUJgWV8xheAO-Wudz3k5UyGFm01UoGMTUQZ8g,470
+conlang_gpt/command/improve.py,sha256=DOsi94MPoE-vmToof1YCjIjcO_EScFfu_ZFhrvZJPqk,2752
+conlang_gpt/command/modify.py,sha256=crPvlgqsOWjM3JuUVBKVENWDz36gjavveBv91vRh5pU,1260
+conlang_gpt/command/translate.py,sha256=w3jvBygE4wkK5tRLUl3zapJ93OsWsYuLzY4ijguknRQ,3096
+conlang_gpt/language.py,sha256=kyWDe8n5FZJYHiqhd0k8wd_KlvhSfyfOtpNfoirD560,20084
+conlang_gpt/openai.py,sha256=TC7MJssNY6PyUf4xighhl2kLPgNiOefJcEO93Q_R1XM,1724
+conlang_gpt-0.2.0.dist-info/LICENSE,sha256=r7frExyqHimLlJ3ZUV88kkyFkaQ30LzTQhPoRC204ww,1068
+conlang_gpt-0.2.0.dist-info/METADATA,sha256=42MF3tOs0oWK8BV_NU_JzY0wJIjoWTm87S3gGa2OTvM,5663
+conlang_gpt-0.2.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+conlang_gpt-0.2.0.dist-info/entry_points.txt,sha256=N0JDcu1jJ7puqfjhxyIxpOBTaGGhOrH2REB0poq66mw,47
+conlang_gpt-0.2.0.dist-info/RECORD,,
