@@ -1,0 +1,9 @@
+
+[develop]
+flake8
+pytest
+
+[docs]
+mkdocs
+mkdocstrings[python]
+mkdocs-terminal
