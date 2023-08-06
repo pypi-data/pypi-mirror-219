@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: unidic-lite-imitator
+Version: 0.1.0
+Summary: Imitate Japanese morphological analysis of mecab and unidic_lite with a small onnx model.
+Author-email: Yutaka Nakano <nknytk.dev@gmail.com>
+License: CC-BY-SA 3.0
+        
+        このモデルは Wikipedia CirrusSearch のデータを利用して作成されました。
+        https://dumps.wikimedia.org/other/cirrussearch/
+        
+Project-URL: Homepage, https://github.com/nknytk/ma-imitator
+Project-URL: Bug Tracker, https://github.com/nknytk/ma-imitator/issues
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: <=3.11,>=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: onnxruntime (>=1.14.0)
+
+# Unidic Lite Imitator
+
+This package imitates Japanese morphological analysis of mecab and unidic_lite with a small onnx model.  
+You can add tokenization and part-of-speech estimation to your environment  
+with only 2MB additoinal disk space if you already have onnxruntime in your environment.
+
+## Installation
+
+```
+$ pip install unidic_lite_imitator
+```
+
+## Usage Examples
+
+```python
+>> import unidic_lite_imitator
+>> tagger = unidic_lite_imitator.Tagger()
+>> sample_text = '使い方のサンプルです。'
+>> tagger.parse(sample_text)
+[('使い', '動詞'), ('方', '接尾辞'), ('の', '助詞'), ('サンプル', '名詞'), ('です', '助動詞'), ('。', '補助記号')]
+```
+
+Input string length must be 192 or less.
