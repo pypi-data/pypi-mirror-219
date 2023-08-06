@@ -1,0 +1,14 @@
+GW_APP_RX_ONLY = "!gateway_app 37 30 0 17"
+CANCEL = '!cancel'
+RESET_GW = '!reset'
+VERSION = '!version'
+SEND_ALL_ADV_CHANNELS = 0
+SERIAL_TIMEOUT = 0.1
+SEP = "#"*100
+DEFAULT_ADVA = 'FFFFFFFFFFFF'
+GW_APP_VERSION_HEADER = 'WILIOT_GW_BLE_CHIP_SW_VER'
+DEFAULT_OUTPUT_POWER = 8
+DEFAULT_DELAY = 15
+DUPLICATIONS = [i for i in range(1, 11)]
+TIME_DELAYS = [i for i in range(15, 256, 30)]
+BRIDGES = [i for i in range(3)]
