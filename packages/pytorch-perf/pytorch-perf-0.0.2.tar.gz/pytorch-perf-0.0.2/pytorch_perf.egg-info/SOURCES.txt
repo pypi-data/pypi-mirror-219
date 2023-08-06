@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+pytorch_perf.egg-info/PKG-INFO
+pytorch_perf.egg-info/SOURCES.txt
+pytorch_perf.egg-info/dependency_links.txt
+pytorch_perf.egg-info/requires.txt
+pytorch_perf.egg-info/top_level.txt
+tests/test_basics.py
+tests/test_info.py
+tests/test_recipe.py
+torchperf/__init__.py
+torchperf/info.py
+torchperf/measure.py
+torchperf/recipe.py
