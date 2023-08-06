@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: semiformal
+Version: 0.4.9
+Summary: Tokenizer for semiformal unicode text using TR-29 segmentation
+Author: Al Barrentine
+License: MIT
+Project-URL: Homepage, https://github.com/goodcleanfun/semiformal
+Project-URL: Repository, https://github.com/goodcleanfun/semiformal
+Keywords: word,tokenizer,lexer,re2c,fsa
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+semiformal
+================
+
+Tokenizer for semiformal unicode text using TR-29 segmentation
