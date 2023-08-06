@@ -1,0 +1,5 @@
+sseclient-py>=1.7.2
+requests
+webthing>=0.15.0
+appdirs==1.4.4
+redzoo>=0.0.17
