@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mess-server-proj-timur
+Version: 0.0.1
+Summary: mess_server_proj_timur
+Author: Timur Vodovozov
+Author-email: vodovozzz@inbox.ru
+Requires-Dist: PyQt5
+Requires-Dist: sqlalchemy
+Requires-Dist: pycryptodome
+Requires-Dist: pycryptodomex
+
