@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: polimedia-client
+Version: 0.0.3
+Summary: Some tools to interact with the Polimedia DB
+Home-page: https://gitlab.com/Serbaf/subtitle_normalizer
+Author: Sergio Puche García
+Author-email: spuche@upv.es
+License: GPL3
+Description-Content-Type: text/markdown
+
+# Polimedia client
+
+Just some utilities for navigating and interacting with the Polimedia Mongo Database
+shared by diverse scripts and tools.
