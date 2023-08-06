@@ -1,0 +1,16 @@
+resomapper/__init__.py,sha256=fPqB2bBs_T9NY3FYRHijarYvnIcAum4d2sTKdQnKLNM,114
+resomapper/cli.py,sha256=gkk-_qyEyycaCTvYSj4QF07NA7HKSZuIdbTBtxtNDX8,5320
+resomapper/dwi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+resomapper/dwi/adcm.py,sha256=elN0xX-VXBmd7ArW5LJ5ivWslOad2iGBke1l4UaxQYY,12887
+resomapper/file_system_functions.py,sha256=9ZYvFfu5H3X4Q6kr0Bxa3lcRJCoqSnX_Ibijo6r6-ws,25360
+resomapper/myrelax/__init__.py,sha256=frcCV1k9oG9oKj3dpUqdJg1PxRT2RSN_XKdLCPjaYaY,2
+resomapper/myrelax/getT1TR.py,sha256=77NI2FVnzlxLBuDGxeVuWPQ9IkLYa3J7oE2G6HQqdOc,29416
+resomapper/myrelax/getT2T2star.py,sha256=9N5oGToqik3IglXBU05KoCuBa_rpo7CmZwiFUIzgx-4,29826
+resomapper/preprocessing.py,sha256=RHQW4TMbsk8No34hzaeyqYjl8W-FpFUwAtbb7fBOGZs,23759
+resomapper/processing.py,sha256=-OJ5DsO-jDNgLRAs2o9d5zGG1xm8Pt33zmtHKT7puzw,63590
+resomapper/utils.py,sha256=hW47ccplu_4iM-oGzLYDrlxq3cEpna6qEvYsQn8-3zg,19972
+resomapper-0.4.1.dist-info/entry_points.txt,sha256=xcU7aWYpUlLWAnmaBjcg1OmUCUQ1Wrmr4nHIq08GnHE,57
+resomapper-0.4.1.dist-info/LICENSE,sha256=co19QHxgtcqM1u26EpXN2jqjKAdrb1u48uWABVuB07I,2817
+resomapper-0.4.1.dist-info/METADATA,sha256=m49RZ-cLnjquAQXPGtCGDzJQR4gKXAsrWs4zsIwFHfI,4019
+resomapper-0.4.1.dist-info/WHEEL,sha256=7Z8_27uaHI_UZAc4Uox4PpBhQ9Y5_modZXWMxtUi4NU,88
+resomapper-0.4.1.dist-info/RECORD,,
