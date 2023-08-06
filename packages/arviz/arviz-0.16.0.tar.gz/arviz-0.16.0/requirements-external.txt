@@ -1,0 +1,8 @@
+beanmachine
+torch<2.0
+emcee
+pyjags
+pystan
+cmdstanpy
+pyro-ppl>=1.0.0
+numpyro>=0.2.1
