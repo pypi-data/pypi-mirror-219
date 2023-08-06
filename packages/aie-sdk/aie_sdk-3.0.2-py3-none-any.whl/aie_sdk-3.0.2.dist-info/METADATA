@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: aie-sdk
+Version: 3.0.2
+Summary: AIEarth Engine Python SDK
+Home-page: https://engine-aiearth.aliyun.com/
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown
+Requires-Dist: aie-ipyleaflet
+Requires-Dist: jinja2
+Requires-Dist: black
+Requires-Dist: oss2
+Requires-Dist: matplotlib
+Requires-Dist: bqplot
+Requires-Dist: pyyaml
+Requires-Dist: pystac-client
+Requires-Dist: pandas
+Requires-Dist: aiearth-core
+Requires-Dist: aiearth-engine
+Provides-Extra: engine
+Requires-Dist: aiearth-core ; extra == 'engine'
+Requires-Dist: aie-ipyleaflet ; extra == 'engine'
+Requires-Dist: aiearth-engine ; extra == 'engine'
+Requires-Dist: notebook (<7) ; extra == 'engine'
+Provides-Extra: openapi
+Requires-Dist: aiearth-openapi (>=1.0.0) ; extra == 'openapi'
+Requires-Dist: alibabacloud-aiearth-engine20220609 (>=1.0.5) ; extra == 'openapi'
+
+AIEarth Engine Python SDK
+
+Visit the [AIEarth main page](https://engine-aiearth.aliyun.com/)
+for more information.
+    
+# Quickstart
+
+[快速入门](https://engine-aiearth.aliyun.com/docs/page/guide?d=c2989d)
