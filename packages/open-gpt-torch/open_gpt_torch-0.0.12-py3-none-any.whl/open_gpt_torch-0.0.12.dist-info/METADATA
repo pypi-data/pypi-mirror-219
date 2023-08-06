@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: open-gpt-torch
+Version: 0.0.12
+Summary: An open-source cloud-native of large multi-modal models (LMMs) serving framework.
+Home-page: https://https://github.com/jina-ai/opengpt
+Download-URL: https://https://github.com/jina-ai/opengpt/tags
+Author: Jina AI
+Author-email: hello@jina.ai
+License: Apache 2.0
+Project-URL: Documentation, https://opengpt.jina.ai
+Project-URL: Source, https://github.com/jina-ai/opengpt/
+Project-URL: Tracker, https://github.com/jina-ai/opengpt/issues
+Keywords: jina,pytorch,large-language-model,GPT,LLM,multi-modality,cloud-native,model-serving,model-inference,llama,vicuna,stabellm
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pydantic (<2.0.0)
+Requires-Dist: jina (>=3.17.0)
+Requires-Dist: docarray (<0.30.0)
+Requires-Dist: jcloud (>0.2.0)
+Requires-Dist: inference-client (>=0.0.4)
+Requires-Dist: cleo (>=2.0.0)
+Requires-Dist: click (>=8.0.0)
+Requires-Dist: Jinja2 (>=3.1.0)
+Requires-Dist: sentencepiece (>=0.1.96)
+Requires-Dist: transformers (>=4.30.1)
+Requires-Dist: bitsandbytes (>=0.39.0)
+Requires-Dist: accelerate (>=0.20.3)
+Requires-Dist: peft (>=0.3.0)
+Requires-Dist: loguru
+Requires-Dist: tqdm
+Requires-Dist: sse-starlette (>=1.6.1)
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-xdist ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+
