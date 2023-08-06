@@ -1,0 +1,16 @@
+tablestring/TableString.py,sha256=nVkKCapScdwaUA14bF-EYh3SbSYUA-05qYyqZzMLIdU,9035
+tablestring/__init__.py,sha256=1sMgRSrFOHGESAwp-RTzDUlLPGTNzc16IBEH3CxV-dA,49
+tablestring/test.py,sha256=G4jcoFROvp_kgBImOQh5-i9dMv969Xm5jwZHXVlPC_U,1256
+tablestring/type.py,sha256=iBDg1sB9508GGGrzzj-eo1Lzjp-UAnqdZo8Af9cU1bw,801
+tablestring/chars/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tablestring/chars/border_chars.py,sha256=Kw2esrousd2_G_Qf7hUuTFbn6GVbo2jj24TLIPjEj0k,3935
+tablestring/helpers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tablestring/helpers/cell_string.py,sha256=5l4WUPONFuiS7O4nSdZqRmaUlVvfTv2ZJJm6F9eTVzE,1564
+tablestring/helpers/is_last_element.py,sha256=zPd_JMIcwdZq3bVfaHFwU28UksXJLmgWyVj_126AZII,89
+tablestring/helpers/row_cross_border.py,sha256=Ve5xAjLrUFJcJyfdcgT3Ed3xIA3-zs8HbGY_Y-vLof4,2744
+tablestring/helpers/row_outer_border.py,sha256=zLAXb4TFaiKyNYJ1vbRaSf0_xEAq1UzHgVciqim75eA,494
+tablestring-0.0.4.dist-info/LICENCE,sha256=A3pxkjt2wIn_239E3OL4yx407KhLbW6fLRE200QdqUE,1069
+tablestring-0.0.4.dist-info/METADATA,sha256=IWa74dPRICq0wZhZBsXMomMpk1aCONxOQG7D_vc63lQ,17392
+tablestring-0.0.4.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+tablestring-0.0.4.dist-info/top_level.txt,sha256=pehRQLB3tRmVxgbWknTohfjDnzSJ8Pg6o_aTW3FdTQQ,12
+tablestring-0.0.4.dist-info/RECORD,,
