@@ -1,0 +1,6 @@
+pydantic==1.10.9
+pillow
+soundfile
+numpy
+fastapi
+httpx[h2]
