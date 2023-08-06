@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: biliarchiver
+Version: 0.0.19
+Summary: 
+Author: yzqzss
+Author-email: yzqzss@yandex.com
+Requires-Python: >=3.9,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: bilix (==0.18.4)
+Requires-Dist: browser-cookie3 (>=0.19.1,<0.20.0)
+Requires-Dist: danmakuc (>=0.3.6,<0.4.0)
+Requires-Dist: internetarchive (>=3.5.0,<4.0.0)
+Description-Content-Type: text/markdown
+
+# biliarchiver
+
+> 基于 bilix 的 BiliBili 存档工具
+
+## Install
+
+```bash
+pip install biliarchiver
+```
+
+## Usage
+
+待补充。
+
