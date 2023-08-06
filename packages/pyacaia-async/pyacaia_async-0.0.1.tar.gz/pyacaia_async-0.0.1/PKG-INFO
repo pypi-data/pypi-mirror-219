@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pyacaia_async
+Version: 0.0.1
+Summary: An async implementation of PyAcaia
+Home-page: https://github.com/zweckj/pyacaia_async
+Author: Josef Zweck
+Author-email: 24647999+zweckj@users.noreply.github.com
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# pyacaia_async
+Async implementation of pyacaia
