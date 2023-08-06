@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+src/NLPTextAugmentation/EDA.py
+src/NLPTextAugmentation/MTLCombination.py
+src/NLPTextAugmentation/SentenceBoundary.py
+src/NLPTextAugmentation/Single.py
+src/NLPTextAugmentation/Word2Vec.py
+src/NLPTextAugmentation/__init__.py
+src/NLPTextAugmentation/_version.py
+src/NLPTextAugmentation/utils.py
+src/NLPTextAugmentation.egg-info/PKG-INFO
+src/NLPTextAugmentation.egg-info/SOURCES.txt
+src/NLPTextAugmentation.egg-info/dependency_links.txt
+src/NLPTextAugmentation.egg-info/requires.txt
+src/NLPTextAugmentation.egg-info/top_level.txt
