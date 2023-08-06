@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "trycortex"
+version = "1.0.2"
+description = "Python library for Cortex"
+authors = ["Charles <charlespun6@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+# Install the "fixie" commandline script.
+# [tool.poetry.scripts]
+# cortex = "cortex.cli.cli:cortex"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
