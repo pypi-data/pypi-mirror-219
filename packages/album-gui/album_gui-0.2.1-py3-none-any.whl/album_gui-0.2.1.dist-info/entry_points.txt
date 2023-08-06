@@ -1,0 +1,12 @@
+[album_gui_plugins]
+boolean = album.gui.widgets.argument_widget_plugins:create_gui_boolean
+directory = album.gui.widgets.argument_widget_plugins:create_gui_directory
+double = album.gui.widgets.argument_widget_plugins:create_gui_double
+file = album.gui.widgets.argument_widget_plugins:create_gui_file
+float = album.gui.widgets.argument_widget_plugins:create_gui_float
+integer = album.gui.widgets.argument_widget_plugins:create_gui_integer
+string = album.gui.widgets.argument_widget_plugins:create_gui_string
+
+[console_parsers_album]
+add-shortcut = album.gui.commandline:create_parser_shortcut
+gui = album.gui.commandline:create_parser_gui
