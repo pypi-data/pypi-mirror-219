@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: proxy-mgr
+Version: 0.1.0
+Summary: Proxy Manager
+Author: What-XD
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+> This module loads and uses a proxy for the convenience of using requests, aiohttp, etc.
+> <br>Fork https://pypi.org/project/proxy-manager/
+## Installation
+This module is available via pip:
+```
+$ pip install proxy-MGR
+```
+## Basic Usage
+`proxies.txt:`
+```
+https://00.11.222.33:4444
+https://55.66.77.88:9999@username:password
+socks5://10.11.121.13:1414@username:password
+15.16.171.18:1919
+20.21.222.23:2424@username:password
+25.26.272.28:2929:username:password
+```
+`test.py:`
+```python
+from ProxyMGR import ProxyMGR
+
+MGR = ProxyMGR("proxies.txt")
+# MGR = ProxyMGR(proxy_list=["00.11.222.33:4444@username:password"])
+
+# Random proxy
+random_proxy = MGR.random_proxy()
+print(random_proxy) # https://00.11.222.33:4444
+
+# Next proxy
+proxy = MGR.next_proxy()
+print(proxy) # https://00.11.222.33:4444
+proxy = MGR.next_proxy()
+print(proxy) # https://55.66.77.88:9999@username:password
+proxy = MGR.next_proxy()
+print(proxy) # socks5://10.11.121.13:1414@username:password
+
+# Proxy dict
+print(random_proxy.get_dict()) # {'http': 'https://00.11.222.33:4444', 'https': 'https://00.11.222.33:4444'}
+
+# Proxy info
+print(random_proxy.get_info()) # {"ip":"81.222.188.37","success":true,"type":"IPv4","continent":"Europe" ...
+```
+## Documentation
+## Proxy File Format
+Proxies in proxy files must have one of the following formats:
+```
+ip:port
+ip:port:username:password
+ip:port@username:password
+http://ip:port
+...
+```
+These can be combined and alternated.
+## ProxyMGR
+`ProxyMGR(proxy_file_path)`<br>
+`ProxyMGR(proxy_list)`
+### Parameters
+1. `proxy_file_path` (string) — File path to the proxy (Required, if proxy_list is not specified)
+2. `proxy_list` (list) — List proxy (Required, if proxy_file_path is not specified)
+3. `default_type` (string) — Default proxy type (example `ip:port` -> `https://ip:port`) (optional)
+## ProxyMGR.random_proxy()
+Returns a random proxy of those loaded into the proxy manager
+## ProxyMGR.next_proxy()
+### Parameters
+1. `loop` (bool) — Repeat proxies if they run out
+## ProxyMGR.get_dict()
+dict - Proxy as a dict in the form `{'http':'http://...', 'https':'https://...'}` for use with requests
+## ProxyMGR.get_info()
+Website Request https://ipwho.is with proxy and return json
