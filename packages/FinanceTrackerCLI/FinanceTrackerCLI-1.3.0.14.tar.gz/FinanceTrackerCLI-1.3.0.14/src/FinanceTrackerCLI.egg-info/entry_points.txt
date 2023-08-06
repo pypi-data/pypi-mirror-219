@@ -1,0 +1,2 @@
+[console_scripts]
+FinanceTrackerCLI = finance_tracker:main
