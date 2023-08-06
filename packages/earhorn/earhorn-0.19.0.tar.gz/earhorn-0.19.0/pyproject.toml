@@ -1,0 +1,76 @@
+[tool.poetry]
+name = "earhorn"
+version = "0.19.0"
+description = "Listen, monitor and archive your streams!"
+authors = ["Joola <jooola@users.noreply.github.com>"]
+readme = "README.md"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+
+[tool.poetry.scripts]
+earhorn = "earhorn.main:cli"
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+click = "^8.0.1"
+httpx = ">=0.24.0,<0.25.0"
+lxml = ">=4.6.3,<4.10.0"
+prometheus-client = ">=0.17.0,<0.18.0"
+pydantic = "^2.0.0"
+typing-extensions = "^4.2.0"
+python-dotenv = "^1.0.0"
+boto3 = { version = "^1.24.8", optional = true }
+sentry-sdk = { version = "^1.14.0", optional = true }
+
+[tool.poetry.extras]
+s3 = ["boto3"]
+sentry = ["sentry-sdk"]
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.4"
+black = "^23.1"
+flake8 = "^6.0.0"
+isort = "^5.9.3"
+lxml-stubs = "^0.4.0"
+moto = "^4.0.0"
+mypy = "^1.0"
+pylint = "^2.13.9"
+pytest = "^7.1.1"
+pytest-cov = "^4.0.0"
+pytest-httpx = "^0.22.0"
+pytest-xdist = "^3.0.0"
+testcontainers = "^3.7.1"
+types-boto3 = "^1.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.messages_control]
+extension-pkg-whitelist = ["lxml.etree", "pydantic"]
+disable = [
+  "missing-module-docstring",
+  "missing-function-docstring",
+  "missing-class-docstring",
+  "line-too-long",
+]
+
+[tool.pylint.format]
+disable = "logging-fstring-interpolation"
+
+[tool.mypy]
+check_untyped_defs = true
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "DEBUG"
