@@ -1,0 +1,4 @@
+[console_scripts]
+img2img = aaa1111.__main__:app_img2img
+txt2img = aaa1111.__main__:app_txt2img
+

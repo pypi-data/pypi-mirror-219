@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: aaa1111
+Version: 0.1.0.dev6
+Summary: An Api for Automatic1111
+Author-Email: Bingsu <ks2515@naver.com>
+License: MIT
+Project-URL: Repository, https://github.com/Bing-su/AAA1111
+Requires-Python: >=3.8
+Requires-Dist: httpx
+Requires-Dist: aiofile
+Requires-Dist: pillow>=9.4.0
+Requires-Dist: orjson
+Requires-Dist: rtoml
+Requires-Dist: ruamel.yaml
+Requires-Dist: pyjson5
+Requires-Dist: beartype
+Requires-Dist: typing-extensions
+Requires-Dist: python-ulid
+Requires-Dist: rich
+Requires-Dist: typer>=0.9.0
+Description-Content-Type: text/markdown
+
+# AAA1111
+
+An Api for Automatic1111
+
+CLI로 이미지를 만들어보는 시험작
