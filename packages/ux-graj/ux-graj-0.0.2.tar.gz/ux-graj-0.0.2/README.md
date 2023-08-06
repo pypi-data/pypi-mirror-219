@@ -1,0 +1,243 @@
+# Blended-Ux
+---
+### Install Blended-Ux
+
+We recommend to make a python virtual environment to install Blended-Ux, with python version 3.11.3.
+
+```python
+python -m venv venv
+cd venv
+.\Scripts\activate
+pip install blendedux
+```
+
+# Quickstart
+Eager to get started? Follow installation doc to install.
+Two ways to use Blended-Ux…………
+
+- ####  With Blended-Theme
+
+We recommend using Python version 3.11.3 for Blended-Ux. Blended-Ux supports Python 3.11.3. Additionally, we recommend using a virtual environment to isolate your project dependencies from other projects and the system.
+
+```python
+python -m venv ux_env
+cd ux_env
+Scripts\activate
+```
+You can install this package as usual with pip:
+```python
+pip install blendedux
+```
+**Create a file name app.py in the root directory and paste below line of code.**
+```python
+
+from flask import Flask
+from blendedUx import *
+from blendedUx.blended_flask.bl_flask_app import Bl_Flask
+
+PACKAGE_DIR = "themes-directory"
+
+app = Bl_Flask(__name__, package_dir= PACKAGE_DIR)
+
+user_name = 'user_name'
+theme_name = 'theme_name'
+password = ''
+
+theme = app.load(theme_name, user_name)
+
+@app.route("/css/<path:path>")
+@get_css('css_path')
+def css():
+   pass
+@app.route("/media/<path:path>")
+@get_media('media_path')
+def media():
+    pass
+@app.route("/js/<path:path>")
+@get_js('js_path')
+def js():
+    pass
+
+@app.route('/')
+def home(**kwargs):
+    """
+    """
+    context = theme
+    file_content = get_template('home.html')
+    try:
+        return render_code(file_content, context)
+    except UnicodeDecodeError:
+        return render_code(file_content.decode('utf-8'), context)
+
+if __name__ == "__main__":
+    app.run()
+```
+
+Note: Please specify your themes path in the package directory. You can point to your working directory which you have set up during cli and make sure that blended directory structures is there and it has a valid blended theme. Password is optional. For an example:
+
+```
+PACKAGE_DIR = "C:/Users/themes"
+user_name = 'blended'
+theme_name = 'base_theme'
+password = ''
+```
+
+⇒           How to include blended theme in your Blended-Ux application……………..
+
+Create a templates directory in the root and create a home.html inside the templates directory and paste below line of code in the home.html and save.
+
+```html
+{% extends theme.template.home|template %}
+	{% block title %}
+		<title>My Blended Site </title>
+	{% endblock title %}
+{% block css %}
+	<link rel="stylesheet" href="{{css(theme)}}">
+{% endblock %}
+```
+
+**`Note`**: It is extending the home template of the theme. Extending a predefined Blended template should allow you to add a new page in your flask application. This host template is extending the theme base template named as home.html. Base templates are part of Blended theme which resides in the html directory.For an example:
+
+```python
+{% extends theme.template.home|template %}
+```
+
+**Run the Flask Server**
+
+```python
+python app.py
+```
+
+By default server starts at ([http://localhost:5000/](http://localhost:5000/)), you can customize it by passing the host and port in “run” method.
+
+`Note`: If anyone want to change the image of theme or some of styling part they can do it as like in Flask with the help of “url_for”. Create a static directory in root directory and add “css” and “media” directories.
+
+```python
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+<img src="{{url_for('static', filename='media/default.png')}}" align="middle" />
+```
+
+`Add CSS Endpoint`
+By default, the static directory will serve the static contents. If you want to provide the path of CSS then you can change this by following API: 
+If you do not provide the path then it will host the directory called /static in the root.
+```python
+@app.route("/css/<path:path>")
+@get_css('css_path') 
+def css(): 
+       pass
+```
+Ex: You can add your extra.css at the path you have provided. If you haven't changed the path then add extra.css at /static path. 
+
+`Add js Endpoint` 
+If you want to provide the path of js then  you can change this by following API:
+If you will not provide the path then it will host the directory called static/js in the root.
+```python
+@app.route("/js/<path:path>")
+@get_js('js_path') 
+def js(): 
+       pass
+```
+Ex: You can add your extra.js at the path you have provided. If you haven't changed the path then add extra.js at /static path. 
+
+`Add Media Endpoint`
+By default the application will host the media at /static directory in the root but you can change this by following API:
+```python
+@app.route("/media/<path:path>")
+@get_media('media_path') 
+def media(): 
+       pass
+```
+
+`Adding Routes`
+```python
+@app.route('/')
+def index(**kwargs):
+    """
+    """
+    context = theme 
+    file_content = get_template('home.html')
+    try:
+        return render_code(file_content, context)
+    except UnicodeDecodeError:
+        return render_code(file_content.decode('utf-8'), context)
+```
+It’s registering the root URL for your application.
+This route is rendering a “home.html” template file by accepting the Blended theme context object. The “home.html” is a Blended host template and you can add many more as per your requirements. You can add more routes by following the above examples. 
+
+
+
+- ####      Without Blended-Theme
+
+##### Project Setup
+
+We recommend using Python version 3.11.3 for Blended-Ux. Blended-Ux supports Python 3.11.3. Additionally, we recommend using a virtual environment to isolate your project dependencies from other projects and the system.
+
+```python
+python -m venv ux_env
+cd ux_env
+Scripts\activate
+```
+You can install this package as usual with pip:
+```python
+pip install blendedux
+```
+
+**A minimal application for Blended-Ux**
+Note: You can define and access static files as done in Flask.
+
+```python
+myproject/
+			templates/
+						greeting.html
+			static/
+							css/
+									style.css
+			__init__.py
+			app.py
+```
+Paste the below Code Snippets in `app.py`
+```python
+import os
+from flask import Flask, flash
+from blendedUx import *
+from blendedUx.blended_flask.bl_flask_app import Bl_Flask
+
+app = Bl_Flask(__name__)
+
+@app.route('/')
+def home(**kwargs):
+    """
+    """
+    context = {}
+    file_content = get_template('greeting.html')
+    try:
+        return render_code(file_content, context)
+    except UnicodeDecodeError:
+        return render_code(file_content.decode('utf-8'), context)
+
+if __name__ == "__main__":
+    app.run()
+```
+Paste the below html in `greeting.html`
+```html
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">**
+{% block content_1 %}
+<h1>
+    <h1>Hello World</h1>
+    <h2>
+        {% set list1 = [1,2] %}
+        {% set list2 = [11,21] %}
+        {{ union(list1,list2) }}
+    </h2>
+</h1>
+{% endblock %}
+```
+
+To run the app server
+
+```python
+cd myproject
+python app.py
+```
+
+
