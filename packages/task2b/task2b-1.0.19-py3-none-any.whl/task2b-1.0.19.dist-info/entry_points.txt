@@ -1,0 +1,4 @@
+[console_scripts]
+pwgen2=pwgen2:pwgen_cli
+pwgen2_showcase=pwgen2.showcase:pwgen_showcase
+
