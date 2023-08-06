@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: Relatorio_Ensalamento
+Version: 2.4.3
+Summary: Conversor utilizado para a geração do relatorio ensalamento
+Home-page: UNKNOWN
+Author: Matheus Henrique Rosa
+Author-email: m.rosa1@pucpr.br
+License: MIT
+Keywords: conversor relatorio ensalamento
+Platform: UNKNOWN
+
+Utilizado para gerar o relatorio ensalamento e inserir sugestoes de salas caso necessario
+
+Funcoes 
+
+- gerarExcel - Recebe o caminho de 4 arquivos,o arquivo da carga horaria, arquivo de capacidade, arquivo XML e o nome do arquivo de saida
+
+
