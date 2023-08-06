@@ -1,0 +1,7 @@
+{
+  "id": "go-profiling-onboarding-0-alert",
+  "name": "Go",
+  "html": "<div class=\"alert warning\">\nProfiling in Go is currently in alpha, and there may be some bugs. We recognize the irony.\n</div>",
+  "link": "https://docs.sentry.io/platforms/go/profiling/",
+  "wizard_setup": null
+}

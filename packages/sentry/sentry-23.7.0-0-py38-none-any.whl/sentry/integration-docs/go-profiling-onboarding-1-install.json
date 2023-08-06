@@ -1,0 +1,7 @@
+{
+  "id": "go-profiling-onboarding-1-install",
+  "name": "Go",
+  "html": "<h4 id=\"install\" style=\"position:relative;\">Install</h4>\n<p>For the Profiling integration to work, you must have the Sentry Go SDK module (minimum version v0.22.0). Learn more about installation methods in our <a href=\"https://docs.sentry.io/platforms/go/#install\">full documentation</a>.</p>",
+  "link": "https://docs.sentry.io/platforms/go/profiling/",
+  "wizard_setup": null
+}
