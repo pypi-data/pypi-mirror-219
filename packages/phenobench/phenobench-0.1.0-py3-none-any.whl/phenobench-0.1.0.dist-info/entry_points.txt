@@ -1,0 +1,3 @@
+[console_scripts]
+phenobench-eval = phenobench.evaluation.phenobench_eval:run
+phenobench-validator = phenobench.tools.validator:run
