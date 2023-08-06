@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: social_media_fetch
+Version: 0.0.1
+Summary: Read My social Media for me !
+Author-email: Neha Verma <v005neha@gmail.com>
+Keywords: Mastodon,Sentiment Analysis,Fetch Post
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# social_media_fetch
+
+This is a simple Project to fetch post from semantic web and 
+perform sentiment analysis
+
