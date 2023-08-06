@@ -1,0 +1,11 @@
+apeye>=0.9.1
+cachecontrol>=0.13.1
+domdf-python-tools>=3.6.1
+enum-tools>=0.10.0
+filelock>=3.8.0
+memoized-property>=1.0.3
+numpy>=1.22
+pandas>=2.0.0
+quantities>=0.12.4
+requests>=2.31.0
+typing-extensions>=4.1.1
