@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+iteru/__init__.py
+iteru/common.py
+iteru/iterugee.py
+iteru/map.py
+iteru.egg-info/PKG-INFO
+iteru.egg-info/SOURCES.txt
+iteru.egg-info/dependency_links.txt
+iteru.egg-info/not-zip-safe
+iteru.egg-info/requires.txt
+iteru.egg-info/top_level.txt
