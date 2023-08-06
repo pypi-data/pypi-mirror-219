@@ -1,0 +1,28 @@
+numpy
+matplotlib
+tqdm
+scikit-learn
+requests>=2.0.0
+pyyaml>=5.4.1
+albumentations
+dict2xml
+
+[:sys_platform != "linux"]
+opencv-python
+
+[:sys_platform == "linux"]
+opencv-python-headless
+
+[dev]
+Shapely
+semantics
+scikit-image
+boto3
+botocore
+pandas
+pytest>=6.0.0
+pytest-order==1.0.0
+
+[test]
+pytest>=6.0.0
+pytest-order==1.0.0
