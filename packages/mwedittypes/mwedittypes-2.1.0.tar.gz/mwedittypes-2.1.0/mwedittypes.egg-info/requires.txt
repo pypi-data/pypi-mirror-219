@@ -1,0 +1,9 @@
+mwparserfromhell
+anytree
+mwconstants
+
+[dev]
+pytest>=6.2.5
+
+[tests]
+pytest>=6.2.5
