@@ -1,0 +1,5 @@
+keeper-secrets-manager-helper>=1.0.4
+ecdsa
+requests
+cryptography>=39.0.1
+importlib_metadata
