@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/CDK_pywrapper/CDKdesc.jar
+src/CDK_pywrapper/__init__.py
+src/CDK_pywrapper/cdk_pywrapper.py
+src/CDK_pywrapper/descs.json
+src/CDK_pywrapper/utils.py
+src/CDK_pywrapper.egg-info/PKG-INFO
+src/CDK_pywrapper.egg-info/SOURCES.txt
+src/CDK_pywrapper.egg-info/dependency_links.txt
+src/CDK_pywrapper.egg-info/requires.txt
+src/CDK_pywrapper.egg-info/top_level.txt
+tests/test_descriptors.py
+tests/test_fingerprints.py
