@@ -1,0 +1,2 @@
+include LICENSE.txt Readme.md requirements.txt config.json
+recursive-exclude * __pycache__
