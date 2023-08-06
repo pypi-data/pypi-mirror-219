@@ -1,0 +1,1 @@
+a small tool to execute python script like built-in exec() but with some safety features.
