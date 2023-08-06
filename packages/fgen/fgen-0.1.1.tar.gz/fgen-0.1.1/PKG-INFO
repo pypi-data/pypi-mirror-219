@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: fgen
+Version: 0.1.1
+Summary: Automatically generate wrapper to integrate Fortran and Python
+Home-page: https://gitlab.com/magicc/fgen
+License: BSD-3-Clause
+Keywords: fortran
+Author: Jared Lewis
+Author-email: jared.lewis@climate-energy-college.org
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Requires-Dist: attrs (>=23.0.0,<24.0.0)
+Requires-Dist: black (>=23.3.0,<24.0.0)
+Requires-Dist: cattrs (>=23.0.0,<24.0.0)
+Requires-Dist: click (>=8.0.0,<9.0.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: openscm-units (>=0.5.0,<0.6.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Description-Content-Type: text/markdown
+
+# Fortran-Python wrapper
+
+<!---
+Can use start-after and end-before directives in docs, see
+https://myst-parser.readthedocs.io/en/latest/syntax/organising_content.html#inserting-other-documents-directly-into-the-current-document
+-->
+
+<!--- sec-begin-description -->
+
+Automatically generate wrappers to integrate Fortran and Python
+
+
+This project consists of a few different components:
+
+* fgen
+* fgen_runtime
+* libfgen
+
+<!--- sec-end-description -->
+
+Full documentation can be found at:
+[fgen.readthedocs.io](https://fgen.readthedocs.io/en/latest/).
+We recommend reading the docs there because the internal documentation links
+don't render correctly on GitLab's viewer. TODO: Create docs
+
+## Installation
+
+<!--- sec-begin-installation -->
+
+Fortran-Python wrapper can be installed with conda or pip:
+
+```bash
+pip install fgen
+conda install -c conda-forge fgen
+```
+
+
+<!--- sec-end-installation -->
+
+### For developers
+
+<!--- sec-begin-installation-dev -->
+
+For development, we rely on [poetry](https://python-poetry.org) for all our
+dependency management. To get started, you will need to make sure that poetry
+is installed
+([instructions here](https://python-poetry.org/docs/#installing-with-the-official-installer),
+we found that pipx and pip worked better to install on a Mac).
+
+For all of work, we use our `Makefile`.
+You can read the instructions out and run the commands by hand if you wish,
+but we generally discourage this because it can be error prone.
+In order to create your environment, run `make virtual-environment`.
+
+Once the virtual environment has been created, `libfgen` can be built
+using `make build`. This library contains the common Fortran code used by
+all wrappers and uses [CMake](https://cmake.org/) to build and requires
+a working Fortran compiler.
+
+If there are any issues, the messages from the `Makefile` should guide you
+through. If not, please raise an issue in the [issue tracker][issue_tracker].
+
+For the rest of our developer docs, please see [](development-reference).
+
+[issue_tracker]: https://gitlab.com/magicc/fgen/issues
+
+<!--- sec-end-installation-dev -->
+
