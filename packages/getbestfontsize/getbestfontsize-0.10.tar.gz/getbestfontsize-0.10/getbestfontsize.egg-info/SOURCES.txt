@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+getbestfontsize/README.MD
+getbestfontsize/__init__.py
+getbestfontsize/requirements.txt
+getbestfontsize/thirdparty.json
+getbestfontsize.egg-info/PKG-INFO
+getbestfontsize.egg-info/SOURCES.txt
+getbestfontsize.egg-info/dependency_links.txt
+getbestfontsize.egg-info/requires.txt
+getbestfontsize.egg-info/top_level.txt
