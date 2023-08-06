@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ai-style %}
+<link rel="stylesheet" href="{% static 'ai/css/ai-style.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ブロックを挿入する -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8 col-sm-12 main-bar">
+      <!-- 大型ディスプレイ -->
+      <div class="jumbotron jumbotron-fluid">
+	<div class="container">
+	  <div style="display: flex;">
+	    <img class="d-flex align-self-center mr-3" src="{% static 'home/image/home_cat.png' %}" alt="Generic placeholder image">
+	    <h2>{% block title %}ネコ科分類器<{% endblock %}/h2>
+	  </div>
+	  <p>
+	  この分類器は、猫・ライオン・チーターのいずれかを予測します。それ以外の画像を渡しても、このいずれかを予測するので慌てないでください。
+	  </p>
+	</div>
+      </div>
+      <!-- 大型ディスプレイ END -->
+
+      <!-- コンテナ内　結果に応じて猫・ライオン・チーターの表示 -->
+      <div class="container">
+	<h1>{{ result }}</h1>
+	<br>
+
+	<!-- BootStrapのグリッドシステム -->
+	<div class='row'>
+
+	  <!-- 結果の詳細を表示 -->
+	  <div class="col-lg-7 col-sm-12">
+	    {% if result == '猫' %}
+	    <ul>
+	      <h3>特徴</h3>
+	      <li>気分屋さん</li>
+	      <li>隠れる場所が好き</li>
+	      <li>水分補給がとても大事</li>
+	      <li>半日近く寝る</li>
+	      <li>好奇心が強い</li>
+	    </ul>
+	    {% elif result == 'ライオン' %}
+	    <ul>
+	      <h3>特徴</h3>
+	      <li>百獣の王と言われているが一番強いわけではない</li>
+	      <li>オスはたてがみがある</li>
+	      <li>狩りはメスの仕事</li>
+	      <li>自分より大きな動物は基本狙わない</li>
+	    </ul>
+	    {% elif result == 'チーター' %}
+	    <ul>
+	      <h3>特徴</h3>
+	      <li>小さな顔</li>
+	      <li>斑点柄</li>
+	      <li>基本単独で行動</li>
+	      <li>最高時速１００キロ</li>
+	    </ul>
+	    {% endif %}
+	  </div>
+	  <!-- 結果の詳細を表示 END -->
+
+	  <!-- サイドバー　画像表示 -->
+	  <div class="col-lg-5 col-sm-12">
+	    {% if result == '猫' %}
+	    <img src="{% static 'ai/cat_1.jpg' %}" width=100%>
+	    {% elif result == 'ライオン' %}
+	    <img src="{% static 'ai/lion.jpg' %}" width=100%>
+	    {% elif result == 'チーター' %}
+	    <img src="{% static 'ai/cheetah.jpg' %}" width=100%>
+	    {% endif %}
+	  </div>
+	  <!-- サイドバー　画像表示 END -->
+
+	</div>
+	<br>
+	<!-- BootStrapのグリッドシステム END -->
+
+	<div>
+	  <p><strong>※ 猫・ライオン・チーターの画像ファイル以外を渡した場合、類似だと思われるものを予測します</strong></p>
+	</div>
+
+	<!-- 画像認識の結果に対して「戻る」を表示 -->
+	{% if result == '猫' %}
+	<a href="{% url 'ai:index' %}">
+	  <button type="submit" class="btn btn-outline-danger btn-lg btn-sm">戻る</button>
+	</a>
+	{% elif result == 'ライオン' %}
+	<a href="{% url 'ai:index' %}">
+	  <button type="submit" class="btn btn-outline-danger btn-lg btn-sm">戻る</button>
+	</a>
+	{% elif result == 'チーター' %}
+	<a href="{% url 'ai:index' %}">
+	  <button type="submit" class="btn btn-outline-danger btn-lg btn-sm">戻る</button>
+	</a>
+	{% else %}
+	<form accept="image/*" method="POST" enctype='multipart/form-data'>
+	  {% csrf_token %}
+	  {{ form.file }}
+	  <hr>
+	  <input type="submit" class="btn btn-outline-success btn-lg btn-sm" value="予測">
+	</form>
+	{% endif %}
+      </div>
+    </div>
+    <div class="col-lg-2">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
