@@ -1,0 +1,16 @@
+biobear-0.7.4.dist-info/METADATA,sha256=qhvUYqzYIv6zw0_qILjeK1AiyKxzd6LQkBlggtelyRQ,3336
+biobear-0.7.4.dist-info/WHEEL,sha256=b3sc_HlWT9NmobwOKcsSRgRH2PKSOJSs0C2KJale-2A,129
+biobear-0.7.4.dist-info/license_files/LICENSE,sha256=n5cfcFY_iif8hyuSwEM2NpdKsh0v8dN7sGmJ3axhwds,1055
+biobear/gff_reader.py,sha256=42FdPcWz4zO_ZenLnTBsjVxolI1HfwV2epXn_dS6Hlc,1565
+biobear/genbank_reader.py,sha256=bZsZMFabKJi5IJFojgwOAofFdg9Zj62pY2zGjqGHaYc,858
+biobear/vcf_reader.py,sha256=qIS-o9n2kmD_2wWvpd_6pDKo8Ttt50iUF0BCStZDRdo,1887
+biobear/fastq_reader.py,sha256=fPrb71yAMRUmEA13115ngWku6JP1aF7OWJeU38BXzxw,1516
+biobear/reader.py,sha256=nD0f5f5cX7YawRgpt5vKOyWO5DrzwnWIFrfjhzgWo1s,2338
+biobear/compression.py,sha256=hENp5Nx303NcLwP_Ba7zFaKNKAyzddKKir9nRioSO20,1309
+biobear/__init__.py,sha256=eVDMzy4Zn4lnhJ-mepHdOUHtR3Wckc-s-ABa-Zks58Q,1299
+biobear/bam_reader.py,sha256=VVJOCslszuFS4fNUD8kL6pA0JEIiGyAAB4OVQcg1Q54,1829
+biobear/bcf_reader.py,sha256=qN6Zurn71GK5wETrzhuML9jZ3bjZCeVh4nnqAfq4JRc,1883
+biobear/fasta_reader.py,sha256=NB12RFJmGMNU_sW2SdInwH3x6n_MOR1nFDJviYbpFFk,1520
+biobear/gtf_reader.py,sha256=xSCmmSUfuO4a6CCVFlVuR8F-1MP1wanOS6cqRT8TLtU,1566
+biobear/biobear.cpython-39-aarch64-linux-gnu.so,sha256=AlAADawQ1zZdLEUo60CxWnROODxDaZogplaCVXgKv7A,74495872
+biobear-0.7.4.dist-info/RECORD,,
