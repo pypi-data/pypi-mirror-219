@@ -1,0 +1,11 @@
+LICENSE
+README.rst
+setup.py
+idlerich/__init__.py
+idlerich/__main__.py
+idlerich/metadata.py
+idlerich.egg-info/PKG-INFO
+idlerich.egg-info/SOURCES.txt
+idlerich.egg-info/dependency_links.txt
+idlerich.egg-info/requires.txt
+idlerich.egg-info/top_level.txt
