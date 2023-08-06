@@ -1,0 +1,106 @@
+[tool.poetry]
+name = "sphinx-artisan-theme"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Knell <contact@danielknell.co.uk>"]
+readme = "README.md"
+packages = [{include = "sphinx_artisan_theme", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Sphinx = ">=4.4,<7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.1"
+sphinx-autobuild = "^2021.3.14"
+shed = ">=0.9.4,<2023.7.0"
+sphinx-lint = ">=0.2,<0.7"
+restructuredtext-lint = "^1.4.0"
+myst-parser = ">=0.17,<1.1"
+autodocsumm = "^0.2.7"
+pylint = "^2.13.5"
+mypy = ">=0.942,<1.5"
+types-docutils = ">=0.18.3,<0.21.0"
+types-pkg-resources = "^0.1.3"
+pytest-pylint = ">=0.18,<0.20"
+pytest-mypy = ">=0.9.1,<0.11.0"
+pytest-pydocstyle = "^2.3.0"
+pytest-cov = ">=3,<5"
+typeguard = ">=2.13.3,<5.0.0"
+pyenchant = "^3.2.2"
+
+[tool.poetry.plugins."sphinx.html_themes"]
+"sphinx_artisan_theme" = "sphinx_artisan_theme"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+known_localfolder = ['tests']
+
+[tool.pylint.master]
+load-plugins = [
+    "pylint.extensions.bad_builtin",
+    "pylint.extensions.mccabe",
+    "pylint.extensions.docstyle",
+    "pylint.extensions.check_elif",
+    "pylint.extensions.eq_without_hash",
+    "pylint.extensions.private_import",
+    "pylint.extensions.redefined_variable_type",
+    "pylint.extensions.overlapping_exceptions",
+    "pylint.extensions.docparams",
+    "pylint.extensions.empty_comment",
+    "pylint.extensions.set_membership",
+    "pylint.extensions.typing",
+    "pylint.extensions.while_used",
+]
+
+[tool.pylint.basic]
+good-names = ["i", "j", "k", "ex", "Run", "_", "to"]
+
+[tool.pylint.messages_control]
+disable = [
+    "docstring-first-line-empty",
+]
+
+[tool.pylint.format]
+max-line-length = 88
+
+[tool.pylint.spelling]
+spelling-dict = "en_GB"
+spelling-private-dict-file = ".dictionary"
+
+[tool.pylint.similarities]
+ignore-signatures = true
+ignore-imports = true
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+filterwarnings = [
+    "error",
+    "ignore::pytest.PytestRemovedIn8Warning",
+    "ignore::DeprecationWarning:pylint.*"
+]
+
+[tool.pylint.parameter_documentation]
+default-docstring-type = "sphinx"
+
+[tool.mypy]
+strict = true
+
+[tool.pydocstyle]
+add-ignore = [
+    "D102",
+    "D105",
+    "D107",
+    "D200",
+    "D212",
+]
+
+[tool.coverage.run]
+omit = [
+    "*/site-packages/*",
+]
