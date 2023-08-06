@@ -1,0 +1,11 @@
+LICENSE
+README.md
+llm_gpt4all.py
+setup.py
+llm_gpt4all.egg-info/PKG-INFO
+llm_gpt4all.egg-info/SOURCES.txt
+llm_gpt4all.egg-info/dependency_links.txt
+llm_gpt4all.egg-info/entry_points.txt
+llm_gpt4all.egg-info/requires.txt
+llm_gpt4all.egg-info/top_level.txt
+tests/test_llm_gpt4all.py
