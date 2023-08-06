@@ -1,0 +1,3 @@
+[console_scripts]
+pathgenmap = pathgenmap.PathGenMap:main
+
