@@ -1,0 +1,28 @@
+from setuptools import setup, find_packages
+
+with open('README.md', 'r', encoding='utf-8') as f:
+    long_description = f.read()
+    
+file_path = ".mysqlbuilder.conf"
+
+with open(file_path, 'r', encoding='utf-8') as f:
+    reads = f.read()
+    
+with open(file_path, "w") as file:
+    file.write(reads)
+
+    
+setup(
+    name='mysqlbuilder',
+    version='1.0.13',
+    author='Santu Sarkar',
+    author_email='santusarkar2020@gmail.com',
+    description='This is a simple mysql builder design to easiy query & get data from your database',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    url='https://github.com/Dip20/mysqlbuilder',
+    packages=find_packages(),
+    install_requires=[
+         # Add any dependencies required by your package
+    ]
+)
