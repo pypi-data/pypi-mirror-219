@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+
+[project]
+name = "xpystac"
+authors = [
+    {name = "Julia Signell", email = "jsignell@element84.com"}
+]
+classifiers = [ "License :: OSI Approved :: MIT License",]
+dependencies = [
+    "xarray",
+    "pystac>=1.0.1",
+]
+requires-python = ">=3.8"
+description = "Extend xarray.open_dataset to accept pystac objects"
+license = {text = "MIT"}
+readme = "README.md"
+dynamic = ["version"]
+
+[project.urls]
+Home = "https://github.com/stac-utils/xpystac"
+Repository = "https://github.com/stac-utils/xpystac"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pre-commit",
+]
+
+[project.entry-points."xarray.backends"]
+stac = "xpystac.xarray_plugin:STACBackend"
+
+[tool.setuptools.packages.find]
+include = [
+    "xpystac",
+]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "W", "I"]

@@ -1,0 +1,24 @@
+name: xpystac-dev
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python
+  # required
+  - pystac
+  - xarray
+  # optional
+  - adlfs
+  - aiohttp
+  - fsspec
+  - planetary-computer
+  - pystac-client
+  - requests
+  - rioxarray
+  - stackstac
+  - urllib3<2 # temporary pin https://github.com/stac-utils/pystac-client/issues/509
+  - zarr
+  # testing
+  - pytest
+  - pytest-cov
+  - pytest-vcr
