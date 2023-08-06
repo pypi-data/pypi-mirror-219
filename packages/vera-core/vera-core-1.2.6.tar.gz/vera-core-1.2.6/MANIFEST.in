@@ -1,0 +1,3 @@
+recursive-include vera_core/module/serve *.min.js *.css
+graft vera_core/app/ui/assets
+include vera_core/LICENSE
