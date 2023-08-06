@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: vhatable
+Version: 1.1.0
+Summary: vhatable.
+Home-page: https://github.com/fred49/vhatable
+Author: Frederic MARTIN
+Author-email: frederic.martin.fma@gmail.com
+License: GPL3
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: SAMPLE
+Provides-Extra: SAMPLEV2
+Provides-Extra: DEMO
+Provides-Extra: DEV
+License-File: LICENSE.txt
+
+long_description

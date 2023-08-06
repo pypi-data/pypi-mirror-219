@@ -1,0 +1,16 @@
+veryprettytable==0.8.1
+prettytable==3.7.0
+humanfriendly==9.0
+
+[DEMO]
+
+[DEV]
+pytest
+flake8
+tox
+twine
+pylint
+
+[SAMPLE]
+
+[SAMPLEV2]

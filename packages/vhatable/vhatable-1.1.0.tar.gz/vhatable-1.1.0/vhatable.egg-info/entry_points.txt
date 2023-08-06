@@ -1,0 +1,4 @@
+[console_scripts]
+vhatable-demo = vhatable.demo:main [DEMO]
+vhatable-sample = vhatable.sample:main [SAMPLE]
+vhatable-samplev2 = vhatable.samplev2:main [SAMPLEV2]
