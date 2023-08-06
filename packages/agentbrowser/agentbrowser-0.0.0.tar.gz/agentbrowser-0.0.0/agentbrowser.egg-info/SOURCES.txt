@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+agentbrowser/__init__.py
+agentbrowser/browser.py
+agentbrowser/test.py
+agentbrowser/test_async.py
+agentbrowser.egg-info/PKG-INFO
+agentbrowser.egg-info/SOURCES.txt
+agentbrowser.egg-info/dependency_links.txt
+agentbrowser.egg-info/requires.txt
+agentbrowser.egg-info/top_level.txt
