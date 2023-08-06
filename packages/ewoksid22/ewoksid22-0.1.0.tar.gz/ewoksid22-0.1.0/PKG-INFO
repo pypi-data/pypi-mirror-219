@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: ewoksid22
+Version: 0.1.0
+Summary: Data processing workflows for Id22
+Home-page: https://gitlab.esrf.fr/workflow/ewoksapps/ewoksid22/
+Author: ESRF
+Author-email: wout.de_nolf@esrf.fr
+License: MIT
+Project-URL: Source, https://gitlab.esrf.fr/workflow/ewoksapps/ewoksid22/
+Project-URL: Documentation, https://ewoksid22.readthedocs.io/
+Project-URL: Tracker, https://gitlab.esrf.fr/workflow/ewoksapps/ewoksid22/issues/
+Keywords: ewoks
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE.md
+
+# ewoksid22
+
+Data processing workflows for ID22
+
+## Getting started
+
+Example of using the command line scripts directly (needs access to `/data/id22/inhouse/`):
+
+```bash
+./examples/rebinsum.sh
+```
+
+Example of defining and executing an HDF5 to SPEC conversion workflow (needs access to `/data/id22/inhouse/`):
+
+```bash
+ewoks execute examples/convert.json
+```
+
+Example of defining and executing a ROI collection rebin+sum workflow (needs access to `/data/id22/inhouse/`):
+
+```bash
+ewoks execute examples/rebinsum.json
+```
+
+## Installation
+
+```bash
+pip install multianalyzer@git+https://github.com/kif/multianalyzer.git@main
+pip install ewoksid22
+```
+
+The following command line scripts are installed:
+
+* `id22sumepy`: python wrapper for `id22sume` and `id22sumalle`
+* `id22sume`: fortran program
+* `id22sumalle`: fortran program
+* `zingit`: awk program
+
+## Documentation
+
+https://ewoksid22.readthedocs.io/

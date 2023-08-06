@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+PROGRAM=$(python3 -m ewoksid22.bin zingit)
+$PROGRAM "$@"
