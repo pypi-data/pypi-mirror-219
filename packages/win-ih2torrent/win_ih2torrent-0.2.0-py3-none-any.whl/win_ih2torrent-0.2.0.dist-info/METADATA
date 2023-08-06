@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: win-ih2torrent
+Version: 0.2.0
+Summary: Convert a torrent infohash or magnet URI to a .torrent file using DHT and metadata protocol. Asyncio based for Windows devices.
+Home-page: https://github.com/Mr-Developer-X/win_ih2torrent
+Download-URL: https://github.com/Mr-Developer-X/win_ih2torrent/tarball/0.2.0
+Author: Mr Developer X
+Author-email: 139059229+Mr-Developer-X@users.noreply.github.com
+License: GPL
+Keywords: bittorrent,torrent,infohash,magnet,dht,metadata,metainfo,asyncio
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: aiodns (==3.0.0)
+Requires-Dist: bencodepy (==0.9.5)
+
+win-ih2torrent
+==========
+
+`win-ih2torrent` creates a trackerless torrent file from an infohash or a
+magnet URI. It uses BitTorrent [DHT][1] and the [metadata protocol][2]
+to find peers for the torrent and obtain its metadata.
+
+`For windows devices only. It is a drop in replacement for ih2torrent`
+
+In order to get the dependencies inside a virtualenv, run `make`. You
+need Python 3.5 or higher to run ih2torrent.
+
+You can use pip to install ih2torrent: `pip3 install win-ih2torrent`
+
+Please note this is a fork of @elektito/ih2torrent and made so just for the convenience of myself and others
+
+[1]: http://www.bittorrent.org/beps/bep_0005.html
+[2]: http://www.bittorrent.org/beps/bep_0009.html
