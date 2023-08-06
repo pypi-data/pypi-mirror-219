@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+tansy/__init__.py
+tansy/class_slash.py
+tansy/slash_commands.py
+tansy/slash_param.py
+tansy/utils.py
+tansy.egg-info/PKG-INFO
+tansy.egg-info/SOURCES.txt
+tansy.egg-info/dependency_links.txt
+tansy.egg-info/requires.txt
+tansy.egg-info/top_level.txt
