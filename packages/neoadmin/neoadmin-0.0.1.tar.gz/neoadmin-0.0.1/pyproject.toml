@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "NeoAdmin"
+version = "0.0.1"
+description = "Modern theme for Django admin interface."
+authors = ["Mark Hoo <markhoo@foxmail.com>"]
+readme = "README.md"
+license = "Apache-2.0"
+homepage = "https://github.com/MarkHoo/neoadmin"
+repository = "https://github.com/MarkHoo/neoadmin"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Operating System :: Unix",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX",
+    "Environment :: Web Environment",
+    "Development Status :: 1 - Planning",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+]
+packages = [
+    { include = "neoadmin" },
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/MarkHoo/neoadmin/issues"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

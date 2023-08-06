@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: neoadmin
+Version: 0.0.1
+Summary: Modern theme for Django admin interface.
+Home-page: https://github.com/MarkHoo/neoadmin
+License: Apache-2.0
+Author: Mark Hoo
+Author-email: markhoo@foxmail.com
+Requires-Python: >=3.9,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Project-URL: Bug Tracker, https://github.com/MarkHoo/neoadmin/issues
+Project-URL: Repository, https://github.com/MarkHoo/neoadmin
+Description-Content-Type: text/markdown
+
+# NeoAdmin
+
+#### Installing
+
+Install and update using pip:
+
+```
+$ pip install -U neoadmin
+```
+
+#### Example
+
+```python
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'neoadmin',
+]
+```
+
+#### Links
+
+- Documentation: [https://github.com/MarkHoo/neoadmin](https://github.com/MarkHoo/neoadmin)
+- PyPI Releases: [https://pypi.org/project/neoadmin/](https://pypi.org/project/neoadmin/)
+- Source Code: [https://github.com/MarkHoo/neoadmin](https://github.com/MarkHoo/neoadmin)
+- Issue Tracker: [https://github.com/MarkHoo/neoadmin/issues](https://github.com/MarkHoo/neoadmin/issues)
+- Website: [https://pypi.org/project/neoadmin/](https://pypi.org/project/neoadmin/)
+
+
