@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: sousflow
+Version: 0.1.0
+Summary: Sousflow inspired from invoke and gitlab ci/cd.
+Home-page: https://github.com/pvkarthikk/sousflow
+License: MIT
+Keywords: invoke,yaml
+Author: Karthik Venkatesh
+Author-email: pvkarthikk@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Build Tools
+Project-URL: Repository, https://github.com/pvkarthikk/sousflow
+Description-Content-Type: text/markdown
+
+# sousflow
+sousflow is inspired from invoke and gitlab workflow.
+
