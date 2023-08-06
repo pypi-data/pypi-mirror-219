@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gtraceroute"
+version = "0.1.1"
+authors = [
+    {name = "Levi Borodenko", email = "levi.borodenko@gmail.com"},
+]
+description = """gtraceroute is a sophisticated network diagnostic tool."""
+requires-python = ">=3.11"
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    'textual==0.29'
+]
+
+
+[project.optional-dependencies]
+dev = ["textual-dev", "black", "pytest", "pytest-asyncio", "pre-commit", "mypy", "build", "twine"]
+
+[tool.ruff]
+line-length = 120
+
+[project.scripts]
+gtraceroute = "gtraceroute.tui.app:run"

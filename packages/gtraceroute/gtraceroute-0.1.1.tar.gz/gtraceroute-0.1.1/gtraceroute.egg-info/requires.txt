@@ -1,0 +1,11 @@
+textual==0.29
+
+[dev]
+textual-dev
+black
+pytest
+pytest-asyncio
+pre-commit
+mypy
+build
+twine
