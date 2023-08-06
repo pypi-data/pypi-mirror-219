@@ -1,0 +1,11 @@
+requests
+lxml
+pytz
+rdflib
+lark<1.2.0,>=1.1.0
+pyld
+
+[testing]
+pytest
+coverage
+betamax
