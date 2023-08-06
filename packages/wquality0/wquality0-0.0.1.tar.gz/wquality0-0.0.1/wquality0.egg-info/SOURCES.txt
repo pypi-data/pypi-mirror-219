@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+wquality0/__init__.py
+wquality0/common.py
+wquality0/wquality0.py
+wquality0.egg-info/PKG-INFO
+wquality0.egg-info/SOURCES.txt
+wquality0.egg-info/dependency_links.txt
+wquality0.egg-info/not-zip-safe
+wquality0.egg-info/top_level.txt

@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: wquality0
+Version: 0.0.1
+Summary: A python package for visualize water quality.
+Home-page: https://github.com/jdavecas/wquality0
+Author: J. Daniel Velez
+Author-email: davelez@unc.edu
+License: MIT license
+Keywords: wquality0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# wquality0
+
+
+[![image](https://img.shields.io/pypi/v/wquality0.svg)](https://pypi.python.org/pypi/wquality0)
+[![image](https://img.shields.io/conda/vn/conda-forge/wquality0.svg)](https://anaconda.org/conda-forge/wquality0)
+
+
+**A python package for visualize water quality.**
+
+
+-   Free software: MIT license
+-   Documentation: https://jdavecas.github.io/wquality0
+    
+
+## Features
+
+-   TODO
