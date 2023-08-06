@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+nb_thumb/__init__.py
+nb_thumb/_modidx.py
+nb_thumb/core.py
+nb_thumb/thumb.py
+nb_thumb.egg-info/PKG-INFO
+nb_thumb.egg-info/SOURCES.txt
+nb_thumb.egg-info/dependency_links.txt
+nb_thumb.egg-info/entry_points.txt
+nb_thumb.egg-info/not-zip-safe
+nb_thumb.egg-info/requires.txt
+nb_thumb.egg-info/top_level.txt
