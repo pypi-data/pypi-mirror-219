@@ -1,0 +1,3 @@
+[console_scripts]
+action-template=action_template.__main__:main
+
