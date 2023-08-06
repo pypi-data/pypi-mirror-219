@@ -1,0 +1,79 @@
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = [ "flit_core >=2,<4",
+ "bump2version",
+]
+
+[project]
+name = "hpmoc"
+dynamic = ["version", "description"]
+authors = [
+    {name = "Stefan Trklja Countryman", email = "stefan.countryman@gmail.com"}
+]
+maintainers = [
+    {name = "Albert Zhang", email = "alchzh@gmail.com"}
+]
+classifiers = [ "Programming Language :: Python :: 3",
+ "Framework :: IPython",
+ "Framework :: Jupyter",
+ "Intended Audience :: Science/Research",
+ "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
+ "Natural Language :: English",
+ "Programming Language :: Python :: 3 :: Only",
+ "Topic :: Scientific/Engineering :: Astronomy",
+ "Topic :: Scientific/Engineering :: Information Analysis",
+ "Topic :: Scientific/Engineering :: Physics",
+ "Topic :: Scientific/Engineering :: Visualization",
+ "Topic :: Software Development :: Libraries",
+ "Typing :: Typed",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.21",
+    "matplotlib",
+    "astropy",
+    "astropy-healpix",
+    "typing_extensions",
+]
+readme = "README.md"
+
+[project.optional-dependencies]
+jup = ["jupyter", "ipython"]
+test = [
+    "pytest",
+    "pytest-cov",
+    "h5py",
+    "PyYAML",
+    "mhealpy",
+    "ligo.skymap"
+]
+dev = [
+    "flit",
+    "sphinx",
+    "sphinx_rtd_theme",
+    "nbsphinx",
+    "astroquery",
+    "ligo-gracedb",
+]
+astroquery = ["astroquery"]
+gracedb = ["ligo-gracedb"]
+healpy = ["healpy"]
+
+[project.urls]
+Homepage = "https://github.com/markalab/hpmoc"
+Documentation = "https://hpmoc.stc.sh/"
+Repository = "https://github.com/markalab/hpmoc.git"
+
+[tool.flit.sdist]
+include = ["doc/"]
+exclude = [
+    "Dockerfile",
+    ".*",
+    "bin/",
+    "jup/",
+    "tests/",
+]
+
+[tool.black]
+line-length = 79
+target-version = ['py37']

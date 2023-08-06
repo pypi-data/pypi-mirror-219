@@ -1,0 +1,42 @@
+name: hpmoc-dev
+channels:
+  - conda-forge
+  - numba
+  - intel
+dependencies:
+  - python=3.10
+  # base
+  - deprecated
+  - numpy
+  - matplotlib
+  - healpy
+  - astropy
+  - astropy-healpix
+  - pandas
+    #- reproject
+  # jup
+  - jupyter
+  - ipython
+  # astroquery
+  - astroquery
+  # gracedb
+  - ligo-gracedb
+  # test
+  - pytest
+  - pytest-cov
+  - pytest-html
+  - h5py
+  - pyyaml
+  # dev
+  #- pillow
+  #- numba
+  - flit
+  - pip
+  #- black
+  - sphinx
+  - sphinx_rtd_theme
+  - nbsphinx
+  # acceleration
+  #- icc_rt  # -c numba
+  #- intelpython3_full  # -c intel
+  # pip
