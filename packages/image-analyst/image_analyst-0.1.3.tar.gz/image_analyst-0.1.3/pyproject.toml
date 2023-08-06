@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "image-analyst"
+version = "0.1.3"
+description = "ImageAnalyst is a library that simplifies image analysis."
+authors = ["Lucas Berg <55436804+BergLucas@users.noreply.github.com>"]
+repository = "https://github.com/BergLucas/ImageAnalyst"
+keywords = ["image", "analysis"]
+readme = "README.md"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+packages = [{ include = "image_analyst", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = "^1.24.3"
+image-analyst-cv2 = {version = "^0.1.1", optional = true, extras = ["cv2"]}
+image-analyst-hf = {version = "^0.1.1", optional = true, python = ">=3.9, <3.12"}
+image-analyst-tf = {version = "^0.1.2", optional = true, python = ">=3.9, <3.12"}
+image-analyst-onnx = {version = "^0.1.1", optional = true}
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+mypy = "^1.4.1"
+coverage = "^7.2.7"
+flake8 = "^6.0.0"
+flake8-docstrings = "^1.7.0"
+
+[tool.poetry.extras]
+cv2 = ["image-analyst-cv2"]
+hf = ["image-analyst-hf"]
+tf = ["image-analyst-tf"]
+onnx = ["image-analyst-onnx"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.coverage.run]
+relative_files = true
+branch = true
+source = [
+    "src/image_analyst",
+    "tests"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
