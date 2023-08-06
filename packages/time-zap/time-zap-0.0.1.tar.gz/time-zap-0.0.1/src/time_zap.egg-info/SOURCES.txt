@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/__init__.py
+src/cli.py
+src/time_zap.egg-info/PKG-INFO
+src/time_zap.egg-info/SOURCES.txt
+src/time_zap.egg-info/dependency_links.txt
+src/time_zap.egg-info/entry_points.txt
+src/time_zap.egg-info/requires.txt
+src/time_zap.egg-info/top_level.txt
+tests/test_cli.py
