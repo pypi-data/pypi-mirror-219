@@ -1,0 +1,7 @@
+numpy
+pandas
+sentencepiece
+pydantic
+nest-asyncio
+jsonlines
+typing-extensions<4.6.0
