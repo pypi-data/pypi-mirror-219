@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+sync_pre_commit_deps.py
+sync_pre_commit_deps.egg-info/PKG-INFO
+sync_pre_commit_deps.egg-info/SOURCES.txt
+sync_pre_commit_deps.egg-info/dependency_links.txt
+sync_pre_commit_deps.egg-info/entry_points.txt
+sync_pre_commit_deps.egg-info/requires.txt
+sync_pre_commit_deps.egg-info/top_level.txt
