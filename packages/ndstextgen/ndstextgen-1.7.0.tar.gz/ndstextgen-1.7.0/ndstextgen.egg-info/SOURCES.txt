@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+ndstextgen/__init__.py
+ndstextgen/__main__.py
+ndstextgen/cli.py
+ndstextgen.egg-info/PKG-INFO
+ndstextgen.egg-info/SOURCES.txt
+ndstextgen.egg-info/dependency_links.txt
+ndstextgen.egg-info/entry_points.txt
+ndstextgen.egg-info/requires.txt
+ndstextgen.egg-info/top_level.txt

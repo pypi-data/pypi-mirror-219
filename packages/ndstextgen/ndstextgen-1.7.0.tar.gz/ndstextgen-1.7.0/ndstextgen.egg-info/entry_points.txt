@@ -1,0 +1,2 @@
+[console_scripts]
+ndstextgen = ndstextgen.cli:main
