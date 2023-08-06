@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: mad8-pandas
+Version: 1.1.0
+Summary: load mad8 output with pandas
+Home-page: https://github.com/st-walker/mad8-pandas
+Author: Stuart Walker
+Author-email: stuart.derek.walker@gmail.com
+License: MIT
+Keywords: mad8 pandas twiss
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Typing :: Typed
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: fortranformat
+Requires-Dist: numpy
+
+# mad8-pandas
+loading mad8 output with pandas
+
+```
+import pand8
+df = pand8.read("TWISS_CL_T20.txt") # For example
+# pandas stuff 😇
+
+# Other bits...
+# Fixing strangeness:
+assert df.iloc[0].E == 0.0 # Wrong and annoying.
+df = pand8.fix_initial_row_energy(df)
+assert df.iloc[0].E != 0. # No longer wrong or annoying.
+
+
+# Adding a few extra useful columns
+import matplotlib.pyplot as plt
+df = pand8.append_beam_size_columns(df, emitnx=1.4e-6, emitny=1.4e-6, espread_norm=1e-4)
+
+df = pand8.append_twiss_gamma(df)
+
+df.plot("SUML", "SIGMAX")
+df.plot("SUML", "GAMX")
+
+plt.show()
+
+```
