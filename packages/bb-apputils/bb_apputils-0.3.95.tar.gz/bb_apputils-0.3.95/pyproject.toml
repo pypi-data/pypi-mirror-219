@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "BB_AppUtils"
+version = "0.3.95"
+description = "App utilities"
+authors = ["Erik Beebe <beebeapps_debugging@tuta.io>"]
+readme = "README.md"
+packages = [{ include = "bblogger" },
+            { include = "bbargparser" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
