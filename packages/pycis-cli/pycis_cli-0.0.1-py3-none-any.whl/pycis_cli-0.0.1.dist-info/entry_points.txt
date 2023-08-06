@@ -1,0 +1,3 @@
+[console_scripts]
+greet=pycis.cli.pycis_command:pycis_root_command
+
