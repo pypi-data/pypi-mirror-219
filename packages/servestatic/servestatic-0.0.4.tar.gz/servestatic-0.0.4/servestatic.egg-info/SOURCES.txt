@@ -1,0 +1,9 @@
+README.md
+setup.py
+servestatic/__main__.py
+servestatic/server.py
+servestatic.egg-info/PKG-INFO
+servestatic.egg-info/SOURCES.txt
+servestatic.egg-info/dependency_links.txt
+servestatic.egg-info/top_level.txt
+test/test_path.py
