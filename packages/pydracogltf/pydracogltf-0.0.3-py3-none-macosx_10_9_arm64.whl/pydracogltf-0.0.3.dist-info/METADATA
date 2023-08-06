@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pydracogltf
+Version: 0.0.3
+Summary: wrapper of blender draco gltf lib, used for trimesh gltf io
+Home-page: https://github.com/seed93/pydracogltf
+Author: Liang Ding
+Author-email: liangding1990@163.com
+License: MIT License
+Platform: Mac OS-X
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+
+# pydracogltf
+
+wrapper of blender draco gltf lib, used for trimesh gltf io
+
