@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: fluvii
+Version: 0.3.0.post1.dev3
+Summary: A simple Kafka streams implementation in Python using confluent-kafka-python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: confluent-kafka[avro] (<2,>=1.9)
+Requires-Dist: mmh3
+Requires-Dist: prometheus-client
+Requires-Dist: pydantic
+Requires-Dist: sqlitedict
+Requires-Dist: boto3 (>=1.26.164)
+Provides-Extra: dev
+Requires-Dist: click ; extra == 'dev'
+Requires-Dist: confluent-kafka[avro] (<2,>=1.9) ; extra == 'dev'
+Requires-Dist: mmh3 ; extra == 'dev'
+Requires-Dist: prometheus-client ; extra == 'dev'
+Requires-Dist: pydantic ; extra == 'dev'
+Requires-Dist: sqlitedict ; extra == 'dev'
+Requires-Dist: boto3 (>=1.26.164) ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: time-machine ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'dev'
+
