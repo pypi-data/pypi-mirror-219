@@ -1,0 +1,2 @@
+[console_scripts]
+copydetect = copydetect.__main__:main
