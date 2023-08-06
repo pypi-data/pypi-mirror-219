@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ivt
+Version: 0.1.5
+Summary: Inverse-Rendering Toolkit
+Author-email: Guangyan Cai <gcai3@uci.edu>
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: imageio >= 2.27.0
+Requires-Dist: imageio-freeimage
+Requires-Dist: numpy
+Requires-Dist: gin-config
+Requires-Dist: gpytoolbox
+Project-URL: Home, https://github.com/uci-rendering/inv-render-toolkit
+
+# ivt
+`ivt` stands for Inverse-Rendering Toolkit. It is a simple framework for conducting inverse rendering experiments. Since there are a lot differentiable renderers in development, mastering them all and migrating between them can be a headache. `ivt` provides a simple scene representation based on `pytorch` that can be rendered by **connectors** that connect to different differentiable renderers and get the graident of the scene parameters. Migrating between renderers is just a matter of changing the connector. 
+
+## Installation
+`ivt` depends on `pytorch`. Since it is widely used and some projects might have specific requirements to it, we leave its installation to the user. 
+
+After installing `pytorch`, you can install `ivt` via
+```
+pip install ivt
+```
