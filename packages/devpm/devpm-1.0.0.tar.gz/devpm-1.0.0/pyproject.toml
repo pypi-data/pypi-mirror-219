@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+sources = ["src"]
+directory = "devpm"
+include = ["**/*.py", "devpackage.schema.json"]
+
+[project]
+name = "devpm"
+version = "1.0.0"
+authors = [
+  { name="Galen Lin", email="oolgloo.2012@gmail.com" },
+]
+description = "Development package manager"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/wequick/devpm"
+"Bug Tracker" = "https://github.com/wequick/devpm/issues"
+
+[project.scripts]
+devpm = "devpm._internal.cli.main:main"
