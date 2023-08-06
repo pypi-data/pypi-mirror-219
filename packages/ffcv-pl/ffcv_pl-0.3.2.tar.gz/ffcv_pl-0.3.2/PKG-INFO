@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: ffcv_pl
+Version: 0.3.2
+Summary: manage fast data loading with ffcv and pytorch lightning
+Home-page: https://github.com/SerezD/ffcv_pytorch_lightning
+Author: DSerez
+License: MIT
+Description-Content-Type: text/markdown
+
+
+                   Version Updates: allow optional arguments for FFCVDataModule and create_beton_wrapper.
+
+                   For example usages/installation, 
+                   check [github project](https://github.com/SerezD/ffcv_pytorch_lightning)
+                   
