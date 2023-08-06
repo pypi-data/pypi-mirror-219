@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/labeled_lda/__init__.py
+src/labeled_lda/llda.py
+src/labeled_lda/llda_core.py
+src/labeled_lda/preprocess.py
+src/labeled_lda.egg-info/PKG-INFO
+src/labeled_lda.egg-info/SOURCES.txt
+src/labeled_lda.egg-info/dependency_links.txt
+src/labeled_lda.egg-info/requires.txt
+src/labeled_lda.egg-info/top_level.txt
