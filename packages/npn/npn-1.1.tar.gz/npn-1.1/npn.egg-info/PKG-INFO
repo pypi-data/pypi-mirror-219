@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: npn
+Version: 1.1
+Summary: A boolean matcher that computes the canonical representative, which is unique for each NPN equivalence class, for a given boolean function represented by truth table.
+Home-page: https://github.com/snowkylin/npn
+Author: Xihan Li
+Author-email: xihan.li@cs.ucl.ac.uk
