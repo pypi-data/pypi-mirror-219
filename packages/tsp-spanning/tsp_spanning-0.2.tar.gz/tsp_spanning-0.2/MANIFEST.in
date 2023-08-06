@@ -1,0 +1,3 @@
+include tsp_spanning/tsp_cpp.cpp
+include tsp_spanning/tsp_cpp.h
+include README.rst

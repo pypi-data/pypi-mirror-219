@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+tests/test_base.py
+tsp_spanning/__init__.py
+tsp_spanning/tsp_cpp.cpp
+tsp_spanning/tsp_cpp.h
+tsp_spanning/tsp_wrap.pyx
+tsp_spanning.egg-info/PKG-INFO
+tsp_spanning.egg-info/SOURCES.txt
+tsp_spanning.egg-info/dependency_links.txt
+tsp_spanning.egg-info/requires.txt
+tsp_spanning.egg-info/top_level.txt
