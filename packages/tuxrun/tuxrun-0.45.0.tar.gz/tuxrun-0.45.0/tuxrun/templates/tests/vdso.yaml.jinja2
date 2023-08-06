@@ -1,0 +1,15 @@
+- test:
+    timeout:
+      minutes: {{ timeout }}
+    definitions:
+    - repository: {{ test_definitions }}
+      lava-signal: kmsg
+      from: url
+      compression: zstd
+      path: automated/linux/vdsotest/vdsotest.yaml
+      name: vdso
+      parameters:
+        SKIP_INSTALL: True
+        VDSOTESTALL: 'all'
+        VDSO_INSTALL_PATH: '/opt/vdsotest'
+

@@ -1,0 +1,22 @@
+FROM lavasoftware/lava-dispatcher:2023.06
+ARG EXTRA_PACKAGES
+ARG PODMAN_VERSION=3
+
+RUN apt-get update && \
+    apt-get install --no-install-recommends --yes gnupg && \
+    if [ "${PODMAN_VERSION}" = "4" ]; then echo "deb https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/Debian_Testing/ /" > /etc/apt/sources.list.d/kubic.list && \
+    curl -L "https://download.opensuse.org/repositories/devel:kubic:libcontainers:unstable/Debian_Unstable/Release.key" | apt-key add -; else echo "deb https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_12/ /" > /etc/apt/sources.list.d/kubic.list && \
+    curl -L "https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/Debian_12/Release.key" | apt-key add -; fi && \
+    apt-get update && \
+    apt-get install --yes libgpgme11-dev podman ${EXTRA_PACKAGES} && \
+    apt-get purge --yes gnupg && \
+    apt-get autoremove --purge --yes && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN podman --version
+
+ENTRYPOINT ["/root/entrypoint.sh"]
+
+
+# vim: ft=dockerfile
