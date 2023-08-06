@@ -1,0 +1,155 @@
+Metadata-Version: 2.1
+Name: cortex-python
+Version: 6.4.0a1
+Summary: Python module for the CognitiveScale Cortex Cognitive Platform
+Home-page: https://github.com/CognitiveScale/cortex-python
+Author: CognitiveScale
+Author-email: support@cognitivescale.com
+License: Apache 2.0
+Project-URL: Documentation, https://cognitivescale.github.io/cortex-python/master/
+Project-URL: Source, https://github.com/CognitiveScale/cortex-python
+Platform: any
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests (<3,>=2.12.4)
+Requires-Dist: requests-toolbelt (>=0.8.0)
+Requires-Dist: pyyaml (>=5.3.1)
+Requires-Dist: python-dateutil (<3,>=2.8.0)
+Requires-Dist: python-jwt (<4.0,>=3.3.5)
+Requires-Dist: cuid (<1,>=0.3)
+Requires-Dist: dill (>=0.2.8.2)
+Provides-Extra: jupyter
+Requires-Dist: ipython (<7,>=6.4.0) ; extra == 'jupyter'
+Requires-Dist: maya (>=0.5.0) ; extra == 'jupyter'
+Requires-Dist: jinja2 ; extra == 'jupyter'
+Provides-Extra: viz
+Requires-Dist: matplotlib (<3,>=2.2.2) ; extra == 'viz'
+Requires-Dist: seaborn (<0.10,>=0.9.0) ; extra == 'viz'
+Requires-Dist: pandas ; extra == 'viz'
+
+# Python Module for the Cortex Cognitive Platform
+
+The Cortex Python module provides an API client library to easily integrate with the Cortex Cognitive Platform. 
+Refer to the Cortex documentation for details on how to use the library: 
+
+- Developer guide: https://cognitivescale.github.io/cortex-fabric/
+- Cortex Python references: https://cognitivescale.github.io/cortex-python/master/
+
+## Installation
+
+To install: 
+```
+  > pip install cortex-python
+```
+
+or from source code:
+```
+  > git clone git@github.com:CognitiveScale/cortex-python.git
+  > cd cortex-python
+  > pip install -e .
+```
+
+To install the optional components: 
+```
+  > pip install cortex-python[viz]
+  > pip install cortex-python[jupyter]
+```
+
+## Development 
+
+### Setup
+
+When developing, it's a best practice to work in a virtual environment. Create and activate a virtual environment:
+```
+  > virtualenv --python=python3.10 _venv
+  > source _venv/bin/activate
+```
+
+Install developer dependencies:
+
+```
+  > git clone git@github.com:CognitiveScale/cortex-python.git
+  > cd cortex-python
+  > make dev.install
+```
+
+Run Developer test and linting tasks:
+Three types of checks are configured for this:
+1. [symilar](https://pylint.readthedocs.io/en/v2.16.2/symilar.html) - to test code duplication
+2. [pylint](https://pylint.readthedocs.io/en/v2.16.2/) - for linting
+3. [pytest](https://docs.pytest.org/en/7.2.x/) - for running the unit tests. These are orchestrated through [tox](https://tox.wiki/en/3.27.1/). The tox configuration is available at [`tox.ini`](/tox.ini)
+
+There's a convenience `Makefile` that has commands to common tasks, such as build, test, etc. Use it!
+
+### Testing
+
+#### Unit Tests
+
+Follow above setup instructions (making sure to be in the virtual environment and having the necessary dependencies)
+
+- `make test` to run test suite
+
+To run an individual file or class method, use pytest. Example tests shown below:
+
+- file: `pytest test/unit/agent_test.py` 
+- class method: `pytest test/unit/agent_test.py::TestAgent::test_get_agent`
+
+#### Publishing an alpha build
+
+Suppose you want to release new functionality so it can be installed without releasing a new official version. We need to use an alpha version in PyPi.
+
+- we need to create and publish an alpha release:
+- get credentials to the `cortex-python` pypi CognitiveScale account (via lastpass)
+- run `make dev.push`. The alpha pre-release number (the N in X.Y.ZaN) with be determined automatically.
+
+### Contribution 
+
+After contributing to the library, and before you submit changes as a PR, please do the following
+
+1. Run unit tests via `make test`
+2. Manually verification (i.e. try the new changes out in Cortex) to make sure everything is going well. Not required, but highly encouraged.
+3. Bump up `setup.py` version and update the `CHANGELOG.md` 
+
+### Documentation
+
+Activate your virtual environment:
+```
+> source _venv/bin/activate
+```
+
+Set up your environment, if you have not done so:
+```
+> make dev.install 
+```
+
+The package documentation is built with Sphinx and generates versioned documentation for all tag matching the `release/X.Y.Z` pattern and for the `master` branch. To build the documentation:
+
+```
+> make docs.multi
+```
+The documentation will be rendered in HTML format under the `docs/_build/${VERSION}` directory.
+
+### Pre-release to staging
+
+1. Create and push an alpha release:
+    ```
+    > make dev.push
+    ```
+    This will build an alpha-tagged package.
+2. Merge `develop` to `staging` branch:
+    ```
+    > make stage
+    ```
+3. In GitHub, create a pull request from `staging` to `master`.
+
+
+## TODO
+- [x] extending the client with helpers for cortex resources 
+- [x] camelcase in pylinyrc
+- [ ] Update all documentation with proper Sphinx formatting
+  - [x] Most of the major modules have been fixed except skill.py, model.py
+- [x] use exceptions defined in `cortex/exceptions.py`
+- [ ] integrate the cortex-python-profiles package back into the python SDK
