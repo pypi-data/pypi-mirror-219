@@ -1,0 +1,4 @@
+[console_scripts]
+abml=abml_cli.abml_run:run
+abml-grid=abml_cli.abml_run:run_grid
+
