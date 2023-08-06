@@ -1,0 +1,6 @@
+[console_scripts]
+rickrack = rickrack.rickrack:startup
+
+[gui_scripts]
+rickrack-gui = rickrack.rickrack:startup
+

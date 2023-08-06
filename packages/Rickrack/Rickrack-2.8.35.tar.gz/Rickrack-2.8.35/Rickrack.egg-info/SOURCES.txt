@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+Rickrack.egg-info/PKG-INFO
+Rickrack.egg-info/SOURCES.txt
+Rickrack.egg-info/dependency_links.txt
+Rickrack.egg-info/entry_points.txt
+Rickrack.egg-info/requires.txt
+Rickrack.egg-info/top_level.txt
+rickrack/__init__.py
+rickrack/color.py
+rickrack/result.py
+rickrack/rickrack.py
