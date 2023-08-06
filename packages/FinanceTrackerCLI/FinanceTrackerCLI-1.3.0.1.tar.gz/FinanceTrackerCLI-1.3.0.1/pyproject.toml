@@ -1,0 +1,7 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    'forex-python',
+]
+build-backend = "setuptools.build_meta"
