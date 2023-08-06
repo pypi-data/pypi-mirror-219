@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: fish-tool
+Version: 1.12
+Summary: some tool code
+Home-page: https://gitee.com/laowangzi/fish_tool
+Author: aifish
+Author-email: ofyu@163.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Provides-Extra: AI
+Provides-Extra: db
