@@ -1,0 +1,8 @@
+scvelo>=0.1.25
+numpy==1.23.5
+joblib
+fastdtw
+hausdorff
+scikit-learn>=1.3.0
+tqdm
+numba
