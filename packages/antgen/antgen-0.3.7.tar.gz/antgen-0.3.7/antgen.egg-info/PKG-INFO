@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: antgen
+Version: 0.3.7
+Summary: This tool generates synthetic macroscopic load signatures for their use in conjunction with NILM (load disaggregation) tools.
+Home-page: UNKNOWN
+Author: Nuno Velosa
+Author-email: nunovelosa@hotmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
