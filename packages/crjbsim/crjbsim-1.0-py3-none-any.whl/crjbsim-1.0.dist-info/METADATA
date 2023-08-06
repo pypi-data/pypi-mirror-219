@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: crjbsim
+Version: 1.0
+Summary: Python simulation utilities.
+Home-page: https://github.com/Spycho/crjbsim
+Project-URL: Bug Tracker, https://github.com/Spycho/crjbsim/issues
+Project-URL: Changelog, https://github.com/Spycho/crjbsim/releases
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
