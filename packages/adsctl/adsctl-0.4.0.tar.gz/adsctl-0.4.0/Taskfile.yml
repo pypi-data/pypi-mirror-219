@@ -1,0 +1,41 @@
+version: "3"
+
+tasks:
+  build:
+    cmds:
+      - rye build
+
+  install:
+    cmds:
+      - rye sync --all-features
+
+  test:
+    cmds:
+      - rye run test
+
+  test:ci:
+    cmds:
+      - pytest --no-cov
+
+  test:all:
+    cmds:
+      - rye run test-adsapi
+
+  test:watch:
+    cmds:
+      - fd . './' | entr -c task test
+
+  fmt:
+    ignore_error: true
+    cmds:
+      - ruff --fix src
+      - black src
+      - isort src
+
+  check:
+    ignore_error: true
+    cmds:
+      - ruff src/adsctl
+      - black src --check
+      - isort src --check-only
+      # - mypy  # :)
