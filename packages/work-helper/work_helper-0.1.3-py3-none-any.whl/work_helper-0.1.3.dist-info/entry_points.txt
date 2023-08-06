@@ -1,0 +1,7 @@
+[console_scripts]
+d_ddl=helper.ddl:main
+d_etl=helper.etl:main
+d_hello=helper.hello:main
+d_helm=helper.helm:main
+d_pack=helper.pack:main
+
