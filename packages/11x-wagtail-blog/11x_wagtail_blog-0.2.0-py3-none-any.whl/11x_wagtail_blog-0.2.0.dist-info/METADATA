@@ -1,0 +1,128 @@
+Metadata-Version: 2.1
+Name: 11x-wagtail-blog
+Version: 0.2.0
+Summary: 11x Wagtail Blog
+Keywords: wagtail,blog
+Author-email: The Magnificant Nick <it@11x.engineering>
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: wagtail >=4.0,<6
+Requires-Dist: sphinx ; extra == "doc"
+Requires-Dist: sphinx-rtd-theme ; extra == "doc"
+Requires-Dist: tox-gh-actions >=3.0 ; extra == "github"
+Requires-Dist: black ; extra == "test"
+Requires-Dist: tox >=4.6.3 ; extra == "test"
+Requires-Dist: faker >=18.11.2 ; extra == "test"
+Project-URL: Documentation, https://11x-wagtail-blog.readthedocs.io/en/latest/
+Project-URL: Home, https://github.com/11x-engineering/11x-wagtail-blog
+Project-URL: Source, https://github.com/11x-engineering/11x-wagtail-blog
+Provides-Extra: doc
+Provides-Extra: github
+Provides-Extra: test
+
+11x Wagtail Blog
+================
+
+|PyPI| |Build| |Supported Python versions| |Documentation| |Downloads| 
+
+
+11x Wagtail Blog
+================
+
+``11x-wagtail-blog`` is a wagtail app implementing basic blog features for a wagtail site. This project started as an
+implementation of the blogging features of ``11x.engineering``, but since it is intended to be used as the first series
+of articles, it has been open sourced and published here. It is intended to demonstrate how to develop a fully featured
+package published to PyPI.
+
+
+Quick Start
+===========
+
+To install::
+
+    pip install 11x-wagtail-blog
+
+Add ``x11x_wagtail_blog`` to your ``INSTALLED_APPS``::
+
+    INSTALLED_APPS = [
+        ...,
+        'x11x_wagtail_blog',
+        ...,
+    ]
+
+Since this package only gives you the common features of every blogging application, you will need to define your own page
+models and derive them from `ExtensibleArticlePage`::
+
+>>> from x11x_wagtail_blog.models import ExtensibleArticlePage
+>>> from wagtail.admin.panels import FieldPanel
+>>> from wagtail.blocks import TextBlock
+>>> from wagtail.fields import StreamField
+
+>>> class MyArticlePage(ExtensibleArticlePage):
+...     body = StreamField([
+...         ("text", TextBlock()),
+...     ], use_json_field=True)
+...
+...     content_panels = ExtensibleArticlePage.with_body_panels([
+...         FieldPanel("body"),
+...     ])
+
+This can be done in any valid Wagtail app.
+
+Next, generate your migrations as usual::
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+You will have to define a template. The default template used is ``x11x_wagtail_blog/article_page.html``, but you should
+override the ``get_template()`` method to return your own template.
+
+.. code-block:: html
+
+    <!DOCTYPE html>
+    <html>
+      <head>...</head>
+      <body>
+        <h1>{{ self.title }}</h1>
+
+        {% include_block self.body %}
+
+        <h2>About the authors</h2>
+        {% for author in self.authors %}
+        {% include "myblog/about_the_author_section.html" with author=author.value %}
+        {% endfor %}
+
+        <h2>Related Articles</h2>
+        <ul>
+        {% for article in self.related_articles %}
+        <li><a href="{% pageurl article %}">{{ article.title }}</a></li>
+        {% endfor %}
+        </ul>
+      </body>
+    </html>
+
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/11x-wagtail-blog
+   :target: https://pypi.org/project/11x-wagtail-blog/
+.. |Build| image:: https://github.com/11x-engineering/11x-wagtail-blog/actions/workflows/package.yml/badge.svg
+   :target: https://github.com/11x-engineering/11x-wagtail-blog/actions/workflows/package.yml
+.. |Supported Python versions| image:: https://img.shields.io/pypi/pyversions/11x-wagtail-blog.svg
+   :target: https://pypi.org/project/11x-wagtail-blog/
+.. |Documentation| image:: https://readthedocs.org/projects/11x-wagtail-blog/badge/?version=latest
+   :target: https://11x-wagtail-blog.readthedocs.io/en/latest/?badge=latest
+.. |Downloads| image:: https://pepy.tech/badge/11x-wagtail-blog/month
+   :target: https://pepy.tech/project/11x-wagtail-blog/
+
