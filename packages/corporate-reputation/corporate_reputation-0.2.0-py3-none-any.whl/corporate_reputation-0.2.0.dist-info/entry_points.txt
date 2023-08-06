@@ -1,0 +1,3 @@
+[console_scripts]
+corprep=corprep.__cli__:main
+
