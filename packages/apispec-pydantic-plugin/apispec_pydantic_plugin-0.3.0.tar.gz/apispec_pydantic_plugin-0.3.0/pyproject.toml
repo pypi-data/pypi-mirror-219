@@ -1,0 +1,75 @@
+[tool.poetry]
+name = "apispec-pydantic-plugin"
+version = "0.3.0"
+description = ""
+authors = ["Kevin Kirsche <kevin.kirsche@one.verizon.com>"]
+readme = "README.md"
+packages = [{ include = "apispec_pydantic_plugin", from = "src" }]
+include = ["src/apispec_pydantic_plugin/py.typed"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4"
+pydantic = ">=2.0.3,<3"
+apispec = ">=6.0.2,<7"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.12.0"
+example-isort-formatting-plugin = "^0.1.1"
+example-isort-sorting-plugin = "^0.1.0"
+black = {extras = ["toml"], version = "^23.7.0"}
+mypy = "^1.4.1"
+bandit = "^1.7.5"
+flake8 = "^6.0.0"
+flake8-bugbear = "^23.7.10"
+flake8-pyi = "^23.6.0"
+codespell = "^2.2.5"
+pyupgrade = "^3.9.0"
+pytest = "^7.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+formatter = "example"
+profile = "black"
+remove_redundant_aliases = true
+sort_order = "natural_plus"
+py_version = 311
+
+[tool.bandit]
+exclude = ["/tests"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-markers --strict-config"
+markers = []
+minversion = "7.1"
+testpaths = ["tests"]
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "C0330, C0326"
+max_line_length = 88
+
+[tool.black]
+include = '\.pyi?$'
+line-length = 88
+target-version = ['py311']
+
+[tool.mypy]
+files = ["."]
+follow_imports = "normal"
+plugins = ["pydantic.mypy"]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+ignore_missing_imports = true
+module = []
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
