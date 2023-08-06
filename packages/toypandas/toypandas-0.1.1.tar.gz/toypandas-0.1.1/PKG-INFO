@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: toypandas
+Version: 0.1.1
+Summary: A library for educational purposes to simplify the syntax and notional machine of Python Pandas.
+Project-URL: Repository, https://github.com/researchDataset/Toypandas
+Project-URL: Documentation, https://toypandas.readthedocs.io/en/latest/index.html
+Project-URL: Bug Tracker, https://github.com/researchDataset/Toypandas/issues
+Author-email: Daniele Traversaro <traversaro.daniele@gmail.com>, Davide Ponzini <davide.ponzini95@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: pandas
+Description-Content-Type: text/markdown
+
+# ToyPandas
+A library for educational purposes to simplify the syntax and notional machine of Python Pandas 
+
+## Installation
+```bash
+$ pip install toypandas
+```
