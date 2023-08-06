@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: psychoanalyze
+Version: 0.5.0
+Summary: A Pythonic analysis package for psychophysics data
+License: GPL-3.0-or-later
+Author: Ty Schlichenmeyer
+Author-email: t.schlic@wustl.edu
+Requires-Python: ==3.11.4
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: bambi (>=0.11.0,<0.12.0)
+Requires-Dist: black (>=23.3.0,<24.0.0)
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: cmdstanpy (>=1.1.0,<2.0.0)
+Requires-Dist: dash (>=2.11.1,<3.0.0)
+Requires-Dist: dash-bootstrap-components (>=1.4.1,<2.0.0)
+Requires-Dist: dash-daq (>=0.5.0,<0.6.0)
+Requires-Dist: datatest (>=0.11.1,<0.12.0)
+Requires-Dist: dbt-duckdb (>=1.5.1,<2.0.0)
+Requires-Dist: gunicorn (>=20.1.0,<21.0.0)
+Requires-Dist: hypothesis (>=6.79.0,<7.0.0)
+Requires-Dist: ipykernel (>=6.24.0,<7.0.0)
+Requires-Dist: ipywidgets (>=8.0.7,<9.0.0)
+Requires-Dist: kaleido (==0.2.1)
+Requires-Dist: mkdocs (>=1.4.3,<2.0.0)
+Requires-Dist: mkdocs-material (>=9.1.18,<10.0.0)
+Requires-Dist: mkdocstrings[python] (>=0.22.0,<0.23.0)
+Requires-Dist: mypy (>=1.4.1,<2.0.0)
+Requires-Dist: numpy (>=1.25.0,<2.0.0)
+Requires-Dist: pandas (>=2.0.2,<3.0.0)
+Requires-Dist: pandas-stubs (>=2.0.2.230605,<3.0.0.0)
+Requires-Dist: pandera[mypy] (>=0.15.1,<0.16.0)
+Requires-Dist: pyarrow (>=12.0.1,<13.0.0)
+Requires-Dist: pytest (>=7.3.2,<8.0.0)
+Requires-Dist: pytest-mock (>=3.11.1,<4.0.0)
+Requires-Dist: ruff (>=0.0.276,<0.0.277)
+Requires-Dist: scikit-learn (>=1.2.2,<2.0.0)
+Requires-Dist: scipy (>=1.10.1,<2.0.0)
+Requires-Dist: statsmodels (>=0.14.0,<0.15.0)
+Requires-Dist: tuna (>=0.5.11,<0.6.0)
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+# PsychoAnalyze
+
+Psychophysics analysis in Python.
+
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/psychoanalyze)
+![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)
+[![security: bandit](https://img.shields.io/badge/security-bandit-yellow.svg)](https://github.com/PyCQA/bandit)
+[![Open in Remote - Containers](https://img.shields.io/static/v1?label=Remote%20-%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/psychoanalyze/psychoanalyze)
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/psychoanalyze/psychoanalyze/main.svg)](https://results.pre-commit.ci/latest/github/psychoanalyze/psychoanalyze/main)
+
+
+
+## Installation
+poetry (preferred):
+```console
+poetry add psychoanalyze
+```
+pip:
+```console
+pip install psychoanalyze
+```
+
+## Dashboard
+See what `psychoanalyze` can do by [viewing our dashboard](https://psychoanalyze.io/).
+
+## Documentation
+View the full documentation [here](https://docs.psychoanalyze.io).
+
