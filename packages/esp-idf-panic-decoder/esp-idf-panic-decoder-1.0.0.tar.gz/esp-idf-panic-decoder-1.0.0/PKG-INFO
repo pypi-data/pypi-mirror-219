@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: esp-idf-panic-decoder
+Version: 1.0.0
+Summary: Short description PYPI
+Home-page: https://github.com/espressif/esp-idf-panic-decoder
+Author: Espressif Systems
+Author-email: roland@espressif.com
+Keywords: python,espressif
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+## Long description PYPI (PYPI documentation page)
+
