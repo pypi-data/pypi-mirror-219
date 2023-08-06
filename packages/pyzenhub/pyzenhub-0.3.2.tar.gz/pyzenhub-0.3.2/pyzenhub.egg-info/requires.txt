@@ -1,0 +1,5 @@
+packaging
+pydantic<2
+requests
+types-requests
+typing_extensions
