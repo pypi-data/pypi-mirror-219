@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: brainchain
+Version: 0.3.4
+Summary: Brainchain API client
+Author: Arthur M. Collé
+Author-email: arthur@brainchain.ai
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: modal-client (>=0.50,<0.51)
+Requires-Dist: openai (==0.27.8)
+Requires-Dist: promptlayer (>=1.90,<2.0)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: tiktoken (==0.4.0)
