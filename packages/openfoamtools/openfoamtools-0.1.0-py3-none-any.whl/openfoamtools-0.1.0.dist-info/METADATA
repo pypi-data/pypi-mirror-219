@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: openfoamtools
+Version: 0.1.0
+Summary: Auxilary Tools for pre and post processing tasks for openFOAM-9
+License: MIT
+Author: Guillermo Ibarra
+Author-email: guillermoibarra@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+
+# CFD Analysis Tools for openFOAM
+
+[![wemake-python-styleguide](https://img.shields.io/badge/style-wemake-000000.svg)](https://github.com/wemake-services/wemake-python-styleguide)
+
+Tools written in python for pre and post processing tasks with openFOAM.
+
