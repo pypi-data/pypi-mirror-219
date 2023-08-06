@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+master/__init__.py
+master/cli.py
+master/logger.py
+master/master.py
+masterpass.egg-info/PKG-INFO
+masterpass.egg-info/SOURCES.txt
+masterpass.egg-info/dependency_links.txt
+masterpass.egg-info/entry_points.txt
+masterpass.egg-info/top_level.txt
