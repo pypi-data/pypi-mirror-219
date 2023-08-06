@@ -1,0 +1,32 @@
+[project]
+name = "lavlab-python-utils"
+description = "LaViolette Lab utility package"
+version = "1.2.1"
+
+authors = [
+  { name="Michael Barrett", email="mjbarrett@mcw.edu" },
+]
+
+readme = "README.rst"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+requires-python = ">=3.7"
+dependencies = [
+  'omero-py >= 5.13.1',
+  'tiatoolbox >= 1.4.0'
+]
+
+[project.optional-dependencies]
+docs = ["sphinx>=6.2.1","docutils >= 0.18.1"]
+
+[project.urls]
+"Homepage" = "https://github.com/laviolette-lab/lavlab-python-utils"
+"Bug Tracker" = "https://github.com/laviolette-lab/lavlab-python-utils/issues"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools", "wheel"]
