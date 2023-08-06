@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: progf
+Version: 0.0.5
+Summary: Python game framework with pygame
+Author: Coder-Jang
+Author-email: jsb060624@kakao.com
+Keywords: game,project,pygame
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
+Requires-Dist: pygame
+
