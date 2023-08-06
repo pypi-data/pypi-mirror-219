@@ -1,0 +1,4 @@
+dagster==1.3.14rc2
+
+[managed]
+dagster-managed-elements==0.19.14rc2
