@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: nomnom
+Version: 0.0.1
+Summary: nomnom turns GW events into 3D visuals
+Home-page: https://github.com/vikrammanikantan/nomnom
+Author: Jessica Klusmeyer, Bill Smith, Vikram Manikantan
+Author-email: nomnom@gmail.com
+License: BSD
+Keywords: Gravitational Wave Galaxy
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: numpy
+Requires-Dist: h5py
+Requires-Dist: astropy
+Requires-Dist: astroquery
+
