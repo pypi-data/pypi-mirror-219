@@ -1,0 +1,575 @@
+END USER LICENSE AGREEMENT FOR BRIGHT COMPUTING SOFTWARE
+
+This end user license agreement, including the exhibit attached ("Agreement”) is
+a legal agreement between you and Bright Computing, Inc. or Bright Computing BV,
+as applicable ("Bright Computing") and governs your use of the Bright Computing
+software and materials (“SOFTWARE”).
+
+If you are entering into this Agreement on behalf of a company or other legal
+entity, you represent that you have the legal authority to bind the entity to
+this Agreement, in which case “you” will mean the entity you represent.
+
+If you don’t have the required authority to accept this Agreement, or if you
+don’t accept all the terms and conditions of this Agreement, do not download,
+install or use the SOFTWARE.
+
+You agree to use the SOFTWARE only for purposes that are permitted by (a) this
+Agreement, and (b) any applicable law, regulation or generally accepted
+practices or guidelines in the relevant jurisdictions.
+
+1. License.
+
+1.1 Grant.
+
+Subject to the terms of this Agreement and payment of applicable fees, Bright
+Computing hereby grants you a non-exclusive, non-transferable license, without
+the right to sublicense, to: (i) install and use the SOFTWARE in accordance with
+the documentation provided with the SOFTWARE, and (ii) make a single copy of the
+SOFTWARE solely for backup purposes. No orders are binding until accepted by
+Bright Computing. All orders accepted are subject to the terms of this
+Agreement.
+
+1.2 Promotional Offerings.
+
+Bright Computing may, from time to time, offer free or discounted pricing
+programs covering certain uses of the SOFTWARE, as examples for evaluation or
+academic use. Bright Computing may stop accepting new sign-ups or discontinue a
+promotional offering at any time. Standard charges will apply after a
+promotional offering ends or if you exceed the promotional offering use terms.
+You must comply with any additional terms, restrictions, or limitations (e.g.,
+limitations on the total amount of usage) for a promotional offering as
+described in the corresponding offer terms.
+
+1.3 License Types.
+
+Bright Computing product licenses are licensed under the license types below.
+Your order, license key and/or the product description will indicate the
+features of your license, such as duration and maximum number of nodes.
+
+“Cluster Based License” means a license based on the maximum number of nodes
+authorized within one identified cluster.
+
+“Subscription License” means a license with a fixed duration and inclusive of
+certain services for the duration of the license. You may have the option to
+purchase additional services for the duration of a Subscription License, based
+on Bright Computing’s then-current service offerings.
+
+1.4 Authorized Users.
+
+You may allow employees and contractors of your entity or of your
+subsidiary(ies) to access and use the SOFTWARE from your secure network to
+perform work on your behalf.
+
+If you are an academic institution you may allow users enrolled or employed by
+the academic institution to access and use the SOFTWARE from your secure
+network.
+
+You are responsible for the compliance with the terms of this Agreement by your
+authorized users. Any act or omission that if committed by you would constitute
+a breach of this Agreement shall be deemed to constitute a breach of this
+Agreement if committed by your authorized users.
+
+1.5 Pre-Release.
+
+The SOFTWARE versions identified as alpha, beta, preview, early access or
+otherwise as pre-release may not be fully functional, may contain errors or
+design flaws, and may have reduced or different security, privacy, availability,
+and reliability standards relative to commercial versions of Bright Computing
+software and materials. Use of a pre-release SOFTWARE may result in unexpected
+results, loss of data, project delays or other unpredictable damage or loss.
+
+You may use a pre-release SOFTWARE at your own risk, understanding that these
+versions are not intended for use in production or business-critical systems. As
+with any software in pre-release, it is highly recommended that you maintain
+full data backups for all your software and data.
+
+Bright Computing may choose not to make available a commercial version of any
+pre-release SOFTWARE. Bright Computing may also choose to abandon development
+and terminate the availability at any time without liability.
+
+1.6 Services.
+
+Except as expressly indicated in an order, Bright Computing is under no
+obligation to provide support for the SOFTWARE or to provide any maintenance,
+updates, upgrades or other revisions to the SOFTWARE.
+
+Unless revisions are provided with their separate governing terms, they are
+deemed part of the SOFTWARE licensed to you as provided in this Agreement.
+
+1.7 Components Under Other Licenses.
+
+The SOFTWARE may include Bright Computing or third-party components with
+separate legal notices or terms as may be described in proprietary notices
+accompanying the SOFTWARE, such as components governed by open source software
+licenses. If and to the extent there is a conflict between the terms in this
+license and the license terms associated with a component, the license terms
+associated with the components control only to the extent necessary to resolve
+the conflict.
+
+RHEL and SUSE Software. You acknowledge and agree that it is your sole
+responsibility to obtain all necessary licenses for RHEL or SUSE software and
+materials to the extent included in the SOFTWARE delivered. To the extent that
+you obtain a license solely for non-production uses, you agree to use such
+software and materials included in the SOFTWARE solely for non-production
+purposes in accordance with its applicable license.
+
+1.8 Reservation of Rights.
+
+Bright Computing reserves all rights, title and interest in and to the SOFTWARE
+not expressly granted to you under this Agreement.
+
+2. Limitations.
+
+The following license limitations apply to your use of the SOFTWARE:
+
+2.1 You may not reverse engineer, decompile or disassemble, or separate parts of
+the SOFTWARE as packaged to use its component parts separate from the other
+parts.
+
+2.2 You may not modify or create derivative works of any portion of the
+SOFTWARE.
+
+2.3 You may not remove copyright or other proprietary notices from any portion
+of the SOFTWARE or copies of the SOFTWARE.
+
+2.4 Except as expressly authorized in this Agreement, you may not copy, sell,
+rent, sublicense, transfer or distribute the SOFTWARE or otherwise make
+available the SOFTWARE or its functionality to others.
+
+2.5 You may not disclose the results of any benchmarking or other competitive
+analysis relating to the SOFTWARE without prior written permission from Bright
+Computing.
+
+2.6 You may not use the SOFTWARE for the purpose of developing competing
+products or technologies or assisting a third party in such activities.
+
+2.7 You may not bypass, disable, or circumvent any encryption, security, digital
+rights management or authentication mechanism in the SOFTWARE.
+
+2.8 You may not access or use the SOFTWARE in a way intended to avoid
+incurring fees or exceeding use limits or quotas.
+
+2.9 You may not use the SOFTWARE in any manner that would cause it to become
+subject to an open source software license. As examples, licenses that require
+as a condition of use, modification, and/or distribution that the SOFTWARE be
+(i) disclosed or distributed in source code form; (ii) licensed for the purpose
+of making derivative works; or (iii) redistributable at no charge.
+
+2.10 You acknowledge that the SOFTWARE as delivered is not tested or certified
+by Bright Computing for use in connection with the design, construction,
+maintenance, and/or operation of any system where the use or failure of such
+system could result in a situation that threatens the safety of human life or
+results in catastrophic damages (each, a "Critical Application"). Examples of
+Critical Applications include use in avionics, navigation, autonomous vehicle
+applications, ai solutions for automotive products, military, medical, life
+support or other life critical applications. Bright Computing shall not be
+liable to you or any third party, in whole or in part, for any claims or damages
+arising from such uses. You are solely responsible for ensuring that any product
+or service developed with the SOFTWARE as a whole includes sufficient features
+to comply with all applicable legal and regulatory standards and requirements.
+
+2.11 You agree to defend, indemnify and hold harmless Bright Computing and its
+affiliates, and their respective employees, contractors, agents, officers and
+directors, from and against any and all claims, damages, obligations, losses,
+liabilities, costs or debt, fines, restitutions and expenses (including but not
+limited to attorney’s fees and costs incident to establishing the right of
+indemnification) arising out of or related to products or services that use the
+SOFTWARE in or for Critical Applications, and for use of the SOFTWARE outside of
+the scope of this Agreement or not in compliance with its terms.
+
+3. Ownership.
+
+3.1 The SOFTWARE and its respective intellectual property rights are owned by
+Bright Computing or its licensors and are licensed to you as described in this
+Agreement. Bright Computing’s licensors are intended third party beneficiaries
+with the rights to enforce this Agreement with respect to their intellectual
+property rights.
+
+3.2 You may, but are not obligated to, provide to Bright Computing Feedback.
+“Feedback” means suggestions, fixes, modifications, feature requests or other
+feedback regarding the SOFTWARE. Feedback, even if designated as confidential by
+you, shall not create any confidentiality obligation for Bright Computing.
+Bright Computing and its designees have a perpetual, non-exclusive, worldwide,
+irrevocable license to use, reproduce, publicly display, modify, create
+derivative works of, license, sublicense, and otherwise distribute and exploit
+Feedback as Bright Computing sees fit without payment and without obligation or
+restriction of any kind on account of intellectual property rights or otherwise.
+
+4. No Warranties.
+
+THE SOFTWARE IS PROVIDED BY BRIGHT COMPUTING “AS IS” AND “WITH ALL FAULTS.” TO
+THE MAXIMUM EXTENT PERMITTED BY LAW, BRIGHT COMPUTING AND ITS AFFILIATES
+EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND OR NATURE, WHETHER EXPRESS,
+IMPLIED OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, OR
+THE ABSENCE OF ANY DEFECTS THEREIN, WHETHER LATENT OR PATENT. NO WARRANTY IS
+MADE ON THE BASIS OF TRADE USAGE, COURSE OF DEALING OR COURSE OF TRADE.
+
+5. Limitations of Liability.
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, BRIGHT COMPUTING AND ITS AFFILIATES
+SHALL NOT BE LIABLE FOR ANY SPECIAL, INCIDENTAL, PUNITIVE OR CONSEQUENTIAL
+DAMAGES, OR ANY LOST PROFITS, LOSS OF USE, LOSS OF DATA OR LOSS OF GOODWILL, OR
+THE COSTS OF PROCURING SUBSTITUTE PRODUCTS, ARISING OUT OF OR IN CONNECTION WITH
+THIS AGREEMENT OR THE USE OR PERFORMANCE OF THE SOFTWARE, WHETHER SUCH LIABILITY
+ARISES FROM ANY CLAIM BASED UPON BREACH OF CONTRACT, BREACH OF WARRANTY, TORT
+(INCLUDING NEGLIGENCE), PRODUCT LIABILITY OR ANY OTHER CAUSE OF ACTION OR THEORY
+OF LIABILITY. IN NO EVENT WILL BRIGHT COMPUTING AND ITS AFFILIATES TOTAL
+CUMULATIVE LIABILITY UNDER OR ARISING OUT OF THIS AGREEMENT EXCEED THE NET
+AMOUNTS RECEIVED BY BRIGHT COMPUTING OR ITS AFFILIATES FOR YOUR USE OF THE
+PARTICULAR SOFTWARE DURING THE TWELVE (12) MONTHS BEFORE THE LIABILITY AROSE (OR
+UP TO US$10.00 IF YOU OBTAINED THE SOFTWARE LICENSE AT NO CHARGE). THE NATURE OF
+THE LIABILITY OR THE NUMBER OF CLAIMS OR SUITS SHALL NOT ENLARGE OR EXTEND THIS
+LIMIT.
+
+These exclusions and limitations of liability shall apply regardless if Bright
+Computing or its affiliates have been advised of the possibility of such
+damages, and regardless of whether a remedy fails its essential purpose. These
+exclusions and limitations of liability form an essential basis of the bargain
+between the parties, and, absent any of these exclusions or limitations of
+liability, the provisions of this Agreement, including, without limitation, the
+economic terms, would be substantially different.
+
+6. Termination.
+
+6.1 Bright Computing may terminate this Agreement upon notice if: (i) you fail
+to comply with any term of this Agreement and the non-compliance is not fixed
+within thirty (30) days following notice from Bright Computing (or immediately
+if you violate Bright Computing’s intellectual property rights); (ii) you
+commence or participate in any legal proceeding against Bright Computing with
+respect to the SOFTWARE; or (iii) you become the subject of a voluntary or
+involuntary petition in bankruptcy or any proceeding relating to insolvency,
+receivership, liquidation or composition for the benefit of creditors, if that
+petition or proceeding is not dismissed with prejudice within sixty (60) days
+after filing, or if you cease to do business.
+
+6.2 Each SOFTWARE license ends at the earlier of the expiration or termination
+of the license or this Agreement. Each service ends at the earlier of the
+expiration or termination of the service or this Agreement, or upon the
+expiration or termination of the associated license and no credit or refund will
+be provided for any service fees paid.
+
+6.3 Upon any expiration or termination of this Agreement, a license or a service
+any amounts owed to Bright Computing become immediately due and payable and you
+agree to promptly discontinue use of the SOFTWARE and destroy all copies in your
+possession or control. Upon written request, you will certify in writing that
+you have complied with your commitments under this section. Upon any termination
+of this Agreement all provisions survive except for the licenses granted to you.
+
+7. Data Collection.
+
+You hereby acknowledge that the SOFTWARE collects the following data for the
+following purposes:
+
+(i) Configuration data and log files for the purposes of diagnosing technical
+support issues at your request; and
+
+(ii) Metrics, logs, settings, configurations, performance and usage data to
+allow you to, at your choice, monitor systems, applications and services on your
+systems.
+
+Bright Computing may require certain personal information such as name, email
+address, entitlement information in order to deliver or provide products or
+services to you.
+
+The SOFTWARE may contain links to websites and services. Bright Computing
+encourages you to review the privacy statements on those sites and services that
+you choose to visit so that you can understand how they may collect, use and
+share your data.  Bright Computing is not responsible for the privacy statements
+or practices of sites and services controlled by other companies or
+organizations.
+
+You should review Bright Computing’s Privacy Policy, located at
+https://www.brightcomputing.com/privacy-policy, which explains Bright
+Computing’s policy for collecting and using data on Bright Computing’s website
+and the Bright Computing Partner Portal.
+
+8.  General.
+
+If you wish to assign this Agreement or your rights and obligations, including
+by merger, consolidation, dissolution or operation of law, contact Bright
+Computing to ask for permission. Any attempted assignment not approved by Bright
+Computing in writing shall be void and of no effect. Bright Computing may
+assign, delegate or transfer this Agreement and its rights and obligations, and
+if to a non-affiliate you will be notified.
+
+During the term of this Agreement and for a period of three (3) years
+thereafter, Bright Computing or an independent auditor will have the right to
+audit you during regular business hours to check for compliance with the terms
+of this Agreement. Audits will be conducted no more frequently than annually,
+unless non-compliance was previously found. If an audit reveals an underpayment,
+you will promptly remit the full amount of such underpayment to Bright Computing
+including interest that will accrue (without the requirement of a notice) at the
+lower of 1.5% per month or the highest rate permissible by law. If the underpaid
+amount exceeds five percent (5%) of the amounts payable to Bright Computing
+during the audited period and/or if the audit reveals a material non-conformance
+with the terms of this Agreement, then you will reimburse Bright Computing’s
+reasonable audit costs. Further, you agree that the party delivering the
+SOFTWARE to you may share with Bright Computing information regarding your
+compliance with this Agreement.
+
+Neither party will be responsible for any failure or delay in its performance
+under this Agreement (except for any payment obligations) to the extent due to
+causes beyond its reasonable control for so long as such force majeure event
+continues in effect.
+
+This Agreement will be governed in all respects by the laws of the United States
+and of the State of Delaware as those laws are applied to contracts entered into
+and performed entirely within Delaware by Delaware residents, without regard to
+the conflicts of laws principles. The United Nations Convention on Contracts for
+the International Sale of Goods is specifically disclaimed. You agree to all
+terms of this Agreement in the English language.
+
+The state or federal courts residing in Santa Clara County, California shall
+have exclusive jurisdiction over any dispute or claim arising out of this
+Agreement. Notwithstanding this, you agree that Bright Computing shall still be
+allowed to apply for injunctive remedies or an equivalent type of urgent legal
+relief in any jurisdiction.
+
+If it turns out that any provision of this Agreement is not unenforceable, such
+provision will be construed as limited to the extent necessary to be consistent
+with and fully enforceable under the law and the remaining provisions will
+remain in full force and effect. Unless otherwise specified, remedies are
+cumulative.
+
+The SOFTWARE has been developed entirely at private expense and is “commercial
+items” consisting of “commercial computer software” and “commercial computer
+software documentation” provided with RESTRICTED RIGHTS. Use, duplication or
+disclosure by the U.S. Government or a U.S. Government subcontractor is subject
+to the restrictions in this Agreement pursuant to DFARS 227.7202-3(a) or as set
+forth in subparagraphs (b)(1) and (2) of the Commercial Computer Software -
+Restricted Rights clause at FAR 52.227-19, as applicable.
+Contractor/manufacturer is Bright Computing, 2880 Zanker Road, Suite 203, San
+Jose CA 95134, United States of America.
+
+The SOFTWARE is subject to United States export laws and regulations. You agree
+that you will not ship, transfer or export the SOFTWARE into any country, or use
+the SOFTWARE in any manner, prohibited by the United States Bureau of Industry
+and Security or economic sanctions regulations administered by the U.S.
+Department of Treasury’s Office of Foreign Assets Control (OFAC), or any
+applicable export laws, restrictions or regulations. These laws include
+restrictions on destinations, end users and end use. By accepting this
+Agreement, you confirm that you are not a resident or citizen of any country
+currently embargoed by the U.S. and that you are not otherwise prohibited from
+receiving the SOFTWARE.
+
+Any notice delivered by Bright Computing to you under this Agreement will be
+delivered via mail, email or fax. You agree that any notices that Bright
+Computing sends you electronically will satisfy any legal communication
+requirements. Please direct your legal notices or other correspondence to Bright
+Computing Corporation, 2880 Zanker Road, Suite 203, San Jose CA 95134, United
+States of America, Attention: Legal Department.
+
+This Agreement and any exhibits incorporated into this Agreement constitute the
+entire agreement of the parties with respect to the subject matter of this
+Agreement and supersede all prior negotiations or documentation between the
+parties relating to this subject matter. Any additional and/or conflicting terms
+on purchase order(s) or any other documents issued by you are null, void, and
+invalid. Any amendment or waiver under this Agreement shall be in writing and
+signed by representatives of both parties.
+
+(v. January 12, 2022)
+
+BRIGHT COMPUTING SOFTWARE SERVICES SUPPLEMENT
+
+The terms in this supplement describe the service subscriptions that you may
+obtain directly from Bright Computing for Bright Computing SOFTWARE under the
+terms of your license agreement (“Agreement”) as modified by this supplement.
+Capitalized terms used but not defined below shall have the meaning assigned to
+them in this Agreement.
+
+This supplement is an exhibit to this Agreement and is incorporated as an
+integral part of this Agreement. In the event of conflict between the terms in
+this supplement and the terms in this Agreement, the terms in this supplement
+shall govern.
+
+1. Scope. If your order indicates that Bright Computing will directly provide
+Technical Support, Maintenance, Updates and/or Upgrades for your license(s),
+then Bright Computing agrees to provide the below services for the Supported
+Software based on the service subscription purchased during the applicable
+service term, solely on Certified System(s), and solely for the Supported OSs.
+
+The services described in this supplement are provided by Bright Computing to
+you based on the then-current service subscription plan(s) available for the
+Supported Software. If you have an agreement with a Bright Computing reseller
+specifying that a third-party will deliver the same services described in this
+supplement for a SOFTWARE, this supplement does not apply. Bright Computing may
+update the scope of services under your service subscription plan and any such
+modifications are binding on you, provided that such modifications do not single
+you out.
+
+2. Services.
+
+2.1 Technical Support. If your service subscription includes Technical Support,
+subject to payment of applicable fees Bright Computing will make available to
+you Technical Support for the Supported Software during the service term. You
+will be permitted to designate in writing to Bright Computing designated users
+for purposes of obtaining Technical Support. Bright Computing will provide
+Technical Support to such designated users only via a dedicated support portal.
+Bright Computing will use commercially reasonable efforts to analyze each
+potential Technical Support issue to determine if it qualifies for service.
+Bright Computing shall issue a response to all potential Technical Support
+issues filed, provided no commitment is made with respect to the specific
+resolution.
+
+2.2 Maintenance. If your service subscription includes Maintenance, subject to
+payment of applicable fees Bright Computing will make available to you the
+Maintenance associated with the Supported Software during the service term.
+
+2.3 Updates. If your service subscription includes Updates, subject to payment
+of applicable fees Bright Computing will make available to you the Updates
+associated with the Supported Software during the service term.
+
+2.4 Upgrades. If your service subscription includes Upgrades, subject to payment
+of applicable fees Bright Computing will make available to you the Upgrades
+associated with the Supported Software during the service term.
+
+2.5 Reinstatement. If you elect not to renew certain service subscriptions and
+later you desire to re-enroll, you must pay with respect to the services being
+reinstated at the then-current rates: (a) fees for the period between the last
+expiration of the service subscription and until commencement of the new service
+subscription, (b) fees for service term of the new service subscription, and (c)
+any applicable reinstatement fees in addition to fees under (a) and (b). Service
+subscription re-enrollment is subject to availability of the service
+subscription plans at the time of ordering and software version restrictions.
+
+2.6 Requirements and Availability. You shall (a) purchase the initial service
+subscription for a Supported Software only for the most current generally
+available version of the Supported Software, and (b) initially purchase and
+renew service subscriptions for all of your licenses of a Supported Software.
+The service subscription plans will indicate the types of services (from the
+above) that are available for Supported Software. Bright Computing is not
+obligated to provide any services under this supplement for a Supported Software
+version after the end of support period to its licensees. Bright Computing is
+not obligated to initiate or renew any service subscription if such service
+subscription plan is no longer made available by Bright Computing.
+
+3. Exclusions. Bright Computing does not provide services under this supplement
+related to:
+(a) errors in your own or your licensors’ products that are not due to Errors in
+the Supported Software;
+(b) service necessary due to operator error, improper use of the Supported
+Software or attempted support by unauthorized persons;
+(c) use of the Supported Software outside of this Agreement scope;
+(d) modifications to the Supported Software made by you or on your behalf, or
+any modifications made by any third party without Bright Computing’s
+authorization;
+(e) use of the Supported Software that deviates from the operating procedures,
+indicated supported operating systems and any other specifications indicated in
+the documentation;
+(f) to the extent the provision thereof would violate Bright Computing’s
+obligations to its third-party licensors and suppliers with respect to such
+third parties’ intellectual property; or
+(g) Supported Software or related services provided free of charge.
+
+Further, services under this supplement do not include any enhancement(s) or
+addition(s) to the Supported Software beyond Maintenance, Updates and Upgrades.
+
+4. Your Responsibilities. In order for Bright Computing to deliver services
+under this supplement, you agree that:
+(a) you are responsible for procuring, installing and maintaining all equipment
+and obtaining all consents for other software and other hardware necessary to
+operate the Supported Software;
+(b) your failure to deploy a Maintenance, Update or Upgrade available to you as
+promptly as possible may render the applicable Supported Software non-operable
+or non-conforming to later documentation provided by Bright Computing;
+(c) you shall further provide through designated users such information, and/or
+access to your resources and personnel as Bright Computing may reasonably
+require for providing services. As examples, as reasonably requested you shall
+(i) identify the correct version(s) of Supported Software, (ii) provide the
+documentation and assistance necessary to demonstrate and diagnose each
+potential Technical Support issue, including providing necessary test cases that
+Bright Computing can reproduce on a Certified System, (iii) provide remote
+system access (upon mutual agreement) for Bright Computing to replicate
+potential Errors, and (iv) provide embedded diagnostic information;
+(d) When you use Maintenance, Update or Upgrade, access to a new product version
+does not change the number of authorized licenses you have for the Supported
+Software and you shall discontinue use of the prior version as necessary to
+maintain your authorized number of licenses;
+(e) you will appoint as designated users only those of your employees who have
+reasonably appropriate technical backgrounds and skills. You may remove or
+replace designated users during the service term with notice to Bright
+Computing; and
+(f) you will appoint, at Bright Computing’s request, designated service and
+engineering contacts for service issue escalations. Bright Computing shall be
+excused from performing any of its obligations hereunder to the extent any such
+non-performance is attributable to your failure to perform your responsibilities
+under this section.
+
+5. Service Fees; Payment Terms. When you purchase service subscriptions directly
+from Bright Computing the following applies: Fees for the service subscriptions
+are set forth in the associated order and are payable pursuant to the terms of
+such order. Unless otherwise expressly indicated in an order, fees will be
+invoiced upon your purchase, are payable upon invoice and are expressed in U.S.
+Dollars. All fees are non-refundable, and don’t include any taxes, duties or
+similar charges. If Bright Computing is required to pay sales, use, property,
+value-added or other taxes based on the payments provided in this Agreement and
+if Bright Computing is required to collect and remit such taxes, then such taxes
+shall be billed to and paid by you or your reseller, unless Bright Computing
+receives a valid exemption or resale certificate. If you are not billed the
+applicable tax under the order, then it is your responsibility to properly remit
+the tax directly to the applicable tax jurisdiction. Further, you acknowledge
+that the payments to Bright Computing under this Agreement shall be made in full
+without reduction for withholding taxes, if applicable. This section shall not
+apply to taxes based on Bright Computing’s net income or payroll taxes. All
+amounts not paid when due will accrue interest (without the requirement of a
+notice) at the lower of 1.5% per month or the highest rate permissible by law
+until the unpaid amounts are paid in full. If payment is overdue, Bright
+Computing reserves the right to suspend or terminate service subscriptions, in
+addition to any other remedies it may have, until the payment delinquency is
+corrected. Payment obligations survive any expiration or termination of this
+Agreement.
+
+6. Definitions.
+i. “Certified Systems” means Supported OS platforms, corresponding hardware
+platforms, third party software and configuration details appearing on a list
+maintained by Bright Computing and made available to you, or as otherwise
+approved by Bright Computing.
+ii. “Error(s)” means a reproducible defect, problem, logical error or bug in the
+Supported Software that constitutes a failure to comply substantially with the
+applicable documentation and is reported using standard Bright Computing
+procedures.
+iii. “Error Correction(s)” means adapting, re-configuring, or reprogramming the
+Supported Software to correct the Error(s).
+iii. “Maintenance” means security patch(es), Error Correction(s) and
+Workaround(s) to the Supported Software made available by Bright Computing in
+its sole discretion and on a “when and if generally made available” basis to its
+other commercial customers of the Supported Software who have the same Supported
+Software version under a service subscription contract with Bright Computing
+that specifically includes “Maintenance”. Maintenance may include revisions to
+documentation.
+iv. “Supported OS” means the supported operating system(s) listed in conjunction
+with a particular Certified System on the list maintained by Bright Computing
+and made available to you.
+v. “Supported Software” means the SOFTWARE installed on your premises that are
+under a current and valid license and for which you purchased service
+subscriptions and does not include any modifications made by you or a third
+party on your behalf, any modifications to the Supported Software made by Bright
+Computing pursuant to a consulting services agreement or any portion of the
+SOFTWARE not developed by Bright Computing.
+vi. “Technical Support” means the provision of telephone or web-based technical
+assistance to questions from designated users related to the installation, use
+and operation of the Supported Software, including basic instruction or
+assistance related to functional Errors in the Supported Software.
+vii. “Updates” means those modifications to the Supported Software other than
+Maintenance made available by Bright Computing in its sole discretion and on a
+“when and if generally made available” basis to its other commercial customers
+of the Supported Software who have the same Supported Software version under a
+service subscription contract with Bright Computing that specifically includes
+“Updates” and that is indicated by Bright Computing as being an update by means
+of a change in the digit to right of first decimal point (e.g., version 5.0 to
+version 5.1).
+viii. “Upgrades” means those modifications to the Supported Software other than
+Maintenance made available by Bright Computing in its sole discretion and on a
+“when and if generally made available” basis to its other commercial customers
+of the Supported Software who have the same Supported Software version under a
+service subscription contract with Bright Computing that specifically includes
+“Upgrades” and that is indicated by Bright Computing as being an upgrade by
+means of a change in the digit to left of first decimal point (e.g., version 5.0
+to version 6.0).
+ix. “Workarounds” means procedures and routines, for use by you, which, when
+employed in the regular operation of, or access to, the Supported Software, will
+avoid or substantially diminish the practical adverse effects of the relevant
+Error.
+
+(v. January 12, 2022)
