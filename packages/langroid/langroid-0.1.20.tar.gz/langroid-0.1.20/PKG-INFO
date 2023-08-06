@@ -1,0 +1,293 @@
+Metadata-Version: 2.1
+Name: langroid
+Version: 0.1.20
+Summary: Harness LLMs with Multi-Agent Programming
+License: MIT
+Author: Prasad Chalasani
+Author-email: pchalasani@gmail.com
+Requires-Python: >=3.8.1,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: hf-embeddings
+Requires-Dist: autopep8 (>=2.0.2,<3.0.0)
+Requires-Dist: black[jupyter] (>=23.3.0,<24.0.0)
+Requires-Dist: bs4 (>=0.0.1,<0.0.2)
+Requires-Dist: chromadb (>=0.3.21,<0.4.0)
+Requires-Dist: colorlog (>=6.7.0,<7.0.0)
+Requires-Dist: faker (>=18.9.0,<19.0.0)
+Requires-Dist: fakeredis (>=2.12.1,<3.0.0)
+Requires-Dist: fire (>=0.5.0,<0.6.0)
+Requires-Dist: flake8 (>=6.0.0,<7.0.0)
+Requires-Dist: halo (>=0.0.31,<0.0.32)
+Requires-Dist: mkdocs (>=1.4.2,<2.0.0)
+Requires-Dist: mkdocs-awesome-pages-plugin (>=2.8.0,<3.0.0)
+Requires-Dist: mkdocs-gen-files (>=0.4.0,<0.5.0)
+Requires-Dist: mkdocs-jupyter (>=0.24.1,<0.25.0)
+Requires-Dist: mkdocs-literate-nav (>=0.6.0,<0.7.0)
+Requires-Dist: mkdocs-material (>=9.1.5,<10.0.0)
+Requires-Dist: mkdocs-section-index (>=0.3.5,<0.4.0)
+Requires-Dist: mkdocstrings[python] (>=0.21.2,<0.22.0)
+Requires-Dist: mypy (>=1.2.0,<2.0.0)
+Requires-Dist: nltk (>=3.8.1,<4.0.0)
+Requires-Dist: openai (>=0.27.5,<0.28.0)
+Requires-Dist: pre-commit (>=3.3.2,<4.0.0)
+Requires-Dist: pydantic (==1.10.11)
+Requires-Dist: pygithub (>=1.58.1,<2.0.0)
+Requires-Dist: pygments (>=2.15.1,<3.0.0)
+Requires-Dist: pyparsing (>=3.0.9,<4.0.0)
+Requires-Dist: python-dotenv (>=1.0.0,<2.0.0)
+Requires-Dist: qdrant-client (>=1.3.1,<2.0.0)
+Requires-Dist: redis (>=4.5.5,<5.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: requests-oauthlib (>=1.3.1,<2.0.0)
+Requires-Dist: rich (>=13.3.4,<14.0.0)
+Requires-Dist: ruff (>=0.0.270,<0.0.271)
+Requires-Dist: sentence-transformers (==2.2.2) ; extra == "hf-embeddings"
+Requires-Dist: tiktoken (>=0.3.3,<0.4.0)
+Requires-Dist: torch (==2.0.0) ; extra == "hf-embeddings"
+Requires-Dist: trafilatura (>=1.5.0,<2.0.0)
+Requires-Dist: typer (>=0.7.0,<0.8.0)
+Requires-Dist: types-redis (>=4.5.5.2,<5.0.0.0)
+Requires-Dist: types-requests (>=2.31.0.1,<3.0.0.0)
+Requires-Dist: wget (>=3.2,<4.0)
+Description-Content-Type: text/markdown
+
+<div style="display: flex; align-items: center;">
+  <img src="docs/assets/orange-logo.png" alt="Logo" 
+        width="80" height="80"align="left">
+  <h1>Langroid: Harness LLMs with Multi-Agent Programming</h1>
+</div>
+
+[![Pytest](https://github.com/langroid/langroid/actions/workflows/pytest.yml/badge.svg)](https://github.com/langroid/langroid/actions/workflows/pytest.yml)
+[![Lint](https://github.com/langroid/langroid/actions/workflows/validate.yml/badge.svg)](https://github.com/langroid/langroid/actions/workflows/validate.yml)
+[![Docs](https://github.com/langroid/langroid/actions/workflows/mkdocs-deploy.yml/badge.svg)](https://github.com/langroid/langroid/actions/workflows/mkdocs-deploy.yml)
+
+Langroid is an intuitive, lightweight, transparent, flexible, extensible and principled
+Python framework to harness LLMs using Multi-Agent Programming (MAP).
+We welcome contributions!
+
+Documentation: https://langroid.github.io/langroid/
+
+## Contributors:
+- Prasad Chalasani (IIT BTech/CS, CMU PhD/ML; Independent ML Consultant)
+- Somesh Jha (IIT BTech/CS, CMU PhD/CS; Professor of CS, U Wisc at Madison)
+- Mohannad Alhanahnah (Research Associate, U Wisc at Madison)
+- Ashish Hooda (IIT BTech/CS; PhD Candidate, U Wisc at Madison)
+
+## Overview
+
+### The LLM Opportunity
+
+Given the remarkable abilities of recent Large Language Models (LLMs), there
+is an unprecedented opportunity to build intelligent applications powered by
+this transformative technology. The top question for any enterprise is: how
+best to harness the power of LLMs for complex applications? For technical and
+practical reasons, building LLM-powered applications is not as simple as
+throwing a task at an LLM-system and expecting it to do it.
+
+### Langroid's Multi-Agent Programming Framework
+
+Effectively leveraging LLMs at scale requires a *principled programming
+framework*. In particular, there is often a need to maintain multiple LLM
+conversations, each instructed in different ways, and "responsible" for
+different aspects of a task.
+
+An *agent* is a convenient abstraction that encapsulates LLM conversation
+state, along with access to long-term memory (vector-stores) and tools (a.k.a functions
+or plugins). Thus a **Multi-Agent Programming** framework is a natural fit
+for complex LLM-based applications.
+
+> Langroid is the first Python LLM-application framework that was explicitly
+designed  with Agents as first-class citizens, and Multi-Agent Programming
+as the core  design principle. The framework is inspired by ideas from the
+[Actor Framework](https://en.wikipedia.org/wiki/Actor_model).
+
+Langroid allows an intuitive definition of agents, tasks and task-delegation
+among agents. There is a principled mechanism to orchestrate multi-agent
+collaboration. Agents act as message-transformers, and take turns responding to (and
+transforming) the current message. The architecture is lightweight, transparent,
+flexible, and allows other types of orchestration to be implemented.
+Besides Agents, Langroid also provides simple ways to directly interact with  
+LLMs and vector-stores.
+
+### Highlights
+Highlights of Langroid's features as of July 2023:
+
+- **Agents as first-class citizens:** An Agent is an abstraction that encapsulates LLM conversation state,
+  and optionally a vector-store and tools. Agents are the core abstraction in Langroid.
+  Agents act as _message transformers_, and by default provide 3 responder methods,  
+  one corresponding to each entity: LLM, Agent, User.
+- **Tasks:** A Task class wraps an Agent, and gives the agent instructions (or roles, or goals), 
+  manages iteration over an Agent's responder methods, 
+  and orchestrates multi-agent interactions via hierarchical, recursive
+  task-delegation. The `Task.run()` method has the same 
+  type-signature as an Agent's responder's methods, and this is key to how 
+  a task of an agent can delegate to other sub-tasks.
+- **LLM Support**: Langroid supports OpenAI LLMs including GPT-3.5-Turbo,
+  GPT-4-0613
+- **Caching of LLM prompts, responses:** Langroid uses [Redis](https://redis.com/try-free/) for caching.
+- **Vector Store Support**: [Qdrant](https://qdrant.tech/) and [Chroma](https://www.trychroma.com/) are currently supported.
+  Vector stores allow for Retrieval-Augmented-Generaation (RAG).
+- **Grounding and source-citation:** Access to external documents via vector-stores 
+   allows for grounding and source-citation.
+- **Observability: Logging and provenance/lineage:** Langroid generates detailed logs of multi-agent interactions and
+  and maintains provenance/lineage of messages, so that you can trace back
+  the origin of a message.
+- **Tools/Plugins/Function-calling**: Langroid supports OpenAI's recently
+  released [function calling](https://platform.openai.com/docs/guides/gpt/function-calling)
+  feature. In addition, Langroid has its own native equivalent, which we
+  call **tools** (also known as "plugins" in other contexts). Function
+  calling and tools have the same developer-facing interface, implemented
+  using [Pydantic](https://docs.pydantic.dev/latest/),
+  which makes it very easy to define tools/functions and enable agents
+  to use them. Benefits of using Pydantic are that you never have to write
+  complex JSON specs for function calling, and when the LLM
+  hallucinates malformed JSON, the Pydantic error message is sent back to
+  the LLM so it can fix it!
+
+# Usage/quick-start
+These are quick teasers to give a glimpse of what you can do with Langroid
+and how your code would look. See the 
+[`Getting Started Guide`](https://langroid.github.io/langroid/getting_started/)
+for more details.
+
+## Install `langroid` 
+Use `pip` to install `langroid` (from PyPi) to your virtual environment:
+```bash
+pip install langroid
+```
+
+## Set up environment variables (API keys, etc)
+
+Copy the `.env-template` file to a new file `.env` and 
+insert these secrets:
+- **OpenAI API** key (required): If you don't have one, see [this OpenAI Page](https://help.openai.com/en/collections/3675940-getting-started-with-openai-api).
+- **Qdrant** Vector Store API Key (required for apps that need retrieval from
+  documents): Sign up for a free 1GB account at [Qdrant cloud](https://cloud.qdrant.io)
+  Alternatively [Chroma](https://docs.trychroma.com/) is also currently supported. 
+  We use the local-storage version of Chroma, so there is no need for an API key.
+- **GitHub** Personal Access Token (required for apps that need to analyze git
+  repos; token-based API calls are less rate-limited). See this
+  [GitHub page](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+- **Redis** Password (optional, only needed to cache LLM API responses):
+  Redis [offers](https://redis.com/try-free/) a free 30MB Redis account
+  which is more than sufficient to try out Langroid and even beyond.
+  
+```bash
+cp .env-template .env
+# now edit the .env file, insert your secrets as above
+``` 
+Your `.env` file should look like this:
+```bash
+OPENAI_API_KEY=<your key>
+GITHUB_ACCESS_TOKEN=<your token>
+REDIS_PASSWORD=<your password>
+QDRANT_API_KEY=<your key>
+```
+
+Currently only OpenAI models are supported. Others will be added later
+(Pull Requests welcome!).
+
+## Direct interaction with OpenAI LLM
+
+```python
+from langroid.language_models.openai_gpt import ( 
+        OpenAIGPTConfig, OpenAIChatModel, OpenAIGPT,
+)
+from langroid.language_models.base import LLMMessage, Role
+
+cfg = OpenAIGPTConfig(chat_model=OpenAIChatModel.GPT4)
+
+mdl = OpenAIGPT(cfg)
+
+messages = [
+  LLMMessage(content="You are a helpful assistant",  role=Role.SYSTEM), 
+  LLMMessage(content="What is the capital of Ontario?",  role=Role.USER),
+],
+response = mdl.chat(messages, max_tokens=200)
+```
+
+## Define an agent, set up a task, and run it
+
+```python
+from langroid.agent.chat_agent import ChatAgent, ChatAgentConfig
+from langroid.agent.task import Task
+from langroid.language_models.openai_gpt import OpenAIChatModel, OpenAIGPTConfig
+
+config = ChatAgentConfig(
+    llm = OpenAIGPTConfig(
+        chat_model=OpenAIChatModel.GPT4,
+    ),
+    vecdb=None, # no vector store
+)
+agent = ChatAgent(config)
+# get response from agent's LLM ...
+answer = agent.llm_response("What is the capital of Ontario?")
+# ... or set up a task..
+task = Task(agent, name="Bot") 
+task.run() # ... a loop seeking response from Agent, LLM or User at each turn
+```
+
+## Three communicating agents
+
+A toy numbers game, where when given a number `n`:
+- `repeater_agent`'s LLM simply returns `n`,
+- `even_agent`'s LLM returns `n/2` if `n` is even, else says "DO-NOT-KNOW"
+- `odd_agent`'s LLM returns `3*n+1` if `n` is odd, else says "DO-NOT-KNOW"
+
+First define the 3 agents, and set up their tasks with instructions:
+
+```python
+    config = ChatAgentConfig(
+        llm = OpenAIGPTConfig(
+            chat_model=OpenAIChatModel.GPT4,
+        ),
+        vecdb = None,
+    )
+    repeater_agent = ChatAgent(config)
+    repeater_task = Task(
+        repeater_agent,
+        name = "Repeater",
+        system_message="""
+        Your job is to repeat whatever number you receive.
+        """,
+        llm_delegate=True, # LLM takes charge of task
+        single_round=False, 
+    )
+    even_agent = ChatAgent(config)
+    even_task = Task(
+        even_agent,
+        name = "EvenHandler",
+        system_message=f"""
+        You will be given a number. 
+        If it is even, divide by 2 and say the result, nothing else.
+        If it is odd, say {NO_ANSWER}
+        """,
+        single_round=True,  # task done after 1 step() with valid response
+    )
+
+    odd_agent = ChatAgent(config)
+    odd_task = Task(
+        odd_agent,
+        name = "OddHandler",
+        system_message=f"""
+        You will be given a number n. 
+        If it is odd, return (n*3+1), say nothing else. 
+        If it is even, say {NO_ANSWER}
+        """,
+        single_round=True,  # task done after 1 step() with valid response
+    )
+```
+Then add the `even_task` and `odd_task` as sub-tasks of `repeater_task`, 
+and run the `repeater_task`, kicking it off with a number as input:
+```python
+    repeater_task.add_sub_task([even_task, odd_task])
+    repeater_task.run("3")
+```
+
+
+
+
