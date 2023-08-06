@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "local-candles"
+version = "0.1.1"
+description = "Candles (ohlc) loaders and cache"
+authors = ["Oleksandr Polieno <polyenoom@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/nanvel/local-candles"
+keywords = ["quant", "trading", "crypto", "cancles", "ohlc", "ohlcv", "dataframe", "pandas"]
+packages = [{include = "local_candles"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^2.0.2"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.2"
+black = {extras = ["d"], version = "^23.3.0"}
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
