@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: rds-core
+Version: 0.2.2
+Summary: Framework para serviços do Rede de Dados em Saúde do LAIS
+Home-page: https://github.com/lais-huol/rds-core
+Author: Kelson da Costa Medeiros
+Author-email: kelson.medeiros@lais.huol.ufrn.br
+License: UNKNOWN
+Download-URL: https://github.com/lais-huol/rds-core/tags
+Description: É uma biblioteca pública em Python que condensa um conjunto de boas práticas para o desenvolvimento das aplicações que compõem a Rede da Dados em Saúde (RDS) RDS do Laboratório de Inovação Tecnológica em Saúde (LAIS) e dos parceiros que contam com o LAIS para fazer suas próprias RDS, a exemplo RDS-RN e RDS-ES.
+Keywords: rds,cache,config,helper,searchengine
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.8
