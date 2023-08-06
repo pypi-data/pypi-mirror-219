@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+dicekey/__init__.py
+dicekey/diceware.py
+dicekey.egg-info/PKG-INFO
+dicekey.egg-info/SOURCES.txt
+dicekey.egg-info/dependency_links.txt
+dicekey.egg-info/entry_points.txt
+dicekey.egg-info/top_level.txt

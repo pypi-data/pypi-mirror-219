@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: dicekey
+Version: 0.0.1
+Summary: A simple Python passphrase generator
+Home-page: https://git.krislamo.org/kris/dicekey
+Author: Kris Lamoureux
+Author-email: Kris Lamoureux <kris@lamoureux.io>
+License: GNU GPLv3
+Project-URL: Homepage, https://git.krislamo.org/kris/dicekey
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Dicekey
+
+Dicekey is a [Diceware](http://diceware.com) simple Python passphrase generator.
+
+## Quick Start
+
+1. Clone the repository: `git clone https://git.krislamo.org/kris/dicekey`
+2. Install dependencies: `sudo apt-get install python-tk`
+3. Create a virtual environment: `python3 -m venv .venv`
+4. Activate the virtual environment `source .venv/bin/activate`
+5. Install package: `pip install -e .`
+6. Run `dicekey` and optionally specify a length, i.e., `dicekey 7`
+
+## Copyrights and Licenses
+
+Copyright (C) 2016, 2023  Kris Lamoureux
+
+All Dicekey
+code is [Free Software](https://www.gnu.org/philosophy/free-sw.en.html)
+released under the [GNU General Public
+License](https://github.com/Kris619/Dicekey/blob/master/LICENSE) as published
+by the Free Software Foundation, version 3 of the License.
+
+
+Copyright (C) 2001  Arnold G. Reinhold, Cambridge, Massachusetts USA.
+
+A G Reinhold licenses its rights to the English Diceware Wordlist under the
+[Creative Commons CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/)
+license.
