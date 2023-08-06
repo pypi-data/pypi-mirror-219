@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pyppr
+Version: 0.1.1
+Summary: Financial functions regarding PPRs
+Home-page: 
+Download-URL: https://pypi.org/project/pyppr/
+Author: Gonçalo Vieira Figueiredo
+Maintainer: Gonçalo Vieira Figueiredo
+Maintainer-email: me@goncalovf.com
+License: BSD 3-Clause
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development
+Classifier: Topic :: Office/Business :: Financial :: Investment
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# PyPPR
+
+The `PyPPR` package is a collection of financial functions regarding PPRs, or Planos
+Poupança Reforma, which are retirement plans specific to Portugal.
+
+The documentation for this package is available at https://goncalovf.github.io/pyppr/
+and the source code at https://github.com/goncalovf/pyppr
+
+The importable name of the package is `pyppr`.
+
+```python
+>>> import pyppr
+>>> npf.matching_ppr_cost_rate(20, 0.07, 0.28, 0.08, 0)
+0.0048310556726159914
+```
