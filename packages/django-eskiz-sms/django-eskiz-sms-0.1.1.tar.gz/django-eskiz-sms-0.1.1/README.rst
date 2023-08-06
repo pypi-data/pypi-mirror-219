@@ -1,0 +1,1 @@
+Documentation is here https://docs.tijorat.org/django-eskiz-sms
