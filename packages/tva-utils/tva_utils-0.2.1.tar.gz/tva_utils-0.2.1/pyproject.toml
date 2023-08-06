@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "tva-utils"
+version = "0.2.1"
+description = ""
+authors = ["jsaied99 <jsaied99@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "tva_utils" }]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+sqlalchemy = "^2.0.18"
+psycopg2-binary = "^2.9.6"
+string-color = "^1.2.3"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
