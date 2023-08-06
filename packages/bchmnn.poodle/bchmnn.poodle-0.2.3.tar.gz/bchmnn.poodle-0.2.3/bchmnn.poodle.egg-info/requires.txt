@@ -1,0 +1,12 @@
+aiohttp>=3.8.0
+
+[dev]
+black
+pip-tools
+bumpver
+build
+twine
+git-changelog
+mypy
+pylint
+isort
