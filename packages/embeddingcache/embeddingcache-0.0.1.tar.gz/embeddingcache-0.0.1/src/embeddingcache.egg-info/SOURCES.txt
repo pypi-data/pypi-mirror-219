@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/embeddingcache.egg-info/PKG-INFO
+src/embeddingcache.egg-info/SOURCES.txt
+src/embeddingcache.egg-info/dependency_links.txt
+src/embeddingcache.egg-info/entry_points.txt
+src/embeddingcache.egg-info/requires.txt
+src/embeddingcache.egg-info/top_level.txt
+src/sample/__init__.py
+src/sample/package_data.dat
+src/sample/simple.py
+tests/test_simple.py
