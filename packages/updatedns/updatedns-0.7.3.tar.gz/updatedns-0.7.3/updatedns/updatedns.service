@@ -1,0 +1,10 @@
+[Unit]
+Description=UpdateDNS
+
+[Service]
+Type=simple
+ExecStart=updatedns --monitor
+
+[Install]
+WantedBy=multi-user.target
+
