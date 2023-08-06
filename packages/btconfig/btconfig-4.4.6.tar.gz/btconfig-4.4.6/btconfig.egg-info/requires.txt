@@ -1,0 +1,12 @@
+jinja2
+PyYAML
+requests
+btweb
+pyaml-env
+
+[tests]
+pytest
+pytest-cov
+coveralls
+flake8
+mypy
