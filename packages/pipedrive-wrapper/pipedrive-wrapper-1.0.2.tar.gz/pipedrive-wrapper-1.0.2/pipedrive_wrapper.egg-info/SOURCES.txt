@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+pipedrive/__init__.py
+pipedrive/activity.py
+pipedrive/client.py
+pipedrive/deal.py
+pipedrive/exceptions.py
+pipedrive/person.py
+pipedrive/util.py
+pipedrive_wrapper.egg-info/PKG-INFO
+pipedrive_wrapper.egg-info/SOURCES.txt
+pipedrive_wrapper.egg-info/dependency_links.txt
+pipedrive_wrapper.egg-info/requires.txt
+pipedrive_wrapper.egg-info/top_level.txt
