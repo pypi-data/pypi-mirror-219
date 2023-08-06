@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+gfx-perp-python-sdk/__init__.py
+gfx-perp-python-sdk/perp.py
+gfx-perp-python-sdk/product.py
+gfx-perp-python-sdk/trader.py
+gfx_perp_python_sdk.egg-info/PKG-INFO
+gfx_perp_python_sdk.egg-info/SOURCES.txt
+gfx_perp_python_sdk.egg-info/dependency_links.txt
+gfx_perp_python_sdk.egg-info/requires.txt
+gfx_perp_python_sdk.egg-info/top_level.txt
