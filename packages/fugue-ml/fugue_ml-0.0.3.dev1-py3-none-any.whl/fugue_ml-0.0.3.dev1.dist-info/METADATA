@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: fugue-ml
+Version: 0.0.3.dev1
+Summary: Fugue ML
+Home-page: http://github.com/fugue-project/fugue-ml
+Author: The Fugue Development Team
+Author-email: hello@fugue.ai
+License: Apache-2.0
+Keywords: fugue machine learning ai
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fugue (>=0.8.5)
+Requires-Dist: fsspec (>=2023.1.0)
+Provides-Extra: huggingface
+Requires-Dist: transformers ; extra == 'huggingface'
+Requires-Dist: sentence-transformers ; extra == 'huggingface'
+Provides-Extra: openai
+Requires-Dist: openai ; extra == 'openai'
+Requires-Dist: tiktoken ; extra == 'openai'
+
+# Fugue Machine Learning Library
+
+This is a Machine Learning Library containing scale agnostic and platform agnostic algorithms built
+on top of Fugue.
+
+
