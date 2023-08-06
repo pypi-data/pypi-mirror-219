@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pylib-essentials
+Version: 0.0.4
+Summary: The essentials of the experimental package of pylibs, which require minimum dependencies
+Home-page: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: setuptools
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: netCDF4
+Requires-Dist: matplotlib (>=3.0.0)
+Requires-Dist: pyproj (>=3.0.0)
+Provides-Extra: cloudpickle
+Requires-Dist: cloudpickle ; extra == 'cloudpickle'
+Provides-Extra: eof
+Requires-Dist: eofs (>=1.4.0) ; extra == 'eof'
+Provides-Extra: mpi
+Requires-Dist: mpi4py (>=3.0.0) ; extra == 'mpi'
+Provides-Extra: shapefile
+Requires-Dist: pyshp (>=2.1.0) ; extra == 'shapefile'
+
+UNKNOWN
+
