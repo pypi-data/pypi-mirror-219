@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: pdf_docx_pic
+Version: 4.1.0.1.0.3.2023.7.18.1
+Classifier: Development Status :: 4 - Beta
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Jupyter :: JupyterLab :: 4
+Classifier: Framework :: Django :: 4
+Classifier: Framework :: Django :: 4.2
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Mime Renderers
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8
+Classifier: Operating System :: Microsoft :: Windows :: Windows 8.1
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 11
+Classifier: Operating System :: POSIX
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Typing :: Typed
+Requires-Python: >=2.6, <=3.12
+
+请注意
+
+最新版本3.1.2.2023.6.19.16.57.42支持2.6, 2.7, 3.3, 3.4, 3.5, 3.6, 3.12
+
+但我们不确定依赖库是否存在。
+
+请使用以上版本的谨慎安装
+
+
+
+
+Please note
+
+
+
+The latest version 3.1.2.2023.6.19.16.57.42 supports 2.6, 2.7, 3.3, 3.4, 3.5, 3.6, 3.12
+
+
+
+But we are not sure if the dependent library exists.
+
+
+
+Please use the above version for careful installation
+
