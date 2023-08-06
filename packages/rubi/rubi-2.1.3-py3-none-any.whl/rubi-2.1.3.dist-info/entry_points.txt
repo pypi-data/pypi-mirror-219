@@ -1,0 +1,5 @@
+[console_scripts]
+generate_coverage_report=scripts:test_coverage_html
+test=scripts:test
+test_with_coverage=scripts:test_with_coverage
+
