@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.py
+finqual/__init__.py
+finqual/finqual.py
+finqual.egg-info/PKG-INFO
+finqual.egg-info/SOURCES.txt
+finqual.egg-info/dependency_links.txt
+finqual.egg-info/top_level.txt
+finqual/data/sec_sic.csv
