@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+src/file_combiner/__init__.py
+src/file_combiner/file_combiner.py
+src/file_combiner.egg-info/PKG-INFO
+src/file_combiner.egg-info/SOURCES.txt
+src/file_combiner.egg-info/dependency_links.txt
+src/file_combiner.egg-info/top_level.txt
