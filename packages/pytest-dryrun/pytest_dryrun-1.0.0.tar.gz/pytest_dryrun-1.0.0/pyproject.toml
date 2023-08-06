@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "pytest-dryrun"
+version = "1.0.0"
+description = "A Pytest plugin to ignore tests during collection without reporting them in the test summary."
+authors = ["Miguel Guthridge <hdsq@outlook.com.au>"]
+readme = "README.md"
+packages = [{include = "pytest_dryrun"}]
+repository = "https://github.com/COMP1010UNSW/pytest-dryrun"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Education",
+    # "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Plugins",
+    "Framework :: Pytest",
+    "Topic :: Education :: Testing",
+    "Typing :: Typed",
+]
+include = ["py.typed"]
+
+[tool.poetry.urls]
+"Online Documentation" = "https://github.com/COMP1010UNSW/pytest-dryrun"
+"Bug Tracker" = "https://github.com/COMP1010UNSW/pytest-dryrun/issues"
+
+[tool.poetry.plugins.pytest11]
+pytest-dryrun = "pytest_dryrun.pytest_dryrun"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pytest = "^7.4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+flake8 = "^6.0.0"
+coverage = "^7.2.7"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
