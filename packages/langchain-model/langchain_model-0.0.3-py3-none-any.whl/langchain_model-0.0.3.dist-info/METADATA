@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: langchain-model
+Version: 0.0.3
+Summary: Populate Pydantic Models with LangChain
+Requires-Dist: langchain
+Requires-Dist: pydantic (<2)
+
