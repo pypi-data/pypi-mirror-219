@@ -1,0 +1,8 @@
+[console_scripts]
+molecule = molecule.__main__:main
+
+[molecule.driver.next]
+default = molecule.driver.delegated:Delegated
+
+[molecule.verifier.next]
+ansible = molecule.verifier.ansible:Ansible
