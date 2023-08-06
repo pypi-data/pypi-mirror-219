@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+Makefile
+README.md
+pyproject.toml
+src/webactogram/__init__.py
+src/webactogram/webactogram.py
+src/webactogram.egg-info/PKG-INFO
+src/webactogram.egg-info/SOURCES.txt
+src/webactogram.egg-info/dependency_links.txt
+src/webactogram.egg-info/entry_points.txt
+src/webactogram.egg-info/requires.txt
+src/webactogram.egg-info/top_level.txt
