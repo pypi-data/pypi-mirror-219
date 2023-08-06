@@ -1,0 +1,15 @@
+
+[test]
+pytest
+pytest-cov
+coveralls
+cython>=3.0.0b2
+
+[testmeta]
+build
+twine
+validate-pyproject
+rstcheck
+
+[testoptional]
+unireedsolomon

@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.py
+src/creedsolo/__init__.py
+src/creedsolo/creedsolo.c
+src/creedsolo/creedsolo.pyx
+src/reedsolo/__init__.py
+src/reedsolo/reedsolo.py
+src/reedsolo.egg-info/PKG-INFO
+src/reedsolo.egg-info/SOURCES.txt
+src/reedsolo.egg-info/dependency_links.txt
+src/reedsolo.egg-info/requires.txt
+src/reedsolo.egg-info/top_level.txt
+tests/test_creedsolo.py
+tests/test_reedsolo.py
