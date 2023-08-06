@@ -1,0 +1,7 @@
+
+[extras.check]  # These are resolvable names to check if an extra is installed
+admin = ['pymapadmin:']
+macaroon = ['pymacaroons:Macaroon']
+redis = ['redis.asyncio:Redis', 'msgpack:']
+sieve = ['sievelib.commands:Command', 'sievelib.parser:Parser']
+swim = ['swimprotocol:']
