@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: azure-openai-tr
+Version: 0.1.0a1
+Summary: Translate via Azure Openai
+Home-page: https://github.com/ffreemt/azure-openai-tr
+License: MIT
+Author: ffreemt
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: langchain (>=0.0.234,<0.0.235)
+Requires-Dist: loguru (>=0.7.0,<0.8.0)
+Requires-Dist: openai (>=0.27.8,<0.28.0)
+Requires-Dist: set-loglevel (>=0.1.2,<0.2.0)
+Requires-Dist: typer (>=0.4.1,<0.5.0)
+Project-URL: Repository, https://github.com/ffreemt/azure-openai-tr
+Description-Content-Type: text/markdown
+
+# azure-openai-tr
+[![pytest](https://github.com/ffreemt/azure-openai-tr/actions/workflows/routine-tests.yml/badge.svg)](https://github.com/ffreemt/azure-openai-tr/actions)[![python](https://img.shields.io/static/v1?label=python+&message=3.8%2B&color=blue)](https://www.python.org/downloads/)[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)[![PyPI version](https://badge.fury.io/py/azure_openai_tr.svg)](https://badge.fury.io/py/azure_openai_tr)
+
+Translate via Azure Openai
+
+## Install it
+
+```shell
+pip install azure-openai-tr
+# pip install git+https://github.com/ffreemt/azure-openai-tr
+# poetry add git+https://github.com/ffreemt/azure-openai-tr
+# git clone https://github.com/ffreemt/azure-openai-tr && cd azure-openai-tr
+```
+
+## Use it
+```python
+from azure_openai_tr import azure_openai_tr
+
+print(azure_openai_tr("test this and that")
+# '测试这个和那个。'
+
+print(azure_openai_tr("Hey ya", temperature=.2))
+# 嘿，你好
+
+print(azure_openai_tr("Hey ya", temperature=.8))
+嗨啊
+
+print(azure_openai_tr("Hey ya", temperature=.8))
+嘿 ya
+
+print(azure_openai_tr("test this and that", to_lang='German', temperature=.8))
+# Teste dies und jenes.
+
+print(azure_openai_tr("test this and that", to_lang='German', temperature=.8))
+# Teste dies und das.
+
+print(azure_openai_tr("test this and that", to_lang='German', temperature=.1))
+# Teste dies und das.
+
+print(azure_openai_tr("test this and that", to_lang='中文', temperature=.8, template='翻成 {to_lang}, 列出3个版本\n {text}'))
+# 1. 测试这个和那个
+# 2. 检验这个和那个
+# 3. 试验这个和那个
+```
+
+Check source code for more details.
