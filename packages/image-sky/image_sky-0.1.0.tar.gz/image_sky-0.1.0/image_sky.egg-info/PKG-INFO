@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: image-sky
+Version: 0.1.0
+Summary: Run many jobs transparently on AWS Lambda and other cloud services
+Home-page: http://pywren.io
+Author: Eric Jonas
+Author-email: jonas@ericjonas.com
+License: UNKNOWN
+Description: PyWren lets you transparently run your python functionson AWS cloud services, including AWS Lambda and AWS EC2.
+Platform: UNKNOWN
