@@ -1,0 +1,19 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "eros uart log",
+            "type": "python",
+            "request": "launch",
+            // "program": "src/eros_cli/entrypoint.py",
+            "console": "integratedTerminal",
+            "module": "eros_cli.entrypoint",
+            "args": ["uart", "log", "--log_failed"],
+            "justMyCode": false
+        }
+    ]
+}
