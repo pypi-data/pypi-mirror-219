@@ -1,0 +1,13 @@
+snapctl/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapctl/__main__.py,sha256=eBBv0HBPFvCwYs9QrubE2UBd77Yp011-aLK7NPNalEE,47
+snapctl/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapctl/commands/byosnap.py,sha256=4M5mfOD2V2p4q9RbMoewW-n21BLUKHpSAi_nun8_CAo,8886
+snapctl/main.py,sha256=ozsjOmsu74Z-L-Nr46NTalrwF8U_NCW8LSAHfNfStaQ,1575
+snapctl/types/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapctl/types/definitions.py,sha256=zzO_dXUONqoM-CYLtYnDiGO_MFMZuFXS1cf13z__AH8,60
+snapctl/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+snapctl/utils/echo.py,sha256=XZtpDUkBqcbdwF1uuscmQ_X-ENviyeIVE8qzcI7vkdw,321
+snapctl-0.2.6.dist-info/METADATA,sha256=E4ZEnNNq_0N9sVdpi5p9aaujcCMAZDYUXLnerhvyqYM,1404
+snapctl-0.2.6.dist-info/WHEEL,sha256=kLuE8m1WYU0Ig0_YEGrXyTtiJvKPpLpDEiChiNyei5Y,88
+snapctl-0.2.6.dist-info/entry_points.txt,sha256=tkKW9MzmFdRs6Bgkv29G78i9WEBK4WIOWunPfe3t2Wg,44
+snapctl-0.2.6.dist-info/RECORD,,
