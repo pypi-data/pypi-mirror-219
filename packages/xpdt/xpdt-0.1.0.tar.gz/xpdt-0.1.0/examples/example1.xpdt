@@ -1,0 +1,24 @@
+## This is a comment
+
+struct timestamp {
+	u32	tv_sec;
+	u32	tv_nsec;
+};
+
+struct point {
+	i32	x;
+	i32	y;
+	i32	z;
+};
+
+struct timespan {
+	timestamp begin;
+	timestamp end;
+};
+
+struct item {
+	u32		id; # User id
+	bytes		first_name; # given name
+	bytes		surname; # surname
+	timestamp	last_login;
+};
