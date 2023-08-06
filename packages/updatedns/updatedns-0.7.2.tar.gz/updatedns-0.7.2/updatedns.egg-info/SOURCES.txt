@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+updatedns/__init__.py
+updatedns/updatedns-exit-hook
+updatedns/updatedns.py
+updatedns/updatedns.service
+updatedns/version.py
+updatedns.egg-info/PKG-INFO
+updatedns.egg-info/SOURCES.txt
+updatedns.egg-info/dependency_links.txt
+updatedns.egg-info/entry_points.txt
+updatedns.egg-info/not-zip-safe
+updatedns.egg-info/requires.txt
+updatedns.egg-info/top_level.txt
