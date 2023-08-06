@@ -1,0 +1,2 @@
+[console_scripts]
+ofcli = ofcli.__main__:main
