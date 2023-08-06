@@ -1,0 +1,14 @@
+# Core
+colorama
+
+# Contrib
+openai
+gpt4all
+
+# Function parsing
+docstring_parser
+
+# Test
+pdoc3
+pytest
+pytest-timeout
