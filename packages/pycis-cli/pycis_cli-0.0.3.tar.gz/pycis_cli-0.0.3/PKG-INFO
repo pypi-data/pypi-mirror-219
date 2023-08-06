@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pycis-cli
+Version: 0.0.3
+Summary: Python Continuous Integration System (PyCIS) - CLI Tools
+License: LICENSE.txt
+Keywords: python
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: couchdb
+Provides-Extra: mongodb
+Requires-Dist: click (>=8.1.4,<9.0.0)
+Requires-Dist: couchdb (>=1.2,<2.0) ; extra == "couchdb"
+Requires-Dist: mojo-xmodules (>=0.0.55,<0.1.0)
+Requires-Dist: pymongo[srv] (>=4.0.0,<5.0.0) ; extra == "mongodb"
+Description-Content-Type: text/x-rst
+
+========================================================
+Python Continuous Integration System (PyCIS) - CLI Tools
+========================================================
+
+Provides a set of CLI tools for working with the PyCIS continuous integration system.
+
+==========
+References
+==========
+
+- `User Guide <userguide/userguide.rst>`
+- `Coding Standards <userguide/10-00-coding-standards.rst>`
+
