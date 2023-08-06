@@ -1,0 +1,3 @@
+[console_scripts]
+yaml-common=yaml_common.__main__:main
+
