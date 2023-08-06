@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: ki-aikido
+Version: 0.0.2
+Summary: Aikido is a set of tools for the self-defense of MacOS users
+Home-page: https://github.com/gabrielfalcao/aikido
+Author: Gabriel Falcao
+Author-email: gabriel@nacaolivre.org
+License: UNKNOWN
+Description: AIKIDO
+        ======
+        
+        Intro
+        -----
+        
+        Aikido is a multi-language set of tools for the self-defense of MacOS
+        users
+        
+        Installing
+        ----------
+        
+        Homebrew Formula
+        ~~~~~~~~~~~~~~~~
+        
+        The homebrew formula installs both the rust crate ``aikido`` and the python package ``ki-aikido``.
+        
+        .. code:: bash
+        
+           brew tap gabrielfalcao/aikido git@github.com:gabrielfalcao/aikido.git
+           brew install gabrielfalcao/aikido
+        
+        
+        Python Package
+        ~~~~~~~~~~~~~~
+        
+        .. code:: bash
+        
+           pip install ki-aikido
+        
+        Rust Crate
+        ~~~~~~~~~~
+        
+        .. code:: bash
+        
+           cargo install aikido
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Customer Service
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Other Scripting Engines
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Ruby
+Classifier: Programming Language :: Rust
+Classifier: Topic :: Artistic Software
+Classifier: Topic :: Communications
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Software Development :: Interpreters
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development
+Description-Content-Type: text/x-rst

@@ -1,0 +1,17 @@
+COPYING
+Cargo.toml
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+docs/source/conf.py
+docs/source/index.rst
+docs/source/setting-up.rst
+ki_aikido.egg-info/PKG-INFO
+ki_aikido.egg-info/SOURCES.txt
+ki_aikido.egg-info/dependency_links.txt
+ki_aikido.egg-info/entry_points.txt
+ki_aikido.egg-info/top_level.txt
+src/__init__.py
+src/cli.py
+src/version.py
