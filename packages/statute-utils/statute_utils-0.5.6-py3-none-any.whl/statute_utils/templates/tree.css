@@ -1,0 +1,59 @@
+article header hgroup h3.crumbs {
+  margin-top: 2em;
+  display: flex;
+  row-gap: 1em;
+  flex-direction: column-reverse;
+}
+  /* This is a little complicated: the tree is built top-down,
+  thus the crumbs will be in top-down order. Citations are read
+  bottom-up, so we first reverse the crumbs (which are marked with
+  class 'crumb' */
+
+section.tree ul { /* Remove top-level indention */
+  padding-left: 0px;
+}
+
+section.tree li {
+  list-style-type: none;
+  margin-bottom: 0.25em;
+  padding-left: 0px;
+  padding-bottom:  0.25em;
+
+  > strong.label::after {
+    content: ". " /* divides item and (caption or content) */
+  }
+
+  > em.label::after {
+    content: " " /* divides caption and content */
+  }
+
+  > strong.label:hover, em.label:hover
+  {
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: var(--primary);
+    text-underline-offset: 3px;
+  }
+
+  > div {
+    display:inline; /* markdown convertor can add a <div></div> causing a block, display:inline prevents this. */
+  }
+
+  > div > p {
+    display:inline; /* markdown convertor can add a <div><p></p></div> causing a block on the <p> element, display:inline prevents this. */
+  }
+
+  > p {
+    display:inline; /* markdown convertor can add a <div></div> causing a block, display:inline prevents this. */
+  }
+}
+
+@media (min-width: 640px) {
+  section.tree ul li {
+    padding-left: 0.7rem; /* Indention > small screens */
+  }
+
+  section.tree ul li[data-par="true"] {
+    padding-left: 0px; /* No indention for paragraphs even if > small screens */
+  }
+}
