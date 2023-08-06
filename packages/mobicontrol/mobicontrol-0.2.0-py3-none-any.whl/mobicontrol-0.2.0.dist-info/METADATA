@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: mobicontrol
+Version: 0.2.0
+Requires-Dist: Click
+Requires-Dist: requests
+
