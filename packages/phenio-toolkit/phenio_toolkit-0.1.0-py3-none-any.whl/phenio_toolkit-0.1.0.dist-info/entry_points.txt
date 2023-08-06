@@ -1,0 +1,3 @@
+[console_scripts]
+phenio-toolkit=phenio_toolkit.cli:phenio
+
