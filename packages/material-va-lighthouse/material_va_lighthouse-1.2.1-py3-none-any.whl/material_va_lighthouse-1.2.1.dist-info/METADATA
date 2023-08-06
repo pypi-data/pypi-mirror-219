@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: material-va-lighthouse
+Version: 1.2.1
+Summary: A MKDocs plugin which extends the material theme with styles from the VA design system
+Author: Alastair Dawson
+Author-email: alastair.j.dawson@gmail.com
+License: CC0 1.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: mkdocs (==1.4.3)
+Requires-Dist: mkdocs-material (==8.1.11)
+Requires-Dist: mkdocs-techdocs-core (==1.1.7)
+
+# Material VA Lighthouse Plugin
+
+This plugin styles a Material for MKDocs site using CSS from the [VA Design System](https://design.va.gov/).
+
+## Installation
+Open a terminal and run the following command:
+
+```bash
+pip install material-va-lighthouse
+```
+
+Or add the following to your `requirements.txt` file:
+
+```text
+material-va-lighthouse
+```
+
+Update your `mkdocs.yml` to include the plugin:
+
+```yaml
+plugins:
+  - material-va-lighthouse
+```
+
+Update the `theme` section. Set `material` as your theme (if you're not already) 
+and point the logo to the Lighthouse logo from this plugin:
+
+
+```yaml
+theme:
+  name: material
+  logo: 'assets/images/va_lighthouse_logo.png'
+```
+
+Then add an `extra_css` section to your `mkdocs.yml` that points to the CSS file from this plugin:
+
+```yaml
+theme:
+  name: material
+  logo: 'assets/images/va_lighthouse_logo.png'
+extra_css:
+  - 'assets/stylesheets/va_lighthouse.css'
+```
+
+Run `mkdocs build` and `mkdocs serve` to see the changes.

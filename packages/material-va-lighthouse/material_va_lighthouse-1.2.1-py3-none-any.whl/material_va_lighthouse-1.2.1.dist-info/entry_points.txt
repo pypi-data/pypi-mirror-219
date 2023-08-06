@@ -1,0 +1,2 @@
+[mkdocs.plugins]
+material-va-lighthouse = material_va_lighthouse.plugin:MaterialVALighthousePlugin

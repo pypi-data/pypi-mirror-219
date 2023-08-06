@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.md-content p a {
+    color: #004795;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+    transition-property: color,background-color,border-color
+}
+
+.md-content p a,a:hover {
+    text-decoration: underline
+}
+
+.md-content p a:hover {
+    background-color: rgba(0,0,0,.05);
+    color: inherit
+}
+
+.md-content p a:active {
+    background: rgba(0,0,0,.05)
+}
+
+.md-content p a:visited,a:visited abbr {
+    color: #4c2c92
+}
+
+.md-header {
+    background: #112E51;
+}
+
+[dir=ltr] .md-header__title {
+    margin-left: 0rem;
+    padding: 0;
+}
+
+.md-content h1, h2, h3, h4, h5, h6, h7 {
+    font-family: 'Bitter', 'Georgia', serif;
+    color: #323a45;
+}
+
+.md-content h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.md-main {
+    padding-bottom: 3rem;
+}
+
+.md-footer {
+    background: #112E51;
+}
+
+.highlight {
+    font-size: .8rem;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .md-nav--primary .md-nav__title[for=__drawer] {
+        background: #112E51;
+    }
+}
