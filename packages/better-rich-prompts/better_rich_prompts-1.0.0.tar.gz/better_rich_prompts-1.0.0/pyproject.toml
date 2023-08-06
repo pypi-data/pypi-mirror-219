@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "better-rich-prompts"
+homepage = "https://github.com/EwenLo/better-rich-prompts"
+documentation = "https://github.com/EwenLo/better-rich-prompts/"
+version = "1.0.0"
+description = "Improved prompts for rich."
+authors = ["Ewen Lorimer <ewen@ewenlorimer.ca>"]
+license = "MIT"
+readme = "README.md"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Framework :: IPython",
+    "Intended Audience :: Developers",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Typing :: Typed",
+]
+
+
+[tool.poetry.dependencies]
+python = ">=3.7.0"
+rich = ">=3.3.2"
+[tool.poetry.extras]
+jupyter = ["ipywidgets"]
+
+[tool.poetry.dev-dependencies]
+black = "^22.6"
+pytest-cov = "^3.0.0"
+attrs = "^21.4.0"
+pre-commit = "^2.17.0"
+asv = "^0.5.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+files = ["better_rich_prompts"]
+show_error_codes = true
+strict = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+
+[[tool.mypy.overrides]]
+module = ["pygments.*", "IPython.*", "ipywidgets.*"]
+ignore_missing_imports = true
+
+
+[tool.isort]
+profile = "black"
