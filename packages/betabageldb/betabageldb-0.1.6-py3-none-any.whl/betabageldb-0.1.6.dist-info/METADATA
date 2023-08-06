@@ -1,0 +1,147 @@
+Metadata-Version: 2.1
+Name: betabageldb
+Version: 0.1.6
+Summary: BagelDB is a Python library for interacting with the BagelDB API.
+Home-page: https://github.com/Bagel-DB/Client
+Author: Bidhan Roy
+Author-email: bidhan@bageldb.ai
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+Requires-Dist: annotated-types (==0.5.0)
+Requires-Dist: backoff (==2.2.1)
+Requires-Dist: certifi (==2023.5.7)
+Requires-Dist: charset-normalizer (==3.2.0)
+Requires-Dist: colorama (==0.4.6)
+Requires-Dist: coloredlogs (==15.0.1)
+Requires-Dist: flatbuffers (==23.5.26)
+Requires-Dist: graphlib-backport (==1.0.3)
+Requires-Dist: humanfriendly (==10.0)
+Requires-Dist: idna (==3.4)
+Requires-Dist: monotonic (==1.6)
+Requires-Dist: mpmath (==1.3.0)
+Requires-Dist: numpy (==1.24.4)
+Requires-Dist: onnxruntime (==1.15.1)
+Requires-Dist: overrides (==7.3.1)
+Requires-Dist: packaging (==23.1)
+Requires-Dist: pandas (==1.3.5)
+Requires-Dist: posthog (==3.0.1)
+Requires-Dist: protobuf (==4.23.4)
+Requires-Dist: pydantic (==1.10.10)
+Requires-Dist: pydantic-core (==2.1.2)
+Requires-Dist: pyreadline3 (==3.4.1)
+Requires-Dist: python-dateutil (==2.8.2)
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: requests (==2.28.2)
+Requires-Dist: six (==1.16.0)
+Requires-Dist: sympy (==1.12)
+Requires-Dist: tokenizers (==0.13.3)
+Requires-Dist: tqdm (==4.65.0)
+Requires-Dist: typing-extensions (==4.6.3)
+Requires-Dist: urllib3 (==1.26.16)
+
+# BagelDB Python Client Example
+
+This README provides steps on how to use the BagelDB python client example code.
+
+## Prerequisites
+
+- Python 3.6+
+- pip package manager
+- BagelDB account and API key
+
+## Installation
+
+Install the BagelDB python client:
+
+```
+pip install bagel
+```
+
+## Usage
+
+1. Import the necessary modules:
+
+```python
+import uuid
+import bagel
+from bagel.config import Settings
+```
+
+2. Define the BagelDB server settings:
+
+```python 
+server_settings = Settings(
+    bagel_api_impl="rest",
+    bagel_server_host="api2.bageldb.ai",
+    bagel_server_http_port="8000"
+)
+```
+
+3. Create the BagelDB client:
+
+```python
+client = bagel.Client(server_settings)
+```
+
+4. Ping the BagelDB server:
+
+```python
+print(client.ping())
+```
+
+5. Get the BagelDB server version:
+
+```python
+print(client.get_version()) 
+```
+
+6. Create and delete a cluster:
+
+```python
+name = str(uuid.uuid4())
+client.create_cluster(name)
+client.delete_cluster(name)
+```
+
+7. Create, add documents, and query a cluster:
+
+```python
+cluster = client.get_or_create_cluster("testing")
+
+cluster.add(documents=["doc1", "doc2"]) 
+
+results = cluster.find(query_texts=["query"], n_results=5)
+```
+
+8. Add embeddings and query:
+
+```python
+cluster.add(embeddings=[[1.1, 2.3], [4.5, 6.9]])
+
+results = cluster.find(query_embeddings=[[1.1, 2.3]], n_results=2) 
+```
+
+9. Modify cluster name:
+
+```python 
+cluster.modify(name="new_name")
+```
+
+10. Update document metadata:
+
+```python
+cluster.update(ids=["doc1"], metadatas=[{"new":"metadata"}])
+```
+
+11. Upsert documents:
+
+```python
+cluster.upsert(documents=["new doc"], ids=["doc1"])
+```
+
+See the [example code](paste.txt) for more details on using the BagelDB python client.
