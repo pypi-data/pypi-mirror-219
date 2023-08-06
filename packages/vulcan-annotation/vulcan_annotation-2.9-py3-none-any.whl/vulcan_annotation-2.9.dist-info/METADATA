@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: vulcan-annotation
+Version: 2.9
+Summary: Vulcan annotation for structured data.
+Home-page: https://github.com/vulcan-coalition/vulcan_annotation
+Author: Chatavut Viriyasuthee
+Author-email: chatavut@lab.ai
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: shortuuid
+
+# **Vulcan notation**
+
+# Exemplar and Guideline
+
+# Category and annotation
+
+A category is a tree-based structural description of the annotations. In an informal vernacular, it describes all possible ways that users can answer. Users must provide annotation answers that strictly obey the structure imposed by the category tree.
