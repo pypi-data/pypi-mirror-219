@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+setup.py
+py2js/__init__.py
+py2js/py2js.py
+py2js/visitor.py
+py2js.egg-info/PKG-INFO
+py2js.egg-info/SOURCES.txt
+py2js.egg-info/dependency_links.txt
+py2js.egg-info/top_level.txt
