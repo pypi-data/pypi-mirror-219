@@ -1,0 +1,20 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pysubcipher"
+version = "2.3.3"
+authors = [
+  {name = "mxngo", email = ""}
+]
+description = "pysubcipher allows for simple encryption and decryption of text using a basic substitution cipher algorithm."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Topic :: Security :: Cryptography",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
