@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gitprprod
+Version: 0.0.2
+Summary: A Python Project for git pr
+Author-email: Abhinandan <abhinandan.x@nxp.com>
+Maintainer-email: Abhinandan <abhinandan.x@nxp.com>
+Keywords: sample,setuptools,development
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

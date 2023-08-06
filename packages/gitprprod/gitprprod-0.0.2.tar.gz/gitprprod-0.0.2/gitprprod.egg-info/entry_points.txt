@@ -1,0 +1,2 @@
+[console_scripts]
+git-pr = git_pr.git_pr:main
