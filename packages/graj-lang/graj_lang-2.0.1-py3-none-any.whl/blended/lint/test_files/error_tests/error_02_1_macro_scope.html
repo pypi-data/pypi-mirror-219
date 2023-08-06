@@ -1,0 +1,6 @@
+{% macro scope_test() %}{{ variable }}{% endmacro %}
+{% set local1 = scope_test() %}
+{{ local1 }}
+{% macro argument_test(argument) %}{{ argument }}{% endmacro %}
+{% set local2 = argument_test(argument) %}
+{{ local2 }}

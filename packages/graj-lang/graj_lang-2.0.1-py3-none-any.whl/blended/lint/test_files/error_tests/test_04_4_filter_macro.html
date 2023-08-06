@@ -1,0 +1,13 @@
+{% filter trim|raw %}
+{% macro print_name(first, second) %}
+  <li><b>{{ first }}:</b> {{ second }}</li>
+{% endmacro %}
+{% set dict = { "1": "JOHN", "2": "JUDY", "3": "JANE" } %}
+<ul>
+{% filter lower|raw %}
+  {% for first, second in dict|items %}
+    {% echo print_name(first, second) %}
+  {% endfor %}
+{% endfilter %}
+</ul>
+{% endfilter %}
