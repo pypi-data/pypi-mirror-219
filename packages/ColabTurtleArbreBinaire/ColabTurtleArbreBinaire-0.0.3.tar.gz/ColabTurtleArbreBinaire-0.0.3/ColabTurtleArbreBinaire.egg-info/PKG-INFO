@@ -1,0 +1,154 @@
+Metadata-Version: 2.1
+Name: ColabTurtleArbreBinaire
+Version: 0.0.3
+Summary: A module using ColabTurtlePlus to draw binary trees
+Author-email: Matthieu Bensussan <matthieu.bensussan@gmail.com>
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ColabTurtleArbreBinaire
+
+Ce module permet de représenter un arbre binaire et de visualiser son
+parcours à l'aide du module
+[`ColabTurtlePlus`](https://pypi.org/project/ColabTurtlePlus/) (un module
+dérivé du module [`turtle`](https://docs.python.org/fr/3/library/turtle.html)
+pour les notebooks Google Colab et Jupyter).
+
+Dans ce module, un arbre binaire est représenté en Python à l'aide d'une liste
+de la façon suivante :
+
+- `[]` représente l'arbre vide.
+- `[v, sag, sad]` représente un arbre non vide avec :
+    - `v` la valeur de sa racine ;
+    - `sag` son sous-arbre de gauche ;
+    - `sad` son sous-arbre de droite.
+
+Ce module est destiné à l'enseignement de l'informatique. Il a pour but de
+fournir un support graphique pour accompagner les élèves dans l'apprentissage
+des algorithmes classiques sur les arbres binaires (de recherche). Il ne 
+fourni pas cependant ces algorithmes qui seront abordés en classe avec le
+professeur.
+
+## Installation
+
+Il faut préalablement installer le module en exécutant la commande shell
+suivante dans une cellule :
+
+```python
+!pip install ColabTurtleArbreBinaire
+```
+
+## Utilisation
+
+Pour importer le module, exécuter le code suivant dans une autre cellule :
+
+```
+from ColabTurtleArbreBinaire import *
+```
+
+## Exemples
+
+Les exemples donnés ci-après peuvent être directement testés dans ce [cahier
+Google Colab](https://colab.research.google.com/drive/1jcogpMvEt1h-YLnjNSSsoiNEcR79C1vE?usp=sharing).
+
+Exécutez la cellule suivante pour stocker en mémoire l'arbre binaire `abr0` qui
+sera utilisé dans les exemples qui suivent.
+
+```python
+abr0 = [
+    30,
+        [9,
+            [7,
+                [5, [], []],
+                [6, [], []]
+            ],
+            [13,
+                [10, [], []],
+                []
+            ]
+        ],
+        [42,
+            [31, [], []],
+            [54, [], []]
+        ]
+]
+```
+
+Les abres ayant pour valeur des chaînes de caractères sont aussi pris en
+charge :
+
+```python
+abr1 = [
+    'G',
+        ['D',
+            ['C',
+                ['A', [], []],
+                ['B', [], []]
+            ],
+            ['F',
+                ['E', [], []],
+                []
+            ]
+        ],
+        ['I',
+            ['H', [], []],
+            ['J', [], []]
+        ]
+]
+```
+
+```python
+abr2 = [
+    'Albatros',
+        ['Baleine',
+            ['Cachalot',
+                ['Dauphin', [], []],
+                ['Éléphant', [], []]
+            ],
+            ['Faucon',
+                ['Gazelle', [], []],
+                []
+            ]
+        ],
+        ['Héron',
+            ['Iguane', [], []],
+            ['Jaguar', [], []]
+        ]
+]
+```
+
+### Affichage d'un arbre
+
+```python
+dessiner(abr0) # avec les arbres vides
+```
+```python
+dessiner(abr0, dessiner_vide=False) # sans les arbres vides
+```
+### Animation du parcours d'un arbre
+
+```python
+dessiner_parcours(abr0, dessiner_vide=False, parcours='largeur')
+```
+
+*Remarque.* `'largeur'` peut être remplacé par `'infixe'`, `'préfixe'`,
+`'suffixe'` ou `'postfixe'`.
+
+### Animation de la recherche d'une valeur dans un arbre
+
+```python
+dessiner_recherche(abr0, 13, dessiner_vide=False, parcours='largeur')
+```
+
+*Remarque.* `'largeur'` peut être remplacé par `'infixe'`, `'préfixe'`,
+`'suffixe'` ou `'postfixe'`.
+
+### Animation de l'insertion d'une valeur dans un arbre binaire de recherche
+
+```python
+dessiner_insertion(abr0, 34)
+```
