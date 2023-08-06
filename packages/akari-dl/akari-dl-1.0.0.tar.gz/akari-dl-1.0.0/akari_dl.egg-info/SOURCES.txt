@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+akari_dl/__init__.py
+akari_dl/__main__.py
+akari_dl.egg-info/PKG-INFO
+akari_dl.egg-info/SOURCES.txt
+akari_dl.egg-info/dependency_links.txt
+akari_dl.egg-info/entry_points.txt
+akari_dl.egg-info/requires.txt
+akari_dl.egg-info/top_level.txt
+akari_dl/src/__init__.py
+akari_dl/src/download_anime.py
+akari_dl/src/log_response.py
+akari_dl/src/resolve_anime.py
+akari_dl/src/resolve_url.py
+akari_dl/src/website.py

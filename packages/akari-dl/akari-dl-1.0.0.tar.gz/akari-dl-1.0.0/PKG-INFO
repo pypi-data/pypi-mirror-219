@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: akari-dl
+Version: 1.0.0
+Summary: A lightweight and open-source anime downloading CLI.
+Home-page: https://github.com/keisanng/akari-dl
+Author: keisan
+Author-email: <keisan@skiff.com>
+Project-URL: Documentation, https://github.com/keisanng/akari-dl#readme
+Project-URL: Tracker, https://github.com/keisanng/projects/3
+Requires-Python: >=3.10
+License-File: LICENSE
+
+akari-dl downloads anime video files from direct download websites based on user configuration to avoid more annoying downloading methods like torrenting and manually downloading.
