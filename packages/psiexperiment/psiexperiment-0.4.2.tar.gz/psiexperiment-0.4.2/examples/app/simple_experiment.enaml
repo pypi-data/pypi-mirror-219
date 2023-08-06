@@ -1,0 +1,147 @@
+import logging
+log = logging.getLogger(__name__)
+
+from enaml.application import timed_call
+from enaml.workbench.api import Extension
+from enaml.workbench.core.api import Command
+from enaml.workbench.ui.api import Branding
+
+from psi.context.api import SequenceSelector
+from psi.controller.api import ControllerManifest as BaseControllerManifest
+from psi.controller.api import EpochOutput, ContinuousOutput
+
+from psi.context.api import ContextGroup, ContextRow, Parameter
+from psi.data.api import ResultPlot, PlotContainer, ViewBox
+from psi.token.primitives import BandlimitedNoise, Cos2Envelope, SAMEnvelope, Silence
+
+
+frequencies = iter([4000, 8000, 16000])
+levels = iter(range(10, 80, 10))
+
+
+def update_data(f1, f2):
+    global levels
+    i = next(levels)
+    data = {
+        'secondary_tone_level': i,
+        'secondary_tone_frequency': 4e3,
+        'f2_level': i,
+        'f1_level': i+10,
+    }
+    f2._data_acquired([data])
+    f1._data_acquired([data])
+    timed_call(1000, update_data, f1, f2)
+
+
+enamldef ControllerManifest(BaseControllerManifest): manifest:
+
+    id = 'psi.controller'
+
+    Extension:
+        id = 'simple.branding'
+        point = 'enaml.workbench.ui.branding'
+        Branding:
+            title = 'Demo'
+
+    #Extension:
+    #    id = 'simple.commands'
+    #    point = 'enaml.workbench.core.commands'
+    #    Command:
+    #        id = 'start_data_generator'
+    #        handler = start_data_generator
+
+    Extension:
+        id = 'simple.tokens'
+        point = 'psi.token.tokens'
+
+        Silence:
+            name = 'silence'
+
+        BandlimitedNoise:
+            name = 'continuous_bandlimited_noise'
+            label = 'Continuous bandlimited noise'
+            compact_label = 'cont. noise'
+
+        Cos2Envelope:
+            name = 'bandlimited_sam_noise'
+            label = 'SAM cosine envelope'
+            compact_label = 'SAM cos. env.'
+            SAMEnvelope:
+                label = 'SAM envelope'
+                compact_label = 'SAM env.'
+                BandlimitedNoise:
+                    label = 'SAM carrier'
+
+    Extension:
+        id = 'simple.context'
+        point = 'psi.context.items'
+
+        ContextGroup:
+            label = 'My variables'
+
+            ContextRow:
+                fmt = ['Filter from', lb, 'to', ub, 'Hz']
+                Parameter: lb:
+                    name = 'filter_lb'
+                    default = 300
+                Parameter: ub:
+                    name = 'filter_ub'
+                    default = 300
+                Parameter:
+                    name = 'filter_order'
+                    default = 1
+
+    Extension:
+        id = 'simple.io'
+        point = 'psi.controller.io'
+
+        ContinuousOutput:
+            name = 'background'
+            label = 'Background'
+            target_name = 'speaker'
+
+        EpochOutput:
+            name = 'target'
+            label = 'Target'
+            target_name = 'speaker'
+
+    Extension:
+        id = 'simple.selector'
+        point = 'psi.context.selectors'
+
+        SequenceSelector:
+            label = 'Values to test!'
+
+    Extension:
+        id = 'simple.plots'
+        point = 'psi.data.plots'
+
+        PlotContainer: pc:
+            name = 'dpoae_results'
+            label = 'DPOAE input-output functions'
+
+            ViewBox: vb:
+                ResultPlot: f2:
+                    source_name = 'analyze_dpoae'
+                    x_column = 'secondary_tone_level'
+                    pen_width = 2
+                    tab_grouping = ['secondary_tone_frequency']
+                    label = 'F2'
+                    y_column = 'f2_level'
+                    pen_color = 'indianred'
+
+                    initialized ::
+                        f2._data_cache = {}
+                        f2.selected_tab = 4e3
+                        f1._data_cache = {}
+                        f1.selected_tab = 4e3
+                        timed_call(1000, update_data, f1, f2)
+
+                ResultPlot: f1:
+                    source_name = 'analyze_dpoae'
+                    x_column = 'secondary_tone_level'
+                    pen_width = 2
+                    tab_grouping = ['secondary_tone_frequency']
+                    label = 'F1'
+                    y_column = 'f1_level'
+                    pen_color = 'darkgreen'

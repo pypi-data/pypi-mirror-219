@@ -1,0 +1,482 @@
+import logging
+log = logging.getLogger(__name__)
+
+from functools import partial
+import re
+import textwrap
+from atom.api import Typed
+from enaml.core.api import Conditional, d_, DynamicTemplate, Include, Looper
+from enaml.drag_drop import DragData, DropAction
+from enaml.layout.api import vbox, hbox, spacer, align
+from enaml.stdlib.fields import FloatField
+from enaml.styling import StyleSheet, Style, Setter
+from enaml.workbench.api import Extension
+from enaml.workbench.core.api import Command
+from enaml.widgets.api import (PushButton, Container, Field, Feature, VGroup,
+                               Label, ObjectCombo)
+from enaml.validator import Validator
+
+from psi.controller.api import ExperimentAction
+from psi.core.enaml.editable_table_widget import EditableTable, ListTable
+from psi.core.enaml.api import PSIDockItem, PSIManifest
+
+from . import selector as sc
+
+
+enamldef BaseSelectorManifest(PSIManifest): manifest:
+
+    Conditional:
+        condition << manifest.contribution.show_widget
+
+        Extension:
+            id = 'selector.' + manifest.contribution.name
+            point = 'psi.experiment.workspace'
+
+            PSIDockItem:
+                closable = False
+                name = manifest.contribution.name + '.selector'
+                title = manifest.contribution.label
+
+                DynamicTemplate:
+                    base = SelectorTemplate
+                    args = (manifest.contribution, type(manifest.contribution))
+
+
+class SettingFieldValidator(Validator):
+
+    item = Typed(object)
+
+    def validate(self, text):
+        try:
+            self.item.coerce_to_type(text)
+            return True
+        except:
+            return False
+
+
+enamldef SettingField(Field):
+    attr item
+    validator << SettingFieldValidator(item=item)
+
+
+################################################################################
+# SingleSetting
+################################################################################
+enamldef SingleSettingField(SettingField):
+    attr selector
+    attr setting
+    text << str(selector.get_value(item))
+    text ::
+        selector.set_value(item, text)
+
+
+def update_single_setting_widgets(selector, context_items, setting):
+    widgets = []
+    for item in context_items:
+        label = Label(text=item.label)
+        widgets.append(label)
+        field = SingleSettingField(selector=selector, setting=setting,
+                                   item=item)
+        widgets.append(field)
+    return widgets
+
+
+enamldef SingleSettingContainer(Container):
+
+    attr selector
+
+    layout_constraints => ():
+        widgets = self.visible_widgets()
+        if len(widgets) == 0:
+            return []
+        label_widgets = widgets[::2]
+        setting_widgets = widgets[1::2]
+        row_constraints = [hbox(*label_widgets, spacing=0),
+                            hbox(*setting_widgets, spacing=0)]
+        constraints = [vbox(*row_constraints, spacing=0)]
+        for lw, sw in zip(label_widgets, setting_widgets):
+            constraints.append(lw.left == sw.left)
+        return constraints
+
+    Include: inc:
+        objects << update_single_setting_widgets(selector,
+                                                 selector.context_items,
+                                                 selector.setting)
+
+
+template SelectorTemplate(selector, MemberType: sc.SingleSetting):
+
+    SingleSettingContainer:
+        pass
+
+
+################################################################################
+# SequenceSelector
+################################################################################
+class SequenceTable(EditableTable):
+
+    selector = d_(Typed(sc.SequenceSelector))
+    select_behavior = 'rows'
+    select_mode = 'extended'
+
+    def _observe_selector(self, event):
+        self.selector.observe('updated', self._check_and_reset_model)
+
+    def _check_and_reset_model(self, event):
+        if not self.live_edit:
+            self._reset_model()
+
+    def get_rows(self):
+        if self.selector is None:
+            return []
+        return range(len(self.selector.settings))
+
+    def get_columns(self):
+        if self.selector is None:
+            return []
+        return [ci.name for ci in self.selector.context_items]
+
+    def get_data(self, row, col):
+        item = self.selector.context_items[col]
+        return str(self.selector.get_value(row, item))
+
+    def set_data(self, row, col, value):
+        item = self.selector.context_items[col]
+        self.selector.set_value(row, item, value)
+
+    def get_column_label(self, col):
+        return self.selector.context_items[col].compact_label
+
+    def remove_row(self, row):
+        setting = self.selector.settings[row]
+        self.selector.remove_setting(setting)
+
+    def insert_row(self, row_index):
+        self.selector.add_setting(index=row_index)
+
+
+enamldef SequenceSelectorContainer(Container): container:
+
+    attr selector
+
+    Container:
+        constraints = [
+            vbox(
+                hbox(order_label, order, spacer, add, sort),
+                table
+            ),
+            add.width == 50,
+            sort.width == 50,
+            align('v_center', order_label, order, add, sort),
+        ]
+
+        Label: order_label:
+            text = 'Order'
+        ObjectCombo: order:
+            items = list(selector.get_member('order').items)
+            selected := selector.order
+        PushButton: add:
+            text = 'Add'
+            clicked ::
+                selector.add_setting()
+                selector.updated = True
+        PushButton: sort:
+            text = 'Sort'
+            clicked ::
+                selector.sort_settings()
+                selector.updated = True
+
+        SequenceTable: table:
+            editable = True
+            selector << container.selector
+
+
+template SelectorTemplate(selector, MemberType: sc.SequenceSelector):
+
+    SequenceSelectorContainer:
+        selector = selector
+
+
+################################################################################
+# CartesianProduct
+################################################################################
+enamldef CartesianProductContainer(Container):
+
+    attr selector
+
+    VGroup:
+        Looper:
+            iterable << selector.context_items[:]
+            ListTable:
+                select_behavior = 'rows'
+                select_mode = 'single'
+                column_name = loop_item.label
+                editable = True
+                show_row_labels = False
+                show_grid = True
+                data << selector.settings[loop_item.name]
+                updated::
+                    selector.settings[loop_item.name] = data
+
+
+enamldef CartesianProductManifest(BaseSelectorManifest): manifest:
+
+    Extension:
+        id = 'selector.' + manifest.contribution.name
+        point = 'psi.experiment.workspace'
+
+        PSIDockItem:
+            closable = False
+            name = manifest.contribution.name + '.selector'
+            title = manifest.contribution.label
+
+            CartesianProductContainer:
+                selector = manifest.contribution
+
+
+template SelectorTemplate(selector, MemberType: sc.CartesianProduct):
+
+    CartesianProductContainer:
+        selector = selector
+
+
+################################################################################
+# FriendlyCartesianProduct
+################################################################################
+from enaml.widgets.api import Menu, Action, ActionGroup
+
+template FriendlyCartesianProductItemTemplate(setting, MemberType: sc.FriendlyCartesianProductList):
+
+    Container:
+        padding = 0
+        share_layout = True
+        ListTable:
+            select_behavior = 'rows'
+            select_mode = 'single'
+            column_name = f'{setting.user_friendly_name_plural.capitalize()} ({setting.unit})'
+            editable = True
+            show_row_labels = False
+            show_grid = True
+            data << setting.values
+            updated::
+                setting.values = [setting.item.coerce_to_type(d) for d in data]
+
+
+template FriendlyCartesianProductItemTemplate(setting, MemberType: sc.FriendlyCartesianProductRange):
+
+    Container:
+        padding = 0
+        share_layout = True
+        layout_constraints => ():
+            widgets = self.visible_widgets()
+            first_row = widgets[:-1] + [spacer]
+            return [
+                align('v_center', *widgets[:-1]),
+                vbox(
+                    hbox(*first_row, spacing=5),
+                    widgets[-1],
+                    spacing=5,
+                ),
+                widgets[1].left == widgets[-1].left,
+                start_field.width == 60,
+                align('width', start_field, end_field, step_field),
+            ]
+
+        Label:
+            text = setting.user_friendly_name.capitalize()
+        FloatField: start_field:
+            value := setting.start
+            submit_triggers = ['lost_focus', 'return_pressed', 'auto_sync']
+        Label:
+            text = 'to'
+        FloatField: end_field:
+            value := setting.end
+            submit_triggers = ['lost_focus', 'return_pressed', 'auto_sync']
+        Label:
+            text = f'{setting.unit} in'
+        FloatField: step_field:
+            value := setting.step
+            submit_triggers = ['lost_focus', 'return_pressed', 'auto_sync']
+        Label:
+            text = f'{setting.step_unit} steps'
+
+        Label: descr_label:
+            text << get_description(
+                setting,
+                # These are here to force the description to update when any of
+                # the values changes. They are not used otherwise.
+                start_field.value,
+                end_field.value,
+                step_field.value,
+            )
+
+
+enamldef FriendlyCartesianProductItemContainer(Container): container:
+    attr setting
+    attr selector
+
+    style_class = ''
+    share_layout = True
+
+    features << (Feature.DropEnabled | Feature.DragEnabled) \
+        if selector.user_managed else 0x0
+
+    drag_start => ():
+        data = DragData()
+        data.supported_actions = DropAction.Copy
+        data.mime_data.set_data('text/plain', f'::parameter::{setting.item.name}'.encode('utf-8'))
+        return data
+
+    drag_enter => (event):
+        if event.mime_data().has_format('text/plain'):
+            data = event.mime_data().data('text/plain').decode('utf-8')
+            if not data.startswith('::parameter::'):
+                return
+            if data == f'::parameter::{setting.item.name}':
+                return
+            else:
+                self.style_class = 'hover'
+                event.accept_proposed_action()
+
+    drag_leave => ():
+        self.style_class = ''
+
+    drop => (event):
+        self.style_class = ''
+        data = event.mime_data().data('text/plain').decode('utf-8')
+        param = data.rsplit('::', 1)[1]
+        selector.move_item_to(param, setting.item.name)
+
+    Menu:
+        context_menu = True
+        ActionGroup:
+            Action:
+                text = 'List'
+                checkable = True
+                checked << isinstance(setting, sc.FriendlyCartesianProductList)
+                triggered ::
+                    container.setting = \
+                        selector.change_setting(setting.item, sc.FriendlyCartesianProductList)
+            Action:
+                text = 'Range'
+                checkable = True
+                checked << isinstance(setting, sc.FriendlyCartesianProductRange)
+                triggered ::
+                    container.setting = \
+                        selector.change_setting(setting.item, sc.FriendlyCartesianProductRange)
+
+    DynamicTemplate:
+        base = FriendlyCartesianProductItemTemplate
+        args << (setting, type(setting))
+
+
+def get_description(setting, *args):
+    try:
+        values = setting.get_values(transform=False)
+        if len(values) == 0:
+            mesg = '''The current settings result in no values to test. Perhaps the
+            start value is greater than the end value?'''
+        else:
+            if len(values) == 1:
+                ufn = setting.user_friendly_name
+            else:
+                ufn = setting.user_friendly_name_plural
+            if setting.round_values:
+                round_mesg = f'{ufn.capitalize()} are rounded to the nearest ' \
+                    f'{setting.step} {setting.step_unit}.'
+            else:
+                round_mesg = ''
+            mesg = f'{round_mesg}The current range is {values[0]:.1f} to ' \
+                f'{values[-1]:.1f} {setting.unit} for a total of {len(values)} {ufn}.'
+    except ValueError as e:
+        mesg = str(e)
+
+    mesg = re.sub(r'[\s\n\r]+', ' ', mesg).strip()
+    return textwrap.fill(mesg)
+
+
+enamldef FriendlyCartesianProductContainer(Container): container:
+
+    attr selector
+    padding = 0
+
+    StyleSheet:
+        Style:
+            element = 'Container'
+            style_class = 'hover'
+            Setter:
+                field = 'background'
+                value = 'lightblue'
+
+    layout_constraints => ():
+        widgets = self.visible_widgets()
+        if len(widgets) == 0:
+            return []
+        constraints = [vbox(*widgets, spacing=0)]
+
+        to_align = []
+        for w in widgets:
+            fw = w.visible_widgets()[0].visible_widgets()[0]
+            if isinstance(fw, Label):
+                to_align.append(fw)
+        constraints.append(align('width', *to_align))
+        return constraints
+
+    Looper:
+        iterable << selector.context_items[:]
+        FriendlyCartesianProductItemContainer:
+            initialized ::
+                # Not sure why this is necessary, but it makes everything work!
+                selector.observe('updated', lambda e: setattr(self, 'setting', selector.get_setting(loop_item)))
+            setting << selector.get_setting(loop_item)
+            selector << container.selector
+
+
+def friendly_cartesian_product_update_context(selector, event):
+    # Updates context items to mark those that cannot be managed by the
+    # selector (because the information has not been provided in
+    # `context_detail`). These items cannot be roved, and the scope will be set
+    # to "experiment". Only parameters for which scope is set to "trial" will
+    # be updated since these are the only ones that can be roved by default.
+    # The "arbitrary" scope is typically reserved for values that are not tied
+    # to specific trials, but can be modified during an experiment (e.g.,
+    # thresholding input data).
+    context = event.workbench.get_plugin('psi.context')
+    for name, param in context.parameters.items():
+        if name not in selector.can_manage and param.scope == 'trial':
+            param.rove = False
+            param.scope = 'experiment'
+
+    # If the selector cannot be user managed, then we hide the already-selected
+    # context items (since it's unecessary clutter).
+    if not selector.user_managed:
+        for item_name in selector.can_manage:
+            item = context.parameters[item_name]
+            item.rove = True
+            item.visible = False
+
+
+template SelectorTemplate(selector, MemberType: sc.FriendlyCartesianProduct):
+
+    FriendlyCartesianProductContainer:
+        selector = selector
+
+
+enamldef FriendlyCartesianProductManifest(BaseSelectorManifest): manifest:
+
+    Extension:
+        id = manifest.contribution.name + '.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.update_context'
+            handler = partial(friendly_cartesian_product_update_context,
+                              manifest.contribution)
+
+    Extension:
+        id = manifest.contribution.name + '.actions'
+        point = 'psi.controller.actions'
+
+        ExperimentAction:
+            event = 'plugins_started'
+            command = manifest.contribution.name + '.update_context'

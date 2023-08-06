@@ -1,0 +1,476 @@
+from __future__ import division
+
+import logging
+log = logging.getLogger(__name__)
+
+from psiaudio.stim import (
+    BandlimitedClickFactory, BandlimitedNoiseFactory,
+    BandlimitedFIRNoiseFactory, BroadbandNoiseFactory, ChirpFactory,
+    Cos2EnvelopeFactory, GateFactory, RepeatFactory, SAMEnvelopeFactory,
+    SAMToneFactory, ShapedNoiseFactory, SilenceFactory,
+    SquareWaveEnvelopeFactory, SquareWaveFactory, ToneFactory,
+    WavSequenceFactory
+)
+
+from psi.context.api import BoolParameter, EnumParameter, Parameter
+from .block import EpochBlock, ContinuousBlock
+
+
+enamldef Gate(EpochBlock): block:
+
+    factory = GateFactory
+    name = 'envelope'
+    label = 'envelope'
+
+    Parameter:
+        name = 'duration'
+        label = 'duration (s)'
+        compact_label = 'dur'
+        default = 4.0
+
+    Parameter:
+        name = 'start_time'
+        label = 'start time (s)'
+        compact_label = 'start'
+        default = 0.0
+
+
+enamldef Cos2Envelope(Gate): block:
+
+    factory = Cos2EnvelopeFactory
+    name = 'envelope'
+    label = 'envelope'
+
+    Parameter:
+        name = 'rise_time'
+        label = 'rise time (s)'
+        compact_label = 'env rise'
+        default = 1.0
+
+
+enamldef SquareWaveEnvelope(ContinuousBlock): block:
+
+    factory = SquareWaveEnvelopeFactory
+    name = 'RAM'
+    label = 'RAM'
+
+    Parameter:
+        name = 'depth'
+        label = 'depth (frac.)'
+        compact_label = 'depth'
+        default = 1.0
+
+    Parameter:
+        name = 'fm'
+        label = 'Modulation frequency (Hz)'
+        compact_label = 'fm'
+        default = 5.0
+
+    Parameter:
+        name = 'duty_cycle'
+        label = 'Duty cycle (frac.)'
+        compact_label = 'dc'
+        default = 0.5
+
+
+enamldef SAMEnvelope(ContinuousBlock): block:
+
+    factory = SAMEnvelopeFactory
+    name = 'SAM'
+    label = 'SAM'
+
+    Parameter:
+        name = 'depth'
+        label = 'depth (frac.)'
+        compact_label = 'depth'
+        default = 1.0
+
+    Parameter:
+        name = 'fm'
+        label = 'Modulation frequency (Hz)'
+        compact_label = 'fm'
+        default = 5.0
+
+    Parameter:
+        name = 'delay'
+        label = 'AM delay (s)'
+        compact_label = 'delay'
+        default = 0.0
+
+    EnumParameter:
+        name = 'direction'
+        label = 'Initial AM direction'
+        compact_label = 'dir'
+        default = 'positive'
+        choices = {'positive': 1, 'negative': -1}
+
+
+enamldef SAMTone(ContinuousBlock): block:
+
+    factory = SAMToneFactory
+    name = 'SAM'
+    label = 'SAM'
+
+    Parameter:
+        name = 'depth'
+        label = 'depth (frac.)'
+        compact_label = 'depth'
+        default = 1.0
+
+    Parameter:
+        name = 'fc'
+        label = 'Carrier frequency (Hz)'
+        compact_label = 'fc'
+        default = 8e3
+
+    Parameter:
+        name = 'fm'
+        label = 'Modulation frequency (Hz)'
+        compact_label = 'fm'
+        default = 5.0
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB SPL)'
+        default = 60.0
+
+    EnumParameter:
+        name = 'equalize'
+        default = 'yes'
+        choices = {'yes': True, 'no': False}
+
+
+enamldef BroadbandNoise(ContinuousBlock):
+
+    factory = BroadbandNoiseFactory
+    name = 'broadband_noise'
+    label = 'broadband noise'
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB SPL)'
+        compact_label = 'level'
+        default = 60.0
+
+    Parameter:
+        name = 'seed'
+        label = 'random seed'
+        compact_label = 'seed'
+        default = 1
+
+    EnumParameter:
+        name = 'equalize'
+        default = 'yes'
+        choices = {'yes': True, 'no': False}
+
+
+enamldef BandlimitedNoise(BroadbandNoise):
+
+    factory = BandlimitedNoiseFactory
+    name = 'bandlimited_noise'
+    label = 'bandlimited noise'
+
+    Parameter:
+        name = 'fl'
+        label = 'highpass cutoff (Hz)'
+        compact_label = 'fl'
+        default = 0.1e3
+
+    Parameter:
+        name = 'fh'
+        label = 'lowpass cutoff (Hz)'
+        compact_label = 'fh'
+        default = 20e3
+
+    Parameter:
+        name = 'filter_rolloff'
+        label = 'filter rolloff (octaves)'
+        compact_label = 'fr'
+        default = 3
+
+    Parameter:
+        name = 'passband_attenuation'
+        label = 'passband attenuation (dB)'
+        compact_label = 'pass. atten.'
+        default = 0.1
+
+    Parameter:
+        name = 'stopband_attenuation'
+        label = 'stopband attenuation (dB)'
+        compact_label = 'stop. atten.'
+        default = 90.0
+
+    Parameter:
+        name = 'polarity'
+        label = 'polarity'
+        compact_label = 'pol.'
+        default = 1
+
+
+enamldef BandlimitedFIRNoise(BroadbandNoise):
+
+    factory = BandlimitedFIRNoiseFactory
+    name = 'bandlimited_noise'
+    label = 'bandlimited noise'
+
+    Parameter:
+        name = 'fl'
+        label = 'highpass cutoff (Hz)'
+        compact_label = 'fl'
+        default = 0.1e3
+
+    Parameter:
+        name = 'fh'
+        label = 'lowpass cutoff (Hz)'
+        compact_label = 'fh'
+        default = 20e3
+
+    Parameter:
+        name = 'polarity'
+        label = 'polarity'
+        compact_label = 'pol.'
+        default = 1
+
+    Parameter:
+        name = 'max_correction'
+        label = 'Max. eq. correction (dB)'
+        default = 20
+
+    EnumParameter:
+        name = 'audiogram_weighting'
+        label = 'Audiogram weighting'
+        default = 'none'
+        choices = {'none': None, 'mouse': "'mouse'"}
+
+
+enamldef Tone(ContinuousBlock):
+
+    factory = ToneFactory
+    name = 'tone'
+    label = 'tone'
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB SPL)'
+        compact_label = 'level'
+        default = 60.0
+
+    Parameter:
+        name = 'frequency'
+        label = 'frequency (Hz)'
+        compact_label = 'fc'
+        default = 1000.0
+
+    EnumParameter:
+        name = 'polarity'
+        label = 'polarity (radians)'
+        compact_label = 'pol'
+        default = 'positive'
+        choices = {'positive': 1, 'negative': -1}
+
+    Parameter:
+        name = 'phase'
+        label = 'phase'
+        compact_label = 'Θ'
+        default = 0
+
+
+enamldef Silence(ContinuousBlock):
+
+    factory = SilenceFactory
+    name = 'silence'
+    label = 'silence'
+
+
+enamldef ShapedNoise(ContinuousBlock):
+
+    factory = ShapedNoiseFactory
+    name = 'shaped_noise'
+    label = 'shaped noise'
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB SPL)'
+        compact_label = 'level'
+        default = 60.0
+
+    Parameter:
+        name = 'gains'
+        default = {
+            0: -60,
+            4e3/1.1: -60,
+            4e3: 0,
+            45.2e3: 40,
+            45.2e3*1.1: -60,
+            100e3/2: -60,
+        }
+
+
+enamldef SquareWave(ContinuousBlock):
+
+    factory = SquareWaveFactory
+    name = 'square_wave'
+    label = 'square wave'
+
+    Parameter:
+        name = 'level'
+        label = 'level'
+        compact_label = 'level'
+        default = 5
+
+    Parameter:
+        name = 'frequency'
+        label = 'frequency (Hz)'
+        compact_label = 'frequency'
+        default = 5
+
+    Parameter:
+        name = 'duty_cycle'
+        label = 'duty cycle'
+        compact_label = 'duty_cycle'
+        default = 0.5
+
+
+enamldef Repeat(EpochBlock):
+
+    factory = RepeatFactory
+    name = 'repeat'
+    label = 'repeat'
+
+    Parameter:
+        name = 'n'
+        label = 'N'
+        default = 440
+
+    Parameter:
+        name = 'skip_n'
+        label = 'skip N'
+        default = 0
+
+    Parameter:
+        name = 'rate'
+        label = 'rate'
+        default = 40
+
+    Parameter:
+        name = 'delay'
+        label = 'delay'
+        default = 0
+
+
+enamldef Chirp(EpochBlock):
+
+    factory = ChirpFactory
+    name = 'chirp'
+    label = 'chirp'
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB)'
+        default = -40
+
+    Parameter:
+        name = 'start_frequency'
+        label = 'start frequency (Hz)'
+        default = 250.0
+
+    Parameter:
+        name = 'end_frequency'
+        label = 'end frequency (Hz)'
+        default = 50e3
+
+    Parameter:
+        name = 'duration'
+        label = 'duration (sec)'
+        default = 1/50.0
+
+    EnumParameter:
+        name = 'window'
+        label = 'window'
+        compact_label = 'window'
+        default = 'Hann'
+        choices = {'Hann': "'hann'", 'Boxcar': "'boxcar'"}
+
+    EnumParameter:
+        name = 'equalize'
+        default = 'yes'
+        choices = {'yes': True, 'no': False}
+
+    Parameter:
+        name = 'max_correction'
+        label = 'Max. eq. correction (dB)'
+        default = 20
+
+    EnumParameter:
+        name = 'audiogram_weighting'
+        label = 'Audiogram weighting'
+        default = 'none'
+        choices = {'none': None, 'mouse': "'mouse'"}
+
+
+enamldef BandlimitedClick(EpochBlock):
+
+    factory = BandlimitedClickFactory
+    name = 'bandlimited_click'
+    label = 'bandlimited click'
+
+    Parameter:
+        name = 'flb'
+        label = 'start frequency (Hz)'
+        default = 8e3
+
+    Parameter:
+        name = 'fub'
+        label = 'end frequency (Hz)'
+        default = 32e3
+
+    Parameter:
+        name = 'window'
+        label = 'window (s)'
+        default = 5e-3
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB)'
+        default = 1
+
+    EnumParameter:
+        name = 'equalize'
+        default = 'yes'
+        choices = {'yes': True, 'no': False}
+
+    Parameter:
+        name = 'max_correction'
+        label = 'Max. eq. correction (dB)'
+        default = 20
+
+    EnumParameter:
+        name = 'audiogram_weighting'
+        label = 'Audiogram weighting'
+        default = 'none'
+        choices = {'none': None, 'mouse': "'mouse'"}
+
+
+enamldef WavSequence(ContinuousBlock):
+
+    factory = WavSequenceFactory
+    name = 'Sequence of wav files'
+    label = 'wavseq'
+
+    Parameter:
+        name = 'path'
+        label = 'folder'
+        dtype = 'S'
+
+    Parameter:
+        name = 'level'
+        label = 'level (dB)'
+        dtype = 'double'
+
+    EnumParameter:
+        name = 'normalization'
+        default = 'RMS'
+        # The values are interpreted as Python expressions, so it's important
+        # to include the string delimiter as it will be evaluated by
+        # `ast.literal_eval`).
+        choices = {'RMS': "'rms'", 'peak': "'pe'"}

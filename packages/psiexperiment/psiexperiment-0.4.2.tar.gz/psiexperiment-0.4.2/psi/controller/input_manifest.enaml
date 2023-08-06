@@ -1,0 +1,153 @@
+import logging
+log = logging.getLogger(__name__)
+from functools import partial
+import numpy as np
+
+from enaml.core.api import Conditional
+from enaml.workbench.api import Extension
+from enaml.workbench.core.api import Command
+from enaml.widgets.api import ProgressBar
+
+from .experiment_action import (ExperimentEvent, ExperimentState,
+                                ExperimentAction)
+
+from psi.core.enaml.api import PSIManifest
+from psi.util import declarative_to_dict
+from psi.experiment.api import StatusItem
+
+
+def get_metadata(contribution):
+    return declarative_to_dict(contribution, 'metadata')
+
+
+def prepare_event_callback(input, event):
+    # Check to see if we need to configure this callback. Don't configure
+    # unecessary callbacks as this slows down the system.
+    controller = event.workbench.get_plugin('psi.controller')
+    event_name = input.name + '_acquired'
+    if controller.event_used(event_name):
+        def cb(data):
+            nonlocal controller
+            nonlocal event_name
+            kw = {'data': data}
+            try:
+                controller.invoke_actions(event_name, kw=kw)
+            except Exception as e:
+                log.warn('Error with callback for %s', event_name)
+                log.exception(e)
+        input.add_callback(cb)
+
+
+def configure_epoch_input(input, event):
+    controller = event.workbench.get_plugin('psi.controller')
+    context = event.workbench.get_plugin('psi.context')
+    controller.invoke_actions(input.name + '_queue_start')
+    def empty_queue_cb(event):
+        nonlocal controller
+        nonlocal input
+        controller.invoke_actions(input.name + '_queue_end')
+    input.observe('complete', empty_queue_cb)
+
+
+enamldef InputManifest(PSIManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.input.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.prepare_event_callback'
+            handler = partial(prepare_event_callback, manifest.contribution)
+
+    Extension:
+        id = manifest.id + '.actions'
+        point = 'psi.controller.actions'
+
+        ExperimentEvent:
+            name = manifest.contribution.name + '_acquired'
+
+        ExperimentAction:
+            event = 'experiment_prepare'
+            command = manifest.contribution.name + '.prepare_event_callback'
+
+
+enamldef CaptureManifest(InputManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.capture.commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.start'
+            handler = lambda e: manifest.contribution.queue \
+                .append({'t0': e.parameters['timestamp']})
+
+        Command:
+            id = manifest.contribution.name + '.end'
+            handler = lambda e: manifest.contribution.queue.append(None)
+
+    Conditional:
+        condition << bool(manifest.contribution.start_event)
+
+        Extension:
+            id = manifest.id + '.capture.actions'
+            point = 'psi.controller.actions'
+
+            # Start acquiring data when the event is triggered.
+            ExperimentAction:
+                event = manifest.contribution.start_event
+                command = manifest.contribution.name + '.start'
+
+
+enamldef ExtractEpochsManifest(InputManifest): manifest:
+
+    Extension:
+        id = manifest.id + '.extract_commands'
+        point = 'enaml.workbench.core.commands'
+
+        Command:
+            id = manifest.contribution.name + '.queue_epoch'
+            handler = lambda e: manifest.contribution.added_queue \
+                .append(e.parameters)
+
+        Command:
+            id = manifest.contribution.name + '.prepare'
+            handler = partial(configure_epoch_input, manifest.contribution)
+
+    Extension:
+        id = manifest.id + '.extract_actions'
+        point = 'psi.controller.actions'
+
+        ExperimentState:
+            name = manifest.contribution.name + '_queue'
+
+        ExperimentAction:
+            event = 'engines_configured'
+            command = manifest.contribution.name + '.prepare'
+
+    Conditional:
+        condition << bool(manifest.contribution.epoch_event)
+
+        Extension:
+            id = manifest.id + '.capture.actions'
+            point = 'psi.controller.actions'
+
+            # Start acquiring data when the event is triggered.
+            ExperimentAction:
+                event = manifest.contribution.epoch_event
+                command = manifest.contribution.name + '.queue_epoch'
+
+
+enamldef RejectEpochsManifest(InputManifest): manifest:
+
+    Extension:
+        id = 'reject_epochs_workspace.' + manifest.contribution.name
+        point = 'psi.experiment.status'
+        rank = 50
+
+        StatusItem:
+            label = 'Epoch reject'
+            ProgressBar:
+                maximum << 100
+                value << int(manifest.contribution.reject_percent)
+                text_visible = True
