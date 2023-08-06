@@ -1,0 +1,39 @@
+apt:
+
+  packages:
+    - nginx-core
+    - postgresql-client-{{ v.postgres }}
+    - supervisor
+
+  build_packages:
+    - nodejs
+
+  dev_packages:
+    - iputils-ping
+    - less
+    - net-tools
+    - netcat-openbsd
+    - redis-tools
+    - sudo
+    - vim-tiny
+
+  repos:
+    - name: postgres
+      key: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+      entry: deb https://apt.postgresql.org/pub/repos/apt {{ v.codename }}-pgdg main
+
+  build_repos:
+    - name: nodejs
+      key: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+      entry: deb https://deb.nodesource.com/node_16.x {{ v.codename }} main
+
+docker:
+
+  build: |
+    # build web app
+    rs jetapp build /rs/webroot
+
+  build_setup: |
+    # setup javascript environment
+    npm install -g --no-save yarn@^1.22.10
+    install -d /node_modules -o rs -g rs
