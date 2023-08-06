@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+pydictable/__init__.py
+pydictable/core.py
+pydictable/field.py
+pydictable/test_core.py
+pydictable/test_field.py
+pydictable/type.py
+pydictable.egg-info/PKG-INFO
+pydictable.egg-info/SOURCES.txt
+pydictable.egg-info/dependency_links.txt
+pydictable.egg-info/top_level.txt
