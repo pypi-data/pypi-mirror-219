@@ -1,0 +1,29 @@
+[tool.poetry]
+name = 'symbol-shoestring'
+version = '0.0.1'
+description = 'Symbol Shoestring Deployment Tool'
+authors = ['Symbol Contributors <contributors@symbol.dev>']
+maintainers = ['Symbol Contributors <contributors@symbol.dev>']
+license = 'MIT'
+
+readme = 'README.md'
+
+packages = [{ include = 'shoestring' }]
+
+repository = 'https://github.com/symbol/product/tree/main/tools/shoestring'
+
+keywords = ['symbol', 'shoestring', 'deployment', 'node']
+
+classifiers = ['Programming Language :: Python :: 3.7']
+
+[tool.poetry.dependencies]
+python = "^3.7"
+aiohttp = "3.8.4"
+Jinja2 = "3.1.2"
+prompt-toolkit = "3.0.38"
+PyYAML = "6.0"
+requests = "2.31.0"
+symbol-lightapi = "0.0.4"
+symbol-sdk-python = "3.0.7"
+websockets = "11.0.3"
+zenlog = "1.1"
