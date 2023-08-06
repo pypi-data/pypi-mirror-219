@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/bindings.cpp
+src/cudagrad.hpp
+src/ops.cu
+src/cudagrad.egg-info/PKG-INFO
+src/cudagrad.egg-info/SOURCES.txt
+src/cudagrad.egg-info/dependency_links.txt
+src/cudagrad.egg-info/not-zip-safe
+src/cudagrad.egg-info/requires.txt
+src/cudagrad.egg-info/top_level.txt
+tests/test.py
