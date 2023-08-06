@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: llm-base
+Version: 0.0.1
+Summary: GPT Base
+Author-email: Caspar Nettelbladt <caspar.n@gmail.com>
+Project-URL: Homepage, https://github.com/kaar/gpt-base
+Project-URL: Bug Tracker, https://github.com/kaar/gpt-base/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# GPT Base

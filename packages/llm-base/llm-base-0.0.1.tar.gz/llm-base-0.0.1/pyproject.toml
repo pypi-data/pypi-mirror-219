@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-base"
+version = "0.0.1"
+authors = [
+  { name="Caspar Nettelbladt", email="caspar.n@gmail.com" },
+]
+description = "GPT Base"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+# [project.entry_points]
+# console_scripts = [
+#     "gpt-chat = chat:main",
+# ]
+
+[project.urls]
+"Homepage" = "https://github.com/kaar/gpt-base"
+"Bug Tracker" = "https://github.com/kaar/gpt-base/issues"
