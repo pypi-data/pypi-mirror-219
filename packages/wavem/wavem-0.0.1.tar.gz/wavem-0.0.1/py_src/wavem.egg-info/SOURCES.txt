@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+py_src/wavem/__init__.py
+py_src/wavem.egg-info/PKG-INFO
+py_src/wavem.egg-info/SOURCES.txt
+py_src/wavem.egg-info/dependency_links.txt
+py_src/wavem.egg-info/not-zip-safe
+py_src/wavem.egg-info/top_level.txt
