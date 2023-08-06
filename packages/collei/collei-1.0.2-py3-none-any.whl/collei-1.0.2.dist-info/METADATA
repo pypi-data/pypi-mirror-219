@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: collei
+Version: 1.0.2
+Summary: 🍂 An unofficial Waifu.pics API wrapper for Python
+Home-page: https://github.com/elaresai/collei
+License: MIT
+Author: elaresai
+Author-email: elaresai@gmail.com
+Maintainer: elaresai
+Maintainer-email: elaresai@gmail.com
+Requires-Python: >=3.8.0,<3.12
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: attrs (>=23.1.0,<24.0.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Project-URL: Repository, https://github.com/elaresai/collei
+Description-Content-Type: text/markdown
+
+# collei
+
+🍂 An unofficial [_Waifu.pics API_](https://waifu.pics) wrapper for Python
+
+# 📦 Packages
+
+## 🐍 PyPi
+
+```sh
+pip install collei
+```
+
+# 🔎 Examples
+
+[_examples/basic.py_](https://github.com/elaresai/collei/blob/main/examples/basic.py)
+
+```py
+import collei
+
+client = collei.Client()
+
+print(client.sfw.get(collei.SfwCategory.HUG))
+print(client.sfw.get(collei.SfwCategory.KISS))
+print(client.sfw.get(collei.SfwCategory.LICK))
+print(client.sfw.get(collei.SfwCategory.BITE))
+```
+
+# ✨ Links
+
+[🐍 _PyPI_](https://pypi.org/project/collei/)\
+[🏠 _Homepage_](https://github.com/elaresai/collei)\
+[🐱 _Repository_](https://github.com/elaresai/collei)
+
