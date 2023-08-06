@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: supGecko
+Version: 0.1.0a4
+Summary: A helper library to write Gecko code
+Home-page: https://github.com/sup39/supGecko
+Author: sup39
+Author-email: sms@sup39.dev
+License: MIT
+Project-URL: Bug Tracker, https://github.com/sup39/supGecko/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# supGecko
+A helper library to write Gecko code
+
+## Installation
+```
+pip install supGecko
+```
+
+## Usage
+```python
+from supGecko import Gecko
+
+g = Gecko()
+# TODO: usage of the Gecko class
+print(g.dump_txt())
+```
