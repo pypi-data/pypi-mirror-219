@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Running Gunicorn &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Configuration Overview" href="configure.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running Gunicorn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gunicorn">gunicorn</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commonly-used-arguments">Commonly Used Arguments</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#integration">Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#django">Django</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paste-deployment">Paste Deployment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Running Gunicorn</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/run.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="running-gunicorn">
+<h1>Running Gunicorn<a class="headerlink" href="#running-gunicorn" title="Permalink to this heading">¶</a></h1>
+<p>You can run Gunicorn by using commands or integrate with popular frameworks
+like Django, Pyramid, or TurboGears. For deploying Gunicorn in production see
+<a class="reference internal" href="deploy.html"><span class="doc">Deploying Gunicorn</span></a>.</p>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this heading">¶</a></h2>
+<p>After installing Gunicorn you will have access to the command line script
+<code class="docutils literal notranslate"><span class="pre">gunicorn</span></code>.</p>
+<section id="gunicorn">
+<span id="gunicorn-cmd"></span><h3>gunicorn<a class="headerlink" href="#gunicorn" title="Permalink to this heading">¶</a></h3>
+<p>Basic usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunicorn<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span><span class="o">[</span>WSGI_APP<span class="o">]</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">WSGI_APP</span></code> is of the pattern <code class="docutils literal notranslate"><span class="pre">$(MODULE_NAME):$(VARIABLE_NAME)</span></code>. The
+module name can be a full dotted path. The variable name refers to a WSGI
+callable that should be found in the specified module.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 20.1.0: </span><code class="docutils literal notranslate"><span class="pre">WSGI_APP</span></code> is optional if it is defined in a <a class="reference internal" href="settings.html#config"><span class="std std-ref">config</span></a> file.</p>
+</div>
+<p>Example with the test app:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">app</span><span class="p">(</span><span class="n">environ</span><span class="p">,</span> <span class="n">start_response</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Simplest possible application object&quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;200 OK&#39;</span>
+    <span class="n">response_headers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s1">&#39;Content-type&#39;</span><span class="p">,</span> <span class="s1">&#39;text/plain&#39;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s1">&#39;Content-Length&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)))</span>
+    <span class="p">]</span>
+    <span class="n">start_response</span><span class="p">(</span><span class="n">status</span><span class="p">,</span> <span class="n">response_headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">iter</span><span class="p">([</span><span class="n">data</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>You can now run the app with the following command:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ gunicorn --workers=2 test:app
+</pre></div>
+</div>
+<p>The variable name can also be a function call. In that case the name
+will be imported from the module, then called to get the application
+object. This is commonly referred to as the “application factory”
+pattern.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_app</span><span class="p">():</span>
+    <span class="n">app</span> <span class="o">=</span> <span class="n">FrameworkApp</span><span class="p">()</span>
+    <span class="o">...</span>
+    <span class="k">return</span> <span class="n">app</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ gunicorn --workers=2 &#39;test:create_app()&#39;
+</pre></div>
+</div>
+<p>Positional and keyword arguments can also be passed, but it is
+recommended to load configuration from environment variables rather than
+the command line.</p>
+<section id="commonly-used-arguments">
+<h4>Commonly Used Arguments<a class="headerlink" href="#commonly-used-arguments" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">CONFIG,</span> <span class="pre">--config=CONFIG</span></code> - Specify a config file in the form
+<code class="docutils literal notranslate"><span class="pre">$(PATH)</span></code>, <code class="docutils literal notranslate"><span class="pre">file:$(PATH)</span></code>, or <code class="docutils literal notranslate"><span class="pre">python:$(MODULE_NAME)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span> <span class="pre">BIND,</span> <span class="pre">--bind=BIND</span></code> - Specify a server socket to bind. Server sockets
+can be any of <code class="docutils literal notranslate"><span class="pre">$(HOST)</span></code>, <code class="docutils literal notranslate"><span class="pre">$(HOST):$(PORT)</span></code>, <code class="docutils literal notranslate"><span class="pre">fd://$(FD)</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">unix:$(PATH)</span></code>. An IP is a valid <code class="docutils literal notranslate"><span class="pre">$(HOST)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-w</span> <span class="pre">WORKERS,</span> <span class="pre">--workers=WORKERS</span></code> - The number of worker processes. This
+number should generally be between 2-4 workers per core in the server.
+Check the <a class="reference internal" href="faq.html#faq"><span class="std std-ref">FAQ</span></a> for ideas on tuning this parameter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-k</span> <span class="pre">WORKERCLASS,</span> <span class="pre">--worker-class=WORKERCLASS</span></code> - The type of worker process
+to run. You’ll definitely want to read the production page for the
+implications of this parameter. You can set this to <code class="docutils literal notranslate"><span class="pre">$(NAME)</span></code>
+where <code class="docutils literal notranslate"><span class="pre">$(NAME)</span></code> is one of <code class="docutils literal notranslate"><span class="pre">sync</span></code>, <code class="docutils literal notranslate"><span class="pre">eventlet</span></code>, <code class="docutils literal notranslate"><span class="pre">gevent</span></code>,
+<code class="docutils literal notranslate"><span class="pre">tornado</span></code>, <code class="docutils literal notranslate"><span class="pre">gthread</span></code>.
+<code class="docutils literal notranslate"><span class="pre">sync</span></code> is the default. See the <a class="reference internal" href="settings.html#worker-class"><span class="std std-ref">worker_class</span></a> documentation for more
+information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">APP_NAME,</span> <span class="pre">--name=APP_NAME</span></code> - If <a class="reference external" href="https://pypi.python.org/pypi/setproctitle">setproctitle</a> is installed you can
+adjust the name of Gunicorn process as they appear in the process system
+table (which affects tools like <code class="docutils literal notranslate"><span class="pre">ps</span></code> and <code class="docutils literal notranslate"><span class="pre">top</span></code>).</p></li>
+</ul>
+<p>Settings can be specified by using environment variable
+<a class="reference internal" href="settings.html#settings"><span class="std std-ref">GUNICORN_CMD_ARGS</span></a>.</p>
+<p>See <a class="reference internal" href="configure.html#configuration"><span class="std std-ref">Configuration Overview</span></a> and <a class="reference internal" href="settings.html#settings"><span class="std std-ref">Settings</span></a> for detailed usage.</p>
+</section>
+</section>
+</section>
+<section id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">¶</a></h2>
+<p>Gunicorn also provides integration for Django and Paste Deploy applications.</p>
+<section id="django">
+<h3>Django<a class="headerlink" href="#django" title="Permalink to this heading">¶</a></h3>
+<p>Gunicorn will look for a WSGI callable named <code class="docutils literal notranslate"><span class="pre">application</span></code> if not specified.
+So for a typical Django project, invoking Gunicorn would look like:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunicorn<span class="w"> </span>myproject.wsgi
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This requires that your project be on the Python path; the simplest way to
+ensure that is to run this command from the same directory as your
+<code class="docutils literal notranslate"><span class="pre">manage.py</span></code> file.</p>
+</div>
+<p>You can use the
+<a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#raw-env">–env</a> option
+to set the path to load the settings. In case you need it you can also
+add your application path to <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> using the
+<a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#pythonpath">–pythonpath</a>
+option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunicorn<span class="w"> </span>--env<span class="w"> </span><span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>myproject.settings<span class="w"> </span>myproject.wsgi
+</pre></div>
+</div>
+</section>
+<section id="paste-deployment">
+<h3>Paste Deployment<a class="headerlink" href="#paste-deployment" title="Permalink to this heading">¶</a></h3>
+<p>Frameworks such as Pyramid and Turbogears are typically configured using Paste
+Deployment configuration files. If you would like to use these files with
+Gunicorn, there are two approaches.</p>
+<p>As a server runner, Gunicorn can serve your application using the commands from
+your framework, such as <code class="docutils literal notranslate"><span class="pre">pserve</span></code> or <code class="docutils literal notranslate"><span class="pre">gearbox</span></code>. To use Gunicorn with these
+commands, specify it as a server in your configuration file:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[server:main]</span>
+<span class="na">use</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">egg:gunicorn</span><span class="c1">#main</span>
+<span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">127.0.0.1</span>
+<span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">8080</span>
+<span class="na">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">3</span>
+</pre></div>
+</div>
+<p>This approach is the quickest way to get started with Gunicorn, but there are
+some limitations. Gunicorn will have no control over how the application is
+loaded, so settings such as <a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#reload">reload</a> will have no effect and Gunicorn will be
+unable to hot upgrade a running application. Using the <a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#daemon">daemon</a> option may
+confuse your command line tool. Instead, use the built-in support for these
+features provided by that tool. For example, run <code class="docutils literal notranslate"><span class="pre">pserve</span> <span class="pre">--reload</span></code> instead of
+specifying <code class="docutils literal notranslate"><span class="pre">reload</span> <span class="pre">=</span> <span class="pre">True</span></code> in the server configuration block. For advanced
+configuration of Gunicorn, such as <a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#server-hooks">Server Hooks</a> specifying a Gunicorn
+configuration file using the <code class="docutils literal notranslate"><span class="pre">config</span></code> key is supported.</p>
+<p>To use the full power of Gunicorn’s reloading and hot code upgrades, use the
+<a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#paste">paste option</a> to run your application instead. When used this way, Gunicorn
+will use the application defined by the PasteDeploy configuration file, but
+Gunicorn will not use any server configuration defined in the file. Instead,
+<a class="reference external" href="http://docs.gunicorn.org/en/latest/configure.html">configure gunicorn</a>.</p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunicorn<span class="w"> </span>--paste<span class="w"> </span>development.ini<span class="w"> </span>-b<span class="w"> </span>:8080<span class="w"> </span>--chdir<span class="w"> </span>/path/to/project
+</pre></div>
+</div>
+<p>Or use a different application:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gunicorn<span class="w"> </span>--paste<span class="w"> </span>development.ini#admin<span class="w"> </span>-b<span class="w"> </span>:8080<span class="w"> </span>--chdir<span class="w"> </span>/path/to/project
+</pre></div>
+</div>
+<p>With both approaches, Gunicorn will use any loggers section found in Paste
+Deployment configuration file, unless instructed otherwise by specifying
+additional <a class="reference external" href="http://docs.gunicorn.org/en/latest/settings.html#logging">logging settings</a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configure.html" class="btn btn-neutral float-right" title="Configuration Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

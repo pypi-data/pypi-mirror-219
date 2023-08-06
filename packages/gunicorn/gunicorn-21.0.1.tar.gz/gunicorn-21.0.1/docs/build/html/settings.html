@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Instrumentation" href="instrumentation.html" />
+    <link rel="prev" title="Configuration Overview" href="configure.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#config-file">Config File</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#config"><code class="docutils literal notranslate"><span class="pre">config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#wsgi-app"><code class="docutils literal notranslate"><span class="pre">wsgi_app</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#debugging">Debugging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reload"><code class="docutils literal notranslate"><span class="pre">reload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reload-engine"><code class="docutils literal notranslate"><span class="pre">reload_engine</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reload-extra-files"><code class="docutils literal notranslate"><span class="pre">reload_extra_files</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spew"><code class="docutils literal notranslate"><span class="pre">spew</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#check-config"><code class="docutils literal notranslate"><span class="pre">check_config</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#print-config"><code class="docutils literal notranslate"><span class="pre">print_config</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accesslog"><code class="docutils literal notranslate"><span class="pre">accesslog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#disable-redirect-access-to-syslog"><code class="docutils literal notranslate"><span class="pre">disable_redirect_access_to_syslog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#access-log-format"><code class="docutils literal notranslate"><span class="pre">access_log_format</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#errorlog"><code class="docutils literal notranslate"><span class="pre">errorlog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#loglevel"><code class="docutils literal notranslate"><span class="pre">loglevel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#capture-output"><code class="docutils literal notranslate"><span class="pre">capture_output</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logger-class"><code class="docutils literal notranslate"><span class="pre">logger_class</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logconfig"><code class="docutils literal notranslate"><span class="pre">logconfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logconfig-dict"><code class="docutils literal notranslate"><span class="pre">logconfig_dict</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#logconfig-json"><code class="docutils literal notranslate"><span class="pre">logconfig_json</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syslog-addr"><code class="docutils literal notranslate"><span class="pre">syslog_addr</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syslog"><code class="docutils literal notranslate"><span class="pre">syslog</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syslog-prefix"><code class="docutils literal notranslate"><span class="pre">syslog_prefix</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syslog-facility"><code class="docutils literal notranslate"><span class="pre">syslog_facility</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-stdio-inheritance"><code class="docutils literal notranslate"><span class="pre">enable_stdio_inheritance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statsd-host"><code class="docutils literal notranslate"><span class="pre">statsd_host</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dogstatsd-tags"><code class="docutils literal notranslate"><span class="pre">dogstatsd_tags</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#statsd-prefix"><code class="docutils literal notranslate"><span class="pre">statsd_prefix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#process-naming">Process Naming</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#proc-name"><code class="docutils literal notranslate"><span class="pre">proc_name</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#default-proc-name"><code class="docutils literal notranslate"><span class="pre">default_proc_name</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ssl">SSL</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#keyfile"><code class="docutils literal notranslate"><span class="pre">keyfile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#certfile"><code class="docutils literal notranslate"><span class="pre">certfile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-version"><code class="docutils literal notranslate"><span class="pre">ssl_version</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cert-reqs"><code class="docutils literal notranslate"><span class="pre">cert_reqs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ca-certs"><code class="docutils literal notranslate"><span class="pre">ca_certs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#suppress-ragged-eofs"><code class="docutils literal notranslate"><span class="pre">suppress_ragged_eofs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-handshake-on-connect"><code class="docutils literal notranslate"><span class="pre">do_handshake_on_connect</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ciphers"><code class="docutils literal notranslate"><span class="pre">ciphers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#security">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#limit-request-line"><code class="docutils literal notranslate"><span class="pre">limit_request_line</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limit-request-fields"><code class="docutils literal notranslate"><span class="pre">limit_request_fields</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#limit-request-field-size"><code class="docutils literal notranslate"><span class="pre">limit_request_field_size</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-hooks">Server Hooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#on-starting"><code class="docutils literal notranslate"><span class="pre">on_starting</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-reload"><code class="docutils literal notranslate"><span class="pre">on_reload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-ready"><code class="docutils literal notranslate"><span class="pre">when_ready</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-fork"><code class="docutils literal notranslate"><span class="pre">pre_fork</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-fork"><code class="docutils literal notranslate"><span class="pre">post_fork</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-worker-init"><code class="docutils literal notranslate"><span class="pre">post_worker_init</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-int"><code class="docutils literal notranslate"><span class="pre">worker_int</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-abort"><code class="docutils literal notranslate"><span class="pre">worker_abort</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-exec"><code class="docutils literal notranslate"><span class="pre">pre_exec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pre-request"><code class="docutils literal notranslate"><span class="pre">pre_request</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-request"><code class="docutils literal notranslate"><span class="pre">post_request</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#child-exit"><code class="docutils literal notranslate"><span class="pre">child_exit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-exit"><code class="docutils literal notranslate"><span class="pre">worker_exit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nworkers-changed"><code class="docutils literal notranslate"><span class="pre">nworkers_changed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-exit"><code class="docutils literal notranslate"><span class="pre">on_exit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ssl-context"><code class="docutils literal notranslate"><span class="pre">ssl_context</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-mechanics">Server Mechanics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preload-app"><code class="docutils literal notranslate"><span class="pre">preload_app</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sendfile"><code class="docutils literal notranslate"><span class="pre">sendfile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reuse-port"><code class="docutils literal notranslate"><span class="pre">reuse_port</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chdir"><code class="docutils literal notranslate"><span class="pre">chdir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#daemon"><code class="docutils literal notranslate"><span class="pre">daemon</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-env"><code class="docutils literal notranslate"><span class="pre">raw_env</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pidfile"><code class="docutils literal notranslate"><span class="pre">pidfile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-tmp-dir"><code class="docutils literal notranslate"><span class="pre">worker_tmp_dir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user"><code class="docutils literal notranslate"><span class="pre">user</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#group"><code class="docutils literal notranslate"><span class="pre">group</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#umask"><code class="docutils literal notranslate"><span class="pre">umask</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initgroups"><code class="docutils literal notranslate"><span class="pre">initgroups</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tmp-upload-dir"><code class="docutils literal notranslate"><span class="pre">tmp_upload_dir</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#secure-scheme-headers"><code class="docutils literal notranslate"><span class="pre">secure_scheme_headers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forwarded-allow-ips"><code class="docutils literal notranslate"><span class="pre">forwarded_allow_ips</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pythonpath"><code class="docutils literal notranslate"><span class="pre">pythonpath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paste"><code class="docutils literal notranslate"><span class="pre">paste</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proxy-protocol"><code class="docutils literal notranslate"><span class="pre">proxy_protocol</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#proxy-allow-ips"><code class="docutils literal notranslate"><span class="pre">proxy_allow_ips</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-paste-global-conf"><code class="docutils literal notranslate"><span class="pre">raw_paste_global_conf</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#strip-header-spaces"><code class="docutils literal notranslate"><span class="pre">strip_header_spaces</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-socket">Server Socket</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bind"><code class="docutils literal notranslate"><span class="pre">bind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backlog"><code class="docutils literal notranslate"><span class="pre">backlog</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#worker-processes">Worker Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workers"><code class="docutils literal notranslate"><span class="pre">workers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-class"><code class="docutils literal notranslate"><span class="pre">worker_class</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#threads"><code class="docutils literal notranslate"><span class="pre">threads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-connections"><code class="docutils literal notranslate"><span class="pre">worker_connections</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-requests"><code class="docutils literal notranslate"><span class="pre">max_requests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-requests-jitter"><code class="docutils literal notranslate"><span class="pre">max_requests_jitter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#timeout"><code class="docutils literal notranslate"><span class="pre">timeout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#graceful-timeout"><code class="docutils literal notranslate"><span class="pre">graceful_timeout</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keepalive"><code class="docutils literal notranslate"><span class="pre">keepalive</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Settings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/settings.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="settings">
+<span id="id1"></span><h1>Settings<a class="headerlink" href="#settings" title="Permalink to this heading">¶</a></h1>
+<p>This is an exhaustive list of settings for Gunicorn. Some settings are only
+able to be set from a configuration file. The setting name is what should be
+used in the configuration file. The command line arguments are listed as well
+for reference on setting at the command line.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Settings can be specified by using environment variable
+<code class="docutils literal notranslate"><span class="pre">GUNICORN_CMD_ARGS</span></code>. All available command line arguments can be used.
+For example, to specify the bind address and number of workers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ GUNICORN_CMD_ARGS=&quot;--bind=127.0.0.1 --workers=3&quot; gunicorn app:app
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.7.</span></p>
+</div>
+</div>
+<section id="config-file">
+<h2>Config File<a class="headerlink" href="#config-file" title="Permalink to this heading">¶</a></h2>
+<section id="config">
+<span id="id2"></span><h3><code class="docutils literal notranslate"><span class="pre">config</span></code><a class="headerlink" href="#config" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-c</span> <span class="pre">CONFIG</span></code> or <code class="docutils literal notranslate"><span class="pre">--config</span> <span class="pre">CONFIG</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'./gunicorn.conf.py'</span></code></p>
+<p><a class="reference internal" href="configure.html#configuration-file"><span class="std std-ref">The Gunicorn config file</span></a>.</p>
+<p>A string of the form <code class="docutils literal notranslate"><span class="pre">PATH</span></code>, <code class="docutils literal notranslate"><span class="pre">file:PATH</span></code>, or <code class="docutils literal notranslate"><span class="pre">python:MODULE_NAME</span></code>.</p>
+<p>Only has an effect when specified on the command line or as part of an
+application specific configuration.</p>
+<p>By default, a file named <code class="docutils literal notranslate"><span class="pre">gunicorn.conf.py</span></code> will be read from the same
+directory where gunicorn is being run.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.4: </span>Loading the config from a Python module requires the <code class="docutils literal notranslate"><span class="pre">python:</span></code>
+prefix.</p>
+</div>
+</section>
+<section id="wsgi-app">
+<span id="id3"></span><h3><code class="docutils literal notranslate"><span class="pre">wsgi_app</span></code><a class="headerlink" href="#wsgi-app" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>A WSGI application path in pattern <code class="docutils literal notranslate"><span class="pre">$(MODULE_NAME):$(VARIABLE_NAME)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 20.1.0.</span></p>
+</div>
+</section>
+</section>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Permalink to this heading">¶</a></h2>
+<section id="reload">
+<span id="id4"></span><h3><code class="docutils literal notranslate"><span class="pre">reload</span></code><a class="headerlink" href="#reload" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--reload</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Restart workers when code changes.</p>
+<p>This setting is intended for development. It will cause workers to be
+restarted whenever application code changes.</p>
+<p>The reloader is incompatible with application preloading. When using a
+paste configuration be sure that the server block does not import any
+application code or the reload will not work as designed.</p>
+<p>The default behavior is to attempt inotify with a fallback to file
+system polling. Generally, inotify should be preferred if available
+because it consumes less system resources.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In order to use the inotify reloader, you must have the <code class="docutils literal notranslate"><span class="pre">inotify</span></code>
+package installed.</p>
+</div>
+</section>
+<section id="reload-engine">
+<span id="id5"></span><h3><code class="docutils literal notranslate"><span class="pre">reload_engine</span></code><a class="headerlink" href="#reload-engine" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--reload-engine</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'auto'</span></code></p>
+<p>The implementation that should be used to power <a class="reference internal" href="#reload"><span class="std std-ref">reload</span></a>.</p>
+<p>Valid engines are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'auto'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'poll'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'inotify'</span></code> (requires inotify)</p></li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.7.</span></p>
+</div>
+</section>
+<section id="reload-extra-files">
+<span id="id6"></span><h3><code class="docutils literal notranslate"><span class="pre">reload_extra_files</span></code><a class="headerlink" href="#reload-extra-files" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--reload-extra-file</span> <span class="pre">FILES</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+<p>Extends <a class="reference internal" href="#reload"><span class="std std-ref">reload</span></a> option to also watch and reload on additional files
+(e.g., templates, configurations, specifications, etc.).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.8.</span></p>
+</div>
+</section>
+<section id="spew">
+<span id="id7"></span><h3><code class="docutils literal notranslate"><span class="pre">spew</span></code><a class="headerlink" href="#spew" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--spew</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Install a trace function that spews every line executed by the server.</p>
+<p>This is the nuclear option.</p>
+</section>
+<section id="check-config">
+<span id="id8"></span><h3><code class="docutils literal notranslate"><span class="pre">check_config</span></code><a class="headerlink" href="#check-config" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--check-config</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Check the configuration and exit. The exit status is 0 if the
+configuration is correct, and 1 if the configuration is incorrect.</p>
+</section>
+<section id="print-config">
+<span id="id9"></span><h3><code class="docutils literal notranslate"><span class="pre">print_config</span></code><a class="headerlink" href="#print-config" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--print-config</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Print the configuration settings as fully resolved. Implies <a class="reference internal" href="#check-config"><span class="std std-ref">check_config</span></a>.</p>
+</section>
+</section>
+<section id="logging">
+<h2>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h2>
+<section id="accesslog">
+<span id="id10"></span><h3><code class="docutils literal notranslate"><span class="pre">accesslog</span></code><a class="headerlink" href="#accesslog" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--access-logfile</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>The Access log file to write to.</p>
+<p><code class="docutils literal notranslate"><span class="pre">'-'</span></code> means log to stdout.</p>
+</section>
+<section id="disable-redirect-access-to-syslog">
+<span id="id11"></span><h3><code class="docutils literal notranslate"><span class="pre">disable_redirect_access_to_syslog</span></code><a class="headerlink" href="#disable-redirect-access-to-syslog" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--disable-redirect-access-to-syslog</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Disable redirect access logs to syslog.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.8.</span></p>
+</div>
+</section>
+<section id="access-log-format">
+<span id="id12"></span><h3><code class="docutils literal notranslate"><span class="pre">access_log_format</span></code><a class="headerlink" href="#access-log-format" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--access-logformat</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'%(h)s</span> <span class="pre">%(l)s</span> <span class="pre">%(u)s</span> <span class="pre">%(t)s</span> <span class="pre">&quot;%(r)s&quot;</span> <span class="pre">%(s)s</span> <span class="pre">%(b)s</span> <span class="pre">&quot;%(f)s&quot;</span> <span class="pre">&quot;%(a)s&quot;'</span></code></p>
+<p>The access log format.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Identifier</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>remote address</p></td>
+</tr>
+<tr class="row-odd"><td><p>l</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'-'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>u</p></td>
+<td><p>user name</p></td>
+</tr>
+<tr class="row-odd"><td><p>t</p></td>
+<td><p>date of the request</p></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>status line (e.g. <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/</span> <span class="pre">HTTP/1.1</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>m</p></td>
+<td><p>request method</p></td>
+</tr>
+<tr class="row-even"><td><p>U</p></td>
+<td><p>URL path without query string</p></td>
+</tr>
+<tr class="row-odd"><td><p>q</p></td>
+<td><p>query string</p></td>
+</tr>
+<tr class="row-even"><td><p>H</p></td>
+<td><p>protocol</p></td>
+</tr>
+<tr class="row-odd"><td><p>s</p></td>
+<td><p>status</p></td>
+</tr>
+<tr class="row-even"><td><p>B</p></td>
+<td><p>response length</p></td>
+</tr>
+<tr class="row-odd"><td><p>b</p></td>
+<td><p>response length or <code class="docutils literal notranslate"><span class="pre">'-'</span></code> (CLF format)</p></td>
+</tr>
+<tr class="row-even"><td><p>f</p></td>
+<td><p>referer</p></td>
+</tr>
+<tr class="row-odd"><td><p>a</p></td>
+<td><p>user agent</p></td>
+</tr>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>request time in seconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>M</p></td>
+<td><p>request time in milliseconds</p></td>
+</tr>
+<tr class="row-even"><td><p>D</p></td>
+<td><p>request time in microseconds</p></td>
+</tr>
+<tr class="row-odd"><td><p>L</p></td>
+<td><p>request time in decimal seconds</p></td>
+</tr>
+<tr class="row-even"><td><p>p</p></td>
+<td><p>process ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>{header}i</p></td>
+<td><p>request header</p></td>
+</tr>
+<tr class="row-even"><td><p>{header}o</p></td>
+<td><p>response header</p></td>
+</tr>
+<tr class="row-odd"><td><p>{variable}e</p></td>
+<td><p>environment variable</p></td>
+</tr>
+</tbody>
+</table>
+<p>Use lowercase for header and environment variable names, and put
+<code class="docutils literal notranslate"><span class="pre">{...}x</span></code> names inside <code class="docutils literal notranslate"><span class="pre">%(...)s</span></code>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="p">({</span><span class="n">x</span><span class="o">-</span><span class="n">forwarded</span><span class="o">-</span><span class="k">for</span><span class="p">}</span><span class="n">i</span><span class="p">)</span><span class="n">s</span>
+</pre></div>
+</div>
+</section>
+<section id="errorlog">
+<span id="id13"></span><h3><code class="docutils literal notranslate"><span class="pre">errorlog</span></code><a class="headerlink" href="#errorlog" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--error-logfile</span> <span class="pre">FILE</span></code> or <code class="docutils literal notranslate"><span class="pre">--log-file</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'-'</span></code></p>
+<p>The Error log file to write to.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">'-'</span></code> for FILE makes gunicorn log to stderr.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.2: </span>Log to stderr by default.</p>
+</div>
+</section>
+<section id="loglevel">
+<span id="id14"></span><h3><code class="docutils literal notranslate"><span class="pre">loglevel</span></code><a class="headerlink" href="#loglevel" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">LEVEL</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'info'</span></code></p>
+<p>The granularity of Error log outputs.</p>
+<p>Valid level names are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'debug'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'info'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'warning'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'error'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'critical'</span></code></p></li>
+</ul>
+</section>
+<section id="capture-output">
+<span id="id15"></span><h3><code class="docutils literal notranslate"><span class="pre">capture_output</span></code><a class="headerlink" href="#capture-output" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--capture-output</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Redirect stdout/stderr to specified file in <a class="reference internal" href="#errorlog"><span class="std std-ref">errorlog</span></a>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.6.</span></p>
+</div>
+</section>
+<section id="logger-class">
+<span id="id16"></span><h3><code class="docutils literal notranslate"><span class="pre">logger_class</span></code><a class="headerlink" href="#logger-class" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--logger-class</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'gunicorn.glogging.Logger'</span></code></p>
+<p>The logger you want to use to log events in Gunicorn.</p>
+<p>The default class (<code class="docutils literal notranslate"><span class="pre">gunicorn.glogging.Logger</span></code>) handles most
+normal usages in logging. It provides error and access logging.</p>
+<p>You can provide your own logger by giving Gunicorn a Python path to a
+class that quacks like <code class="docutils literal notranslate"><span class="pre">gunicorn.glogging.Logger</span></code>.</p>
+</section>
+<section id="logconfig">
+<span id="id17"></span><h3><code class="docutils literal notranslate"><span class="pre">logconfig</span></code><a class="headerlink" href="#logconfig" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-config</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>The log config file to use.
+Gunicorn uses the standard Python logging module’s Configuration
+file format.</p>
+</section>
+<section id="logconfig-dict">
+<span id="id18"></span><h3><code class="docutils literal notranslate"><span class="pre">logconfig_dict</span></code><a class="headerlink" href="#logconfig-dict" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">{}</span></code></p>
+<p>The log config dictionary to use, using the standard Python
+logging module’s dictionary configuration format. This option
+takes precedence over the <a class="reference internal" href="#logconfig"><span class="std std-ref">logconfig</span></a> and <span class="xref std std-ref">logConfigJson</span> options,
+which uses the older file configuration format and JSON
+respectively.</p>
+<p>Format: <a class="reference external" href="https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig">https://docs.python.org/3/library/logging.config.html#logging.config.dictConfig</a></p>
+<p>For more context you can look at the default configuration dictionary for logging,
+which can be found at <code class="docutils literal notranslate"><span class="pre">gunicorn.glogging.CONFIG_DEFAULTS</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.8.</span></p>
+</div>
+</section>
+<section id="logconfig-json">
+<span id="id19"></span><h3><code class="docutils literal notranslate"><span class="pre">logconfig_json</span></code><a class="headerlink" href="#logconfig-json" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-config-json</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>The log config to read config from a JSON file</p>
+<p>Format: <a class="reference external" href="https://docs.python.org/3/library/logging.config.html#logging.config.jsonConfig">https://docs.python.org/3/library/logging.config.html#logging.config.jsonConfig</a></p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 20.0.</span></p>
+</div>
+</section>
+<section id="syslog-addr">
+<span id="id20"></span><h3><code class="docutils literal notranslate"><span class="pre">syslog_addr</span></code><a class="headerlink" href="#syslog-addr" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-syslog-to</span> <span class="pre">SYSLOG_ADDR</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'unix:///var/run/syslog'</span></code></p>
+<p>Address to send syslog messages.</p>
+<p>Address is a string of the form:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unix://PATH#TYPE</span></code> : for unix domain socket. <code class="docutils literal notranslate"><span class="pre">TYPE</span></code> can be <code class="docutils literal notranslate"><span class="pre">stream</span></code>
+for the stream driver or <code class="docutils literal notranslate"><span class="pre">dgram</span></code> for the dgram driver.
+<code class="docutils literal notranslate"><span class="pre">stream</span></code> is the default.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">udp://HOST:PORT</span></code> : for UDP sockets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tcp://HOST:PORT</span></code> : for TCP sockets</p></li>
+</ul>
+</section>
+<section id="syslog">
+<span id="id21"></span><h3><code class="docutils literal notranslate"><span class="pre">syslog</span></code><a class="headerlink" href="#syslog" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-syslog</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Send <em>Gunicorn</em> logs to syslog.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.8: </span>You can now disable sending access logs by using the
+<a class="reference internal" href="#disable-redirect-access-to-syslog"><span class="std std-ref">disable_redirect_access_to_syslog</span></a> setting.</p>
+</div>
+</section>
+<section id="syslog-prefix">
+<span id="id22"></span><h3><code class="docutils literal notranslate"><span class="pre">syslog_prefix</span></code><a class="headerlink" href="#syslog-prefix" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-syslog-prefix</span> <span class="pre">SYSLOG_PREFIX</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>Makes Gunicorn use the parameter as program-name in the syslog entries.</p>
+<p>All entries will be prefixed by <code class="docutils literal notranslate"><span class="pre">gunicorn.&lt;prefix&gt;</span></code>. By default the
+program name is the name of the process.</p>
+</section>
+<section id="syslog-facility">
+<span id="id23"></span><h3><code class="docutils literal notranslate"><span class="pre">syslog_facility</span></code><a class="headerlink" href="#syslog-facility" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--log-syslog-facility</span> <span class="pre">SYSLOG_FACILITY</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'user'</span></code></p>
+<p>Syslog facility name</p>
+</section>
+<section id="enable-stdio-inheritance">
+<span id="id24"></span><h3><code class="docutils literal notranslate"><span class="pre">enable_stdio_inheritance</span></code><a class="headerlink" href="#enable-stdio-inheritance" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-R</span></code> or <code class="docutils literal notranslate"><span class="pre">--enable-stdio-inheritance</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Enable stdio inheritance.</p>
+<p>Enable inheritance for stdio file descriptors in daemon mode.</p>
+<p>Note: To disable the Python stdout buffering, you can to set the user
+environment variable <code class="docutils literal notranslate"><span class="pre">PYTHONUNBUFFERED</span></code> .</p>
+</section>
+<section id="statsd-host">
+<span id="id25"></span><h3><code class="docutils literal notranslate"><span class="pre">statsd_host</span></code><a class="headerlink" href="#statsd-host" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--statsd-host</span> <span class="pre">STATSD_ADDR</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>The address of the StatsD server to log to.</p>
+<p>Address is a string of the form:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unix://PATH</span></code> : for a unix domain socket.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HOST:PORT</span></code> : for a network address</p></li>
+</ul>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.1.</span></p>
+</div>
+</section>
+<section id="dogstatsd-tags">
+<span id="id26"></span><h3><code class="docutils literal notranslate"><span class="pre">dogstatsd_tags</span></code><a class="headerlink" href="#dogstatsd-tags" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--dogstatsd-tags</span> <span class="pre">DOGSTATSD_TAGS</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">''</span></code></p>
+<p>A comma-delimited list of datadog statsd (dogstatsd) tags to append to
+statsd metrics.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 20.</span></p>
+</div>
+</section>
+<section id="statsd-prefix">
+<span id="id27"></span><h3><code class="docutils literal notranslate"><span class="pre">statsd_prefix</span></code><a class="headerlink" href="#statsd-prefix" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--statsd-prefix</span> <span class="pre">STATSD_PREFIX</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">''</span></code></p>
+<p>Prefix to use when emitting statsd metrics (a trailing <code class="docutils literal notranslate"><span class="pre">.</span></code> is added,
+if not provided).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.2.</span></p>
+</div>
+</section>
+</section>
+<section id="process-naming">
+<h2>Process Naming<a class="headerlink" href="#process-naming" title="Permalink to this heading">¶</a></h2>
+<section id="proc-name">
+<span id="id28"></span><h3><code class="docutils literal notranslate"><span class="pre">proc_name</span></code><a class="headerlink" href="#proc-name" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">STRING</span></code> or <code class="docutils literal notranslate"><span class="pre">--name</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>A base to use with setproctitle for process naming.</p>
+<p>This affects things like <code class="docutils literal notranslate"><span class="pre">ps</span></code> and <code class="docutils literal notranslate"><span class="pre">top</span></code>. If you’re going to be
+running more than one instance of Gunicorn you’ll probably want to set a
+name to tell them apart. This requires that you install the setproctitle
+module.</p>
+<p>If not set, the <em>default_proc_name</em> setting will be used.</p>
+</section>
+<section id="default-proc-name">
+<span id="id29"></span><h3><code class="docutils literal notranslate"><span class="pre">default_proc_name</span></code><a class="headerlink" href="#default-proc-name" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'gunicorn'</span></code></p>
+<p>Internal setting that is adjusted for each type of application.</p>
+</section>
+</section>
+<section id="ssl">
+<h2>SSL<a class="headerlink" href="#ssl" title="Permalink to this heading">¶</a></h2>
+<section id="keyfile">
+<span id="id30"></span><h3><code class="docutils literal notranslate"><span class="pre">keyfile</span></code><a class="headerlink" href="#keyfile" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--keyfile</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>SSL key file</p>
+</section>
+<section id="certfile">
+<span id="id31"></span><h3><code class="docutils literal notranslate"><span class="pre">certfile</span></code><a class="headerlink" href="#certfile" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--certfile</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>SSL certificate file</p>
+</section>
+<section id="ssl-version">
+<span id="id32"></span><h3><code class="docutils literal notranslate"><span class="pre">ssl_version</span></code><a class="headerlink" href="#ssl-version" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--ssl-version</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;_SSLMethod.PROTOCOL_TLS:</span> <span class="pre">2&gt;</span></code></p>
+<p>SSL version to use (see stdlib ssl module’s).</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 20.2: </span>The option is deprecated and it is currently ignored. Use <a class="reference internal" href="#ssl-context"><span class="std std-ref">ssl_context</span></a> instead.</p>
+</div>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>–ssl-version</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SSLv3</p></td>
+<td><p>SSLv3 is not-secure and is strongly discouraged.</p></td>
+</tr>
+<tr class="row-odd"><td><p>SSLv23</p></td>
+<td><p>Alias for TLS. Deprecated in Python 3.6, use TLS.</p></td>
+</tr>
+<tr class="row-even"><td><p>TLS</p></td>
+<td><p>Negotiate highest possible version between client/server.
+Can yield SSL. (Python 3.6+)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLSv1</p></td>
+<td><p>TLS 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p>TLSv1_1</p></td>
+<td><p>TLS 1.1 (Python 3.4+)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TLSv1_2</p></td>
+<td><p>TLS 1.2 (Python 3.4+)</p></td>
+</tr>
+<tr class="row-even"><td><p>TLS_SERVER</p></td>
+<td><p>Auto-negotiate the highest protocol version like TLS,
+but only support server-side SSLSocket connections.
+(Python 3.6+)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.7: </span>The default value has been changed from <code class="docutils literal notranslate"><span class="pre">ssl.PROTOCOL_TLSv1</span></code> to
+<code class="docutils literal notranslate"><span class="pre">ssl.PROTOCOL_SSLv23</span></code>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 20.0: </span>This setting now accepts string names based on <code class="docutils literal notranslate"><span class="pre">ssl.PROTOCOL_</span></code>
+constants.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 20.0.1: </span>The default value has been changed from <code class="docutils literal notranslate"><span class="pre">ssl.PROTOCOL_SSLv23</span></code> to
+<code class="docutils literal notranslate"><span class="pre">ssl.PROTOCOL_TLS</span></code> when Python &gt;= 3.6 .</p>
+</div>
+</section>
+<section id="cert-reqs">
+<span id="id33"></span><h3><code class="docutils literal notranslate"><span class="pre">cert_reqs</span></code><a class="headerlink" href="#cert-reqs" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--cert-reqs</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;VerifyMode.CERT_NONE:</span> <span class="pre">0&gt;</span></code></p>
+<p>Whether client certificate is required (see stdlib ssl module’s)</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>–cert-reqs</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>0</cite></p></td>
+<td><p>no client veirifcation</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>1</cite></p></td>
+<td><p>ssl.CERT_OPTIONAL</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>2</cite></p></td>
+<td><p>ssl.CERT_REQUIRED</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ca-certs">
+<span id="id34"></span><h3><code class="docutils literal notranslate"><span class="pre">ca_certs</span></code><a class="headerlink" href="#ca-certs" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--ca-certs</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>CA certificates file</p>
+</section>
+<section id="suppress-ragged-eofs">
+<span id="id35"></span><h3><code class="docutils literal notranslate"><span class="pre">suppress_ragged_eofs</span></code><a class="headerlink" href="#suppress-ragged-eofs" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--suppress-ragged-eofs</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">True</span></code></p>
+<p>Suppress ragged EOFs (see stdlib ssl module’s)</p>
+</section>
+<section id="do-handshake-on-connect">
+<span id="id36"></span><h3><code class="docutils literal notranslate"><span class="pre">do_handshake_on_connect</span></code><a class="headerlink" href="#do-handshake-on-connect" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--do-handshake-on-connect</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Whether to perform SSL handshake on socket connect (see stdlib ssl module’s)</p>
+</section>
+<section id="ciphers">
+<span id="id37"></span><h3><code class="docutils literal notranslate"><span class="pre">ciphers</span></code><a class="headerlink" href="#ciphers" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--ciphers</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>SSL Cipher suite to use, in the format of an OpenSSL cipher list.</p>
+<p>By default we use the default cipher list from Python’s <code class="docutils literal notranslate"><span class="pre">ssl</span></code> module,
+which contains ciphers considered strong at the time of each Python
+release.</p>
+<p>As a recommended alternative, the Open Web App Security Project (OWASP)
+offers <a class="reference external" href="https://www.owasp.org/index.php/TLS_Cipher_String_Cheat_Sheet">a vetted set of strong cipher strings rated A+ to C-</a>.
+OWASP provides details on user-agent compatibility at each security level.</p>
+<p>See the <a class="reference external" href="https://www.openssl.org/docs/manmaster/man1/ciphers.html#CIPHER-LIST-FORMAT">OpenSSL Cipher List Format Documentation</a>
+for details on the format of an OpenSSL cipher list.</p>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Permalink to this heading">¶</a></h2>
+<section id="limit-request-line">
+<span id="id38"></span><h3><code class="docutils literal notranslate"><span class="pre">limit_request_line</span></code><a class="headerlink" href="#limit-request-line" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--limit-request-line</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">4094</span></code></p>
+<p>The maximum size of HTTP request line in bytes.</p>
+<p>This parameter is used to limit the allowed size of a client’s
+HTTP request-line. Since the request-line consists of the HTTP
+method, URI, and protocol version, this directive places a
+restriction on the length of a request-URI allowed for a request
+on the server. A server needs this value to be large enough to
+hold any of its resource names, including any information that
+might be passed in the query part of a GET request. Value is a number
+from 0 (unlimited) to 8190.</p>
+<p>This parameter can be used to prevent any DDOS attack.</p>
+</section>
+<section id="limit-request-fields">
+<span id="id39"></span><h3><code class="docutils literal notranslate"><span class="pre">limit_request_fields</span></code><a class="headerlink" href="#limit-request-fields" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--limit-request-fields</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
+<p>Limit the number of HTTP headers fields in a request.</p>
+<p>This parameter is used to limit the number of headers in a request to
+prevent DDOS attack. Used with the <em>limit_request_field_size</em> it allows
+more safety. By default this value is 100 and can’t be larger than
+32768.</p>
+</section>
+<section id="limit-request-field-size">
+<span id="id40"></span><h3><code class="docutils literal notranslate"><span class="pre">limit_request_field_size</span></code><a class="headerlink" href="#limit-request-field-size" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--limit-request-field_size</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">8190</span></code></p>
+<p>Limit the allowed size of an HTTP request header field.</p>
+<p>Value is a positive number or 0. Setting it to 0 will allow unlimited
+header field sizes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setting this parameter to a very high or unlimited value can open
+up for DDOS attacks.</p>
+</div>
+</section>
+</section>
+<section id="server-hooks">
+<h2>Server Hooks<a class="headerlink" href="#server-hooks" title="Permalink to this heading">¶</a></h2>
+<section id="on-starting">
+<span id="id41"></span><h3><code class="docutils literal notranslate"><span class="pre">on_starting</span></code><a class="headerlink" href="#on-starting" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_starting</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just before the master process is initialized.</p>
+<p>The callable needs to accept a single instance variable for the Arbiter.</p>
+</section>
+<section id="on-reload">
+<span id="id42"></span><h3><code class="docutils literal notranslate"><span class="pre">on_reload</span></code><a class="headerlink" href="#on-reload" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_reload</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called to recycle workers during a reload via SIGHUP.</p>
+<p>The callable needs to accept a single instance variable for the Arbiter.</p>
+</section>
+<section id="when-ready">
+<span id="id43"></span><h3><code class="docutils literal notranslate"><span class="pre">when_ready</span></code><a class="headerlink" href="#when-ready" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">when_ready</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after the server is started.</p>
+<p>The callable needs to accept a single instance variable for the Arbiter.</p>
+</section>
+<section id="pre-fork">
+<span id="id44"></span><h3><code class="docutils literal notranslate"><span class="pre">pre_fork</span></code><a class="headerlink" href="#pre-fork" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_fork</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just before a worker is forked.</p>
+<p>The callable needs to accept two instance variables for the Arbiter and
+new Worker.</p>
+</section>
+<section id="post-fork">
+<span id="id45"></span><h3><code class="docutils literal notranslate"><span class="pre">post_fork</span></code><a class="headerlink" href="#post-fork" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_fork</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after a worker has been forked.</p>
+<p>The callable needs to accept two instance variables for the Arbiter and
+new Worker.</p>
+</section>
+<section id="post-worker-init">
+<span id="id46"></span><h3><code class="docutils literal notranslate"><span class="pre">post_worker_init</span></code><a class="headerlink" href="#post-worker-init" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_worker_init</span><span class="p">(</span><span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after a worker has initialized the application.</p>
+<p>The callable needs to accept one instance variable for the initialized
+Worker.</p>
+</section>
+<section id="worker-int">
+<span id="id47"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_int</span></code><a class="headerlink" href="#worker-int" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">worker_int</span><span class="p">(</span><span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after a worker exited on SIGINT or SIGQUIT.</p>
+<p>The callable needs to accept one instance variable for the initialized
+Worker.</p>
+</section>
+<section id="worker-abort">
+<span id="id48"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_abort</span></code><a class="headerlink" href="#worker-abort" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">worker_abort</span><span class="p">(</span><span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called when a worker received the SIGABRT signal.</p>
+<p>This call generally happens on timeout.</p>
+<p>The callable needs to accept one instance variable for the initialized
+Worker.</p>
+</section>
+<section id="pre-exec">
+<span id="id49"></span><h3><code class="docutils literal notranslate"><span class="pre">pre_exec</span></code><a class="headerlink" href="#pre-exec" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_exec</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just before a new master process is forked.</p>
+<p>The callable needs to accept a single instance variable for the Arbiter.</p>
+</section>
+<section id="pre-request">
+<span id="id50"></span><h3><code class="docutils literal notranslate"><span class="pre">pre_request</span></code><a class="headerlink" href="#pre-request" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pre_request</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+    <span class="n">worker</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">method</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Called just before a worker processes the request.</p>
+<p>The callable needs to accept two instance variables for the Worker and
+the Request.</p>
+</section>
+<section id="post-request">
+<span id="id51"></span><h3><code class="docutils literal notranslate"><span class="pre">post_request</span></code><a class="headerlink" href="#post-request" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">post_request</span><span class="p">(</span><span class="n">worker</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span> <span class="n">environ</span><span class="p">,</span> <span class="n">resp</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called after a worker processes the request.</p>
+<p>The callable needs to accept two instance variables for the Worker and
+the Request.</p>
+</section>
+<section id="child-exit">
+<span id="id52"></span><h3><code class="docutils literal notranslate"><span class="pre">child_exit</span></code><a class="headerlink" href="#child-exit" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">child_exit</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after a worker has been exited, in the master process.</p>
+<p>The callable needs to accept two instance variables for the Arbiter and
+the just-exited Worker.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.7.</span></p>
+</div>
+</section>
+<section id="worker-exit">
+<span id="id53"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_exit</span></code><a class="headerlink" href="#worker-exit" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">worker_exit</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">worker</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after a worker has been exited, in the worker process.</p>
+<p>The callable needs to accept two instance variables for the Arbiter and
+the just-exited Worker.</p>
+</section>
+<section id="nworkers-changed">
+<span id="id54"></span><h3><code class="docutils literal notranslate"><span class="pre">nworkers_changed</span></code><a class="headerlink" href="#nworkers-changed" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">nworkers_changed</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">new_value</span><span class="p">,</span> <span class="n">old_value</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just after <em>num_workers</em> has been changed.</p>
+<p>The callable needs to accept an instance variable of the Arbiter and
+two integers of number of workers after and before change.</p>
+<p>If the number of workers is set for the first time, <em>old_value</em> would
+be <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</section>
+<section id="on-exit">
+<span id="id55"></span><h3><code class="docutils literal notranslate"><span class="pre">on_exit</span></code><a class="headerlink" href="#on-exit" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">on_exit</span><span class="p">(</span><span class="n">server</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Called just before exiting Gunicorn.</p>
+<p>The callable needs to accept a single instance variable for the Arbiter.</p>
+</section>
+<section id="ssl-context">
+<span id="id56"></span><h3><code class="docutils literal notranslate"><span class="pre">ssl_context</span></code><a class="headerlink" href="#ssl-context" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ssl_context</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">default_ssl_context_factory</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">default_ssl_context_factory</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Called when SSLContext is needed.</p>
+<p>Allows customizing SSL context.</p>
+<p>The callable needs to accept an instance variable for the Config and
+a factory function that returns default SSLContext which is initialized
+with certificates, private key, cert_reqs, and ciphers according to
+config and can be further customized by the callable.
+The callable needs to return SSLContext object.</p>
+<p>Following example shows a configuration file that sets the minimum TLS version to 1.3:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ssl_context</span><span class="p">(</span><span class="n">conf</span><span class="p">,</span> <span class="n">default_ssl_context_factory</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">ssl</span>
+    <span class="n">context</span> <span class="o">=</span> <span class="n">default_ssl_context_factory</span><span class="p">()</span>
+    <span class="n">context</span><span class="o">.</span><span class="n">minimum_version</span> <span class="o">=</span> <span class="n">ssl</span><span class="o">.</span><span class="n">TLSVersion</span><span class="o">.</span><span class="n">TLSv1_3</span>
+    <span class="k">return</span> <span class="n">context</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 20.2.</span></p>
+</div>
+</section>
+</section>
+<section id="server-mechanics">
+<h2>Server Mechanics<a class="headerlink" href="#server-mechanics" title="Permalink to this heading">¶</a></h2>
+<section id="preload-app">
+<span id="id57"></span><h3><code class="docutils literal notranslate"><span class="pre">preload_app</span></code><a class="headerlink" href="#preload-app" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--preload</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Load application code before the worker processes are forked.</p>
+<p>By preloading an application you can save some RAM resources as well as
+speed up server boot times. Although, if you defer application loading
+to each worker process, you can reload your application code easily by
+restarting workers.</p>
+</section>
+<section id="sendfile">
+<span id="id58"></span><h3><code class="docutils literal notranslate"><span class="pre">sendfile</span></code><a class="headerlink" href="#sendfile" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--no-sendfile</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>Disables the use of <code class="docutils literal notranslate"><span class="pre">sendfile()</span></code>.</p>
+<p>If not set, the value of the <code class="docutils literal notranslate"><span class="pre">SENDFILE</span></code> environment variable is used
+to enable or disable its usage.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.2.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.4: </span>Swapped <code class="docutils literal notranslate"><span class="pre">--sendfile</span></code> with <code class="docutils literal notranslate"><span class="pre">--no-sendfile</span></code> to actually allow
+disabling.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.6: </span>added support for the <code class="docutils literal notranslate"><span class="pre">SENDFILE</span></code> environment variable</p>
+</div>
+</section>
+<section id="reuse-port">
+<span id="id59"></span><h3><code class="docutils literal notranslate"><span class="pre">reuse_port</span></code><a class="headerlink" href="#reuse-port" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--reuse-port</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">SO_REUSEPORT</span></code> flag on the listening socket.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.8.</span></p>
+</div>
+</section>
+<section id="chdir">
+<span id="id60"></span><h3><code class="docutils literal notranslate"><span class="pre">chdir</span></code><a class="headerlink" href="#chdir" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--chdir</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'.'</span></code></p>
+<p>Change directory to specified directory before loading apps.</p>
+</section>
+<section id="daemon">
+<span id="id61"></span><h3><code class="docutils literal notranslate"><span class="pre">daemon</span></code><a class="headerlink" href="#daemon" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-D</span></code> or <code class="docutils literal notranslate"><span class="pre">--daemon</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Daemonize the Gunicorn process.</p>
+<p>Detaches the server from the controlling terminal and enters the
+background.</p>
+</section>
+<section id="raw-env">
+<span id="id62"></span><h3><code class="docutils literal notranslate"><span class="pre">raw_env</span></code><a class="headerlink" href="#raw-env" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-e</span> <span class="pre">ENV</span></code> or <code class="docutils literal notranslate"><span class="pre">--env</span> <span class="pre">ENV</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+<p>Set environment variables in the execution environment.</p>
+<p>Should be a list of strings in the <code class="docutils literal notranslate"><span class="pre">key=value</span></code> format.</p>
+<p>For example on the command line:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>gunicorn<span class="w"> </span>-b<span class="w"> </span><span class="m">127</span>.0.0.1:8000<span class="w"> </span>--env<span class="w"> </span><span class="nv">FOO</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>test:app
+</pre></div>
+</div>
+<p>Or in the configuration file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">raw_env</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;FOO=1&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="pidfile">
+<span id="id63"></span><h3><code class="docutils literal notranslate"><span class="pre">pidfile</span></code><a class="headerlink" href="#pidfile" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-p</span> <span class="pre">FILE</span></code> or <code class="docutils literal notranslate"><span class="pre">--pid</span> <span class="pre">FILE</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>A filename to use for the PID file.</p>
+<p>If not set, no PID file will be written.</p>
+</section>
+<section id="worker-tmp-dir">
+<span id="id64"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_tmp_dir</span></code><a class="headerlink" href="#worker-tmp-dir" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--worker-tmp-dir</span> <span class="pre">DIR</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>A directory to use for the worker heartbeat temporary file.</p>
+<p>If not set, the default temporary directory will be used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The current heartbeat system involves calling <code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code> on
+temporary file handlers and may block a worker for arbitrary time
+if the directory is on a disk-backed filesystem.</p>
+<p>See <a class="reference internal" href="faq.html#blocking-os-fchmod"><span class="std std-ref">How do I avoid Gunicorn excessively blocking in os.fchmod?</span></a> for more detailed information
+and a solution for avoiding this problem.</p>
+</div>
+</section>
+<section id="user">
+<span id="id65"></span><h3><code class="docutils literal notranslate"><span class="pre">user</span></code><a class="headerlink" href="#user" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-u</span> <span class="pre">USER</span></code> or <code class="docutils literal notranslate"><span class="pre">--user</span> <span class="pre">USER</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">os.geteuid()</span></code></p>
+<p>Switch worker processes to run as this user.</p>
+<p>A valid user id (as an integer) or the name of a user that can be
+retrieved with a call to <code class="docutils literal notranslate"><span class="pre">pwd.getpwnam(value)</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> to not
+change the worker process user.</p>
+</section>
+<section id="group">
+<span id="id66"></span><h3><code class="docutils literal notranslate"><span class="pre">group</span></code><a class="headerlink" href="#group" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-g</span> <span class="pre">GROUP</span></code> or <code class="docutils literal notranslate"><span class="pre">--group</span> <span class="pre">GROUP</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">os.getegid()</span></code></p>
+<p>Switch worker process to run as this group.</p>
+<p>A valid group id (as an integer) or the name of a user that can be
+retrieved with a call to <code class="docutils literal notranslate"><span class="pre">pwd.getgrnam(value)</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> to not
+change the worker processes group.</p>
+</section>
+<section id="umask">
+<span id="id67"></span><h3><code class="docutils literal notranslate"><span class="pre">umask</span></code><a class="headerlink" href="#umask" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-m</span> <span class="pre">INT</span></code> or <code class="docutils literal notranslate"><span class="pre">--umask</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p>A bit mask for the file mode on files written by Gunicorn.</p>
+<p>Note that this affects unix socket permissions.</p>
+<p>A valid value for the <code class="docutils literal notranslate"><span class="pre">os.umask(mode)</span></code> call or a string compatible
+with <code class="docutils literal notranslate"><span class="pre">int(value,</span> <span class="pre">0)</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code> means Python guesses the base, so values
+like <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">0xFF</span></code>, <code class="docutils literal notranslate"><span class="pre">0022</span></code> are valid for decimal, hex, and octal
+representations)</p>
+</section>
+<section id="initgroups">
+<span id="id68"></span><h3><code class="docutils literal notranslate"><span class="pre">initgroups</span></code><a class="headerlink" href="#initgroups" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--initgroups</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>If true, set the worker process’s group access list with all of the
+groups of which the specified username is a member, plus the specified
+group id.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.7.</span></p>
+</div>
+</section>
+<section id="tmp-upload-dir">
+<span id="id69"></span><h3><code class="docutils literal notranslate"><span class="pre">tmp_upload_dir</span></code><a class="headerlink" href="#tmp-upload-dir" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>Directory to store temporary request data as they are read.</p>
+<p>This may disappear in the near future.</p>
+<p>This path should be writable by the process permissions set for Gunicorn
+workers. If not specified, Gunicorn will choose a system generated
+temporary directory.</p>
+</section>
+<section id="secure-scheme-headers">
+<span id="id70"></span><h3><code class="docutils literal notranslate"><span class="pre">secure_scheme_headers</span></code><a class="headerlink" href="#secure-scheme-headers" title="Permalink to this heading">¶</a></h3>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">{'X-FORWARDED-PROTOCOL':</span> <span class="pre">'ssl',</span> <span class="pre">'X-FORWARDED-PROTO':</span> <span class="pre">'https',</span> <span class="pre">'X-FORWARDED-SSL':</span> <span class="pre">'on'}</span></code></p>
+<p>A dictionary containing headers and values that the front-end proxy
+uses to indicate HTTPS requests. If the source IP is permitted by
+<code class="docutils literal notranslate"><span class="pre">forwarded-allow-ips</span></code> (below), <em>and</em> at least one request header matches
+a key-value pair listed in this dictionary, then Gunicorn will set
+<code class="docutils literal notranslate"><span class="pre">wsgi.url_scheme</span></code> to <code class="docutils literal notranslate"><span class="pre">https</span></code>, so your application can tell that the
+request is secure.</p>
+<p>If the other headers listed in this dictionary are not present in the request, they will be ignored,
+but if the other headers are present and do not match the provided values, then
+the request will fail to parse. See the note below for more detailed examples of this behaviour.</p>
+<p>The dictionary should map upper-case header names to exact string
+values. The value comparisons are case-sensitive, unlike the header
+names, so make sure they’re exactly what your front-end proxy sends
+when handling HTTPS requests.</p>
+<p>It is important that your front-end proxy configuration ensures that
+the headers defined here can not be passed directly from the client.</p>
+</section>
+<section id="forwarded-allow-ips">
+<span id="id71"></span><h3><code class="docutils literal notranslate"><span class="pre">forwarded_allow_ips</span></code><a class="headerlink" href="#forwarded-allow-ips" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--forwarded-allow-ips</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'127.0.0.1'</span></code></p>
+<p>Front-end’s IPs from which allowed to handle set secure headers.
+(comma separate).</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">*</span></code> to disable checking of Front-end IPs (useful for setups
+where you don’t know in advance the IP address of Front-end, but
+you still trust the environment).</p>
+<p>By default, the value of the <code class="docutils literal notranslate"><span class="pre">FORWARDED_ALLOW_IPS</span></code> environment
+variable. If it is not defined, the default is <code class="docutils literal notranslate"><span class="pre">&quot;127.0.0.1&quot;</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The interplay between the request headers, the value of <code class="docutils literal notranslate"><span class="pre">forwarded_allow_ips</span></code>, and the value of
+<code class="docutils literal notranslate"><span class="pre">secure_scheme_headers</span></code> is complex. Various scenarios are documented below to further elaborate.
+In each case, we have a request from the remote address 134.213.44.18, and the default value of
+<code class="docutils literal notranslate"><span class="pre">secure_scheme_headers</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">secure_scheme_headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;X-FORWARDED-PROTOCOL&#39;</span><span class="p">:</span> <span class="s1">&#39;ssl&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;X-FORWARDED-PROTO&#39;</span><span class="p">:</span> <span class="s1">&#39;https&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;X-FORWARDED-SSL&#39;</span><span class="p">:</span> <span class="s1">&#39;on&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils align-center">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">forwarded-allow-ips</span></code></p></th>
+<th class="head"><p>Secure Request Headers</p></th>
+<th class="head"><p>Result</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Proto</span><span class="p">:</span> <span class="n">https</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wsgi</span><span class="o">.</span><span class="n">url_scheme</span> <span class="o">=</span> <span class="s2">&quot;http&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>IP address was not allowed</p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>&lt;none&gt;</p></td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wsgi</span><span class="o">.</span><span class="n">url_scheme</span> <span class="o">=</span> <span class="s2">&quot;http&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>IP address allowed, but no secure headers provided</p></td>
+</tr>
+<tr class="row-even"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;*&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Proto</span><span class="p">:</span> <span class="n">https</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wsgi</span><span class="o">.</span><span class="n">url_scheme</span> <span class="o">=</span> <span class="s2">&quot;https&quot;</span>
+</pre></div>
+</div>
+</td>
+<td><p>IP address allowed, one request header matched</p></td>
+</tr>
+<tr class="row-odd"><td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;134.213.44.18&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</td>
+<td><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Ssl</span><span class="p">:</span> <span class="n">on</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Forwarded</span><span class="o">-</span><span class="n">Proto</span><span class="p">:</span> <span class="n">http</span>
+</pre></div>
+</div>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">InvalidSchemeHeaders()</span></code> raised</p></td>
+<td><p>IP address allowed, but the two secure headers disagreed on if HTTPS was used</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pythonpath">
+<span id="id72"></span><h3><code class="docutils literal notranslate"><span class="pre">pythonpath</span></code><a class="headerlink" href="#pythonpath" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--pythonpath</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>A comma-separated list of directories to add to the Python path.</p>
+<p>e.g.
+<code class="docutils literal notranslate"><span class="pre">'/home/djangoprojects/myproject,/home/python/mylibrary'</span></code>.</p>
+</section>
+<section id="paste">
+<span id="id73"></span><h3><code class="docutils literal notranslate"><span class="pre">paste</span></code><a class="headerlink" href="#paste" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--paste</span> <span class="pre">STRING</span></code> or <code class="docutils literal notranslate"><span class="pre">--paster</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+<p>Load a PasteDeploy config file. The argument may contain a <code class="docutils literal notranslate"><span class="pre">#</span></code>
+symbol followed by the name of an app section from the config file,
+e.g. <code class="docutils literal notranslate"><span class="pre">production.ini#admin</span></code>.</p>
+<p>At this time, using alternate server blocks is not supported. Use the
+command line arguments to control server configuration instead.</p>
+</section>
+<section id="proxy-protocol">
+<span id="id74"></span><h3><code class="docutils literal notranslate"><span class="pre">proxy_protocol</span></code><a class="headerlink" href="#proxy-protocol" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--proxy-protocol</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Enable detect PROXY protocol (PROXY mode).</p>
+<p>Allow using HTTP and Proxy together. It may be useful for work with
+stunnel as HTTPS frontend and Gunicorn as HTTP server.</p>
+<p>PROXY protocol: <a class="reference external" href="http://haproxy.1wt.eu/download/1.5/doc/proxy-protocol.txt">http://haproxy.1wt.eu/download/1.5/doc/proxy-protocol.txt</a></p>
+<p>Example for stunnel config:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">https</span><span class="p">]</span>
+<span class="n">protocol</span> <span class="o">=</span> <span class="n">proxy</span>
+<span class="n">accept</span>  <span class="o">=</span> <span class="mi">443</span>
+<span class="n">connect</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">cert</span> <span class="o">=</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">stunnel</span><span class="o">.</span><span class="n">pem</span>
+<span class="n">key</span> <span class="o">=</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">certs</span><span class="o">/</span><span class="n">stunnel</span><span class="o">.</span><span class="n">key</span>
+</pre></div>
+</div>
+</section>
+<section id="proxy-allow-ips">
+<span id="id75"></span><h3><code class="docutils literal notranslate"><span class="pre">proxy_allow_ips</span></code><a class="headerlink" href="#proxy-allow-ips" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--proxy-allow-from</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'127.0.0.1'</span></code></p>
+<p>Front-end’s IPs from which allowed accept proxy requests (comma separate).</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">*</span></code> to disable checking of Front-end IPs (useful for setups
+where you don’t know in advance the IP address of Front-end, but
+you still trust the environment)</p>
+</section>
+<section id="raw-paste-global-conf">
+<span id="id76"></span><h3><code class="docutils literal notranslate"><span class="pre">raw_paste_global_conf</span></code><a class="headerlink" href="#raw-paste-global-conf" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--paste-global</span> <span class="pre">CONF</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">[]</span></code></p>
+<p>Set a PasteDeploy global config variable in <code class="docutils literal notranslate"><span class="pre">key=value</span></code> form.</p>
+<p>The option can be specified multiple times.</p>
+<p>The variables are passed to the the PasteDeploy entrypoint. Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gunicorn -b 127.0.0.1:8000 --paste development.ini --paste-global FOO=1 --paste-global BAR=2
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.7.</span></p>
+</div>
+</section>
+<section id="strip-header-spaces">
+<span id="id77"></span><h3><code class="docutils literal notranslate"><span class="pre">strip_header_spaces</span></code><a class="headerlink" href="#strip-header-spaces" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--strip-header-spaces</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>Strip spaces present between the header name and the the <code class="docutils literal notranslate"><span class="pre">:</span></code>.</p>
+<p>This is known to induce vulnerabilities and is not compliant with the HTTP/1.1 standard.
+See <a class="reference external" href="https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn">https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn</a>.</p>
+<p>Use with care and only if necessary.</p>
+</section>
+</section>
+<section id="server-socket">
+<h2>Server Socket<a class="headerlink" href="#server-socket" title="Permalink to this heading">¶</a></h2>
+<section id="bind">
+<span id="id78"></span><h3><code class="docutils literal notranslate"><span class="pre">bind</span></code><a class="headerlink" href="#bind" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-b</span> <span class="pre">ADDRESS</span></code> or <code class="docutils literal notranslate"><span class="pre">--bind</span> <span class="pre">ADDRESS</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">['127.0.0.1:8000']</span></code></p>
+<p>The socket to bind.</p>
+<p>A string of the form: <code class="docutils literal notranslate"><span class="pre">HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">HOST:PORT</span></code>, <code class="docutils literal notranslate"><span class="pre">unix:PATH</span></code>,
+<code class="docutils literal notranslate"><span class="pre">fd://FD</span></code>. An IP is a valid <code class="docutils literal notranslate"><span class="pre">HOST</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 20.0: </span>Support for <code class="docutils literal notranslate"><span class="pre">fd://FD</span></code> got added.</p>
+</div>
+<p>Multiple addresses can be bound. ex.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gunicorn -b 127.0.0.1:8000 -b [::1]:8000 test:app
+</pre></div>
+</div>
+<p>will bind the <cite>test:app</cite> application on localhost both on ipv6
+and ipv4 interfaces.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">PORT</span></code> environment variable is defined, the default
+is <code class="docutils literal notranslate"><span class="pre">['0.0.0.0:$PORT']</span></code>. If it is not defined, the default
+is <code class="docutils literal notranslate"><span class="pre">['127.0.0.1:8000']</span></code>.</p>
+</section>
+<section id="backlog">
+<span id="id79"></span><h3><code class="docutils literal notranslate"><span class="pre">backlog</span></code><a class="headerlink" href="#backlog" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--backlog</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">2048</span></code></p>
+<p>The maximum number of pending connections.</p>
+<p>This refers to the number of clients that can be waiting to be served.
+Exceeding this number results in the client getting an error when
+attempting to connect. It should only affect servers under significant
+load.</p>
+<p>Must be a positive integer. Generally set in the 64-2048 range.</p>
+</section>
+</section>
+<section id="worker-processes">
+<h2>Worker Processes<a class="headerlink" href="#worker-processes" title="Permalink to this heading">¶</a></h2>
+<section id="workers">
+<span id="id80"></span><h3><code class="docutils literal notranslate"><span class="pre">workers</span></code><a class="headerlink" href="#workers" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-w</span> <span class="pre">INT</span></code> or <code class="docutils literal notranslate"><span class="pre">--workers</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>The number of worker processes for handling requests.</p>
+<p>A positive integer generally in the <code class="docutils literal notranslate"><span class="pre">2-4</span> <span class="pre">x</span> <span class="pre">$(NUM_CORES)</span></code> range.
+You’ll want to vary this a bit to find the best for your particular
+application’s work load.</p>
+<p>By default, the value of the <code class="docutils literal notranslate"><span class="pre">WEB_CONCURRENCY</span></code> environment variable,
+which is set by some Platform-as-a-Service providers such as Heroku. If
+it is not defined, the default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</section>
+<section id="worker-class">
+<span id="id81"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_class</span></code><a class="headerlink" href="#worker-class" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-k</span> <span class="pre">STRING</span></code> or <code class="docutils literal notranslate"><span class="pre">--worker-class</span> <span class="pre">STRING</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">'sync'</span></code></p>
+<p>The type of workers to use.</p>
+<p>The default class (<code class="docutils literal notranslate"><span class="pre">sync</span></code>) should handle most “normal” types of
+workloads. You’ll want to read <a class="reference internal" href="design.html"><span class="doc">Design</span></a> for information on when
+you might want to choose one of the other worker classes. Required
+libraries may be installed using setuptools’ <code class="docutils literal notranslate"><span class="pre">extras_require</span></code> feature.</p>
+<p>A string referring to one of the following bundled classes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sync</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eventlet</span></code> - Requires eventlet &gt;= 0.24.1 (or install it via
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gunicorn[eventlet]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gevent</span></code>   - Requires gevent &gt;= 1.4 (or install it via
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gunicorn[gevent]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tornado</span></code>  - Requires tornado &gt;= 0.2 (or install it via
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gunicorn[tornado]</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gthread</span></code>  - Python 2 requires the futures package to be installed
+(or install it via <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gunicorn[gthread]</span></code>)</p></li>
+</ul>
+<p>Optionally, you can provide your own worker by giving Gunicorn a
+Python path to a subclass of <code class="docutils literal notranslate"><span class="pre">gunicorn.workers.base.Worker</span></code>.
+This alternative syntax will load the gevent class:
+<code class="docutils literal notranslate"><span class="pre">gunicorn.workers.ggevent.GeventWorker</span></code>.</p>
+</section>
+<section id="threads">
+<span id="id82"></span><h3><code class="docutils literal notranslate"><span class="pre">threads</span></code><a class="headerlink" href="#threads" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--threads</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+<p>The number of worker threads for handling requests.</p>
+<p>Run each worker with the specified number of threads.</p>
+<p>A positive integer generally in the <code class="docutils literal notranslate"><span class="pre">2-4</span> <span class="pre">x</span> <span class="pre">$(NUM_CORES)</span></code> range.
+You’ll want to vary this a bit to find the best for your particular
+application’s work load.</p>
+<p>If it is not defined, the default is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<p>This setting only affects the Gthread worker type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you try to use the <code class="docutils literal notranslate"><span class="pre">sync</span></code> worker type and set the <code class="docutils literal notranslate"><span class="pre">threads</span></code>
+setting to more than 1, the <code class="docutils literal notranslate"><span class="pre">gthread</span></code> worker type will be used
+instead.</p>
+</div>
+</section>
+<section id="worker-connections">
+<span id="id83"></span><h3><code class="docutils literal notranslate"><span class="pre">worker_connections</span></code><a class="headerlink" href="#worker-connections" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--worker-connections</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">1000</span></code></p>
+<p>The maximum number of simultaneous clients.</p>
+<p>This setting only affects the <code class="docutils literal notranslate"><span class="pre">gthread</span></code>, <code class="docutils literal notranslate"><span class="pre">eventlet</span></code> and <code class="docutils literal notranslate"><span class="pre">gevent</span></code> worker types.</p>
+</section>
+<section id="max-requests">
+<span id="id84"></span><h3><code class="docutils literal notranslate"><span class="pre">max_requests</span></code><a class="headerlink" href="#max-requests" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--max-requests</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p>The maximum number of requests a worker will process before restarting.</p>
+<p>Any value greater than zero will limit the number of requests a worker
+will process before automatically restarting. This is a simple method
+to help limit the damage of memory leaks.</p>
+<p>If this is set to zero (the default) then the automatic worker
+restarts are disabled.</p>
+</section>
+<section id="max-requests-jitter">
+<span id="id85"></span><h3><code class="docutils literal notranslate"><span class="pre">max_requests_jitter</span></code><a class="headerlink" href="#max-requests-jitter" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--max-requests-jitter</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+<p>The maximum jitter to add to the <em>max_requests</em> setting.</p>
+<p>The jitter causes the restart per worker to be randomized by
+<code class="docutils literal notranslate"><span class="pre">randint(0,</span> <span class="pre">max_requests_jitter)</span></code>. This is intended to stagger worker
+restarts to avoid all workers restarting at the same time.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 19.2.</span></p>
+</div>
+</section>
+<section id="timeout">
+<span id="id86"></span><h3><code class="docutils literal notranslate"><span class="pre">timeout</span></code><a class="headerlink" href="#timeout" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">-t</span> <span class="pre">INT</span></code> or <code class="docutils literal notranslate"><span class="pre">--timeout</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">30</span></code></p>
+<p>Workers silent for more than this many seconds are killed and restarted.</p>
+<p>Value is a positive number or 0. Setting it to 0 has the effect of
+infinite timeouts by disabling timeouts for all workers entirely.</p>
+<p>Generally, the default of thirty seconds should suffice. Only set this
+noticeably higher if you’re sure of the repercussions for sync workers.
+For the non sync workers it just means that the worker process is still
+communicating and is not tied to the length of time required to handle a
+single request.</p>
+</section>
+<section id="graceful-timeout">
+<span id="id87"></span><h3><code class="docutils literal notranslate"><span class="pre">graceful_timeout</span></code><a class="headerlink" href="#graceful-timeout" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--graceful-timeout</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">30</span></code></p>
+<p>Timeout for graceful workers restart.</p>
+<p>After receiving a restart signal, workers have this much time to finish
+serving requests. Workers still alive after the timeout (starting from
+the receipt of the restart signal) are force killed.</p>
+</section>
+<section id="keepalive">
+<span id="id88"></span><h3><code class="docutils literal notranslate"><span class="pre">keepalive</span></code><a class="headerlink" href="#keepalive" title="Permalink to this heading">¶</a></h3>
+<p><strong>Command line:</strong> <code class="docutils literal notranslate"><span class="pre">--keep-alive</span> <span class="pre">INT</span></code></p>
+<p><strong>Default:</strong> <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+<p>The number of seconds to wait for requests on a Keep-Alive connection.</p>
+<p>Generally set in the 1-5 seconds range for servers with direct connection
+to the client (e.g. when you don’t have separate load balancer). When
+Gunicorn is deployed behind a load balancer, it often makes sense to
+set this to a higher value.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">sync</span></code> worker does not support persistent connections and will
+ignore this option.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configure.html" class="btn btn-neutral float-left" title="Configuration Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="instrumentation.html" class="btn btn-neutral float-right" title="Instrumentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

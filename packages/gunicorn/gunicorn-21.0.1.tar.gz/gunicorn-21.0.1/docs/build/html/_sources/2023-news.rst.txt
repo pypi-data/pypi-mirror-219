@@ -1,0 +1,20 @@
+================
+Changelog - 2023
+================
+
+21.0.0 - 2023-07-17
+===================
+
+- support python 3.11
+- fix gevent and eventlet workers
+- fix threads support (gththread): improve performance and unblock requests
+- SSL: noaw use SSLContext object
+- HTTP parser: miscellaneous fixes
+- remove unecessary setuid calls
+- fix testing
+- improve logging
+- miscellaneous fixes to core engine
+
+*** RELEASE NOTE ***
+
+We made this release major to start our new release cycle. More info will be provided on our discussion forum.

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gunicorn - WSGI server &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Gunicorn - WSGI server</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gunicorn-wsgi-server">
+<h1>Gunicorn - WSGI server<a class="headerlink" href="#gunicorn-wsgi-server" title="Permalink to this heading">¶</a></h1>
+<img alt="_images/gunicorn.png" src="_images/gunicorn.png" />
+<dl class="field-list simple">
+<dt class="field-odd">Website<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="http://gunicorn.org">http://gunicorn.org</a></p>
+</dd>
+<dt class="field-even">Source code<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://github.com/benoitc/gunicorn">https://github.com/benoitc/gunicorn</a></p>
+</dd>
+<dt class="field-odd">Issue tracker<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/benoitc/gunicorn/issues">https://github.com/benoitc/gunicorn/issues</a></p>
+</dd>
+<dt class="field-even">IRC<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">#gunicorn</span></code> on Libera Chat</p>
+</dd>
+<dt class="field-odd">Usage questions<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/benoitc/gunicorn/issues">https://github.com/benoitc/gunicorn/issues</a></p>
+</dd>
+</dl>
+<p>Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork
+worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly
+compatible with various web frameworks, simply implemented, light on server
+resources, and fairly speedy.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Natively supports WSGI, Django, and Paster</p></li>
+<li><p>Automatic worker process management</p></li>
+<li><p>Simple Python configuration</p></li>
+<li><p>Multiple worker configurations</p></li>
+<li><p>Various server hooks for extensibility</p></li>
+<li><p>Compatible with Python 3.x &gt;= 3.5</p></li>
+</ul>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#from-source">From Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#async-workers">Async Workers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#extra-packages">Extra Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#debian-gnu-linux">Debian GNU/Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="run.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run.html#integration">Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#command-line">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#configuration-file">Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure.html#framework-settings">Framework Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#config-file">Config File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#process-naming">Process Naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#ssl">SSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#security">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#server-hooks">Server Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#server-mechanics">Server Mechanics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#server-socket">Server Socket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="settings.html#worker-processes">Worker Processes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#nginx-configuration">Nginx Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#using-virtualenv">Using Virtualenv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#monitoring">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#logging">Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="signals.html#master-process">Master process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signals.html#worker-process">Worker process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signals.html#reload-the-configuration">Reload the configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="signals.html#upgrading-to-a-new-binary-on-the-fly">Upgrading to a new binary on the fly</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="custom.html#direct-usage-of-existing-wsgi-apps">Direct Usage of Existing WSGI Apps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="design.html#server-model">Server Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#choosing-a-worker-type">Choosing a Worker Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#how-many-workers">How Many Workers?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="design.html#how-many-threads">How Many Threads?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#wsgi-bits">WSGI Bits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#server-stuff">Server Stuff</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#worker-processes">Worker Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#kernel-parameters">Kernel Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="community.html#project-management-discussions">Project Management &amp; Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#irc">IRC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#issue-tracking">Issue Tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="community.html#security-issues">Security Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2"><a class="reference internal" href="news.html#history">History</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

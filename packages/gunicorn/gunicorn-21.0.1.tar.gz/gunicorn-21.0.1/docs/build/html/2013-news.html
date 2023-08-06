@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog - 2013 &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog - 2012" href="2012-news.html" />
+    <link rel="prev" title="Changelog - 2014" href="2014-news.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="news.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="news.html#history">History</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2023-news.html">Changelog - 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-news.html">Changelog - 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2020-news.html">Changelog - 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-news.html">Changelog - 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2018-news.html">Changelog - 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2017-news.html">Changelog - 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2016-news.html">Changelog - 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2015-news.html">Changelog - 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2014-news.html">Changelog - 2014</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Changelog - 2013</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">18.0 / 2013-08-26</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">17.5 / 2013-07-03</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">0.17.4 / 2013-04-24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">0.17.3 / 2013-04-23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">0.17.2 / 2013-01-07</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">0.17.1 / 2013-01-05</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2012-news.html">Changelog - 2012</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2011-news.html">Changelog - 2011</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2010-news.html">Changelog - 2010</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="news.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Changelog - 2013</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/2013-news.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog-2013">
+<h1>Changelog - 2013<a class="headerlink" href="#changelog-2013" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>18.0 / 2013-08-26<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>new: add <code class="docutils literal notranslate"><span class="pre">-e/--env</span></code> command line argument to pass an environment variables to
+gunicorn</p></li>
+<li><p>new: add <code class="docutils literal notranslate"><span class="pre">--chdir</span></code> command line argument to specified directory
+before apps loading.  - new: add wsgi.file_wrapper support in async workers</p></li>
+<li><p>new: add <code class="docutils literal notranslate"><span class="pre">--paste</span></code> command line argument to set the paster config file</p></li>
+<li><p>deprecated: the command <code class="docutils literal notranslate"><span class="pre">gunicorn_django</span></code> is now deprecated. You should now
+run your application with the WSGI interface installed with your project (see
+<a class="reference external" href="https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/gunicorn/">https://docs.djangoproject.com/en/1.4/howto/deployment/wsgi/gunicorn/</a>) for
+more infos.</p></li>
+<li><p>deprecated:  the command <code class="docutils literal notranslate"><span class="pre">gunicorn_paste</span></code> is deprecated. You now should use
+the new <code class="docutils literal notranslate"><span class="pre">--paste</span></code> argument to set the configuration file of your paster
+application.</p></li>
+<li><p>fix: Removes unmatched leading quote from the beginning of the default access
+log format string</p></li>
+<li><p>fix: null timeout</p></li>
+<li><p>fix: gevent worker</p></li>
+<li><p>fix: don’t reload the paster app when using pserve</p></li>
+<li><p>fix: after closing for error do not keep alive the connection</p></li>
+<li><p>fix: responses 1xx, 204 and 304 should not force the connection to be closed</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>17.5 / 2013-07-03<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>new: add signals documentation</p></li>
+<li><p>new: add post_worker_init hook for workers</p></li>
+<li><p>new: try to use gunicorn.conf.py in current folder as the default
+config file.</p></li>
+<li><p>fix graceful timeout with the Eventlet worker</p></li>
+<li><p>fix: don’t raise an error when closing the socket if already closed</p></li>
+<li><p>fix: fix –settings parameter for django application and try to find
+the django settings when using the <code class="docutils literal notranslate"><span class="pre">gunicorn</span></code> command.</p></li>
+<li><p>fix: give the initial global_conf to paster application</p></li>
+<li><p>fix: fix ‘Expect: 100-continue’ support on Python 3</p></li>
+</ul>
+<section id="new-versioning">
+<h3>New versioning:<a class="headerlink" href="#new-versioning" title="Permalink to this heading">¶</a></h3>
+<p>With this release, the versioning of Gunicorn is changing. Gunicorn is
+stable since a long time and there is no point to release a “1.0” now.
+It should have been done since a long time. 0.17 really meant it was the
+17th stable version. From the beginning we have only 2 kind of
+releases:</p>
+<p>major release: releases with major changes or huge features added
+services releases: fixes and minor features added So from now we will
+apply the following versioning <code class="docutils literal notranslate"><span class="pre">&lt;major&gt;.&lt;service&gt;</span></code>. For example <code class="docutils literal notranslate"><span class="pre">17.5</span></code> is a
+service release.</p>
+</section>
+</section>
+<section id="id3">
+<h2>0.17.4 / 2013-04-24<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix unix socket address parsing</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>0.17.3 / 2013-04-23<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>add systemd sockets support</p></li>
+<li><p>add <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">gunicorn.app.wsgiapp</span></code> support</p></li>
+<li><p>improve logger class inheritance</p></li>
+<li><p>exit when the config file isn’t found</p></li>
+<li><p>add the -R option to enable stdio inheritance in daemon mode</p></li>
+<li><p>don’t close file descriptors &gt; 3 in daemon mode</p></li>
+<li><p>improve STDOUT/STDERR logging</p></li>
+<li><p>fix pythonpath option</p></li>
+<li><p>fix pidfile creation on Python 3</p></li>
+<li><p>fix gevent worker exit</p></li>
+<li><p>fix ipv6 detection when the platform isn’t supporting it</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>0.17.2 / 2013-01-07<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>optimize readline</p></li>
+<li><p>make imports errors more visible when loading an app or a logging
+class</p></li>
+<li><p>fix tornado worker: don’t pass ssl options if there are none</p></li>
+<li><p>fix PEP3333: accept only bytetrings in the response body</p></li>
+<li><p>fix support on CYGWIN platforms</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>0.17.1 / 2013-01-05<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>add syslog facility name setting</p></li>
+<li><p>fix <code class="docutils literal notranslate"><span class="pre">--version</span></code> command line argument</p></li>
+<li><p>fix wsgi url_scheme for https</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2014-news.html" class="btn btn-neutral float-left" title="Changelog - 2014" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2012-news.html" class="btn btn-neutral float-right" title="Changelog - 2012" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

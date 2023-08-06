@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Configuration Overview &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Settings" href="settings.html" />
+    <link rel="prev" title="Running Gunicorn" href="run.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-line">Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-file">Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#framework-settings">Framework Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#paster-applications">Paster Applications</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Configuration Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/configure.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="configuration-overview">
+<span id="configuration"></span><h1>Configuration Overview<a class="headerlink" href="#configuration-overview" title="Permalink to this heading">¶</a></h1>
+<p>Gunicorn reads configuration information from five places.</p>
+<p>Gunicorn first reads environment variables for some configuration
+<a class="reference internal" href="settings.html#settings"><span class="std std-ref">settings</span></a>.</p>
+<p>Gunicorn then reads configuration from a framework specific configuration
+file. Currently this only affects Paster applications.</p>
+<p>The third source of configuration information is an optional configuration file
+<code class="docutils literal notranslate"><span class="pre">gunicorn.conf.py</span></code> searched in the current working directory or specified
+using a command line argument. Anything specified in this configuration file
+will override any framework specific settings.</p>
+<p>The fourth place of configuration information are command line arguments
+stored in an environment variable named <code class="docutils literal notranslate"><span class="pre">GUNICORN_CMD_ARGS</span></code>.</p>
+<p>Lastly, the command line arguments used to invoke Gunicorn are the final place
+considered for configuration settings. If an option is specified on the command
+line, this is the value that will be used.</p>
+<p>When a configuration file is specified in the command line arguments and in the
+<code class="docutils literal notranslate"><span class="pre">GUNICORN_CMD_ARGS</span></code> environment variable, only the configuration
+file specified on the command line is used.</p>
+<dl class="simple">
+<dt>Once again, in order of least to most authoritative:</dt><dd><ol class="arabic simple">
+<li><p>Environment Variables</p></li>
+<li><p>Framework Settings</p></li>
+<li><p>Configuration File</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GUNICORN_CMD_ARGS</span></code></p></li>
+<li><p>Command Line</p></li>
+</ol>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To print your resolved configuration when using the command line or the
+configuration file you can run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gunicorn --print-config APP_MODULE
+</pre></div>
+</div>
+<p>To check your resolved configuration when using the command line or the
+configuration file you can run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gunicorn --check-config APP_MODULE
+</pre></div>
+</div>
+<p>It also allows you to know if your application can be launched.</p>
+</div>
+<section id="command-line">
+<h2>Command Line<a class="headerlink" href="#command-line" title="Permalink to this heading">¶</a></h2>
+<p>If an option is specified on the command line, it overrides all other values
+that may have been specified in the app specific settings, or in the optional
+configuration file. Not all Gunicorn settings are available to be set from the
+command line. To see the full list of command line settings you can do the
+usual:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gunicorn -h
+</pre></div>
+</div>
+<p>There is also a <code class="docutils literal notranslate"><span class="pre">--version</span></code> flag available to the command line scripts that
+isn’t mentioned in the list of <a class="reference internal" href="settings.html#settings"><span class="std std-ref">settings</span></a>.</p>
+</section>
+<section id="configuration-file">
+<span id="id1"></span><h2>Configuration File<a class="headerlink" href="#configuration-file" title="Permalink to this heading">¶</a></h2>
+<p>The configuration file should be a valid Python source file with a <strong>python
+extension</strong> (e.g. <cite>gunicorn.conf.py</cite>). It only needs to be readable from the
+file system. More specifically, it does not have to be on the module path
+(sys.path, PYTHONPATH). Any Python is valid. Just consider that this will be
+run every time you start Gunicorn (including when you signal Gunicorn to reload).</p>
+<p>To set a parameter, just assign to it. There’s no special syntax. The values
+you provide will be used for the configuration values.</p>
+<p>For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+
+<span class="n">bind</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1:8000&quot;</span>
+<span class="n">workers</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>All the settings are mentioned in the <a class="reference internal" href="settings.html#settings"><span class="std std-ref">settings</span></a> list.</p>
+</section>
+<section id="framework-settings">
+<h2>Framework Settings<a class="headerlink" href="#framework-settings" title="Permalink to this heading">¶</a></h2>
+<p>Currently, only Paster applications have access to framework specific
+settings. If you have ideas for providing settings to WSGI applications or
+pulling information from Django’s settings.py feel free to open an <a class="reference external" href="https://github.com/benoitc/gunicorn/issues">issue</a> to
+let us know.</p>
+<section id="paster-applications">
+<h3>Paster Applications<a class="headerlink" href="#paster-applications" title="Permalink to this heading">¶</a></h3>
+<p>In your INI file, you can specify to use Gunicorn as the server like such:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[server:main]</span>
+<span class="na">use</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">egg:gunicorn</span><span class="c1">#main</span>
+<span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.0.1</span>
+<span class="na">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">80</span>
+<span class="na">workers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span>
+<span class="na">proc_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">brim</span>
+</pre></div>
+</div>
+<p>Any parameters that Gunicorn knows about will automatically be inserted into
+the base configuration. Remember that these will be overridden by the config
+file and/or the command line.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="run.html" class="btn btn-neutral float-left" title="Running Gunicorn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="settings.html" class="btn btn-neutral float-right" title="Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

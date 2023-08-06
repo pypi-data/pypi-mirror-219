@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running Gunicorn" href="run.html" />
+    <link rel="prev" title="Gunicorn - WSGI server" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#from-source">From Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#async-workers">Async Workers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extra-packages">Extra Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#debian-gnu-linux">Debian GNU/Linux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stable-buster">stable (“buster”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oldstable-stretch">oldstable (“stretch”)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing-bullseye-unstable-sid">Testing (“bullseye”) / Unstable (“sid”)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Requirements<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Python 3.x &gt;= 3.5</strong></p>
+</dd>
+</dl>
+<p>To install the latest released version of Gunicorn:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gunicorn
+</pre></div>
+</div>
+<section id="from-source">
+<h2>From Source<a class="headerlink" href="#from-source" title="Permalink to this heading">¶</a></h2>
+<p>You can install Gunicorn from source just as you would install any other
+Python package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/benoitc/gunicorn.git
+</pre></div>
+</div>
+<p>This will allow you to keep up to date with development on GitHub:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>git+https://github.com/benoitc/gunicorn.git
+</pre></div>
+</div>
+</section>
+<section id="async-workers">
+<h2>Async Workers<a class="headerlink" href="#async-workers" title="Permalink to this heading">¶</a></h2>
+<p>You may also want to install <a class="reference external" href="http://eventlet.net">Eventlet</a> or <a class="reference external" href="http://www.gevent.org/">Gevent</a> if you expect that your
+application code may need to pause for extended periods of time during request
+processing. Check out the <a class="reference external" href="design.html">design docs</a> for more information on when you’ll
+want to consider one of the alternate worker types.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>greenlet<span class="w">            </span><span class="c1"># Required for both</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>eventlet<span class="w">            </span><span class="c1"># For eventlet workers</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gunicorn<span class="o">[</span>eventlet<span class="o">]</span><span class="w">  </span><span class="c1"># Or, using extra</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gevent<span class="w">              </span><span class="c1"># For gevent workers</span>
+$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gunicorn<span class="o">[</span>gevent<span class="o">]</span><span class="w">    </span><span class="c1"># Or, using extra</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both require <code class="docutils literal notranslate"><span class="pre">greenlet</span></code>, which should get installed automatically.
+If its installation fails, you probably need to install
+the Python headers. These headers are available in most package
+managers. On Ubuntu the package name for <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> is
+<code class="docutils literal notranslate"><span class="pre">python-dev</span></code>.</p>
+<p><a class="reference external" href="http://www.gevent.org/">Gevent</a> also requires that <code class="docutils literal notranslate"><span class="pre">libevent</span></code> 1.4.x or 2.0.4 is installed.
+This could be a more recent version than what is available in your
+package manager. If <a class="reference external" href="http://www.gevent.org/">Gevent</a> fails to build even with <a class="reference external" href="http://libevent.org/">libevent</a>
+installed, this is the most likely reason.</p>
+</div>
+</section>
+<section id="extra-packages">
+<h2>Extra Packages<a class="headerlink" href="#extra-packages" title="Permalink to this heading">¶</a></h2>
+<p>Some Gunicorn options require additional packages. You can use the <code class="docutils literal notranslate"><span class="pre">[extra]</span></code>
+syntax to install these at the same time as Gunicorn.</p>
+<p>Most extra packages are needed for alternate worker types. See the
+<a class="reference external" href="design.html">design docs</a> for more information on when you’ll want to consider an
+alternate worker type.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gunicorn[eventlet]</span></code> - Eventlet-based greenlets workers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gunicorn[gevent]</span></code> - Gevent-based greenlets workers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gunicorn[gthread]</span></code> - Threaded workers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gunicorn[tornado]</span></code> - Tornado-based workers, not recommended</p></li>
+</ul>
+<p>If you are running more than one instance of Gunicorn, the <a class="reference internal" href="settings.html#proc-name"><span class="std std-ref">proc_name</span></a>
+setting will help distinguish between them in tools like <code class="docutils literal notranslate"><span class="pre">ps</span></code> and <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gunicorn[setproctitle]</span></code> - Enables setting the process name</p></li>
+</ul>
+<p>Multiple extras can be combined, like
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gunicorn[gevent,setproctitle]</span></code>.</p>
+</section>
+<section id="debian-gnu-linux">
+<h2>Debian GNU/Linux<a class="headerlink" href="#debian-gnu-linux" title="Permalink to this heading">¶</a></h2>
+<p>If you are using Debian GNU/Linux it is recommended that you use
+system packages to install Gunicorn except maybe when you want to use
+different versions of Gunicorn with virtualenv. This has a number of
+advantages:</p>
+<ul class="simple">
+<li><p>Zero-effort installation: Automatically starts multiple Gunicorn instances
+based on configurations defined in <code class="docutils literal notranslate"><span class="pre">/etc/gunicorn.d</span></code>.</p></li>
+<li><p>Sensible default locations for logs (<code class="docutils literal notranslate"><span class="pre">/var/log/gunicorn</span></code>). Logs
+can be automatically rotated and compressed using <code class="docutils literal notranslate"><span class="pre">logrotate</span></code>.</p></li>
+<li><p>Improved security: Can easily run each Gunicorn instance with a dedicated
+UNIX user/group.</p></li>
+<li><p>Sensible upgrade path: Upgrades to newer versions result in less downtime,
+handle conflicting changes in configuration options, and can be quickly
+rolled back in case of incompatibility. The package can also be purged
+entirely from the system in seconds.</p></li>
+</ul>
+<section id="stable-buster">
+<h3>stable (“buster”)<a class="headerlink" href="#stable-buster" title="Permalink to this heading">¶</a></h3>
+<p>The version of Gunicorn in the <a class="reference external" href="https://www.debian.org/">Debian</a> “stable” distribution is 19.9.0
+(December 2020). You can install it using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gunicorn3
+</pre></div>
+</div>
+<p>You can also use the most recent version 20.0.4 (December 2020) by using
+<a class="reference external" href="https://backports.debian.org/">Debian Backports</a>. First, copy the following line to your
+<code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deb<span class="w"> </span>http://ftp.debian.org/debian<span class="w"> </span>buster-backports<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Then, update your local package lists:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+<p>You can then install the latest version using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-t<span class="w"> </span>buster-backports<span class="w"> </span>install<span class="w"> </span>gunicorn
+</pre></div>
+</div>
+</section>
+<section id="oldstable-stretch">
+<h3>oldstable (“stretch”)<a class="headerlink" href="#oldstable-stretch" title="Permalink to this heading">¶</a></h3>
+<p>While Debian releases newer than Stretch will give you gunicorn with Python 3
+support no matter if you install the gunicorn or gunicorn3 package for Stretch
+you specifically have to install gunicorn3 to get Python 3 support.</p>
+<p>The version of Gunicorn in the <a class="reference external" href="https://www.debian.org/">Debian</a> “oldstable” distribution is 19.6.0
+(December 2020). You can install it using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gunicorn3
+</pre></div>
+</div>
+<p>You can also use the most recent version 19.7.1 (December 2020) by using
+<a class="reference external" href="https://backports.debian.org/">Debian Backports</a>. First, copy the following line to your
+<code class="docutils literal notranslate"><span class="pre">/etc/apt/sources.list</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deb<span class="w"> </span>http://ftp.debian.org/debian<span class="w"> </span>stretch-backports<span class="w"> </span>main
+</pre></div>
+</div>
+<p>Then, update your local package lists:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+<p>You can then install the latest version using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>-t<span class="w"> </span>stretch-backports<span class="w"> </span>install<span class="w"> </span>gunicorn3
+</pre></div>
+</div>
+</section>
+<section id="testing-bullseye-unstable-sid">
+<h3>Testing (“bullseye”) / Unstable (“sid”)<a class="headerlink" href="#testing-bullseye-unstable-sid" title="Permalink to this heading">¶</a></h3>
+<p>“bullseye” and “sid” contain the latest released version of Gunicorn 20.0.4
+(December 2020). You can install it in the usual way:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gunicorn
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ubuntu">
+<h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.ubuntu.com/">Ubuntu</a> 20.04 LTS (Focal Fossa) or later contains the Gunicorn package by
+default 20.0.4 (December 2020) so that you can install it in the usual way:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gunicorn
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Gunicorn - WSGI server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="run.html" class="btn btn-neutral float-right" title="Running Gunicorn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

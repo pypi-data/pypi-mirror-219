@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog - 2019 &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog - 2018" href="2018-news.html" />
+    <link rel="prev" title="Changelog - 2020" href="2020-news.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="news.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="news.html#history">History</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2023-news.html">Changelog - 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-news.html">Changelog - 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2020-news.html">Changelog - 2020</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Changelog - 2019</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">20.0.4 / 2019/11/26</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">20.0.3 / 2019/11/24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">20.0.2 / 2019/11/23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">20.0.1 / 2019/11/23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">19.10.0 / 2019/11/23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">20.0 / 2019/10/30</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2018-news.html">Changelog - 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2017-news.html">Changelog - 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2016-news.html">Changelog - 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2015-news.html">Changelog - 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2014-news.html">Changelog - 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2013-news.html">Changelog - 2013</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2012-news.html">Changelog - 2012</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2011-news.html">Changelog - 2011</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2010-news.html">Changelog - 2010</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="news.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Changelog - 2019</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/2019-news.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog-2019">
+<h1>Changelog - 2019<a class="headerlink" href="#changelog-2019" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please see <a class="reference internal" href="news.html"><span class="doc">Changelog</span></a> for the latest changes</p>
+</div>
+<section id="id1">
+<h2>20.0.4 / 2019/11/26<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix binding a socket using the file descriptor</p></li>
+<li><p>remove support for the <cite>bdist_rpm</cite> build</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>20.0.3 / 2019/11/24<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fixed load of a config file without a Python extension</p></li>
+<li><p>fixed <cite>socketfromfd.fromfd</cite> when defaults are not set</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>we now warn when we load a config file without Python Extension</p>
+</div>
+</section>
+<section id="id3">
+<h2>20.0.2 / 2019/11/23<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix changelog</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>20.0.1 / 2019/11/23<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fixed the way the config module is loaded. <cite>__file__</cite> is now available</p></li>
+<li><p>fixed <cite>wsgi.input_terminated</cite>. It is always true.</p></li>
+<li><p>use the highest protocol version of openssl by default</p></li>
+<li><p>only support Python &gt;= 3.5</p></li>
+<li><p>added <cite>__repr__</cite> method to <cite>Config</cite> instance</p></li>
+<li><p>fixed support of AIX platform and musl libc in  <cite>socketfromfd.fromfd</cite> function</p></li>
+<li><p>fixed support of applications loaded from a factory function</p></li>
+<li><p>fixed chunked encoding support to prevent any <a class="reference external" href="https://portswigger.net/research/http-desync-attacks-request-smuggling-reborn">request smuggling</a></p></li>
+<li><p>Capture os.sendfile before patching in gevent and eventlet workers.
+fix <cite>RecursionError</cite>.</p></li>
+<li><p>removed locking in reloader when adding new files</p></li>
+<li><p>load the WSGI application before the loader to pick up all files</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>this release add official support for applications loaded from a factory function
+as documented in Flask and other places.</p>
+</div>
+</section>
+<section id="id5">
+<h2>19.10.0 / 2019/11/23<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>unblock select loop during reload of a sync worker</p></li>
+<li><p>security fix: http desync attack</p></li>
+<li><p>handle <cite>wsgi.input_terminated</cite></p></li>
+<li><p>added support for str and bytes in unix  socket addresses</p></li>
+<li><p>fixed <cite>max_requests</cite> setting</p></li>
+<li><p>headers values are now encoded as LATN1, not ASCII</p></li>
+<li><p>fixed <cite>InotifyReloadeder</cite>:  handle <cite>module.__file__</cite> is None</p></li>
+<li><p>fixed compatibility with tornado 6</p></li>
+<li><p>fixed root logging</p></li>
+<li><p>Prevent removalof unix sockets from <cite>reuse_port</cite></p></li>
+<li><p>Clear tornado ioloop before os.fork</p></li>
+<li><p>Miscellaneous fixes and improvement for linting using Pylint</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>20.0 / 2019/10/30<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed <cite>fdopen</cite> <cite>RuntimeWarning</cite> in Python 3.8</p></li>
+<li><p>Added  check and exception for str type on value in Response process_headers method.</p></li>
+<li><p>Ensure WSGI header value is string before conducting regex search on it.</p></li>
+<li><p>Added pypy3 to list of tested environments</p></li>
+<li><p>Grouped <cite>StopIteration</cite> and <cite>KeyboardInterrupt</cite> exceptions with same body together in Arbiter.run()</p></li>
+<li><p>Added <cite>setproctitle</cite> module to <cite>extras_require</cite> in setup.py</p></li>
+<li><p>Avoid unnecessary chown of temporary files</p></li>
+<li><p>Logging: Handle auth type case insensitively</p></li>
+<li><p>Removed <cite>util.import_module</cite></p></li>
+<li><p>Removed fallback for <cite>types.SimpleNamespace</cite> in tests utils</p></li>
+<li><p>Use <cite>SourceFileLoader</cite> instead instead of <cite>execfile_</cite></p></li>
+<li><p>Use <cite>importlib</cite> instead of <cite>__import__</cite> and eval`</p></li>
+<li><p>Fixed eventlet patching</p></li>
+<li><p>Added optional <a class="reference external" href="https://www.datadoghq.com">datadog</a> tags for statsd metrics</p></li>
+<li><p>Header values now are encoded using latin-1, not ascii.</p></li>
+<li><p>Rewritten <cite>parse_address</cite> util added test</p></li>
+<li><p>Removed redundant super() arguments</p></li>
+<li><p>Simplify <cite>futures</cite> import in gthread module</p></li>
+<li><p>Fixed worker_connections` setting to also affects the Gthread worker type</p></li>
+<li><p>Fixed setting max_requests</p></li>
+<li><p>Bump minimum Eventlet and Gevent versions to 0.24 and 1.4</p></li>
+<li><p>Use Python default SSL cipher list by default</p></li>
+<li><p>handle <cite>wsgi.input_terminated</cite> extension</p></li>
+<li><p>Simplify Paste Deployment documentation</p></li>
+<li><p>Fix root logging: root and logger are same level.</p></li>
+<li><p>Fixed typo in ssl_version documentation</p></li>
+<li><p>Documented  systemd deployment unit examples</p></li>
+<li><p>Added systemd sd_notify support</p></li>
+<li><p>Fixed typo in gthread.py</p></li>
+<li><p>Added <a class="reference external" href="https://www.tornadoweb.org/">tornado</a> 5 and  6 support</p></li>
+<li><p>Declare our setuptools dependency</p></li>
+<li><p>Added support to <cite>–bind</cite> to open file descriptors</p></li>
+<li><p>Document how to serve WSGI app modules from Gunicorn</p></li>
+<li><p>Provide guidance on X-Forwarded-For access log in documentation</p></li>
+<li><p>Add support for named constants in the <cite>–ssl-version</cite> flag</p></li>
+<li><p>Clarify log format usage of header &amp; environment in documentation</p></li>
+<li><p>Fixed systemd documentation to properly setup gunicorn unix socket</p></li>
+<li><p>Prevent removal unix socket for reuse_port</p></li>
+<li><p>Fix <cite>ResourceWarning</cite> when reading a Python config module</p></li>
+<li><p>Remove unnecessary call to dict keys method</p></li>
+<li><p>Support str and bytes for UNIX socket addresses</p></li>
+<li><p>fixed <cite>InotifyReloadeder</cite>:  handle <cite>module.__file__</cite> is None</p></li>
+<li><p><cite>/dev/shm</cite> as a convenient alternative to making your own tmpfs mount in fchmod FAQ</p></li>
+<li><p>fix examples to work on python3</p></li>
+<li><p>Fix typo in <cite>–max-requests</cite> documentation</p></li>
+<li><p>Clear tornado ioloop before os.fork</p></li>
+<li><p>Miscellaneous fixes and improvement for linting using Pylint</p></li>
+</ul>
+<section id="breaking-change">
+<h3>Breaking Change<a class="headerlink" href="#breaking-change" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Removed gaiohttp worker</p></li>
+<li><p>Drop support for Python 2.x</p></li>
+<li><p>Drop support for EOL Python 3.2 and 3.3</p></li>
+<li><p>Drop support for Paste Deploy server blocks</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2020-news.html" class="btn btn-neutral float-left" title="Changelog - 2020" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2018-news.html" class="btn btn-neutral float-right" title="Changelog - 2018" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog - 2010 &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Changelog - 2011" href="2011-news.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="news.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="news.html#history">History</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2023-news.html">Changelog - 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-news.html">Changelog - 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2020-news.html">Changelog - 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-news.html">Changelog - 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2018-news.html">Changelog - 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2017-news.html">Changelog - 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2016-news.html">Changelog - 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2015-news.html">Changelog - 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2014-news.html">Changelog - 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2013-news.html">Changelog - 2013</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2012-news.html">Changelog - 2012</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2011-news.html">Changelog - 2011</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Changelog - 2010</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">0.12.0 / 2010-12-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">0.11.2 / 2010-10-30</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">0.11.1 / 2010-09-02</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">0.11.0 / 2010-08-12</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">0.10.1 / 2010-08-06</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">0.10.0 / 2010-07-08</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">0.9.1 / 2010-05-26</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">0.9.0 / 2010-05-24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">0.8.1 / 2010-04-29</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">0.8.0 / 2010-04-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">0.7.2 / 2010-04-15</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">0.7.1 / 2010-04-01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">0.7.0 / 2010-03-26</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">0.6.5 / 2010-03-11</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">0.6.4 / 2010-03-08</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">0.6.3 / 2010-03-07</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">0.6.2 / 2010-03-01</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">0.6.1 / 2010-02-24</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">0.6.0 / 2010-02-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id20">0.5.1 / 2010-02-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id21">0.5.0 / 2010-02-20</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="news.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Changelog - 2010</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/2010-news.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog-2010">
+<h1>Changelog - 2010<a class="headerlink" href="#changelog-2010" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>0.12.0 / 2010-12-22<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add support for logging configuration using a ini file.
+It uses the standard Python logging’s module Configuration
+file format and allows anyone to use his custom file handler</p></li>
+<li><p>Add IPV6 support</p></li>
+<li><p>Add multidomain application example</p></li>
+<li><p>Improve gunicorn_django command when importing settings module
+using DJANGO_SETTINGS_MODULE environment variable</p></li>
+<li><p>Send appropriate error status on http parsing</p></li>
+<li><p>Fix pidfile, set permissions so other user can read
+it and use it.</p></li>
+<li><p>Fix temporary file leaking</p></li>
+<li><p>Fix setpgrp issue, can now be launched via ubuntu upstart</p></li>
+<li><p>Set the number of workers to zero on WINCH</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.11.2 / 2010-10-30<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add SERVER_SOFTWARE to the os.environ</p></li>
+<li><p>Add support for django settings environment variable</p></li>
+<li><p>Add support for logging configuration in Paster ini-files</p></li>
+<li><p>Improve arbiter notification in asynchronous workers</p></li>
+<li><p>Display the right error when a worker can’t be used</p></li>
+<li><p>Fix Django support</p></li>
+<li><p>Fix HUP with Paster applications</p></li>
+<li><p>Fix readline in wsgi.input</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>0.11.1 / 2010-09-02<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Implement max-requests feature to prevent memory leaks.</p></li>
+<li><p>Added ‘worker_exit’ server hook.</p></li>
+<li><p>Reseed the random number generator after fork().</p></li>
+<li><p>Improve Eventlet worker.</p></li>
+<li><p>Fix Django command <cite>run_gunicorn</cite>.</p></li>
+<li><p>Fix the default proc name internal setting.</p></li>
+<li><p>Workaround to prevent Gevent worker to segfault on MacOSX.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>0.11.0 / 2010-08-12<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Improve dramatically performances of Gevent and Eventlet workers</p></li>
+<li><p>Optimize HTTP parsing</p></li>
+<li><p>Drop Server and Date headers in start_response when provided.</p></li>
+<li><p>Fix latency issue in async workers</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>0.10.1 / 2010-08-06<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Improve gevent’s workers. Add “egg:gunicorn#gevent_wsgi” worker using
+<a class="reference external" href="http://www.gevent.org/gevent.wsgi.html">gevent.wsgi</a> and
+“egg:gunicorn#gevent_pywsgi” worker using <a class="reference external" href="http://www.gevent.org/gevent.pywsgi.html">gevent.pywsgi</a> .
+<strong>“egg:gunicorn#gevent”</strong> using our own HTTP parser is still here and
+is <strong>recommended</strong> for normal uses. Use the “gevent.wsgi” parser if you
+need really fast connections and don’t need streaming, keepalive or ssl.</p></li>
+<li><p>Add pre/post request hooks</p></li>
+<li><p>Exit more quietly</p></li>
+<li><p>Fix gevent dns issue</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>0.10.0 / 2010-07-08<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>New HTTP parser.</p></li>
+<li><p>New HUP behaviour. Re-reads the configuration and then reloads all
+worker processes without changing the master process id. Helpful for
+code reloading and monitoring applications like supervisord and runit.</p></li>
+<li><p>Added a preload configuration parameter. By default, application code
+is now loaded after a worker forks. This couple with the new HUP
+handling can be used for dev servers to do hot code reloading. Using
+the preload flag can help a bit in small memory VM’s.</p></li>
+<li><p>Allow people to pass command line arguments to WSGI applications. See:
+<a class="reference external" href="http://github.com/benoitc/gunicorn/raw/master/examples/alt_spec.py">examples/alt_spec.py</a></p></li>
+<li><p>Added an example gevent reloader configuration:
+<a class="reference external" href="http://github.com/benoitc/gunicorn/blob/master/examples/example_gevent_reloader.py">examples/example_gevent_reloader.py</a>.</p></li>
+<li><p>New gevent worker “egg:gunicorn#gevent2”, working with gevent.wsgi.</p></li>
+<li><p>Internal refactoring and various bug fixes.</p></li>
+<li><p>New documentation website.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>0.9.1 / 2010-05-26<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Support https via X-Forwarded-Protocol or X-Forwarded-Ssl headers</p></li>
+<li><p>Fix configuration</p></li>
+<li><p>Remove -d options which was used instead of -D for daemon.</p></li>
+<li><p>Fix umask in unix socket</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2>0.9.0 / 2010-05-24<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added <em>when_ready</em> hook. Called just after the server is started</p></li>
+<li><p>Added <em>preload</em> setting. Load application code before the worker processes
+are forked.</p></li>
+<li><p>Refactored Config</p></li>
+<li><p>Fix pidfile</p></li>
+<li><p>Fix QUIT/HUP in async workers</p></li>
+<li><p>Fix reexec</p></li>
+<li><p>Documentation improvements</p></li>
+</ul>
+</section>
+<section id="id9">
+<h2>0.8.1 / 2010-04-29<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix builtins import in config</p></li>
+<li><p>Fix installation with pip</p></li>
+<li><p>Fix Tornado WSGI support</p></li>
+<li><p>Delay application loading until after processing all configuration</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2>0.8.0 / 2010-04-22<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Refactored Worker management for better async support. Now use the -k option
+to set the type of request processing to use</p></li>
+<li><p>Added support for <a class="reference external" href="http://www.tornadoweb.org/">Tornado</a></p></li>
+</ul>
+</section>
+<section id="id11">
+<h2>0.7.2 / 2010-04-15<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added –spew option to help debugging (installs a system trace hook)</p></li>
+<li><p>Some fixes in async arbiters</p></li>
+<li><p>Fix a bug in start_response on error</p></li>
+</ul>
+</section>
+<section id="id12">
+<h2>0.7.1 / 2010-04-01<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix bug when responses have no body.</p></li>
+</ul>
+</section>
+<section id="id13">
+<h2>0.7.0 / 2010-03-26<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added support for <a class="reference external" href="http://eventlet.net/">Eventlet</a> and <a class="reference external" href="http://www.gevent.org/">Gevent</a> based workers.</p></li>
+<li><p>Added <a class="reference external" href="https://html.spec.whatwg.org/multipage/web-sockets.html">Websockets</a> support</p></li>
+<li><p>Fix Chunked Encoding</p></li>
+<li><p>Fix SIGWINCH on <a class="reference external" href="https://www.openbsd.org/">OpenBSD</a></p></li>
+<li><p>Fix <a class="reference external" href="https://www.python.org/dev/peps/pep-0333/">PEP 333</a> compliance for the write callable.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>0.6.5 / 2010-03-11<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix pidfile handling</p></li>
+<li><p>Fix Exception Error</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>0.6.4 / 2010-03-08<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Use cStringIO for performance when possible.</p></li>
+<li><p>Fix worker freeze when a remote connection closes unexpectedly.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h2>0.6.3 / 2010-03-07<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Make HTTP parsing faster.</p></li>
+<li><p>Various bug fixes</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>0.6.2 / 2010-03-01<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added support for chunked response.</p></li>
+<li><p>Added proc_name option to the config file.</p></li>
+<li><p>Improved the HTTP parser. It now uses buffers instead of strings to store
+temporary data.</p></li>
+<li><p>Improved performance when sending responses.</p></li>
+<li><p>Workers are now murdered by age (the oldest is killed first).</p></li>
+</ul>
+</section>
+<section id="id18">
+<h2>0.6.1 / 2010-02-24<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added gunicorn config file support for Django admin command</p></li>
+<li><p>Fix gunicorn config file. -c was broken.</p></li>
+<li><p>Removed TTIN/TTOU from workers which blocked other signals.</p></li>
+</ul>
+</section>
+<section id="id19">
+<h2>0.6.0 / 2010-02-22<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added setproctitle support</p></li>
+<li><p>Change privilege switch behavior. We now work like NGINX, master keeps the
+permissions, new uid/gid permissions are only set for workers.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h2>0.5.1 / 2010-02-22<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix umask</p></li>
+<li><p>Added Debian packaging</p></li>
+</ul>
+</section>
+<section id="id21">
+<h2>0.5.0 / 2010-02-20<a class="headerlink" href="#id21" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Added <a class="reference external" href="configuration.html">configuration file</a> handler.</p></li>
+<li><p>Added support for pre/post fork hooks</p></li>
+<li><p>Added support for before_exec hook</p></li>
+<li><p>Added support for unix sockets</p></li>
+<li><p>Added launch of workers processes under different user/group</p></li>
+<li><p>Added umask option</p></li>
+<li><p>Added SCRIPT_NAME support</p></li>
+<li><p>Better support of some exotic settings for Django projects</p></li>
+<li><p>Better support of Paste-compatible applications</p></li>
+<li><p>Some refactoring to make the code easier to hack</p></li>
+<li><p>Allow multiple keys in request and response headers</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2011-news.html" class="btn btn-neutral float-left" title="Changelog - 2011" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal Handling &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Custom Application" href="custom.html" />
+    <link rel="prev" title="Deploying Gunicorn" href="deploy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Signal Handling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#master-process">Master process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#worker-process">Worker process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reload-the-configuration">Reload the configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrading-to-a-new-binary-on-the-fly">Upgrading to a new binary on the fly</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Signal Handling</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/signals.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="signal-handling">
+<span id="signals"></span><h1>Signal Handling<a class="headerlink" href="#signal-handling" title="Permalink to this heading">¶</a></h1>
+<p>A brief description of the signals handled by Gunicorn. We also document the
+signals used internally by Gunicorn to communicate with the workers.</p>
+<section id="master-process">
+<h2>Master process<a class="headerlink" href="#master-process" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QUIT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>: Quick shutdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TERM</span></code>: Graceful shutdown. Waits for workers to finish their
+current requests up to the <a class="reference internal" href="settings.html#graceful-timeout"><span class="std std-ref">graceful_timeout</span></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HUP</span></code>: Reload the configuration, start the new worker processes with a new
+configuration and gracefully shutdown older workers. If the application is
+not preloaded (using the <a class="reference internal" href="settings.html#preload-app"><span class="std std-ref">preload_app</span></a> option), Gunicorn will also load
+the new version of it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTIN</span></code>: Increment the number of processes by one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TTOU</span></code>: Decrement the number of processes by one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USR1</span></code>: Reopen the log files</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USR2</span></code>: Upgrade Gunicorn on the fly. A separate <code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal should
+be used to kill the old master process. This signal can also be used to use
+the new versions of pre-loaded applications. See <a class="reference internal" href="#binary-upgrade"><span class="std std-ref">Upgrading to a new binary on the fly</span></a> for
+more information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WINCH</span></code>: Gracefully shutdown the worker processes when Gunicorn is
+daemonized.</p></li>
+</ul>
+</section>
+<section id="worker-process">
+<h2>Worker process<a class="headerlink" href="#worker-process" title="Permalink to this heading">¶</a></h2>
+<p>Sending signals directly to the worker processes should not normally be
+needed.  If the master process is running, any exited worker will be
+automatically respawned.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">QUIT</span></code>, <code class="docutils literal notranslate"><span class="pre">INT</span></code>: Quick shutdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TERM</span></code>: Graceful shutdown</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USR1</span></code>: Reopen the log files</p></li>
+</ul>
+</section>
+<section id="reload-the-configuration">
+<h2>Reload the configuration<a class="headerlink" href="#reload-the-configuration" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">HUP</span></code> signal can be used to reload the Gunicorn configuration on the
+fly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20682</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Handling</span> <span class="n">signal</span><span class="p">:</span> <span class="n">hup</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20682</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Hang</span> <span class="n">up</span><span class="p">:</span> <span class="n">Master</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20703</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Booting</span> <span class="n">worker</span> <span class="k">with</span> <span class="n">pid</span><span class="p">:</span> <span class="mi">20703</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20702</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Booting</span> <span class="n">worker</span> <span class="k">with</span> <span class="n">pid</span><span class="p">:</span> <span class="mi">20702</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20688</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Worker</span> <span class="n">exiting</span> <span class="p">(</span><span class="n">pid</span><span class="p">:</span> <span class="mi">20688</span><span class="p">)</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20687</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Worker</span> <span class="n">exiting</span> <span class="p">(</span><span class="n">pid</span><span class="p">:</span> <span class="mi">20687</span><span class="p">)</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20689</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Worker</span> <span class="n">exiting</span> <span class="p">(</span><span class="n">pid</span><span class="p">:</span> <span class="mi">20689</span><span class="p">)</span>
+<span class="mi">2013</span><span class="o">-</span><span class="mi">06</span><span class="o">-</span><span class="mi">29</span> <span class="mi">06</span><span class="p">:</span><span class="mi">26</span><span class="p">:</span><span class="mi">55</span> <span class="p">[</span><span class="mi">20704</span><span class="p">]</span> <span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Booting</span> <span class="n">worker</span> <span class="k">with</span> <span class="n">pid</span><span class="p">:</span> <span class="mi">20704</span>
+</pre></div>
+</div>
+<p>Sending a <code class="docutils literal notranslate"><span class="pre">HUP</span></code> signal will reload the configuration, start the new
+worker processes with a new configuration and gracefully shutdown older
+workers. If the application is not preloaded (using the <a class="reference internal" href="settings.html#preload-app"><span class="std std-ref">preload_app</span></a>
+option), Gunicorn will also load the new version of it.</p>
+</section>
+<section id="upgrading-to-a-new-binary-on-the-fly">
+<span id="binary-upgrade"></span><h2>Upgrading to a new binary on the fly<a class="headerlink" href="#upgrading-to-a-new-binary-on-the-fly" title="Permalink to this heading">¶</a></h2>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 19.6.0: </span>PID file naming format has been changed from <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.pid.oldbin</span></code> to
+<code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.pid.2</span></code>.</p>
+</div>
+<p>If you need to replace the Gunicorn binary with a new one (when
+upgrading to a new version or adding/removing server modules), you can
+do it without any service downtime - no incoming requests will be
+lost. Preloaded applications will also be reloaded.</p>
+<p>First, replace the old binary with a new one, then send a <code class="docutils literal notranslate"><span class="pre">USR2</span></code> signal to
+the current master process. It executes a new binary whose PID file is
+postfixed with <code class="docutils literal notranslate"><span class="pre">.2</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">/var/run/gunicorn.pid.2</span></code>),
+which in turn starts a new master process and new worker processes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">PID</span> <span class="n">USER</span>      <span class="n">PR</span>  <span class="n">NI</span>  <span class="n">VIRT</span>  <span class="n">RES</span>  <span class="n">SHR</span> <span class="n">S</span>  <span class="o">%</span><span class="n">CPU</span> <span class="o">%</span><span class="n">MEM</span>    <span class="n">TIME</span><span class="o">+</span>  <span class="n">COMMAND</span>
+<span class="mi">20844</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">54808</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">3352</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.36</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">master</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20849</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">54808</span> <span class="mf">9.9</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.02</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20850</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">54808</span> <span class="mf">9.9</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.01</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20851</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">54808</span> <span class="mf">9.9</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.01</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20854</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">12</span><span class="n">m</span> <span class="mi">3348</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.2</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.35</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">master</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20859</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.01</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20860</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.00</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20861</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.01</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>At this point, two instances of Gunicorn are running, handling the
+incoming requests together. To phase the old instance out, you have to
+send a <code class="docutils literal notranslate"><span class="pre">WINCH</span></code> signal to the old master process, and its worker
+processes will start to gracefully shut down.</p>
+<p>At this point you can still revert to the old process since it hasn’t closed
+its listen sockets yet, by following these steps:</p>
+<ul class="simple">
+<li><p>Send a <code class="docutils literal notranslate"><span class="pre">HUP</span></code> signal to the old master process - it will start the worker
+processes without reloading a configuration file</p></li>
+<li><p>Send a <code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal to the new master process to gracefully shut down its
+worker processes</p></li>
+<li><p>Send a <code class="docutils literal notranslate"><span class="pre">QUIT</span></code> signal to the new master process to force it quit</p></li>
+</ul>
+<p>If for some reason the new worker processes do not quit, send a <code class="docutils literal notranslate"><span class="pre">KILL</span></code> signal
+to them after the new master process quits, and everything will back to exactly
+as before the upgrade attempt.</p>
+<p>If the update is successful and you want to keep the new master process, send a
+<code class="docutils literal notranslate"><span class="pre">TERM</span></code> signal to the old master process to leave only the new server
+running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">PID</span> <span class="n">USER</span>      <span class="n">PR</span>  <span class="n">NI</span>  <span class="n">VIRT</span>  <span class="n">RES</span>  <span class="n">SHR</span> <span class="n">S</span>  <span class="o">%</span><span class="n">CPU</span> <span class="o">%</span><span class="n">MEM</span>    <span class="n">TIME</span><span class="o">+</span>  <span class="n">COMMAND</span>
+<span class="mi">20854</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">12</span><span class="n">m</span> <span class="mi">3348</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.2</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.45</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">master</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20859</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.02</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20860</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.02</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+<span class="mi">20861</span> <span class="n">benoitc</span>   <span class="mi">20</span>   <span class="mi">0</span> <span class="mi">55748</span>  <span class="mi">11</span><span class="n">m</span> <span class="mi">1500</span> <span class="n">S</span>   <span class="mf">0.0</span>  <span class="mf">0.1</span>   <span class="mi">0</span><span class="p">:</span><span class="mf">00.01</span> <span class="n">gunicorn</span><span class="p">:</span> <span class="n">worker</span> <span class="p">[</span><span class="n">test</span><span class="p">:</span><span class="n">app</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="deploy.html" class="btn btn-neutral float-left" title="Deploying Gunicorn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="custom.html" class="btn btn-neutral float-right" title="Custom Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

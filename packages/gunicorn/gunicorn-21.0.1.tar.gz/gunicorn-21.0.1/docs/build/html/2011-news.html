@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog - 2011 &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog - 2010" href="2010-news.html" />
+    <link rel="prev" title="Changelog - 2012" href="2012-news.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="news.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="news.html#history">History</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2023-news.html">Changelog - 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-news.html">Changelog - 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2020-news.html">Changelog - 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-news.html">Changelog - 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2018-news.html">Changelog - 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2017-news.html">Changelog - 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2016-news.html">Changelog - 2016</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2015-news.html">Changelog - 2015</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2014-news.html">Changelog - 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2013-news.html">Changelog - 2013</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2012-news.html">Changelog - 2012</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Changelog - 2011</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">0.13.4 / 2011-09-23</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">0.13.3 / 2011-09-19</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">0.13.2 / 2011-09-17</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">0.13.1 / 2011-08-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">0.13.0 / 2011-08-22</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">0.12.2 / 2011-05-18</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">0.12.1 / 2011-03-23</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2010-news.html">Changelog - 2010</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="news.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Changelog - 2011</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/2011-news.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog-2011">
+<h1>Changelog - 2011<a class="headerlink" href="#changelog-2011" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>0.13.4 / 2011-09-23<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix util.closerange function used to prevent leaking fds on python 2.5
+(typo)</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.13.3 / 2011-09-19<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>refactor gevent worker</p></li>
+<li><p>prevent leaking fds on reexec</p></li>
+<li><p>fix inverted request_time computation</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>0.13.2 / 2011-09-17<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add support for Tornado 2.0 in tornado worker</p></li>
+<li><p>Improve access logs: allows customisation of the log format &amp; add
+request time</p></li>
+<li><p>Logger module is now pluggable</p></li>
+<li><p>Improve graceful shutdown in Python versions &gt;= 2.6</p></li>
+<li><p>Fix post_request root arity for compatibility</p></li>
+<li><p>Fix sendfile support</p></li>
+<li><p>Fix Django reloading</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>0.13.1 / 2011-08-22<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Fix unix socket. log argument was missing.</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2>0.13.0 / 2011-08-22<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Improve logging: allows file-reopening and add access log file
+compatible with the <a class="reference external" href="http://httpd.apache.org/docs/2.0/logs.html#combined">apache combined log format</a></p></li>
+<li><p>Add the possibility to set custom SSL headers. X-Forwarded-Protocol
+and X-Forwarded-SSL are still the default</p></li>
+<li><p>New <cite>on_reload</cite> hook to customize how gunicorn spawn new workers on
+SIGHUP</p></li>
+<li><p>Handle projects with relative path in django_gunicorn command</p></li>
+<li><p>Preserve path parameters in PATH_INFO</p></li>
+<li><p>post_request hook now accepts the environ as argument.</p></li>
+<li><p>When stopping the arbiter, close the listener asap.</p></li>
+<li><p>Fix Django command <cite>run_gunicorn</cite> in settings reloading</p></li>
+<li><p>Fix <a class="reference external" href="http://www.tornadoweb.org/">Tornado</a> worker exiting</p></li>
+<li><p>Fix the use of sendfile in wsgi.file_wrapper</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>0.12.2 / 2011-05-18<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add wsgi.file_wrapper optimised for FreeBSD, Linux &amp; MacOSX (use
+sendfile if available)</p></li>
+<li><p>Fix django run_gunicorn command. Make sure we reload the application
+code.</p></li>
+<li><p>Fix django localisation</p></li>
+<li><p>Compatible with gevent 0.14dev</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2>0.12.1 / 2011-03-23<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Add “on_starting” hook. This hook can be used to set anything before
+the arbiter really start</p></li>
+<li><p>Support bdist_rpm in setup</p></li>
+<li><p>Improve content-length handling (pep 3333)</p></li>
+<li><p>Improve Django support</p></li>
+<li><p>Fix daemonizing (#142)</p></li>
+<li><p>Fix ipv6 handling</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2012-news.html" class="btn btn-neutral float-left" title="Changelog - 2012" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2010-news.html" class="btn btn-neutral float-right" title="Changelog - 2010" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

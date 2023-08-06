@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog - 2015 &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Changelog - 2014" href="2014-news.html" />
+    <link rel="prev" title="Changelog - 2016" href="2016-news.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="news.html">Changelog</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="news.html#id1">21.0.0 - 2023-07-17</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="news.html#history">History</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="2023-news.html">Changelog - 2023</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2021-news.html">Changelog - 2021</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2020-news.html">Changelog - 2020</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2019-news.html">Changelog - 2019</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2018-news.html">Changelog - 2018</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2017-news.html">Changelog - 2017</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2016-news.html">Changelog - 2016</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Changelog - 2015</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">19.4.3 / 2015/12/30</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">19.4.2 / 2015/12/29</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">19.4.1 / 2015/11/25</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">19.4.0 / 2015/11/20</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">19.3.0 / 2015/03/06</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">19.2.1 / 2015/02/4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">19.2 / 2015/01/30</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2014-news.html">Changelog - 2014</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2013-news.html">Changelog - 2013</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2012-news.html">Changelog - 2012</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2011-news.html">Changelog - 2011</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2010-news.html">Changelog - 2010</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="news.html">Changelog</a></li>
+      <li class="breadcrumb-item active">Changelog - 2015</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/2015-news.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="changelog-2015">
+<h1>Changelog - 2015<a class="headerlink" href="#changelog-2015" title="Permalink to this heading">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please see <a class="reference internal" href="news.html"><span class="doc">Changelog</span></a> for the latest changes.</p>
+</div>
+<section id="id1">
+<h2>19.4.3 / 2015/12/30<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix: don’t check if a file is writable using os.stat with SELINUX (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1171">issue 1171</a>)</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>19.4.2 / 2015/12/29<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="core">
+<h3>Core<a class="headerlink" href="#core" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>improvement: handle HaltServer in manage_workers (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1095">issue 1095</a>)</p></li>
+<li><p>fix: Do not rely on sendfile sending requested count (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1155">issue 1155</a>)</p></li>
+<li><p>fix: claridy –no-sendfile default (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1156">issue 1156</a>)</p></li>
+<li><p>fix: LoggingCatch sendfile failure from no file descriptor (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1160">issue 1160</a>)</p></li>
+</ul>
+</section>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: Always send access log to syslog if syslog is on</p></li>
+<li><p>fix: check auth before trying to own a file (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1157">issue 1157</a>)</p></li>
+</ul>
+</section>
+<section id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: Fix Slowloris broken link. (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1142">issue 1142</a>)</p></li>
+<li><p>Tweak markup in faq.rst</p></li>
+</ul>
+</section>
+<section id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: gaiohttp test (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1164">issue 1164</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="id3">
+<h2>19.4.1 / 2015/11/25<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>fix tornado worker (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1154">issue 1154</a>)</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>19.4.0 / 2015/11/20<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h3>Core<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: make sure that a user is able to access to the logs after dropping a
+privilege (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1116">issue 1116</a>)</p></li>
+<li><p>improvement: inherit the <cite>Exception</cite> class where it needs to be (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/997">issue 997</a>)</p></li>
+<li><p>fix: make sure headers are always encoded as latin1 RFC 2616 (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1102">issue 1102</a>)</p></li>
+<li><p>improvement: reduce arbiter noise (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1078">issue 1078</a>)</p></li>
+<li><p>fix: don’t close the unix socket when the worker exit (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1088">issue 1088</a>)</p></li>
+<li><p>improvement: Make last logged worker count an explicit instance var (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1078">issue 1078</a>)</p></li>
+<li><p>improvement: prefix config file with its type (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/836">issue 836</a>)</p></li>
+<li><p>improvement: pidfile handing (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1042">issue 1042</a>)</p></li>
+<li><p>fix: catch OSError as well as ValueError on race condition (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1052">issue 1052</a>)</p></li>
+<li><p>improve support of ipv6 by backporting urlparse.urlsplit from Python 2.7 to
+Python 2.6.</p></li>
+<li><p>fix: raise InvalidRequestLine when the line contains malicious data
+(<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1023">issue 1023</a>)</p></li>
+<li><p>fix: fix argument to disable sendfile</p></li>
+<li><p>fix: add gthread to the list of supported workers (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1011">issue 1011</a>)</p></li>
+<li><p>improvement: retry socket binding up to five times upon EADDRNOTAVAIL
+(<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1004">issue 1004</a>)</p></li>
+<li><p><strong>breaking change</strong>: only honor headers that can be encoded in ascii to comply to
+the RFC 7230 (See <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1151">issue 1151</a>).</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Logging<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>add new parameters to access log (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1132">issue 1132</a>)</p></li>
+<li><p>fix: make sure that files handles are correctly reopened on HUP
+(<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/627">issue 627</a>)</p></li>
+<li><p>include request URL in error message (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1071">issue 1071</a>)</p></li>
+<li><p>get username in access logs (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1069">issue 1069</a>)</p></li>
+<li><p>fix statsd logging support on Python 3 (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1010">issue 1010</a>)</p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Testing<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>use last version of mock.</p></li>
+<li><p>many fixes in Travis CI support</p></li>
+<li><p>miscellaneous improvements in tests</p></li>
+</ul>
+</section>
+<section id="thread-worker">
+<h3>Thread worker<a class="headerlink" href="#thread-worker" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: Fix self.nr usage in ThreadedWorker so that auto restart works as
+expected (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1031">issue 1031</a>)</p></li>
+</ul>
+</section>
+<section id="gevent-worker">
+<h3>Gevent worker<a class="headerlink" href="#gevent-worker" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix quit signal handling (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1128">issue 1128</a>)</p></li>
+<li><p>add support for Python 3 (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1066">issue 1066</a>)</p></li>
+<li><p>fix: make graceful shutdown thread-safe (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1032">issue 1032</a>)</p></li>
+</ul>
+</section>
+<section id="tornado-worker">
+<h3>Tornado worker<a class="headerlink" href="#tornado-worker" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix ssl options (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1146">issue 1146</a>, <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1135">issue 1135</a>)</p></li>
+<li><p>don’t check timeout when stopping gracefully (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1106">issue 1106</a>)</p></li>
+</ul>
+</section>
+<section id="aiohttp-worker">
+<h3>AIOHttp worker<a class="headerlink" href="#aiohttp-worker" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>add SSL support (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1105">issue 1105</a>)</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Documentation<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix link to proc name setting (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1144">issue 1144</a>)</p></li>
+<li><p>fix worker class documentation (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1141">issue 1141</a>, <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1104">issue 1104</a>)</p></li>
+<li><p>clarify graceful timeout documentation (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1137">issue 1137</a>)</p></li>
+<li><p>don’t duplicate NGINX config files examples (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1050">issue 1050</a>, <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1048">issue 1048</a>)</p></li>
+<li><p>add <cite>web.py</cite> framework example (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1117">issue 1117</a>)</p></li>
+<li><p>update Debian/Ubuntu installations instructions (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1112">issue 1112</a>)</p></li>
+<li><p>clarify <cite>pythonpath</cite> setting description (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1080">issue 1080</a>)</p></li>
+<li><p>tweak some example for python3</p></li>
+<li><p>clarify <cite>sendfile</cite> documentation</p></li>
+<li><p>miscellaneous typos in source code comments (thanks!)</p></li>
+<li><p>clarify why REMOTE_ADD may not be the user’s IP address (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/1037">issue 1037</a>)</p></li>
+</ul>
+</section>
+<section id="misc">
+<h3>Misc<a class="headerlink" href="#misc" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: reloader should survive SyntaxError (<a class="reference external" href="https://github.com/benoitc/gunicorn/issues/994">issue 994</a>)</p></li>
+<li><p>fix: expose the reloader class to the worker.</p></li>
+</ul>
+</section>
+</section>
+<section id="id9">
+<h2>19.3.0 / 2015/03/06<a class="headerlink" href="#id9" title="Permalink to this heading">¶</a></h2>
+<section id="id10">
+<h3>Core<a class="headerlink" href="#id10" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/978">issue 978</a> make sure a listener is inheritable</p></li>
+<li><p>add <cite>check_config</cite> class method to workers</p></li>
+<li><p>fix: <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/983">issue 983</a> fix select timeout in sync worker with multiple
+connections</p></li>
+<li><p>allows workers to access to the reloader. close <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/984">issue 984</a></p></li>
+<li><p>raise TypeError instead of AssertionError</p></li>
+</ul>
+</section>
+<section id="id11">
+<h3>Logging<a class="headerlink" href="#id11" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>make Logger.loglevel a class attribute</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Documentation<a class="headerlink" href="#id12" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix: <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/988">issue 988</a> fix syntax errors in examples/gunicorn_rc</p></li>
+</ul>
+</section>
+</section>
+<section id="id13">
+<h2>19.2.1 / 2015/02/4<a class="headerlink" href="#id13" title="Permalink to this heading">¶</a></h2>
+<section id="id14">
+<h3>Logging<a class="headerlink" href="#id14" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>expose loglevel in the Logger class</p></li>
+</ul>
+</section>
+<section id="asyncio-worker-gaiohttp">
+<h3>AsyncIO worker (gaiohttp)<a class="headerlink" href="#asyncio-worker-gaiohttp" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/977">issue 977</a> fix initial crash</p></li>
+</ul>
+</section>
+<section id="id15">
+<h3>Documentation<a class="headerlink" href="#id15" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>document security mailing-list in the contributing page.</p></li>
+</ul>
+</section>
+</section>
+<section id="id16">
+<h2>19.2 / 2015/01/30<a class="headerlink" href="#id16" title="Permalink to this heading">¶</a></h2>
+<section id="id17">
+<h3>Core<a class="headerlink" href="#id17" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>optimize the sync workers when listening on a single interface</p></li>
+<li><p>add <cite>–sendfile</cite> settings to enable/disable sendfile. fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/856">issue 856</a> .</p></li>
+<li><p>add the selectors module to the code base. <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/886">issue 886</a></p></li>
+<li><p>add <cite>–max-requests-jitter</cite> setting to set the maximum jitter to add to the
+max-requests setting.</p></li>
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/899">issue 899</a> propagate proxy_protocol_info to keep-alive requests</p></li>
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/863">issue 863</a> worker timeout: dynamic timeout has been removed</p></li>
+<li><p>fix: Avoid world writable file</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Logging<a class="headerlink" href="#id18" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/941">issue 941</a>  set logconfig default to paster more trivially</p></li>
+<li><p>add statsd-prefix config setting: set the prefix to use when emitting statsd
+metrics</p></li>
+<li><p><a class="reference external" href="https://github.com/benoitc/gunicorn/issues/832">issue 832</a> log to console by default</p></li>
+</ul>
+</section>
+<section id="id19">
+<h3>Thread Worker<a class="headerlink" href="#id19" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/908">issue 908</a> make sure the worker can continue to accept requests</p></li>
+</ul>
+</section>
+<section id="eventlet-worker">
+<h3>Eventlet Worker<a class="headerlink" href="#eventlet-worker" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>fix <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/867">issue 867</a> Fix eventlet shutdown to actively shut down the workers.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h3>Documentation<a class="headerlink" href="#id20" title="Permalink to this heading">¶</a></h3>
+<p>Many improvements and fixes have been done, see the detailed changelog for
+more information.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2016-news.html" class="btn btn-neutral float-left" title="Changelog - 2016" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2014-news.html" class="btn btn-neutral float-right" title="Changelog - 2014" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

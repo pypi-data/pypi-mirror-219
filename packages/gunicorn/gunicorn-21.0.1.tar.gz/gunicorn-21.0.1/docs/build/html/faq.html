@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ &mdash; Gunicorn 21.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Community" href="community.html" />
+    <link rel="prev" title="Design" href="design.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Gunicorn
+          </a>
+              <div class="version">
+                21.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="run.html">Running Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configure.html">Configuration Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Settings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instrumentation.html">Instrumentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deploy.html">Deploying Gunicorn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signals.html">Signal Handling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="custom.html">Custom Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#wsgi-bits">WSGI Bits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-set-script-name">How do I set SCRIPT_NAME?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#server-stuff">Server Stuff</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-reload-my-application-in-gunicorn">How do I reload my application in Gunicorn?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-might-i-test-a-proxy-configuration">How might I test a proxy configuration?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-name-processes">How can I name processes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-is-there-no-http-keep-alive">Why is there no HTTP Keep-Alive?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#worker-processes">Worker Processes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-know-which-type-of-worker-to-use">How do I know which type of worker to use?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-types-of-workers-are-there">What types of workers are there?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-figure-out-the-best-number-of-worker-processes">How can I figure out the best number of worker processes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-change-the-number-of-workers-dynamically">How can I change the number of workers dynamically?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#does-gunicorn-suffer-from-the-thundering-herd-problem">Does Gunicorn suffer from the thundering herd problem?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-i-don-t-see-any-logs-in-the-console">Why I don’t see any logs in the console?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#kernel-parameters">Kernel Parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-increase-the-maximum-number-of-file-descriptors">How can I increase the maximum number of file descriptors?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-increase-the-maximum-socket-backlog">How can I increase the maximum socket backlog?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-i-disable-the-use-of-sendfile">How can I disable the use of <code class="docutils literal notranslate"><span class="pre">sendfile()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-fix-django-reporting-an-improperlyconfigured-error">How do I fix Django reporting an <code class="docutils literal notranslate"><span class="pre">ImproperlyConfigured</span></code> error?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod">How do I avoid Gunicorn excessively blocking in <code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code>?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-are-workers-silently-killed">Why are Workers Silently Killed?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="community.html">Community</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gunicorn</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/faq.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="faq">
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this heading">¶</a></h1>
+<section id="wsgi-bits">
+<h2>WSGI Bits<a class="headerlink" href="#wsgi-bits" title="Permalink to this heading">¶</a></h2>
+<section id="how-do-i-set-script-name">
+<h3>How do I set SCRIPT_NAME?<a class="headerlink" href="#how-do-i-set-script-name" title="Permalink to this heading">¶</a></h3>
+<p>By default <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> is an empty string. The value could be set by
+setting <code class="docutils literal notranslate"><span class="pre">SCRIPT_NAME</span></code> in the environment or as an HTTP header.</p>
+</section>
+</section>
+<section id="server-stuff">
+<h2>Server Stuff<a class="headerlink" href="#server-stuff" title="Permalink to this heading">¶</a></h2>
+<section id="how-do-i-reload-my-application-in-gunicorn">
+<h3>How do I reload my application in Gunicorn?<a class="headerlink" href="#how-do-i-reload-my-application-in-gunicorn" title="Permalink to this heading">¶</a></h3>
+<p>You can gracefully reload by sending HUP signal to gunicorn:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kill -HUP masterpid
+</pre></div>
+</div>
+</section>
+<section id="how-might-i-test-a-proxy-configuration">
+<h3>How might I test a proxy configuration?<a class="headerlink" href="#how-might-i-test-a-proxy-configuration" title="Permalink to this heading">¶</a></h3>
+<p>The <a class="reference external" href="https://github.com/rakyll/hey">Hey</a> program is a great way to test that your proxy is correctly
+buffering responses for the synchronous workers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ hey -n 10000 -c 100 http://127.0.0.1:5000/
+</pre></div>
+</div>
+<p>This runs a benchmark of 10000 requests with 100 running concurrently.</p>
+</section>
+<section id="how-can-i-name-processes">
+<h3>How can I name processes?<a class="headerlink" href="#how-can-i-name-processes" title="Permalink to this heading">¶</a></h3>
+<p>If you install the Python package <a class="reference external" href="https://pypi.python.org/pypi/setproctitle">setproctitle</a> Gunicorn will set the process
+names to something a bit more meaningful. This will affect the output you see
+in tools like <code class="docutils literal notranslate"><span class="pre">ps</span></code> and <code class="docutils literal notranslate"><span class="pre">top</span></code>. This helps for distinguishing the master
+process as well as between masters when running more than one app on a single
+machine. See the <a class="reference external" href="settings.html#proc-name">proc_name</a> setting for more information.</p>
+</section>
+<section id="why-is-there-no-http-keep-alive">
+<h3>Why is there no HTTP Keep-Alive?<a class="headerlink" href="#why-is-there-no-http-keep-alive" title="Permalink to this heading">¶</a></h3>
+<p>The default Sync workers are designed to run behind Nginx which only uses
+HTTP/1.0 with its upstream servers. If you want to deploy Gunicorn to
+handle unbuffered requests (ie, serving requests directly from the internet)
+you should use one of the async workers.</p>
+</section>
+</section>
+<section id="worker-processes">
+<h2>Worker Processes<a class="headerlink" href="#worker-processes" title="Permalink to this heading">¶</a></h2>
+<section id="how-do-i-know-which-type-of-worker-to-use">
+<h3>How do I know which type of worker to use?<a class="headerlink" href="#how-do-i-know-which-type-of-worker-to-use" title="Permalink to this heading">¶</a></h3>
+<p>Read the <a class="reference internal" href="design.html#design"><span class="std std-ref">Design</span></a> page for help on the various worker types.</p>
+</section>
+<section id="what-types-of-workers-are-there">
+<h3>What types of workers are there?<a class="headerlink" href="#what-types-of-workers-are-there" title="Permalink to this heading">¶</a></h3>
+<p>Check out the configuration docs for <a class="reference external" href="settings.html#worker-class">worker_class</a>.</p>
+</section>
+<section id="how-can-i-figure-out-the-best-number-of-worker-processes">
+<h3>How can I figure out the best number of worker processes?<a class="headerlink" href="#how-can-i-figure-out-the-best-number-of-worker-processes" title="Permalink to this heading">¶</a></h3>
+<p>Here is our recommendation for tuning the <a class="reference external" href="design.html#how-many-workers">number of workers</a>.</p>
+</section>
+<section id="how-can-i-change-the-number-of-workers-dynamically">
+<h3>How can I change the number of workers dynamically?<a class="headerlink" href="#how-can-i-change-the-number-of-workers-dynamically" title="Permalink to this heading">¶</a></h3>
+<p>TTIN and TTOU signals can be sent to the master to increase or decrease
+the number of workers.</p>
+<p>To increase the worker count by one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kill -TTIN $masterpid
+</pre></div>
+</div>
+<p>To decrease the worker count by one:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kill -TTOU $masterpid
+</pre></div>
+</div>
+</section>
+<section id="does-gunicorn-suffer-from-the-thundering-herd-problem">
+<h3>Does Gunicorn suffer from the thundering herd problem?<a class="headerlink" href="#does-gunicorn-suffer-from-the-thundering-herd-problem" title="Permalink to this heading">¶</a></h3>
+<p>The thundering herd problem occurs when many sleeping request handlers, which
+may be either threads or processes, wake up at the same time to handle a new
+request. Since only one handler will receive the request, the others will have
+been awakened for no reason, wasting CPU cycles. At this time, Gunicorn does
+not implement any IPC solution for coordinating between worker processes. You
+may experience high load due to this problem when using many workers or
+threads. However <a class="reference external" href="https://github.com/benoitc/gunicorn/issues/792">a work has been started</a> to remove this issue.</p>
+</section>
+<section id="why-i-don-t-see-any-logs-in-the-console">
+<h3>Why I don’t see any logs in the console?<a class="headerlink" href="#why-i-don-t-see-any-logs-in-the-console" title="Permalink to this heading">¶</a></h3>
+<p>In version 19.0, Gunicorn doesn’t log by default in the console.
+To watch the logs in the console you need to use the option <code class="docutils literal notranslate"><span class="pre">--log-file=-</span></code>.
+In version 19.2, Gunicorn logs to the console by default again.</p>
+</section>
+</section>
+<section id="kernel-parameters">
+<h2>Kernel Parameters<a class="headerlink" href="#kernel-parameters" title="Permalink to this heading">¶</a></h2>
+<p>When dealing with large numbers of concurrent connections there are a handful
+of kernel parameters that you might need to adjust. Generally these should only
+affect sites with a very large concurrent load. These parameters are not
+specific to Gunicorn, they would apply to any sort of network server you may be
+running.</p>
+<p>These commands are for Linux. Your particular OS may have slightly different
+parameters.</p>
+<section id="how-can-i-increase-the-maximum-number-of-file-descriptors">
+<h3>How can I increase the maximum number of file descriptors?<a class="headerlink" href="#how-can-i-increase-the-maximum-number-of-file-descriptors" title="Permalink to this heading">¶</a></h3>
+<p>One of the first settings that usually needs to be bumped is the maximum number
+of open file descriptors for a given process. For the confused out there,
+remember that Unices treat sockets as files.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ulimit</span></code> may not work</p>
+</div>
+<p>Considering non-privileged users are not able to relax the limit, you should
+firstly switch to root user, increase the limit, then run gunicorn. Using <code class="docutils literal notranslate"><span class="pre">sudo</span>
+<span class="pre">ulimit</span></code> would not take effect.</p>
+<p>Try systemd’s service unit file, or an initscript which runs as root.</p>
+</section>
+<section id="how-can-i-increase-the-maximum-socket-backlog">
+<h3>How can I increase the maximum socket backlog?<a class="headerlink" href="#how-can-i-increase-the-maximum-socket-backlog" title="Permalink to this heading">¶</a></h3>
+<p>Listening sockets have an associated queue of incoming connections that are
+waiting to be accepted. If you happen to have a stampede of clients that fill
+up this queue new connections will eventually start getting dropped.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo sysctl -w net.core.somaxconn=&quot;2048&quot;
+</pre></div>
+</div>
+</section>
+<section id="how-can-i-disable-the-use-of-sendfile">
+<h3>How can I disable the use of <code class="docutils literal notranslate"><span class="pre">sendfile()</span></code><a class="headerlink" href="#how-can-i-disable-the-use-of-sendfile" title="Permalink to this heading">¶</a></h3>
+<p>Disabling the use <code class="docutils literal notranslate"><span class="pre">sendfile()</span></code> can be done by using the <code class="docutils literal notranslate"><span class="pre">--no-sendfile</span></code>
+setting or by setting the environment variable <code class="docutils literal notranslate"><span class="pre">SENDFILE</span></code> to 0.</p>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<section id="how-do-i-fix-django-reporting-an-improperlyconfigured-error">
+<h3>How do I fix Django reporting an <code class="docutils literal notranslate"><span class="pre">ImproperlyConfigured</span></code> error?<a class="headerlink" href="#how-do-i-fix-django-reporting-an-improperlyconfigured-error" title="Permalink to this heading">¶</a></h3>
+<p>With asynchronous workers, creating URLs with the <code class="docutils literal notranslate"><span class="pre">reverse</span></code> function of
+<code class="docutils literal notranslate"><span class="pre">django.core.urlresolvers</span></code> may fail. Use <code class="docutils literal notranslate"><span class="pre">reverse_lazy</span></code> instead.</p>
+</section>
+<section id="how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod">
+<span id="blocking-os-fchmod"></span><h3>How do I avoid Gunicorn excessively blocking in <code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code>?<a class="headerlink" href="#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod" title="Permalink to this heading">¶</a></h3>
+<p>The current heartbeat system involves calling <code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code> on temporary file
+handlers and may block a worker for arbitrary time if the directory is on a
+disk-backed filesystem. For example, by default <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> is not mounted as
+<code class="docutils literal notranslate"><span class="pre">tmpfs</span></code> in Ubuntu; in AWS an EBS root instance volume may sometimes hang for
+half a minute and during this time Gunicorn workers may completely block in
+<code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code>. <code class="docutils literal notranslate"><span class="pre">os.fchmod</span></code> may introduce extra delays if the disk gets full.
+Also Gunicorn may refuse to start if it can’t create the files when the disk is
+full.</p>
+<p>Currently to avoid these problems you can use a <code class="docutils literal notranslate"><span class="pre">tmpfs</span></code> mount (for a new
+directory or for <code class="docutils literal notranslate"><span class="pre">/tmp</span></code>) and pass its path to <code class="docutils literal notranslate"><span class="pre">--worker-tmp-dir</span></code>. First,
+check whether your <code class="docutils literal notranslate"><span class="pre">/tmp</span></code> is disk-backed or RAM-backed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ df /tmp
+Filesystem     1K-blocks    Used Available Use% Mounted on
+/dev/xvda1           ...     ...       ...  ... /
+</pre></div>
+</div>
+<p>No luck. If you are using Fedora or Ubuntu, you should already have a <code class="docutils literal notranslate"><span class="pre">tmpfs</span></code>
+mount at <code class="docutils literal notranslate"><span class="pre">/dev/shm</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ df /dev/shm
+Filesystem     1K-blocks     Used Available Use% Mounted on
+tmpfs                 ...     ...       ...  ... /dev/shm
+</pre></div>
+</div>
+<p>In this case you can set <code class="docutils literal notranslate"><span class="pre">--worker-tmp-dir</span> <span class="pre">/dev/shm</span></code>, otherwise you can
+create a new <code class="docutils literal notranslate"><span class="pre">tmpfs</span></code> mount:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">cp</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span><span class="o">.</span><span class="n">orig</span>
+<span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">mem</span>
+<span class="n">echo</span> <span class="s1">&#39;tmpfs       /mem tmpfs defaults,size=64m,mode=1777,noatime,comment=for-gunicorn 0 0&#39;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">fstab</span>
+<span class="n">sudo</span> <span class="n">mount</span> <span class="o">/</span><span class="n">mem</span>
+</pre></div>
+</div>
+<p>Check the result:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ df /mem
+Filesystem     1K-blocks  Used Available Use% Mounted on
+tmpfs              65536     0     65536   0% /mem
+</pre></div>
+</div>
+<p>Now you can set <code class="docutils literal notranslate"><span class="pre">--worker-tmp-dir</span> <span class="pre">/mem</span></code>.</p>
+</section>
+<section id="why-are-workers-silently-killed">
+<h3>Why are Workers Silently Killed?<a class="headerlink" href="#why-are-workers-silently-killed" title="Permalink to this heading">¶</a></h3>
+<p>A sometimes subtle problem to debug is when a worker process is killed and there
+is little logging information about what happened.</p>
+<p>If you use a reverse proxy like NGINX you might see 502 returned to a client.</p>
+<p>In the gunicorn logs you might simply see <code class="docutils literal notranslate"><span class="pre">[35]</span> <span class="pre">[INFO]</span> <span class="pre">Booting</span> <span class="pre">worker</span> <span class="pre">with</span> <span class="pre">pid:</span> <span class="pre">35</span></code></p>
+<p>It’s completely normal for workers to be stop and start, for example due to
+max-requests setting. Ordinarily gunicorn will capture any signals and log something.</p>
+<p>This particular failure case is usually due to a SIGKILL being received, as it’s
+not possible to catch this signal silence is usually a common side effect! A common
+cause of SIGKILL is when OOM killer terminates a process due to low memory condition.</p>
+<p>This is increasingly common in container deployments where memory limits are enforced
+by cgroups, you’ll usually see evidence of this from dmesg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dmesg</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">gunicorn</span>
+<span class="n">Memory</span> <span class="n">cgroup</span> <span class="n">out</span> <span class="n">of</span> <span class="n">memory</span><span class="p">:</span> <span class="n">Kill</span> <span class="n">process</span> <span class="mi">24534</span> <span class="p">(</span><span class="n">gunicorn</span><span class="p">)</span> <span class="n">score</span> <span class="mi">1506</span> <span class="ow">or</span> <span class="n">sacrifice</span> <span class="n">child</span>
+<span class="n">Killed</span> <span class="n">process</span> <span class="mi">24534</span> <span class="p">(</span><span class="n">gunicorn</span><span class="p">)</span> <span class="n">total</span><span class="o">-</span><span class="n">vm</span><span class="p">:</span><span class="mi">1016648</span><span class="n">kB</span><span class="p">,</span> <span class="n">anon</span><span class="o">-</span><span class="n">rss</span><span class="p">:</span><span class="mi">550160</span><span class="n">kB</span><span class="p">,</span> <span class="n">file</span><span class="o">-</span><span class="n">rss</span><span class="p">:</span><span class="mi">25824</span><span class="n">kB</span><span class="p">,</span> <span class="n">shmem</span><span class="o">-</span><span class="n">rss</span><span class="p">:</span><span class="mi">0</span><span class="n">kB</span>
+</pre></div>
+</div>
+<p>In these instances adjusting the memory limit is usually your best bet, it’s also possible
+to configure OOM not to send SIGKILL by default.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="design.html" class="btn btn-neutral float-left" title="Design" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="community.html" class="btn btn-neutral float-right" title="Community" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2009-2023, Benoit Chesneau.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
