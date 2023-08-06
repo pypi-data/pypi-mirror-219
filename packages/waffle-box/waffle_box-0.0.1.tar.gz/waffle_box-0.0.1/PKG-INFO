@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: waffle-box
+Version: 0.0.1
+Summary: 
+Author: SangHyeukYoon
+Author-email: shyoon@snuailab.ai
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: typer[all] (>=0.9.0,<0.10.0)
+Description-Content-Type: text/markdown
+
+

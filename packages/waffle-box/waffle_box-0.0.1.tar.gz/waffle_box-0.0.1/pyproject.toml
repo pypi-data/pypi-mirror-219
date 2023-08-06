@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "waffle-box"
+version = "0.0.1"
+description = ""
+authors = ["SangHyeukYoon <shyoon@snuailab.ai>"]
+readme = "README.md"
+packages = [
+    { include = "waffle_box" },
+    { include = "app_manager" },
+    { include = "maker_manager" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typer = {extras = ["all"], version = "^0.9.0"}
+
+[tool.poetry.scripts]
+wb = "waffle_box.cli:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
