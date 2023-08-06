@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: bcirisktools
+Version: 0.3.5
+Summary: BCI risks tools
+Author: Mezosky
+Author-email: <imezadelajara@gmail.com>
+Keywords: python,risk,tools,bci
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+A package that compiles different risk tools used by BCI bank.

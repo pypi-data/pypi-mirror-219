@@ -1,0 +1,9 @@
+pandas
+numpy
+sklearn
+matplotlib
+plotly
+shap>=0.41.0
+scipy
+tqdm
+xgboost>=1.6.2
