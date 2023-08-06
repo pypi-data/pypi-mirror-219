@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: file-combiner
+Version: 0.0.2
+Summary: A Package To Combine files and do a number of processing.
+Author-email: psychosuraj <surajkm09@gmail.com>
+Project-URL: Homepage, https://github.com/surajkm09
+Project-URL: Bug Tracker, https://github.com/surajkm09
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
