@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tests/test_explorer.py
+yoloexplorer/__init__.py
+yoloexplorer/dataset.py
+yoloexplorer/explorer.py
+yoloexplorer/yolo_predictor.py
+yoloexplorer.egg-info/PKG-INFO
+yoloexplorer.egg-info/SOURCES.txt
+yoloexplorer.egg-info/dependency_links.txt
+yoloexplorer.egg-info/requires.txt
+yoloexplorer.egg-info/top_level.txt
