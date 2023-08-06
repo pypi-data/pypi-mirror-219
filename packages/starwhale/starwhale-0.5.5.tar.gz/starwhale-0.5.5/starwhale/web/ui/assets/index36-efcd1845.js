@@ -1,0 +1,1 @@
+import{aD as s}from"./index-df127a5b.js";const e=["static","dynamic"],o=t=>({type:"string",description:"text string",example_data:t.value||"hello world"});export{s as Component,o as document,e as modes};
