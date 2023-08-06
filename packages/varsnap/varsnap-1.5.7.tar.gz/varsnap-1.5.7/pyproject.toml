@@ -1,0 +1,22 @@
+[tool.ruff]
+select = ["E", "F", "B"]
+
+[tool.mypy]
+strict = true
+ignore_missing_imports = true
+exclude = [
+    "build/",
+]
+
+[tool.coverage.run]
+source = ["."]
+omit = [
+    ".eggs/*",
+    "setup.py",
+    "varsnap/tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+]
