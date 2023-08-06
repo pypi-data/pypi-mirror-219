@@ -1,0 +1,3 @@
+[console_scripts]
+mixprops=mixprops.cli:cli
+
