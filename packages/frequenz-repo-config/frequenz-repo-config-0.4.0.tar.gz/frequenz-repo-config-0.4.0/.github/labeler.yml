@@ -1,0 +1,77 @@
+# Configuration for the Labeler GitHub action, executed by
+# .github/workflows/labeler.yml.
+#
+# The basic syntax is [label]: [path patterns].
+#
+# For more details on the configuration please see:
+# https://github.com/marketplace/actions/labeler
+
+"part:docs":
+  - any:
+      - "**/*.md"
+      - "docs/**"
+      - "examples/**"
+      - LICENSE
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:tests":
+  - "tests/**"
+  - "tests_golden/**"
+
+"part:tooling":
+  - any:
+      - "**/*.ini"
+      - "**/*.toml"
+      - "**/*.yaml"
+      - "**/*.yml"
+      - ".git*"
+      - ".git*/**"
+      - CODEOWNERS
+      - MANIFEST.in
+      - noxfile.py
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:ci":
+  - any:
+      - "**/.github/*labeler.*"
+      - "**/.github/dependabot.*"
+      - "**/.github/workflows/*"
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:cookiecutter":
+  - any:
+      - "cookiecutter/**"
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:mkdocs":
+  - any:
+      - "**/docs/*.py"
+      - "**/mkdocs.*"
+      - "src/frequenz/repo/config/mkdocs*"
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:nox":
+  - any:
+      - "**/noxfile.py"
+      - "src/frequenz/repo/config/nox/**"
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
+
+"part:protobuf":
+  - any:
+      - "src/frequenz/repo/config/setuptools/grpc*"
+      - "src/frequenz/repo/config/protobuf*"
+    all:
+      - "!tests/**"
+      - "!tests_golden/**"
