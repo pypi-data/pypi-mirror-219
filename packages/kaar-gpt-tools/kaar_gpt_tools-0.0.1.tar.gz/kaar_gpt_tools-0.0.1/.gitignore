@@ -1,0 +1,42 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+env_tmp/
+*.egg-info/
+.eggs/
+lib/
+lib64/
+get-pip.py
+
+# Editors
+.idea/
+.vscode/
+*.sublime-*
+
+# OS & IDE
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Others
+.cache/
+.research_cache/
+*.swp
+*.swo
+*.bak
+*.tmp
