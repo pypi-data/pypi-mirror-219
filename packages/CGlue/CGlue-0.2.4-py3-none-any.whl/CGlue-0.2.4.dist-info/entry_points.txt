@@ -1,0 +1,2 @@
+[console_scripts]
+cglue = cglue.cli:cli
