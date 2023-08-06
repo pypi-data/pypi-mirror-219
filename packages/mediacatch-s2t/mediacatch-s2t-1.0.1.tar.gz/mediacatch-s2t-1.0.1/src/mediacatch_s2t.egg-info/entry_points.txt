@@ -1,0 +1,2 @@
+[console_scripts]
+mediacatch = uploader.__main__:main
