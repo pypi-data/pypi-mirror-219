@@ -1,0 +1,45 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "streamz_pulsar"
+version = "0.1.0.post2"
+description = ""
+authors = [
+    "Marek Wadinger <marekwadinger@icloud.com>",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+repository = "https://github.com/MarekWadinger/streamz_pulsar"
+packages = [{include = "streamz_pulsar"}]
+readme = "README.md"
+keywords = ["streamz", "pulsar"]
+
+[tool.poetry.dependencies]
+python = "^3.7.2"
+streamz = "^0.6.4"
+pulsar-client = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest-cov = "^3.0.0"
+pylint = "^2.17.4"
+
+[tool.poetry.plugins."streamz.sources"]
+from_pulsar = "streamz_pulsar.sources:from_pulsar"
+
+[tool.poetry.plugins."streamz.sinks"]
+to_pulsar = "streamz_pulsar.sinks:to_pulsar"
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report html --cov-report term-missing --cov-fail-under 0"
+
+[tool.pylint]
+max-line-length = 79
+disable = [
+    "W"
+]
