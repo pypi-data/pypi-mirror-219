@@ -1,0 +1,12 @@
+fastcore
+pandas
+numpy
+matplotlib
+seaborn
+jax
+jaxlib
+equinox
+optax
+tqdm
+
+[dev]
