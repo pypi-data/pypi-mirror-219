@@ -1,0 +1,3 @@
+[console_scripts]
+stepcount = stepcount.stepcount:main
+stepcount-collate-outputs = stepcount.utils.collate_outputs:main
