@@ -1,0 +1,2 @@
+[console_scripts]
+py3make = py3make._main:main

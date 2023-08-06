@@ -1,0 +1,9 @@
+# Misc
+include CONTRIBUTE
+include LICENCE
+include Makefile
+include tox.ini
+
+# Examples/Documentation
+recursive-include examples *.py Makefile*
+include README.rst
