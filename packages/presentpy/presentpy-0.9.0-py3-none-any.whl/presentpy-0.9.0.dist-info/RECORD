@@ -1,0 +1,16 @@
+presentpy/__init__.py,sha256=H9NWRZb7NbeRRPLP_V1fARmLNXranorVM-OOY-8_2ug,22
+presentpy/__main__.py,sha256=V7-f27Mu6EW_aIIDZKqnz28NZIKL7IiVCWNB8s2hWAc,1322
+presentpy/code_slide_source.py,sha256=QyYGACZBEoolWOfUA_cDgvbnjNwC9IxRr3p9Xupt1yc,1866
+presentpy/config/__init__.py,sha256=JvO-mphY5fRa91egtdATxmSLDag6KhOV78LtUqxVI_U,1121
+presentpy/config/read_only_dot_dict.py,sha256=brBk9PtEI_gZTbA3iXTv97q9HMg7mIRylgt9C3wfp9Y,855
+presentpy/processors/__init__.py,sha256=dONNpXH3pUXCI_Yr_I2sSX9xiqqNyG1GRYbp_a8w7ug,136
+presentpy/processors/notebook_processor.py,sha256=SfMBTYYuXqWoJ40wCLnlzu-OUL0pI_sOOnB_sDcf2Ug,564
+presentpy/processors/script_processor.py,sha256=XzeXL-D2WPKJYQz_8XPpY2fr21yL2thafl-urWcbY8M,452
+presentpy/slide_templates/template-dark.pptx,sha256=xEo9LN6GbWR1eFPmJZ0CK2BbVahqNf2ZOPGpGUOHxeg,132043
+presentpy/slide_templates/template-light.pptx,sha256=ITBXO9IQEKL7Hvr_m1oSpVjZTTMYZgVF2OtmtioXKv4,131814
+presentpy/writers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+presentpy/writers/pptx_writer.py,sha256=T8VXg71_LIE7iZXYpR_dl_AdwxnBKBDYf-EvKLI7ZCc,3901
+presentpy-0.9.0.dist-info/METADATA,sha256=CtOa_n1OjGeo7RbhuaLMskseoIsqz8TmLLeu40CybP4,2556
+presentpy-0.9.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+presentpy-0.9.0.dist-info/entry_points.txt,sha256=OkxPY2khNcrnBkuzw91U8l2LMfJ7wcBgB-LeEtalnl4,52
+presentpy-0.9.0.dist-info/RECORD,,
