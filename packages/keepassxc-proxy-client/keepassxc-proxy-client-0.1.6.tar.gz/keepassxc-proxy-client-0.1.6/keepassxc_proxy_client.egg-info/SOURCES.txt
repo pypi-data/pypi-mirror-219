@@ -1,0 +1,16 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+keepassxc_proxy_client/__init__.py
+keepassxc_proxy_client/__main__.py
+keepassxc_proxy_client/protocol.py
+keepassxc_proxy_client.egg-info/PKG-INFO
+keepassxc_proxy_client.egg-info/SOURCES.txt
+keepassxc_proxy_client.egg-info/dependency_links.txt
+keepassxc_proxy_client.egg-info/entry_points.txt
+keepassxc_proxy_client.egg-info/requires.txt
+keepassxc_proxy_client.egg-info/top_level.txt
+keepassxc_proxy_client.egg-info/zip-safe
