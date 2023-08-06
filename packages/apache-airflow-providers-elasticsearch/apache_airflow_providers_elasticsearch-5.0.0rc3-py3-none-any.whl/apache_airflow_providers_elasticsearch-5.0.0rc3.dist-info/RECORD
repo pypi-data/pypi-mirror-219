@@ -1,0 +1,15 @@
+airflow/providers/elasticsearch/__init__.py,sha256=eesEW4JwhIsgsL3hU3iT6lI55KKlvQ7Ly3grKB-zWmc,1538
+airflow/providers/elasticsearch/get_provider_info.py,sha256=wiRnmLbp0goifXE_rLC8TQl80nYZL_JMLv0GMavzLF4,2871
+airflow/providers/elasticsearch/hooks/__init__.py,sha256=mlJxuZLkd5x-iq2SBwD3mvRQpt3YR7wjz_nceyF1IaI,787
+airflow/providers/elasticsearch/hooks/elasticsearch.py,sha256=r5JKHB20SBQS6bGy0o1t4_G2DIxe2HANU0YTLWP41JM,6481
+airflow/providers/elasticsearch/log/__init__.py,sha256=9hdXHABrVpkbpjZgUft39kOFL2xSGeG4GEua0Hmelus,785
+airflow/providers/elasticsearch/log/es_json_formatter.py,sha256=GG5yqEBt0x8UPmSP9QMQO30AxhAeEG6MIvbD6gDwV2Q,1705
+airflow/providers/elasticsearch/log/es_response.py,sha256=1obOlwl1ht8iYNDfMt2G_u83moKjMBjnYnhOzqjPllU,5373
+airflow/providers/elasticsearch/log/es_task_handler.py,sha256=IIfpg2gnJtehSwHJFnUeJhgtlTzS7CqoOmOCDj_uMHQ,21810
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/LICENSE,sha256=gXPVwptPlW1TJ4HSuG5OMPg-a3h43OGMkZRR1rpwfJA,10850
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/METADATA,sha256=SdetYYZgbRCPRWwbwvq92vgE3eOquaeFZVrEKqLLjqw,5967
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/NOTICE,sha256=m-6s2XynUxVSUIxO4rVablAZCvFq-wmLrqV91DotRBw,240
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/entry_points.txt,sha256=dAJ1Ib0gGGXb1p2Gd9pMCFzyIXRCqHax_eno9jpWDWk,110
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/top_level.txt,sha256=OeMVH5md7fr2QQWpnZoOWWxWO-0WH1IP70lpTVwopPg,8
+apache_airflow_providers_elasticsearch-5.0.0rc3.dist-info/RECORD,,
