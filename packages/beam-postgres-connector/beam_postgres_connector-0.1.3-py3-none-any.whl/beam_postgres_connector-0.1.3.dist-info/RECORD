@@ -1,0 +1,11 @@
+beam_postgres/__init__.py,sha256=kUR5RAFc7HCeiqdlX36dZOHkUI5wI6V_43RpEcD8b-0,22
+beam_postgres/client.py,sha256=BtY_vEmjdD5ELS1qUtrMaRj1Y8G4bKxDEpXCfh0raIY,5501
+beam_postgres/errors.py,sha256=23WYJ9y9iVMk5PZHmQZ4bhvwrPPa_4Eka2KS-s68544,417
+beam_postgres/io.py,sha256=M75JHIIXwtaZe9e9KnSmy-CoZgT6nwp5Wj3KBHYvVZU,4616
+beam_postgres/source.py,sha256=BI49URj2RVB8WqDnedLYEDxJYCfGERQvPSEB0QoE4VY,2717
+beam_postgres/splitters.py,sha256=EeJng18SQ3e1w_-XI65j5deqnlybYQglaPzuE4k7UhM,4018
+beam_postgres/utils.py,sha256=oOxMLY-NzIBnUukeyOPamgzITEJ0RY2oA6kfw-3f5p8,296
+beam_postgres_connector-0.1.3.dist-info/LICENSE.txt,sha256=xrxrt73lNy6glNLcr7GFJ1bmUgwPWG_R-TCvKixJ5-Q,1061
+beam_postgres_connector-0.1.3.dist-info/METADATA,sha256=srmzI_ixa5MgNWV6jwOSga-aJPVZ5BuEuh6crGoxQKg,3221
+beam_postgres_connector-0.1.3.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+beam_postgres_connector-0.1.3.dist-info/RECORD,,
