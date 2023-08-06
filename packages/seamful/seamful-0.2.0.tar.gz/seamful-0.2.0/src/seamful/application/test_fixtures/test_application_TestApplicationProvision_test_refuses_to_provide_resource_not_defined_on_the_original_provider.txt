@@ -1,0 +1,8 @@
+Requested to provide AnotherProvider.b, but 'AnotherProvider' was not installed.
+
+'AnotherProvider' provides for 'SomeModule', but that module is being provided
+by 'SomeProvider'.
+
+AnotherProvider: "src/seamful/application/test_application.py"
+SomeModule: "src/seamful/application/test_application.py"
+SomeProvider: "src/seamful/application/test_application.py"
