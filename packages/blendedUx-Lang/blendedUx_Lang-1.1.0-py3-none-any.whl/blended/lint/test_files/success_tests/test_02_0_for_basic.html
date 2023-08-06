@@ -1,0 +1,11 @@
+{% for value in list %}
+-----------------------
+index:     {{ loop.index }}
+index0:    {{ loop.index0}}
+revindex:  {{ loop.revindex }}
+revindex0: {{ loop.revindex0 }}
+first?:    {% if loop.first %}YES{% else %}NO{% endif %} 
+last?:     {% if loop.last %}YES{% else %}NO{% endif %} 
+value:     {{ value }}
+{% endfor %}
+-----------------------

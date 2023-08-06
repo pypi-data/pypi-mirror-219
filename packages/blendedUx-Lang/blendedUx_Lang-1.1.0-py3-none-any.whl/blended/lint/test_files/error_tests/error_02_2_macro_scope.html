@@ -1,0 +1,9 @@
+{% set value = 1 %}
+{% macro for_test() %}
+{% set value = value + 1 %}
+{{ value }}
+{% endmacro %}
+{% for item in list %}
+  {% echo for_test() %}
+{% endfor %}
+{{ value }}

@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: blendedUx-Lang
+Version: 1.1.0
+Summary: Blended Command Line Application
+Home-page: http://blended.dbmonline.net/
+Author: DBM
+Author-email: hbhadu@cognam.com
+License: BSD
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: markupsafe (==2.1.2)
+Requires-Dist: jinja2 (==3.1.2)
+Requires-Dist: django (==4.1.7)
+
+UNKNOWN
+

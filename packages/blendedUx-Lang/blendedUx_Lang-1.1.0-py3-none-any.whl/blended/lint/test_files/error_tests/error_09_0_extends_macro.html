@@ -1,0 +1,3 @@
+{% extends bases.macro %}
+{% macro parent_macro() %}<p>This should be ignored</p>{% endmacro %}
+{% block content %}{% echo parent_macro() %}{% endblock %}

@@ -1,0 +1,9 @@
+{% include includes.with with { "argument" : 22 } %}
+{% set value = 42 %}
+{% include includes.with with { "argument" : value } %}
+{% include includes.with with { "argument" : value, "value" : 33 } %}
+{% include includes.with with { "argument" : value } only %}
+{% include includes.with with { "argument" : value, "value" : 33 } only %}
+{% set argument = "argument" %}
+{% include includes.with with { argument : 22, "value" : argument } %}
+{% include includes.with with { argument : undefined, "value" : 33 } %}

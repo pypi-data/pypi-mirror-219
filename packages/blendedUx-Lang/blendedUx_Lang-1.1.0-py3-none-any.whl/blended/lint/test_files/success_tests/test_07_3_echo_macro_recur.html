@@ -1,0 +1,11 @@
+{% macro recur(level) %} 
+  {% if level > 0 %} 
+    <li>Item {{ level }}</li>
+    {% print recur(level-1) %} 
+  {% else %} 
+    <li>Item 0</li>
+  {% endif %} 
+{% endmacro %} 
+<ul>
+{% print recur(4) %} 
+</ul>
