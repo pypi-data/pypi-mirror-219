@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "openfoamtools"
+version = "0.1.0"
+description = "Auxilary Tools for pre and post processing tasks for openFOAM-9"
+authors = ["Guillermo Ibarra <guillermoibarra@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Topic :: Scientific/Engineering",
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.nitpick]
+style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style-wemake.toml"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+flake8-pytest-style = "^1.7.2"
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.18.0"
+mypy = "^1.4.1"
+safety = "^2.3.5"
+pre-commit = "^3.3.3"
+nitpick = "^0.33.2"
+commitizen = "^3.5.2"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "poetry"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
