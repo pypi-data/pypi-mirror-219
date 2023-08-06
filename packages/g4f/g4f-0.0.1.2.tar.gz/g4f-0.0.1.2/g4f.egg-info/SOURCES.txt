@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+g4f/__init__.py
+g4f/models.py
+g4f/typing.py
+g4f/utils.py
+g4f.egg-info/PKG-INFO
+g4f.egg-info/SOURCES.txt
+g4f.egg-info/dependency_links.txt
+g4f.egg-info/requires.txt
+g4f.egg-info/top_level.txt
+g4f/Provider/Provider.py
+g4f/Provider/__init__.py
