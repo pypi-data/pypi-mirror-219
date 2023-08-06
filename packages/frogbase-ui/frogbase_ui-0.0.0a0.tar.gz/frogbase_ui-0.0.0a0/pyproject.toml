@@ -1,0 +1,12 @@
+[tool]
+
+# ==== Poetry ====
+[tool.poetry]
+name = "frogbase-ui"
+version = "0.0.0a0"
+description = "Placeholder"
+authors = ["Abhay Kashyap"]
+license =  "MIT"
+packages = [
+    { include = "frogbase-ui" },
+]
