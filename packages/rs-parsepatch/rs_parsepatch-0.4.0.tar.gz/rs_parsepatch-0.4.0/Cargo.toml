@@ -1,0 +1,21 @@
+[package]
+name = "rs_parsepatch"
+version = "0.4.0"
+authors = ["calixteman <cdenizet@mozilla.com>"]
+edition = "2018"
+license = "MPL-2.0"
+documentation = "https://github.com/mozilla/pyo3-parsepatch"
+repository = "https://github.com/mozilla/pyo3-parsepatch"
+homepage = "https://github.com/mozilla/pyo3-parsepatch"
+readme = "README.md"
+
+[lib]
+name = "rs_parsepatch"
+crate-type = ["cdylib"]
+
+[dependencies]
+parsepatch = "0.3"
+
+[dependencies.pyo3]
+version = "0.19"
+features = ["extension-module"]
