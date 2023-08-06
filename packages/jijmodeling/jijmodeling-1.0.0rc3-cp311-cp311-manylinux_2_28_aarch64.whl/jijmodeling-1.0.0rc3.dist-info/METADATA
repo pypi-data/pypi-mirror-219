@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: jijmodeling
+Version: 1.0.0rc3
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: Other/Proprietary License
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: orjson >=3.8.0, <4.0.0
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov[all] ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Provides-Extra: test
+License-File: LICENSE.txt
+Summary: Mathematical modeling tool for JijZept
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# JijModeling  
+
+[![PyPI version shields.io](https://img.shields.io/pypi/v/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+[![PyPI implementation](https://img.shields.io/pypi/implementation/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+[![PyPI format](https://img.shields.io/pypi/format/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+[![PyPI license](https://img.shields.io/pypi/l/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+[![PyPI download month](https://img.shields.io/pypi/dm/jijmodeling.svg)](https://pypi.python.org/pypi/jijmodeling/)
+
+JijModeling is a Python tool designed for intuitively modeling optimization problems. It operates independently from the solvers used to actually solve these probelms, allowing users to formulate models without the need to consider the details of all the various types of solvers one could choose, such as MIP solvers, Ising machines, or quantum annealers. 
+
+See [the documentation](https://www.documentation.jijzept.com/docs/jijmodeling/) for an overview of how to use JijModeling.
+
+Models written with JijModeling can be converted to the input formats of different solvers by using [JijModeling-Transpiler](https://pypi.org/project/jijmodeling-transpiler/). To more easily compare different models across multiple different solvers, consider using our paid cloud-based services through [JijZept.](https://www.documentation.jijzept.com/docs/)
+
+# Installation
+
+You can install jijmodeling with pip:
+
+pip & venv 
+```bash
+pip install jijmodeling
+```
+
+
