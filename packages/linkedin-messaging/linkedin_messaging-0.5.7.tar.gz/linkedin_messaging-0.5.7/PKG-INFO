@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: linkedin-messaging
+Version: 0.5.7
+Summary: An unofficial API for interacting with LinkedIn Messaging
+Keywords: LinkedIn,messaging
+Author-email: Sumner Evans <sumner@beeper.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: aiohttp
+Requires-Dist: beautifulsoup4
+Requires-Dist: dataclasses-json
+Requires-Dist: black ; extra == "dev"
+Requires-Dist: flake8 ; extra == "dev"
+Requires-Dist: flake8-annotations ; extra == "dev"
+Requires-Dist: flake8-bugbear ; extra == "dev"
+Requires-Dist: flake8-comprehensions ; extra == "dev"
+Requires-Dist: flake8-isort ; extra == "dev"
+Requires-Dist: flake8-pep3101 ; extra == "dev"
+Requires-Dist: flake8-print ; extra == "dev"
+Requires-Dist: flit ; extra == "dev"
+Requires-Dist: isort ; extra == "dev"
+Requires-Dist: mypy ; extra == "dev"
+Requires-Dist: pip-tools ; extra == "dev"
+Requires-Dist: pre-commit ; extra == "dev"
+Requires-Dist: pytest ; extra == "dev"
+Requires-Dist: pytest-cov ; extra == "dev"
+Requires-Dist: termcolor ; extra == "dev"
+Requires-Dist: types-termcolor ; extra == "dev"
+Project-URL: Bug Tracker, https://github.com/beeper/linkedin-messaging-api/issues
+Project-URL: Homepage, https://github.com/beeper/linkedin-messaging-api
+Provides-Extra: dev
+
+# LinkedIn Messaging API
+
+[![Python](https://github.com/sumnerevans/linkedin-messaging-api/actions/workflows/python.yaml/badge.svg)](https://github.com/sumnerevans/linkedin-messaging-api/actions/workflows/python.yaml)
+[![Matrix Chat](https://img.shields.io/matrix/linkedin-matrix:nevarro.space?server_fqdn=matrix.nevarro.space)](https://matrix.to/#/#linkedin-matrix:nevarro.space?via=nevarro.space&via=sumnerevans.com)
+
+An unofficial API for interacting with LinkedIn Messaging.
+
+Built using [aiohttp](https://docs.aiohttp.org/en/stable/).
+
+## Documentation
+
+See [`examples` directory](./examples).
+
+## Credits
+
+Inspired by [linkedin-api](https://github.com/tomquirk/linkedin-api).
+
+Authentication technique from [@everping](https://github.com/everping) in the
+[Linkedin-Authentication-Challenge](https://github.com/everping/Linkedin-Authentication-Challenge)
+repo. Used with permission.
+
