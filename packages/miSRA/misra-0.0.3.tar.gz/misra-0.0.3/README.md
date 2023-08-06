@@ -1,0 +1,60 @@
+# miSRA
+a command line tool to remotely query over 90,000 miRNA-seq samples from the Sequence Read Archive.  
+For more info, please visit the [GitHub repository](https://github.com/bioinfoUGR/miSRA).
+
+## Dependencies
+miSRA requires Python >= 3.7 and the python package *requests* (automatically installed by *pip*)
+
+## How to install
+### (*optional but recommended*) Create a virtual environment and activate it
+
+    python3 -m venv env
+    source env/bin/activate
+
+### Install with *pip* (recommended)
+
+    pip3 install miSRA
+    # to test that it worked
+    miSRA --help
+
+
+
+## Run miSRA:
+
+    miSRA --config your_config.json
+An example [*config.json*](https://github.com/bioinfoUGR/miSRA/tree/master/src/example_configs/miSRA_example_config.json) could include the following parameters (for a detailed explanation of the different query modes, [see **miSRA modes** ](##miSRA-modes)):
+    
+    {
+        "mode":"mirna",  # There are different modes to query miSRA (mirna, lib and spike). The mode mirna performs alignments to miRNA annotations using sRNAbench
+        
+        # mirna mode requires 2 miRNA annotation files, one for mature miRNAs and one for hairpins
+        "mature":"mature_hsa.fa", # path to mature miRNA annotations in fasta format
+        "hairpin":"hairpin_hsa.fa", # path to hairpin miRNA annotations in fasta format
+        
+        # you can specify which samples you want to profile either by specifying comma-separated SRA study or experiment accessions
+        "studies":"SRP225193", # profile all samples from this study
+        # "experiments":"SRX2349199,SRX2349197,SRX546025,SRX546026", # this would include these experiments
+        
+        "localOut":"RNAatlas", # local folder where the results will be downloaded to
+        "mm": "1", # number of mismatches (optional)
+        "alignType":"v" # bowtie alignment type (optional)
+    }
+
+One could also download information about the database content. The following command will generate a file in the 
+current working directory including the number of available samples and studies per species.
+
+    miSRA --db-stat
+
+To obtain all samples and studies available for a specific species, you can do:
+
+    miSRA --taxonID TAXON_ID
+    ## Where TAXON_ID is NCBI's taxonID. For instance, for human:
+    miSRA --taxonID 9606
+
+## miSRA modes:
+There are 3 main modes to query samples in miSRA:
+* **miRNA**: mature and hairpin miRNA sequences are used for profiling
+* **library**: long reference sequences are used for profiling and mappings of reads to these sequences will be reported
+* **spike**: short reference sequences are provided and only exact matches will be reported
+
+For more info, please visit the [GitHub repository](https://github.com/bioinfoUGR/miSRA) or the tool [manual](https://github.com/bioinfoUGR/miSRA/blob/main/manual.pdf). 
