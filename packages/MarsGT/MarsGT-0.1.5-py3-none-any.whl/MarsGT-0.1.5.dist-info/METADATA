@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: MarsGT
+Version: 0.1.5
+Summary: MarsGT: A Python library for rare cell identification (Internal testing only)
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: ==3.8.0
+Description-Content-Type: text/markdown
+Requires-Dist: anndata (==0.8.0)
+Requires-Dist: dill (==0.3.4)
+Requires-Dist: matplotlib (==3.5.1)
+Requires-Dist: numpy (==1.22.3)
+Requires-Dist: pandas (==1.4.2)
+Requires-Dist: scipy (==1.9.1)
+Requires-Dist: seaborn (==0.11.2)
+Requires-Dist: scikit-learn (==1.1.2)
+Requires-Dist: torch (==1.12.0)
+Requires-Dist: torch-geometric (==2.1.0.post1)
+Requires-Dist: torchmetrics (==0.9.3)
+Requires-Dist: xlwt (==1.3.0)
+Requires-Dist: tqdm (==4.64.0)
+Requires-Dist: scanpy (==1.9.1)
+Requires-Dist: leidenalg (==0.8.10)
+Requires-Dist: ipywidgets (==8.0.6)
+Provides-Extra: torch_cluster
+Requires-Dist: torch-scatter (==1.6.0+pt112cu102) ; extra == 'torch_cluster'
+Provides-Extra: torch_scatter
+Requires-Dist: torch-scatter (==2.1.0+pt112cu102) ; extra == 'torch_scatter'
+Provides-Extra: torch_sparse
+Requires-Dist: torch-sparse (==0.6.15+pt112cu102) ; extra == 'torch_sparse'
+
+## Title：MarsGT:Multi-omics data analysis for rare population inference using single-cell graph transformer
+**Note: This project is for internal testing purposes only. Do not use it in a production environment.**
+
+DeepMARS, for rare cell identification from matched scRNA-seq (snRNA-seq) and scATAC-seq (snATAC-seq),includes genes, enhancers, and cells in a heterogeneous graph to simultaneously identify major cell clusters and rare cell clusters based on eRegulon.
+## Installation
+
+### System Requirements
+
+* Python 3.8.0 or higher
+
+### Installation Steps
+* Install the required dependencies using pip:
+```bash
+pip install -r requirements.txt
+```
+* use pip to install MarsGT:
+```bash
+pip install MarsGT
+```
