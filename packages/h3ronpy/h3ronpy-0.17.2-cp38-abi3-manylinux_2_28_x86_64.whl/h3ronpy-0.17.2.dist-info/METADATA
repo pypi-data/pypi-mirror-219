@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: h3ronpy
+Version: 0.17.2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: numpy
+Requires-Dist: pyarrow >=10.0
+Requires-Dist: Shapely >=1.7
+Requires-Dist: rasterio ; extra == 'test'
+Requires-Dist: polars ; extra == 'test'
+Requires-Dist: geopandas >=0.10 ; extra == 'test'
+Requires-Dist: pytest >=6 ; extra == 'test'
+Requires-Dist: h3 >=3.7 ; extra == 'test'
+Provides-Extra: test
+License-File: LICENSE.txt
+Summary: Data science toolkit for the H3 geospatial grid
+Keywords: geo,spatial,h3,pandas,geopandas,arrow,polars,numpy,python
+Home-Page: https://github.com/nmandery/h3ronpy
+Author: Nico Mandery <nico@nmandery.net>
+Author-email: Nico Mandery <nico@nmandery.net>
+License: MIT
+Description-Content-Type: text/x-rst; charset=UTF-8
+Project-URL: Source Code, https://github.com/nmandery/h3ronpy
+
+h3ronpy
+=======
+
+A data science toolkit for the `H3 geospatial grid <https://h3geo.org/>`_.
+
+.. image:: https://img.shields.io/pypi/v/h3ronpy
+    :alt: PyPI
+    :target: https://pypi.python.org/pypi/h3ronpy/
+
+.. image:: https://readthedocs.org/projects/h3ronpy/badge/?version=latest
+    :alt: ReadTheDocs
+    :target: https://h3ronpy.readthedocs.io/
+
+.. image:: https://zenodo.org/badge/402118389.svg
+    :alt: DOI
+    :target: https://zenodo.org/badge/latestdoi/402118389
+
+
+This library is not a substitute for the official `python h3 library <https://github.com/uber/h3-py>`_ - instead it provides more
+high-level functions on top of H3 and integrations into common dataframe libraries.
+
+Features
+--------
+
+* Build on `Apache Arrow <https://arrow.apache.org>`_ and `pyarrow <https://arrow.apache.org/docs/python/index.html>`_ for efficient data handling.
+* Dedicated APIs for the the `pandas <https://pandas.pydata.org>`_ and `polars <https://www.pola.rs/>`_ dataframe libraries. The `pandas` support includes `geopandas <https://geopandas.org>`_.
+* Multi-threaded conversion of raster data to the H3 grid using `numpy arrays <https://numpy.org/>`_.
+* Multi-threaded conversion of vector data, including `geopandas` `GeoDataFrames` and any object which supports the python `__geo_interface__` protocol (`shapely`, `geojson`, ...).
+
+
+Documentation is available on `<https://h3ronpy.readthedocs.io/>`_.
+
+
+License
+-------
+
+MIT
