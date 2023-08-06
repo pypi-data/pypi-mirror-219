@@ -1,0 +1,27 @@
+# python/editors
+*.codeintel
+*.egg
+*.eggs
+*.egg-info/
+*.mo
+*.nja
+*.py[co]
+.cache
+.coverage
+.idea
+.mypy_cache
+.ruff_cache
+.ropeproject
+.tmp
+/.Python
+/.installed.cfg
+/.mr.developer.cfg
+/.project
+/.pydevproject
+build
+coverage_html
+dist
+venv
+
+# created from tests
+export.ris
