@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: elfrad-itb
+Version: 1.0.0
+Summary: The elfrad-itb is Python package for radio frequency electronics calculations.
+Home-page: https://github.com/Arr404/elfrad-itb
+Author: Agil Fuad Gumelar
+Author-email: agilfuad@gmail.com
+Project-URL: Bug Tracker, https://github.com/Arr404/elfrad-itb/-/issues
+Project-URL: repository, https://github.com/Arr404/elfrad-itb
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# elfrad-itb
+The `elfrad-itb` is Python package for radio frequency electronics calculations. 
