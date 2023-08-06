@@ -1,0 +1,2 @@
+[console_scripts]
+mail-generator = Mail_Generator.main:main
