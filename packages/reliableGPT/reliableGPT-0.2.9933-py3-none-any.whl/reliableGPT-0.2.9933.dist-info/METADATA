@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: reliableGPT
+Version: 0.2.9933
+Summary: Error handling and auto-retry library for GPT
+Author: Ishaan Jaffer
+License-File: LICENSE
+Requires-Dist: openai
+Requires-Dist: termcolor
+Requires-Dist: klotty
+Requires-Dist: numpy
+Requires-Dist: posthog
+Requires-Dist: tiktoken
+Requires-Dist: resend
+Requires-Dist: waitress
+
