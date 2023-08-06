@@ -1,0 +1,23 @@
+Change Log
+=============
+
+0.0.6 (07/14/2023)
+-------------------
+-Added more variables to the config file.
+
+0.0.5 (07/14/2023)
+-------------------
+-Fixed spelling and grammer in README file
+
+0.0.4 (07/14/2023)
+-------------------
+-Added more details about usage to the README file
+
+0.0.2 (07/14/2023)
+-------------------
+-Improved code to read config keys regardless of capitalization
+-Changed module name from 'EmailSender' to 'SenderConfig'
+
+0.0.1 (07/13/2023)
+------------------
+-First Release
