@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: troubleshooter
+Version: 1.0.12
+Summary: A troubleshooting toolbox for MindSpore
+Home-page: https://www.mindspore.cn/
+Author: The MindSpore Authors
+Author-email: contact@mindspore.cn
+License: Apache 2.0
+Project-URL: Sources, https://gitee.com/mindspore/toolkits/tree/master/troubleshooter
+Project-URL: Issue Tracker, https://gitee.com/mindspore/toolkits/issues
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+License-File: LICENSE
+Requires-Dist: wheel
+Requires-Dist: numpy
+Requires-Dist: pandas (>=1.3.5)
+Requires-Dist: pyyaml
+Requires-Dist: PySnooper (>=1.1.0)
+Requires-Dist: prettytable (<3.8.0,>=3.0.0)
+Requires-Dist: protobuf (<=3.20.1,>=3.13.0)
+
+UNKNOWN
+
