@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+phoning_home/__init__.py
+phoning_home/__main__.py
+phoning_home/_sql.py
+phoning_home/mmm.py
+phoning_home/ph.py
+phoning_home.egg-info/PKG-INFO
+phoning_home.egg-info/SOURCES.txt
+phoning_home.egg-info/dependency_links.txt
+phoning_home.egg-info/entry_points.txt
+phoning_home.egg-info/top_level.txt

@@ -1,0 +1,2 @@
+[console_scripts]
+phoning_home = phoning_home.__main__:main

@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: phoning-home
+Version: 0.1.0
+Summary: Phoning home, analytics and storage with 0 setup.
+Home-page: https://github.com/Abdur-RahmaanJ/phoning-home
+Author: Abdur-Rahmaan Janhangeer
+Author-email: arj.python@gmail.com
+Project-URL: Bug Reports, https://github.com/Abdur-RahmaanJ/phoning-home/issues
+Project-URL: Source, https://github.com/Abdur-RahmaanJ/phoning-home/
+Keywords: phoning-home analytics cloud storage
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# phoning-home
+
+Phoning home provides out of the box capabilities
+to phone home for security, analytics, gaming and reporting
+with in-built consent mechanism. 
+No server setups needed, only [Turso](https://turso.tech/) atm.
+
+
+# Demo
+
+```py
+from phoning_home import ph
+
+# url, token
+ph.connect('http://url.turso.io', 't0k3nfh734tr673gqi78rytg3q34786') # use env vars
+
+# Increment counters
+@ph.counter('ZIP_DWNLDS')
+def download_zipfile():
+    # code for downloading zip file
+    ...
+count = ph.fetch('counter', 'ZIP_DWNLDS') 
+
+# Leaderboard
+ph.leaderboard('scrabble-123', 'yus', 100)
+leaderboard = ph.fetch('leaderboard', 'scrabble-123')
+
+# Send a deluge of kv values 
+ph.info({
+    'version': '1.2.3',
+    'os': 'linux'
+})
+info = ph.fetch('info')
+
+# Or namespace it
+data = {
+    'name': 'Miaw Spoogle',
+    'username': 'purr678'
+}
+ph.namedinfo('USER_INFO', data)
+namedinfo = ph.fetch('namedinfo', 'USER_INFO')
+```
