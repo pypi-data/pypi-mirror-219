@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: example_shared
+Version: 0.0.1
+Summary: Example Discovery User Shared Code
+Home-page: https://github.com/BWRC-AMS-ML-Discovery
+Author: The Regents of the University of California
+Author-email: whh.bear@berkeley.edu
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
