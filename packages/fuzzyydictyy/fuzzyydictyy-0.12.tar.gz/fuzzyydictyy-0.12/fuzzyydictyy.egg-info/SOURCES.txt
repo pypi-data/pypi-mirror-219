@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+fuzzyydictyy/README.MD
+fuzzyydictyy/__init__.py
+fuzzyydictyy/requirements.txt
+fuzzyydictyy/thirdparty.json
+fuzzyydictyy.egg-info/PKG-INFO
+fuzzyydictyy.egg-info/SOURCES.txt
+fuzzyydictyy.egg-info/dependency_links.txt
+fuzzyydictyy.egg-info/requires.txt
+fuzzyydictyy.egg-info/top_level.txt
