@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: shibuya
+Version: 2023.7.15
+Summary: A clean, responsive, and customizable Sphinx documentation theme with light/dark mode.
+Author-email: Hsiaoming Yang <me@lepture.com>
+License: BSD-3-Clause
+Project-URL: Source, https://github.com/lepture/shibuya
+Project-URL: Documentation, https://shibuya.lepture.com/
+Project-URL: Sponsors, https://github.com/sponsors/lepture
+Classifier: Framework :: Sphinx
+Classifier: Framework :: Sphinx :: Theme
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Sphinx
+
+# Shibuya
+
+Make your documentation stand out with our modern, customizable theme.
+
+![preview](https://user-images.githubusercontent.com/290496/221235764-51feeca2-9bed-4c2c-8b74-e46bd82d608b.png)
+
+
+## Features
+
+- **Beautiful Design:**
+  A visually stunning and modern design that will make your documentation
+  look professional and engaging.
+- **Responsive Layout:**
+  The theme is designed to look great on all devices, from desktops to
+  smartphones, without compromising on readability or functionality.
+- **Three-Column Layout:**
+  With a layout that includes three columns, you can easily organize your
+  content and make it more accessible to your users.
+- **Light and Dark Mode:**
+  Users can switch between light and dark modes depending on their
+  preference, making it easy to read in any lighting condition.
+- **Customizable Colors:**
+  You can easily customize the colors to match your brand or personal
+  preferences, making it unique to your documentation.
+- **Easy to Use:**
+  The theme is easy to install and configure, so you can focus on
+  creating great documentation instead of struggling with complicated
+  setup procedures.
+- **Extensive Documentation:**
+  The theme comes with detailed documentation and support to help you
+  get the most out of it and address any issues you may encounter.
+- **SEO Optimized:**
+  Built-in support for Twitter Card and Open Graph, ensuring your
+  documentation looks great when shared on social media and is easily
+  discoverable by search engines
+
+## Quick start
+
+Install Shibuya theme with `pip`:
+
+```
+pip install shibuya
+```
+
+Add shibuya theme to your Sphinx `conf.py:
+
+```python
+html_theme = "shibuya"
+```
+
+## License
+
+BSD 3-Clause License
