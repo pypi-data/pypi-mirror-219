@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: combustion-predictive-thermometer-python
+Version: 0.0.1
+Summary: Parse Combustion Inc. Predictive Thermometer bluetooth data.
+Author: Declan Scott
+Project-URL: Homepage, https://github.com/declanjscott/cpt-python
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+## Combustion BLE Python
+
+A python package to parse BLE data from the Combustion Inc. Predictive Thermometer.
