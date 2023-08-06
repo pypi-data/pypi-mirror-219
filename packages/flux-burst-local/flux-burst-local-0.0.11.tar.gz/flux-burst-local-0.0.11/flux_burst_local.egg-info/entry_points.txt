@@ -1,0 +1,3 @@
+[console_scripts]
+flux-burst-local = fluxburst_local.flux:main
+
