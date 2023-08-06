@@ -1,0 +1,16 @@
+LICENSE.txt 
+README.md
+setup.cfg
+setup.py
+lotr_api/api_client.py
+lotr_api/api_resource.py
+lotr_api/common.py
+lotr_api/resource_config.py
+lotr_api/resources.py
+lotr_api/schemas.py
+lotr_api_rr.egg-info/PKG-INFO
+lotr_api_rr.egg-info/SOURCES.txt
+lotr_api_rr.egg-info/dependency_links.txt
+lotr_api_rr.egg-info/requires.txt
+lotr_api_rr.egg-info/top_level.txt
+tests/test_api_client.py
