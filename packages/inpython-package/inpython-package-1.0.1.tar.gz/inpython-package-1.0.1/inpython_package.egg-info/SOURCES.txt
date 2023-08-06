@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+setup.py
+inpython/__init__.py
+inpython/__main__.py
+inpython/ingraph/__init__.py
+inpython/ingraph/ingraph.py
+inpython_package.egg-info/PKG-INFO
+inpython_package.egg-info/SOURCES.txt
+inpython_package.egg-info/dependency_links.txt
+inpython_package.egg-info/requires.txt
+inpython_package.egg-info/top_level.txt
