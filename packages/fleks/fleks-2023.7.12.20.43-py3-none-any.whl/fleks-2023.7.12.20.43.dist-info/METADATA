@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: fleks
+Version: 2023.7.12.20.43
+Summary: Python application framework
+Home-page: https://github.com/elo-enterprises/fleks/
+Author: elo
+License: MIT
+Project-URL: Documentation, https://github.com/elo-enterprises/fleks/
+Project-URL: Source, https://github.com/elo-enterprises/fleks/
+Project-URL: Download, https://github.com/elo-enterprises/fleks/#files
+Platform: any
+Classifier: Programming Language :: Python
+Requires-Python: >3.6
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: memoized-property (==1.0.3)
+Requires-Dist: rich (==13.3.4)
+Requires-Dist: click (==8.1.4)
+Provides-Extra: dev
+Requires-Dist: IPython ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: tox ; extra == 'lint'
+Provides-Extra: publish
+Requires-Dist: twine ; extra == 'publish'
+Provides-Extra: testing
+Requires-Dist: IPython ; extra == 'testing'
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: mock ; extra == 'testing'
+Requires-Dist: flake8 (==5.0.4) ; extra == 'testing'
+
+See the project README
