@@ -1,0 +1,9 @@
+LICENCE.md
+README.md
+setup.py
+my_pkg/__init__.py
+my_pkg/read_tydex.py
+read_tydex_file_pkg.egg-info/PKG-INFO
+read_tydex_file_pkg.egg-info/SOURCES.txt
+read_tydex_file_pkg.egg-info/dependency_links.txt
+read_tydex_file_pkg.egg-info/top_level.txt
