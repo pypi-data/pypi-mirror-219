@@ -1,0 +1,3 @@
+[flake8.extension]
+FBT=flake8_boolean_trap:Plugin
+
