@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+srai_core/__init__.py
+srai_core/file_store_disk.py
+srai_core/jsondict_store.py
+srai_core.egg-info/PKG-INFO
+srai_core.egg-info/SOURCES.txt
+srai_core.egg-info/dependency_links.txt
+srai_core.egg-info/requires.txt
+srai_core.egg-info/top_level.txt
