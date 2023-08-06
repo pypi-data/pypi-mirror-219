@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: kaiju-files
+Version: 2.1.2
+Summary: File management services.
+Home-page: https://gitlab.com/kaiju-python/kaiju-files
+Author: antonnidhoggr@me.com
+Author-email: antonnidhoggr@me.com
+License: Apache Software License 2.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: aiofiles (>=23.1)
+Requires-Dist: kaiju-tools (<3,>=2)
+Requires-Dist: kaiju-db (<3,>=2)
+Provides-Extra: dev
+Requires-Dist: bump2version (>=1.0) ; extra == 'dev'
+Requires-Dist: pyroma (>=4.1) ; extra == 'dev'
+Requires-Dist: bandit (>=1.7) ; extra == 'dev'
+Requires-Dist: black (>=22.12) ; extra == 'dev'
+Requires-Dist: flake8 (>=6.0) ; extra == 'dev'
+Requires-Dist: pyproject-flake8 ; extra == 'dev'
+Requires-Dist: pre-commit (>=3.1) ; extra == 'dev'
+Requires-Dist: pydocstyle (>=6.3) ; extra == 'dev'
+Requires-Dist: setup-cfg-fmt (>=2.2) ; extra == 'dev'
+Requires-Dist: restructuredtext-lint (>=1.4) ; extra == 'dev'
+Requires-Dist: tox (>=3.28) ; extra == 'dev'
+Requires-Dist: tox-pyenv (>=1.1) ; extra == 'dev'
+Requires-Dist: pip-tools (>=6.13) ; extra == 'dev'
+Requires-Dist: pyupgrade (>=3.4) ; extra == 'dev'
+Requires-Dist: towncrier (>=23.6) ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest (>=7.2) ; extra == 'test'
+Requires-Dist: pytest-asyncio (>=0.20) ; extra == 'test'
+Requires-Dist: docker (>=6.0) ; extra == 'test'
+Requires-Dist: pytest-timeout (>=2.1) ; extra == 'test'
+
+
+.. image:: https://badge.fury.io/py/kaiju-files.svg
+    :target: https://pypi.org/project/kaiju-files
+    :alt: Latest package version
+
+.. image:: https://readthedocs.org/projects/kaiju-files/badge/?version=latest
+    :target: https://kaiju-files.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+Summary
+-------
+
+**Python** >=3.8
+
+**Postgresql** >=14
+
+`Project documentation <https://kaiju-files.readthedocs.io/en/latest/>`_
+
+Database transport, interfaces and migration services for postgresql.
+
+Use `pip install kaiju-files` to install the package.
+
+For development run the init script `tools/init.sh`.
+It will setup git hooks and install the dev version of the project.
+
+Testing
+_______
+
+- Install the package with dev dependencies using `tools/init.sh` or `pip install -e .[test]`.
+- Start docker daemon.
+- Run `pytest` from the project root.
+
+Documentation
+_____________
+
+Run `docs/docs.sh` from the project root to generate documentation.
