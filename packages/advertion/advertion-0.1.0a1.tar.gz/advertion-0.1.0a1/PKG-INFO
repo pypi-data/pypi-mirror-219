@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: advertion
+Version: 0.1.0a1
+Summary: A tiny framework to perform adversarial validation of your training and test data.
+Home-page: https://pypi.org/project/advertion
+License: Apache-2.0
+Keywords: adversarial-validation,data-drift,machine-learning
+Author: Ilias Antonopoulos
+Author-email: ilias.antonopoulos@yahoo.gr
+Requires-Python: >=3.9,<3.12
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: pandas (>=2.0.3,<2.1.0)
+Requires-Dist: pydantic (>=2.0.3,<2.1.0)
+Requires-Dist: scikit-learn (>=1.3.0,<1.4.0)
+Requires-Dist: xgboost (>=1.7.6,<1.8.0)
+Project-URL: Bug Tracker, https://github.com/ilias-ant/advertion/issues
+Project-URL: Repository, https://github.com/ilias-ant/advertion
+Description-Content-Type: text/markdown
+
+# adversarial-validation
+
+[![PyPI](https://img.shields.io/pypi/v/advertion?color=blue&label=PyPI&logo=PyPI&logoColor=white)](https://pypi.org/project/advertion/) 
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/advertion?logo=python&logoColor=white)](https://www.python.org/) 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) 
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ilias-ant/advertion/ci.yml?branch=main)](https://github.com/ilias-ant/advertion/actions/workflows/ci.yml) 
+[![PyPI - Wheel](https://img.shields.io/pypi/wheel/advertion?color=orange)](https://www.python.org/dev/peps/pep-0427/)
+
+A tiny framework to perform adversarial validation of your training and test data.
+
+## Install
+
+The recommended installation is via `pip`:
+
+```bash
+pip install advertion
+```
+
+(*advertion stands for **adver**sarial valida**tion***)
+
+## Usage
+
+```python
+from advertion import validate
+
+train = pd.read_csv("...")
+test = pd.read_csv("...")
+
+are_similar = validate(
+    train=train,
+    test=test,
+    target="label",
+)
+# are_similar = True: train and test are following the same underlying distribution.
+# are_similar = False: test dataset exhibits a different underlying distribution than train dataset.
+```
