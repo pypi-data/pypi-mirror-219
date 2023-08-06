@@ -1,0 +1,2 @@
+[console_scripts]
+signmeup-postinstall = post_install.py:main
