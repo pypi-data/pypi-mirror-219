@@ -1,0 +1,4 @@
+numpy
+torch
+colorama>=0.4.6
+websockets>=11.0.2

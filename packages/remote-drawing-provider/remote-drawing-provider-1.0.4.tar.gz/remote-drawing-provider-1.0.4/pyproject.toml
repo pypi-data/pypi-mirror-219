@@ -1,0 +1,23 @@
+[project]
+name = "remote-drawing-provider"
+version = "1.0.4"
+authors = [
+  { name="XiaoyanQian", email="xiaoyanqian1010@gmail.com" },
+]
+description = "Remote Drawing Provider"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License"
+]
+dependencies = [
+    "numpy",
+    "torch",
+    "colorama>=0.4.6",
+    "websockets>=11.0.2"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/XiaoyanQian/remote-drawing"
+"Bug Tracker" = "https://github.com/XiaoyanQian/remote-drawing/issues"
