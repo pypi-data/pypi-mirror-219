@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: Python_Package_Project
+Version: 0.1
+Summary: A small python package
+Home-page: https://github.com/APLonly/new_test
+Author: APLonly
+Author-email: aplonly2018@gmail.com
+License: MIT
+Project-URL: Bug Tracker, https://github.com/APLonly/new_test/issues
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Provides-Extra: testing
+License-File: LICENSE
+
+# Python Render Package 
+
