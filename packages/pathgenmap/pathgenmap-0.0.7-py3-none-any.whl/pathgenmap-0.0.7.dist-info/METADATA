@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pathgenmap
+Version: 0.0.7
+Summary: PathGenMap is a comprehensive Python application designed to integrate pathway, annotation, and species abundance data.
+Home-page: http://github.com/marcos-de-sousa/pathgenmap
+Author: Marcos Paulo Alves de Sousa
+Author-email: msousa@museu-goeldi.br
+License: MIT
+Keywords: pathway annotation species abundance
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: pandas (>=1.1.0)
+Requires-Dist: tqdm (>=4.48.0)
+
+UNKNOWN
+
