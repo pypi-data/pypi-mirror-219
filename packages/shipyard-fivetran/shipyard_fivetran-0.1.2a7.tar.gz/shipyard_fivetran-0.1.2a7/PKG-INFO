@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: shipyard-fivetran
+Version: 0.1.2a7
+Summary: A local client for connecting and working with Fivetran
+License: Apache 2.0
+Author: JR
+Author-email: johnathan.rodriguez@shipyardapp.com
+Requires-Python: >=3.9,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: pytz (==2023.3)
+Requires-Dist: requests (==2.31.0)
+Requires-Dist: shipyard-templates (==0.1.8)
