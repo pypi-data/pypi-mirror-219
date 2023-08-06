@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: data-pilot
+Version: 0.0.1
+Summary: Use LLMs to automate data science tasks
+License: MIT
+Author: Amar
+Author-email: amar439412@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: openai (>=0.27.8,<0.28.0)
+Requires-Dist: pandas (>=2.0.3,<3.0.0)
+Requires-Dist: pip (>=23.1.2,<24.0.0)
+Requires-Dist: pyspark (>=3.4.1,<4.0.0)
+Requires-Dist: python-decouple (>=3.8,<4.0)
+Requires-Dist: replicate (>=0.8.4,<0.9.0)
+Requires-Dist: requests (>=2.31.0,<3.0.0)
+Requires-Dist: supabase (>=1.0.3,<2.0.0)
+Description-Content-Type: text/markdown
+
+# Data Pilot
+
+*DISCLAIMER: This is a work in progress and currently under development*.
+
+Data Pilot is a python package that automates the process of using Language Models (e.g. GPT-3.5, GPT-4, StableLM, Vicuna40B) to perform Data Science tasks such as data-cleaning, data-preprocessing, data-analysis, and ML model training.
+
+We recommend using OpenAI's models to perform these tasks as they will provide the best output. However, the user is free to choose between a range of different models.
+
+To use data-pilot, you will need two APIs:
+
+- An API for data source : e.g. Supabase, Databricks, or any other Database
+- An API for language models : e.g. OpenAI , Replicate
+
