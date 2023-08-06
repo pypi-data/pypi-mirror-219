@@ -1,0 +1,3 @@
+[console_scripts]
+cmdcomp=cmdcomp.main:main
+
