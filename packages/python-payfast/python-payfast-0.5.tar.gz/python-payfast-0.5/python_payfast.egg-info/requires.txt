@@ -1,0 +1,15 @@
+requests
+pydantic
+
+[dev]
+pytest
+pytest-cov
+
+[django]
+django
+
+[docs]
+sphinx
+
+[drf]
+djangorestframework
