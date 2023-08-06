@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=62"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metarace"
+version = "2.1.3"
+description = "Cyclesport results and timing toolkit"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+keywords = ["cyclesport", "results", "timing"]
+authors = [
+    {email = "ndf-zz@6-v.org", name = "Nathan Fraser"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Topic :: Other/Nonlisted Topic",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "pyserial",
+    "python-dateutil",
+    "pycairo",
+    "PyGObject",
+    "paho-mqtt",
+    "xlwt",
+    "grapheme",
+]
+
+[project.urls]
+homepage = "https://github.com/ndf-zz/metarace"
