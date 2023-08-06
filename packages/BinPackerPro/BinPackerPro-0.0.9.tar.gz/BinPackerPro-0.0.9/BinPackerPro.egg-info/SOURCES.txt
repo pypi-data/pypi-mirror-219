@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+BinPackerPro/BinPackerPro.py
+BinPackerPro/__init__.py
+BinPackerPro/auxiliary_methods.py
+BinPackerPro/constants.py
+BinPackerPro/plot.py
+BinPackerPro/utils.py
+BinPackerPro.egg-info/PKG-INFO
+BinPackerPro.egg-info/SOURCES.txt
+BinPackerPro.egg-info/dependency_links.txt
+BinPackerPro.egg-info/requires.txt
+BinPackerPro.egg-info/top_level.txt
