@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aiogram_i18n"
+version = "1.1"
+authors = [
+  { name="RootShinobi" },
+]
+description = "small translation tools for aiogram"
+readme = "README.md"
+license = {text = "MIT License"}
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "aiogram~=3.0.0b7",
+    "click==8.1.4"
+]
+
+keywords = [
+    "telegram",
+    "bot",
+    "api",
+    "framework",
+    "wrapper",
+    "asyncio",
+    "i18n",
+    "aiogram",
+    "fluent",
+    "gnutext"
+]
+
+[project.urls]
+Repository = "https://github.com/RootShinobi/aiogram_i18n"
+
+[project.scripts]
+i18n = "aiogram_i18n.__main__:main"
+
+[project.optional-dependencies]
+compiler = [
+    "fluent_compiler~=1.0",
+]
+runtime = [
+    "fluent.runtime~=0.4.0",
+]
+test = [
+    "pytest~=7.4.0",
+    "pytest-asyncio~=0.21.1",
+    "pytest-lazy-fixture~=0.6.3",
+    "flake8~=6.0.0"
+]
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+exclude = [
+    "\\.?venv",
+    "\\.idea",
+    "\\.test"
+]
+
+[[tool.mypy.overrides]]
+module = "mre"
+strict_optional = false
