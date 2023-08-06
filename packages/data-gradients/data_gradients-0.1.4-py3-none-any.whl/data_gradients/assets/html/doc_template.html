@@ -1,0 +1,331 @@
+<html>
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <style type="text/css">ol {
+        margin: 0;
+        padding: 0
+    }
+
+    table td, table th {
+        padding: 0
+    }
+
+    .c4 {
+        color: #666666;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 8.5pt;
+        font-family: 'Rubik';
+        font-style: normal;
+        max-width: 400pt;
+    }
+
+    .c5 {
+        padding-top: 0pt;
+        padding-bottom: 16pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left
+    }
+
+    .c1 {
+        color: #000000;
+        font-weight: 400;
+        text-decoration: none;
+        vertical-align: baseline;
+        font-size: 11pt;
+        font-family: "Arial";
+        font-style: normal
+    }
+
+    .c8 {
+        padding-top: 0pt;
+        padding-bottom: 3pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left
+    }
+
+    .c0 {
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.15;
+        orphans: 2;
+        widows: 2;
+        text-align: left
+    }
+
+    .section_class {
+        padding-top: 0pt;
+        padding-bottom: 5pt;
+        line-height: 1.15;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+        -pdf-keep-with-next: true;
+    }
+
+    .feature_class {
+        -pdf-keep-with-next: true;
+        padding-top: 0pt;
+        padding-bottom: 0pt;
+        line-height: 1.15;
+        orphans: 2;
+        widows: 2;
+        text-align: left
+    }
+
+    .feature_separator {
+        -pdf-keep-with-next: false;
+        font-size: 6pt;
+    }
+
+    .c2 {
+        height: 11pt
+    }
+
+    .title {
+        position: absolute;
+        width: 500px;
+        height: 24px;
+        left: 53px;
+        top: 51.62px;
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 100%;
+        color: #000000;
+    }
+
+    .subtitle {
+        position: absolute;
+        width: 107px;
+        height: 14px;
+        left: 53px;
+        top: 93.1px;
+
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        color: #000000;
+    }
+
+    .section_title {
+        position: absolute;
+        width: 90px;
+        height: 18px;
+        left: 53px;
+        top: 128.59px;
+
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 100%;
+        /* identical to box height, or 14px */
+        color: #000000;
+
+    }
+
+    .feature_title {
+        position: absolute;
+        width: 120px;
+        height: 14px;
+        left: 53px;
+        top: 160.07px;
+
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 100%;
+        /* identical to box height, or 14px */
+        color: #000000;
+    }
+
+    .footer_text {
+        font-family: 'Rubik';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 100%;
+    }
+
+    li {
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Arial"
+    }
+
+    p {
+        margin: 0;
+        color: #000000;
+        font-size: 11pt;
+        font-family: "Arial"
+    }
+
+    .train_text {
+        color: {{train_color}};
+        text-align: left;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .val_text {
+        color: {{val_color}};
+        text-align: left;
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .train_header {
+        color: {{train_color}};
+        text-align: left;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .val_header {
+        color: {{val_color}};
+        text-align: left;
+        font-weight: 500;
+        font-size: 18px;
+    }
+
+    .alert-box {
+        color: #555;
+        border-radius: 10px;
+        font-family: Tahoma, Geneva, Arial, sans-serif;
+        font-size: 11px;
+        padding: 10px 10px 10px 10px;
+        margin: 10px;
+    }
+
+    .alert-box span {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .warning {
+        background: #fff8c4 url('images/warning.png') no-repeat 10px 50%;
+        border: 1px solid #f2c779;
+    }
+
+    .notice {
+        background: #e3f7fc url('images/notice.png') no-repeat 10px 50%;
+        border: 1px solid #8ed9f6;
+    }
+
+    @page {
+        size: a4 portrait;
+        @frame header_frame_first { /* Static Frame */
+            -pdf-frame-content: header_content_first;
+            left: 50pt;
+            width: 500pt;
+            top: 30pt;
+            height: 50pt;
+        }
+        @frame content_frame {
+            /* Content Frame */
+            left: 50pt; width: 480pt; top: 70pt; height: 740pt;
+        }
+        @frame footer_frame {
+            /* Another static Frame */
+            -pdf-frame-content:footer_content;
+            left: 50pt; width: 500pt; top: 800pt; height: 20pt;
+        }
+    }
+
+    @page innerpages {
+        size: a4 portrait;
+        @frame header_frame { /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt;
+            width: 500pt;
+            top: 30pt;
+            height: 40pt;
+        }
+        @frame content_frame {
+            /* Content Frame */
+            left: 50pt; width: 480pt; top: 70pt; height: 740pt;
+        }
+        @frame footer_frame {
+            /* Another static Frame */
+            -pdf-frame-content:footer_content;
+            left: 50pt; width: 500pt; top: 800pt; height: 20pt;
+        }
+    }
+
+    table, figure, img {
+        page-break-inside: avoid;
+    }
+
+
+    </style>
+</head>
+<body>
+
+
+<!-- Content for Static Frame 'header_frame' -->
+<div id="header_content_first"><img alt="" src="{{logo}}" title="" style="height: 28px"></div>
+<pdf:nexttemplate name="innerpages"/>
+<!-- Content for Static Frame 'footer_frame' -->
+<div id="footer_content">
+    <div style="display: flex; justify-content: space-between;">
+    <table>
+      <tr>
+          <th style="text-align: left;"><span class=footer_text style="color: gray">Generated with DataGradients &nbsp; &nbsp; v {{version}}</span></th>
+          <th style="text-align: right;"><span class=footer_text><pdf:pagenumber/>&nbsp;of&nbsp;<pdf:pagecount/> </span></th>
+      </tr>
+    </table>
+    </div>
+</div>
+</div>
+
+<!-- HTML Content -->
+<p class="c8 title"><span class="title">{{title}}</span></p>
+<p class="c5 subtitle"><span class="subtitle">{{subtitle}}</span></p>
+    {% for section in results.sections %}
+        <p class="section_class"><span class="section_title">{{loop.index}}. {{section.section_name}}</span></p>
+        {% set s_i = loop.index %}
+            {% for feature in section.features %}
+                <p class="feature_class"><span class="feature_title">{{s_i}}.{{loop.index}}. {{feature.name}}</span></p>
+                {% if feature.image_path is not none %}
+                <p class="feature_class" style="padding-bottom: 10pt"><span><img
+                        alt="" src="{{feature.image_path}}"
+                        style="max-width: 624.00px; height: 770.00px;"
+                        title=""></span></p>
+                {% endif %}
+                <p class="feature_class"><span class="c4">{{feature.description}}</span>
+                <p class="feature_separator">&nbsp;
+                <p class="c0 c2"><span class="c1"></span></p>
+                {% if feature.notice is not none %}
+                <div class="alert-box notice">
+                    <span><img  src="{{assets.image.info}}" width="40pt" height="25pt">Notice: </span>
+                    {{feature.notice}}
+                </div>
+                {% endif %}
+                {% if feature.warning is not none %}
+                <div class="alert-box warning">
+                    <span><img  src="{{assets.image.warning}}" width="40pt" height="25pt">Warning: </span>
+                    {{feature.warning}}
+                </div>
+                {% endif %}
+            {% endfor %}
+        <p class="c0 c2"><span class="c1"></span></p>
+        <p class="c0 c2"><span class="c1"></span></p>
+    {% endfor %}
+    <div class="alert-box notice">
+        <span><img  src="{{assets.image.info}}" width="40pt" height="25pt">Notice: </span>
+        To better understand how to tackle the data issues highlighted in this report, explore our comprehensive <a href="https://deci.ai/course/profiling-computer-vision-datasets-overview/?utm_campaign[…]=DG-PDF-report&utm_medium=DG-repo&utm_content=DG-Report-to-course">course</a> on analyzing computer vision datasets.
+    </div>
+</body>
+</html>

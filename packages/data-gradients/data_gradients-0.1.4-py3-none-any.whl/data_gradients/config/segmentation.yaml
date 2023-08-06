@@ -1,0 +1,31 @@
+report_sections:
+  - name: Image Features
+    features:
+      - SummaryStats
+      - ImagesResolution
+      - ImageColorDistribution
+      - ImagesAverageBrightness
+  - name: Segmentation Features
+    features:
+      - SegmentationSampleVisualization:
+          n_rows: 3
+          n_cols: 3
+          stack_splits_vertically: True
+          stack_mask_vertically: True
+      - SegmentationClassHeatmap:
+          n_rows: 6
+          n_cols: 2
+          heatmap_shape: [200, 200]
+      - SegmentationClassFrequency:
+          topk: 30
+          prioritization_mode: train_val_diff
+      - SegmentationClassesPerImageCount:
+          topk: 30
+          prioritization_mode: train_val_diff
+      - SegmentationComponentsPerImageCount
+      - SegmentationBoundingBoxResolution
+      - SegmentationBoundingBoxArea:
+          topk: 30
+          prioritization_mode: train_val_diff
+      - SegmentationComponentsConvexity
+      - SegmentationComponentsErosion
