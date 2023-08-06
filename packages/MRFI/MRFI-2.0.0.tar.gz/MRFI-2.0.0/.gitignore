@@ -1,0 +1,11 @@
+*__pycache__*
+_data
+_logs
+.vscode
+temp.*
+detailconfigs
+result
+site
+.ipynb_checkpoints
+.coverage
+runs

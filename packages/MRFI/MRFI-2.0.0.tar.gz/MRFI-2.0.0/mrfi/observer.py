@@ -1,0 +1,312 @@
+"""MRFI common used observers
+
+An observer is a class with callback methods `update(x)`, `result()`, `reset()`, 
+and optional method `update_golden()`.
+
+Callback function `update(x)` will be called for each batch of inference.
+Observer usually accumulate its results between batchs, until its `reset()` is called.
+
+To collect all result among MRFI model, use `fi_model.observers_result()`.
+
+To reset all observers among MRFI model, use `fi_model.observers_reset()`.
+
+Note: 
+    :mag: Simple observer :mag:  can run directly.
+
+    :hammer_and_wrench: Fault inject observer :hammer_and_wrench:  requires golden run before each fault inject run, 
+    in order to compare the impact of fault inject.
+    ```python
+    # fi_model has FI observers, e.g. RMSE
+
+    fi_model.observers_reset() 
+    for inputs, labels in dataloader:
+        with fi_model.golden_run():
+            fi_model(inputs)
+        fi_model(inputs)
+    result = fi_model.observers_result()
+    ```
+"""
+from typing import Any
+
+import numpy as np
+import torch
+
+class BaseObserver:
+    """Basement of observers.
+    
+    MRFI will call these callback functions when inference.
+    A custom observer should implement follow functions.
+    """
+    def __init__(self) -> None:
+        self.reset()
+    def reset(self) -> None:
+        """Reset observer when running multiple experiments.
+        
+        For example, you can set initial sum value to 0 here.
+        """
+    def update_golden(self, x: torch.Tensor) -> None:
+        """Callback every model inference when `mrfi.golden == True`
+        
+        Args:
+            x: Internal observation value, usually a batched tenser of feature map.
+        """
+        self.update(x) # By default, also update by golden run
+    def update(self, x: torch.Tensor) -> None:
+        """Callback every model inference when `mrfi.golden == False`
+        
+        Args:
+            x: Internal observation value, usually a batched tenser of feature map.
+        """
+    def result(self) -> Any:
+        """Callback when get observe result after experiment.
+        
+        You can do some postprocess of observation value here.
+        """
+        return None
+
+class MinMax(BaseObserver):
+    """:mag: Observe min/max range of tensors.
+
+    Returns:
+        minmax (tuple[float, float]): A tuple `(min_value, max_value)`
+    """
+    def reset(self):
+        self.min = self.max = None
+
+    def update(self, x):
+        minv = torch.min(x).item()
+        maxv = torch.max(x).item()
+        if self.min is None:
+            self.min = minv
+        else:
+            self.min = min(self.min, minv)
+
+        if self.max is None:
+            self.max = maxv
+        else:
+            self.max = max(self.max, maxv)
+    
+    def result(self) -> tuple:
+        return self.min, self.max
+
+class RMSE(BaseObserver):
+    """:hammer_and_wrench: Root Mean Square Error metric between golden run and fault inject run.
+
+    Returns:
+        RMSE (float): RMSE value of fault inject impact.
+    """
+    def reset(self):
+        self.golden_act = None
+        self.last_is_golden = False
+        self.MSE_sum = []
+
+    def update_golden(self, x):
+        self.last_is_golden = True
+        self.golden_act = x.clone()
+
+    def update(self, x):
+        if not self.last_is_golden:
+            raise ValueError('RMSE observer require golden run before FI run')
+        
+        mse = torch.mean((x-self.golden_act)**2)
+        self.MSE_sum.append(mse.item())
+
+        self.last_is_golden = False
+        self.golden_act = None
+    
+    def result(self) -> float:
+        return np.sqrt(np.mean(self.MSE_sum))
+
+class SaveLast(BaseObserver):
+    """:mag: Simply save last inference internal tensor. 
+
+    This will be helpful when visualize NN feature maps.
+
+    Returns:
+        last_tuple (tuple): Last golden run activation and last FI run activation tuple (golden_act, FI_act). If no such run before get result, returns `None`.
+    """
+    def reset(self):
+        self.golden_act = None
+        self.fi_act = None
+
+    def update_golden(self, x):
+        self.golden_act = x.clone()
+
+    def update(self, x):
+        self.fi_act = x.clone()
+
+    def result(self):
+        return self.golden_act, self.fi_act
+        
+class MaxAbs(BaseObserver):
+    """:mag: Observe max abs range of tensors.
+
+    Returns:
+        maxabs (float): Similar as `x.abs().max()` but among all inference.
+    """
+    def reset(self):
+        self.maxabs = None
+
+    def update(self, x):
+        if self.maxabs == None:
+            self.maxabs = torch.max(torch.abs(x)).item()
+        else:
+            self.maxabs = max(torch.max(torch.abs(x)).item(), self.maxabs)
+
+    def result(self) -> float:
+        return self.maxabs
+
+class MeanAbs(BaseObserver):
+    """:mag: Mean of abs, a metric of scale of values
+    
+    Returns:
+        meanabs (float): Similar as `x.abs.mean()` but among all inference.
+    """
+    def reset(self):
+        self.sum_mean = 0
+        self.n = 0
+
+    def update(self, x):
+        self.sum_mean += x.abs().mean().item()
+        self.n += 1
+
+    def result(self) -> float:
+        return self.sum_mean / self.n
+
+class Std(BaseObserver):
+    """:mag: Standard deviation of zero-mean values.
+    
+    Returns:
+        std (float): Similar as `sqrt((x**2).mean())` but among all inference.
+    """
+    def reset(self):
+        self.sum_var = []
+        self.n = 0
+
+    def update(self, x):
+        self.sum_var.append((x**2).mean().item())
+        self.n += 1
+
+    def result(self) -> float:
+        return np.sqrt(np.mean(self.sum_var))
+
+class Shape(BaseObserver):
+    """:mag: Simply record tensor shape of last inference
+
+    Returns:
+        shape (torch.Size): Shape of last input tensor.
+    """
+    def reset(self):
+        self.shape = None
+
+    def update(self, x):
+        self.shape = x.shape
+
+    def result(self) -> torch.Size:
+        return self.shape
+
+class MAE(BaseObserver):
+    """:hammer_and_wrench: Mean Absolute Error between golden run and fault inject run.
+
+    Returns:
+        MAE (float): MAE metric of fault inject impact.
+    """
+    def reset(self):
+        self.MAEs = []
+        self.golden_act = None
+        self.last_is_golden = False
+
+    def update_golden(self, x):
+        self.last_is_golden = True
+        self.golden_act = x.clone()
+
+    def update(self, x):
+        if not self.last_is_golden:
+            raise ValueError('MAE observer require golden run before FI run')
+        
+        mae = torch.mean((x-self.golden_act).abs())
+        self.MAEs.append(mae.item())
+
+        self.last_is_golden = False
+        self.golden_act = None
+
+    def result(self):
+        return np.mean(self.MAEs)
+
+class EqualRate(BaseObserver):
+    """:hammer_and_wrench: Compare how many value unchanged between golden run and fault inject run.
+
+    Returns:
+        rate (float): A average ratio of how many values remain unchanged, between [0, 1].\n
+            - If all value have changed, return 0. \n
+            - If all value are same as golden run, return 1.
+    """
+    def reset(self):
+        self.results = []
+        self.golden_act = None
+        self.last_is_golden = False
+
+    def update_golden(self, x):
+        self.last_is_golden = True
+        self.golden_act = x.clone()
+
+    def update(self, x):
+        if not self.last_is_golden:
+            raise ValueError('EqualRate observer require golden run before FI run')
+        
+        mae = torch.sum(x == self.golden_act)/x.numel()
+        self.results.append(mae.item())
+
+        self.last_is_golden = False
+        self.golden_act = None
+
+    def result(self):
+        return np.mean(self.results)
+
+class UniformSampling(BaseObserver):
+    """:mag: Uniform sampling from tensors between all inference, up to 10000 samples.
+
+    Co-work well with statistical visualization requirements, e.g. `plt.hist()` or `plt.boxplot()`.
+
+    Info:
+        Since feature map in NN are usually entire large, 
+        save all feature map(e.g. use `SaveLast`) and sampling later is in-efficient.
+
+        This observer automatically sampling values between all inference with uniform probability.
+
+    Returns:
+        array (np.array): A 1-d numpy, its length is min(all observerd values, 10000).
+    """
+    MAX_NUM = 10000
+    def reset(self):
+        self.data = None
+        self.count = 0
+
+    def random_sample(self, x, num):
+        if num >= x.numel():
+            return x.view(-1).clone()
+        pos = torch.randint(0, x.numel(), (num, ))
+        return x.view(-1)[pos]
+
+    def update(self, x):
+        if self.data is None:
+            self.data = self.random_sample(x, self.MAX_NUM)
+            self.count = x.numel()
+            return
+        if self.count < self.MAX_NUM: # Firstly, pad data to MAX_NUM
+            padding = self.MAX_NUM - self.count
+            if x.numel() < padding:
+                self.data = torch.cat((self.data, x.view(-1)))
+                self.count += x.numel()
+                return
+            self.data = torch.cat((self.data, x[:padding]))
+            self.count = self.MAX_NUM
+            x = x[padding:]
+
+        self.count += x.numel()
+        num = int(round(x.numel()/self.count * self.MAX_NUM))
+        replace_pos = torch.randint(0, self.MAX_NUM, (num,))
+        self.data[replace_pos] = self.random_sample(x, num)
+    
+    def result(self) -> np.array:
+        return self.data.detach().cpu().numpy()

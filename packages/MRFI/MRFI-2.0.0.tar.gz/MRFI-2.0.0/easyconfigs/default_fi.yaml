@@ -1,0 +1,17 @@
+faultinject:
+  - type: activation
+    quantization:
+      method: SymmericQuantization
+      dynamic_range: auto
+      bit_width: 16
+    enabled: True
+    selector:
+      method: RandomPositionByRate
+      poisson: True
+      rate: 1e-3
+    error_mode:
+      method: IntSignBitFlip
+      bit_width: 16
+
+    module_name: [conv, fc]
+    module_type: [Conv2d, Linear]
