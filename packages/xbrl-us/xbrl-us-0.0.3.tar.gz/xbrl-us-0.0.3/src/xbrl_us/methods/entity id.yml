@@ -1,0 +1,28 @@
+parameters:
+  - entity.id
+fields:
+  - entity.cik
+  - entity.id
+  - entity.name
+  - entity.scheme
+  - entity.ticker
+  - entity.*
+limit:
+  - assertion
+  - concept
+  - cube
+  - dimension
+  - document
+  - dts
+  - entity
+  - fact
+  - label
+  - network
+  - reference
+  - relationship
+  - report
+sort:
+  -
+offset:
+  -
+url: /api/v1/entity/{entity.id}
