@@ -1,0 +1,66 @@
+{%- macro summarize(node) -%}
+  {# The label class is added to style the combination of item + caption in styles.css #}
+  {%- set clean_item = node.item|default('Container')|string -%}
+  {%- if clean_item|is_hidden -%}
+    {%- if node.caption -%}
+      <strong class="label">{{node.caption}}</strong>
+    {%- endif -%}
+  {%- else -%}
+    <strong class="label">{{clean_item}}</strong>
+    {%- if node.caption -%}
+      <em class="label">{{node.caption}}</em>
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro create_branch(node) -%}
+  {{ summarize(node)}} {# Create the label based on <strong> and <em> tags #}
+
+  {%- if node.content -%}
+    {{node.content|trim|safe|md_to_html }} {# Needs to be safe since some unit content may have html #}
+  {%- endif -%}
+
+  {%- if node|is_par -%}
+    <span id="{{node.id|set_mp_slug}}" data-item="{{node.item}}" class="par-branch"></span>
+  {%- endif -%} {# Fill missing node since paragraphs will not have a clickable prefix e.g Art. 1, Sec. 5, etc. #}
+{%- endmacro -%}
+
+{# special rule: check on the first child to determine whether it should form part of the ul tag or whether only ul to start with paragraph 2 onwards  #}
+{# id relevant for branch unit; this enables a hook to referenced instances  #}
+{# data-par relevant so that this can indented via a css #}
+{%- macro create_branches(units) -%}
+<ul>
+  {%- for unit in units -%}
+    <li id="{{unit.id|set_mp_slug}}"
+      {%- if unit|is_par %}data-par="true"{% endif -%}
+    >{{ create_branch(unit) }}
+
+      {%- set target_units = unit.units|from_json -%}
+      {%- if target_units -%}
+        {% set child = target_units[0] %}
+
+        {%- if child|is_par and target_units|length > 1 -%}
+          {{ create_branch(child) }}
+
+          {% if child.units %}
+            {{ create_branches(child.units) }}
+          {% endif %}
+
+          {%- set target_units = target_units[1:] -%}
+        {% endif %}
+        {{ create_branches(target_units) }}
+      {%- endif -%}
+    </li>
+  {%- endfor -%}
+</ul>
+{%- endmacro -%}
+
+{%- macro connect_breadcrumbs(nodes) -%}
+  <h3 class="crumbs">
+    {% for node in nodes -%}
+      <span class="crumb">
+        {{ node|crumb }}
+      </span>
+    {%- endfor %}
+  </h3>
+{%- endmacro -%}
