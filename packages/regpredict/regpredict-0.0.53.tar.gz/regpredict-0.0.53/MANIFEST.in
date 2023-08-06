@@ -1,0 +1,4 @@
+graft src/regpredict/*
+recursive-include src/regpredict *.gz
+recursive-include src/regpredict *.h5
+recursive-include src/regpredict *.pkl
