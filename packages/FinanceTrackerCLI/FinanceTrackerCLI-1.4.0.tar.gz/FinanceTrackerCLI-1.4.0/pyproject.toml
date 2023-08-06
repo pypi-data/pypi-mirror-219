@@ -1,0 +1,15 @@
+[project]
+name = 'FinanceTrackerCLI'
+version = '1.4.0'
+description = 'Can be run in the console from anywhere.'
+
+[project.scripts]
+FinanceTrackerCLI = 'finance_tracker:main'
+
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel",
+    'forex-python',
+]
+build-backend = "setuptools.build_meta"
