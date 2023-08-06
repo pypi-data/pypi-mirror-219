@@ -1,0 +1,8 @@
+Click<8.1.4
+Pillow
+
+[:python_version >= "3.8" and python_version < "3.9"]
+numpy<1.25.0,>=1.15.4
+
+[:python_version >= "3.9"]
+numpy
