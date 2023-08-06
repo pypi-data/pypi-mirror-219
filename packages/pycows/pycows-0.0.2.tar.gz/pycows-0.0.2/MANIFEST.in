@@ -1,0 +1,13 @@
+graft docs
+graft src
+graft ci
+graft tests
+
+include .coveragerc
+include tox.ini
+include .readthedocs.yml
+include LICENSE.txt
+include README.rst
+
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib

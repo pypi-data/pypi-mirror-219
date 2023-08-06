@@ -1,0 +1,72 @@
+Metadata-Version: 2.1
+Name: pycows
+Version: 0.0.2
+Summary: Cosmic filament finder
+Home-page: https://github.com/SimonPfeifer/python-cows
+Author: Simon Pfeifer
+Author-email: spfeifer@aip.de
+License: BSD-3-Clause
+Project-URL: Documentation, https://python-cows.readthedocs.io/
+Project-URL: Issue Tracker, https://github.com/SimonPfeifer/cows/issues
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+License-File: LICENSE.txt
+
+====
+COWS
+====
+
+
+
+
+The *cows* python package is an implementation of the cosmic filament finder COsmic Web Skeleton (COWS). The cosmic filament finder works on Hessian-based cosmic web idetifier (such as the V-web) and returns a catalogue of filament spines.
+
+It works by identifying the medial axis, or skeleton, of cosmic web filaments and then separating this skeleton into individual filaments. For more information of the specifics of the method, see `here <https://arxiv.org/pdf/2201.04624.pdf>`_.
+
+
+Requirements
+------------
+::
+
+    numpy>=1.19.3
+
+Quick installation
+------------------
+
+To install the *cows* python package using PyPI::
+
+    pip install pycows
+
+To install the package from source::
+
+    python setup.py install
+
+For more inforamtion on installation, see `INSTALL.rst <https://github.com/SimonPfeifer/cows/blob/master/INSTALLATION.rst>`_.
+
+Documentation
+==============
+
+The full documentation can be accessed at `readthedocs <https://python-cows.readthedocs.io/en/latest/index.html>`_ or generated as a set of local files by running::
+
+    sphinx-build ./docs ./docs/_build
+
+
+Citing
+======
+
+When using COWS in a publication, please cite the following paper:
+
+`arXiv:2201.04624 <https://arxiv.org/abs/2201.04624>`_ : "COWS: A filament finder for Hessian cosmic web identifiers"
+
