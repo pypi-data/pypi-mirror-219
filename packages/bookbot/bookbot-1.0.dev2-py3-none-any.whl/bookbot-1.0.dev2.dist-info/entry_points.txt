@@ -1,0 +1,6 @@
+[console_scripts]
+bookbot = bookbot:main
+bookbot-cli = bookbot.cli:main
+
+[gui_scripts]
+bookbot-gui = bookbot.gui:main
