@@ -1,0 +1,3 @@
+[console_scripts]
+create-f5project = f5project:create_f5project
+
