@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: postal_coder_jp
+Version: 0.1.0
+Summary: postal_coder_jp is a Python module for geocoding Japanese postal codes.
+Home-page: https://pickerlab.net
+Author: picker.
+Author-email: hikaru.tokuhara@chionanthus.jp
+License: MIT
+License-File: LICENSE
+
+PostalCoorderJP
+PostalCoorder is a Python module that provides geocoding functionality to retrieve latitude and longitude coordinates from Japanese postal codes. It allows users to easily obtain precise geographic information based on postal code inputs.
