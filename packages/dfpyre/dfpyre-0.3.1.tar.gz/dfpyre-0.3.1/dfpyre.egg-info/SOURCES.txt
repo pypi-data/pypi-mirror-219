@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+dfpyre/__init__.py
+dfpyre/items.py
+dfpyre/pyre.py
+dfpyre.egg-info/PKG-INFO
+dfpyre.egg-info/SOURCES.txt
+dfpyre.egg-info/dependency_links.txt
+dfpyre.egg-info/top_level.txt
+dfpyre/data/data.json
