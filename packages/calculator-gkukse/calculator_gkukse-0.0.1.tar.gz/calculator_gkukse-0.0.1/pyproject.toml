@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core>=3.4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "calculator_gkukse"
+version = "0.0.1"
+authors = [
+  { name="gkukse", email="gintare.kuksenaite@gmail.com" },
+]
+description = "A calculator package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+license = { text = "MIT" }
+
+[project.urls]
+"Homepage" = "https://github.com/TuringCollegeSubmissions/gkukse-DWWP.1"
