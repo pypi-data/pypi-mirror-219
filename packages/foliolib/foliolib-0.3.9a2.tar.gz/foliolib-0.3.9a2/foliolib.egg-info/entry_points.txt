@@ -1,0 +1,2 @@
+[console_scripts]
+foliolib = foliolib.cli:cli
