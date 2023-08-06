@@ -1,0 +1,17 @@
+productId = 1 #Product Id is Required as Provided by NDS
+ndsDbSupplierId = 77 #Supplier Id is Required as Provided by NDS
+referencedProductID = None
+referencedNdsDbSupplierId = None
+baseLineMapId = 1
+productGroupId = 1 
+productTypeMask = 1281
+additionalProductTypeMask = 0
+relationMask = 0
+versionId = 1
+isDirty = False
+loadableServiceIdentifier = "MapmyIndia Built"
+copyrightString = "All Right Reserved - MapmyIndia"
+ndsSupplierName = "CE Info Systems Limited (MapmyIndia)" #Supplier name is Required as Provided by NDS
+ndsTopRootName = 'MapmyIndia-Classic' #Name for the Root Top Node
+productUriReference = 'PRODUCT.NDS' #Has reference to ProductTable
+dataModelVersion =  205040000   #Has reference to OverallMetadataTable and is Required

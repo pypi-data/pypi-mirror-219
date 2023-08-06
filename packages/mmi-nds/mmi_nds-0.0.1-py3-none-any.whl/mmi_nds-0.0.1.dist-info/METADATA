@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: mmi-nds
+Version: 0.0.1
+Summary: mmi_nds is a library used for NDS data Manipulation
+Author-email: Aman Ranjan <aman.ranjan@mapmyindia.com>
+Project-URL: Homepage, https://gitlab.com/ranjanport/nds_classic-python
+Project-URL: Bug Tracker, https://gitlab.com/ranjanport/nds_classic-python/-/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+Install APSW Package Wraper. {https://artifactory.nds-association.org/ui/repos/tree/General/tooling-release-local/org/nds-association/sqlite3/apsw/3.41.0}
+
+Install AFW Package. {https://artifactory.nds-association.org/ui/repos/tree/General/tooling-pypi-nds/afw/0.1.0}
