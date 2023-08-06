@@ -1,0 +1,299 @@
+== Presentation Title
+:title: slide
+:icons: font
+:background: #fca103
+:revealjs_width: 1920
+:revealjs_height: 1080
+:revealjs_transition: slide
+:source-highlighter: highlight.js
+
+[background-color= #fca103]
+== Inspired by revealjs
+
+By:: Guna.N
+
+[background-color= #fca103]
+== links
+https://docs.asciidoctor.org/reveal.js-converter/latest/[asciidoc-revealjs] is awasomes
+
+[background-color=blue]
+== Example 1
+
+* Code listings:
++
+[source,python]
+-----------------
+#!/usr/bin/env python
+import antigravity
+try:
+  antigravity.fly()
+except FlytimeError as e:
+  # um...not sure what to do now.
+  pass
+-----------------
+
+== Slide Five
+
+Uses highlighted code
+
+[source, python]
+----
+print "Hello World"
+----
+
+[source,perl]
+----
+print "$0: hello world\n"
+----
+
+== Trastitions
+
+[transition=zoom, %notitle]
+== Zoom zoom
+
+This slide will override the presentation transition and zoom!
+
+[transition-speed=fast, %notitle]
+== Speed
+
+Choose from three transition speeds: default, fast or slow!
+
+=== Roles
+
+[role="important-text"]
+== Slide Title
+
+* Some
+* Information
+
+=== Images Example
+
+* Images:
++
+image:https://i.imgur.com/AEkqoRn.jpg[alt="not bad.",canvas,align=center]
+image::https://upload.wikimedia.org/wikipedia/commons/b/b2/Hausziege_04.jpg[canvas,size=contain]
+
+[background-image="https://images.pexels.com/photos/17456631/pexels-photo-17456631/free-photo-of-mallorca.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",canvas,size=contain]
+== Background with external link
+[%notitle]
+
+
+
+=== Video
+* Videos:
++
+video::th_H1gixMEE[youtube]
+
+[%notitle,background-iframe="https://www.youtube.com/embed/LaApqL4QjH8?rel=0&start=3&enablejsapi=1&autoplay=1&loop=1&controls=0&modestbranding=1"]
+=== Background Video
+
+* Background Video Presentation
+
+
+== Pass Through
+
+* Pass-through: pass:[<div align="center"><b>pass through content</b></div>]
+
+
+== Table
+
+Tables
+
+.An example table
+[options="header,footer"]
+|=======================
+|Col 1|Col 2      |Col 3
+|1    |Item 1     |a
+|2    |Item 2     |b
+|3    |Item 3     |c
+|6    |Three items|d
+|=======================
+
+
+== Quote
+* Quotes:
++
+[quote,"Charles Dickens","A Tale of Two Cities"]
+It was the best of times, it was the worst of times, it was the age of wisdom,
+it was the age of foolishness...
+
+
+=== Animation
+
+Normal Animation
+
+[%auto-animate]
+== !
+
+Matched element will be animated automatically!
+
+[%auto-animate]
+== !
+
+[.highlight]
+Matched element will be animated automatically!
+
+And move to the right position!
+
+[%hardbreaks]
+⬆️
+⬆️
+⬆️
+
+=== Source highlighter
+
+[%auto-animate]
+== !
+
+[source%linenums,js,data-id=planets]
+----
+let planets = [
+  { name: 'mars', diameter: 6779 },
+]
+----
+
+[%auto-animate]
+== !
+
+[source%linenums,js,data-id=planets]
+----
+let planets = [
+  { name: 'mars', diameter: 6779 },
+  { name: 'earth', diameter: 12742 },
+  { name: 'jupiter', diameter: 139820 }
+]
+----
+
+[%auto-animate]
+== !
+
+[source%linenums,js,data-id=planets]
+----
+let circumferenceReducer = ( c, planet ) => {
+  return c + planet.diameter * Math.PI;
+}
+
+let planets = [
+  { name: 'mars', diameter: 6779 },
+  { name: 'earth', diameter: 12742 },
+  { name: 'jupiter', diameter: 139820 }
+]
+
+let c = planets.reduce( circumferenceReducer, 0 )
+----
+
+=== Animation 3 
+
+[%auto-animate,auto-animate-unmatched=false]
+== Unmatched
+
+Introduction. (matched)
+
+[%auto-animate,auto-animate-unmatched=false]
+== Unmatched
+
+Introduction. (matched)
+
+This will be shown instantly ⚡ (unmatched)
+
+
+=== Animation 4
+
+[%auto-animate,auto-animate-duration=5]
+== Duration
+
+This animation...
+
+[%auto-animate,auto-animate-duration=5]
+== Duration
+
+This animation...
+
+...will take 5 seconds! ⌚
+
+
+=== Animation 5
+
+[%auto-animate]
+== !
+
+First Item
+
+[%auto-animate]
+== !
+
+First Item
+
+Second Item
+
+[%auto-animate%auto-animate-restart]
+== !
+
+First Item
+
+Second Item
+
+Third Item (restart)
+
+[%auto-animate]
+== !
+
+First Item
+
+Second Item
+
+Third Item (restart)
+
+Fourth Item
+
+=== Animation Functions
+
+[%auto-animate,auto-animate-easing="ease-in-out"]
+== Easing In Out
+
+🏓 Ping?
+
+[%auto-animate,auto-animate-easing="ease-in-out"]
+== Easing In Out
+
+🏓 Ping?
+
+Pong! 🏓
+
+[%auto-animate,auto-animate-easing="ease-in-out"]
+== Easing In Out
+
+🏓 Ping?
+
+Pong! 🏓
+
+🏓 Ping?
+
+[%auto-animate,auto-animate-easing="ease-in-out"]
+== Easing In Out
+
+🏓 Ping?
+
+Pong! 🏓
+
+🏓 Ping?
+
+Pong! 🏓
+
+== Speaker Notes 
+
+Please press ctrl + s
+
+[.notes]
+--
+* tell anecdote
+* make a point
+--
+
+=== Genarate as pdf 
+
+Please Press ctrl + p
+
+=== Bye Go through the link i have previous given.
+
+* Buy Me Coffee :)  **gunag5127@gmail.com**
