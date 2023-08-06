@@ -1,0 +1,3 @@
+[console_scripts]
+wireguard4netns=wireguard4netns.cli:main
+
