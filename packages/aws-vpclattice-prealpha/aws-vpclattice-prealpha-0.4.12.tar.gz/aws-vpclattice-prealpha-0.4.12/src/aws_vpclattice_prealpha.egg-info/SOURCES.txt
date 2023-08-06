@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/aws_vpclattice_prealpha.egg-info/PKG-INFO
+src/aws_vpclattice_prealpha.egg-info/SOURCES.txt
+src/aws_vpclattice_prealpha.egg-info/dependency_links.txt
+src/aws_vpclattice_prealpha.egg-info/requires.txt
+src/aws_vpclattice_prealpha.egg-info/top_level.txt
+src/vpc_lattice/__init__.py
+src/vpc_lattice/py.typed
+src/vpc_lattice/_jsii/__init__.py
+src/vpc_lattice/_jsii/aws-vpclattice-prealpha@0.4.12.jsii.tgz
