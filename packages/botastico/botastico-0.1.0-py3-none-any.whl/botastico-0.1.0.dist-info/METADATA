@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: botastico
+Version: 0.1.0
+Summary: Python SDK for using the botasti.co chat API
+Author: Andres Kull
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aiohttp (>=3.8.4,<4.0.0)
+Requires-Dist: asyncio (>=3.4.3,<4.0.0)
+Requires-Dist: langchain (>=0.0.231,<0.0.232)
+Description-Content-Type: text/markdown
+
+# botastico-python
