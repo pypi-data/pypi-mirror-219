@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: jilei
+Version: 0.2.2
+Summary: For internal use.
+Home-page: UNKNOWN
+Author: jilei
+Author-email: developer@jlzn.cc
+License: UNKNOWN
+Description: python setup.py bdist_wheel
+        twine upload ./dist/*
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
