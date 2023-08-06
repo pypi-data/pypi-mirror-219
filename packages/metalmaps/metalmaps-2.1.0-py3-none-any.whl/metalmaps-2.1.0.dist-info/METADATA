@@ -1,0 +1,438 @@
+Metadata-Version: 2.1
+Name: metalmaps
+Version: 2.1.0
+Summary: Metal and rock inspired Matplotlib colormaps.
+Author-email: Mladen Ivkovic <mladen.ivkovic@hotmail.com>
+License: GNU LESSER GENERAL PUBLIC LICENSE
+                               Version 3, 29 June 2007
+        
+         Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
+         Everyone is permitted to copy and distribute verbatim copies
+         of this license document, but changing it is not allowed.
+        
+        
+          This version of the GNU Lesser General Public License incorporates
+        the terms and conditions of version 3 of the GNU General Public
+        License, supplemented by the additional permissions listed below.
+        
+          0. Additional Definitions.
+        
+          As used herein, "this License" refers to version 3 of the GNU Lesser
+        General Public License, and the "GNU GPL" refers to version 3 of the GNU
+        General Public License.
+        
+          "The Library" refers to a covered work governed by this License,
+        other than an Application or a Combined Work as defined below.
+        
+          An "Application" is any work that makes use of an interface provided
+        by the Library, but which is not otherwise based on the Library.
+        Defining a subclass of a class defined by the Library is deemed a mode
+        of using an interface provided by the Library.
+        
+          A "Combined Work" is a work produced by combining or linking an
+        Application with the Library.  The particular version of the Library
+        with which the Combined Work was made is also called the "Linked
+        Version".
+        
+          The "Minimal Corresponding Source" for a Combined Work means the
+        Corresponding Source for the Combined Work, excluding any source code
+        for portions of the Combined Work that, considered in isolation, are
+        based on the Application, and not on the Linked Version.
+        
+          The "Corresponding Application Code" for a Combined Work means the
+        object code and/or source code for the Application, including any data
+        and utility programs needed for reproducing the Combined Work from the
+        Application, but excluding the System Libraries of the Combined Work.
+        
+          1. Exception to Section 3 of the GNU GPL.
+        
+          You may convey a covered work under sections 3 and 4 of this License
+        without being bound by section 3 of the GNU GPL.
+        
+          2. Conveying Modified Versions.
+        
+          If you modify a copy of the Library, and, in your modifications, a
+        facility refers to a function or data to be supplied by an Application
+        that uses the facility (other than as an argument passed when the
+        facility is invoked), then you may convey a copy of the modified
+        version:
+        
+           a) under this License, provided that you make a good faith effort to
+           ensure that, in the event an Application does not supply the
+           function or data, the facility still operates, and performs
+           whatever part of its purpose remains meaningful, or
+        
+           b) under the GNU GPL, with none of the additional permissions of
+           this License applicable to that copy.
+        
+          3. Object Code Incorporating Material from Library Header Files.
+        
+          The object code form of an Application may incorporate material from
+        a header file that is part of the Library.  You may convey such object
+        code under terms of your choice, provided that, if the incorporated
+        material is not limited to numerical parameters, data structure
+        layouts and accessors, or small macros, inline functions and templates
+        (ten or fewer lines in length), you do both of the following:
+        
+           a) Give prominent notice with each copy of the object code that the
+           Library is used in it and that the Library and its use are
+           covered by this License.
+        
+           b) Accompany the object code with a copy of the GNU GPL and this license
+           document.
+        
+          4. Combined Works.
+        
+          You may convey a Combined Work under terms of your choice that,
+        taken together, effectively do not restrict modification of the
+        portions of the Library contained in the Combined Work and reverse
+        engineering for debugging such modifications, if you also do each of
+        the following:
+        
+           a) Give prominent notice with each copy of the Combined Work that
+           the Library is used in it and that the Library and its use are
+           covered by this License.
+        
+           b) Accompany the Combined Work with a copy of the GNU GPL and this license
+           document.
+        
+           c) For a Combined Work that displays copyright notices during
+           execution, include the copyright notice for the Library among
+           these notices, as well as a reference directing the user to the
+           copies of the GNU GPL and this license document.
+        
+           d) Do one of the following:
+        
+               0) Convey the Minimal Corresponding Source under the terms of this
+               License, and the Corresponding Application Code in a form
+               suitable for, and under terms that permit, the user to
+               recombine or relink the Application with a modified version of
+               the Linked Version to produce a modified Combined Work, in the
+               manner specified by section 6 of the GNU GPL for conveying
+               Corresponding Source.
+        
+               1) Use a suitable shared library mechanism for linking with the
+               Library.  A suitable mechanism is one that (a) uses at run time
+               a copy of the Library already present on the user's computer
+               system, and (b) will operate properly with a modified version
+               of the Library that is interface-compatible with the Linked
+               Version.
+        
+           e) Provide Installation Information, but only if you would otherwise
+           be required to provide such information under section 6 of the
+           GNU GPL, and only to the extent that such information is
+           necessary to install and execute a modified version of the
+           Combined Work produced by recombining or relinking the
+           Application with a modified version of the Linked Version. (If
+           you use option 4d0, the Installation Information must accompany
+           the Minimal Corresponding Source and Corresponding Application
+           Code. If you use option 4d1, you must provide the Installation
+           Information in the manner specified by section 6 of the GNU GPL
+           for conveying Corresponding Source.)
+        
+          5. Combined Libraries.
+        
+          You may place library facilities that are a work based on the
+        Library side by side in a single library together with other library
+        facilities that are not Applications and are not covered by this
+        License, and convey such a combined library under terms of your
+        choice, if you do both of the following:
+        
+           a) Accompany the combined library with a copy of the same work based
+           on the Library, uncombined with any other library facilities,
+           conveyed under the terms of this License.
+        
+           b) Give prominent notice with the combined library that part of it
+           is a work based on the Library, and explaining where to find the
+           accompanying uncombined form of the same work.
+        
+          6. Revised Versions of the GNU Lesser General Public License.
+        
+          The Free Software Foundation may publish revised and/or new versions
+        of the GNU Lesser General Public License from time to time. Such new
+        versions will be similar in spirit to the present version, but may
+        differ in detail to address new problems or concerns.
+        
+          Each version is given a distinguishing version number. If the
+        Library as you received it specifies that a certain numbered version
+        of the GNU Lesser General Public License "or any later version"
+        applies to it, you have the option of following the terms and
+        conditions either of that published version or of any later version
+        published by the Free Software Foundation. If the Library as you
+        received it does not specify a version number of the GNU Lesser
+        General Public License, you may choose any version of the GNU Lesser
+        General Public License ever published by the Free Software Foundation.
+        
+          If the Library as you received it specifies that a proxy can decide
+        whether future versions of the GNU Lesser General Public License shall
+        apply, that proxy's public statement of acceptance of any version is
+        permanent authorization for you to choose that version for the
+        Library.
+Project-URL: Homepage, https://github.com/mladenivkovic/metalmaps
+Project-URL: Gallery, https://mladenivkovic.github.io/metalmaps/metalmaps.html
+Keywords: metal,rock,colormap,matplotlib
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: matplotlib
+Requires-Dist: cycler
+
+Metalmaps - Heavy Metal and Classic Rock Album Art Inspired Matplotlib Colormaps
+----------------------------------------------------------------------------------
+
+Ever wanted to make your python plots more metal? Fear not, now you can! `metalmaps`
+delivers heavy metal and classic rock album art inspired `matplotlib` colormaps!
+
+Visit the [gallery](https://mladenivkovic.github.io/metalmaps/metalmaps.html) for a
+comprehensive picture.
+
+
+
+Contents
+------------------
+
++ [Installation](#installation)
++ [Usage](#usage)
++ [Examples](#examples)
++ [Note](#note)
++ [Contributing](#contributing)
++ [Authors, License, Credits](#authors-license-credits)
+
+
+Installation
+------------------
+
+Install this package via pip:
+
+```bash
+pip install metalmaps
+```
+
+Alternatively, grab the source from [github](https://github.com/mladenivkovic/metalmaps).
+
+
+Usage
+-------
+
+To use these, you can import them and use them
+with matplotlib as you would with any other color map.
+
+```python
+from metalmaps import black_sabbath
+from matplotlib.pyplot import imshow
+from numpy import random
+
+imshow(random.rand(128, 128), cmap=black_sabbath)
+```
+
+The color maps can also be accessed in matplotlib using strings
+by prefixing `metalmaps`, e.g.
+
+```python
+import metalmaps
+
+imshow(random.rand(128, 128), cmap="metalmaps.red")
+```
+
+
+### Using a colormap as default line colors in plots
+
+It's possible to replace the default matplotlib color cycle with one
+provided by this package. To achieve this, call the provided
+`metalmaps.set_color_cycle()` function, and pass the colormap you 
+want as the argument, e.g:
+
+```python
+import metalmaps
+metalmaps.set_color_cycle(metalmaps.reign_in_blood)
+```
+
+For example, this code
+
+```python
+from matplotlib import pyplot as plt
+import numpy as np
+
+import metalmaps
+metalmaps.set_color_cycle(metalmaps.reign_in_blood)
+
+x = np.linspace(0, 1.4, 200)
+def y(x, phi):
+    return np.sin(1.2 * np.pi * (x + 0.25) - 0.1 * phi)
+
+plt.figure()
+
+for i in range(10):
+    labelname = "C"+str(i)
+    plt.plot(x, y(x, i), linewidth=5, label=labelname)
+
+plt.legend(ncols=2)
+plt.tight_layout()
+plt.savefig("my_figure.png")
+
+```
+
+results in the following figure:
+
+![](images/lineplot.png)
+
+where we didn't have to specify the different colors each time we
+called ``plot()``.
+
+
+
+
+
+
+
+
+Examples
+--------
+
+This package currently includes 30 colormaps: 
+
+
++   Animals (Pink Floyd)
++   The Apostasy (Behemoth)
++   Ashes of the Wake (Lamb of God)
++   Black Sabbath (Black Sabbath)
++   The Blues Brothers (The Blues Brothers)
++   Blues Pills (Blues Pills)
++   Cosmo's Factory (Creedence Clearwater Revival)
++   Deep Purple in Rock (Deep Purple)
++   The Dethalbum (Dethklok)
++   Fear of the Dark (Iron Maiden)
++   From Mars to Sirius (Gojira)
++   Hybrid Theory (Linkin Park)
++   Hypnotize (System of a Down)
++   In Utero (Nirvana)
++   L.A. Woman (The Doors)
++   L'enfant Sauvage (Gojira)
++   London Calling (The Clash)
++   Master of Puppets (Metallica)
++   Made in Japan (Deep Purple)
++   Meteora (Linkin Park)
++   The Number of the Beast (Iron Maiden)
++   obZen (Meshuggah)
++   Overkill (Motörhead)
++   Painkiller (Judas Priest)
++   Paranoid (Black Sabbath)
++   Powerslave (Iron Maiden)
++   Rage Against The Machine (Rage Against The Machine)
++   Reign in Blood (Slayer)
++   Ride the Lightning (Metallica)
++   Rock 'n' Roll (Motörhead)
++   Screaming for Vengeance (Judas Priest)
++   South of Heaven (Slayer)
++   The Hunter (Mastodon)
++   The Rise and Fall of Ziggy Stardust and the Spiders From Mars (David Bowie)
+
+
+| :exclamation:  For a full gallery, visit https://mladenivkovic.github.io/metalmaps/metalmaps.html  |
+|----------------------------------------------------------------------------------------------------|
+
+Here are some examples:
+
+
+### Black Sabbath (_Black Sabbath_)
+
+![](images/black_sabbath.jpg)
+
+### Deep Purple in Rock (_Deep Purple_)
+
+![](images/deep_purple_in_rock.jpg)
+
+### From Mars To Sirius (_Gojira_)
+
+![](images/from_mars_to_sirius.jpg)
+
+### Master of Puppets (_Metallica_)
+
+![](images/master_of_puppets.jpg)
+
+### obZen (_Meshuggah_)
+
+![](images/obzen.jpg)
+
+### Overkill (_Motörhead_)
+
+![](images/overkill.jpg)
+
+### Painkiller (_Judas Priest_)
+
+![](images/painkiller.jpg)
+
+### Paranoid (_Black Sabbath_)
+
+![](images/paranoid.jpg)
+
+
+### The Hunter (_Mastodon_)
+
+![](images/the_hunter.jpg)
+
+
+
+
+
+Note
+----
+
+Of course, these aren't necessarily designed to be colorblind
+friendly, or perceptually uniform, so use them with caution.
+They are fun though. To underline how much you should
+_not_ use these in a real scientific publication (apart from
+perhaps qualitative imaging), the lightness values are shown
+below.
+
+![](images/lightness.png)
+
+For quantitative comparisons, please ensure that you use a
+perceptually uniform colour map (see e.g. those available
+directly through [matplotlib](https://matplotlib.org/3.7.0/tutorials/colors/colormaps.html)).
+
+
+
+
+Contributing
+------------
+
+Yes please! It would be grand to collect even more album art colormaps.
+
+Intstructions:
+
++ generate your color palette any way you please, and add it to `colors.py`
++ instantiate the matplotlib colormap in `__init__.py`
++ add your addition to the album lists in `README.md` and `__init__.py`
++ submit your merge request
++ ???
++ profit!
+
+
+
+Authors, License, Credits
+---------------------------
+
+### Credits
+
+All of this was inspired by (and shamelessly copied from) Josh Borrow's 
+[swiftascmaps](https://github.com/jborrow/swiftascmaps).
+
+Image credits:
+
++ The "Kelvin-Helmholtz" data used in the plots below were generated using [mesh-hydro](https://github.com/mladenivkovic/mesh-hydro).
++ The "EAGLE" data used in the plots below were obtained from the [swiftsim](https://github.com/SWIFTSIM/SWIFT) repository.
++ The "NGC" data used in the plots below were originally obtained from [flickr](https://www.flickr.com/photos/geckzilla/52040747525/), credits to [Judy Schmidt](https://www.flickr.com/people/geckzilla/). I modified the image later to normalize the pixel values to be able to demonstrate the colormaps as above.
+
+
+### License
+
+License: LGPLv3
+
+
+### Authors and Contributors
+Mladen Ivkovic, Josh Borrow
+
