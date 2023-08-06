@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "promptlogs"
+version = "0.0.1"
+authors = [
+  { name="Hegel AI", email="team@hegel-ai.com" },
+]
+description = "Logging infrastructure for LLM prompts"
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Other/Proprietary License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/hegelai/promptlogs"
+"Bug Tracker" = "https://github.com/hegelai/promptlogs"
