@@ -1,0 +1,11 @@
+browser-cookie3==0.19.1
+bs4==0.0.1
+requests==2.27.1
+rich==13.4.2
+
+[tests]
+black==23.7.0
+mypy==1.4.1
+ruff==0.0.278
+types-beautifulsoup4
+types-requests
