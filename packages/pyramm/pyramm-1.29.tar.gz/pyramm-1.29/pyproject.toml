@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "pyramm"
+version = "1.29"
+description = "Provides a wrapper to the RAMM API and additional tools for positional referencing"
+authors = ["John Bull"]
+homepage = "https://github.com/captif-nz/pyramm"
+license = "MIT"
+readme = "README.md"
+keywords = ["CAPTIF", "RAMM"]
+
+[tool.poetry.dependencies]
+python = "<3.12,>=3.8"
+requests = "^2.25.0"
+unsync = "^1.4.0"
+frozendict = "^2.3.2"
+geopandas = "<1.0,>=0.13.0"
+pandas = "^2.0.1"
+numpy = "^1.24.3"
+scipy = "^1.10.1"
+shapely = "^2.0.1"
+pyproj = "^3.5.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.2"
+pre-commit = "^2.9.2"
+black = "^23.3.0"
+pytest-cov = "^3.0.0"
+flake8 = "^4.0.1"
+pytest-randomly = "^3.12.0"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.23.2"
+jupyterlab = "^4.0.2"
+matplotlib = "^3.7.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
