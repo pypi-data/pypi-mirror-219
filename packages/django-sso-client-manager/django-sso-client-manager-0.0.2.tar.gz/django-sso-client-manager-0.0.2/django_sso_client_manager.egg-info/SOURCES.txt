@@ -1,0 +1,12 @@
+setup.py
+django_sso_client_manager.egg-info/PKG-INFO
+django_sso_client_manager.egg-info/SOURCES.txt
+django_sso_client_manager.egg-info/dependency_links.txt
+django_sso_client_manager.egg-info/requires.txt
+django_sso_client_manager.egg-info/top_level.txt
+sso_client_manager/__init__.py
+sso_client_manager/apps.py
+sso_client_manager/middlewares.py
+sso_client_manager/urls.py
+sso_client_manager/utils.py
+sso_client_manager/views.py
