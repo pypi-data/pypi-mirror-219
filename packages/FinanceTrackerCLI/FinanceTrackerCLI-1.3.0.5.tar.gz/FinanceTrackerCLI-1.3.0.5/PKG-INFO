@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: FinanceTrackerCLI
+Version: 1.3.0.5
+Summary: Finance tracker CLI app
+Home-page: https://github.com/VladimirKobranov/FinanceTrackerCLI
+Author: Vladimir Kobranov
+Author-email: josephclturok@gmail.com
+Classifier: Programming Language :: Python :: 3.11
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Finance tracker python CLI app<br>
+
+### Version 1.3.0.0<br>
+
+--added currencies conversion from Foreign Exchange Market.<br>
+--added convertor for entered amount.<br>
+--added input checks.<br>
+--added program name title
+--added delete string functionality 
+--overhaul, fixes
+--packed to pip
