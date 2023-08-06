@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "examon"
+version = "0.5.0"
+description = ""
+authors = ["Jarrod Folino <jdfolino@icloud.com>"]
+packages = [{include = "examon"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pygments = "^2.13.0"
+inquirer = "^3.1.1"
+simple-term-menu = "^1.6.1"
+examon-core = "1.0.0"
+consolemenu = "^1.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "7.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+quiz = 'examon.view.cli.main:process_command'
