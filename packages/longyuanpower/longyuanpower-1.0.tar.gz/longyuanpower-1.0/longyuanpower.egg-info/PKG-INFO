@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: longyuanpower
+Version: 1.0
+Summary: A module for turbine power prediction
+Home-page: https://github.com/962516016/longyuanpower
+Author: yuange_liu, daobin_luo
+Author-email: liuyuange811@gmail.com, luodaobin2001@gmail.com
+License: MIT
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# longyuanpower
+A module for turbine power prediction based on the datasets of China Longyuan Power Group Co.Ltd.
