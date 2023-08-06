@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: ReadROOT
+Version: 2.3.5
+Summary: Easy GUI made to read ROOT files created by the CoMPASS software distribued by CAEN.
+Home-page: https://github.com/Chujo58/ReadROOT
+Author: Chloé Legué
+Author-email: chloe.legue@mail.mcgill.ca
+Requires-Python: >3.11
+
+ReadROOT is an easy GUI made to read ROOT files created by the CoMPASS software distributed by CAEN. This GUI will also allow the user to plot the different graphs from the CoMPASS software.
