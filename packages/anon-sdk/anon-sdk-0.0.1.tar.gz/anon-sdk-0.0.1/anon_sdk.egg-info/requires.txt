@@ -1,0 +1,13 @@
+Pillow
+addict
+case-converter
+coloredlogs
+dataclasses
+opencv-python
+pascal-voc-writer
+pydantic>=1.9
+python3-wget
+requests
+shapely
+tqdm
+yarl
