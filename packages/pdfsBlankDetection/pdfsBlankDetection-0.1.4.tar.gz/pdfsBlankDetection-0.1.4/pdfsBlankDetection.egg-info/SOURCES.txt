@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+pdfsBlankDetection/__init__.py
+pdfsBlankDetection/pdf_blank_detection_f.pyd
+pdfsBlankDetection/pdf_blank_detection_ui_v2.pyd
+pdfsBlankDetection/pdf_blank_detection_ui_v2_result_windows2.pyd
+pdfsBlankDetection/pdfsBlankDetection.pyd
+pdfsBlankDetection.egg-info/PKG-INFO
+pdfsBlankDetection.egg-info/SOURCES.txt
+pdfsBlankDetection.egg-info/dependency_links.txt
+pdfsBlankDetection.egg-info/top_level.txt
