@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pimelon
+Version: 6.16.1
+Summary: CLI to manage Multi-tenant deployments for Monakerp apps
+Project-URL: Homepage, https://monakerp.com/pine
+Project-URL: Source, https://github.com/amonak/pine
+Author-email: Alphamonak Solutions <amonak@monakerp.com>
+License-File: LICENSE
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: Topic :: System :: Installation/Setup
+Requires-Python: >=3.7
+Requires-Dist: click>=7.0
+Requires-Dist: gitpython~=3.1.30
+Requires-Dist: honcho
+Requires-Dist: jinja2~=3.0.3
+Requires-Dist: python-crontab~=2.6.0
+Requires-Dist: requests
+Requires-Dist: semantic-version~=2.8.2
+Requires-Dist: setuptools>40.9.0
+Requires-Dist: tomli; python_version < '3.11'
