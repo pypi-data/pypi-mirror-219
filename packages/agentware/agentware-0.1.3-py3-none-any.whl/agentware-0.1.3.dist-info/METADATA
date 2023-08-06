@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: agentware
+Version: 0.1.3
+Summary: A framework that builds agents with short-term memory management, longterm management
+Author: darthjaja
+Author-email: your-email@example.com
+Requires-Dist: tiktoken
+Requires-Dist: openai
+Requires-Dist: jwt
+Requires-Dist: colorlog
+Requires-Dist: python-dotenv
+
+long description
