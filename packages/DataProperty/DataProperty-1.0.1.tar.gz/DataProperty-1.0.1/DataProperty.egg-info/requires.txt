@@ -1,0 +1,10 @@
+mbstrdecoder<2,>=1.0.0
+typepy[datetime]<2,>=1.2.0
+
+[logging]
+loguru<1,>=0.4.1
+
+[test]
+pytest>=6.0.1
+pytest-md-report>=0.3
+tcolorpy>=0.1.2
