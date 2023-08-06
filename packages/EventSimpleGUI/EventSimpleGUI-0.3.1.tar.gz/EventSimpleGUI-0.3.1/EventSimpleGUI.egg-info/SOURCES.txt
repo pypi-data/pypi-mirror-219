@@ -1,0 +1,10 @@
+LICENCE
+README.md
+setup.py
+EventSimpleGUI.egg-info/PKG-INFO
+EventSimpleGUI.egg-info/SOURCES.txt
+EventSimpleGUI.egg-info/dependency_links.txt
+EventSimpleGUI.egg-info/requires.txt
+EventSimpleGUI.egg-info/top_level.txt
+pysimpleevent/__init__.py
+pysimpleevent/fastevent.py
