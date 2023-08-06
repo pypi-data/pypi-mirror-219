@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: USSCameraTools
+Version: 0.1.1
+Summary: USSCamera: Python package for interacting with GigE cameras using the Harvesters library
+Home-page: UNKNOWN
+Author: USSVision
+Author-email: bhelfer@ussvision.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Description-Content-Type: text/markdown
+
+USSCamera is a Python package that provides functionality to interact with GigE cameras using the Harvesters library. It allows you to easily connect to cameras, capture images, trigger the camera, and retrieve camera attributes.
+
