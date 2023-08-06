@@ -1,0 +1,13 @@
+llm_toys/__init__.py,sha256=q0M_SDJ3VrG19MAGnaSo0U5N9rxFqnJJDI7oQOES674,496
+llm_toys/config.py,sha256=lgD37HS__JAdKTKW_bKWaeZpB2owQyw5BpNXy6l1Xqs,1030
+llm_toys/prompts.py,sha256=fRNYK3nB8DkKtxcSoYhfvicjgyMxpfiOF9O5HanD7J0,579
+llm_toys/train.py,sha256=ZpSQI03qT-rk3sU3rTLDcpofi-ZbAgFMXjKSdnvqB3Q,8306
+llm_toys/utils.py,sha256=Q1KEua-9ci8J0GIe-54bOTJE8HaonYRZo1IwykAzDnU,2363
+llm_toys/tasks/__init__.py,sha256=65mBKfaHEAJCj2PQ1zkQCNhgVVfkaGyRvYtaC2qkLkg,116
+llm_toys/tasks/paraphrase.py,sha256=xPW7KRh6hmuAskur1dMi6SOGLSYlXZT6aDh5DEyMHNs,2637
+llm_toys/tasks/predict.py,sha256=EJOVAfU7UoSQCpM8Rd6eW755j4LcwKC6OCJI-yTuNHU,3768
+llm_toys/tasks/tone_change.py,sha256=2Us76bzPeiqi-VNsUpjsJc3OYARghVBIE8IAz5v58bE,2649
+llm_toys-0.0.5.dist-info/METADATA,sha256=eeWjMu-loEECxNEBDwD0phaY7BlAknUJznjdx6unxRI,3603
+llm_toys-0.0.5.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+llm_toys-0.0.5.dist-info/top_level.txt,sha256=6hZtyy7ksvv1ORtnxzRSl0FAs970m2VuEzuaEvJXXOs,9
+llm_toys-0.0.5.dist-info/RECORD,,
