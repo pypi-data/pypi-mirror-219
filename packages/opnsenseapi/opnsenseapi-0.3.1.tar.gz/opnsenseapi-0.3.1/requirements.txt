@@ -1,0 +1,5 @@
+requests==2.31.0
+build==0.10.0
+flake8==6.0.0
+hatch==1.7.0
+grappa==1.0.1
