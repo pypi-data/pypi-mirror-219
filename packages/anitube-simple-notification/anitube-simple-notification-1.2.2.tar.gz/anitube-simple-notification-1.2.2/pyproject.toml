@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "anitube-simple-notification"
+version = "1.2.2"
+authors = [
+  { name="Kostiantyn Klochko", email="kklochko@protonmail.com" },
+]
+description = "Getting notification from anitube.in.ua."
+readme = "README.rst"
+license = { file="COPYING" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests~=2.28.2",
+    "beautifulsoup4~=4.11.1",
+    "notify-py~=0.3.39",
+    "rich~=13.1.0",
+    "tomli~=2.0.1",
+    "loguru~=0.5.3",
+    "platformdirs~=3.0.0"
+]
+
+[project.scripts]
+ans = "src.main:main"
+anitube-simple-notification = "src.main:main"
+
+[project.urls]
+"Homepage" = "https://gitlab.com/KKlochko/anitube-simple-notification"
+"Bug Tracker" = "https://gitlab.com/KKlochko/anitube-simple-notification/issues"
+
+[tool.setuptools]
+packages = ["src"]
+

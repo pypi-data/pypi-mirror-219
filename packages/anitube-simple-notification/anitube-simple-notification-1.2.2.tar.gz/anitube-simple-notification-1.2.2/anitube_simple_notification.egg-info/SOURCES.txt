@@ -1,0 +1,14 @@
+COPYING
+README.rst
+pyproject.toml
+anitube_simple_notification.egg-info/PKG-INFO
+anitube_simple_notification.egg-info/SOURCES.txt
+anitube_simple_notification.egg-info/dependency_links.txt
+anitube_simple_notification.egg-info/entry_points.txt
+anitube_simple_notification.egg-info/requires.txt
+anitube_simple_notification.egg-info/top_level.txt
+src/config.py
+src/db.py
+src/main.py
+src/notify.py
+src/scraper.py
