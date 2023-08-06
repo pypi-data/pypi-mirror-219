@@ -1,0 +1,2 @@
+[console_scripts]
+imschrm = imschrm.cli:main
