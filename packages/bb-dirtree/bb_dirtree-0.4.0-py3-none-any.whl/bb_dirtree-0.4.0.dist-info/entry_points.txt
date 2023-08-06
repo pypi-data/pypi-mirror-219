@@ -1,0 +1,3 @@
+[console_scripts]
+dirtree=bbdirtree.__main__:main
+
