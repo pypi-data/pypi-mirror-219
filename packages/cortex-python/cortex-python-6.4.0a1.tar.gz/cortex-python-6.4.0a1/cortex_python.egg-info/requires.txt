@@ -1,0 +1,17 @@
+requests<3,>=2.12.4
+requests-toolbelt>=0.8.0
+pyyaml>=5.3.1
+python-dateutil<3,>=2.8.0
+python-jwt<4.0,>=3.3.5
+cuid<1,>=0.3
+dill>=0.2.8.2
+
+[jupyter]
+ipython<7,>=6.4.0
+maya>=0.5.0
+jinja2
+
+[viz]
+matplotlib<3,>=2.2.2
+seaborn<0.10,>=0.9.0
+pandas
