@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: bulk_editor
+Version: 0.1.2
+Summary: Transforming multiple certificates and images with personalized text has never been easier thanks to the all-new Image Bulk Editor.
+Home-page: https://github.com/Hari-Nikesh-R/Bulk-Image-Editor
+Author: Hari Nikesh R
+Author-email: hari.nikesh.r.cce@gmail.com
+License: UNKNOWN
+Description: # Image Bulk Editor Python Package
+        
+        The Image Bulk Editor Python Package provides a convenient and efficient way to customize multiple certificates and images with personalized text or custom elements. This package simplifies the process of batch editing by automating the application of changes across multiple files, saving you valuable time and effort.
+        
+        # Installation
+        
+        To install the Image Bulk Editor Python Package, use the following command:
+        ```bash
+        pip install BulkImageEditor
+        ```
+        
+        # Usage
+        
+        To use the Image Bulk Editor Python Package, follow these steps:
+        
+        - Import the necessary modules:
+        
+        ```python
+        from bulkeditor import BulkEditor
+        ```
+        
+        - Create an instance and start of the bulk editor:
+        ```python
+        BulkEditor()
+        ```
+        
+        # Example
+        ```python
+        from bulkeditor import BulkEditor
+        BulkEditor()
+        ```
+        
+        # Conclusion
+        
+        The Image Bulk Editor Python Package simplifies the task of customizing multiple certificates and images by automating the batch editing process. With its intuitive usage and comprehensive features, this package allows you to achieve consistent and professional results efficiently.
+        
+        # License
+        
+        This is under MIT License.
+Keywords: python,editor,bulk editor,certificate editor,image writer
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
