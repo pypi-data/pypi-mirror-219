@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: general_calculator_zsd
+Version: 1.2.2
+Summary: 通用脚本及数据导入脚本，不定期按需更新。1.2.2-加入抖音数据导入；加入实时监测的情感识别。
+Home-page: 
+Author: colin zhang
+Author-email: zsd0830@163.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+License-File: LICENSE
