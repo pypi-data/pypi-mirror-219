@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: icpp-free
+Version: 3.0.1
+Summary: The `lite` version of icpp-pro
+Home-page: https://docs.icpp.world/
+Author: icppWorld
+Author-email: icpp@icpp.world
+License: MIT
+Keywords: Internet Computer,C++,Canister Development Kit,CDK,Smart Contracts,blockchain
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: icpp-candid (==3.0.1)
+Requires-Dist: typer[all] (>=0.9.0)
+Requires-Dist: tomli
+Requires-Dist: requests
+Requires-Dist: enlighten
+Requires-Dist: pytest
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pylint (==2.13.9) ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: build ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: mkdocs ; extra == 'dev'
+Requires-Dist: types-requests ; extra == 'dev'
+
+# C++ Canister Development Kit
+
+icpp-free is the `lite` version of icpp-pro
+
+## Installation
+
+```bash
+# For Linux, Mac or Windows
+pip install icpp-free
+
+# verify
+$ icpp --version
+icpp-free version: x.y.z
+wasi-sdk  version: wasi-sdk-X.Y
+```
+
+## [Documentation](https://docs.icpp.world)
