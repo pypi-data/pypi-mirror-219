@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: read5
+Version: 1.1.3
+Summary: Wrapper to read fast5, slow5, blow5 and pod5 files.
+Home-page: https://github.com/JannesSP/read5
+Author: Jannes Spangenberg
+Author-email: jannes.spangenberg@uni-jena.de
+License: GNU General Public License v3
+Keywords: read5,slow5,blow5,fast5,pod5,ONT,Oxford Nanopore Technologies,Nanopore,raw data,wrapper
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+License-File: LICENSE
