@@ -1,0 +1,6 @@
+Hey,
+
+Your payment card {{ payment.card_brand }} finishing with {{ payment.card_last4 }} has been
+charged by Fossbill the {{ payment.date }}.
+
+Respects,

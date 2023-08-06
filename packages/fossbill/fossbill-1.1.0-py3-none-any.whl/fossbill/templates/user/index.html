@@ -1,0 +1,70 @@
+{% from 'macros.html' import paginate %}
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Users{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <label for="filter-hidder">{% trans %}Show filters{% endtrans %}</label>
+  <input type="checkbox" id="filter-hidder" class="hidder" {% if filtered %}checked{% endif %}>
+  <form class="filters">
+    <label for="username__ilike">{% trans %}Username{% endtrans %}</label>
+    <input name="username__ilike" id="username__ilike" {% if filtered %}autofocus{% endif %}
+      value="{{ request.args.get('username__ilike', '') }}">
+    <label for="created_at__date__ge">{% trans %}Created after{% endtrans %}</label>
+    <input name="created_at__date__ge" id="created_at__date__ge" type="date"
+      value="{{ request.args.get('created_at__date__ge', '') }}">
+    <label for="created_at__date__le">{% trans %}Created before{% endtrans %}</label>
+    <input name="created_at__date__le" id="created_at__date__le" type="date"
+      value="{{ request.args.get('created_at__date__le', '') }}">
+    <label for="1__select_custom">{% trans %}Payment enabled?{% endtrans %}</label>
+    <select name="1__select_custom" id="1__select_custom">
+      <option value="">{% trans %}Choose an option{% endtrans %}</option>
+      <option value="stripe_customer__not_null" {{ "selected" if ("stripe_customer__not_null" in request.args.getlist('1__select_custom')) }}>{% trans %}Enabled{% endtrans %}</option>
+      <option value="stripe_customer__null" {{ "selected" if ("stripe_customer__null" in request.args.getlist('1__select_custom')) }}>{% trans %}Disabled{% endtrans %}</option>
+    </select>
+    <div class="actions">
+      <input type="submit" value="{% trans %}Filter{% endtrans %}">
+      <a href="{{ url_for(".index") }}">{% trans %}Reset{% endtrans %}</a>
+    </div>
+  </form>
+  <div class="table-cap">
+    <table class="index">
+      <thead>
+        <tr>
+          <th>{% trans %}Username{% endtrans %}</th>
+          <th>{% trans %}Created at{% endtrans %}</th>
+          {% if config.get('PAYMENT_ENABLED') %}
+            <th>{% trans %}Active payment{% endtrans %}</th>
+            <th>{% trans %}Due at{% endtrans %}</th>
+          {% endif %}
+          <th>{% trans %}Action{% endtrans %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in users %}
+          <tr>
+            <td>~{{ user.username }}</td>
+            <td>{{ user.created_at.strftime("%Y-%m-%d") }}</td>
+            {% if config.get('PAYMENT_ENABLED') %}
+              <td class="center">{% if user.stripe_customer %}<span class='yes'>✓{% else %}<span class='no'>⨯{% endif %}</span></td>
+              <td>{% if user.due_at %}{{ user.due_at.strftime("%Y-%m-%d") }}{% endif %}</td>
+            {% endif %}
+            <td class="actions">
+              {% if user.email %}
+                <a href="mailto://{{ user.email }}">{% trans %}Contact{% endtrans %}</a>
+              {% endif %}
+              <form action="{{ url_for('user.generate_reset_password', id=user.id) }}" method="post">
+                <input class="danger" type="submit" value="{% trans %}Reset password{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+                {{ csrf_token()|safe }}
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {{ paginate(pagination) if pagination.max > 1 }}
+{% endblock %}

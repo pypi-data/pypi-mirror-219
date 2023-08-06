@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Register{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="username">{% trans %}Username{% endtrans %}</label>
+    <input name="username" id="username" required autofocus>
+    <label for="password">{% trans %}Password{% endtrans %}</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="{% trans %}Register{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+{% endblock %}

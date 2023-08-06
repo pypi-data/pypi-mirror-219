@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Draft{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="flex-align">
+      <div class="form">
+        {% block left_panel %}
+          <label for="customer_id">{% trans %}Customer{% endtrans %}</label>
+          <select name="customer_id" id="customer_id">
+            <option value="">{% trans %}Empty{% endtrans %}</option>
+            {% for customer in customers %}
+              <option value="{{ customer.id }}" {{ "selected" if bill.customer_id == customer.id }}>{{ customer.label }}</option>
+            {% endfor %}
+          </select>
+
+          <label for="recipient">{% trans %}Recipient{% endtrans %}</label>
+          <textarea name="recipient" id="recipient" rows="6" title="{% trans %}Taken from customer address.{% endtrans %}"
+            >{{ request.form['recipient'] or bill.recipient or '' }}</textarea>
+
+          <label for="source">{% trans %}Source{% endtrans %}</label>
+          <textarea name="source" id="source" rows="6" title="{% trans %}Taken from your user configuration.{% endtrans %}"
+            >{{ request.form['source'] or bill.source or '' }}</textarea>
+        {% endblock %}
+      </div>
+
+      <div class="form">
+        {% block mention_panel %}
+          <label for="quote_mentions">{% trans %}Quote mentions{% endtrans %}</label>
+          <textarea name="quote_mentions" id="quote_mentions" rows="5"
+             title="{% trans %}Taken from your user configuration.{% endtrans %}"
+            >{{ bill.quote_mentions or '' }}</textarea>
+          <label for="bill_mentions">{% trans %}Bill mentions{% endtrans %}</label>
+
+          <textarea name="bill_mentions" id="bill_mentions" rows="5"
+             title="{% trans %}Taken from your user configuration.{% endtrans %}"
+            >{{ bill.bill_mentions or '' }}</textarea>
+        {% endblock %}
+
+        <label for="comment">{% trans %}Comment{% endtrans %}</label>
+        <textarea name="comment" id="comment" rows="5">{{ bill.comment or '' }}</textarea>
+      </div>
+    </div>
+    <input type="submit" value="{% trans %}Save{% endtrans %}">
+    {{ csrf_token()|safe }}
+  </form>
+
+  {% block bill_row_panel %}
+    {% if bill_rows|length > 0 %}
+      <div class="table-cap">
+        <table class="index" id="bill_rows">
+          <thead>
+            <tr>
+              <th>{% trans %}Label{% endtrans %}</th>
+              <th>{% trans %}Price{% endtrans %}</th>
+              <th>{% trans %}Qty{% endtrans %}</th>
+              <th>{% trans %}Amount{% endtrans %}</th>
+              <th>{% trans %}Tax{% endtrans %}</th>
+              <th>{% trans %}Action{% endtrans %}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for bill_row in bill_rows %}
+              <tr>
+                <td id="bill_row_{{ bill_row.id }}">{{ bill_row.label }}</td>
+                <td>{{ bill_row.price/100 }}</td>
+                <td>{{ bill_row.quantity }}</td>
+                <td>{{ (bill_row.gross_amount / 100) | round(2, 'floor') }}</td>
+                <td>{{ bill_row.tax_rate }} %</td>
+                <td class="actions">
+                  <a href="{{ url_for('bill.update_row', bill_id=bill['id'], id=bill_row['id']) }}">{% trans %}Edit{% endtrans %}</a>
+                  <form action="{{ url_for('bill.delete_row', id=bill_row['id']) }}" method="post">
+                    <input class="danger" type="submit" value="{% trans %}Delete{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+                    {{ csrf_token()|safe }}
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+    <a href="{{ url_for('bill.create_row', id=bill['id']) }}">{% trans %}Create row{% endtrans %}</a>
+  {% endblock %}
+
+  <hr>
+
+  {% block actions %}
+    <div class="actions">
+      <a href="{{ url_for('bill.view_draft_pdf', id=bill['id']) }}">{% trans %}View draft{% endtrans %}</a>
+      <a href="{{ url_for('bill.finish', id=bill['id']) }}">{% trans %}Finish draft{% endtrans %}</a>
+      <form action="{{ url_for('bill.delete', id=bill['id']) }}" method="post">
+        <input class="danger" type="submit" value="{% trans %}Delete{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+        {{ csrf_token()|safe }}
+      </form>
+    </div>
+  {% endblock %}
+{% endblock %}

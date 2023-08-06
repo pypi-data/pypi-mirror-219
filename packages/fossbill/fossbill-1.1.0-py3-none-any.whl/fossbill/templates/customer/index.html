@@ -1,0 +1,53 @@
+{% from 'macros.html' import paginate %}
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Customers{% endtrans %}{% endblock %}</h1>
+  <a class="action" href="{{ url_for('customer.create') }}">{% trans %}New{% endtrans %}</a>
+{% endblock %}
+
+{% block content %}
+  <label for="filter-hidder">{% trans %}Show filters{% endtrans %}</label>
+  <input type="checkbox" id="filter-hidder" class="hidder" {% if filtered %}checked{% endif %}>
+  <form class="filters">
+    <label for="label__ilike">{% trans %}Label{% endtrans %}</label>
+    <input name="label__ilike" id="label__ilike" {% if filtered %}autofocus{% endif %}
+      value="{{ request.args.get('label__ilike', '') }}">
+    <label for="email__ilike">{% trans %}Email{% endtrans %}</label>
+    <input name="email__ilike" id="email__ilike"
+      value="{{ request.args.get('email__ilike', '') }}">
+    <label for="address__ilike">{% trans %}Address{% endtrans %}</label>
+    <input name="address__ilike" id="address__ilike"
+      value="{{ request.args.get('address__ilike', '') }}">
+    <div class="actions">
+      <input type="submit" value="{% trans %}Filter{% endtrans %}">
+      <a href="{{ url_for(".index") }}">{% trans %}Reset{% endtrans %}</a>
+    </div>
+  </form>
+  <div class="table-cap">
+    <table class="index">
+      <thead>
+        <tr>
+          <th>{% trans %}Label{% endtrans %}</th>
+          <th>{% trans %}Email{% endtrans %}</th>
+          <th>{% trans %}Address{% endtrans %}</th>
+          <th>{% trans %}Action{% endtrans %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for customer in customers %}
+          <tr>
+            <td>{{ customer.label }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.address[:30].strip() }}…</td>
+            <td class="actions">
+              <a href="{{ url_for('customer.update', id=customer.id) }}">{% trans %}Edit{% endtrans %}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {{ paginate(pagination) if pagination.max > 1 }}
+{% endblock %}

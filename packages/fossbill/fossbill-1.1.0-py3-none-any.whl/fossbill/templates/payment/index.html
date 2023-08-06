@@ -1,0 +1,85 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{% trans %}Payments{% endtrans %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" id="payment-form" style="display: none" action="{{ url_for('payment.new_payment_method') }}">
+    <label for="card-element" style="font-weight: bold">
+      {% trans %}Payment details{% endtrans %}
+    </label>
+    <div id="card-element"></div>
+    <div id="card-error"></div>
+    <input type="hidden" name="stripe_token" id="stripe-token" />
+    <input type="submit" value="{% if g.user.stripe_customer %}{% trans %}New card{% endtrans %}{% else %}{% trans %}Save card{% endtrans %}{% endif %}">
+    {{ csrf_token()|safe }}
+  </form>
+  {% if g.user.stripe_customer %}
+    <form action="{{ url_for('payment.drop_payment_methods') }}" method="post">
+      <input class="danger" type="submit" value="{% trans %}Delete payment method{% endtrans %}" onclick="return confirm('{% trans %}Are you sure?{% endtrans %}');">
+      {{ csrf_token()|safe }}
+    </form>
+  {% endif %}
+
+  {% if payments|length %}
+    <div class="table-cap">
+      <table class="index">
+        <thead>
+          <tr>
+            <th>{% trans %}Date{% endtrans %}</th>
+            <th>{% trans %}Amount{% endtrans %}</th>
+            <th>{% trans %}Card{% endtrans %}</th>
+            <th>{% trans %}Action{% endtrans %}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for payment in payments %}
+            <tr>
+              <td>{{ payment.date }}</td>
+              <td>{{ (payment.amount / 100) | round(2, 'floor') }} {{ payment.currency }}</td>
+              <td>{% trans cardbrand=payment.payload['payment_method_details']['card']['brand']|capitalize, last4=payment.payload['payment_method_details']['card']['last4'] %}{{ cardbrand }} ending with {{ last4 }}{% endtrans %}</td>
+              <td class="actions">
+                <a href="{{ url_for('payment.invoice_pdf', id=payment.id) }}">{% trans %}Invoice{% endtrans %}</a>
+                <a href="{{ payment.receipt_url or payment.payload['receipt_url'] }}">{% trans %}Receipt{% endtrans %}</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% endif %}
+
+  <script src="https://js.stripe.com/v3/?advancedFraudSignals=false"></script> 
+  <script> 
+  document.getElementById('payment-form').style.display = 'block'; 
+  var stripe = Stripe('{{config.get('STRIPE_PUBLISHABLE_KEY')}}');
+  var elements = stripe.elements(); 
+  var card = elements.create('card'); 
+  card.mount('#card-element'); 
+  card.addEventListener('change', function(event) { 
+    var displayError = document.getElementById('card-error'); 
+    var cardElement = document.getElementById('card-element'); 
+    if (event.error) { 
+      displayError.textContent = event.error.message; 
+    } else { 
+      displayError.textContent = ''; 
+    } 
+  }); 
+  var form = document.getElementById('payment-form'); 
+  form.addEventListener('submit', function(e) { 
+    e.preventDefault(); 
+    stripe.createToken(card).then(function(result) { 
+      if (result.error) { 
+        var errorElement = document.getElementById('card-error'); 
+        var cardElement = document.getElementById('card-element'); 
+        errorElement.textContent = result.error.message; 
+      } else { 
+        document.getElementById('stripe-token').value = result.token.id;
+        form.submit(); 
+      } 
+    }); 
+  }); 
+  </script> 
+{% endblock %}
