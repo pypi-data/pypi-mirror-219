@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/ctat/__init__.py
+src/ctat/__main__.py
+src/ctat/cell_type_annotation.py
+src/ctat/file_utils.py
+src/ctat/schema_validator.py
+src/ctat.egg-info/PKG-INFO
+src/ctat.egg-info/SOURCES.txt
+src/ctat.egg-info/dependency_links.txt
+src/ctat.egg-info/entry_points.txt
+src/ctat.egg-info/requires.txt
+src/ctat.egg-info/top_level.txt
+src/schema/ctat_schema.yaml
