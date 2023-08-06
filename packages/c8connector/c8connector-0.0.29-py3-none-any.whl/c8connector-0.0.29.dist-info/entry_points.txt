@@ -1,0 +1,5 @@
+[console_scripts]
+expose-connector=c8connector.util:expose_connector
+load-workflow-state=c8connector.util:load_state
+start-state-observer=c8connector.util:start_state_observer
+
