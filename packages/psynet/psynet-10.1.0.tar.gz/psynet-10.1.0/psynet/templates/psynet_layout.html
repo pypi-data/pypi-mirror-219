@@ -1,0 +1,44 @@
+{# We originally called this page 'layout.html'. However there seems to be a bug with Dallinger #}
+{# whereby it is not possible to override the built-in layout.html using the extra_files method. #}
+{# We therefore have to give this base template a different name. We should investigate this bug further. #}
+
+{% extends "base/layout.html" %}
+{% include "theme.html" %}
+
+{% block scripts %}
+    {{ super() }}
+
+    {% if participant is defined %}
+        <script>
+            {
+                // The dallinger.identity functionality is a bit flaky,
+                // so if corresponding information is available from the template,
+                // we inject it to be on the safe side.
+                let injectedParticipantId = parseInt("{{ participant.id }}");
+                if (injectedParticipantId) {
+                    dallinger.identity.participantId = injectedParticipantId;
+                }
+
+                let injectedAssignmentId = "{{ participant.assignment_id }}";
+                if (injectedAssignmentId) {
+                    dallinger.identity.assignmentId = injectedAssignmentId;
+                }
+
+                let injectedHitId = parseInt("{{ participant.hit_id }}");
+                if (injectedHitId) {
+                    dallinger.identity.hitId = injectedHitId;
+                }
+
+                let injectedUniqueId = "{{ participant.unique_id }}";
+                if (injectedUniqueId) {
+                    dallinger.identity.uniqueId = injectedUniqueId;
+                }
+
+                let injectedWorkerId = "{{ participant.worker_id }}";
+                if (injectedWorkerId) {
+                    dallinger.identity.workerId = injectedWorkerId;
+                }
+            }
+        </script>
+    {% endif %}
+{% endblock %}

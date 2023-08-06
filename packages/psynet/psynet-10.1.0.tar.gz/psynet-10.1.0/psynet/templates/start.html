@@ -1,0 +1,46 @@
+{% extends "psynet_layout.html" %}
+
+{% block stylesheets %}
+    {{ super() }}
+    <style>
+
+    div {
+        width: 100%;
+        height: 100vh;
+    }
+    p {
+        font-size: 3em;
+        font-weight: 600;
+        text-align: center;
+        top: 50%;
+        width: 100%;
+        position: absolute;
+    }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {{super()}}
+
+    <div class="colorfadeanim">
+        <p>
+            {{ pgettext("start", "Starting experiment...") }}
+        </p>
+    </div>
+{% endblock %}
+
+
+{% block scripts %}
+{{super()}}
+    <script>
+        dallinger.identity.participantId = "undefined";
+        dallinger.createParticipant().done(function(resp) {
+            setTimeout(function() {
+                // dallinger.createParticipant() sets dallinger.identity.uniqueId from the remote server's response
+                window.location = "/timeline?unique_id=" + dallinger.identity.uniqueId;
+            }, 500);
+        }).fail(function(resp) {
+            dallinger.error(resp);
+        });
+    </script>
+{% endblock %}
