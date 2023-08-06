@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: grassmanntn
+Version: 1.2.2
+Summary: a Python library for Grassmann tensor network computation
+Home-page: https://github.com/ayosprakob/grassmanntn
+Download-URL: https://github.com/ayosprakob/grassmanntn/archive/refs/tags/v_122.tar.gz
+Author: Atis Yosprakob
+Author-email: yosprakob2@gmail.com
+License: Apache
+Keywords: physics,lattice,gauge theory,tensor network,grassmann
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# GrassmannTN
+This is a package that aims to simplify the coding involving Grassmann tensor network.
+I try to make the coding as convenient as when you use other standard packages like numpy or scipy.
+All the sign factors are computed automatically without explicit user inputs.
+Visit [the github repository](https://github.com/ayosprakob/grassmanntn) for more info.
+
+## Prerequisites
+
+- [numpy](https://numpy.org/doc/stable/index.html)
+- [sparse](https://sparse.pydata.org/en/stable/)
+- [opt_einsum](https://optimized-einsum.readthedocs.io/en/stable/)
