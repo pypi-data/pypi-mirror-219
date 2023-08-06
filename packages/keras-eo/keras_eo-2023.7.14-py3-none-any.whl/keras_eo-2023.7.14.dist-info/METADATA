@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: keras-eo
+Version: 2023.7.14
+Summary: Deep Learning for Earth Observation with Keras
+Author: Juan Sensio
+Author-email: it@earthpulse.es
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# kerasEO
+Deep learning for Earth Observation with Keras
+
