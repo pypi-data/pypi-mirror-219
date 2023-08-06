@@ -1,0 +1,16 @@
+kwextractor/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kwextractor/constants.py,sha256=IOB3fC-l3HnJmmwYmrQRzT29mgMEuESqstwuSHHYhfE,367
+kwextractor/version.py,sha256=-pFJ3Y_JYxYwGkZPwWXzJ2wu7s6u-FpP_DIro3IpFFU,82
+kwextractor/data/data_emotion_words.txt,sha256=lesfyfljFcnM1SMnBuC4RBxWj5MNSDVZazOCnvfSVKQ,911
+kwextractor/data/data_full_allkeywords.txt,sha256=oQOiwKm3ELDhayfOlJQkBZhW9H7GM65_fbRvISaQXwM,159440
+kwextractor/data/stop_words_vn_tokenized.txt,sha256=JzixG5FmaeZXFSsb8eWI6J3m2X7j_-rS0oB6WHTowts,23149
+kwextractor/process/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kwextractor/process/extract_keywords.py,sha256=wkvfX7W-X_kXD4mnAI_G7j-eW6l8MYZqyBfU5-lP2AA,10835
+kwextractor/process/extract_numverse.py,sha256=HIwNcQpeV4MQAWKa9FCsfOiz3R_2L3LA5tJ7LLEw5bc,899
+kwextractor/process/replacing_w2n.py,sha256=Ie3ONMpJfwW6MYonwmbQVr5egKMZRiLNReD5b2XzTio,1494
+kwextractor/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kwextractor/utils/process_kw.py,sha256=YlJyp4MlQ1ZAdkNg-EWSb8JBErhDbgftqlE7bekXjRE,3518
+kwextractor-0.0.7.dist-info/METADATA,sha256=AQWKMYx2zSc3lWLJfZWmOS99vF9BD6Z8stMNIa_-vHE,4968
+kwextractor-0.0.7.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+kwextractor-0.0.7.dist-info/top_level.txt,sha256=vUHnBV4TxWXYfSjJ9z0ytWPj_5PkehpQt69ETtPFWUk,12
+kwextractor-0.0.7.dist-info/RECORD,,
