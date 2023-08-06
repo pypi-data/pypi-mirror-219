@@ -1,0 +1,3 @@
+[console_scripts]
+medcase = medcase.autogui:main
+
