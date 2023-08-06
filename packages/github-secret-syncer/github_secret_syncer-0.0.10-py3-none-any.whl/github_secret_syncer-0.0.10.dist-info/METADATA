@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: github-secret-syncer
+Version: 0.0.10
+Summary: Github Secret Syncer.
+Home-page: https://github.com/thejimmylin/github-secret-syncer
+Author: thejimmylin
+Author-email: b00502013@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: PyNaCl (==1.5.0)
+
+# Github Secret Syncer
+
+Synchronize Github secrets with local `.env` file.
+
+![Screenshot](https://raw.githubusercontent.com/thejimmylin/github-secret-syncer/master/docs/quickstart.png)
+
+# Quickstart
+
+Install it with pip:
+
+```
+pip install github-secret-syncer
+```
+
+Have a `.env` and `quickstart.py`
+
+```python
+from pathlib import Path
+
+import github_secret_syncer
+
+base_dir = Path(__file__).parent
+
+github_secret_syncer.sync_secrets(
+    dotenv_path=base_dir / ".env",
+    owner="your_github_username",
+    repo="your_github_repo_name",
+    pat="your_github_personal_access_token",
+)
+```
+
+You will get some output like this:
+
+![Screenshot](https://raw.githubusercontent.com/thejimmylin/github-secret-syncer/master/docs/quickstart.png)
+
+
