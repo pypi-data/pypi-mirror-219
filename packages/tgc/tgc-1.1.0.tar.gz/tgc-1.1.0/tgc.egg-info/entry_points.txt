@@ -1,0 +1,3 @@
+[console_scripts]
+tgc = tgc.pyro.__main__:run
+tgce = tgc.convert_export:run
