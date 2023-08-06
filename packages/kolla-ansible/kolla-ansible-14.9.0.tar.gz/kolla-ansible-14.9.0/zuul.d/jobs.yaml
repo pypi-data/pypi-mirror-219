@@ -1,0 +1,662 @@
+---
+- job:
+    name: kolla-ansible-centos8s-source
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-centos9s-source
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-centos9s
+    voting: false
+    vars:
+      base_distro: centos
+      install_type: source
+      tls_enabled: true
+      kolla_build_images: true
+      kolla_python_version: 3.9
+
+- job:
+    name: kolla-ansible-debian-source-aarch64
+    parent: kolla-ansible-debian-source
+    nodeset: kolla-ansible-debian-bullseye-aarch64
+    voting: false
+    timeout: 10800
+    required-projects:
+      - openstack/kolla
+
+- job:
+    name: kolla-ansible-debian-source
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-debian-bullseye
+    vars:
+      base_distro: debian
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-rocky8-source
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-rocky-8
+    voting: false
+    vars:
+      base_distro: centos
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-rocky9-source
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-ubuntu-source-focal
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-ubuntu-source-jammy
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-jammy
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-centos8s-source-kvm
+    parent: kolla-ansible-kvm-base
+    nodeset: kolla-ansible-centos8s-nested-virt
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-kvm
+    parent: kolla-ansible-kvm-base
+    nodeset: kolla-ansible-rocky9-nested-virt
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-kvm-focal
+    parent: kolla-ansible-kvm-base
+    nodeset: kolla-ansible-focal-nested-virt
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-multinode-ipv6
+    parent: kolla-ansible-ipv6-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-multinode-ipv6
+    parent: kolla-ansible-ipv6-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-multinode-ipv6-focal
+    parent: kolla-ansible-ipv6-base
+    nodeset: kolla-ansible-focal-multi
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-binary
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-centos8s
+    voting: false
+    vars:
+      base_distro: centos
+      install_type: binary
+
+- job:
+    name: kolla-ansible-ubuntu-binary-focal
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-focal
+    voting: false
+    vars:
+      base_distro: ubuntu
+      install_type: binary
+
+- job:
+    name: kolla-ansible-centos8s-source-cephadm
+    parent: kolla-ansible-cephadm-base
+    nodeset: kolla-ansible-centos8s-multi
+    timeout: 9000
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-cephadm
+    parent: kolla-ansible-cephadm-base
+    nodeset: kolla-ansible-rocky9-multi
+    timeout: 9000
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-cephadm-focal
+    parent: kolla-ansible-cephadm-base
+    nodeset: kolla-ansible-focal-multi
+    timeout: 9000
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-mariadb
+    parent: kolla-ansible-mariadb-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-mariadb
+    parent: kolla-ansible-mariadb-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-mariadb-focal
+    parent: kolla-ansible-mariadb-base
+    nodeset: kolla-ansible-focal-multi
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-upgrade
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-centos8s
+    timeout: 9000
+    vars:
+      base_distro: centos
+      install_type: source
+      is_upgrade: yes
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-debian-source-upgrade
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-debian-bullseye
+    timeout: 9000
+    vars:
+      base_distro: debian
+      install_type: source
+      is_upgrade: yes
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-debian-source-upgrade-aarch64
+    parent: kolla-ansible-debian-source-upgrade
+    nodeset: kolla-ansible-debian-bullseye-aarch64
+
+- job:
+    name: kolla-ansible-ubuntu-source-upgrade-focal
+    parent: kolla-ansible-base
+    nodeset: kolla-ansible-focal
+    timeout: 9000
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      is_upgrade: yes
+      tls_enabled: true
+
+- job:
+    name: kolla-ansible-centos8s-source-upgrade-cephadm
+    parent: kolla-ansible-cephadm-base
+    nodeset: kolla-ansible-centos8s-multi
+    timeout: 9000
+    vars:
+      base_distro: centos
+      install_type: source
+      is_upgrade: yes
+
+- job:
+    name: kolla-ansible-ubuntu-source-upgrade-cephadm-focal
+    parent: kolla-ansible-cephadm-base
+    nodeset: kolla-ansible-focal-multi
+    timeout: 9000
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      is_upgrade: yes
+
+- job:
+    name: kolla-ansible-centos8s-source-bifrost
+    parent: kolla-ansible-bifrost-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+
+- job:
+    name: kolla-ansible-rocky9-source-bifrost
+    parent: kolla-ansible-bifrost-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+
+- job:
+    name: kolla-ansible-ubuntu-source-bifrost-focal
+    parent: kolla-ansible-bifrost-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+
+- job:
+    name: kolla-ansible-centos8s-source-zun
+    parent: kolla-ansible-zun-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-zun
+    parent: kolla-ansible-zun-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-zun
+    parent: kolla-ansible-zun-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-debian-source-zun
+    parent: kolla-ansible-zun-base
+    nodeset: kolla-ansible-debian-bullseye-multi
+    vars:
+      base_distro: debian
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-zun-focal
+    parent: kolla-ansible-zun-base
+    nodeset: kolla-ansible-focal-multi
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-swift
+    parent: kolla-ansible-swift-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-swift
+    parent: kolla-ansible-swift-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-swift-focal
+    parent: kolla-ansible-swift-base
+    nodeset: kolla-ansible-focal-multi
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-swift-upgrade
+    parent: kolla-ansible-swift-base
+    nodeset: kolla-ansible-centos8s-multi
+    timeout: 10800
+    vars:
+      base_distro: centos
+      install_type: source
+      is_upgrade: yes
+
+- job:
+    name: kolla-ansible-ubuntu-source-swift-upgrade-focal
+    parent: kolla-ansible-swift-base
+    nodeset: kolla-ansible-focal-multi
+    timeout: 10800
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      is_upgrade: yes
+
+- job:
+    name: kolla-ansible-centos8s-source-scenario-nfv
+    parent: kolla-ansible-scenario-nfv-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-scenario-nfv
+    parent: kolla-ansible-scenario-nfv-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-ironic
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-ironic
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-binary-ironic
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: binary
+
+- job:
+    name: kolla-ansible-debian-source-ironic
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-debian-bullseye
+    vars:
+      base_distro: debian
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-ironic-focal
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+# Not running this job because the ironic-neutron-agent image is not available
+# for Ubuntu binary.
+- job:
+    name: kolla-ansible-ubuntu-binary-ironic-focal
+    parent: kolla-ansible-ironic-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: binary
+
+- job:
+    name: kolla-ansible-centos8s-source-magnum
+    parent: kolla-ansible-magnum-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-magnum
+    parent: kolla-ansible-magnum-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-magnum-focal
+    parent: kolla-ansible-magnum-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-octavia
+    parent: kolla-ansible-octavia-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-octavia
+    parent: kolla-ansible-octavia-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-octavia-focal
+    parent: kolla-ansible-octavia-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-masakari-focal
+    parent: kolla-ansible-masakari-base
+    nodeset: kolla-ansible-focal-masakari
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-masakari
+    parent: kolla-ansible-masakari-base
+    nodeset: kolla-ansible-centos8s-masakari
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-masakari
+    parent: kolla-ansible-masakari-base
+    nodeset: kolla-ansible-rocky9-masakari
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-monasca
+    parent: kolla-ansible-monasca-base
+    nodeset: kolla-ansible-centos8s-multi-monasca
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-cells
+    parent: kolla-ansible-cells-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-cells
+    parent: kolla-ansible-cells-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-linuxbridge-focal
+    parent: kolla-ansible-linuxbridge-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-linuxbridge
+    parent: kolla-ansible-linuxbridge-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-linuxbridge
+    parent: kolla-ansible-linuxbridge-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-ovn
+    parent: kolla-ansible-ovn-base
+    nodeset: kolla-ansible-centos8s-multi
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-rocky9-source-ovn
+    parent: kolla-ansible-ovn-base
+    nodeset: kolla-ansible-rocky9-multi
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-ovn-focal
+    parent: kolla-ansible-ovn-base
+    nodeset: kolla-ansible-focal-multi
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-prometheus-efk
+    parent: kolla-ansible-prometheus-efk-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-prometheus-opensearch
+    parent: kolla-ansible-prometheus-opensearch-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-prometheus-opensearch-migration
+    parent: kolla-ansible-prometheus-efk-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+      opensearch_migration: true
+
+- job:
+    name: kolla-ansible-rocky9-source-prometheus-opensearch
+    parent: kolla-ansible-prometheus-opensearch-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-prometheus-efk-focal
+    parent: kolla-ansible-prometheus-efk-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-prometheus-opensearch-focal
+    parent: kolla-ansible-prometheus-opensearch-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-prometheus-opensearch-migration-focal
+    parent: kolla-ansible-prometheus-efk-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+      opensearch_migration: true
+
+- job:
+    name: kolla-ansible-rocky9-source-venus
+    parent: kolla-ansible-venus-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-source-venus
+    parent: kolla-ansible-venus-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+      install_type: source
+
+- job:
+    name: kolla-ansible-ubuntu-source-venus-focal
+    parent: kolla-ansible-venus-base
+    nodeset: kolla-ansible-focal
+    vars:
+      base_distro: ubuntu
+      install_type: source
+
+- job:
+    name: kolla-ansible-centos8s-hashi-vault
+    parent: kolla-ansible-hashi-vault-base
+    nodeset: kolla-ansible-centos8s
+    vars:
+      base_distro: centos
+
+- job:
+    name: kolla-ansible-rocky9-hashi-vault
+    parent: kolla-ansible-hashi-vault-base
+    nodeset: kolla-ansible-rocky9
+    vars:
+      base_distro: rocky
