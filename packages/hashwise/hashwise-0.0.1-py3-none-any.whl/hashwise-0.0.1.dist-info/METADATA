@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: hashwise
+Version: 0.0.1
+Summary: A secure python library for parallelizing hashing algorithms across a graphics card.
+Author: Anish Kanthamneni
+Author-email: akneni@gmail.com
+Description-Content-Type: text/markdown
+
