@@ -1,0 +1,6 @@
+click
+numpy>=1.15.0
+platformdirs
+prettytable
+pyyaml
+tqdm
