@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: Cary_Package2
+Version: 1.0.0
+Summary: A set of data tools in Python
+Home-page: https://github.com/hsuanchi/Find-Sitemaps
+Author: Cary Yu
+Author-email: cary_yu@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/Find-sitemap/
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+License-File: LICENSE
+
+UNKNOWN
+
