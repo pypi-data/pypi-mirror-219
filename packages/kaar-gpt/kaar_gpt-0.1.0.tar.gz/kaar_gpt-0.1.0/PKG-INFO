@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: kaar-gpt
+Version: 0.1.0
+Summary: OpenAI API wrapper
+Project-URL: Documentation, https://github.com/kaar/gpt#readme
+Project-URL: Issues, https://github.com/kaar/gpt/issues
+Project-URL: Source, https://github.com/kaar/gpt
+Author-email: Caspar Nettelbladt <caspar.n@gmail.com>
+License-Expression: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Requires-Dist: requests
+Description-Content-Type: text/markdown
+
+# GPT
+
+## Getting Started
+
+### Installation
+
+Kaar GPT is available as [`kaar-gpt`](https://pypi.org/project/kaar-gpt/) on PyPI:
+```bash
+pip install kaar-gpt
+```
+
+## Usage
+```python
+from gpt.openai import ChatCompletion, ChatCompletionRequest, ChatMessage
+```
