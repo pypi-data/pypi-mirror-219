@@ -1,0 +1,13 @@
+.gitignore
+Example.ipynb
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+clivo/__init__.py
+clivo/cli.py
+clivo.egg-info/PKG-INFO
+clivo.egg-info/SOURCES.txt
+clivo.egg-info/dependency_links.txt
+clivo.egg-info/top_level.txt
