@@ -1,0 +1,9 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+langsheet.egg-info/PKG-INFO
+langsheet.egg-info/SOURCES.txt
+langsheet.egg-info/dependency_links.txt
+langsheet.egg-info/top_level.txt
+langsheet_package/main.py
