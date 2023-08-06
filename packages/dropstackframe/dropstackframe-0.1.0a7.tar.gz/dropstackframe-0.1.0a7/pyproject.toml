@@ -1,0 +1,60 @@
+[build-system]
+requires = [ "poetry-core",]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "dropstackframe"
+version = "0.1.0-a7"
+description = "A python package for removing stack frames from stack traces."
+authors = [ "Jesper Nielsen <jespernielsen1982+dropstackframe@gmail.com>",]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/jesnie/dropstackframe"
+repository = "https://github.com/jesnie/dropstackframe"
+classifiers = [ "Development Status :: 4 - Beta", "Intended Audience :: Developers", "Programming Language :: Python :: 3", "Programming Language :: Python :: 3.7", "Programming Language :: Python :: 3.8", "Programming Language :: Python :: 3.9", "Programming Language :: Python :: 3.10", "Programming Language :: Python :: 3.11", "Typing :: Typed",]
+
+[tool.isort]
+py_version = 37
+profile = "black"
+
+[tool.black]
+target-version = [ "py37",]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.7"
+show_error_codes = true
+strict = true
+[[tool.mypy.overrides]]
+module = [ "_testcapi.*", "toml.*",]
+ignore_missing_imports = true
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.pylint.messages_control]
+max-line-length = 100
+disable = [ "c-extension-no-member", "global-statement", "invalid-name", "missing-module-docstring", "missing-function-docstring",]
+
+[tool.taskipy.tasks]
+isort = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX isort XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    isort dropstackframe tests set_version.py\n"
+isort_check = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX isort XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    isort --check-only dropstackframe tests set_version.py\n"
+black = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX black XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    black dropstackframe tests set_version.py\n"
+black_check = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX black XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    black --check dropstackframe tests set_version.py\n"
+mypy = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX mypy XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    mypy dropstackframe tests set_version.py\n"
+pylint = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX pylint XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    pylint dropstackframe tests set_version.py\n"
+pytest = "    echo XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX pytest XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX\n    pytest tests\n"
+format = "task isort && task black"
+format_check = "task isort_check && task black_check"
+lint = "task format_check && task mypy && task pylint"
+test = "task lint && task pytest"
+format_and_test = "task format && task mypy && task test"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+isort = "<5.12.0"
+black = "<23.7.0"
+mypy = "^1.4.1"
+pylint = "<2.17.0"
+taskipy = "^1.11.0"
+toml = "^0.10.2"
