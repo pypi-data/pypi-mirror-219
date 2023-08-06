@@ -1,0 +1,16 @@
+kaparoo/__about__.py,sha256=K-6QASztDXg6ZOGHSaJS1CZMFzO9ieBgDM9_OWbF_Bw,50
+kaparoo/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kaparoo/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kaparoo/beartype/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kaparoo/beartype/numerics.py,sha256=rDTmnuOGhBW7wQ_9vesHqx7sHkELIxyaUwuq9TQIHa4,674
+kaparoo/filesystem/__init__.py,sha256=K9KUnRcFXZQQRTEcP5jALce0QGn2XSN0gtf7558I6iQ,1206
+kaparoo/filesystem/exceptions.py,sha256=E9IOyZdA37QefamPrG9QMV9afMcmMf3zNyKk8n4Aewk,191
+kaparoo/filesystem/path.py,sha256=2xMlUPj93OHIGmvAn0JUDatLdsf2dlxku3Cr_TeAYOo,24132
+kaparoo/filesystem/types.py,sha256=qISJYLhd8rW7nOdH5GQJEPiwkxwQD5b75zZi8Fowzqg,242
+kaparoo/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kaparoo/utils/optional.py,sha256=oX05_K04xSx1mKqiDra5V4pIm8F7h_1dKtJV03ojCis,3134
+kaparoo/utils/types.py,sha256=5LNQkhtVO9QLRGHcSc6hplwPxiEeA9U_J4SSYIKQfGY,337
+kaparoo_python-0.1.1.dist-info/METADATA,sha256=laEJLLaGHqyluj1cTuqIwOmqBCFnDxC_MgVJRTIv6c4,3876
+kaparoo_python-0.1.1.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+kaparoo_python-0.1.1.dist-info/licenses/LICENSE,sha256=_6aA_CoB_YWkSfqkGFxghm2GIsBRE2rp_g7vhz11DM8,1087
+kaparoo_python-0.1.1.dist-info/RECORD,,
