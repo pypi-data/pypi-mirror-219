@@ -1,0 +1,4 @@
+requests==2.*
+qiskit==0.43.2
+qiskit_braket_provider==0.0.4
+qiskit-ionq==0.4.1
