@@ -1,0 +1,2 @@
+[console_scripts]
+modsys = cli:run_console
