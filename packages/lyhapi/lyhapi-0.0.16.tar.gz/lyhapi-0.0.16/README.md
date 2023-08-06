@@ -1,0 +1,2 @@
+#lyhapi_autotest
+苏州良医汇接口自动化测试框架
