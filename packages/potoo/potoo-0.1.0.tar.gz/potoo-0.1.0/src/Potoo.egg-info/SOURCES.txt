@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/Potoo.egg-info/PKG-INFO
+src/Potoo.egg-info/SOURCES.txt
+src/Potoo.egg-info/dependency_links.txt
+src/Potoo.egg-info/entry_points.txt
+src/Potoo.egg-info/requires.txt
+src/Potoo.egg-info/top_level.txt
+src/potoo/__init__.py
+src/potoo/__main__.py
+src/potoo/app.py
+src/potoo/cli.py
+src/potoo/export.py
+src/potoo/parse.py
