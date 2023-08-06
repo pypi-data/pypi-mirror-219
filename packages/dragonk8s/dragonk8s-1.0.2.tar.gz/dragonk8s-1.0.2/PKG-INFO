@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: dragonk8s
+Version: 1.0.2
+Summary: A k8s implement of Python3
+Home-page: https://dragonk8s.com
+Author: ma
+Author-email: 591867837@qq.com
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
