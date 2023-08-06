@@ -1,0 +1,2 @@
+[console_scripts]
+encrypt_data = encryption_utils:main
