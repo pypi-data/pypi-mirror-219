@@ -1,0 +1,16 @@
+tidalapi/__init__.py,sha256=BBDe-GaM0zQqWXxHO70gCkIoDXKIWoIej5xXvkrfDT0,560
+tidalapi/album.py,sha256=tlMhNq1_TyACH6FrkpxN1ukgbTrHYff0-FvIAQtyXFY,9094
+tidalapi/artist.py,sha256=WSGmTAnj5p7sbJUmjPU1hVBQ7p55f0khvVL1uX-7XcQ,6797
+tidalapi/genre.py,sha256=r_3lYt_npoFHgY0VjnnosSlTDm6s-od2RLjS9n7s95E,2724
+tidalapi/media.py,sha256=o_5yZnPM9VtqUQh1r6GWE_U8fNGTP8upYMMOC1u8vOI,11867
+tidalapi/mix.py,sha256=aYTjvfOtfYcrQhB3z-ozqXVGhQWfxxRpBenKROfUBa4,4994
+tidalapi/page.py,sha256=0h3MDiu8FXmSqm7GRyS5MwGG_aaJnICMHYIV1xx1d6g,12188
+tidalapi/playlist.py,sha256=h-wLkpMW0aZCME9afau5dJt2snyW7NasgA_YIpuxdZI,9183
+tidalapi/request.py,sha256=EfY_7QpDd4VTjR0q_OY0ygurvaFAN5yUN2fWjbFdUEE,6018
+tidalapi/session.py,sha256=k2mJNZ8y4e9lixyV0TE1pScFvsw4BliYFZ3niZfrZ9g,26313
+tidalapi/types.py,sha256=GDZB6AANEknWTvKrjfEMQFNnAV-KKciuQDqMY2xFkU4,55
+tidalapi/user.py,sha256=oYvIUbapYUgdBU8cWPNk5hgP0b7GL-viOQpYPKrG1U4,11742
+tidalapi-0.7.2.dist-info/LICENSE,sha256=2n6rt7r999OuXp8iOqW9we7ORaxWncIbOwN1ILRGR2g,7651
+tidalapi-0.7.2.dist-info/METADATA,sha256=siTCTZ5XVSCWtDkrOVau2I0QQD8CWsExMseC3yNe3As,7148
+tidalapi-0.7.2.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+tidalapi-0.7.2.dist-info/RECORD,,
