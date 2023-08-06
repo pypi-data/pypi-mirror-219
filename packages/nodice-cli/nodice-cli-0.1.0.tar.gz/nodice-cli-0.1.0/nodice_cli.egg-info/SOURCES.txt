@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+README.md
+pyproject.toml
+nodice/__main__.py
+nodice/cli.py
+nodice/diceware.py
+nodice/wordlists/bip_0039.txt
+nodice/wordlists/eff_large_wordlist.txt
+nodice/wordlists/eff_short_wordlist_1.txt
+nodice/wordlists/eff_short_wordlist_2_0.txt
+nodice_cli.egg-info/PKG-INFO
+nodice_cli.egg-info/SOURCES.txt
+nodice_cli.egg-info/dependency_links.txt
+nodice_cli.egg-info/entry_points.txt
+nodice_cli.egg-info/top_level.txt

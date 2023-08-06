@@ -1,0 +1,2 @@
+[console_scripts]
+nodice = nodice.__main__:main
