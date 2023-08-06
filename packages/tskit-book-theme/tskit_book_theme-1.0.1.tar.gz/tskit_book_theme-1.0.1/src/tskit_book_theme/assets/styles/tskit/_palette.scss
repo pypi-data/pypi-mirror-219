@@ -1,0 +1,25 @@
+$brand-color-1: #1eebb1;
+$brand-color-2: #14e2a8;
+$brand-color-3: #0fa88e;
+$brand-color-4: #0d8b81;
+$brand-color-5: #0a6e74;
+$brand-color-6: #085167;
+$brand-color-7: #053e4e;
+$brand-color-8: #03303e;
+$brand-color-9: #022834;
+
+// Colour variants and any other colours we need that weren't included in the original palette
+$color-1: #fff;
+$color-2: #000;
+$color-3: transparentize(#021d26, 0.62);
+$color-4: transparentize($color-2, 0.84);
+$color-5: transparentize($brand-color-6, 0.5);
+$color-6: #698b94;
+$color-7: #01232e;
+$color-8: #1c687e;
+$color-9: #80979e;
+$color-10: rgba(29, 29, 27, 0.4);
+$color-11: rgba(255, 255, 255, 0.7);
+
+$box-shadow-1: 0 1.25rem 2.25rem $color-3;
+$box-shadow-2: 0 6px 6px $color-4;
