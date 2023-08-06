@@ -1,0 +1,13 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.cfg
+bagit_create.egg-info/PKG-INFO
+bagit_create.egg-info/SOURCES.txt
+bagit_create.egg-info/dependency_links.txt
+bagit_create.egg-info/entry_points.txt
+bagit_create.egg-info/requires.txt
+bagit_create.egg-info/top_level.txt
+bagit_create/pipelines/invenio.ini
