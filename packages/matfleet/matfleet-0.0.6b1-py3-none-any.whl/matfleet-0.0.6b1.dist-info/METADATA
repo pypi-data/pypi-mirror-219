@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: matfleet
+Version: 0.0.6b1
+Summary: test
+Home-page: https://gitee.com/alkemiems/matfleet
+Author: Guanjie Wang
+Author-email: gjwang@buaa.edu.cn
+License: MIT
+Description-Content-Type: text/markdown
+
+# matfleet
+
+#### Introduction
+
+Currently under development...
+
+**Our Vision:**
+
+We hope that this software can help you navigate with ease and proficiency in the following areas:
+
+- First-principles calculations of materials, molecular dynamics, phase diagram phase field, thermodynamics and kinetics, finite element analysis, etc.
+- High-throughput calculations of materials
+- Materials genomics
+- Materials informatics
+- Machine learning in materials science
+- Materials databases
+- Phase change materials
+- Energy materials
+- Two-dimensional materials
+- Condensed matter physics
+- Operation of small supercomputing clusters
+- Computer software development frameworks
+
+#### Developer
+Guanjie Wang: gjwang.buaa@gmail.com
+
+#### Tutorial
+1. Convert many pictures to one pdf file
+
+```python
+>>> pic2pdf -h
+usage: pic2pdf [-h] [-r READ_FILEDIR] [-w WRITE_FN] [-d DIRECTION]
+
+test
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -r READ_FILEDIR, --read_filedir READ_FILEDIR
+                        read file dir
+  -w WRITE_FN, --write_fn WRITE_FN
+                        write filename
+  -d DIRECTION, --direction DIRECTION
+                        default: horizen, true: verti
+```
