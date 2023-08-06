@@ -1,0 +1,11 @@
+name: py3
+dependencies:
+- python=3
+- numpy
+- gevent
+- graphviz
+- packaging
+- pillow
+- psutil
+- sphinx
+- sphinx_rtd_theme
