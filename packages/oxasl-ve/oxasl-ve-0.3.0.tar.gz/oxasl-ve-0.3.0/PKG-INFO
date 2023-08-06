@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: oxasl-ve
+Version: 0.3.0
+Summary: Python library for manipulating and modelling ASL data
+Home-page: https://oxasl.readthedocs.io/
+Author: Martin Craig
+Author-email: martin.craig@eng.ox.ac.uk
+License: Apache-2.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# OXASL_VE
+
+Python interface to the C++ based VEASLC tool for Vessel-encoded ASL designed for use with the OXASL
+processing pipeline
+
+## Citation
+
+*A General Framework for the Analysis of Vessel Encoded Arterial Spin Labelling for Vascular Territory Mapping*
+M Chappell, T Okell, P Jezzard and M Woolrich
+Magnetic Resonance in Medicine 64:1529-1539 (2010)
