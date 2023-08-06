@@ -1,0 +1,2110 @@
+.. meta::
+    :description:
+	Critical documentation for upgrading the Roundup Issue
+	Tracker. Actions that must be taken when upgrading from
+	one version to another are documented here.
+
+.. index:: Upgrading
+
+======================================
+Upgrading to newer versions of Roundup
+======================================
+
+Please read each section carefully and edit the files in your tracker home
+accordingly. Note that there is information about upgrade procedures in the
+`administration guide`_ in the `Software Upgrade`_ section.
+
+If a specific version transition isn't mentioned here (e.g. 0.6.7 to
+0.6.8) then you don't need to do anything.  If you're upgrading from
+0.5.6 to 0.6.8 though, you'll need to apply the "0.5 to 0.6" and
+"0.6.x to 0.6.3" steps.
+
+General steps:
+
+   1. Make note of your current Roundup version.
+   2. Take your Roundup installation offline (web, email,
+      cron scripts, roundup-admin etc.)
+   3. Backup your Roundup instance
+   4. Install the new version of Roundup (preferably in a new virtual
+      environment)
+   5. Make version specific changes as described below for
+      each version transition. If you are starting at 1.5.0
+      and installing to 2.3.0, you need to make the changes for **all**
+      versions starting at 1.5 and ending at 2.3. E.G.
+      1.5.0 -> 1.5.1, 1.5.1 -> 1.6.0, ..., 2.1.0 -> 2.2.0,
+      2.2.0 -> 2.3.0.
+   6. Run ``roundup-admin -i <tracker_home> migrate`` using the newer
+      version of Roundup for **all** the trackers you have
+      upgraded. This will update the database if it is required.
+   7. Bring your Roundup instance back online
+   8. Test
+
+.. note::
+   The v1.5.x releases of Roundup were the last to support
+   Python v2.5 and v2.6.  Starting with the v1.6 releases of Roundup
+   Python version 2.7 that is newer than 2.7.2 is required to run
+   Roundup.  Starting with Roundup version 2.0.0 we also support Python 3
+   versions newer than 3.6.
+
+Recent release notes have the following labels:
+
+* required - Roundup will not work properly if these steps are not done
+* recommended - Roundup will still work, but these steps can cause
+  security or stability issues if not done.
+* optional - new features or changes to existing features you might
+  want to use
+* info - important possibly visible changes in how things operate
+
+If you use virtual environments for your installation, you can run
+trackers with different versions of Roundup. So you can have one tracker
+using version 2.2.0 and another tracker using version 1.6.1. This
+allows you to upgrade trackers one at a time rather than having to
+upgrade all your trackers at once.
+
+.. note::
+
+   This file only includes versions released in the last 10
+   years. If you are upgrading from an older version, start with the
+   changes in the `historical migration <upgrading-history.html>`_
+   document.
+
+.. admonition:: Python 2 Support
+
+  If you are running Roundup under Python 2, you should make plans to
+  switch to Python 3. The continuous Integration (CI) and other services
+  used for developing Roundup are dropping support for Python 2. Also
+  optional packages are dropping Python 2 support. As a result Python 2
+  may not be supported for many more release cycles.
+
+.. admonition:: XHTML Support Deprecation Notice
+
+  If you are running a tracker where the ``html_version`` setting in
+  ``config.ini`` is ``xhtml``, you should plan to change your
+  templates to use html (HTML5). If you are affected by this, please
+  send email to the roundup-users mailing list (roundup-users at
+  lists.sourceforge.net). Version 2.3.0 is expected to be the last
+  version to support XHTML.
+
+Contents:
+
+.. contents::
+   :local:
+
+.. index:: Upgrading; 2.2.0 to 2.3.0
+
+Migrating from 2.2.0 to 2.3.0
+=============================
+
+Update your ``config.ini`` (required)
+-------------------------------------
+
+Upgrade tracker's config.ini file. Use::
+
+  roundup-admin -i /path/to/tracker updateconfig newconfig.ini
+
+to generate a new ini file preserving all your settings.
+You can then merge any local comments from the tracker's
+``config.ini`` to ``newconfig.ini`` and replace
+``config.ini`` with ``newconfig.ini``.
+
+``updateconfig`` will tell you if it is changing old default
+values or if a value must be changed manually.
+
+Using the roundup-mailgw script (required)
+------------------------------------------
+
+In previous versions the roundup-mailgw script had a ``-C`` (or
+``--class``) option for specifying a class to be used with ``-S`` (or
+``--set``) option(s). In the latest version the ``-C`` option is gone,
+the class for this option is specified as a prefix, e.g. instead of ::
+
+    roundup-mailgw -C issue -S issueprop=value
+
+You now specify ::
+
+    roundup-mailgw -S issue.issueprop=value
+
+If multiple values need to be set, this can be achieved with multiple
+``-S`` options or with delimiting multiple values with a semicolon (in
+that case the string needs to be quoted because semicolon is a shell
+special character)::
+
+    roundup-mailgw -S 'issue.issueprop1=value1;issueprop2=value2'
+    roundup-mailgw -S issue.issueprop1=value1 -S issue.issueprop2=value2
+
+are equivalent.  Note that the class is provided as a prefix for the
+set-string, not for each property. The class can be omitted altogether
+in which case it defaults to ``msg`` (this default existed in previous
+versions).
+
+If you do not use the ``-C`` (or ``--class``) option in your current
+setup of mailgw you don't need to change anything.
+
+Replace Create User permission for Anonymous with Register (required)
+---------------------------------------------------------------------
+
+Check your trackers schema.py. If you have the following code::
+
+    db.security.addPermissionToRole('Anonymous', 'Create', 'user')
+
+after the permission for Anonymous 'Email Access', change it to::
+
+    db.security.addPermissionToRole('Anonymous', 'Register', 'user')
+
+The comment for Anonymous 'Email Access' may refer to Create. Change
+it to refer to Register.
+
+This will be an issue if you used the devel or responsive tracker
+templates. If you used a classic, minimal or jinja2 template the
+permission change (but not the comment change) should be done already.
+
+Rdbms version change from 7 to 8 (required)
+-------------------------------------------
+
+This release includes a change that requires updates to the
+database schema.
+
+Sessions and one time key (otks) tables in the Mysql and
+PostgreSQL database use a numeric type that
+truncates/rounds expiration timestamps. This results in
+entries being purged early or late (depending on whether
+it rounds up or down). The discrepancy is a couple of
+days for Mysql or a couple of minutes for PostgreSQL.
+  
+Session keys stay for a week or more and CSRF keys are
+two weeks by default. As a result, this isn't usually a
+visible issue. This migration updates the numeric types
+to ones that supports more significant figures.
+
+You should backup your instance and run the
+``roundup-admin -i <tracker_home> migrate``
+command for all your trackers once you've
+installed the latest code base.
+
+Do this before you use the web, command-line or mail
+interface and before any users access the tracker.
+
+If successful, this command will respond with either
+"Tracker updated" (if you've not previously run it on an
+RDBMS backend) or "No migration action required" (if you
+have run it, or have used another interface to the tracker,
+or are using anydbm).
+
+Session/OTK data storage for SQLite backend changed (required)
+--------------------------------------------------------------
+
+Roundup stores a lot of ephemeral data:
+
+* login session tokens,
+* rate limits
+* password reset attempt tokens
+* one time keys
+* and anti CSRF keys.
+
+These were stored using dbm style files while the main data
+is stored in a SQLite db. Using both dbm and sqlite style
+files is surprising and due to how we lock dbm files can be
+a performance issue.
+
+However you can continue to use the dbm files by setting the
+``backend`` option in the ``[sessiondb]`` section of
+``config.ini`` to ``anydbm``.
+
+If you do not change the setting, two sqlite databases
+called ``db-otk`` and ``db-session`` replace the dbm
+databases. Once you make the change the old ``otks`` and
+``sessions`` dbm databases can be removed.
+
+Note this replacement will require users to log in again and
+refresh web pages to save data. It is best if people save
+all their changes and log out of Roundup before the upgrade
+is done to minimize confusion. Because the data is
+ephemeral, there is no plan to migrate this data to the new
+SQLite databases. If you want to keep using the data set the
+``sessiondb`` ``backend`` option as described above.
+
+Update ``config.ini``'s ``password_pbkdf2_default_rounds`` (required)
+---------------------------------------------------------------------
+
+Roundup hashes passwords using PBKDF2 with SHA1. In this release, you
+can `upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1`.  If you
+upgrade, you want to set the default rounds according to the
+PBKDF2-SHA512 upgrading directions. Note that this algorithm is
+expected to be the default in a future version of Roundup.
+
+If you don't want to upgrade, we recommend that you increase the
+default number of rounds from the original 10000. PBKDF2 has a
+parameter that makes hashing a password more difficult to do.  The
+original 10000 value was set years ago. It has not been updated for
+advancements in computing power.
+
+This release of Roundup changes the value to 2000000 (2
+million). This exceeds the current `recommended setting of
+1,300,000`_ for PBKDF2 when used with SHA1.
+
+.. caution::
+
+  If you were using the old 10000 value, **it will be automatically
+  upgraded** to 2 million by using ``roundup-admin``'s
+  ``updateconfig``.  If you were not using the old 10000 default, you
+  should update it manually.
+
+After the change users will still be able to log in using the older
+10000 round hashed passwords. If ``migrate_passwords`` is set to
+``yes``, passwords will be automatically re-hashed using the new
+higher value when the user logs in. If
+``password_pbkdf2_default_rounds`` is set to a lower value than was
+used to hash a password, the password will not be rehashed so the
+higher value will be kept. The lower value will be used only if the
+password is changed using the web or command line.
+
+Increasing the number of rounds will slow down re-hashing. That's the
+whole point.  Sadly it will also slow down logins.  Usually the hash
+takes under 1 second, but if you are using a slow chip (e.g. an ARM V6
+at 700 bogo mips) it can take 30 seconds to compute the 2000000
+rounds. The slowdown is linear. So what takes .001 seconds at 10000
+rounds will take: ``2000000/10000 * .001 = 200 * .001`` seconds or 0.2
+seconds.
+
+You can see how long it will take by using the new ``roundup-admin``
+``perftest`` command. After you have finished migrating your database,
+run::
+
+  roundup-admin -i <tracker_home> perftest password scheme=PBKDF2 rounds=10000
+
+and then::
+
+  roundup-admin -i <tracker_home> perftest password scheme=PBKDF2 rounds=2,000,000
+
+so see the difference. Output from this command looks like::
+
+   Hash time: 0.203151849s scheme: PBKDF2 rounds: 10000
+
+If your testing reports a hash time above 0.5 seconds for 10000
+rounds, there may be another issue. See if executing::
+
+  python3 -c 'from hashlib import pbkdf2_hmac'
+
+produces an error.
+
+If you get an ImportError, you are using Roundup's fallback PBKDF2
+implementation. It is much slower than the library version.  As a
+result re-encrypting the password (and logging in, which requires
+calculating the encrypted password) will be very slow.
+
+You should find out how to make the import succeed. You may need to
+install an OS vendor package or some other library.
+
+.. _recommended setting of 1,300,000: https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2
+
+Upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1 (recommended)
+---------------------------------------------------------------
+
+We recommend that you upgrade to using PBKDF2-SHA512 for hashing your
+passwords. This is a more secure method than the old PBKDF2 (with
+SHA1). Because the algorithm is more secure, it uses a smaller value
+for ``password_pbkdf2_default_rounds``. Setting
+``password_pbkdf2_default_rounds`` to ``250000`` exceeds the current
+`recommended setting of 210,000`_ iterations for PBKDF2 when used with
+SHA512.
+
+You can see how long this takes to calculate on your hardware using
+``roundup-admin``'s perftest command. For example::
+
+  roundup-admin -i <tracker_home> perftest password scheme=PBKDF2S5 rounds=250,000
+
+produces::
+
+  Hash time: 0.161892945 seconds, scheme: PBKDF2S5, rounds: 250000
+
+Any increase in the number of rounds will cause the password to
+automatically be rehashed to the higher value the next time the user
+logs in via the web interface. Changing the number of rounds to a
+**lower** value will not trigger a rehash during login unless the
+scheme is also being changed. The lower number will be used only when
+the password is explicitly changed using the web interface or the
+command line (``roundup-admin`` for example).
+
+Change the default hashing scheme by adding the following lines to
+|the interfaces.py file|_ in your tracker home::
+
+  ## Use PBDKF2S5 (PBKDF2-SHA512) for passwords. Re-hash old PBDFK2
+  # Force password with scheme PBKDF2 (SHA1) to get re-hashed
+  Password.deprecated_schemes.insert(0, Password.known_schemes[0])
+  # choose PBKDF2S5 as the scheme to use for rehashing.
+  Password.default_scheme = Password.experimental_schemes[0]
+
+You may need to create the ``interfaces.py`` file if it doesn't exist.
+In the future, when the default hash is changed to PBKDF2S5, upgrade
+directions will include instructions to remove these lines and
+the file ``interfaces.py`` if it becomes empty.
+
+You can verify that PBKDF2S5 is used by default by running::
+
+  roundup-admin -i <tracker_home> perftest password rounds=250,000
+
+and verify that the scheme is PBKDF2S5. 
+
+.. _the interfaces.py file:
+   reference.html#interfaces-py-hooking-into-the-core-of-roundup
+
+.. |the interfaces.py file| replace:: the ``interfaces.py`` file
+
+.. _recommended setting of 210,000: https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2
+
+jQuery updated with updates to user.help.html (recommended)
+-----------------------------------------------------------
+
+The devel and responsive templates shipped with an old version of
+jQuery. According to automated tests, it may have a security issue. It
+has been updated to the current version: 3.6.3. If your tracker is
+based on one of these templates (see the ``TEMPLATE-INFO.txt`` file in
+your tracker), remove the old ``html/jquery.js`` file from your
+tracker and copy the new ``jquery-3.6.3.js`` file from the template
+directory to your tracker's ``html`` directory. Also copy in the new
+``user.help.html`` file. It now references the new ``jquery-3.6.3.js``
+file.
+
+
+Session/OTK data storage using Redis (optional)
+-----------------------------------------------
+
+You can store your ephemeral data in a Redis database. This
+provides significantly better performance for ephemeral data
+than SQLite or dbm files. See the section `Using Redis for
+Session Databases`_ in the `administration guide`_
+
+
+.. _Using Redis for Session Databases:
+    admin_guide.html#using-redis-for-session-databases
+
+New SQLite databases created with WAL mode journaling (optional)
+----------------------------------------------------------------
+
+By default, SQLite databases use a rollback journal when
+writing an update. The rollback journal stores a copy of the
+data from before the update. One downside of this is that
+all reads have to be suspended while a write is
+occurring. SQLite has an alternate way of insuring ACID
+compliance by using a WAL (write ahead log) journal.
+
+Version 2.3.0 of Roundup, creates new SQLite databases using
+WAL journaling. With WAL, a writer does not block readers
+and readers do not block writing an update. This keeps
+Roundup accessible even under a heavy write load (e.g. when
+bulk loading data or automated updates via REST).
+
+If you want to convert your existing SQLite db to WAL mode:
+
+   1. check the current journal mode on your database
+      using::
+
+        sqlite3 <tracker_home>/db/db "pragma journal_mode;"
+
+   2. If it returns ``delete``, change it to WAL mode using::
+
+        sqlite3 <tracker_home>/db/db "pragma journal_mode=WAL;"
+ 
+   3. verify by running the command in step 1 again and you
+      should get ``wal``.
+
+If you are using SQLite for session and otk databases,
+perform the same steps replacing ``db`` with ``db-session``
+and ``db-otk``.
+
+If you find WAL mode is not working for you, you can set the
+journal method to a rollback journal (``delete`` mode) by
+using step 2 and replacing ``wal`` with ``delete``. (Note:
+SQLite supports other journaling modes, but only ``wal`` and
+``delete`` persist. Roundup doesn't set a journaling mode
+when it opens the database, so journaling mode options such
+as ``truncate`` are not useful.)
+
+For details on WAL mode see `<https://www.sqlite.org/wal.html>`_
+and `<https://www.sqlite.org/pragma.html#pragma_journal_mode>`_.
+
+Change in processing allowed_api_origins setting (info)
+-------------------------------------------------------
+
+In this release you can use both ``*`` (as the first origin) and
+explicit origins in the `allowed_api_origins`` setting in
+``config.ini``. (Before it was only one or the other.)
+
+You do not need to use ``*``. If you do, it allows any client
+anonymous (unauthenticated) access to the Roundup tracker. This
+is the same as browsing the tracker without logging in. If they
+try to provide credentials, access to the data will be denied by
+`CORS`_.
+
+If you include explicit origins (e.g. \https://example.com),
+users from those origins will not be blocked if they use
+credentials to log in.
+
+.. _CORS: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
+
+Change in processing of In-Reply_to email header (info)
+-------------------------------------------------------
+
+Messages received via email usually include a ``[issue23]``
+designator in the subject line. This indicates what issue is
+being updated. If the designator is missing, Roundup tries
+to find the correct issue by using the in-reply-to email
+header.
+
+The former code appends the new message to the first issue
+found with a message matching the in-reply-to
+header. Usually a message is associated with only one
+issue. However nothing in Roundup requires that.
+
+In this release, the in-reply-to matching is disabled if
+there are multiple issues with the same message. In this
+case, subject matching is used to try to find the matching
+issue.
+
+If you don't have messages assigned to multiple issues you
+will see no change. If you do have multi-linked messages
+this will hopefully result in better message->issue
+matching.
+
+Incremental/batch full test reindexing with roundup-admin (info)
+----------------------------------------------------------------
+
+The ``reindex`` command in ``roundup-admin`` can reindex
+a range of items. For example::
+
+  roundup-admin -i ... reindex issues:1-1000
+
+will reindex only the first 1000 issues. This is useful since
+reindexing can take a while and slow down the tracker. By running
+it in batches you can control when the reindex runs rather than having
+to wait for it to complete all the reindexing. See the man page or
+`administration guide`_ for details.
+
+.. index:: Upgrading; 2.1.0 to 2.2.0
+
+Migrating from 2.1.0 to 2.2.0
+=============================
+
+Update your ``config.ini`` (required)
+-------------------------------------
+
+Upgrade tracker's config.ini file. Use::
+
+  roundup-admin -i /path/to/tracker updateconfig newconfig.ini
+
+to generate a new ini file preserving all your settings.
+You can then merge any local comments from the tracker's
+``config.ini`` to ``newconfig.ini`` and replace
+``config.ini`` with ``newconfig.ini``.
+
+Rdbms version change from 6 to 7 (required)
+-------------------------------------------
+
+This release includes two changes that require updates to the database
+schema:
+
+  1. The size of words included in the Roundup FTS indexers have been
+     increased from 25 to 50. This requires changes to the database
+     columns used by the native indexer.  This also affect the whoosh
+     and xapian indexers.
+  2. Some databases that include native full-text search (native-fts
+     indexer) searching are now supported.
+
+You should run the ``roundup-admin -i <tracker_home> migrate`` command
+for all your trackers once you've installed the latest codebase.
+
+Do this before you use the web, command-line or mail interface
+and before any users access the tracker.
+
+If successful, this command will respond with either "Tracker
+updated" (if you've not previously run it on an RDBMS backend) or
+"No migration action required" (if you have run it, or have used
+another interface to the tracker, or are using anydbm).
+
+See `below if you want to enable native-fts searching`_.
+
+.. _below if you want to enable native-fts searching: \
+    #enhanced-full-text-search-optional
+
+The increase in indexed word length also affects whoosh and xapian
+backends. You may want to run ``roundup-admin -i tracker_home
+reindex`` if you want to index or search for longer words in your full
+text searches. Re-indexing make take some time.
+
+Check new login_empty_passwords setting (required)
+--------------------------------------------------
+
+In this version of Roundup, users with a blank password are not
+allowed to login. Blank passwords have been allowed since 2002, but
+2022 is a different time. If you have a use case that requires a user
+to login without a password, set the ``login_empty_passwords`` setting
+in the ``web`` section of ``config.ini`` to ``yes``. In
+general this should be left at its default value of ``no``.
+
+Check allowed_api_origins setting (optional)
+--------------------------------------------
+
+If you are using the REST or xmlrpc api's from an origin
+that is different from your roundup tracker, you will need
+to add your allowed origins to the allowed_api_origins in
+your updated ``config.ini``. Upgrade your ``config.ini`` as
+described above then read the documentation for the setting
+in ``config.ini``.
+
+Check compression settings (optional)
+-------------------------------------
+
+Read the `administration guide`_ section on `Configuring Compression`_.
+
+Upgrade your tracker's config.ini as described
+above. Compare the old and new files and configure new
+compression settings as you want. Then replace
+``config.ini`` with the ``newconfig.ini`` file.
+
+Search added to user index page (optional)
+------------------------------------------
+
+A search form and count of number of hits has been added to the
+``user.index.html`` template page in the classic template. You may
+want to merge the search form and footer into your template.
+
+Enhanced full-text search (optional)
+------------------------------------
+
+SQLite's `FTS5 full-text search engine`_ is available as is
+`PostgreSQL's full text search`_. Both require a schema upgrade so you
+should run::
+
+  roundup-admin -i tracker_home migrate
+
+to create FTS specific tables before restarting the roundup-web or
+email interfaces.
+
+SQLite 3.9.0+ or PostgreSQL 11.0+ are required to use this feature.
+When using SQLite, all full text search fields will allow searching
+using the MATCH query format described at:
+https://www.sqlite.org/fts5.html#full_text_query_syntax. When using
+PostgreSQL either the websearch_to_tsquery or to_tsquery formats
+described on
+https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES
+can be used. The default is websearch. Prefixing the search with
+``ts:`` enables tsquery mode.
+
+A list of words behaves almost the same as the default text search
+(`native`). So the search string `fts search` will find all issues
+that have both of those words (an AND search) in a text-field (like
+title) or in a message (or file) attached to the issue.
+
+One thing to note is that native-fts searches do not ignore words
+longer than 50 characters or less than 2 characters. Also SQLite does
+not filter out common words (i.e. there is no stopword list). So words
+like "and", "or", "then", "with" ...  are included in the FTS5 search.
+
+You must explicitly enable this search mechanism by changing the
+``indexer`` setting in ``config.ini`` to ``native-fts``. Native-fts
+must be explicitly chosen. This is different from Xapian or Whoosh
+indexers, which are chosen if they are installed in the Python
+environment. This prevents the existing native indexing from being
+discarded if ``indexer`` is not set.
+
+Next re-index your data with ``roundup-admin -i tracker_home
+reindex``. This can take a while depending on the size of the tracker.
+
+You may want to update your ``config.ini`` by following the directions
+above to get the latest documentation.
+
+See the `administration guide notes on native-fts`_ for further details.
+
+Adding error reporting templates (optional)
+-------------------------------------------
+
+Currently some internal errors result in a bare html page with an
+error message. The usual chrome supplied by page.html is not shown.
+For example query language syntax errors for full text search methods
+will display a bare HTML error page.
+
+If you add an ``_generic.400.html`` template to the html directory, you
+can display the error inside of the layout provided by the ``page.html``
+template. This can make fixing the error and navigation easier. You
+can use the ``_generic.404.html`` template to create a
+``_generic.400.html`` by modifying the title and body text. You can test
+the 400 template by appending ``@template=400`` to the url for the
+tracker.
+
+Change passwords using crypt module (optional)
+----------------------------------------------
+
+The crypt module is being removed from the standard library.  Any
+stored password using crypt encoding will fail to verify once the
+crypt module is removed (expected in Python 3.13 see `pep-0594
+<https://peps.python.org/pep-0594/>`_). Automatic migration of
+passwords (if enabled in config.ini) re-encrypts old passwords using
+something other than crypt if a user logs in using the web interface.
+
+You can find users with passwords still encrypted using crypt by
+running::
+
+    roundup-admin -i <tracker_home> table password,id,username
+
+Look for lines starting with ``{CRYPT}``. You can reset the user's
+password using::
+
+    roundup-admin -i <tracker_home>
+    roundup> set user16 password=somenewpassword
+
+changing ``16`` to the id in the second column of the table output.
+The example uses interactive mode (indicated by the ``roundup>``
+prompt). This prevents the new password from showing up in the output
+of ps or shell history. The new password will be encrypted using the
+default encryption method (usually pbkdf2).
+
+Enable performance improvement for wsgi mode (optional)
+-------------------------------------------------------
+
+There is an experimental wsgi performance improvement mode that caches
+the loaded roundup instance. This eliminates disk reads that are
+incurred on each connection. In one report it improves speed by a
+factor of 2 to 3 times. To enable this you should add a feature flag
+to your Roundup wsgi wrapper (see the file
+``.../share/frontends/wsgi.py``) so it looks like::
+
+   feature_flags = { "cache_tracker": "" }
+   app =  RequestDispatcher(tracker_home, feature_flags=feature_flags)
+
+to enable this mode. Note that this is experimental and was added
+during the 2.2.0 beta period, so it is enabled using a feature flag.
+If you use this and it works for you please followup with an email to
+the roundup-users at lists.sourceforge.net mailing list so we can
+enable it by default in a future release.
+
+
+Hide submit button during readonly use of _generic.item.html (optional)
+-----------------------------------------------------------------------
+
+The submit button in _generic.item.html always shows up even when the
+user doesn't have edit perms. Change the ``context/submit`` html to
+read::
+
+   <td colspan=3 tal:content="structure context/submit"
+       tal:condition="context/is_edit_ok">
+
+in your TAL based templates. The ``jinja2`` based templates are
+missing this file, but if you implemented one you want to surround the
+jinja2 code with::
+
+  {% if context.is_edit_ok() %}
+    <submit button code here>
+  {% endif %}
+
+
+.. index:: Upgrading; 2.0.0 to 2.1.0
+
+Migrating from 2.0.0 to 2.1.0
+=============================
+
+Rdbms version change from 5 to 6 (required)
+-------------------------------------------
+
+To fix an issue with importing databases, the database has to be
+upgraded for rdbms backends.
+
+You should run the ``roundup-admin migrate`` command for your
+tracker once you've installed the latest codebase.
+
+Do this before you use the web, command-line or mail interface
+and before any users access the tracker.
+
+If successful, this command will respond with either "Tracker
+updated" (if you've not previously run it on an RDBMS backend) or
+"No migration action required" (if you have run it, or have used
+another interface to the tracker, or are using anydbm).
+
+This only changes the schema for the mysql backend. It has no
+effect other than upgrading the revision on other rdbms backends.
+
+On the mysql backend it creates the database index that makes
+sure the key field for your class is unique.
+
+If your update/migration fails, you will see an::
+
+   IntegrityError: (1062, "Duplicate entry '0-NULL' for key '_user_key_retired_idx'")
+
+it means you have two non-retired members of the class with the
+same key field. E.G. two non-retired users with the same
+username.
+
+Debug this using roundup-admin using the list command. For
+example dump the user class by the key field ``username``::
+
+   $ roundup-admin -i <tracker_home> list user username
+     1: admin
+     2: anonymous
+     3: demo
+     4: agent
+     5: provisional
+     6: foo@example.com
+     7: dupe
+     8: dupe
+     ...
+
+then search the usernames for duplicates. Once you have
+identified the duplicate username (``dupe`` above), you should
+retire the other active duplicates or change the username for the
+duplicate.  To retire ``7: dupe``, you run::
+
+   roundup-admin -i <tracker_home> retire user7
+
+(use ``restore user7`` if you retired the wrong item).  If you
+want to rename the entry use::
+
+   roundup-admin -i <tracker_home> set user7 username=dupe1
+
+Keep doing this until you have no more duplicates. Then run the
+update/migrate again.
+
+If you have duplicate non-retired entries in your database,
+please email roundup-users at lists.sourceforge.net. We are
+interested in how many issues this has caused. Duplicate creation
+should occur only when two or more mysql processes run in
+parallel and both of them creating an item with the same key. So
+this should be a rare event. The internal duplicate prevention
+checks should work in other cases.
+
+For the nerds: if you had a new installation that was created at
+version 5, the uniqueness of a key was not enforced at the
+database level. If you had a database that was at version 4 and
+then upgraded to version 5 you have the uniqueness enforcing
+constraint. Running migrate updates to schema version 6 and installs
+the unique index constraint if it is missing.
+
+Setuptools is now required to install (info)
+--------------------------------------------
+
+Roundup install now uses setuptools rather than distutils. You must
+install setuptools.  Use the version packgaged by your OS vendor.  If
+your OS vendor doesn't supply setuptools use ``pip install
+setuptools``. (You may need pip3 rather than pip if using python3.)
+
+Define Authentication Header (optional)
+---------------------------------------
+
+The web server in front of roundup (apache, nginx) can perform user
+authentication. It can pass the authenticated username to the backend
+in a variable. By default roundup looks for the ``REMOTE_USER``
+variable. This can be changed by setting the parameter
+``http_auth_header`` in the ``[web]`` section of the tracker's
+``config.ini`` file to a different value. The value is case sensitive.
+If the value is unset (the default) the REMOTE_USER variable is used.
+
+If you are running roundup using ``roundup-server`` behind a proxy
+that authenticates the user you need to configure ``roundup-server``
+to pass the HTTP header with the authenticated username to the
+tracker. By default ``roundup-server`` looks for the ``REMOTE_USER``
+header for the authenticated user.  You can copy an arbitrary header
+variable to the tracker using the ``-I`` option to roundup-server (or
+the equivalent option in the roundup-server config file).
+
+For example to use the ``uid_variable`` header, two configuration
+changes are needed: First configure ``roundup-server`` to pass the
+header to the tracker using::
+
+  roundup-server -I uid_variable ....
+
+note that the header is passed exactly as supplied by the upstream
+server. It is **not** prefixed with ``HTTP_`` like other headers since
+you are explicitly allowing the header. Multiple comma separated
+headers can be passed to the ``-I`` option. These could be used in a
+detector or other tracker extensions, but only one header can be used
+by the tracker as an authentication header.
+
+To make the tracker honor the new variable changing the tracker
+``config.ini`` to read::
+
+  [web]
+  ...
+  http_auth_header = uid_variable
+
+At the time this is written, support is experimental. If you use it
+you should notify the roundup maintainers using the roundup-users
+at lists.sourceforge.net mailing list.
+
+Classname Format Enforced (info)
+--------------------------------
+
+Check schema.py and look at all Class(), IssueClass(), FileClass()
+calls. The second argument is the classname. All classnames must:
+
+   * start with an alphabetic character
+   * consist of alphanumerics and '_'
+   * not end with a digit
+
+this was not enforced before. Using non-standard classnames could lead
+to other issues.
+
+jQuery updated with updates to user.help.html (recommended)
+-----------------------------------------------------------
+
+The devel and responsive templates shipped with an old version of
+jQuery with some security issues. It has been updated to the current
+version: 3.5.1. If your tracker is based on one of these templates
+(see the ``TEMPLATE-INFO.txt`` file in your tracker), remove the old
+``html/jquery.js`` file from your tracker and copy the new
+``jquery-3.5.1.js`` file from the template directory to your tracker's
+``html`` directory. Also copy in the new ``user.help.html`` file. It now
+references the new ``jquery-3.5.1.js`` file and also fixes a bug that
+prevented applying the change from the helper to the field on the main
+form.
+
+Roundup-admin security stops on incorrect properties (info)
+-----------------------------------------------------------
+
+The ``roundup-admin ... security`` command used to continue
+running through the rest of the security roles after reporting a
+property error. Now it stops after reporting the incorrect property.
+
+If run non-interactively, it exits with status 1. It can now be
+used in a startup script to detect permission errors.
+
+Futureproof devel and responsive timezone selection extension (recommended)
+---------------------------------------------------------------------------
+
+The devel and responsive (derived from devel) templates use a select
+control to list all available timezones when pytz is used. It
+sanitizes the data using cgi.escape. Cgi.escape is deprecated and
+removed in newer pythons. Change your ``extensions/timezone.py``
+file by applying the following patch manually::
+
+
+    -import cgi
+    +try:
+    +    from html import escape
+    +except ImportError:
+    +    from cgi import escape
+
+     try:
+	 import pytz
+    @@ -25,7 +28,7 @@
+		 s = ' '
+		 if zone == value:
+		     s = 'selected=selected '
+    -            z = cgi.escape(zone)
+    +            z = escape(zone)
+
+See https://issues.roundup-tracker.org/issue2551136 for more details.
+
+.. index:: Upgrading; 1.6.x to 2.0.0
+
+Migrating from 1.6.X to 2.0.0
+=============================
+
+.. index:: roundup-admin; updateconfig subcommand
+
+
+Python 2 MYSQL users MUST READ (required)
+-----------------------------------------
+
+To fix issues with encoding of data and text searching, roundup now
+explicitly sets the database connection character set. Roundup prior
+to 2.0 used the default character set which was not always utf-8. All
+roundup data is manipulated in utf-8. This mismatch causes issues with
+searches and result in corrupted data in the database if it was not
+properly represented across the charset conversions.
+
+This issue exists when running roundup under python 2. Note that there
+are more changes required for running roundup 2.0 if you choose to use
+python3. See `Python 3 support`_.
+
+In an upgraded ``config.ini`` (see next section) the ``[rdbms]``
+section has a key ``mysql_charset`` set by default to ``utf8mb4``.
+
+It should be possible to change ``utf8mb4`` to any mysql charset. So
+if you know what charset is enabled (e.g. via a setting in ~roundup/.my.cnf,
+or the default charset for the database) you can set it in
+``config.ini`` and not need to covert the database. However the
+underlying issues with misconverted data and bad searches will still
+exist if they did before.
+
+None of the roundup developers run mysql, so the exact steps to take
+during the upgrade were tested with test and not production databases.
+
+**Before doing anything else:**
+
+   Backup the mysql database using mysql dump or other mysql
+   supported tool.
+
+   Backup roundup using your current backup tool and take the roundup
+   instance offline.
+
+Then the following steps (similar to the conversion in needed for
+Python 3) should work:
+
+1. Export the tracker database
+   using your **current** 1.6 instance::
+
+     roundup-admin -i <trackerdir> exporttables <export_dir>
+
+   replacing tracker_dir and export_dir as appropriate.
+
+2. Import the exported database using the **new** 2.0 roundup::
+
+     roundup-admin -i <trackerdir> importtables <export_dir>
+
+   replacing tracker_dir and export_dir as appropriate.
+
+The imported data should overwrite the original data. Note it is
+critically important that the ``exporttables`` be done with the *old
+tracker* and the ``importtables`` be done with the *new tracker*. An
+import/export cycle between roundup 1.6.0 and roundup 2.0 has been
+done successfully. So the export format for 1.6 and 2.0 should be
+compatible.
+
+Note that ``importtables`` is new in roundup-2.0, so you will not be
+able to import the result of ``exporttables`` using any 1.x version of
+roundup.
+
+Following the same sequence as above using ``export`` and ``import``
+should also work, but it will export all the files and messages. This
+will take longer but may be worth trying if the ``exporttables`` and
+``importtables`` method fails for some reason.
+
+Another way that should be faster, but is untested is to use mysql
+dump to dump the database.
+https://makandracards.com/makandra/595-dumping-and-importing-from-to-mysql-in-an-utf-8-safe-way
+recommends::
+
+   Note that when your MySQL server is not set to UTF-8 you need to do
+   mysqldump --default-character-set=latin1 (!) to get a correctly
+   encoded dump. In that case you will also need to remove the SET
+   NAMES='latin1' comment at the top of the dump, so the target machine
+   won't change its UTF-8 charset when sourcing.
+
+Then import the dump. Removing ``SET NAMES`` should allow the import
+to use UTF-8.
+
+Please report success or issues with this conversion to the
+roundup-users AT lists.sourceforge.net mailing list.
+
+As people report successful or unsuccessful conversions, we will update
+the errata page at: https://wiki.roundup-tracker.org/ReleaseErrata.
+
+Upgrade tracker's config.ini file (recommended)
+-----------------------------------------------
+
+Once you have installed the new roundup, use::
+
+  roundup-admin -i /path/to/tracker updateconfig newconfig.ini
+
+to generate a new ini file preserving all your settings. You can then
+merge any local comments from the tracker's ``config.ini`` into
+``newconfig.ini``. Compare the old and new files and configure any new
+settings as you want. Then replace ``config.ini`` with the
+``newconfig.ini`` file.
+
+.. _Python 3 support:
+
+Python 3 support (info)
+-----------------------
+
+Many of the ``.html`` and ``.py`` files from Roundup that are copied
+into tracker directories have changed for Python 3 support.  If you
+wish to move an existing tracker to Python 3, you need to merge in
+those changes. Also you need to make sure that locally created python
+code in the tracker is correct for Python 3.
+
+If your tracker uses the ``anydbm`` or ``mysql`` backends, you also
+need to export the tracker contents using ``roundup-admin export``
+running under Python 2, and them import them using ``roundup-admin
+import`` running under Python 3. This is detailed in the documention
+for migrating to a different backend.  If using the ``sqlite`` backend,
+you do not need to export and import, but need to delete the
+``db/otks`` and ``db/sessions`` files when changing Python version.
+If using the ``postgresql`` backend, you do not need to export and
+import and no other special database-related steps are needed.
+
+If you use the whoosh indexer, you will need to reindex. It looks like
+a database created with Python 2 leads to Unicode decode errors when
+accessed by Python 3. Reindexing can take a while (see details below
+look for "reindexing").
+
+Octal values in config.ini change from the Python 2 representation
+with a leading ``0`` (``022``). They now use a leading ``0o``
+(``0o22``). Note that the ``0o`` format is properly handled under
+python 2. You can use the ``newconfig.ini`` generated using ``python3
+roundup-admin -i ... updateconfig newconfig.ini`` if you want to go
+back to using python 2. (Note going back to Python 2 will require
+the same steps as moving from 2 to 3 except using Python 3 to perform
+the export.)
+
+Rate Limit New User Registration (info)
+---------------------------------------
+
+The new user registration form can be abused by bots to allow
+automated registration for spamming. This can be limited by using the
+new ``config.ini`` ``[web]`` option called
+``registration_delay``. The default is 4 and is the number of seconds
+between the time the form was generated and the time the form is
+processed.
+
+If you do not modify the ``user.register.html`` template in your
+tracker's html directory, you *must* set this to 0. Otherwise you will
+see the error:
+
+  Form is corrupted, missing: opaqueregister.
+
+If set to 0, the rate limit check is disabled.
+
+If you want to use this, you can change your ``user.register.html``
+file to include::
+
+ <input type="hidden" name="opaqueregister" tal:attributes="value python: utils.timestamp()">
+
+The hidden input field can be placed right after the form declaration
+that starts with::
+
+   <form method="POST" onSubmit="return submit_once()"
+
+If you have applied Erik Forsberg's tracker level patch to implement
+(see: https://hg.python.org/tracker/python-dev/rev/83477f735132), you
+can back the code out of the tracker. You must change the name of the
+field in the html template to ``opaqueregistration`` from ``opaque``
+in order to use the core code.
+
+PGP mail processing (required)
+------------------------------
+
+Roundup now uses the ``gpg`` module instead of ``pyme`` to process PGP
+mail.  If you have PGP processing enabled, make sure the ``gpg``
+module is installed.
+
+MySQL client module (recommended)
+---------------------------------
+
+Although the ``MySQLdb`` module from
+https://pypi.org/project/MySQL-python/ is still supported, it is
+recommended to switch to the updated module from
+https://pypi.org/project/mysqlclient/.
+
+XMLRPC Access Role (info/required)
+----------------------------------
+
+A new permission has been added to control access to the XMLRPC
+endpoint. If the user doesn't have the new "Xmlrpc Access" permission,
+they will not be able to log in using the /xmlrpc end point.  To add
+this new permission to the "User" role you should change your
+tracker's schema.py and add::
+
+    db.security.addPermissionToRole('User', 'Xmlrpc Access')
+
+This is usually included near where other permissions like "Web Access"
+or "Email Access" are assigned.
+
+New values for db.tx_Source (info)
+----------------------------------
+
+The database attribute tx_Source reports "xmlrpc" and "rest" when the
+/xmlrpc and /rest web endpoints are used. Check all code (extensions,
+detectors, lib) in trackers looking for tx_Source. If you have code
+like::
+
+    if db.tx_Source == "web":
+
+or::
+
+    if db.tx_Source in ['web', 'email-sig-openpgp', 'cli' ]:
+
+you may need to change these to include matches to "rest" and
+"xmlrpc". For example::
+
+    if db.tx_Source in [ "web", "rest", "xmlrpc" ]
+
+or::
+
+    if db.tx_Source in ['web', 'rest', 'xmlrpc', 'email-sig-openpgp', 'cli' ]:
+
+
+CSV export changes (info)
+-------------------------
+
+The original Roundup CSV export function for indexes reported id
+numbers for links. The wiki had a version that resolved the id's to
+names, so it would report ``open`` rather than ``2`` or
+``user2;user3`` rather than ``[2,3]``.
+
+Many people added the enhanced version to their extensions directory.
+
+The enhanced version was made the default in roundup 2.0.  If you want
+to use the old version (that returns id's), you can replace references
+to ``export_csv`` with ``export_csv_id`` in templates.
+
+Both core csv export functions have been changed to force quoting of
+all exported fields. To incorporate this change in any CSV export
+extension you may have added, change references in your code from::
+
+    writer = csv.writer(wfile)
+
+to::
+
+    writer = csv.writer(wfile, quoting=csv.QUOTE_NONNUMERIC)
+
+this forces all (non-numeric) fields to be quoted and empty quotes to
+be added for missing parameters.
+
+This turns exported values that may look like formulas into strings so
+some versions of Excel won't try to interpret them as a formula.
+
+Update userauditor.py to restrict usernames (recommended)
+---------------------------------------------------------
+
+A username can be created with embedded commas and < and >
+characters. Even though the < and > are usually escaped when
+displayed, the embedded comma makes it difficult to edit lists of
+users as they are comma separated.
+
+If you have not modified your tracker's userauditor.py, you can just
+copy the userauditor.py from the classic template into your tracker's
+detectors directory. Otherwise merge the changes from the template
+userauditor.py. https://issues.roundup-tracker.org/issue2550921 may be
+helpful.
+
+Consider reindexing if you use European languages (recommended)
+---------------------------------------------------------------
+
+A couple of bugs dealing with incorrect indexing of European languages
+(Russian and German were reported) have been fixed. Note reindexing
+all your data may take a long time. See:
+https://issues.roundup-tracker.org/issue1195739 and
+https://issues.roundup-tracker.org/issue1344046 for a description of
+the problem. If you determine that this a problem for your tracker,
+you can use::
+
+  roundup-admin -i /path/to/tracker reindex
+
+to rewrite your full text indexes. The tracker used for reindex timing
+had 140MB of file/message data and 2500 issues with a slow 5400RPM
+SATA drive. Using native indexing with sqlite took about 45
+minutes. Using whoosh took about 2 hours. Using xapian took about 6
+hours. All examples were with Python 2. Anecdotal evidence shows
+Python 3 is faster, but YMMV.
+
+Merge improvements in statusauditor.py (optional)
+-------------------------------------------------
+
+By default the detector statusauditor.py will change the status from
+"unread" to "chatting" when a second message is added to an issue.
+The distributed classic and jinja templates implement this feature in
+their copies of ``detectors/statusauditor.py``.
+
+This can be a problem. Consider a person sending email to create an
+issue. Then the person sends a followup message to add some additional
+information to the issue. The followup message will trigger the status
+change from "unread" to "chatting". This is misleading since the
+person is "chatting" with themselves.
+
+Statusauditor.py has been enhanced to prevent the status from changing
+to "chatting" until a second user (person) adds a message.  If you
+want this functionality, you need to merge the distributed
+statusauditor.py with your tracker's statusauditor.py. If you have not
+customised your tracker's statusauditor.py, copy the one from the
+distibuted template. In addition to the python file, you also must
+copy/merge the distributed ``detectors/config.ini`` into your
+tracker's detectors directory. Most people can copy
+``detectors/config.ini`` from the distributed templates as they won't
+have a ``detectors/config.ini`` file. (Note this is
+``detectors/config.ini`` do not confuse it with the main
+``config.ini`` file at the root of the tracker home.)
+
+This enhancement is disabled by default. Enable it by changing the
+value in ``detectors/config.ini`` from::
+
+   chatting_requires_two_users = False
+
+to::
+
+   chatting_requires_two_users = True
+
+(the values ``no`` and ``yes`` can also be used). Restart the tracker
+to enable the change.
+
+If you don't do this quite right you will see one of two error
+messages in the web interface when you try to update an issue with a
+message::
+
+   Edit Error: Unsupported configuration option: Option
+      STATUSAUDITOR_CHATTING_REQUIRES_TWO_USERS not found in
+      detectors/config.ini.
+   Contact tracker admin to fix.
+
+This happens if detectors/config.ini is not found or is missing the
+``chatting_requires_two_users`` option in the ``statusauditor``
+section.
+
+If you have an incorrect value (say you use ``T`` rather than
+``True``) you see a different error::
+
+   Edit Error: Invalid value for
+     DETECTOR::STATUSAUDITOR_CHATTING_REQUIRES_TWO_USERS: 'T'
+   Allowed values: yes, no
+
+to fix this set the value to ``yes`` (True) or ``no`` (False).
+
+Responsive template changes (optional)
+--------------------------------------
+
+There have been some changes to the responsive template. You can
+diff/merge these changes into your responsive template based tracker.
+
+Jinja template changes (required)
+---------------------------------
+
+Auto escaping has been enabled in the jinja template engine, this
+means it is no longer necessary to manually escape dynamic strings
+with ``|e``, but strings that should not be escaped need to be marked
+with ``|safe`` (e.g. ``{{ context.history()|u|safe }}``). Also, the i18n
+extension has been enabled and the template has been updated to use
+the extension for translatable text instead of explicit ``i18n.gettext``
+calls::
+
+   {% trans %}List of issues{% endtrans %}
+
+instead of::
+
+   {{ i18n.gettext('List of issues')|u }}
+
+The jinja template has been upgraded to use bootstrap 4.1.3 (from
+2.2.2). You can diff/merge changes into your jinja template based
+tracker.
+
+Also search _generic.index.html, navigation.html and file.index.html
+in the html directory of your tracker. Look for::
+
+   <input type="hidden" name="@action"
+
+where the value is a jinja expression that calls i18n.gettext. Set the
+value to the argument of the gettext call. E.G. replace::
+
+    <input type="hidden" name="@action" value="{{ i18n.gettext('editCSV')|u }}">
+
+with::
+
+    <input type="hidden" name="@action" value="editCSV">
+
+The action keywords should not be translated.
+
+.. index:: Upgrading; 1.5.1 to 1.6.0
+
+Migrating from 1.5.1 to 1.6.0
+=============================
+
+Update tracker config file
+--------------------------
+
+After installing the new version of roundup, you should
+update the ``config.ini`` file for your tracker. To do this:
+
+1. backup your existing ``config.ini`` file
+2. using the newly installed code, run::
+
+      roundup-admin -i /path/to/tracker updateconfig config.ini.new
+
+   to create the file config.ini.new. Replace
+   ``/path/to/tracker`` with the path to your tracker.
+3. replace your tracker's config.ini with config.ini.new
+
+Using updateconfig keeps all the settings from your
+tracker's config.ini file and adds settings for all the new
+options.
+
+If you have added comments to your original config.ini file,
+merge the added comments into the config.ini.new file.  Then
+replace your tracker's config.ini with config.ini.new.
+
+Read the new config.ini and configure it to enable new
+features. Details on using these features can be found in
+this section.
+
+Make sure that user can view labelprop on classes (required)
+------------------------------------------------------------
+
+If you have View permissions that use ```properties=...```, make sure
+that the `labelprop <reference.html#setlabelprop-property>`_ for the
+class is listed in the properties list.
+
+The first one of these that exists must must be in the list:
+
+ 1. the property set by a call to setlabelprop for the class
+ 2. the key of the class (as set by setkey())
+ 3. the "name" property (if it exists)
+ 4. the "title" property (if it exists)
+
+if none of those apply, you must allow
+
+ * the "id" property
+
+E.G. If your class does a setlabelprop("foo") you must include "foo"
+in the properties list even if the class has name or title properties.
+
+See: `reference.html setlabelprop
+<reference.html#setlabelprop-property>`_ for further details on the
+labelprop.
+
+If you don't do this, you will find that multilinks (and possibly
+links) may not be displayed properly. E.G. templates that iterate over
+a mutlilink field (with tal:repeat for example) may not show any
+content.
+
+See: https://sourceforge.net/p/roundup/mailman/message/35763294/
+for the initial discussion of the issue.
+
+.. _cross site request forgery detection added:
+
+Cross Site Request Forgery Detection Added (recommended)
+--------------------------------------------------------
+
+Roundup 1.6. supports a number of defenses against CSRF.
+
+Http header verification against the tracker's ``web``
+setting in the ``[tracker]`` section of config.ini for the
+following headers:
+
+1. Analyze the ``Referer`` HTTP header to make sure it
+   includes the web setting.
+2. Analyze the ``Origin`` HTTP header to make sure the
+   schema://host matches the web setting.
+3. Analyze the ``X-Forwarded-Host`` header set by a proxy
+   running in front of roundup to make sure it agrees with
+   the host part of the web setting.
+4. Analyze the ``Host`` header to make sure it agrees with
+   the host part of the web setting. This is not done if
+   ``X-Forwarded-Host`` is set.
+
+By default roundup 1.6 does not require any specific header
+to be present. However at least one of the headers above
+*must* pass validation checks (usually ``Host`` or
+``Referer``) or the submission is rejected with an error.
+If any header fails validation, the submission is
+rejected. (Note the user's form keeps all the data they
+entered if it was rejected.)
+
+Also the admin can include unique csrf tokens for all forms
+submitted using the POST method. (Delete and put methods are also
+included, but not currently used by roundup.) The csrf
+token (nonce) is tied to the user's session. When the user
+submits the form and nonce, the nonce is checked to make
+sure it was issued to the user and the same session. If this
+is not true the post is rejected and the user is notified.
+
+The standard context/submit templating item creates CSRF tokens by
+default. If you have forms using the POST method that are not using
+the standard submit routine, you should add the following field to all
+forms::
+
+   <input name="@csrf" type="hidden"
+      tal:attributes="value python:utils.anti_csrf_nonce()">
+
+A unique random token is generated by every call to
+utils.anti_csrf_nonce() and is put in a database to be
+retreived if the token is used. Token lifetimes are 2 weeks
+by default but can be configured in config.ini. Roundup will
+automatically prune old tokens. Calling anti_csrf_nonce with
+an integer lifetime, for example::
+
+   <input name="@csrf" type="hidden"
+      tal:attributes="value python:utils.anti_csrf_nonce(lifetime=10)">
+
+sets the lifetime of that nonce to 10 minutes.
+
+If you want to change the default settings, you have to
+update the web section in your tracker's config.ini file. Follow the
+section above to generate an updated config.ini file. Then
+look for settings that start with csrf. The updated config.ini
+file includes detailed descriptions of the settings.
+
+In general one of four values can be set for these
+settings. The default is ``yes``, which validates the header
+or nonce and blocks access if the validation fails. If the
+field/header is missing it allows access. Setting these
+fields to ``required`` blocks access if the header/nonce is
+missing.
+
+It is recommended that you change your templates so every form
+that is not submitted via GET has an @csrf field. Then change
+the csrf_enforce_token setting to 'required'.
+
+Errors and Troubleshooting - @csrf in url
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you see the @csrf nonce in the URL, you have added the value to a
+form that uses the GET method. You should remove the @csrf token from
+these forms as it is not needed.
+
+Errors and Troubleshooting - AttributeError list object no attribute value
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you get an error:
+
+  AttributeError: 'list' object has no attribute 'value'
+
+in handle_csrf, you have more than one @csrf token for the form. This
+usually occurs because the form uses the standard context/submit
+element but you also added an explicit @csrf statement. Simply remove
+the @csrf element for that form.
+
+Errors and Troubleshooting - xmlrpc Required Header Missing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+When performing and xmlrpc call, if you see something like::
+
+  xmlrpclib.Fault: <Fault 1: "<class
+     'roundup.exceptions.UsageError'>:Required Header Missing">
+
+change your xmlrpc client to add appropriate headers to
+the request including the:
+
+  X-Requested-With:
+
+header as well as any other required csrf headers (e.g. referer,
+origin) configured in config.ini. See the `advanced python client
+<xmlrpc.html#advanced-python-client-adding-anti-csrf-headers>`_ at
+the end of the xmlrpc guide.
+
+Alternatively change the setting of
+csrf_enforce_header_x-requested-with in config.ini to ``no``. So it
+looks like::
+
+  csrf_enforce_header_x-requested-with = no
+
+This is not recommended as it reduces csrf protection.
+
+
+Support for SameSite cookie option for session cookie
+-----------------------------------------------------
+
+Support for serving the session cookie using the SameSite cookie option
+has been added. By default it is set to lax to provide a better user
+experience. But this can be changed to strict or the option can be
+removed entirely.
+
+Using the process for merging config.ini changes described in
+`Cross Site Request Forgery Detection Added`_ you can add the
+``samesite_cookie_setting`` to the ``[web]`` section of the config
+file.
+
+Fix for path traversal changes template resolution
+--------------------------------------------------
+
+The templates in the tracker's html subdirectory must not be
+symbolic links that lead outside of the html directory.
+
+If you don't use symbolic links for templates in your html
+subdirectory you don't have to make any changes. Otherwise you need to
+replace the symbolic links with hard links to the files or replace the
+symbolic links with the files.
+
+This is a side effect of fixing a path traversal security issue.  The
+security issue required a directory with a specific unusual name. This
+made it difficult to exploit. However allowing the use of
+subdirectories to organize the templates required that it be fixed.
+
+
+Database back end specified in config.ini (required)
+----------------------------------------------------
+
+The ``db/backend_name`` file is no longer used to configure the database
+backend being used for a tracker. The backend is now configured in the
+``config.ini`` file using the ``backend`` option located in the ``[rdbms]``
+section. For example if ``db/backend_name`` file contains ``sqlite``, a new
+entry in the tracker's ``config.ini`` will need to be created::
+
+  [rdbms]
+
+  ...
+
+  # Database backend.
+  # Default:
+  backend = sqlite
+
+Once the ``config.ini`` file has been updated with the new ``backend`` option,
+you can safely delete the ``db/backend_name`` file.
+
+Note: the ``backend_name`` file may be located in a directory other than
+``db/`` if you have configured the ``database`` option in the ``[main]``
+section of the ``config.ini`` file to be something other than ``db``.
+
+Note 2: if you are using the anydbm back end, you still set
+it using the backend option in the rdbms section of the
+config.ini file.
+
+New config file option 'indexer' added
+--------------------------------------
+
+This release added support for the Whoosh indexer, so a new
+config file option has been
+added. You can force Roundup to use a particular text indexer by
+setting this value in the [main] section of the tracker's
+``config.ini`` file (usually placed right before indexer_stopwords)::
+
+  [main]
+
+  ...
+
+  # Force Roundup to use a particular text indexer.
+  # If no indexer is supplied, the first available indexer
+  # will be used in the following order:
+  # Possible values: xapian, whoosh, native (internal).
+  indexer =
+
+Errors and Troubleshooting - Full text searching not working
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If after the upgrade full text searching is not working try changing
+the indexer value. If this is failing most likely you need to set
+'''indexer = native''' to use the rdbms or db text indexing systems.
+
+Alternatively you can do a
+'''roundup-admin -i /path/to/tracker reindex'''
+to generate a new index using roundup's preferred indexer from the
+list above.
+
+Xapian error with flint when reindexing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you reindex and are using xapian, you may get the error that
+"flint" is not supported (looks like flint was removed after xapian
+1.2.x). To fix this, you can delete the full text search database
+located in the tracker home directory in the file '''db/text-index'''
+and then perform a reindex.
+
+Stemming improved in Xapian Indexer
+-----------------------------------
+
+Stemming allows a search for "silent" also match silently.  The Porter
+stemmer in Xapian works with lowercase English text. In this release we
+lowercase the documents as they are put into the indexer.
+
+This means capitalization is not preserved, but produces more hits by
+using the stemmer.
+
+You will need to do a roundup-admin reindex if you are using the
+Xapian full text indexer on your tracker.
+
+
+New config file option 'replyto_address' added
+----------------------------------------------
+
+A new config file option has been added to let you control the
+Reply-To header on nosy messages.
+
+Edit your tracker's ``config.ini`` and place the following after
+the email entry in the tracker section::
+
+  [tracker]
+  ...
+
+  # Controls the reply-to header address used when sending
+  # nosy messages.
+  # If the value is unset (default) the roundup tracker's
+  # email address (above) is used.
+  # If set to "AUTHOR" then the primary email address of the
+  # author of the change will be used as the reply-to
+  # address. This allows email exchanges to occur outside of
+  # the view of roundup and exposes the address of the person
+  # who updated the issue, but it could be useful in some
+  # unusual circumstances.
+  # If set to some other value, the value is used as the reply-to
+  # address. It must be a valid RFC2822 address or people will not be
+  # able to reply.
+  # Default: 
+  replyto_address = 
+
+Login from a search or after logout works better (required)
+-----------------------------------------------------------
+
+The login form has been improved to work with some back end code
+changes. Now when a user logs in they stay on the same page where they
+started the login. To make this work, you must change the tal that is
+used to set the ``__came_from`` form variable. Note that the url
+assigned to __came_from must be url encoded/quoted and be under the
+tracker's base url. If the base_url uses http, you can set the url to 
+https.
+
+Replace the existing code in the tracker's html/page.html page that
+looks similar to (look for name="__came_from"):
+
+.. code::
+   :class: big-code
+
+   <input type="hidden" name="__came_from" tal:attributes="value string:${request/base}${request/env/PATH_INFO}">
+
+with the following:
+
+.. code:: html
+  :class: big-code
+
+  <input type="hidden" name="__came_from"
+    tal:condition="exists:request/env/QUERY_STRING"
+    tal:attributes="value string:${request/base}${request/env/PATH_INFO}?${request/env/QUERY_STRING}">
+  <input type="hidden" name="__came_from"
+    tal:condition="not:exists:request/env/QUERY_STRING"
+    tal:attributes="value string:${request/base}${request/env/PATH_INFO}">
+
+Now search backwards for the nearest form statement before the code
+that sets __came_from. If it looks like::
+
+     <form method="post" action="#">
+
+replace it with::
+
+     <form method="post" tal:attributes="action request/base">
+
+or with::
+
+     <form method="post" tal:attributes="action string:${request/env/PATH_INFO}">
+
+the important part is that the action field **must not** include any query
+parameters ('#' includes query params).
+
+Errors and Troubleshooting - Unrecognized scheme in ...
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+One symptom of failing to do this is getting an error:
+
+   Unrecognized scheme in ....
+
+where the .... changes depending on the url path. You can see this
+when logging in from any screen other than the main index.
+
+Option to make adding multiple keywords more convenient
+-------------------------------------------------------
+
+In the classic tracker, after adding a new keyword you are redirected
+to the page for the new keyword so you can change the keyword's
+name. This is usually not desirable as you usually correctly set the
+keyword's name when creating the keyword. The new classic tracker has
+a new checkbox (checked by default) that keeps you on the same page so
+you can add a new keywords one after the other.
+
+To add this to your own tracker, add the following code (prefixed with
+a +) after the entry box for the new keyword in html/keyword.item.html:
+
+.. code::
+   :class: big-code
+
+      <tr>
+       <th i18n:translate="">Keyword</th>
+       <td tal:content="structure context/name/field">name</td>
+   +   <td tal:condition="not:context/id">
+   +     <tal:comment tal:replace="nothing">
+   +       If we get here and do not have an id, we are creating a new
+   +       keyword. It would be nice to provide some mechanism to
+   +       determine the preferred state of the "Continue adding keywords"
+   +       checkbox. By default it is enabled.
+   +     </tal:comment>
+   +     <input type="checkbox" id="continue_new_keyword"
+   +           name="__redirect_to"
+   +           tal:attributes="value
+   +                           string:${request/base}${request/env/PATH_INFO}?@template=item;
+   +                           checked python:True" />
+   +     <label for="continue_new_keyword" i18n:translate="">Continue adding keywords.</label>
+   +   </td>
+      </tr>
+
+Note remove the leading '+' when adding this to the templates.
+
+The key component here is support for the '__redirect_to' query
+property. It is a url which can be used when creating any new item
+(issue, user, keyword ....). It controls the next page displayed after
+creating the item. If '__redirect_to' is not set, then you end up on
+the page for the newly created item. The url value assigned to
+__redirect_to must start with the tracker's base url and must be properly
+url encoded.
+
+Helper popups trigger change events on the original page
+--------------------------------------------------------
+
+The helper popups used to set dates (from a calendar), change lists of
+users or lists of issues did not notify the browser that the fields
+had been changed. This release adds code to trigger the change event.
+
+To add the change event to the calendar popup, you don't need to do
+any changes to the tracker. It is all done in the roundup python code
+in templating.py.
+
+To add the change event when updating users using the help-submit
+template, copy
+share/roundup/templates/devel/html/_generic.help-submit.html and
+replace your tracker's html/_generic.help-submit.html.  If you have
+done local changes to this file, change your file to include the code
+that defines the onclick event for the input field with
+id="btn_apply".
+
+To add the change event when updating lists of issues copy
+share/roundup/templates/devel/html/help_controls.js to your tracer's
+html directory. If you have made local changes to the javascript file,
+merge the two if/else blocks labeled::
+
+   /* trigger change event on the field we changed */
+
+into your help_controls.js
+
+html/_generic.404.html in trackers use page template
+----------------------------------------------------
+
+The original generic 404 error pages for many trackers did not use the
+standard page layout. This change replaces the html/_generic.404.html
+page with one that uses the page template.
+
+If your deployed tracker is based on: classic, minimal, responsive or
+devel templates and has not changed the html/_generic.404.html file,
+you can copy in the new file to get this additional functionality.
+
+Organize templates into subdirectories
+--------------------------------------
+
+The @template parameter to the web interface allows the use of
+subdirectories. So a setting of @template=view/view for an issue would
+use the template in the tracker's html/view/issue.view.html. Similarly
+for a caller class, you could put all the templates under the
+html/caller directory with names like: html/caller/caller.item.html,
+html/caller/caller.index.html etc. You may want to symbolically link the
+html/_generic* templates into your subdirectory so that missing
+templates (e.g. a missing caller.edit.html template) can be satisfied
+by the _generic.edit.html template.
+
+Properly quote query dispname (displayed name) in page.html
+-----------------------------------------------------------
+
+A new method has been added to HTMLStringProperty called url_quote.
+The default templates have been updated to use this in the "Your
+Query" section of the trackers html/page.html file. You will want to
+change your template. Lines starting with - are the original line and
+you want to change it to match the line starting with the + (remove
+the + from the line):
+
+.. code::
+  :class: big-code
+
+      <tal:block tal:repeat="qs request/user/queries">
+  -    <a href="#" tal:attributes="href string:${qs/klass}?${qs/url}&@dispname=${qs/name}"
+  +    <a href="#" tal:attributes="href string:${qs/klass}?${qs/url}&@dispname=${qs/name/url_quote}"
+	  tal:content="qs/name">link</a><br>
+      </tal:block>
+
+Find the tal:repeat line that loops over all queries. Then
+change the value assigned to @dispname in the href attribute from
+${qs/name} to ${qs/name/url_quote}. Note that you should *not* change
+the value for tal:content.
+
+Allow "Show Unassigned" issues link to work for Anonymous user
+--------------------------------------------------------------
+
+In this release the anonymous user is allowed to search the user
+class. The following was added to the schema for all templates that
+provide the search option::
+
+   p = db.security.addPermission(name='Search', klass='user')
+   db.security.addPermissionToRole ('Anonymous', p)
+
+If you are running a tracker that **does not** allow read access for
+anonymous, you should remove this entry as it can be used to perform
+a username guessing attack against a roundup install.
+
+Errors and Troubleshooting - Unassigned issues for anonymous
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you notice that the "Unassigned Issues" search on page.html
+is displaying assigned issues for users with the Anonymous role,
+you need to allow search permissions for the user class.
+
+Improvements in Classic Tracker query.edit.html template
+--------------------------------------------------------
+
+There is a new query editing template included in the distribution at:
+
+   ``share/roundup/templates/classic/html/query.edit.html``
+
+This template fixes:
+
+ * public query could not be removed from "Your Queries" once it was added.
+   Trying to do so would cause a permissions error.
+ * private yes/no dropdown always showed "yes" regardless of
+   underlying state
+ * query Delete button did not work.
+ * same query being displayed multiple times
+
+It also adds:
+ * the table layout displays queries created by the user first,
+   then available public queries.
+ * public query owners are shown
+ * better support for deleted queries. When a query is deleted, it is
+   still available for those who added it to their query list. If you
+   are the query owner, you can restore (undelete) the query. If you
+   are not the owner you can remove it from your query list.
+   (If a query is deleted and nobody had it in their query list, it
+   will not show up in the "Active retired queries" section. You will
+   have to use the class editor or roundup_admin command line to
+   restore it.)
+ * notifies the user that delete/restore requires javascript. It
+   always did, but that requirement wasn't displayed.
+
+To use the new template, you must add Restore permission on queries to
+allow the user to restore queries (see below).
+
+If you have not modified the query.edit.html template in your tracker,
+you should be able to copy the new version from the location above.
+Otherwise you will have to merge the changes into your modified template.
+
+Add the query Restore permission for the User role to your tracker's
+schema.py file.  Place it right after the query retire permission for
+the user role. After the change it should look like::
+
+  p = db.security.addPermission(name='Retire', klass='query', check=edit_query,
+      description="User is allowed to retire their queries")
+  db.security.addPermissionToRole('User', p)
+  p = db.security.addPermission(name='Restore', klass='query',
+      check=edit_query,
+      description="User is allowed to restore their queries")
+  db.security.addPermissionToRole('User', p)
+
+where the last four lines are the ones you need to add.
+
+Usually you can add this to your User role. If all users have the User
+role in common then all logged in users should be ok. If you have
+users who do not include the User role (e.g. they may only have a
+Provisional role), you should add the search permission to that role
+(e.g. Provisional) as well if you allow them to edit their list of
+queries.
+
+Also see the `new search permissions for query in 1.4.17`_ section
+discussing search permission requirements for editing queries. The
+fixes in this release require the ability to search the creator of all
+queries to work correctly.
+
+If the test script for the `new search permissions for query in
+1.4.17`_ doesn't report that a role has the ability to search queries
+or at least search the creator property for queries, add the following
+permissions to your schema.py::
+
+  s = db.security.addPermission(name='Search', klass='query',
+    properties=['creator'],
+    description="User is allowed to Search queries for creator")
+  db.security.addPermissionToRole('User', s)
+
+Errors and Troubleshooting - Public queries listed twice when editing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you do not do this, public queries will be listed twice in the edit
+interface. Once in the "Queries I created" section and again in the
+"Queries others created" section of the query edit page
+(``http..../query?@template=edit``).
+
+Fix security issues in query.item.html template
+-----------------------------------------------
+The default query.item.html template allows anybody to view all
+queries.
+
+This has been updated in the classic, devel and responsive templates
+to only allow people to view queries they creates or queries that are
+publicly viewable.
+
+If you haven't modified you query.item.html template, simply copy the
+query.item.html template from one of the above default templates to
+your tracker's html directory.
+
+Enhancement to check command for Permissions
+--------------------------------------------
+
+A new form of check function is permitted in permission definitions.
+The three argument form is still supported and will work the same
+as it always has (although it may be depricated in the future).
+
+If the check function is defined as::
+
+      check(db, userid, itemid, **ctx)
+
+the ctx variable will have the context to use when determining access
+rights::
+
+     ctx['property'] the name of the property being checked or None if
+            it's a class check.
+
+     ctx['classname'] the name of the class that is being checked
+            (issue, query ....).
+
+     ctx['permission'] the name of the permission (e.g. View, Edit...).
+
+This should make defining complex permissions much easier. Consider::
+
+    def issue_private_access(db, userid, itemid, **ctx):
+        if not db.issue.get(itemid, 'private'):
+           # allow access to everything if not private	
+	   return True
+
+	# It is a private issue hide nosy list
+	# Note that the nosy property *must* be listed
+	# in permissions argument to the addPermission
+	# definition otherwise this check command
+	# is not run.
+	if ctx['property'] == 'nosy':
+	   return False # deny access to this property
+
+	# allow access for editing, viewing etc. of the class
+	return True
+
+
+    e = db.security.addPermission(name='Edit', klass='issue',
+                                  check=issue_private_access,
+				  properties=['nosy'],
+                                  description="Edit issue checks")
+
+It is suggested that you change your checks to use the ``**ctx``
+parameter. This is expected to be the preferred form in the future.
+You do not need to use the ``ctx`` parameter in the function if you do
+not need it.
+
+Changes to property permissions
+-------------------------------
+
+If you create a permission:
+
+    db.security.addPermission(name='View', klass='user',
+       properties=['theme'], check=own_record,
+       description="User is allowed to view their own theme")
+
+that combines checks and properties, the permission also matches a
+permission check for the View permission on the user class.  So this
+also allows the user to see their user record. It is unexpected that
+checking for access without a property would match this permission.
+
+This release adds support for making a permission like above only be
+used during property permission tests. See ``customizing.txt`` and
+search for props_only and set_props_only_default in the section
+'Adding a new Permission'
+
+Improve query editing
+---------------------
+
+If a user creates a query with the same name as one of their existing
+queries, the query editing interface will now report an error. By
+default the query editing page (issue.search.html) displays the index
+page when the search is triggered. This is usually correct since the
+user expects to see the results of the query. But now that
+the code properly checks for duplicate search names, the user should
+stay on the search page if there is an error. To add this to your
+existing issue.search.html page, add the following line after the
+hidden field @old-queryname:
+
+  <input type="hidden" name="@template" value="index|search"/>
+
+With this addition, the index template is displayed if there is no
+error, and the user stays on the search template if there is an error.
+
+New -L (loghttpvialogger) option to roundup-server
+--------------------------------------------------
+
+Http request logs from roundup-server are sent to stderr or
+can be recorded in a log file (if -l or the logfile options
+is used). However there is no way to rotate the logfile
+without shutting down and restarting the roundup-server.
+
+If the -L flag is used, the python logging module is used
+for logging the http requests. The name for the log
+(qualname) is 'roundup.http'. You can direct these messages
+to a rotating log file by putting the following::
+
+   [loggers]
+   keys=roundup.http
+
+   [logger_roundup.http]
+   level=INFO
+   handlers=rotate_weblog
+   qualname=roundup.http
+   propagate=0
+
+   [handlers]
+   keys=rotate_weblog
+
+   [handler_rotate_weblog]
+   class=logging.handlers.RotatingFileHandler
+   args=('httpd.log','a', 512000, 2)
+   formatter=plain
+
+   [formatters]
+   keys=plain
+
+   [formatter_plain]
+   format=%(message)s
+
+into a file (e.g. logging.ini). Then reference this file in
+the 'config' value of the [logging] section in the trackers
+config.ini file.
+
+Note the log configuration above is an example and can be
+merged into a more full featured logging config file for
+your tracker if you wish. It will create a new file in the
+current working directory called 'httpd.log' and will rotate
+the log file at 500K and keep two old copies of the file.
+
+.. index:: Upgrading; 1.5.0 to 1.5.1
+
+Migrating from 1.5.0 to 1.5.1
+=============================
+
+User data visibility
+--------------------
+
+For security reasons you should change the permissions on the user
+class. We previously shipped a configuration that allowed users to see
+too many of other users details, including hashed passwords under
+certain circumstances. In schema.py in your tracker, replace the line::
+
+   db.security.addPermissionToRole('User', 'View', 'user')
+
+with::
+
+   p = db.security.addPermission(name='View', klass='user',
+       properties=('id', 'organisation', 'phone', 'realname',
+       'timezone', 'username'))
+   db.security.addPermissionToRole('User', p)
+
+Note that this removes visibility of user emails, if you want emails to
+be visible you can add 'address' and 'alternate_addresses' to the list
+above.
+
+XSS protection for custom actions
+---------------------------------
+
+If you have defined your own cgi actions in your tracker instance
+(e.g. in a custom ``extensions/spambayes.py`` file) you need to modify
+all cases where client.error_message or client.ok_message are modified
+directly. Instead of::
+
+  self.client.ok_message.append(...)
+
+you need to call::
+
+  self.client.add_ok_message(...)
+
+and the same for::
+
+  self.client.error_message.append(...)
+
+vs.::
+
+  self.client.add_error_message(...)
+
+The new calls escape the passed string by default and avoid XSS security
+issues.
+
+
+Migrating from older versions
+=============================
+
+See the `historical migration <upgrading-history.html>`_ document.
+
+.. _`security documentation`: security-history.html
+.. _`administration guide`: admin_guide.html
+.. _`xmlrpc guide`: xmlrpc.html
+.. _FTS5 full-text search engine: https://www.sqlite.org/fts5.html
+.. _PostgreSQL's full text search: https://www.postgresql.org/docs/current/textsearch.html
+.. _`administration guide notes on native-fts`: admin_guide.html#configuring-native-fts-full-text-search
+.. _Configuring Compression: admin_guide.html#configuring-compression
+.. _Software Upgrade: admin_guide.html#software-upgrade
+.. _new search permissions for query in 1.4.17:
+   upgrading-history.html#new-search-permissions-for-query-in-1-4-17

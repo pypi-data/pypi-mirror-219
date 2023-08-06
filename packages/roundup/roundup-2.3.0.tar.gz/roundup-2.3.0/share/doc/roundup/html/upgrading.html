@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+
+
+
+
+None
+
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Critical documentation for upgrading the Roundup Issue Tracker. Actions that must be taken when upgrading from one version to another are documented here." name="description" />
+
+    <title>Upgrading to newer versions of Roundup &mdash; Roundup 2.3.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/NO_basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    './',
+          VERSION:     '2.3.0',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Roundup 2.3.0 documentation" href="index.html" />
+    <link rel="next" title="Roundup Security Issues" href="security.html" />
+    <link rel="prev" title="Installing Roundup" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="header"><div class="label">Roundup</div>
+        <div id="searchbox" style="display: none">
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" size="18" />
+            <input type="submit" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+    <div class="navigation">
+      <div class="menu">
+       
+    <h3><a href="index.html">Table Of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Upgrading to newer versions of Roundup</a><ul>
+<li><a class="reference internal" href="#migrating-from-2-2-0-to-2-3-0">Migrating from 2.2.0 to 2.3.0</a><ul>
+<li><a class="reference internal" href="#update-your-config-ini-required">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></li>
+<li><a class="reference internal" href="#using-the-roundup-mailgw-script-required">Using the roundup-mailgw script (required)</a></li>
+<li><a class="reference internal" href="#replace-create-user-permission-for-anonymous-with-register-required">Replace Create User permission for Anonymous with Register (required)</a></li>
+<li><a class="reference internal" href="#rdbms-version-change-from-7-to-8-required">Rdbms version change from 7 to 8 (required)</a></li>
+<li><a class="reference internal" href="#session-otk-data-storage-for-sqlite-backend-changed-required">Session/OTK data storage for SQLite backend changed (required)</a></li>
+<li><a class="reference internal" href="#update-config-ini-s-password-pbkdf2-default-rounds-required">Update <code class="docutils literal notranslate"><span class="pre">config.ini</span></code>’s <code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code> (required)</a></li>
+<li><a class="reference internal" href="#upgrade-to-pbkdf2-sha512-from-current-pbkdf2-sha1-recommended">Upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1 (recommended)</a></li>
+<li><a class="reference internal" href="#jquery-updated-with-updates-to-user-help-html-recommended">jQuery updated with updates to user.help.html (recommended)</a></li>
+<li><a class="reference internal" href="#session-otk-data-storage-using-redis-optional">Session/OTK data storage using Redis (optional)</a></li>
+<li><a class="reference internal" href="#new-sqlite-databases-created-with-wal-mode-journaling-optional">New SQLite databases created with WAL mode journaling (optional)</a></li>
+<li><a class="reference internal" href="#change-in-processing-allowed-api-origins-setting-info">Change in processing allowed_api_origins setting (info)</a></li>
+<li><a class="reference internal" href="#change-in-processing-of-in-reply-to-email-header-info">Change in processing of In-Reply_to email header (info)</a></li>
+<li><a class="reference internal" href="#incremental-batch-full-test-reindexing-with-roundup-admin-info">Incremental/batch full test reindexing with roundup-admin (info)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-2-1-0-to-2-2-0">Migrating from 2.1.0 to 2.2.0</a><ul>
+<li><a class="reference internal" href="#id1">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></li>
+<li><a class="reference internal" href="#rdbms-version-change-from-6-to-7-required">Rdbms version change from 6 to 7 (required)</a></li>
+<li><a class="reference internal" href="#check-new-login-empty-passwords-setting-required">Check new login_empty_passwords setting (required)</a></li>
+<li><a class="reference internal" href="#check-allowed-api-origins-setting-optional">Check allowed_api_origins setting (optional)</a></li>
+<li><a class="reference internal" href="#check-compression-settings-optional">Check compression settings (optional)</a></li>
+<li><a class="reference internal" href="#search-added-to-user-index-page-optional">Search added to user index page (optional)</a></li>
+<li><a class="reference internal" href="#enhanced-full-text-search-optional">Enhanced full-text search (optional)</a></li>
+<li><a class="reference internal" href="#adding-error-reporting-templates-optional">Adding error reporting templates (optional)</a></li>
+<li><a class="reference internal" href="#change-passwords-using-crypt-module-optional">Change passwords using crypt module (optional)</a></li>
+<li><a class="reference internal" href="#enable-performance-improvement-for-wsgi-mode-optional">Enable performance improvement for wsgi mode (optional)</a></li>
+<li><a class="reference internal" href="#hide-submit-button-during-readonly-use-of-generic-item-html-optional">Hide submit button during readonly use of _generic.item.html (optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-2-0-0-to-2-1-0">Migrating from 2.0.0 to 2.1.0</a><ul>
+<li><a class="reference internal" href="#rdbms-version-change-from-5-to-6-required">Rdbms version change from 5 to 6 (required)</a></li>
+<li><a class="reference internal" href="#setuptools-is-now-required-to-install-info">Setuptools is now required to install (info)</a></li>
+<li><a class="reference internal" href="#define-authentication-header-optional">Define Authentication Header (optional)</a></li>
+<li><a class="reference internal" href="#classname-format-enforced-info">Classname Format Enforced (info)</a></li>
+<li><a class="reference internal" href="#id2">jQuery updated with updates to user.help.html (recommended)</a></li>
+<li><a class="reference internal" href="#roundup-admin-security-stops-on-incorrect-properties-info">Roundup-admin security stops on incorrect properties (info)</a></li>
+<li><a class="reference internal" href="#futureproof-devel-and-responsive-timezone-selection-extension-recommended">Futureproof devel and responsive timezone selection extension (recommended)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-6-x-to-2-0-0">Migrating from 1.6.X to 2.0.0</a><ul>
+<li><a class="reference internal" href="#python-2-mysql-users-must-read-required">Python 2 MYSQL users MUST READ (required)</a></li>
+<li><a class="reference internal" href="#upgrade-tracker-s-config-ini-file-recommended">Upgrade tracker’s config.ini file (recommended)</a></li>
+<li><a class="reference internal" href="#python-3-support-info">Python 3 support (info)</a></li>
+<li><a class="reference internal" href="#rate-limit-new-user-registration-info">Rate Limit New User Registration (info)</a></li>
+<li><a class="reference internal" href="#pgp-mail-processing-required">PGP mail processing (required)</a></li>
+<li><a class="reference internal" href="#mysql-client-module-recommended">MySQL client module (recommended)</a></li>
+<li><a class="reference internal" href="#xmlrpc-access-role-info-required">XMLRPC Access Role (info/required)</a></li>
+<li><a class="reference internal" href="#new-values-for-db-tx-source-info">New values for db.tx_Source (info)</a></li>
+<li><a class="reference internal" href="#csv-export-changes-info">CSV export changes (info)</a></li>
+<li><a class="reference internal" href="#update-userauditor-py-to-restrict-usernames-recommended">Update userauditor.py to restrict usernames (recommended)</a></li>
+<li><a class="reference internal" href="#consider-reindexing-if-you-use-european-languages-recommended">Consider reindexing if you use European languages (recommended)</a></li>
+<li><a class="reference internal" href="#merge-improvements-in-statusauditor-py-optional">Merge improvements in statusauditor.py (optional)</a></li>
+<li><a class="reference internal" href="#responsive-template-changes-optional">Responsive template changes (optional)</a></li>
+<li><a class="reference internal" href="#jinja-template-changes-required">Jinja template changes (required)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-5-1-to-1-6-0">Migrating from 1.5.1 to 1.6.0</a><ul>
+<li><a class="reference internal" href="#update-tracker-config-file">Update tracker config file</a></li>
+<li><a class="reference internal" href="#make-sure-that-user-can-view-labelprop-on-classes-required">Make sure that user can view labelprop on classes (required)</a></li>
+<li><a class="reference internal" href="#cross-site-request-forgery-detection-added-recommended">Cross Site Request Forgery Detection Added (recommended)</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-csrf-in-url">Errors and Troubleshooting - &#64;csrf in url</a></li>
+<li><a class="reference internal" href="#errors-and-troubleshooting-attributeerror-list-object-no-attribute-value">Errors and Troubleshooting - AttributeError list object no attribute value</a></li>
+<li><a class="reference internal" href="#errors-and-troubleshooting-xmlrpc-required-header-missing">Errors and Troubleshooting - xmlrpc Required Header Missing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#support-for-samesite-cookie-option-for-session-cookie">Support for SameSite cookie option for session cookie</a></li>
+<li><a class="reference internal" href="#fix-for-path-traversal-changes-template-resolution">Fix for path traversal changes template resolution</a></li>
+<li><a class="reference internal" href="#database-back-end-specified-in-config-ini-required">Database back end specified in config.ini (required)</a></li>
+<li><a class="reference internal" href="#new-config-file-option-indexer-added">New config file option ‘indexer’ added</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-full-text-searching-not-working">Errors and Troubleshooting - Full text searching not working</a><ul>
+<li><a class="reference internal" href="#xapian-error-with-flint-when-reindexing">Xapian error with flint when reindexing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stemming-improved-in-xapian-indexer">Stemming improved in Xapian Indexer</a></li>
+<li><a class="reference internal" href="#new-config-file-option-replyto-address-added">New config file option ‘replyto_address’ added</a></li>
+<li><a class="reference internal" href="#login-from-a-search-or-after-logout-works-better-required">Login from a search or after logout works better (required)</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-unrecognized-scheme-in">Errors and Troubleshooting - Unrecognized scheme in …</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#option-to-make-adding-multiple-keywords-more-convenient">Option to make adding multiple keywords more convenient</a></li>
+<li><a class="reference internal" href="#helper-popups-trigger-change-events-on-the-original-page">Helper popups trigger change events on the original page</a></li>
+<li><a class="reference internal" href="#html-generic-404-html-in-trackers-use-page-template">html/_generic.404.html in trackers use page template</a></li>
+<li><a class="reference internal" href="#organize-templates-into-subdirectories">Organize templates into subdirectories</a></li>
+<li><a class="reference internal" href="#properly-quote-query-dispname-displayed-name-in-page-html">Properly quote query dispname (displayed name) in page.html</a></li>
+<li><a class="reference internal" href="#allow-show-unassigned-issues-link-to-work-for-anonymous-user">Allow “Show Unassigned” issues link to work for Anonymous user</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-unassigned-issues-for-anonymous">Errors and Troubleshooting - Unassigned issues for anonymous</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#improvements-in-classic-tracker-query-edit-html-template">Improvements in Classic Tracker query.edit.html template</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-public-queries-listed-twice-when-editing">Errors and Troubleshooting - Public queries listed twice when editing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fix-security-issues-in-query-item-html-template">Fix security issues in query.item.html template</a></li>
+<li><a class="reference internal" href="#enhancement-to-check-command-for-permissions">Enhancement to check command for Permissions</a></li>
+<li><a class="reference internal" href="#changes-to-property-permissions">Changes to property permissions</a></li>
+<li><a class="reference internal" href="#improve-query-editing">Improve query editing</a></li>
+<li><a class="reference internal" href="#new-l-loghttpvialogger-option-to-roundup-server">New -L (loghttpvialogger) option to roundup-server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-5-0-to-1-5-1">Migrating from 1.5.0 to 1.5.1</a><ul>
+<li><a class="reference internal" href="#user-data-visibility">User data visibility</a></li>
+<li><a class="reference internal" href="#xss-protection-for-custom-actions">XSS protection for custom actions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-older-versions">Migrating from older versions</a></li>
+</ul>
+</li>
+</ul>
+
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="installation.html"
+                          title="previous chapter">Installing Roundup</a></p>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="security.html"
+                          title="next chapter">Roundup Security Issues</a></p>
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/upgrading.txt"
+             rel="nofollow">Show Source</a></li>
+    </ul>
+  <div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" size="18" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+      <p style="font-size: 90%">Enter search terms or a module, class or function name.</p>
+  </div>
+  <script type="text/javascript">$('#searchbox').show(0);</script>
+      </div>
+    </div>
+    <div class="content">
+       
+    <div class="related related-top">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="security.html" title="Roundup Security Issues"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installing Roundup"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">Roundup 2.3.0 documentation</a></li> 
+      </ul>
+    </div>
+       
+  <div class="section" id="upgrading-to-newer-versions-of-roundup">
+<span id="index-0"></span><h1>Upgrading to newer versions of Roundup</h1>
+<p>Please read each section carefully and edit the files in your tracker home
+accordingly. Note that there is information about upgrade procedures in the
+<a class="reference external" href="admin_guide.html">administration guide</a> in the <a class="reference external" href="admin_guide.html#software-upgrade">Software Upgrade</a> section.</p>
+<p>If a specific version transition isn’t mentioned here (e.g. 0.6.7 to
+0.6.8) then you don’t need to do anything.  If you’re upgrading from
+0.5.6 to 0.6.8 though, you’ll need to apply the “0.5 to 0.6” and
+“0.6.x to 0.6.3” steps.</p>
+<p>General steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Make note of your current Roundup version.</li>
+<li>Take your Roundup installation offline (web, email,
+cron scripts, roundup-admin etc.)</li>
+<li>Backup your Roundup instance</li>
+<li>Install the new version of Roundup (preferably in a new virtual
+environment)</li>
+<li>Make version specific changes as described below for
+each version transition. If you are starting at 1.5.0
+and installing to 2.3.0, you need to make the changes for <strong>all</strong>
+versions starting at 1.5 and ending at 2.3. E.G.
+1.5.0 -&gt; 1.5.1, 1.5.1 -&gt; 1.6.0, …, 2.1.0 -&gt; 2.2.0,
+2.2.0 -&gt; 2.3.0.</li>
+<li>Run <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">&lt;tracker_home&gt;</span> <span class="pre">migrate</span></code> using the newer
+version of Roundup for <strong>all</strong> the trackers you have
+upgraded. This will update the database if it is required.</li>
+<li>Bring your Roundup instance back online</li>
+<li>Test</li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The v1.5.x releases of Roundup were the last to support
+Python v2.5 and v2.6.  Starting with the v1.6 releases of Roundup
+Python version 2.7 that is newer than 2.7.2 is required to run
+Roundup.  Starting with Roundup version 2.0.0 we also support Python 3
+versions newer than 3.6.</p>
+</div>
+<p>Recent release notes have the following labels:</p>
+<ul class="simple">
+<li>required - Roundup will not work properly if these steps are not done</li>
+<li>recommended - Roundup will still work, but these steps can cause
+security or stability issues if not done.</li>
+<li>optional - new features or changes to existing features you might
+want to use</li>
+<li>info - important possibly visible changes in how things operate</li>
+</ul>
+<p>If you use virtual environments for your installation, you can run
+trackers with different versions of Roundup. So you can have one tracker
+using version 2.2.0 and another tracker using version 1.6.1. This
+allows you to upgrade trackers one at a time rather than having to
+upgrade all your trackers at once.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This file only includes versions released in the last 10
+years. If you are upgrading from an older version, start with the
+changes in the <a class="reference external" href="upgrading-history.html">historical migration</a>
+document.</p>
+</div>
+<div class="admonition-python-2-support admonition">
+<p class="first admonition-title">Python 2 Support</p>
+<p class="last">If you are running Roundup under Python 2, you should make plans to
+switch to Python 3. The continuous Integration (CI) and other services
+used for developing Roundup are dropping support for Python 2. Also
+optional packages are dropping Python 2 support. As a result Python 2
+may not be supported for many more release cycles.</p>
+</div>
+<div class="admonition-xhtml-support-deprecation-notice admonition">
+<p class="first admonition-title">XHTML Support Deprecation Notice</p>
+<p class="last">If you are running a tracker where the <code class="docutils literal notranslate"><span class="pre">html_version</span></code> setting in
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> is <code class="docutils literal notranslate"><span class="pre">xhtml</span></code>, you should plan to change your
+templates to use html (HTML5). If you are affected by this, please
+send email to the roundup-users mailing list (roundup-users at
+lists.sourceforge.net). Version 2.3.0 is expected to be the last
+version to support XHTML.</p>
+</div>
+<p>Contents:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#migrating-from-2-2-0-to-2-3-0" id="id4">Migrating from 2.2.0 to 2.3.0</a><ul>
+<li><a class="reference internal" href="#update-your-config-ini-required" id="id5">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></li>
+<li><a class="reference internal" href="#using-the-roundup-mailgw-script-required" id="id6">Using the roundup-mailgw script (required)</a></li>
+<li><a class="reference internal" href="#replace-create-user-permission-for-anonymous-with-register-required" id="id7">Replace Create User permission for Anonymous with Register (required)</a></li>
+<li><a class="reference internal" href="#rdbms-version-change-from-7-to-8-required" id="id8">Rdbms version change from 7 to 8 (required)</a></li>
+<li><a class="reference internal" href="#session-otk-data-storage-for-sqlite-backend-changed-required" id="id9">Session/OTK data storage for SQLite backend changed (required)</a></li>
+<li><a class="reference internal" href="#update-config-ini-s-password-pbkdf2-default-rounds-required" id="id10">Update <code class="docutils literal notranslate"><span class="pre">config.ini</span></code>’s <code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code> (required)</a></li>
+<li><a class="reference internal" href="#upgrade-to-pbkdf2-sha512-from-current-pbkdf2-sha1-recommended" id="id11">Upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1 (recommended)</a></li>
+<li><a class="reference internal" href="#jquery-updated-with-updates-to-user-help-html-recommended" id="id12">jQuery updated with updates to user.help.html (recommended)</a></li>
+<li><a class="reference internal" href="#session-otk-data-storage-using-redis-optional" id="id13">Session/OTK data storage using Redis (optional)</a></li>
+<li><a class="reference internal" href="#new-sqlite-databases-created-with-wal-mode-journaling-optional" id="id14">New SQLite databases created with WAL mode journaling (optional)</a></li>
+<li><a class="reference internal" href="#change-in-processing-allowed-api-origins-setting-info" id="id15">Change in processing allowed_api_origins setting (info)</a></li>
+<li><a class="reference internal" href="#change-in-processing-of-in-reply-to-email-header-info" id="id16">Change in processing of In-Reply_to email header (info)</a></li>
+<li><a class="reference internal" href="#incremental-batch-full-test-reindexing-with-roundup-admin-info" id="id17">Incremental/batch full test reindexing with roundup-admin (info)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-2-1-0-to-2-2-0" id="id18">Migrating from 2.1.0 to 2.2.0</a><ul>
+<li><a class="reference internal" href="#id1" id="id19">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></li>
+<li><a class="reference internal" href="#rdbms-version-change-from-6-to-7-required" id="id20">Rdbms version change from 6 to 7 (required)</a></li>
+<li><a class="reference internal" href="#check-new-login-empty-passwords-setting-required" id="id21">Check new login_empty_passwords setting (required)</a></li>
+<li><a class="reference internal" href="#check-allowed-api-origins-setting-optional" id="id22">Check allowed_api_origins setting (optional)</a></li>
+<li><a class="reference internal" href="#check-compression-settings-optional" id="id23">Check compression settings (optional)</a></li>
+<li><a class="reference internal" href="#search-added-to-user-index-page-optional" id="id24">Search added to user index page (optional)</a></li>
+<li><a class="reference internal" href="#enhanced-full-text-search-optional" id="id25">Enhanced full-text search (optional)</a></li>
+<li><a class="reference internal" href="#adding-error-reporting-templates-optional" id="id26">Adding error reporting templates (optional)</a></li>
+<li><a class="reference internal" href="#change-passwords-using-crypt-module-optional" id="id27">Change passwords using crypt module (optional)</a></li>
+<li><a class="reference internal" href="#enable-performance-improvement-for-wsgi-mode-optional" id="id28">Enable performance improvement for wsgi mode (optional)</a></li>
+<li><a class="reference internal" href="#hide-submit-button-during-readonly-use-of-generic-item-html-optional" id="id29">Hide submit button during readonly use of _generic.item.html (optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-2-0-0-to-2-1-0" id="id30">Migrating from 2.0.0 to 2.1.0</a><ul>
+<li><a class="reference internal" href="#rdbms-version-change-from-5-to-6-required" id="id31">Rdbms version change from 5 to 6 (required)</a></li>
+<li><a class="reference internal" href="#setuptools-is-now-required-to-install-info" id="id32">Setuptools is now required to install (info)</a></li>
+<li><a class="reference internal" href="#define-authentication-header-optional" id="id33">Define Authentication Header (optional)</a></li>
+<li><a class="reference internal" href="#classname-format-enforced-info" id="id34">Classname Format Enforced (info)</a></li>
+<li><a class="reference internal" href="#id2" id="id35">jQuery updated with updates to user.help.html (recommended)</a></li>
+<li><a class="reference internal" href="#roundup-admin-security-stops-on-incorrect-properties-info" id="id36">Roundup-admin security stops on incorrect properties (info)</a></li>
+<li><a class="reference internal" href="#futureproof-devel-and-responsive-timezone-selection-extension-recommended" id="id37">Futureproof devel and responsive timezone selection extension (recommended)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-6-x-to-2-0-0" id="id38">Migrating from 1.6.X to 2.0.0</a><ul>
+<li><a class="reference internal" href="#python-2-mysql-users-must-read-required" id="id39">Python 2 MYSQL users MUST READ (required)</a></li>
+<li><a class="reference internal" href="#upgrade-tracker-s-config-ini-file-recommended" id="id40">Upgrade tracker’s config.ini file (recommended)</a></li>
+<li><a class="reference internal" href="#python-3-support-info" id="id41">Python 3 support (info)</a></li>
+<li><a class="reference internal" href="#rate-limit-new-user-registration-info" id="id42">Rate Limit New User Registration (info)</a></li>
+<li><a class="reference internal" href="#pgp-mail-processing-required" id="id43">PGP mail processing (required)</a></li>
+<li><a class="reference internal" href="#mysql-client-module-recommended" id="id44">MySQL client module (recommended)</a></li>
+<li><a class="reference internal" href="#xmlrpc-access-role-info-required" id="id45">XMLRPC Access Role (info/required)</a></li>
+<li><a class="reference internal" href="#new-values-for-db-tx-source-info" id="id46">New values for db.tx_Source (info)</a></li>
+<li><a class="reference internal" href="#csv-export-changes-info" id="id47">CSV export changes (info)</a></li>
+<li><a class="reference internal" href="#update-userauditor-py-to-restrict-usernames-recommended" id="id48">Update userauditor.py to restrict usernames (recommended)</a></li>
+<li><a class="reference internal" href="#consider-reindexing-if-you-use-european-languages-recommended" id="id49">Consider reindexing if you use European languages (recommended)</a></li>
+<li><a class="reference internal" href="#merge-improvements-in-statusauditor-py-optional" id="id50">Merge improvements in statusauditor.py (optional)</a></li>
+<li><a class="reference internal" href="#responsive-template-changes-optional" id="id51">Responsive template changes (optional)</a></li>
+<li><a class="reference internal" href="#jinja-template-changes-required" id="id52">Jinja template changes (required)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-5-1-to-1-6-0" id="id53">Migrating from 1.5.1 to 1.6.0</a><ul>
+<li><a class="reference internal" href="#update-tracker-config-file" id="id54">Update tracker config file</a></li>
+<li><a class="reference internal" href="#make-sure-that-user-can-view-labelprop-on-classes-required" id="id55">Make sure that user can view labelprop on classes (required)</a></li>
+<li><a class="reference internal" href="#cross-site-request-forgery-detection-added-recommended" id="id56">Cross Site Request Forgery Detection Added (recommended)</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-csrf-in-url" id="id57">Errors and Troubleshooting - &#64;csrf in url</a></li>
+<li><a class="reference internal" href="#errors-and-troubleshooting-attributeerror-list-object-no-attribute-value" id="id58">Errors and Troubleshooting - AttributeError list object no attribute value</a></li>
+<li><a class="reference internal" href="#errors-and-troubleshooting-xmlrpc-required-header-missing" id="id59">Errors and Troubleshooting - xmlrpc Required Header Missing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#support-for-samesite-cookie-option-for-session-cookie" id="id60">Support for SameSite cookie option for session cookie</a></li>
+<li><a class="reference internal" href="#fix-for-path-traversal-changes-template-resolution" id="id61">Fix for path traversal changes template resolution</a></li>
+<li><a class="reference internal" href="#database-back-end-specified-in-config-ini-required" id="id62">Database back end specified in config.ini (required)</a></li>
+<li><a class="reference internal" href="#new-config-file-option-indexer-added" id="id63">New config file option ‘indexer’ added</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-full-text-searching-not-working" id="id64">Errors and Troubleshooting - Full text searching not working</a><ul>
+<li><a class="reference internal" href="#xapian-error-with-flint-when-reindexing" id="id65">Xapian error with flint when reindexing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stemming-improved-in-xapian-indexer" id="id66">Stemming improved in Xapian Indexer</a></li>
+<li><a class="reference internal" href="#new-config-file-option-replyto-address-added" id="id67">New config file option ‘replyto_address’ added</a></li>
+<li><a class="reference internal" href="#login-from-a-search-or-after-logout-works-better-required" id="id68">Login from a search or after logout works better (required)</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-unrecognized-scheme-in" id="id69">Errors and Troubleshooting - Unrecognized scheme in …</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#option-to-make-adding-multiple-keywords-more-convenient" id="id70">Option to make adding multiple keywords more convenient</a></li>
+<li><a class="reference internal" href="#helper-popups-trigger-change-events-on-the-original-page" id="id71">Helper popups trigger change events on the original page</a></li>
+<li><a class="reference internal" href="#html-generic-404-html-in-trackers-use-page-template" id="id72">html/_generic.404.html in trackers use page template</a></li>
+<li><a class="reference internal" href="#organize-templates-into-subdirectories" id="id73">Organize templates into subdirectories</a></li>
+<li><a class="reference internal" href="#properly-quote-query-dispname-displayed-name-in-page-html" id="id74">Properly quote query dispname (displayed name) in page.html</a></li>
+<li><a class="reference internal" href="#allow-show-unassigned-issues-link-to-work-for-anonymous-user" id="id75">Allow “Show Unassigned” issues link to work for Anonymous user</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-unassigned-issues-for-anonymous" id="id76">Errors and Troubleshooting - Unassigned issues for anonymous</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#improvements-in-classic-tracker-query-edit-html-template" id="id77">Improvements in Classic Tracker query.edit.html template</a><ul>
+<li><a class="reference internal" href="#errors-and-troubleshooting-public-queries-listed-twice-when-editing" id="id78">Errors and Troubleshooting - Public queries listed twice when editing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fix-security-issues-in-query-item-html-template" id="id79">Fix security issues in query.item.html template</a></li>
+<li><a class="reference internal" href="#enhancement-to-check-command-for-permissions" id="id80">Enhancement to check command for Permissions</a></li>
+<li><a class="reference internal" href="#changes-to-property-permissions" id="id81">Changes to property permissions</a></li>
+<li><a class="reference internal" href="#improve-query-editing" id="id82">Improve query editing</a></li>
+<li><a class="reference internal" href="#new-l-loghttpvialogger-option-to-roundup-server" id="id83">New -L (loghttpvialogger) option to roundup-server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-1-5-0-to-1-5-1" id="id84">Migrating from 1.5.0 to 1.5.1</a><ul>
+<li><a class="reference internal" href="#user-data-visibility" id="id85">User data visibility</a></li>
+<li><a class="reference internal" href="#xss-protection-for-custom-actions" id="id86">XSS protection for custom actions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#migrating-from-older-versions" id="id87">Migrating from older versions</a></li>
+</ul>
+</div>
+<div class="section" id="migrating-from-2-2-0-to-2-3-0">
+<span id="index-1"></span><h2><a class="toc-backref" href="#id4">Migrating from 2.2.0 to 2.3.0</a></h2>
+<div class="section" id="update-your-config-ini-required">
+<h3><a class="toc-backref" href="#id5">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></h3>
+<p>Upgrade tracker’s config.ini file. Use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">tracker</span> <span class="n">updateconfig</span> <span class="n">newconfig</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+<p>to generate a new ini file preserving all your settings.
+You can then merge any local comments from the tracker’s
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code> and replace
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> with <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">updateconfig</span></code> will tell you if it is changing old default
+values or if a value must be changed manually.</p>
+</div>
+<div class="section" id="using-the-roundup-mailgw-script-required">
+<h3><a class="toc-backref" href="#id6">Using the roundup-mailgw script (required)</a></h3>
+<p>In previous versions the roundup-mailgw script had a <code class="docutils literal notranslate"><span class="pre">-C</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">--class</span></code>) option for specifying a class to be used with <code class="docutils literal notranslate"><span class="pre">-S</span></code> (or
+<code class="docutils literal notranslate"><span class="pre">--set</span></code>) option(s). In the latest version the <code class="docutils literal notranslate"><span class="pre">-C</span></code> option is gone,
+the class for this option is specified as a prefix, e.g. instead of</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">mailgw</span> <span class="o">-</span><span class="n">C</span> <span class="n">issue</span> <span class="o">-</span><span class="n">S</span> <span class="n">issueprop</span><span class="o">=</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>You now specify</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">mailgw</span> <span class="o">-</span><span class="n">S</span> <span class="n">issue</span><span class="o">.</span><span class="n">issueprop</span><span class="o">=</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>If multiple values need to be set, this can be achieved with multiple
+<code class="docutils literal notranslate"><span class="pre">-S</span></code> options or with delimiting multiple values with a semicolon (in
+that case the string needs to be quoted because semicolon is a shell
+special character):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">mailgw</span> <span class="o">-</span><span class="n">S</span> <span class="s1">&#39;issue.issueprop1=value1;issueprop2=value2&#39;</span>
+<span class="n">roundup</span><span class="o">-</span><span class="n">mailgw</span> <span class="o">-</span><span class="n">S</span> <span class="n">issue</span><span class="o">.</span><span class="n">issueprop1</span><span class="o">=</span><span class="n">value1</span> <span class="o">-</span><span class="n">S</span> <span class="n">issue</span><span class="o">.</span><span class="n">issueprop2</span><span class="o">=</span><span class="n">value2</span>
+</pre></div>
+</div>
+<p>are equivalent.  Note that the class is provided as a prefix for the
+set-string, not for each property. The class can be omitted altogether
+in which case it defaults to <code class="docutils literal notranslate"><span class="pre">msg</span></code> (this default existed in previous
+versions).</p>
+<p>If you do not use the <code class="docutils literal notranslate"><span class="pre">-C</span></code> (or <code class="docutils literal notranslate"><span class="pre">--class</span></code>) option in your current
+setup of mailgw you don’t need to change anything.</p>
+</div>
+<div class="section" id="replace-create-user-permission-for-anonymous-with-register-required">
+<h3><a class="toc-backref" href="#id7">Replace Create User permission for Anonymous with Register (required)</a></h3>
+<p>Check your trackers schema.py. If you have the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;Anonymous&#39;</span><span class="p">,</span> <span class="s1">&#39;Create&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>after the permission for Anonymous ‘Email Access’, change it to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;Anonymous&#39;</span><span class="p">,</span> <span class="s1">&#39;Register&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The comment for Anonymous ‘Email Access’ may refer to Create. Change
+it to refer to Register.</p>
+<p>This will be an issue if you used the devel or responsive tracker
+templates. If you used a classic, minimal or jinja2 template the
+permission change (but not the comment change) should be done already.</p>
+</div>
+<div class="section" id="rdbms-version-change-from-7-to-8-required">
+<h3><a class="toc-backref" href="#id8">Rdbms version change from 7 to 8 (required)</a></h3>
+<p>This release includes a change that requires updates to the
+database schema.</p>
+<p>Sessions and one time key (otks) tables in the Mysql and
+PostgreSQL database use a numeric type that
+truncates/rounds expiration timestamps. This results in
+entries being purged early or late (depending on whether
+it rounds up or down). The discrepancy is a couple of
+days for Mysql or a couple of minutes for PostgreSQL.</p>
+<p>Session keys stay for a week or more and CSRF keys are
+two weeks by default. As a result, this isn’t usually a
+visible issue. This migration updates the numeric types
+to ones that supports more significant figures.</p>
+<p>You should backup your instance and run the
+<code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">&lt;tracker_home&gt;</span> <span class="pre">migrate</span></code>
+command for all your trackers once you’ve
+installed the latest code base.</p>
+<p>Do this before you use the web, command-line or mail
+interface and before any users access the tracker.</p>
+<p>If successful, this command will respond with either
+“Tracker updated” (if you’ve not previously run it on an
+RDBMS backend) or “No migration action required” (if you
+have run it, or have used another interface to the tracker,
+or are using anydbm).</p>
+</div>
+<div class="section" id="session-otk-data-storage-for-sqlite-backend-changed-required">
+<h3><a class="toc-backref" href="#id9">Session/OTK data storage for SQLite backend changed (required)</a></h3>
+<p>Roundup stores a lot of ephemeral data:</p>
+<ul class="simple">
+<li>login session tokens,</li>
+<li>rate limits</li>
+<li>password reset attempt tokens</li>
+<li>one time keys</li>
+<li>and anti CSRF keys.</li>
+</ul>
+<p>These were stored using dbm style files while the main data
+is stored in a SQLite db. Using both dbm and sqlite style
+files is surprising and due to how we lock dbm files can be
+a performance issue.</p>
+<p>However you can continue to use the dbm files by setting the
+<code class="docutils literal notranslate"><span class="pre">backend</span></code> option in the <code class="docutils literal notranslate"><span class="pre">[sessiondb]</span></code> section of
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to <code class="docutils literal notranslate"><span class="pre">anydbm</span></code>.</p>
+<p>If you do not change the setting, two sqlite databases
+called <code class="docutils literal notranslate"><span class="pre">db-otk</span></code> and <code class="docutils literal notranslate"><span class="pre">db-session</span></code> replace the dbm
+databases. Once you make the change the old <code class="docutils literal notranslate"><span class="pre">otks</span></code> and
+<code class="docutils literal notranslate"><span class="pre">sessions</span></code> dbm databases can be removed.</p>
+<p>Note this replacement will require users to log in again and
+refresh web pages to save data. It is best if people save
+all their changes and log out of Roundup before the upgrade
+is done to minimize confusion. Because the data is
+ephemeral, there is no plan to migrate this data to the new
+SQLite databases. If you want to keep using the data set the
+<code class="docutils literal notranslate"><span class="pre">sessiondb</span></code> <code class="docutils literal notranslate"><span class="pre">backend</span></code> option as described above.</p>
+</div>
+<div class="section" id="update-config-ini-s-password-pbkdf2-default-rounds-required">
+<h3><a class="toc-backref" href="#id10">Update <code class="docutils literal notranslate"><span class="pre">config.ini</span></code>’s <code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code> (required)</a></h3>
+<p>Roundup hashes passwords using PBKDF2 with SHA1. In this release, you
+can <cite>upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1</cite>.  If you
+upgrade, you want to set the default rounds according to the
+PBKDF2-SHA512 upgrading directions. Note that this algorithm is
+expected to be the default in a future version of Roundup.</p>
+<p>If you don’t want to upgrade, we recommend that you increase the
+default number of rounds from the original 10000. PBKDF2 has a
+parameter that makes hashing a password more difficult to do.  The
+original 10000 value was set years ago. It has not been updated for
+advancements in computing power.</p>
+<p>This release of Roundup changes the value to 2000000 (2
+million). This exceeds the current <a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2">recommended setting of
+1,300,000</a> for PBKDF2 when used with SHA1.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">If you were using the old 10000 value, <strong>it will be automatically
+upgraded</strong> to 2 million by using <code class="docutils literal notranslate"><span class="pre">roundup-admin</span></code>’s
+<code class="docutils literal notranslate"><span class="pre">updateconfig</span></code>.  If you were not using the old 10000 default, you
+should update it manually.</p>
+</div>
+<p>After the change users will still be able to log in using the older
+10000 round hashed passwords. If <code class="docutils literal notranslate"><span class="pre">migrate_passwords</span></code> is set to
+<code class="docutils literal notranslate"><span class="pre">yes</span></code>, passwords will be automatically re-hashed using the new
+higher value when the user logs in. If
+<code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code> is set to a lower value than was
+used to hash a password, the password will not be rehashed so the
+higher value will be kept. The lower value will be used only if the
+password is changed using the web or command line.</p>
+<p>Increasing the number of rounds will slow down re-hashing. That’s the
+whole point.  Sadly it will also slow down logins.  Usually the hash
+takes under 1 second, but if you are using a slow chip (e.g. an ARM V6
+at 700 bogo mips) it can take 30 seconds to compute the 2000000
+rounds. The slowdown is linear. So what takes .001 seconds at 10000
+rounds will take: <code class="docutils literal notranslate"><span class="pre">2000000/10000</span> <span class="pre">*</span> <span class="pre">.001</span> <span class="pre">=</span> <span class="pre">200</span> <span class="pre">*</span> <span class="pre">.001</span></code> seconds or 0.2
+seconds.</p>
+<p>You can see how long it will take by using the new <code class="docutils literal notranslate"><span class="pre">roundup-admin</span></code>
+<code class="docutils literal notranslate"><span class="pre">perftest</span></code> command. After you have finished migrating your database,
+run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">perftest</span> <span class="n">password</span> <span class="n">scheme</span><span class="o">=</span><span class="n">PBKDF2</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">10000</span>
+</pre></div>
+</div>
+<p>and then:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">perftest</span> <span class="n">password</span> <span class="n">scheme</span><span class="o">=</span><span class="n">PBKDF2</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="mi">000</span><span class="p">,</span><span class="mi">000</span>
+</pre></div>
+</div>
+<p>so see the difference. Output from this command looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hash</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.203151849</span><span class="n">s</span> <span class="n">scheme</span><span class="p">:</span> <span class="n">PBKDF2</span> <span class="n">rounds</span><span class="p">:</span> <span class="mi">10000</span>
+</pre></div>
+</div>
+<p>If your testing reports a hash time above 0.5 seconds for 10000
+rounds, there may be another issue. See if executing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;from hashlib import pbkdf2_hmac&#39;</span>
+</pre></div>
+</div>
+<p>produces an error.</p>
+<p>If you get an ImportError, you are using Roundup’s fallback PBKDF2
+implementation. It is much slower than the library version.  As a
+result re-encrypting the password (and logging in, which requires
+calculating the encrypted password) will be very slow.</p>
+<p>You should find out how to make the import succeed. You may need to
+install an OS vendor package or some other library.</p>
+</div>
+<div class="section" id="upgrade-to-pbkdf2-sha512-from-current-pbkdf2-sha1-recommended">
+<h3><a class="toc-backref" href="#id11">Upgrade to PBKDF2-SHA512 from current PBKDF2-SHA1 (recommended)</a></h3>
+<p>We recommend that you upgrade to using PBKDF2-SHA512 for hashing your
+passwords. This is a more secure method than the old PBKDF2 (with
+SHA1). Because the algorithm is more secure, it uses a smaller value
+for <code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code>. Setting
+<code class="docutils literal notranslate"><span class="pre">password_pbkdf2_default_rounds</span></code> to <code class="docutils literal notranslate"><span class="pre">250000</span></code> exceeds the current
+<a class="reference external" href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html#pbkdf2">recommended setting of 210,000</a> iterations for PBKDF2 when used with
+SHA512.</p>
+<p>You can see how long this takes to calculate on your hardware using
+<code class="docutils literal notranslate"><span class="pre">roundup-admin</span></code>’s perftest command. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">perftest</span> <span class="n">password</span> <span class="n">scheme</span><span class="o">=</span><span class="n">PBKDF2S5</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span><span class="mi">000</span>
+</pre></div>
+</div>
+<p>produces:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Hash</span> <span class="n">time</span><span class="p">:</span> <span class="mf">0.161892945</span> <span class="n">seconds</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="n">PBKDF2S5</span><span class="p">,</span> <span class="n">rounds</span><span class="p">:</span> <span class="mi">250000</span>
+</pre></div>
+</div>
+<p>Any increase in the number of rounds will cause the password to
+automatically be rehashed to the higher value the next time the user
+logs in via the web interface. Changing the number of rounds to a
+<strong>lower</strong> value will not trigger a rehash during login unless the
+scheme is also being changed. The lower number will be used only when
+the password is explicitly changed using the web interface or the
+command line (<code class="docutils literal notranslate"><span class="pre">roundup-admin</span></code> for example).</p>
+<p>Change the default hashing scheme by adding the following lines to
+<a class="reference external" href="reference.html#interfaces-py-hooking-into-the-core-of-roundup">the <code class="docutils literal notranslate"><span class="pre">interfaces.py</span></code> file</a> in your tracker home:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">## Use PBDKF2S5 (PBKDF2-SHA512) for passwords. Re-hash old PBDFK2</span>
+<span class="c1"># Force password with scheme PBKDF2 (SHA1) to get re-hashed</span>
+<span class="n">Password</span><span class="o">.</span><span class="n">deprecated_schemes</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Password</span><span class="o">.</span><span class="n">known_schemes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># choose PBKDF2S5 as the scheme to use for rehashing.</span>
+<span class="n">Password</span><span class="o">.</span><span class="n">default_scheme</span> <span class="o">=</span> <span class="n">Password</span><span class="o">.</span><span class="n">experimental_schemes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You may need to create the <code class="docutils literal notranslate"><span class="pre">interfaces.py</span></code> file if it doesn’t exist.
+In the future, when the default hash is changed to PBKDF2S5, upgrade
+directions will include instructions to remove these lines and
+the file <code class="docutils literal notranslate"><span class="pre">interfaces.py</span></code> if it becomes empty.</p>
+<p>You can verify that PBKDF2S5 is used by default by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">perftest</span> <span class="n">password</span> <span class="n">rounds</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span><span class="mi">000</span>
+</pre></div>
+</div>
+<p>and verify that the scheme is PBKDF2S5.</p>
+</div>
+<div class="section" id="jquery-updated-with-updates-to-user-help-html-recommended">
+<h3><a class="toc-backref" href="#id12">jQuery updated with updates to user.help.html (recommended)</a></h3>
+<p>The devel and responsive templates shipped with an old version of
+jQuery. According to automated tests, it may have a security issue. It
+has been updated to the current version: 3.6.3. If your tracker is
+based on one of these templates (see the <code class="docutils literal notranslate"><span class="pre">TEMPLATE-INFO.txt</span></code> file in
+your tracker), remove the old <code class="docutils literal notranslate"><span class="pre">html/jquery.js</span></code> file from your
+tracker and copy the new <code class="docutils literal notranslate"><span class="pre">jquery-3.6.3.js</span></code> file from the template
+directory to your tracker’s <code class="docutils literal notranslate"><span class="pre">html</span></code> directory. Also copy in the new
+<code class="docutils literal notranslate"><span class="pre">user.help.html</span></code> file. It now references the new <code class="docutils literal notranslate"><span class="pre">jquery-3.6.3.js</span></code>
+file.</p>
+</div>
+<div class="section" id="session-otk-data-storage-using-redis-optional">
+<h3><a class="toc-backref" href="#id13">Session/OTK data storage using Redis (optional)</a></h3>
+<p>You can store your ephemeral data in a Redis database. This
+provides significantly better performance for ephemeral data
+than SQLite or dbm files. See the section <a class="reference external" href="admin_guide.html#using-redis-for-session-databases">Using Redis for
+Session Databases</a> in the <a class="reference external" href="admin_guide.html">administration guide</a></p>
+</div>
+<div class="section" id="new-sqlite-databases-created-with-wal-mode-journaling-optional">
+<h3><a class="toc-backref" href="#id14">New SQLite databases created with WAL mode journaling (optional)</a></h3>
+<p>By default, SQLite databases use a rollback journal when
+writing an update. The rollback journal stores a copy of the
+data from before the update. One downside of this is that
+all reads have to be suspended while a write is
+occurring. SQLite has an alternate way of insuring ACID
+compliance by using a WAL (write ahead log) journal.</p>
+<p>Version 2.3.0 of Roundup, creates new SQLite databases using
+WAL journaling. With WAL, a writer does not block readers
+and readers do not block writing an update. This keeps
+Roundup accessible even under a heavy write load (e.g. when
+bulk loading data or automated updates via REST).</p>
+<p>If you want to convert your existing SQLite db to WAL mode:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">check the current journal mode on your database
+using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite3</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;/</span><span class="n">db</span><span class="o">/</span><span class="n">db</span> <span class="s2">&quot;pragma journal_mode;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">If it returns <code class="docutils literal notranslate"><span class="pre">delete</span></code>, change it to WAL mode using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sqlite3</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;/</span><span class="n">db</span><span class="o">/</span><span class="n">db</span> <span class="s2">&quot;pragma journal_mode=WAL;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">verify by running the command in step 1 again and you
+should get <code class="docutils literal notranslate"><span class="pre">wal</span></code>.</p>
+</li>
+</ol>
+</div></blockquote>
+<p>If you are using SQLite for session and otk databases,
+perform the same steps replacing <code class="docutils literal notranslate"><span class="pre">db</span></code> with <code class="docutils literal notranslate"><span class="pre">db-session</span></code>
+and <code class="docutils literal notranslate"><span class="pre">db-otk</span></code>.</p>
+<p>If you find WAL mode is not working for you, you can set the
+journal method to a rollback journal (<code class="docutils literal notranslate"><span class="pre">delete</span></code> mode) by
+using step 2 and replacing <code class="docutils literal notranslate"><span class="pre">wal</span></code> with <code class="docutils literal notranslate"><span class="pre">delete</span></code>. (Note:
+SQLite supports other journaling modes, but only <code class="docutils literal notranslate"><span class="pre">wal</span></code> and
+<code class="docutils literal notranslate"><span class="pre">delete</span></code> persist. Roundup doesn’t set a journaling mode
+when it opens the database, so journaling mode options such
+as <code class="docutils literal notranslate"><span class="pre">truncate</span></code> are not useful.)</p>
+<p>For details on WAL mode see <a class="reference external" href="https://www.sqlite.org/wal.html">https://www.sqlite.org/wal.html</a>
+and <a class="reference external" href="https://www.sqlite.org/pragma.html#pragma_journal_mode">https://www.sqlite.org/pragma.html#pragma_journal_mode</a>.</p>
+</div>
+<div class="section" id="change-in-processing-allowed-api-origins-setting-info">
+<h3><a class="toc-backref" href="#id15">Change in processing allowed_api_origins setting (info)</a></h3>
+<p>In this release you can use both <code class="docutils literal notranslate"><span class="pre">*</span></code> (as the first origin) and
+explicit origins in the <cite>allowed_api_origins`</cite> setting in
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code>. (Before it was only one or the other.)</p>
+<p>You do not need to use <code class="docutils literal notranslate"><span class="pre">*</span></code>. If you do, it allows any client
+anonymous (unauthenticated) access to the Roundup tracker. This
+is the same as browsing the tracker without logging in. If they
+try to provide credentials, access to the data will be denied by
+<a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS</a>.</p>
+<p>If you include explicit origins (e.g. https://example.com),
+users from those origins will not be blocked if they use
+credentials to log in.</p>
+</div>
+<div class="section" id="change-in-processing-of-in-reply-to-email-header-info">
+<h3><a class="toc-backref" href="#id16">Change in processing of In-Reply_to email header (info)</a></h3>
+<p>Messages received via email usually include a <code class="docutils literal notranslate"><span class="pre">[issue23]</span></code>
+designator in the subject line. This indicates what issue is
+being updated. If the designator is missing, Roundup tries
+to find the correct issue by using the in-reply-to email
+header.</p>
+<p>The former code appends the new message to the first issue
+found with a message matching the in-reply-to
+header. Usually a message is associated with only one
+issue. However nothing in Roundup requires that.</p>
+<p>In this release, the in-reply-to matching is disabled if
+there are multiple issues with the same message. In this
+case, subject matching is used to try to find the matching
+issue.</p>
+<p>If you don’t have messages assigned to multiple issues you
+will see no change. If you do have multi-linked messages
+this will hopefully result in better message-&gt;issue
+matching.</p>
+</div>
+<div class="section" id="incremental-batch-full-test-reindexing-with-roundup-admin-info">
+<h3><a class="toc-backref" href="#id17">Incremental/batch full test reindexing with roundup-admin (info)</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">reindex</span></code> command in <code class="docutils literal notranslate"><span class="pre">roundup-admin</span></code> can reindex
+a range of items. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">...</span> <span class="n">reindex</span> <span class="n">issues</span><span class="p">:</span><span class="mi">1</span><span class="o">-</span><span class="mi">1000</span>
+</pre></div>
+</div>
+<p>will reindex only the first 1000 issues. This is useful since
+reindexing can take a while and slow down the tracker. By running
+it in batches you can control when the reindex runs rather than having
+to wait for it to complete all the reindexing. See the man page or
+<a class="reference external" href="admin_guide.html">administration guide</a> for details.</p>
+</div>
+</div>
+<div class="section" id="migrating-from-2-1-0-to-2-2-0">
+<span id="index-2"></span><h2><a class="toc-backref" href="#id18">Migrating from 2.1.0 to 2.2.0</a></h2>
+<div class="section" id="id1">
+<h3><a class="toc-backref" href="#id19">Update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (required)</a></h3>
+<p>Upgrade tracker’s config.ini file. Use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">tracker</span> <span class="n">updateconfig</span> <span class="n">newconfig</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+<p>to generate a new ini file preserving all your settings.
+You can then merge any local comments from the tracker’s
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code> and replace
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> with <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code>.</p>
+</div>
+<div class="section" id="rdbms-version-change-from-6-to-7-required">
+<h3><a class="toc-backref" href="#id20">Rdbms version change from 6 to 7 (required)</a></h3>
+<p>This release includes two changes that require updates to the database
+schema:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>The size of words included in the Roundup FTS indexers have been
+increased from 25 to 50. This requires changes to the database
+columns used by the native indexer.  This also affect the whoosh
+and xapian indexers.</li>
+<li>Some databases that include native full-text search (native-fts
+indexer) searching are now supported.</li>
+</ol>
+</div></blockquote>
+<p>You should run the <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">&lt;tracker_home&gt;</span> <span class="pre">migrate</span></code> command
+for all your trackers once you’ve installed the latest codebase.</p>
+<p>Do this before you use the web, command-line or mail interface
+and before any users access the tracker.</p>
+<p>If successful, this command will respond with either “Tracker
+updated” (if you’ve not previously run it on an RDBMS backend) or
+“No migration action required” (if you have run it, or have used
+another interface to the tracker, or are using anydbm).</p>
+<p>See <a class="reference external" href=" #enhanced-full-text-search-optional">below if you want to enable native-fts searching</a>.</p>
+<p>The increase in indexed word length also affects whoosh and xapian
+backends. You may want to run <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">tracker_home</span>
+<span class="pre">reindex</span></code> if you want to index or search for longer words in your full
+text searches. Re-indexing make take some time.</p>
+</div>
+<div class="section" id="check-new-login-empty-passwords-setting-required">
+<h3><a class="toc-backref" href="#id21">Check new login_empty_passwords setting (required)</a></h3>
+<p>In this version of Roundup, users with a blank password are not
+allowed to login. Blank passwords have been allowed since 2002, but
+2022 is a different time. If you have a use case that requires a user
+to login without a password, set the <code class="docutils literal notranslate"><span class="pre">login_empty_passwords</span></code> setting
+in the <code class="docutils literal notranslate"><span class="pre">web</span></code> section of <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to <code class="docutils literal notranslate"><span class="pre">yes</span></code>. In
+general this should be left at its default value of <code class="docutils literal notranslate"><span class="pre">no</span></code>.</p>
+</div>
+<div class="section" id="check-allowed-api-origins-setting-optional">
+<h3><a class="toc-backref" href="#id22">Check allowed_api_origins setting (optional)</a></h3>
+<p>If you are using the REST or xmlrpc api’s from an origin
+that is different from your roundup tracker, you will need
+to add your allowed origins to the allowed_api_origins in
+your updated <code class="docutils literal notranslate"><span class="pre">config.ini</span></code>. Upgrade your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> as
+described above then read the documentation for the setting
+in <code class="docutils literal notranslate"><span class="pre">config.ini</span></code>.</p>
+</div>
+<div class="section" id="check-compression-settings-optional">
+<h3><a class="toc-backref" href="#id23">Check compression settings (optional)</a></h3>
+<p>Read the <a class="reference external" href="admin_guide.html">administration guide</a> section on <a class="reference external" href="admin_guide.html#configuring-compression">Configuring Compression</a>.</p>
+<p>Upgrade your tracker’s config.ini as described
+above. Compare the old and new files and configure new
+compression settings as you want. Then replace
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> with the <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code> file.</p>
+</div>
+<div class="section" id="search-added-to-user-index-page-optional">
+<h3><a class="toc-backref" href="#id24">Search added to user index page (optional)</a></h3>
+<p>A search form and count of number of hits has been added to the
+<code class="docutils literal notranslate"><span class="pre">user.index.html</span></code> template page in the classic template. You may
+want to merge the search form and footer into your template.</p>
+</div>
+<div class="section" id="enhanced-full-text-search-optional">
+<h3><a class="toc-backref" href="#id25">Enhanced full-text search (optional)</a></h3>
+<p>SQLite’s <a class="reference external" href="https://www.sqlite.org/fts5.html">FTS5 full-text search engine</a> is available as is
+<a class="reference external" href="https://www.postgresql.org/docs/current/textsearch.html">PostgreSQL’s full text search</a>. Both require a schema upgrade so you
+should run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="n">tracker_home</span> <span class="n">migrate</span>
+</pre></div>
+</div>
+<p>to create FTS specific tables before restarting the roundup-web or
+email interfaces.</p>
+<p>SQLite 3.9.0+ or PostgreSQL 11.0+ are required to use this feature.
+When using SQLite, all full text search fields will allow searching
+using the MATCH query format described at:
+<a class="reference external" href="https://www.sqlite.org/fts5.html#full_text_query_syntax">https://www.sqlite.org/fts5.html#full_text_query_syntax</a>. When using
+PostgreSQL either the websearch_to_tsquery or to_tsquery formats
+described on
+<a class="reference external" href="https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES">https://www.postgresql.org/docs/14/textsearch-controls.html#TEXTSEARCH-PARSING-QUERIES</a>
+can be used. The default is websearch. Prefixing the search with
+<code class="docutils literal notranslate"><span class="pre">ts:</span></code> enables tsquery mode.</p>
+<p>A list of words behaves almost the same as the default text search
+(<cite>native</cite>). So the search string <cite>fts search</cite> will find all issues
+that have both of those words (an AND search) in a text-field (like
+title) or in a message (or file) attached to the issue.</p>
+<p>One thing to note is that native-fts searches do not ignore words
+longer than 50 characters or less than 2 characters. Also SQLite does
+not filter out common words (i.e. there is no stopword list). So words
+like “and”, “or”, “then”, “with” …  are included in the FTS5 search.</p>
+<p>You must explicitly enable this search mechanism by changing the
+<code class="docutils literal notranslate"><span class="pre">indexer</span></code> setting in <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to <code class="docutils literal notranslate"><span class="pre">native-fts</span></code>. Native-fts
+must be explicitly chosen. This is different from Xapian or Whoosh
+indexers, which are chosen if they are installed in the Python
+environment. This prevents the existing native indexing from being
+discarded if <code class="docutils literal notranslate"><span class="pre">indexer</span></code> is not set.</p>
+<p>Next re-index your data with <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">tracker_home</span>
+<span class="pre">reindex</span></code>. This can take a while depending on the size of the tracker.</p>
+<p>You may want to update your <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> by following the directions
+above to get the latest documentation.</p>
+<p>See the <a class="reference external" href="admin_guide.html#configuring-native-fts-full-text-search">administration guide notes on native-fts</a> for further details.</p>
+</div>
+<div class="section" id="adding-error-reporting-templates-optional">
+<h3><a class="toc-backref" href="#id26">Adding error reporting templates (optional)</a></h3>
+<p>Currently some internal errors result in a bare html page with an
+error message. The usual chrome supplied by page.html is not shown.
+For example query language syntax errors for full text search methods
+will display a bare HTML error page.</p>
+<p>If you add an <code class="docutils literal notranslate"><span class="pre">_generic.400.html</span></code> template to the html directory, you
+can display the error inside of the layout provided by the <code class="docutils literal notranslate"><span class="pre">page.html</span></code>
+template. This can make fixing the error and navigation easier. You
+can use the <code class="docutils literal notranslate"><span class="pre">_generic.404.html</span></code> template to create a
+<code class="docutils literal notranslate"><span class="pre">_generic.400.html</span></code> by modifying the title and body text. You can test
+the 400 template by appending <code class="docutils literal notranslate"><span class="pre">&#64;template=400</span></code> to the url for the
+tracker.</p>
+</div>
+<div class="section" id="change-passwords-using-crypt-module-optional">
+<h3><a class="toc-backref" href="#id27">Change passwords using crypt module (optional)</a></h3>
+<p>The crypt module is being removed from the standard library.  Any
+stored password using crypt encoding will fail to verify once the
+crypt module is removed (expected in Python 3.13 see <a class="reference external" href="https://peps.python.org/pep-0594/">pep-0594</a>). Automatic migration of
+passwords (if enabled in config.ini) re-encrypts old passwords using
+something other than crypt if a user logs in using the web interface.</p>
+<p>You can find users with passwords still encrypted using crypt by
+running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">table</span> <span class="n">password</span><span class="p">,</span><span class="nb">id</span><span class="p">,</span><span class="n">username</span>
+</pre></div>
+</div>
+<p>Look for lines starting with <code class="docutils literal notranslate"><span class="pre">{CRYPT}</span></code>. You can reset the user’s
+password using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span>
+<span class="n">roundup</span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">user16</span> <span class="n">password</span><span class="o">=</span><span class="n">somenewpassword</span>
+</pre></div>
+</div>
+<p>changing <code class="docutils literal notranslate"><span class="pre">16</span></code> to the id in the second column of the table output.
+The example uses interactive mode (indicated by the <code class="docutils literal notranslate"><span class="pre">roundup&gt;</span></code>
+prompt). This prevents the new password from showing up in the output
+of ps or shell history. The new password will be encrypted using the
+default encryption method (usually pbkdf2).</p>
+</div>
+<div class="section" id="enable-performance-improvement-for-wsgi-mode-optional">
+<h3><a class="toc-backref" href="#id28">Enable performance improvement for wsgi mode (optional)</a></h3>
+<p>There is an experimental wsgi performance improvement mode that caches
+the loaded roundup instance. This eliminates disk reads that are
+incurred on each connection. In one report it improves speed by a
+factor of 2 to 3 times. To enable this you should add a feature flag
+to your Roundup wsgi wrapper (see the file
+<code class="docutils literal notranslate"><span class="pre">.../share/frontends/wsgi.py</span></code>) so it looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">feature_flags</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;cache_tracker&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span> <span class="p">}</span>
+<span class="n">app</span> <span class="o">=</span>  <span class="n">RequestDispatcher</span><span class="p">(</span><span class="n">tracker_home</span><span class="p">,</span> <span class="n">feature_flags</span><span class="o">=</span><span class="n">feature_flags</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to enable this mode. Note that this is experimental and was added
+during the 2.2.0 beta period, so it is enabled using a feature flag.
+If you use this and it works for you please followup with an email to
+the roundup-users at lists.sourceforge.net mailing list so we can
+enable it by default in a future release.</p>
+</div>
+<div class="section" id="hide-submit-button-during-readonly-use-of-generic-item-html-optional">
+<h3><a class="toc-backref" href="#id29">Hide submit button during readonly use of _generic.item.html (optional)</a></h3>
+<p>The submit button in _generic.item.html always shows up even when the
+user doesn’t have edit perms. Change the <code class="docutils literal notranslate"><span class="pre">context/submit</span></code> html to
+read:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">td</span> <span class="n">colspan</span><span class="o">=</span><span class="mi">3</span> <span class="n">tal</span><span class="p">:</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;structure context/submit&quot;</span>
+    <span class="n">tal</span><span class="p">:</span><span class="n">condition</span><span class="o">=</span><span class="s2">&quot;context/is_edit_ok&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>in your TAL based templates. The <code class="docutils literal notranslate"><span class="pre">jinja2</span></code> based templates are
+missing this file, but if you implemented one you want to surround the
+jinja2 code with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">is_edit_ok</span><span class="p">()</span> <span class="o">%</span><span class="p">}</span>
+  <span class="o">&lt;</span><span class="n">submit</span> <span class="n">button</span> <span class="n">code</span> <span class="n">here</span><span class="o">&gt;</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="migrating-from-2-0-0-to-2-1-0">
+<span id="index-3"></span><h2><a class="toc-backref" href="#id30">Migrating from 2.0.0 to 2.1.0</a></h2>
+<div class="section" id="rdbms-version-change-from-5-to-6-required">
+<h3><a class="toc-backref" href="#id31">Rdbms version change from 5 to 6 (required)</a></h3>
+<p>To fix an issue with importing databases, the database has to be
+upgraded for rdbms backends.</p>
+<p>You should run the <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">migrate</span></code> command for your
+tracker once you’ve installed the latest codebase.</p>
+<p>Do this before you use the web, command-line or mail interface
+and before any users access the tracker.</p>
+<p>If successful, this command will respond with either “Tracker
+updated” (if you’ve not previously run it on an RDBMS backend) or
+“No migration action required” (if you have run it, or have used
+another interface to the tracker, or are using anydbm).</p>
+<p>This only changes the schema for the mysql backend. It has no
+effect other than upgrading the revision on other rdbms backends.</p>
+<p>On the mysql backend it creates the database index that makes
+sure the key field for your class is unique.</p>
+<p>If your update/migration fails, you will see an:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IntegrityError</span><span class="p">:</span> <span class="p">(</span><span class="mi">1062</span><span class="p">,</span> <span class="s2">&quot;Duplicate entry &#39;0-NULL&#39; for key &#39;_user_key_retired_idx&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>it means you have two non-retired members of the class with the
+same key field. E.G. two non-retired users with the same
+username.</p>
+<p>Debug this using roundup-admin using the list command. For
+example dump the user class by the key field <code class="docutils literal notranslate"><span class="pre">username</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ roundup-admin -i &lt;tracker_home&gt; list user username
+  1: admin
+  2: anonymous
+  3: demo
+  4: agent
+  5: provisional
+  6: foo@example.com
+  7: dupe
+  8: dupe
+  ...
+</pre></div>
+</div>
+<p>then search the usernames for duplicates. Once you have
+identified the duplicate username (<code class="docutils literal notranslate"><span class="pre">dupe</span></code> above), you should
+retire the other active duplicates or change the username for the
+duplicate.  To retire <code class="docutils literal notranslate"><span class="pre">7:</span> <span class="pre">dupe</span></code>, you run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="n">retire</span> <span class="n">user7</span>
+</pre></div>
+</div>
+<p>(use <code class="docutils literal notranslate"><span class="pre">restore</span> <span class="pre">user7</span></code> if you retired the wrong item).  If you
+want to rename the entry use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">tracker_home</span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">user7</span> <span class="n">username</span><span class="o">=</span><span class="n">dupe1</span>
+</pre></div>
+</div>
+<p>Keep doing this until you have no more duplicates. Then run the
+update/migrate again.</p>
+<p>If you have duplicate non-retired entries in your database,
+please email roundup-users at lists.sourceforge.net. We are
+interested in how many issues this has caused. Duplicate creation
+should occur only when two or more mysql processes run in
+parallel and both of them creating an item with the same key. So
+this should be a rare event. The internal duplicate prevention
+checks should work in other cases.</p>
+<p>For the nerds: if you had a new installation that was created at
+version 5, the uniqueness of a key was not enforced at the
+database level. If you had a database that was at version 4 and
+then upgraded to version 5 you have the uniqueness enforcing
+constraint. Running migrate updates to schema version 6 and installs
+the unique index constraint if it is missing.</p>
+</div>
+<div class="section" id="setuptools-is-now-required-to-install-info">
+<h3><a class="toc-backref" href="#id32">Setuptools is now required to install (info)</a></h3>
+<p>Roundup install now uses setuptools rather than distutils. You must
+install setuptools.  Use the version packgaged by your OS vendor.  If
+your OS vendor doesn’t supply setuptools use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span>
+<span class="pre">setuptools</span></code>. (You may need pip3 rather than pip if using python3.)</p>
+</div>
+<div class="section" id="define-authentication-header-optional">
+<h3><a class="toc-backref" href="#id33">Define Authentication Header (optional)</a></h3>
+<p>The web server in front of roundup (apache, nginx) can perform user
+authentication. It can pass the authenticated username to the backend
+in a variable. By default roundup looks for the <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code>
+variable. This can be changed by setting the parameter
+<code class="docutils literal notranslate"><span class="pre">http_auth_header</span></code> in the <code class="docutils literal notranslate"><span class="pre">[web]</span></code> section of the tracker’s
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file to a different value. The value is case sensitive.
+If the value is unset (the default) the REMOTE_USER variable is used.</p>
+<p>If you are running roundup using <code class="docutils literal notranslate"><span class="pre">roundup-server</span></code> behind a proxy
+that authenticates the user you need to configure <code class="docutils literal notranslate"><span class="pre">roundup-server</span></code>
+to pass the HTTP header with the authenticated username to the
+tracker. By default <code class="docutils literal notranslate"><span class="pre">roundup-server</span></code> looks for the <code class="docutils literal notranslate"><span class="pre">REMOTE_USER</span></code>
+header for the authenticated user.  You can copy an arbitrary header
+variable to the tracker using the <code class="docutils literal notranslate"><span class="pre">-I</span></code> option to roundup-server (or
+the equivalent option in the roundup-server config file).</p>
+<p>For example to use the <code class="docutils literal notranslate"><span class="pre">uid_variable</span></code> header, two configuration
+changes are needed: First configure <code class="docutils literal notranslate"><span class="pre">roundup-server</span></code> to pass the
+header to the tracker using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">server</span> <span class="o">-</span><span class="n">I</span> <span class="n">uid_variable</span> <span class="o">....</span>
+</pre></div>
+</div>
+<p>note that the header is passed exactly as supplied by the upstream
+server. It is <strong>not</strong> prefixed with <code class="docutils literal notranslate"><span class="pre">HTTP_</span></code> like other headers since
+you are explicitly allowing the header. Multiple comma separated
+headers can be passed to the <code class="docutils literal notranslate"><span class="pre">-I</span></code> option. These could be used in a
+detector or other tracker extensions, but only one header can be used
+by the tracker as an authentication header.</p>
+<p>To make the tracker honor the new variable changing the tracker
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> to read:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">web</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">http_auth_header</span> <span class="o">=</span> <span class="n">uid_variable</span>
+</pre></div>
+</div>
+<p>At the time this is written, support is experimental. If you use it
+you should notify the roundup maintainers using the roundup-users
+at lists.sourceforge.net mailing list.</p>
+</div>
+<div class="section" id="classname-format-enforced-info">
+<h3><a class="toc-backref" href="#id34">Classname Format Enforced (info)</a></h3>
+<p>Check schema.py and look at all Class(), IssueClass(), FileClass()
+calls. The second argument is the classname. All classnames must:</p>
+<blockquote>
+<div><ul class="simple">
+<li>start with an alphabetic character</li>
+<li>consist of alphanumerics and ‘_’</li>
+<li>not end with a digit</li>
+</ul>
+</div></blockquote>
+<p>this was not enforced before. Using non-standard classnames could lead
+to other issues.</p>
+</div>
+<div class="section" id="id2">
+<h3><a class="toc-backref" href="#id35">jQuery updated with updates to user.help.html (recommended)</a></h3>
+<p>The devel and responsive templates shipped with an old version of
+jQuery with some security issues. It has been updated to the current
+version: 3.5.1. If your tracker is based on one of these templates
+(see the <code class="docutils literal notranslate"><span class="pre">TEMPLATE-INFO.txt</span></code> file in your tracker), remove the old
+<code class="docutils literal notranslate"><span class="pre">html/jquery.js</span></code> file from your tracker and copy the new
+<code class="docutils literal notranslate"><span class="pre">jquery-3.5.1.js</span></code> file from the template directory to your tracker’s
+<code class="docutils literal notranslate"><span class="pre">html</span></code> directory. Also copy in the new <code class="docutils literal notranslate"><span class="pre">user.help.html</span></code> file. It now
+references the new <code class="docutils literal notranslate"><span class="pre">jquery-3.5.1.js</span></code> file and also fixes a bug that
+prevented applying the change from the helper to the field on the main
+form.</p>
+</div>
+<div class="section" id="roundup-admin-security-stops-on-incorrect-properties-info">
+<h3><a class="toc-backref" href="#id36">Roundup-admin security stops on incorrect properties (info)</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">...</span> <span class="pre">security</span></code> command used to continue
+running through the rest of the security roles after reporting a
+property error. Now it stops after reporting the incorrect property.</p>
+<p>If run non-interactively, it exits with status 1. It can now be
+used in a startup script to detect permission errors.</p>
+</div>
+<div class="section" id="futureproof-devel-and-responsive-timezone-selection-extension-recommended">
+<h3><a class="toc-backref" href="#id37">Futureproof devel and responsive timezone selection extension (recommended)</a></h3>
+<p>The devel and responsive (derived from devel) templates use a select
+control to list all available timezones when pytz is used. It
+sanitizes the data using cgi.escape. Cgi.escape is deprecated and
+removed in newer pythons. Change your <code class="docutils literal notranslate"><span class="pre">extensions/timezone.py</span></code>
+file by applying the following patch manually:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="kn">import</span> <span class="nn">cgi</span>
+<span class="o">+</span><span class="k">try</span><span class="p">:</span>
+<span class="o">+</span>    <span class="kn">from</span> <span class="nn">html</span> <span class="kn">import</span> <span class="n">escape</span>
+<span class="o">+</span><span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span class="o">+</span>    <span class="kn">from</span> <span class="nn">cgi</span> <span class="kn">import</span> <span class="n">escape</span>
+
+ <span class="k">try</span><span class="p">:</span>
+     <span class="kn">import</span> <span class="nn">pytz</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">7</span> <span class="o">+</span><span class="mi">28</span><span class="p">,</span><span class="mi">7</span> <span class="o">@@</span>
+             <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span>
+             <span class="k">if</span> <span class="n">zone</span> <span class="o">==</span> <span class="n">value</span><span class="p">:</span>
+                 <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;selected=selected &#39;</span>
+<span class="o">-</span>            <span class="n">z</span> <span class="o">=</span> <span class="n">cgi</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">zone</span><span class="p">)</span>
+<span class="o">+</span>            <span class="n">z</span> <span class="o">=</span> <span class="n">escape</span><span class="p">(</span><span class="n">zone</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://issues.roundup-tracker.org/issue2551136">https://issues.roundup-tracker.org/issue2551136</a> for more details.</p>
+</div>
+</div>
+<div class="section" id="migrating-from-1-6-x-to-2-0-0">
+<span id="index-4"></span><h2><a class="toc-backref" href="#id38">Migrating from 1.6.X to 2.0.0</a></h2>
+<div class="section" id="python-2-mysql-users-must-read-required">
+<span id="index-5"></span><h3><a class="toc-backref" href="#id39">Python 2 MYSQL users MUST READ (required)</a></h3>
+<p>To fix issues with encoding of data and text searching, roundup now
+explicitly sets the database connection character set. Roundup prior
+to 2.0 used the default character set which was not always utf-8. All
+roundup data is manipulated in utf-8. This mismatch causes issues with
+searches and result in corrupted data in the database if it was not
+properly represented across the charset conversions.</p>
+<p>This issue exists when running roundup under python 2. Note that there
+are more changes required for running roundup 2.0 if you choose to use
+python3. See <a class="reference internal" href="#python-3-support">Python 3 support</a>.</p>
+<p>In an upgraded <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> (see next section) the <code class="docutils literal notranslate"><span class="pre">[rdbms]</span></code>
+section has a key <code class="docutils literal notranslate"><span class="pre">mysql_charset</span></code> set by default to <code class="docutils literal notranslate"><span class="pre">utf8mb4</span></code>.</p>
+<p>It should be possible to change <code class="docutils literal notranslate"><span class="pre">utf8mb4</span></code> to any mysql charset. So
+if you know what charset is enabled (e.g. via a setting in ~roundup/.my.cnf,
+or the default charset for the database) you can set it in
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> and not need to covert the database. However the
+underlying issues with misconverted data and bad searches will still
+exist if they did before.</p>
+<p>None of the roundup developers run mysql, so the exact steps to take
+during the upgrade were tested with test and not production databases.</p>
+<p><strong>Before doing anything else:</strong></p>
+<blockquote>
+<div><p>Backup the mysql database using mysql dump or other mysql
+supported tool.</p>
+<p>Backup roundup using your current backup tool and take the roundup
+instance offline.</p>
+</div></blockquote>
+<p>Then the following steps (similar to the conversion in needed for
+Python 3) should work:</p>
+<ol class="arabic">
+<li><p class="first">Export the tracker database
+using your <strong>current</strong> 1.6 instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">trackerdir</span><span class="o">&gt;</span> <span class="n">exporttables</span> <span class="o">&lt;</span><span class="n">export_dir</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>replacing tracker_dir and export_dir as appropriate.</p>
+</li>
+<li><p class="first">Import the exported database using the <strong>new</strong> 2.0 roundup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">&lt;</span><span class="n">trackerdir</span><span class="o">&gt;</span> <span class="n">importtables</span> <span class="o">&lt;</span><span class="n">export_dir</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>replacing tracker_dir and export_dir as appropriate.</p>
+</li>
+</ol>
+<p>The imported data should overwrite the original data. Note it is
+critically important that the <code class="docutils literal notranslate"><span class="pre">exporttables</span></code> be done with the <em>old
+tracker</em> and the <code class="docutils literal notranslate"><span class="pre">importtables</span></code> be done with the <em>new tracker</em>. An
+import/export cycle between roundup 1.6.0 and roundup 2.0 has been
+done successfully. So the export format for 1.6 and 2.0 should be
+compatible.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">importtables</span></code> is new in roundup-2.0, so you will not be
+able to import the result of <code class="docutils literal notranslate"><span class="pre">exporttables</span></code> using any 1.x version of
+roundup.</p>
+<p>Following the same sequence as above using <code class="docutils literal notranslate"><span class="pre">export</span></code> and <code class="docutils literal notranslate"><span class="pre">import</span></code>
+should also work, but it will export all the files and messages. This
+will take longer but may be worth trying if the <code class="docutils literal notranslate"><span class="pre">exporttables</span></code> and
+<code class="docutils literal notranslate"><span class="pre">importtables</span></code> method fails for some reason.</p>
+<p>Another way that should be faster, but is untested is to use mysql
+dump to dump the database.
+<a class="reference external" href="https://makandracards.com/makandra/595-dumping-and-importing-from-to-mysql-in-an-utf-8-safe-way">https://makandracards.com/makandra/595-dumping-and-importing-from-to-mysql-in-an-utf-8-safe-way</a>
+recommends:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Note that when your MySQL server is not set to UTF-8 you need to do
+mysqldump --default-character-set=latin1 (!) to get a correctly
+encoded dump. In that case you will also need to remove the SET
+NAMES=&#39;latin1&#39; comment at the top of the dump, so the target machine
+won&#39;t change its UTF-8 charset when sourcing.
+</pre></div>
+</div>
+<p>Then import the dump. Removing <code class="docutils literal notranslate"><span class="pre">SET</span> <span class="pre">NAMES</span></code> should allow the import
+to use UTF-8.</p>
+<p>Please report success or issues with this conversion to the
+roundup-users AT lists.sourceforge.net mailing list.</p>
+<p>As people report successful or unsuccessful conversions, we will update
+the errata page at: <a class="reference external" href="https://wiki.roundup-tracker.org/ReleaseErrata">https://wiki.roundup-tracker.org/ReleaseErrata</a>.</p>
+</div>
+<div class="section" id="upgrade-tracker-s-config-ini-file-recommended">
+<h3><a class="toc-backref" href="#id40">Upgrade tracker’s config.ini file (recommended)</a></h3>
+<p>Once you have installed the new roundup, use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">tracker</span> <span class="n">updateconfig</span> <span class="n">newconfig</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+<p>to generate a new ini file preserving all your settings. You can then
+merge any local comments from the tracker’s <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> into
+<code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code>. Compare the old and new files and configure any new
+settings as you want. Then replace <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> with the
+<code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code> file.</p>
+</div>
+<div class="section" id="python-3-support-info">
+<span id="python-3-support"></span><h3><a class="toc-backref" href="#id41">Python 3 support (info)</a></h3>
+<p>Many of the <code class="docutils literal notranslate"><span class="pre">.html</span></code> and <code class="docutils literal notranslate"><span class="pre">.py</span></code> files from Roundup that are copied
+into tracker directories have changed for Python 3 support.  If you
+wish to move an existing tracker to Python 3, you need to merge in
+those changes. Also you need to make sure that locally created python
+code in the tracker is correct for Python 3.</p>
+<p>If your tracker uses the <code class="docutils literal notranslate"><span class="pre">anydbm</span></code> or <code class="docutils literal notranslate"><span class="pre">mysql</span></code> backends, you also
+need to export the tracker contents using <code class="docutils literal notranslate"><span class="pre">roundup-admin</span> <span class="pre">export</span></code>
+running under Python 2, and them import them using <code class="docutils literal notranslate"><span class="pre">roundup-admin</span>
+<span class="pre">import</span></code> running under Python 3. This is detailed in the documention
+for migrating to a different backend.  If using the <code class="docutils literal notranslate"><span class="pre">sqlite</span></code> backend,
+you do not need to export and import, but need to delete the
+<code class="docutils literal notranslate"><span class="pre">db/otks</span></code> and <code class="docutils literal notranslate"><span class="pre">db/sessions</span></code> files when changing Python version.
+If using the <code class="docutils literal notranslate"><span class="pre">postgresql</span></code> backend, you do not need to export and
+import and no other special database-related steps are needed.</p>
+<p>If you use the whoosh indexer, you will need to reindex. It looks like
+a database created with Python 2 leads to Unicode decode errors when
+accessed by Python 3. Reindexing can take a while (see details below
+look for “reindexing”).</p>
+<p>Octal values in config.ini change from the Python 2 representation
+with a leading <code class="docutils literal notranslate"><span class="pre">0</span></code> (<code class="docutils literal notranslate"><span class="pre">022</span></code>). They now use a leading <code class="docutils literal notranslate"><span class="pre">0o</span></code>
+(<code class="docutils literal notranslate"><span class="pre">0o22</span></code>). Note that the <code class="docutils literal notranslate"><span class="pre">0o</span></code> format is properly handled under
+python 2. You can use the <code class="docutils literal notranslate"><span class="pre">newconfig.ini</span></code> generated using <code class="docutils literal notranslate"><span class="pre">python3</span>
+<span class="pre">roundup-admin</span> <span class="pre">-i</span> <span class="pre">...</span> <span class="pre">updateconfig</span> <span class="pre">newconfig.ini</span></code> if you want to go
+back to using python 2. (Note going back to Python 2 will require
+the same steps as moving from 2 to 3 except using Python 3 to perform
+the export.)</p>
+</div>
+<div class="section" id="rate-limit-new-user-registration-info">
+<h3><a class="toc-backref" href="#id42">Rate Limit New User Registration (info)</a></h3>
+<p>The new user registration form can be abused by bots to allow
+automated registration for spamming. This can be limited by using the
+new <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> <code class="docutils literal notranslate"><span class="pre">[web]</span></code> option called
+<code class="docutils literal notranslate"><span class="pre">registration_delay</span></code>. The default is 4 and is the number of seconds
+between the time the form was generated and the time the form is
+processed.</p>
+<p>If you do not modify the <code class="docutils literal notranslate"><span class="pre">user.register.html</span></code> template in your
+tracker’s html directory, you <em>must</em> set this to 0. Otherwise you will
+see the error:</p>
+<blockquote>
+<div>Form is corrupted, missing: opaqueregister.</div></blockquote>
+<p>If set to 0, the rate limit check is disabled.</p>
+<p>If you want to use this, you can change your <code class="docutils literal notranslate"><span class="pre">user.register.html</span></code>
+file to include:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;opaqueregister&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value python: utils.timestamp()&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The hidden input field can be placed right after the form declaration
+that starts with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span> <span class="n">onSubmit</span><span class="o">=</span><span class="s2">&quot;return submit_once()&quot;</span>
+</pre></div>
+</div>
+<p>If you have applied Erik Forsberg’s tracker level patch to implement
+(see: <a class="reference external" href="https://hg.python.org/tracker/python-dev/rev/83477f735132">https://hg.python.org/tracker/python-dev/rev/83477f735132</a>), you
+can back the code out of the tracker. You must change the name of the
+field in the html template to <code class="docutils literal notranslate"><span class="pre">opaqueregistration</span></code> from <code class="docutils literal notranslate"><span class="pre">opaque</span></code>
+in order to use the core code.</p>
+</div>
+<div class="section" id="pgp-mail-processing-required">
+<h3><a class="toc-backref" href="#id43">PGP mail processing (required)</a></h3>
+<p>Roundup now uses the <code class="docutils literal notranslate"><span class="pre">gpg</span></code> module instead of <code class="docutils literal notranslate"><span class="pre">pyme</span></code> to process PGP
+mail.  If you have PGP processing enabled, make sure the <code class="docutils literal notranslate"><span class="pre">gpg</span></code>
+module is installed.</p>
+</div>
+<div class="section" id="mysql-client-module-recommended">
+<h3><a class="toc-backref" href="#id44">MySQL client module (recommended)</a></h3>
+<p>Although the <code class="docutils literal notranslate"><span class="pre">MySQLdb</span></code> module from
+<a class="reference external" href="https://pypi.org/project/MySQL-python/">https://pypi.org/project/MySQL-python/</a> is still supported, it is
+recommended to switch to the updated module from
+<a class="reference external" href="https://pypi.org/project/mysqlclient/">https://pypi.org/project/mysqlclient/</a>.</p>
+</div>
+<div class="section" id="xmlrpc-access-role-info-required">
+<h3><a class="toc-backref" href="#id45">XMLRPC Access Role (info/required)</a></h3>
+<p>A new permission has been added to control access to the XMLRPC
+endpoint. If the user doesn’t have the new “Xmlrpc Access” permission,
+they will not be able to log in using the /xmlrpc end point.  To add
+this new permission to the “User” role you should change your
+tracker’s schema.py and add:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="s1">&#39;Xmlrpc Access&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is usually included near where other permissions like “Web Access”
+or “Email Access” are assigned.</p>
+</div>
+<div class="section" id="new-values-for-db-tx-source-info">
+<h3><a class="toc-backref" href="#id46">New values for db.tx_Source (info)</a></h3>
+<p>The database attribute tx_Source reports “xmlrpc” and “rest” when the
+/xmlrpc and /rest web endpoints are used. Check all code (extensions,
+detectors, lib) in trackers looking for tx_Source. If you have code
+like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">tx_Source</span> <span class="o">==</span> <span class="s2">&quot;web&quot;</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">tx_Source</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;web&#39;</span><span class="p">,</span> <span class="s1">&#39;email-sig-openpgp&#39;</span><span class="p">,</span> <span class="s1">&#39;cli&#39;</span> <span class="p">]:</span>
+</pre></div>
+</div>
+<p>you may need to change these to include matches to “rest” and
+“xmlrpc”. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">tx_Source</span> <span class="ow">in</span> <span class="p">[</span> <span class="s2">&quot;web&quot;</span><span class="p">,</span> <span class="s2">&quot;rest&quot;</span><span class="p">,</span> <span class="s2">&quot;xmlrpc&quot;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">db</span><span class="o">.</span><span class="n">tx_Source</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;web&#39;</span><span class="p">,</span> <span class="s1">&#39;rest&#39;</span><span class="p">,</span> <span class="s1">&#39;xmlrpc&#39;</span><span class="p">,</span> <span class="s1">&#39;email-sig-openpgp&#39;</span><span class="p">,</span> <span class="s1">&#39;cli&#39;</span> <span class="p">]:</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="csv-export-changes-info">
+<h3><a class="toc-backref" href="#id47">CSV export changes (info)</a></h3>
+<p>The original Roundup CSV export function for indexes reported id
+numbers for links. The wiki had a version that resolved the id’s to
+names, so it would report <code class="docutils literal notranslate"><span class="pre">open</span></code> rather than <code class="docutils literal notranslate"><span class="pre">2</span></code> or
+<code class="docutils literal notranslate"><span class="pre">user2;user3</span></code> rather than <code class="docutils literal notranslate"><span class="pre">[2,3]</span></code>.</p>
+<p>Many people added the enhanced version to their extensions directory.</p>
+<p>The enhanced version was made the default in roundup 2.0.  If you want
+to use the old version (that returns id’s), you can replace references
+to <code class="docutils literal notranslate"><span class="pre">export_csv</span></code> with <code class="docutils literal notranslate"><span class="pre">export_csv_id</span></code> in templates.</p>
+<p>Both core csv export functions have been changed to force quoting of
+all exported fields. To incorporate this change in any CSV export
+extension you may have added, change references in your code from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">wfile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">wfile</span><span class="p">,</span> <span class="n">quoting</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_NONNUMERIC</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>this forces all (non-numeric) fields to be quoted and empty quotes to
+be added for missing parameters.</p>
+<p>This turns exported values that may look like formulas into strings so
+some versions of Excel won’t try to interpret them as a formula.</p>
+</div>
+<div class="section" id="update-userauditor-py-to-restrict-usernames-recommended">
+<h3><a class="toc-backref" href="#id48">Update userauditor.py to restrict usernames (recommended)</a></h3>
+<p>A username can be created with embedded commas and &lt; and &gt;
+characters. Even though the &lt; and &gt; are usually escaped when
+displayed, the embedded comma makes it difficult to edit lists of
+users as they are comma separated.</p>
+<p>If you have not modified your tracker’s userauditor.py, you can just
+copy the userauditor.py from the classic template into your tracker’s
+detectors directory. Otherwise merge the changes from the template
+userauditor.py. <a class="reference external" href="https://issues.roundup-tracker.org/issue2550921">https://issues.roundup-tracker.org/issue2550921</a> may be
+helpful.</p>
+</div>
+<div class="section" id="consider-reindexing-if-you-use-european-languages-recommended">
+<h3><a class="toc-backref" href="#id49">Consider reindexing if you use European languages (recommended)</a></h3>
+<p>A couple of bugs dealing with incorrect indexing of European languages
+(Russian and German were reported) have been fixed. Note reindexing
+all your data may take a long time. See:
+<a class="reference external" href="https://issues.roundup-tracker.org/issue1195739">https://issues.roundup-tracker.org/issue1195739</a> and
+<a class="reference external" href="https://issues.roundup-tracker.org/issue1344046">https://issues.roundup-tracker.org/issue1344046</a> for a description of
+the problem. If you determine that this a problem for your tracker,
+you can use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">tracker</span> <span class="n">reindex</span>
+</pre></div>
+</div>
+<p>to rewrite your full text indexes. The tracker used for reindex timing
+had 140MB of file/message data and 2500 issues with a slow 5400RPM
+SATA drive. Using native indexing with sqlite took about 45
+minutes. Using whoosh took about 2 hours. Using xapian took about 6
+hours. All examples were with Python 2. Anecdotal evidence shows
+Python 3 is faster, but YMMV.</p>
+</div>
+<div class="section" id="merge-improvements-in-statusauditor-py-optional">
+<h3><a class="toc-backref" href="#id50">Merge improvements in statusauditor.py (optional)</a></h3>
+<p>By default the detector statusauditor.py will change the status from
+“unread” to “chatting” when a second message is added to an issue.
+The distributed classic and jinja templates implement this feature in
+their copies of <code class="docutils literal notranslate"><span class="pre">detectors/statusauditor.py</span></code>.</p>
+<p>This can be a problem. Consider a person sending email to create an
+issue. Then the person sends a followup message to add some additional
+information to the issue. The followup message will trigger the status
+change from “unread” to “chatting”. This is misleading since the
+person is “chatting” with themselves.</p>
+<p>Statusauditor.py has been enhanced to prevent the status from changing
+to “chatting” until a second user (person) adds a message.  If you
+want this functionality, you need to merge the distributed
+statusauditor.py with your tracker’s statusauditor.py. If you have not
+customised your tracker’s statusauditor.py, copy the one from the
+distibuted template. In addition to the python file, you also must
+copy/merge the distributed <code class="docutils literal notranslate"><span class="pre">detectors/config.ini</span></code> into your
+tracker’s detectors directory. Most people can copy
+<code class="docutils literal notranslate"><span class="pre">detectors/config.ini</span></code> from the distributed templates as they won’t
+have a <code class="docutils literal notranslate"><span class="pre">detectors/config.ini</span></code> file. (Note this is
+<code class="docutils literal notranslate"><span class="pre">detectors/config.ini</span></code> do not confuse it with the main
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file at the root of the tracker home.)</p>
+<p>This enhancement is disabled by default. Enable it by changing the
+value in <code class="docutils literal notranslate"><span class="pre">detectors/config.ini</span></code> from:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chatting_requires_two_users</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chatting_requires_two_users</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>(the values <code class="docutils literal notranslate"><span class="pre">no</span></code> and <code class="docutils literal notranslate"><span class="pre">yes</span></code> can also be used). Restart the tracker
+to enable the change.</p>
+<p>If you don’t do this quite right you will see one of two error
+messages in the web interface when you try to update an issue with a
+message:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edit</span> <span class="n">Error</span><span class="p">:</span> <span class="n">Unsupported</span> <span class="n">configuration</span> <span class="n">option</span><span class="p">:</span> <span class="n">Option</span>
+   <span class="n">STATUSAUDITOR_CHATTING_REQUIRES_TWO_USERS</span> <span class="ow">not</span> <span class="n">found</span> <span class="ow">in</span>
+   <span class="n">detectors</span><span class="o">/</span><span class="n">config</span><span class="o">.</span><span class="n">ini</span><span class="o">.</span>
+<span class="n">Contact</span> <span class="n">tracker</span> <span class="n">admin</span> <span class="n">to</span> <span class="n">fix</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This happens if detectors/config.ini is not found or is missing the
+<code class="docutils literal notranslate"><span class="pre">chatting_requires_two_users</span></code> option in the <code class="docutils literal notranslate"><span class="pre">statusauditor</span></code>
+section.</p>
+<p>If you have an incorrect value (say you use <code class="docutils literal notranslate"><span class="pre">T</span></code> rather than
+<code class="docutils literal notranslate"><span class="pre">True</span></code>) you see a different error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Edit</span> <span class="n">Error</span><span class="p">:</span> <span class="n">Invalid</span> <span class="n">value</span> <span class="k">for</span>
+  <span class="n">DETECTOR</span><span class="p">::</span><span class="n">STATUSAUDITOR_CHATTING_REQUIRES_TWO_USERS</span><span class="p">:</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">Allowed</span> <span class="n">values</span><span class="p">:</span> <span class="n">yes</span><span class="p">,</span> <span class="n">no</span>
+</pre></div>
+</div>
+<p>to fix this set the value to <code class="docutils literal notranslate"><span class="pre">yes</span></code> (True) or <code class="docutils literal notranslate"><span class="pre">no</span></code> (False).</p>
+</div>
+<div class="section" id="responsive-template-changes-optional">
+<h3><a class="toc-backref" href="#id51">Responsive template changes (optional)</a></h3>
+<p>There have been some changes to the responsive template. You can
+diff/merge these changes into your responsive template based tracker.</p>
+</div>
+<div class="section" id="jinja-template-changes-required">
+<h3><a class="toc-backref" href="#id52">Jinja template changes (required)</a></h3>
+<p>Auto escaping has been enabled in the jinja template engine, this
+means it is no longer necessary to manually escape dynamic strings
+with <code class="docutils literal notranslate"><span class="pre">|e</span></code>, but strings that should not be escaped need to be marked
+with <code class="docutils literal notranslate"><span class="pre">|safe</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">context.history()|u|safe</span> <span class="pre">}}</span></code>). Also, the i18n
+extension has been enabled and the template has been updated to use
+the extension for translatable text instead of explicit <code class="docutils literal notranslate"><span class="pre">i18n.gettext</span></code>
+calls:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="n">trans</span> <span class="o">%</span><span class="p">}</span><span class="n">List</span> <span class="n">of</span> <span class="n">issues</span><span class="p">{</span><span class="o">%</span> <span class="n">endtrans</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>instead of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{{</span> <span class="n">i18n</span><span class="o">.</span><span class="n">gettext</span><span class="p">(</span><span class="s1">&#39;List of issues&#39;</span><span class="p">)</span><span class="o">|</span><span class="n">u</span> <span class="p">}}</span>
+</pre></div>
+</div>
+<p>The jinja template has been upgraded to use bootstrap 4.1.3 (from
+2.2.2). You can diff/merge changes into your jinja template based
+tracker.</p>
+<p>Also search _generic.index.html, navigation.html and file.index.html
+in the html directory of your tracker. Look for:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;@action&quot;</span>
+</pre></div>
+</div>
+<p>where the value is a jinja expression that calls i18n.gettext. Set the
+value to the argument of the gettext call. E.G. replace:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;@action&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;{{ i18n.gettext(&#39;editCSV&#39;)|u }}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;@action&quot;</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;editCSV&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The action keywords should not be translated.</p>
+</div>
+</div>
+<div class="section" id="migrating-from-1-5-1-to-1-6-0">
+<span id="index-6"></span><h2><a class="toc-backref" href="#id53">Migrating from 1.5.1 to 1.6.0</a></h2>
+<div class="section" id="update-tracker-config-file">
+<h3><a class="toc-backref" href="#id54">Update tracker config file</a></h3>
+<p>After installing the new version of roundup, you should
+update the <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file for your tracker. To do this:</p>
+<ol class="arabic">
+<li><p class="first">backup your existing <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file</p>
+</li>
+<li><p class="first">using the newly installed code, run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roundup</span><span class="o">-</span><span class="n">admin</span> <span class="o">-</span><span class="n">i</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">tracker</span> <span class="n">updateconfig</span> <span class="n">config</span><span class="o">.</span><span class="n">ini</span><span class="o">.</span><span class="n">new</span>
+</pre></div>
+</div>
+<p>to create the file config.ini.new. Replace
+<code class="docutils literal notranslate"><span class="pre">/path/to/tracker</span></code> with the path to your tracker.</p>
+</li>
+<li><p class="first">replace your tracker’s config.ini with config.ini.new</p>
+</li>
+</ol>
+<p>Using updateconfig keeps all the settings from your
+tracker’s config.ini file and adds settings for all the new
+options.</p>
+<p>If you have added comments to your original config.ini file,
+merge the added comments into the config.ini.new file.  Then
+replace your tracker’s config.ini with config.ini.new.</p>
+<p>Read the new config.ini and configure it to enable new
+features. Details on using these features can be found in
+this section.</p>
+</div>
+<div class="section" id="make-sure-that-user-can-view-labelprop-on-classes-required">
+<h3><a class="toc-backref" href="#id55">Make sure that user can view labelprop on classes (required)</a></h3>
+<p>If you have View permissions that use <code class="docutils literal notranslate"><span class="pre">`properties=...`</span></code>, make sure
+that the <a class="reference external" href="reference.html#setlabelprop-property">labelprop</a> for the
+class is listed in the properties list.</p>
+<p>The first one of these that exists must must be in the list:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>the property set by a call to setlabelprop for the class</li>
+<li>the key of the class (as set by setkey())</li>
+<li>the “name” property (if it exists)</li>
+<li>the “title” property (if it exists)</li>
+</ol>
+</div></blockquote>
+<p>if none of those apply, you must allow</p>
+<blockquote>
+<div><ul class="simple">
+<li>the “id” property</li>
+</ul>
+</div></blockquote>
+<p>E.G. If your class does a setlabelprop(“foo”) you must include “foo”
+in the properties list even if the class has name or title properties.</p>
+<p>See: <a class="reference external" href="reference.html#setlabelprop-property">reference.html setlabelprop</a> for further details on the
+labelprop.</p>
+<p>If you don’t do this, you will find that multilinks (and possibly
+links) may not be displayed properly. E.G. templates that iterate over
+a mutlilink field (with tal:repeat for example) may not show any
+content.</p>
+<p>See: <a class="reference external" href="https://sourceforge.net/p/roundup/mailman/message/35763294/">https://sourceforge.net/p/roundup/mailman/message/35763294/</a>
+for the initial discussion of the issue.</p>
+</div>
+<div class="section" id="cross-site-request-forgery-detection-added-recommended">
+<span id="cross-site-request-forgery-detection-added"></span><h3><a class="toc-backref" href="#id56">Cross Site Request Forgery Detection Added (recommended)</a></h3>
+<p>Roundup 1.6. supports a number of defenses against CSRF.</p>
+<p>Http header verification against the tracker’s <code class="docutils literal notranslate"><span class="pre">web</span></code>
+setting in the <code class="docutils literal notranslate"><span class="pre">[tracker]</span></code> section of config.ini for the
+following headers:</p>
+<ol class="arabic simple">
+<li>Analyze the <code class="docutils literal notranslate"><span class="pre">Referer</span></code> HTTP header to make sure it
+includes the web setting.</li>
+<li>Analyze the <code class="docutils literal notranslate"><span class="pre">Origin</span></code> HTTP header to make sure the
+schema://host matches the web setting.</li>
+<li>Analyze the <code class="docutils literal notranslate"><span class="pre">X-Forwarded-Host</span></code> header set by a proxy
+running in front of roundup to make sure it agrees with
+the host part of the web setting.</li>
+<li>Analyze the <code class="docutils literal notranslate"><span class="pre">Host</span></code> header to make sure it agrees with
+the host part of the web setting. This is not done if
+<code class="docutils literal notranslate"><span class="pre">X-Forwarded-Host</span></code> is set.</li>
+</ol>
+<p>By default roundup 1.6 does not require any specific header
+to be present. However at least one of the headers above
+<em>must</em> pass validation checks (usually <code class="docutils literal notranslate"><span class="pre">Host</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Referer</span></code>) or the submission is rejected with an error.
+If any header fails validation, the submission is
+rejected. (Note the user’s form keeps all the data they
+entered if it was rejected.)</p>
+<p>Also the admin can include unique csrf tokens for all forms
+submitted using the POST method. (Delete and put methods are also
+included, but not currently used by roundup.) The csrf
+token (nonce) is tied to the user’s session. When the user
+submits the form and nonce, the nonce is checked to make
+sure it was issued to the user and the same session. If this
+is not true the post is rejected and the user is notified.</p>
+<p>The standard context/submit templating item creates CSRF tokens by
+default. If you have forms using the POST method that are not using
+the standard submit routine, you should add the following field to all
+forms:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;@csrf&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span>
+   <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value python:utils.anti_csrf_nonce()&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>A unique random token is generated by every call to
+utils.anti_csrf_nonce() and is put in a database to be
+retreived if the token is used. Token lifetimes are 2 weeks
+by default but can be configured in config.ini. Roundup will
+automatically prune old tokens. Calling anti_csrf_nonce with
+an integer lifetime, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;@csrf&quot;</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span>
+   <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value python:utils.anti_csrf_nonce(lifetime=10)&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>sets the lifetime of that nonce to 10 minutes.</p>
+<p>If you want to change the default settings, you have to
+update the web section in your tracker’s config.ini file. Follow the
+section above to generate an updated config.ini file. Then
+look for settings that start with csrf. The updated config.ini
+file includes detailed descriptions of the settings.</p>
+<p>In general one of four values can be set for these
+settings. The default is <code class="docutils literal notranslate"><span class="pre">yes</span></code>, which validates the header
+or nonce and blocks access if the validation fails. If the
+field/header is missing it allows access. Setting these
+fields to <code class="docutils literal notranslate"><span class="pre">required</span></code> blocks access if the header/nonce is
+missing.</p>
+<p>It is recommended that you change your templates so every form
+that is not submitted via GET has an &#64;csrf field. Then change
+the csrf_enforce_token setting to ‘required’.</p>
+<div class="section" id="errors-and-troubleshooting-csrf-in-url">
+<h4><a class="toc-backref" href="#id57">Errors and Troubleshooting - &#64;csrf in url</a></h4>
+<p>If you see the &#64;csrf nonce in the URL, you have added the value to a
+form that uses the GET method. You should remove the &#64;csrf token from
+these forms as it is not needed.</p>
+</div>
+<div class="section" id="errors-and-troubleshooting-attributeerror-list-object-no-attribute-value">
+<h4><a class="toc-backref" href="#id58">Errors and Troubleshooting - AttributeError list object no attribute value</a></h4>
+<p>If you get an error:</p>
+<blockquote>
+<div>AttributeError: ‘list’ object has no attribute ‘value’</div></blockquote>
+<p>in handle_csrf, you have more than one &#64;csrf token for the form. This
+usually occurs because the form uses the standard context/submit
+element but you also added an explicit &#64;csrf statement. Simply remove
+the &#64;csrf element for that form.</p>
+</div>
+<div class="section" id="errors-and-troubleshooting-xmlrpc-required-header-missing">
+<h4><a class="toc-backref" href="#id59">Errors and Troubleshooting - xmlrpc Required Header Missing</a></h4>
+<p>When performing and xmlrpc call, if you see something like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xmlrpclib</span><span class="o">.</span><span class="n">Fault</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Fault</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;&lt;class</span>
+   <span class="s1">&#39;roundup.exceptions.UsageError&#39;</span><span class="o">&gt;</span><span class="p">:</span><span class="n">Required</span> <span class="n">Header</span> <span class="n">Missing</span><span class="s2">&quot;&gt;</span>
+</pre></div>
+</div>
+<p>change your xmlrpc client to add appropriate headers to
+the request including the:</p>
+<blockquote>
+<div>X-Requested-With:</div></blockquote>
+<p>header as well as any other required csrf headers (e.g. referer,
+origin) configured in config.ini. See the <a class="reference external" href="xmlrpc.html#advanced-python-client-adding-anti-csrf-headers">advanced python client</a> at
+the end of the xmlrpc guide.</p>
+<p>Alternatively change the setting of
+csrf_enforce_header_x-requested-with in config.ini to <code class="docutils literal notranslate"><span class="pre">no</span></code>. So it
+looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">csrf_enforce_header_x</span><span class="o">-</span><span class="n">requested</span><span class="o">-</span><span class="k">with</span> <span class="o">=</span> <span class="n">no</span>
+</pre></div>
+</div>
+<p>This is not recommended as it reduces csrf protection.</p>
+</div>
+</div>
+<div class="section" id="support-for-samesite-cookie-option-for-session-cookie">
+<h3><a class="toc-backref" href="#id60">Support for SameSite cookie option for session cookie</a></h3>
+<p>Support for serving the session cookie using the SameSite cookie option
+has been added. By default it is set to lax to provide a better user
+experience. But this can be changed to strict or the option can be
+removed entirely.</p>
+<p>Using the process for merging config.ini changes described in
+<a class="reference internal" href="#cross-site-request-forgery-detection-added">Cross Site Request Forgery Detection Added</a> you can add the
+<code class="docutils literal notranslate"><span class="pre">samesite_cookie_setting</span></code> to the <code class="docutils literal notranslate"><span class="pre">[web]</span></code> section of the config
+file.</p>
+</div>
+<div class="section" id="fix-for-path-traversal-changes-template-resolution">
+<h3><a class="toc-backref" href="#id61">Fix for path traversal changes template resolution</a></h3>
+<p>The templates in the tracker’s html subdirectory must not be
+symbolic links that lead outside of the html directory.</p>
+<p>If you don’t use symbolic links for templates in your html
+subdirectory you don’t have to make any changes. Otherwise you need to
+replace the symbolic links with hard links to the files or replace the
+symbolic links with the files.</p>
+<p>This is a side effect of fixing a path traversal security issue.  The
+security issue required a directory with a specific unusual name. This
+made it difficult to exploit. However allowing the use of
+subdirectories to organize the templates required that it be fixed.</p>
+</div>
+<div class="section" id="database-back-end-specified-in-config-ini-required">
+<h3><a class="toc-backref" href="#id62">Database back end specified in config.ini (required)</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">db/backend_name</span></code> file is no longer used to configure the database
+backend being used for a tracker. The backend is now configured in the
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file using the <code class="docutils literal notranslate"><span class="pre">backend</span></code> option located in the <code class="docutils literal notranslate"><span class="pre">[rdbms]</span></code>
+section. For example if <code class="docutils literal notranslate"><span class="pre">db/backend_name</span></code> file contains <code class="docutils literal notranslate"><span class="pre">sqlite</span></code>, a new
+entry in the tracker’s <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> will need to be created:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">rdbms</span><span class="p">]</span>
+
+<span class="o">...</span>
+
+<span class="c1"># Database backend.</span>
+<span class="c1"># Default:</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">sqlite</span>
+</pre></div>
+</div>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file has been updated with the new <code class="docutils literal notranslate"><span class="pre">backend</span></code> option,
+you can safely delete the <code class="docutils literal notranslate"><span class="pre">db/backend_name</span></code> file.</p>
+<p>Note: the <code class="docutils literal notranslate"><span class="pre">backend_name</span></code> file may be located in a directory other than
+<code class="docutils literal notranslate"><span class="pre">db/</span></code> if you have configured the <code class="docutils literal notranslate"><span class="pre">database</span></code> option in the <code class="docutils literal notranslate"><span class="pre">[main]</span></code>
+section of the <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file to be something other than <code class="docutils literal notranslate"><span class="pre">db</span></code>.</p>
+<p>Note 2: if you are using the anydbm back end, you still set
+it using the backend option in the rdbms section of the
+config.ini file.</p>
+</div>
+<div class="section" id="new-config-file-option-indexer-added">
+<h3><a class="toc-backref" href="#id63">New config file option ‘indexer’ added</a></h3>
+<p>This release added support for the Whoosh indexer, so a new
+config file option has been
+added. You can force Roundup to use a particular text indexer by
+setting this value in the [main] section of the tracker’s
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code> file (usually placed right before indexer_stopwords):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">main</span><span class="p">]</span>
+
+<span class="o">...</span>
+
+<span class="c1"># Force Roundup to use a particular text indexer.</span>
+<span class="c1"># If no indexer is supplied, the first available indexer</span>
+<span class="c1"># will be used in the following order:</span>
+<span class="c1"># Possible values: xapian, whoosh, native (internal).</span>
+<span class="n">indexer</span> <span class="o">=</span>
+</pre></div>
+</div>
+<div class="section" id="errors-and-troubleshooting-full-text-searching-not-working">
+<h4><a class="toc-backref" href="#id64">Errors and Troubleshooting - Full text searching not working</a></h4>
+<p>If after the upgrade full text searching is not working try changing
+the indexer value. If this is failing most likely you need to set
+‘’’indexer = native’’’ to use the rdbms or db text indexing systems.</p>
+<p>Alternatively you can do a
+‘’’roundup-admin -i /path/to/tracker reindex’’’
+to generate a new index using roundup’s preferred indexer from the
+list above.</p>
+<div class="section" id="xapian-error-with-flint-when-reindexing">
+<h5><a class="toc-backref" href="#id65">Xapian error with flint when reindexing</a></h5>
+<p>If you reindex and are using xapian, you may get the error that
+“flint” is not supported (looks like flint was removed after xapian
+1.2.x). To fix this, you can delete the full text search database
+located in the tracker home directory in the file ‘’’db/text-index’’’
+and then perform a reindex.</p>
+</div>
+</div>
+</div>
+<div class="section" id="stemming-improved-in-xapian-indexer">
+<h3><a class="toc-backref" href="#id66">Stemming improved in Xapian Indexer</a></h3>
+<p>Stemming allows a search for “silent” also match silently.  The Porter
+stemmer in Xapian works with lowercase English text. In this release we
+lowercase the documents as they are put into the indexer.</p>
+<p>This means capitalization is not preserved, but produces more hits by
+using the stemmer.</p>
+<p>You will need to do a roundup-admin reindex if you are using the
+Xapian full text indexer on your tracker.</p>
+</div>
+<div class="section" id="new-config-file-option-replyto-address-added">
+<h3><a class="toc-backref" href="#id67">New config file option ‘replyto_address’ added</a></h3>
+<p>A new config file option has been added to let you control the
+Reply-To header on nosy messages.</p>
+<p>Edit your tracker’s <code class="docutils literal notranslate"><span class="pre">config.ini</span></code> and place the following after
+the email entry in the tracker section:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">tracker</span><span class="p">]</span>
+<span class="o">...</span>
+
+<span class="c1"># Controls the reply-to header address used when sending</span>
+<span class="c1"># nosy messages.</span>
+<span class="c1"># If the value is unset (default) the roundup tracker&#39;s</span>
+<span class="c1"># email address (above) is used.</span>
+<span class="c1"># If set to &quot;AUTHOR&quot; then the primary email address of the</span>
+<span class="c1"># author of the change will be used as the reply-to</span>
+<span class="c1"># address. This allows email exchanges to occur outside of</span>
+<span class="c1"># the view of roundup and exposes the address of the person</span>
+<span class="c1"># who updated the issue, but it could be useful in some</span>
+<span class="c1"># unusual circumstances.</span>
+<span class="c1"># If set to some other value, the value is used as the reply-to</span>
+<span class="c1"># address. It must be a valid RFC2822 address or people will not be</span>
+<span class="c1"># able to reply.</span>
+<span class="c1"># Default:</span>
+<span class="n">replyto_address</span> <span class="o">=</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="login-from-a-search-or-after-logout-works-better-required">
+<h3><a class="toc-backref" href="#id68">Login from a search or after logout works better (required)</a></h3>
+<p>The login form has been improved to work with some back end code
+changes. Now when a user logs in they stay on the same page where they
+started the login. To make this work, you must change the tal that is
+used to set the <code class="docutils literal notranslate"><span class="pre">__came_from</span></code> form variable. Note that the url
+assigned to __came_from must be url encoded/quoted and be under the
+tracker’s base url. If the base_url uses http, you can set the url to
+https.</p>
+<p>Replace the existing code in the tracker’s html/page.html page that
+looks similar to (look for name=”__came_from”):</p>
+<div class="code big-code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;__came_from&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value string:${request/base}${request/env/PATH_INFO}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>with the following:</p>
+<div class="code html big-code highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;__came_from&quot;</span>
+  <span class="n">tal</span><span class="p">:</span><span class="n">condition</span><span class="o">=</span><span class="s2">&quot;exists:request/env/QUERY_STRING&quot;</span>
+  <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value string:${request/base}${request/env/PATH_INFO}?${request/env/QUERY_STRING}&quot;</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;__came_from&quot;</span>
+  <span class="n">tal</span><span class="p">:</span><span class="n">condition</span><span class="o">=</span><span class="s2">&quot;not:exists:request/env/QUERY_STRING&quot;</span>
+  <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;value string:${request/base}${request/env/PATH_INFO}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Now search backwards for the nearest form statement before the code
+that sets __came_from. If it looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>replace it with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;action request/base&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>or with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;action string:${request/env/PATH_INFO}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>the important part is that the action field <strong>must not</strong> include any query
+parameters (‘#’ includes query params).</p>
+<div class="section" id="errors-and-troubleshooting-unrecognized-scheme-in">
+<h4><a class="toc-backref" href="#id69">Errors and Troubleshooting - Unrecognized scheme in …</a></h4>
+<p>One symptom of failing to do this is getting an error:</p>
+<blockquote>
+<div>Unrecognized scheme in ….</div></blockquote>
+<p>where the …. changes depending on the url path. You can see this
+when logging in from any screen other than the main index.</p>
+</div>
+</div>
+<div class="section" id="option-to-make-adding-multiple-keywords-more-convenient">
+<h3><a class="toc-backref" href="#id70">Option to make adding multiple keywords more convenient</a></h3>
+<p>In the classic tracker, after adding a new keyword you are redirected
+to the page for the new keyword so you can change the keyword’s
+name. This is usually not desirable as you usually correctly set the
+keyword’s name when creating the keyword. The new classic tracker has
+a new checkbox (checked by default) that keeps you on the same page so
+you can add a new keywords one after the other.</p>
+<p>To add this to your own tracker, add the following code (prefixed with
+a +) after the entry box for the new keyword in html/keyword.item.html:</p>
+<div class="code big-code highlight-default notranslate"><div class="highlight"><pre><span></span>   &lt;tr&gt;
+    &lt;th i18n:translate=&quot;&quot;&gt;Keyword&lt;/th&gt;
+    &lt;td tal:content=&quot;structure context/name/field&quot;&gt;name&lt;/td&gt;
++   &lt;td tal:condition=&quot;not:context/id&quot;&gt;
++     &lt;tal:comment tal:replace=&quot;nothing&quot;&gt;
++       If we get here and do not have an id, we are creating a new
++       keyword. It would be nice to provide some mechanism to
++       determine the preferred state of the &quot;Continue adding keywords&quot;
++       checkbox. By default it is enabled.
++     &lt;/tal:comment&gt;
++     &lt;input type=&quot;checkbox&quot; id=&quot;continue_new_keyword&quot;
++           name=&quot;__redirect_to&quot;
++           tal:attributes=&quot;value
++                           string:${request/base}${request/env/PATH_INFO}?@template=item;
++                           checked python:True&quot; /&gt;
++     &lt;label for=&quot;continue_new_keyword&quot; i18n:translate=&quot;&quot;&gt;Continue adding keywords.&lt;/label&gt;
++   &lt;/td&gt;
+   &lt;/tr&gt;
+</pre></div>
+</div>
+<p>Note remove the leading ‘+’ when adding this to the templates.</p>
+<p>The key component here is support for the ‘__redirect_to’ query
+property. It is a url which can be used when creating any new item
+(issue, user, keyword ….). It controls the next page displayed after
+creating the item. If ‘__redirect_to’ is not set, then you end up on
+the page for the newly created item. The url value assigned to
+__redirect_to must start with the tracker’s base url and must be properly
+url encoded.</p>
+</div>
+<div class="section" id="helper-popups-trigger-change-events-on-the-original-page">
+<h3><a class="toc-backref" href="#id71">Helper popups trigger change events on the original page</a></h3>
+<p>The helper popups used to set dates (from a calendar), change lists of
+users or lists of issues did not notify the browser that the fields
+had been changed. This release adds code to trigger the change event.</p>
+<p>To add the change event to the calendar popup, you don’t need to do
+any changes to the tracker. It is all done in the roundup python code
+in templating.py.</p>
+<p>To add the change event when updating users using the help-submit
+template, copy
+share/roundup/templates/devel/html/_generic.help-submit.html and
+replace your tracker’s html/_generic.help-submit.html.  If you have
+done local changes to this file, change your file to include the code
+that defines the onclick event for the input field with
+id=”btn_apply”.</p>
+<p>To add the change event when updating lists of issues copy
+share/roundup/templates/devel/html/help_controls.js to your tracer’s
+html directory. If you have made local changes to the javascript file,
+merge the two if/else blocks labeled:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">trigger</span> <span class="n">change</span> <span class="n">event</span> <span class="n">on</span> <span class="n">the</span> <span class="n">field</span> <span class="n">we</span> <span class="n">changed</span> <span class="o">*/</span>
+</pre></div>
+</div>
+<p>into your help_controls.js</p>
+</div>
+<div class="section" id="html-generic-404-html-in-trackers-use-page-template">
+<h3><a class="toc-backref" href="#id72">html/_generic.404.html in trackers use page template</a></h3>
+<p>The original generic 404 error pages for many trackers did not use the
+standard page layout. This change replaces the html/_generic.404.html
+page with one that uses the page template.</p>
+<p>If your deployed tracker is based on: classic, minimal, responsive or
+devel templates and has not changed the html/_generic.404.html file,
+you can copy in the new file to get this additional functionality.</p>
+</div>
+<div class="section" id="organize-templates-into-subdirectories">
+<h3><a class="toc-backref" href="#id73">Organize templates into subdirectories</a></h3>
+<p>The &#64;template parameter to the web interface allows the use of
+subdirectories. So a setting of &#64;template=view/view for an issue would
+use the template in the tracker’s html/view/issue.view.html. Similarly
+for a caller class, you could put all the templates under the
+html/caller directory with names like: html/caller/caller.item.html,
+html/caller/caller.index.html etc. You may want to symbolically link the
+html/_generic* templates into your subdirectory so that missing
+templates (e.g. a missing caller.edit.html template) can be satisfied
+by the _generic.edit.html template.</p>
+</div>
+<div class="section" id="properly-quote-query-dispname-displayed-name-in-page-html">
+<h3><a class="toc-backref" href="#id74">Properly quote query dispname (displayed name) in page.html</a></h3>
+<p>A new method has been added to HTMLStringProperty called url_quote.
+The default templates have been updated to use this in the “Your
+Query” section of the trackers html/page.html file. You will want to
+change your template. Lines starting with - are the original line and
+you want to change it to match the line starting with the + (remove
+the + from the line):</p>
+<div class="code big-code highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="n">tal</span><span class="p">:</span><span class="n">block</span> <span class="n">tal</span><span class="p">:</span><span class="n">repeat</span><span class="o">=</span><span class="s2">&quot;qs request/user/queries&quot;</span><span class="o">&gt;</span>
+<span class="o">-</span>    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;href string:${qs/klass}?${qs/url}&amp;@dispname=${qs/name}&quot;</span>
+<span class="o">+</span>    <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;#&quot;</span> <span class="n">tal</span><span class="p">:</span><span class="n">attributes</span><span class="o">=</span><span class="s2">&quot;href string:${qs/klass}?${qs/url}&amp;@dispname=${qs/name/url_quote}&quot;</span>
+        <span class="n">tal</span><span class="p">:</span><span class="n">content</span><span class="o">=</span><span class="s2">&quot;qs/name&quot;</span><span class="o">&gt;</span><span class="n">link</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">tal</span><span class="p">:</span><span class="n">block</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Find the tal:repeat line that loops over all queries. Then
+change the value assigned to &#64;dispname in the href attribute from
+${qs/name} to ${qs/name/url_quote}. Note that you should <em>not</em> change
+the value for tal:content.</p>
+</div>
+<div class="section" id="allow-show-unassigned-issues-link-to-work-for-anonymous-user">
+<h3><a class="toc-backref" href="#id75">Allow “Show Unassigned” issues link to work for Anonymous user</a></h3>
+<p>In this release the anonymous user is allowed to search the user
+class. The following was added to the schema for all templates that
+provide the search option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Search&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span> <span class="p">(</span><span class="s1">&#39;Anonymous&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you are running a tracker that <strong>does not</strong> allow read access for
+anonymous, you should remove this entry as it can be used to perform
+a username guessing attack against a roundup install.</p>
+<div class="section" id="errors-and-troubleshooting-unassigned-issues-for-anonymous">
+<h4><a class="toc-backref" href="#id76">Errors and Troubleshooting - Unassigned issues for anonymous</a></h4>
+<p>If you notice that the “Unassigned Issues” search on page.html
+is displaying assigned issues for users with the Anonymous role,
+you need to allow search permissions for the user class.</p>
+</div>
+</div>
+<div class="section" id="improvements-in-classic-tracker-query-edit-html-template">
+<h3><a class="toc-backref" href="#id77">Improvements in Classic Tracker query.edit.html template</a></h3>
+<p>There is a new query editing template included in the distribution at:</p>
+<blockquote>
+<div><code class="docutils literal notranslate"><span class="pre">share/roundup/templates/classic/html/query.edit.html</span></code></div></blockquote>
+<p>This template fixes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>public query could not be removed from “Your Queries” once it was added.
+Trying to do so would cause a permissions error.</li>
+<li>private yes/no dropdown always showed “yes” regardless of
+underlying state</li>
+<li>query Delete button did not work.</li>
+<li>same query being displayed multiple times</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>It also adds:</dt>
+<dd><ul class="first last simple">
+<li>the table layout displays queries created by the user first,
+then available public queries.</li>
+<li>public query owners are shown</li>
+<li>better support for deleted queries. When a query is deleted, it is
+still available for those who added it to their query list. If you
+are the query owner, you can restore (undelete) the query. If you
+are not the owner you can remove it from your query list.
+(If a query is deleted and nobody had it in their query list, it
+will not show up in the “Active retired queries” section. You will
+have to use the class editor or roundup_admin command line to
+restore it.)</li>
+<li>notifies the user that delete/restore requires javascript. It
+always did, but that requirement wasn’t displayed.</li>
+</ul>
+</dd>
+</dl>
+<p>To use the new template, you must add Restore permission on queries to
+allow the user to restore queries (see below).</p>
+<p>If you have not modified the query.edit.html template in your tracker,
+you should be able to copy the new version from the location above.
+Otherwise you will have to merge the changes into your modified template.</p>
+<p>Add the query Restore permission for the User role to your tracker’s
+schema.py file.  Place it right after the query retire permission for
+the user role. After the change it should look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Retire&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="n">edit_query</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;User is allowed to retire their queries&quot;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Restore&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">,</span>
+    <span class="n">check</span><span class="o">=</span><span class="n">edit_query</span><span class="p">,</span>
+    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;User is allowed to restore their queries&quot;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the last four lines are the ones you need to add.</p>
+<p>Usually you can add this to your User role. If all users have the User
+role in common then all logged in users should be ok. If you have
+users who do not include the User role (e.g. they may only have a
+Provisional role), you should add the search permission to that role
+(e.g. Provisional) as well if you allow them to edit their list of
+queries.</p>
+<p>Also see the <a class="reference external" href="upgrading-history.html#new-search-permissions-for-query-in-1-4-17">new search permissions for query in 1.4.17</a> section
+discussing search permission requirements for editing queries. The
+fixes in this release require the ability to search the creator of all
+queries to work correctly.</p>
+<p>If the test script for the <a class="reference external" href="upgrading-history.html#new-search-permissions-for-query-in-1-4-17">new search permissions for query in
+1.4.17</a> doesn’t report that a role has the ability to search queries
+or at least search the creator property for queries, add the following
+permissions to your schema.py:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Search&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;query&#39;</span><span class="p">,</span>
+  <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;creator&#39;</span><span class="p">],</span>
+  <span class="n">description</span><span class="o">=</span><span class="s2">&quot;User is allowed to Search queries for creator&quot;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="errors-and-troubleshooting-public-queries-listed-twice-when-editing">
+<h4><a class="toc-backref" href="#id78">Errors and Troubleshooting - Public queries listed twice when editing</a></h4>
+<p>If you do not do this, public queries will be listed twice in the edit
+interface. Once in the “Queries I created” section and again in the
+“Queries others created” section of the query edit page
+(<code class="docutils literal notranslate"><span class="pre">http..../query?&#64;template=edit</span></code>).</p>
+</div>
+</div>
+<div class="section" id="fix-security-issues-in-query-item-html-template">
+<h3><a class="toc-backref" href="#id79">Fix security issues in query.item.html template</a></h3>
+<p>The default query.item.html template allows anybody to view all
+queries.</p>
+<p>This has been updated in the classic, devel and responsive templates
+to only allow people to view queries they creates or queries that are
+publicly viewable.</p>
+<p>If you haven’t modified you query.item.html template, simply copy the
+query.item.html template from one of the above default templates to
+your tracker’s html directory.</p>
+</div>
+<div class="section" id="enhancement-to-check-command-for-permissions">
+<h3><a class="toc-backref" href="#id80">Enhancement to check command for Permissions</a></h3>
+<p>A new form of check function is permitted in permission definitions.
+The three argument form is still supported and will work the same
+as it always has (although it may be depricated in the future).</p>
+<p>If the check function is defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">check</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">userid</span><span class="p">,</span> <span class="n">itemid</span><span class="p">,</span> <span class="o">**</span><span class="n">ctx</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>the ctx variable will have the context to use when determining access
+rights:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;property&#39;</span><span class="p">]</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="nb">property</span> <span class="n">being</span> <span class="n">checked</span> <span class="ow">or</span> <span class="kc">None</span> <span class="k">if</span>
+       <span class="n">it</span><span class="s1">&#39;s a class check.</span>
+
+<span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;classname&#39;</span><span class="p">]</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="k">class</span> <span class="nc">that</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">checked</span>
+       <span class="p">(</span><span class="n">issue</span><span class="p">,</span> <span class="n">query</span> <span class="o">....</span><span class="p">)</span><span class="o">.</span>
+
+<span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;permission&#39;</span><span class="p">]</span> <span class="n">the</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">permission</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="n">View</span><span class="p">,</span> <span class="n">Edit</span><span class="o">...</span><span class="p">)</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This should make defining complex permissions much easier. Consider:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">issue_private_access</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">userid</span><span class="p">,</span> <span class="n">itemid</span><span class="p">,</span> <span class="o">**</span><span class="n">ctx</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">db</span><span class="o">.</span><span class="n">issue</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">itemid</span><span class="p">,</span> <span class="s1">&#39;private&#39;</span><span class="p">):</span>
+       <span class="c1"># allow access to everything if not private</span>
+       <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># It is a private issue hide nosy list</span>
+    <span class="c1"># Note that the nosy property *must* be listed</span>
+    <span class="c1"># in permissions argument to the addPermission</span>
+    <span class="c1"># definition otherwise this check command</span>
+    <span class="c1"># is not run.</span>
+    <span class="k">if</span> <span class="n">ctx</span><span class="p">[</span><span class="s1">&#39;property&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;nosy&#39;</span><span class="p">:</span>
+       <span class="k">return</span> <span class="kc">False</span> <span class="c1"># deny access to this property</span>
+
+    <span class="c1"># allow access for editing, viewing etc. of the class</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="n">e</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Edit&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;issue&#39;</span><span class="p">,</span>
+                              <span class="n">check</span><span class="o">=</span><span class="n">issue_private_access</span><span class="p">,</span>
+                              <span class="n">properties</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nosy&#39;</span><span class="p">],</span>
+                              <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Edit issue checks&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is suggested that you change your checks to use the <code class="docutils literal notranslate"><span class="pre">**ctx</span></code>
+parameter. This is expected to be the preferred form in the future.
+You do not need to use the <code class="docutils literal notranslate"><span class="pre">ctx</span></code> parameter in the function if you do
+not need it.</p>
+</div>
+<div class="section" id="changes-to-property-permissions">
+<h3><a class="toc-backref" href="#id81">Changes to property permissions</a></h3>
+<p>If you create a permission:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>db.security.addPermission(name=’View’, klass=’user’,</dt>
+<dd>properties=[‘theme’], check=own_record,
+description=”User is allowed to view their own theme”)</dd>
+</dl>
+</div></blockquote>
+<p>that combines checks and properties, the permission also matches a
+permission check for the View permission on the user class.  So this
+also allows the user to see their user record. It is unexpected that
+checking for access without a property would match this permission.</p>
+<p>This release adds support for making a permission like above only be
+used during property permission tests. See <code class="docutils literal notranslate"><span class="pre">customizing.txt</span></code> and
+search for props_only and set_props_only_default in the section
+‘Adding a new Permission’</p>
+</div>
+<div class="section" id="improve-query-editing">
+<h3><a class="toc-backref" href="#id82">Improve query editing</a></h3>
+<p>If a user creates a query with the same name as one of their existing
+queries, the query editing interface will now report an error. By
+default the query editing page (issue.search.html) displays the index
+page when the search is triggered. This is usually correct since the
+user expects to see the results of the query. But now that
+the code properly checks for duplicate search names, the user should
+stay on the search page if there is an error. To add this to your
+existing issue.search.html page, add the following line after the
+hidden field &#64;old-queryname:</p>
+<blockquote>
+<div>&lt;input type=”hidden” name=”&#64;template” value=”index|search”/&gt;</div></blockquote>
+<p>With this addition, the index template is displayed if there is no
+error, and the user stays on the search template if there is an error.</p>
+</div>
+<div class="section" id="new-l-loghttpvialogger-option-to-roundup-server">
+<h3><a class="toc-backref" href="#id83">New -L (loghttpvialogger) option to roundup-server</a></h3>
+<p>Http request logs from roundup-server are sent to stderr or
+can be recorded in a log file (if -l or the logfile options
+is used). However there is no way to rotate the logfile
+without shutting down and restarting the roundup-server.</p>
+<p>If the -L flag is used, the python logging module is used
+for logging the http requests. The name for the log
+(qualname) is ‘roundup.http’. You can direct these messages
+to a rotating log file by putting the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">loggers</span><span class="p">]</span>
+<span class="n">keys</span><span class="o">=</span><span class="n">roundup</span><span class="o">.</span><span class="n">http</span>
+
+<span class="p">[</span><span class="n">logger_roundup</span><span class="o">.</span><span class="n">http</span><span class="p">]</span>
+<span class="n">level</span><span class="o">=</span><span class="n">INFO</span>
+<span class="n">handlers</span><span class="o">=</span><span class="n">rotate_weblog</span>
+<span class="n">qualname</span><span class="o">=</span><span class="n">roundup</span><span class="o">.</span><span class="n">http</span>
+<span class="n">propagate</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="p">[</span><span class="n">handlers</span><span class="p">]</span>
+<span class="n">keys</span><span class="o">=</span><span class="n">rotate_weblog</span>
+
+<span class="p">[</span><span class="n">handler_rotate_weblog</span><span class="p">]</span>
+<span class="n">class</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">handlers</span><span class="o">.</span><span class="n">RotatingFileHandler</span>
+<span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;httpd.log&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">512000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">formatter</span><span class="o">=</span><span class="n">plain</span>
+
+<span class="p">[</span><span class="n">formatters</span><span class="p">]</span>
+<span class="n">keys</span><span class="o">=</span><span class="n">plain</span>
+
+<span class="p">[</span><span class="n">formatter_plain</span><span class="p">]</span>
+<span class="nb">format</span><span class="o">=%</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="n">s</span>
+</pre></div>
+</div>
+<p>into a file (e.g. logging.ini). Then reference this file in
+the ‘config’ value of the [logging] section in the trackers
+config.ini file.</p>
+<p>Note the log configuration above is an example and can be
+merged into a more full featured logging config file for
+your tracker if you wish. It will create a new file in the
+current working directory called ‘httpd.log’ and will rotate
+the log file at 500K and keep two old copies of the file.</p>
+</div>
+</div>
+<div class="section" id="migrating-from-1-5-0-to-1-5-1">
+<span id="index-7"></span><h2><a class="toc-backref" href="#id84">Migrating from 1.5.0 to 1.5.1</a></h2>
+<div class="section" id="user-data-visibility">
+<h3><a class="toc-backref" href="#id85">User data visibility</a></h3>
+<p>For security reasons you should change the permissions on the user
+class. We previously shipped a configuration that allowed users to see
+too many of other users details, including hashed passwords under
+certain circumstances. In schema.py in your tracker, replace the line:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="s1">&#39;View&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermission</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;View&#39;</span><span class="p">,</span> <span class="n">klass</span><span class="o">=</span><span class="s1">&#39;user&#39;</span><span class="p">,</span>
+    <span class="n">properties</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;organisation&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">,</span> <span class="s1">&#39;realname&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;timezone&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">))</span>
+<span class="n">db</span><span class="o">.</span><span class="n">security</span><span class="o">.</span><span class="n">addPermissionToRole</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that this removes visibility of user emails, if you want emails to
+be visible you can add ‘address’ and ‘alternate_addresses’ to the list
+above.</p>
+</div>
+<div class="section" id="xss-protection-for-custom-actions">
+<h3><a class="toc-backref" href="#id86">XSS protection for custom actions</a></h3>
+<p>If you have defined your own cgi actions in your tracker instance
+(e.g. in a custom <code class="docutils literal notranslate"><span class="pre">extensions/spambayes.py</span></code> file) you need to modify
+all cases where client.error_message or client.ok_message are modified
+directly. Instead of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">ok_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you need to call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">add_ok_message</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and the same for:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">error_message</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>vs.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">add_error_message</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The new calls escape the passed string by default and avoid XSS security
+issues.</p>
+</div>
+</div>
+<div class="section" id="migrating-from-older-versions">
+<h2><a class="toc-backref" href="#id87">Migrating from older versions</a></h2>
+<p>See the <a class="reference external" href="upgrading-history.html">historical migration</a> document.</p>
+</div>
+</div>
+
+
+       
+    <div class="related related-bottom">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="security.html" title="Roundup Security Issues"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="installation.html" title="Installing Roundup"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">Roundup 2.3.0 documentation</a></li> 
+      </ul>
+    </div>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2021, Richard Jones, Roundup-Team.
+    </div>
+  </body>
+</html>

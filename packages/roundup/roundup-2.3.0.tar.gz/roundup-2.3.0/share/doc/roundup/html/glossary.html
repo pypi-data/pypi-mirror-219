@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+
+
+
+None
+
+
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Definitions of terms used in the Roundup Issue Tracker documentation. Referenced by other documents." name="description" />
+
+    <title>Roundup Glossary &mdash; Roundup 2.3.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/NO_basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    './',
+          VERSION:     '2.3.0',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Roundup 2.3.0 documentation" href="index.html" />
+    <link rel="next" title="Administration Guide" href="admin_guide.html" />
+    <link rel="prev" title="Roundup Reference" href="reference.html" /> 
+  </head>
+  <body>
+    <div class="header"><div class="label">Roundup</div>
+        <div id="searchbox" style="display: none">
+          <form class="search" action="search.html" method="get">
+            <input type="text" name="q" size="18" />
+            <input type="submit" value="Search" />
+            <input type="hidden" name="check_keywords" value="yes" />
+            <input type="hidden" name="area" value="default" />
+          </form>
+        </div>
+        <script type="text/javascript">$('#searchbox').show(0);</script>
+    </div>
+    <div class="navigation">
+      <div class="menu">
+       
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="reference.html"
+                          title="previous chapter">Roundup Reference</a></p>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="admin_guide.html"
+                          title="next chapter">Administration Guide</a></p>
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/glossary.txt"
+             rel="nofollow">Show Source</a></li>
+    </ul>
+  <div id="searchbox" style="display: none">
+    <h3>Quick search</h3>
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" size="18" />
+        <input type="submit" value="Go" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+      <p style="font-size: 90%">Enter search terms or a module, class or function name.</p>
+  </div>
+  <script type="text/javascript">$('#searchbox').show(0);</script>
+      </div>
+    </div>
+    <div class="content">
+       
+    <div class="related related-top">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="admin_guide.html" title="Administration Guide"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Roundup Reference"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">Roundup 2.3.0 documentation</a></li> 
+      </ul>
+    </div>
+       
+  <div class="section" id="roundup-glossary">
+<h1>Roundup Glossary</h1>
+<dl class="glossary docutils">
+<dt id="term-class">class</dt>
+<dd>a definition of the properties and behavior of a set of items</dd>
+<dt id="term-classname">classname</dt>
+<dd>the name of a class. It must start with a letter, end with a letter
+or “_”, and only have alphanumerics and “_” in the middle.</dd>
+<dt id="term-db">db</dt>
+<dd>database used to store the data in the tracker. Roundup supports
+4 databases: dbm (Berkeley DB/BDB), SQLite, PostgreSQL, MySQL/MariaDB.</dd>
+<dt id="term-definitional-class">definitional class</dt>
+<dd>a class that exists to define a discrete set of values. For example
+status or priority.</dd>
+<dt id="term-designator">designator</dt>
+<dd>a combined <a class="reference internal" href="#term-classname"><span class="xref std std-term">classname</span></a> + <a class="reference internal" href="#term-itemid"><span class="xref std std-term">itemid</span></a> reference to any item
+in the hyperdb. E.g. <code class="docutils literal notranslate"><span class="pre">issue26</span></code>. Note that form values can include
+something that looks like a designator composed of a classname,
+a dash ‘-’, and a number. E.g. <code class="docutils literal notranslate"><span class="pre">file-1</span></code>. These are used to create
+new instances of a class via the web interface.</dd>
+<dt id="term-hyperdb">hyperdb</dt>
+<dd>a software layer between the user and the underlying <a class="reference internal" href="#term-db"><span class="xref std std-term">db</span></a>.
+It is responsible for mutating the underlying db when the schema
+changes. It also executes the detectors when items in the db change.</dd>
+<dt id="term-item">item</dt>
+<dd>a collection of data that forms one entry in the hyperdb.</dd>
+<dt id="term-itemid">itemid</dt>
+<dd>an integer reference to a particular item of one
+class. Internally it is stored as a string and not an integer
+number. This results in a string not numeric sort by id in some
+circumstances.</dd>
+<dt id="term-property">property</dt>
+<dd>one element of data that makes up an item. In Roundup, the set
+of item properties may be changed as needed - even after the
+tracker has been initialized and used in production.</dd>
+<dt id="term-schema">schema</dt>
+<dd>the definition of all the classes and properties that make up a
+tracker. Contained in the file <code class="docutils literal notranslate"><span class="pre">schema.py</span></code>. The permissions
+for the schema items are usually defined in the same file.</dd>
+<dt id="term-tracker">tracker</dt>
+<dd>the schema and hyperdb that forms one issue tracker</dd>
+<dt id="term-tracker-home">tracker home</dt>
+<dd>the physical location on disk of a tracker. It has the
+<code class="docutils literal notranslate"><span class="pre">config.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">schema.py</span></code> files for the tracker.</dd>
+</dl>
+<hr class="docutils" />
+<p>Back to <a class="reference external" href="../docs.html">Table of Contents</a></p>
+</div>
+
+
+       
+    <div class="related related-bottom">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="admin_guide.html" title="Administration Guide"
+             accesskey="N">next</a></li>
+        <li class="right" >
+          <a href="reference.html" title="Roundup Reference"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">Roundup 2.3.0 documentation</a></li> 
+      </ul>
+    </div>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2021, Richard Jones, Roundup-Team.
+    </div>
+  </body>
+</html>
