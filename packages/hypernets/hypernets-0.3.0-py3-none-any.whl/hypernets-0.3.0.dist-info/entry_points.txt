@@ -1,0 +1,2 @@
+[console_scripts]
+hyperctl = hypernets.hyperctl.cli:main
