@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: rems
+Version: 0.2.1
+Summary: Robotics Educational Middleware System
+Author: UCLA LEMUR
+License: LGPLv3
+Project-URL: GitHub, https://github.com/Suke0811/REMS
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Robot Framework
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3
