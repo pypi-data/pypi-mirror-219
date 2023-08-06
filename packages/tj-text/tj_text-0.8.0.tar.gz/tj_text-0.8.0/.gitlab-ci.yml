@@ -1,0 +1,35 @@
+---
+variables:
+  HTTPS_PROXY: http://proxy.tcsbank.ru:8080
+  HTTP_PROXY: http://proxy.tcsbank.ru:8080
+  no_proxy: 'tinkoff.cloud,.tcsbank.ru,.tinkoff.ru'
+  GIT_DEPTH: "0"
+
+
+image: "${DOCKER_ARTIFACTORY}/tj/ci:latest"
+
+before_script:
+  - cp pip.conf /etc/pip.conf
+  - python3 -m pip install flit
+  - make install
+
+stages:
+  - test
+  - deploy
+
+test:
+  stage: test
+  except:
+    refs:
+      - tags
+  script:
+    - make check
+    - make test
+
+deploy:
+  stage: deploy
+  only:
+    refs:
+      - tags
+  script:
+    - flit publish

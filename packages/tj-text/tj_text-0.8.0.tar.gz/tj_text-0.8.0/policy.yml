@@ -1,0 +1,4 @@
+merge_request:
+  method: fast-forward
+  enable_delete_branch: true
+  resolve_outdated_diff_discussions: false
