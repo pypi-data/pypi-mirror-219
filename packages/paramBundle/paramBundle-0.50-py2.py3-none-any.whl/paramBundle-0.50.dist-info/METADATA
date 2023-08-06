@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: paramBundle
+Version: 0.50
+Summary: Automatically select, check and bundle keyword arguments from 'kwargs' dictionaries
+Home-page: https://www.blackward.de
+Author: Dominik Niedenzu
+Author-email: pyadaaah@blackward.de
+Maintainer: Dominik Niedenzu
+License: Proprietary License
+Platform: any platform which provides python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Other Audience
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Requires-Python: >= 2.2
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+The documentation has not been created yet - sorry - you will have to make do with the following example code for now:
+
+```python
+def exampleFct(aaa, bbb, **kwargs):
+    """
+        :param aaa: just a dummy.
+        :param bbb: just a dummy.
+        :return: 'None'.
+        
+        An example function for using 'ParamBundle' to automatically select, 
+        check (for completeness and correct types) and bundle keyword arguments
+        into an instance of an enhanced dictionary class, which also and in 
+        particular mirrors items to attributes and attributes to items 
+        automatically.
+    """
+     
+    try:
+           ### determine the mandatory as well as the optional parameters and belonging parameter types ###
+           ### and extract, check and bundle the belonging parts of 'kwargs' into 'args'.
+           args = ParamBundle()
+           args.registerMandatories(ccc=int, ddd=float)
+           args.registerOptionals(eee=(int,float,type(None)), fff=None)
+           args.update( kwargs )
+           
+           if args.isComplete() == False:
+              print (">>>>>>>>>> MANDATORY PARAMETERS INCOMPLETE <<<<<<<<<<")
+           
+    except Exception as ee:
+           print ("Error in exampleFct: function called with wrong arguments (%s)!" % ee)
+```
+
+Furthermore you should try out:
+
+```console
+python paramBundle.py --test
+```
+
+and have a look at the output! Last but not least the code of the belonging selftest() function and the functions called from there can provide some insights.
+
+
+Further infomations and links can be found on my homepage
+
+[https://www.blackward.de](https://www.blackward.de)  
+
+Have Fun!
+
+
+
