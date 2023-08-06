@@ -1,0 +1,15 @@
+acro/__init__.py,sha256=wZ8x0vsOFsxhNE7JTG8NJnqhUhh6MYk6-XhMMkd2Xao,32
+acro/acro.py,sha256=s3D0wst-DJnzQQqWh4oYYVuYR9VpuVGa_isRZ0_txaE,32494
+acro/default.yaml,sha256=jwerahJCsFm5wNz0ySvDqYxxEVy15EcAlx_0eeyZeno,1072
+acro/record.py,sha256=sYFSKVdgOdlwF3Bzdi4mYgAbG_X6YsfKSkZiCGduHHk,19460
+acro/utils.py,sha256=kEmBiduWBP3gi-2sawjIWZw9gNx-qV0E5MyYUDWqXwU,10320
+acro/version.py,sha256=dTmiDQdgXfkvRzPSPmL4kesNvKtXnbnUIqeYoh_syZ4,49
+test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+test/stata.py,sha256=7mJMMCbyJz3NX9tc51g2PF-cM_4R6CZM54bFdcG_4sg,2056
+test/test_initial.py,sha256=2nvbRqB3IETmJtu6tfMZfNpKldEJ8vJcPB4djY-6dTw,14281
+test/test_stata_interface.py,sha256=wvQcyabms-afMPFXyhHs1SQtc6pctzbnTH9cNUKQfYE,9013
+acro-0.4.2.dist-info/LICENSE,sha256=znwtAul7UvAyF_Qw2DgbOuF5oBpOpn6-3V2fWmRbews,1063
+acro-0.4.2.dist-info/METADATA,sha256=nDnH95BAwuDylejF5MMyANVCu6t64Kl-syW0qbSO-gI,3265
+acro-0.4.2.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+acro-0.4.2.dist-info/top_level.txt,sha256=8uz4Hc-_h6GpzhZ7FnBl_cuvWYeLRhtn8VZGdEiRfwY,10
+acro-0.4.2.dist-info/RECORD,,
