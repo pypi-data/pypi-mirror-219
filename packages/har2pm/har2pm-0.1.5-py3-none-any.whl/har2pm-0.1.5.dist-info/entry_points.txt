@@ -1,0 +1,5 @@
+[console_scripts]
+har2pm=har2pm.cli:main
+har2postman=har2pm.cli:main
+harto=har2pm.cli:main
+
