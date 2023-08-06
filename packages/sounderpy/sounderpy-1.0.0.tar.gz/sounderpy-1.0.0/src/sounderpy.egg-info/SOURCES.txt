@@ -1,0 +1,9 @@
+LICENSE.txt
+README.md
+pyproject.toml
+src/sounderpy/__init__.py
+src/sounderpy/sounderpy.py
+src/sounderpy.egg-info/PKG-INFO
+src/sounderpy.egg-info/SOURCES.txt
+src/sounderpy.egg-info/dependency_links.txt
+src/sounderpy.egg-info/top_level.txt
