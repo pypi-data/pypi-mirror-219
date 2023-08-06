@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: python-payfast
+Version: 0.2
+Summary: A very opinionated Python client library for the PayFast API.
+Author: Armandt van Zyl
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: django
+Provides-Extra: drf
+Provides-Extra: docs
+Provides-Extra: dev
+License-File: LICENSE
+
+# python-payfast
+A very opinionated Python client library for the PayFast API.
+
+Warning: This is still in development. Don't use this package.
