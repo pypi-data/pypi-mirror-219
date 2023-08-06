@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "basketcase"
+version = "5.0.0"
+authors = [
+  { name="Douglas Silva", email="douglas-h-silva@proton.me" },
+]
+description = "Download images and videos from Instagram"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+license = {file = "LICENSE"}
+keywords = ["instagram", "story", "stories"]
+dependencies = [
+  "requests~=2.28.2",
+]
+
+[project.scripts]
+"basketcase" = "basketcase.__main__:main"
+
+[project.urls]
+"Homepage" = "https://gitlab.com/crimson.king/basketcase"
+"Bug Tracker" = "https://gitlab.com/crimson.king/basketcase/-/issues"
