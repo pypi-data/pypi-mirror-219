@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: secret-checker
+Version: 1.0.2
+Summary: A Python module for checking if either of the secrets/environment variables include prod or dev or other env name.
+Author: Akash Deep
+Author-email: dakash98@outlook.com
+
