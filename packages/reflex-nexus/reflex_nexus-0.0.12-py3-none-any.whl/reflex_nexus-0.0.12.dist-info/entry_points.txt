@@ -1,0 +1,7 @@
+[console_scripts]
+app=nexus:app
+build=nexus:build
+docs=nexus:docs
+lint=nexus:lint
+test=nexus:test
+

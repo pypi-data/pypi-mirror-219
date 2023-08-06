@@ -1,0 +1,16 @@
+src/app/application.py,sha256=FKjJMxMjB56Ox_B_8VygqtUpr5DRV_SPh7_AF34SJEM,1150
+src/app/device_registry.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+src/app/logger.py,sha256=fpMi9VYCQxh3tuSnocpRJpzal6Rgo_okfvh41fCwrfY,541
+src/app/main_window.py,sha256=gEnECmoliZ-eKm-ETL_LD_GNCDbDZ1TyXAS_bX7QvJc,732
+src/app/menu_bar.py,sha256=EqDEHOyooUYRD4bWZR9_FZaQrC91HDQ8mSqEJL43J2U,931
+src/app/stylesheet.qss,sha256=2oHw6hJNN80c3m6XetQ7ez_O6VrrV-dmA9DZiMBjQSo,369
+src/app/widget_registry.py,sha256=o5y5_2_0JIKT4blrIBdp5nWIlduTD50b3LPZuSekbWY,938
+src/devices/reflex_v2.py,sha256=HY87I04QcU7Rmh1RELkOVP_I6CMwJHiPJFGxRVSa8jE,1327
+src/drivers/usb_hid.py,sha256=DDQqBht7wdsk6WkDeTI8DEcaRRYtAqKZ5S6CBWEUe60,117
+src/widgets/log_viewer.py,sha256=9fy28Oc7x5ARO2xE1p6NCVCAYD3MHvAR2N0ZCnDUxDk,380
+src/widgets/pad_interface.py,sha256=sCqfjXiQoSbKIechsHDan2HI_g6MdBACD2WLpgxw7xc,883
+reflex_nexus-0.0.12.dist-info/LICENSE,sha256=v_1wAxlyXrgdUmDaeyBs7wzfH-xx6yOJyWRAOUFFluk,1066
+reflex_nexus-0.0.12.dist-info/METADATA,sha256=X_q1VptZwbSdN2phB0Yku9TDYsyV7OPBwlOYtoWhk6Y,6361
+reflex_nexus-0.0.12.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+reflex_nexus-0.0.12.dist-info/entry_points.txt,sha256=tqmwzNdgsc8QpCDXhyLjgLvYYPswoy1KiBUNFVrYvNk,99
+reflex_nexus-0.0.12.dist-info/RECORD,,
