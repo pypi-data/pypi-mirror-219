@@ -1,0 +1,8 @@
+antlerinator>=1!3.0.0
+antlr4-python3-runtime==4.13.0
+autopep8
+inators
+jinja2
+
+[:python_version < "3.8"]
+importlib-metadata
