@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: lora-pytorch
+Version: 0.1.0rc1
+Summary: project_description
+Home-page: https://github.com/fkodom/lora-pytorch
+Author: Frank Odom
+Author-email: frank.odom.iii@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: einops (<1.0.0,>=0.6.0)
+Requires-Dist: torch (<3.0.0,>=1.7.0)
+Provides-Extra: all
+Requires-Dist: black ; extra == 'all'
+Requires-Dist: flake8 ; extra == 'all'
+Requires-Dist: isort ; extra == 'all'
+Requires-Dist: mypy ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: pre-commit ; extra == 'all'
+Provides-Extra: dev
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: black ; extra == 'test'
+Requires-Dist: flake8 ; extra == 'test'
+Requires-Dist: isort ; extra == 'test'
+Requires-Dist: mypy ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# lora-pytorch
+
+## Install
+
+```bash
+pip install "lora-pytorch @ git+ssh://git@github.com/fkodom/lora-pytorch.git"
+
+# Install all dev dependencies (tests etc.)
+pip install "lora-pytorch[all] @ git+ssh://git@github.com/fkodom/lora-pytorch.git"
+
+# Setup pre-commit hooks
+pre-commit install
+```
+
+
+## Test
+
+Tests run automatically through GitHub Actions.
+* Fast tests run on each push.
+* Slow tests (decorated with `@pytest.mark.slow`) run on each PR.
+
+You can also run tests manually with `pytest`:
+```bash
+pytest lora-pytorch
+
+# For all tests, including slow ones:
+pytest --slow lora-pytorch
+```
+
+
+## Release
+
+[Optional] Requires either PyPI or Docker GHA workflows to be enabled.
+
+Just tag a new release in this repo, and GHA will automatically publish Python wheels and/or Docker images.
