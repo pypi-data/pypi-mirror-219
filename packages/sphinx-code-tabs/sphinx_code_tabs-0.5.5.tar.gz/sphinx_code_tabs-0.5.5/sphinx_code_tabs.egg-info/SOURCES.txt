@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+UNLICENSE
+setup.cfg
+setup.py
+sphinx_code_tabs/__init__.py
+sphinx_code_tabs/code-tabs.css
+sphinx_code_tabs/code-tabs.js
+sphinx_code_tabs/tabenv.sty
+sphinx_code_tabs.egg-info/PKG-INFO
+sphinx_code_tabs.egg-info/SOURCES.txt
+sphinx_code_tabs.egg-info/dependency_links.txt
+sphinx_code_tabs.egg-info/not-zip-safe
+sphinx_code_tabs.egg-info/requires.txt
+sphinx_code_tabs.egg-info/top_level.txt
