@@ -1,0 +1,18 @@
+[build-system]
+# Minimum requirements for the build system to execute.
+requires = ["setuptools", "wheel"]  # PEP 508 specifications.
+
+[tool.black]
+skip-string-normalization = false
+target-version = ["py311"]
+
+[tool.isort]
+profile = "black"
+known_third_party = ["pytest"]
+
+[tool.darker]
+src = [
+    "action",
+    "src",
+]
+revision = "origin/master..."
