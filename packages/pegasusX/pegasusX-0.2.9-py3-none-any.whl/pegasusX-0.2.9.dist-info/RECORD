@@ -1,0 +1,17 @@
+pegasus/__init__.py,sha256=HAoyPnIscls5kvITRBlHtzCwp19rPs0EVHzBLSJjKvI,32
+pegasus/embedding_functions.py,sha256=BH5_pJSR-FstBOR1gmMIJ0jztcm1rqZe_Q8F8Pgykmo,5254
+pegasus/errors.py,sha256=SDlDelyQnkkl2Gz-VZu3dt_Q2PFovONRGQqFzBafYA0,1485
+pegasus/main.py,sha256=BjxWRXSWFKiBKl_QqSuahVq41efqlKI0Tkh9KXNbJSg,1310
+pegasus/types.py,sha256=7e7yyz4-WrXIh5-iLr6WPIH9lwfBDvjWON7bUcmWOmw,12806
+pegasus/ImageBind/__init__.py,sha256=kTv3FX8GuApb32G_KtitXjFaAGBul6K1M8VxfCXF2-4,242
+pegasus/ImageBind/data.py,sha256=IiYipjwK-8xXQOXEZOMu4HGVE-JFZnd7KD9iZnGZbl8,11875
+pegasus/ImageBind/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pegasus/ImageBind/models/helpers.py,sha256=XhG9fMPK_9VChKJY8vOEJRpZy0wLEFEB-l6VLPNGBIw,3983
+pegasus/ImageBind/models/imagebind_model.py,sha256=EcuqrnJpFBWKQUSpuX2tBU3si-_eeGCcHubMX-O8fRk,16431
+pegasus/ImageBind/models/multimodal_preprocessors.py,sha256=409nuAlaDpfC6zacq7Qxw7nMTS9ka4z7nMqjMSagAu8,23088
+pegasus/ImageBind/models/transformer.py,sha256=YCBoMa7N4VAubTsvIGMAluLI9wXKlkuWTOZCJAuPIlw,9748
+pegasusX-0.2.9.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+pegasusX-0.2.9.dist-info/METADATA,sha256=ZVZv2jAB7veubEvicIGAknqYODdXExMY0k3LA9_6RTA,1096
+pegasusX-0.2.9.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+pegasusX-0.2.9.dist-info/top_level.txt,sha256=4WAAhIHJ5VasajhnMQ96Ed8tIaZlRk9Gitf0TfOohmY,8
+pegasusX-0.2.9.dist-info/RECORD,,
