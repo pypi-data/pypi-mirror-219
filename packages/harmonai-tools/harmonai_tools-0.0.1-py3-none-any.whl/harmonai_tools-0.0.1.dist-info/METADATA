@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: harmonai-tools
+Version: 0.0.1
+Summary: Training and inference tools for generative audio models from Harmonai
+Home-page: https://github.com/Harmonai-org/harmonai-tools.git
+Author: Harmonai
+License-File: LICENSE
+Requires-Dist: aeiou
+Requires-Dist: alias-free-torch
+Requires-Dist: audio-diffusion-pytorch-fork (==0.0.101)
+Requires-Dist: audio-metadata
+Requires-Dist: auraloss
+Requires-Dist: descript-audio-codec
+Requires-Dist: einops
+Requires-Dist: ema-pytorch
+Requires-Dist: encodec
+Requires-Dist: gradio
+Requires-Dist: importlib-resources (==5.12.0)
+Requires-Dist: k-diffusion
+Requires-Dist: laion-clap
+Requires-Dist: nwt-pytorch
+Requires-Dist: pandas
+Requires-Dist: pedalboard
+Requires-Dist: prefigure
+Requires-Dist: pytorch-lightning (==1.7.4)
+Requires-Dist: PyWavelets
+Requires-Dist: sentencepiece
+Requires-Dist: s3fs
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: torchmetrics (==0.11.4)
+Requires-Dist: tqdm
+Requires-Dist: transformers
+Requires-Dist: v-diffusion-pytorch
+Requires-Dist: vector-quantize-pytorch
+Requires-Dist: wandb
+Requires-Dist: webdataset
+Requires-Dist: x-transformers
+
