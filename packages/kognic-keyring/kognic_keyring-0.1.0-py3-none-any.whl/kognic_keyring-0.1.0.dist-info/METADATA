@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: kognic-keyring
+Version: 0.1.0
+Summary: Kognic Keyring
+Author-email: Kognic <python.core.maintainers@kognic.com>
+Requires-Dist: keyrings.google-artifactregistry-auth (<2,>=1.1.2)
+
