@@ -1,0 +1,60 @@
+[tool.black]
+line-length = 120
+
+[tool.pycln]
+all = true
+
+[tool.pylint."messages control"]
+disable = ["all"]
+enable = [
+    "abstract-method",
+    "bad-staticmethod-argument",
+    "consider-merging-isinstance",
+    "function-redefined",
+    "undefined-variable",
+    "unused-private-member",
+]
+
+[tool.ruff]
+# Configure the line-length so Ruff knows how long to make any lines it
+# modifies.
+line-length = 120
+target-version = "py38"
+
+select = ["F", "E", "EM"]
+
+ignore = [
+
+  "E501", # E501 line length (we use black auto-formatter to handle line length)
+  "E741", #	ambiguous-variable-name
+]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.pydoclint]
+style = 'google'
+exclude = '\.git|\.tox|tests/.'
+allow-init-docstring = true
+
+[build-system]
+requires = ["hatchling", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tecton-http-client-python"
+description = "A Python Client for the Tecton Online Inference"
+requires-python = ">=3.8"
+license = "Apache-2.0"
+dynamic = ["version", "dependencies"]
+readme = "README.md"
+
+[tool.hatch.version]
+path = "tecton_client/__about__.py"
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[project.urls]
+"Source" = "https://github.com/tecton-ai/tecton-http-client-python"
+"Documentation" = "https://tecton-ai.github.io/tecton-http-client-python/html/index.html"
