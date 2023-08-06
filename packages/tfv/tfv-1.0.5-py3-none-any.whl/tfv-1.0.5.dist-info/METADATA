@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: tfv
+Version: 1.0.5
+Summary: Post processing tools for TUFLOW FV results
+Home-page: https://gitlab.com/TUFLOW/tfv
+Author: TUFLOW Support
+Author-email: support@tuflow.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: matplotlib (>3.2.2)
+Requires-Dist: netCDF4 (>=1.5.3)
+Requires-Dist: xarray (>=v2022.03.0)
+Requires-Dist: dask (>=2022.01.0)
+Requires-Dist: scipy (>=1.6.0)
+Requires-Dist: tqdm (>=4.50.0)
+Provides-Extra: viewer
+Requires-Dist: PyQt5 (>=5.15.0) ; extra == 'viewer'
+
+# TFV
+The tfv package is a suite of tools for post-processing results from the [TUFLOW FV](https://www.tuflow.com/Tuflow%20FV.aspx) hydrodynamic, sediment transport, water quality and particle tracking modelling software. 
+
+It is also provides a basic framework for extracting and visualizing 2D and 3D oceanographic and atmospheric model result data on unstructured meshes.
+
+## Installing
+The tfv package is available via the Python Package Index ([PyPi](https://pypi.org/project/tfv/))
+
+*Note: Version 1.0.5 has been built and tested on Python 3.9 to 3.11*.
+
+From command prompt install and update using pip:
+
+```
+python -m pip install tfv
+```
+
+## Dependencies
+The tfv package depends on the following core packages:
+
+```
+matplotlib >= 3.2.2
+netCDF4 >= 1.5.3
+numpy >= 1.19.0
+xarray>=v2022.03.0
+dask>=2022.01.0
+scipy>=1.6.0
+tqdm>=4.50.0
+```
+
+These will be automatically installed or updated as part of the tfv installation.
+
+The following packages provide additional functionality and are **not** installed by default:
+
+`ipywidgets >= 8.0.0` - Required for interactive results vizulisation in an interactive session (e.g., JuypterLab)
+
+`PyQt5 >= 5.15.0`  - Required for interactive popout results vizulisation
+
+## Tutorials, Documentation & Support
+See the [API Reference](https://tfv.readthedocs.io/en/latest/) for code documentation and
+[TUFLOW FV Python Tools](https://fvwiki.tuflow.com/index.php?title=FV_Python_Tools) for tutorials and demonstration 
+datasets. 
+
+For support contact [TUFLOW Support](mailto:support@tuflow.com).
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.txt](https://gitlab.com/TUFLOW/tfv/blob/master/LICENSE) file for details
