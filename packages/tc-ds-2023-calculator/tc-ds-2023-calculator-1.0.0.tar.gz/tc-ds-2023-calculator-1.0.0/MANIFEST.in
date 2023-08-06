@@ -1,0 +1,25 @@
+include *.in
+include *.ipynb
+include *.py
+include *.txt
+recursive-include dist *.gz
+recursive-include src *.DS_Store
+recursive-include src *.gz
+recursive-include src *.py
+recursive-include venv *.11
+recursive-include venv *.APACHE
+recursive-include venv *.BSD
+recursive-include venv *.cfg
+recursive-include venv *.csh
+recursive-include venv *.exe
+recursive-include venv *.fish
+recursive-include venv *.pem
+recursive-include venv *.ps1
+recursive-include venv *.pth
+recursive-include venv *.py
+recursive-include venv *.pyc
+recursive-include venv *.rst
+recursive-include venv *.tmpl
+recursive-include venv *.txt
+recursive-include venv *.typed
+recursive-include venv *.xml
