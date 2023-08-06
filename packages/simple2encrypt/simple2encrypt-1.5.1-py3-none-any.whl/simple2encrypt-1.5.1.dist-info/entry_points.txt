@@ -1,0 +1,3 @@
+[console_scripts]
+aes-key = encryption_utils:main
+aes-message = example_message:main
