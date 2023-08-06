@@ -1,0 +1,183 @@
+Tree {
+    width: 1fr;
+    height: 100%;
+}
+
+TabbedContent {
+    width: 4fr;
+    height: 100%;
+}
+
+DataTable {
+    height: 100%;
+}
+
+TabPane {
+    min-height: 10;
+    height: 1fr;
+    overflow: scroll;
+}
+
+RadioSet {
+    width: 50%;
+    align: center middle;
+}
+
+SelectConnection {
+    align: center middle;
+}
+
+NewConnection {
+    align: center middle;
+    background: $surface;
+}
+/*
+NewConnection {
+    grid-size: 3 8;
+    grid-gutter: 1;
+    width: 75;
+    height: 35;
+    border: thick $background 80%;
+    background: $surface;
+    align: center middle;
+    content-align-horizontal: center;
+}*/
+
+
+QuitScreen {
+    align: center middle;
+}
+
+PopUpScreen {
+    align: center middle;
+    content-align: center top;
+}
+
+#popup_text {
+    align: center middle;
+    content-align: center middle;
+}
+
+#dialog {
+    grid-size: 2;
+    grid-gutter: 1 2;
+    grid-rows: 1fr 3;
+    padding: 0 1;
+    width: 60;
+    height: 11;
+    border: thick $background 80%;
+    background: $surface;
+}
+
+#popup_window {
+    grid-size: 1;
+    grid-rows: 1fr 3;
+    padding: 0 1;
+    width: 60;
+    height: 11;
+    border: thick $background 80%;
+    background: $surface;
+}
+
+#new_connection_dialog {
+    grid-size: 3 4;
+    grid-gutter: 1;
+    grid-rows: 1fr 1fr 6fr;
+    width: 75;
+    height: 35;
+    border: thick $background 80%;
+    background: $surface;
+    align: center middle;
+    content-align-horizontal: center;
+}
+
+#postgres_form {
+    grid-size: 3 5;
+    background: red;
+}
+
+#connection_form {
+    grid-size: 3 5;
+/*    background: red;*/
+}
+
+PostgresForm {
+    column-span: 3;
+}
+
+
+OptionList {
+    padding: 1;
+    width: 100%;
+}
+OptionList:focus{
+    outline: hkey $accent;
+}
+
+Grid > Label {
+    column-span: 1;
+    content-align: right top;
+    width: 100%;
+    height: 100%;
+}
+
+Grid > Input {
+    column-span: 2;
+    margin-right: 1;
+}
+
+Grid > Button {
+    margin-right:2;
+    margin-left:2;
+}
+
+Grid > Select {
+    column-span: 3;
+    padding-right: 1;
+    padding-left: 1;
+}
+
+#select_connection_dialog {
+    grid-size: 3;
+    grid-gutter: 1 2;
+    grid-rows: 4fr 3 3;
+    width: 75;
+    height: 25;
+    border: thick $background 80%;
+    background: $surface;
+    padding-left: 1;
+    padding-right: 1;
+}
+
+Placeholder {
+        visibility: hidden;
+    }
+
+#select_connection_list {
+    column-span: 2;
+    height:100%;
+    padding-top: 0;
+}
+
+#new_connection_button {
+    column-span: 2;
+}
+
+#question {
+    column-span: 2;
+    height: 1fr;
+    width: 1fr;
+    content-align: center middle;
+}
+
+#connect_button {}
+
+#cancel_select_connection_button {}
+
+
+Button {
+    width: 100%;
+    margin-left: 1;
+    margin-right: 1;
+    margin-bottom: 1;
+}

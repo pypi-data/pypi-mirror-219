@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "tuidbtv"
+version = "0.1.9"
+description = "console database client"
+authors = ["lakdemon"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/lakdemon/TUIDBTV"
+classifiers = [
+    "Environment :: Console",
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/lakdemon/TUIDBTV/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+textual = "^0.28.1"
+psycopg = {version = "^3.0.15"}
+mysql-connector-python = {version = "^8.0.11"}
+
+#should be optional
+#[tool.poetry.extras]
+#mysql = ["mysql-connector-python"]
+#pgsql = ["psycopg"]
+#full = ["mysqlclient", "psycopg2"]
+
+
+[tool.poetry.scripts]
+tuidbtv = "tuidbtv.__main__:run"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
