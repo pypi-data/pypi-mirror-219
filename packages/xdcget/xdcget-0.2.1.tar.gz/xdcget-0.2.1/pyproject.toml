@@ -1,0 +1,33 @@
+[project]
+name = "xdcget"
+version = "0.2.1"
+#author = "holger and team" 
+#author_email = "holger@deltachat.de"
+description = "experimental tool for collecting latest releases of webxdc apps"
+license = {text = "MPL-2.0"}
+requires-python = ">=3.10"
+readme = "README.md"
+
+scripts = {xdcget = "xdcget.main:main"}
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)",
+    "Operating System :: POSIX",
+]
+
+
+dependencies = [
+    "requests",
+    "termcolor",
+    "toml",
+]
+
+[project.optional-dependencies]
+test = ["pytest", "tox"]
+
+[project.urls]
+homepage = "https://codeberg.org/webxdc/xdcget"
+issues = "https://codeberg.org/webxdc/xdcget/issues"
+

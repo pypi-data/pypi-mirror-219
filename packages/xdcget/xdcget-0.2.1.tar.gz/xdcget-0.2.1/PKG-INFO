@@ -1,0 +1,75 @@
+Metadata-Version: 2.1
+Name: xdcget
+Version: 0.2.1
+Summary: experimental tool for collecting latest releases of webxdc apps
+License: MPL-2.0
+Project-URL: homepage, https://codeberg.org/webxdc/xdcget
+Project-URL: issues, https://codeberg.org/webxdc/xdcget/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: POSIX
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: test
+
+
+# xdcget: a command line tool to collect webxdc apps from git repositories 
+
+The "xdcget" command line tool collects [WebXDC](https://webxdc.org) apps
+via the release API of Codeberg and Github.
+The main purpose for this tool is to maintain a cache of released webxdc apps
+and to export release files so they can be imported from the 
+[WebXDC Store](https://github.com/webxdc/store)
+which in turn can be used by Delta Chat users to discover webxdc apps for sharing in chats. 
+
+## Getting started  
+
+1. Install `xdcget` command line tool from a local checkout:
+
+        pip install -e . 
+
+2. Initialize config files: 
+
+        xdcget init 
+
+3. Edit `xdcget.ini` to contain your Codeberg and Github API access token (see below)
+   and also adjust config options as needed.  
+
+4. Edit `sources.ini` to modify the list of source repositories. 
+
+5. Run the `update` command to cache all releases for 
+   repositories listed in `sources.ini`:
+
+        xdcget update 
+
+6. Run the `export` command to create files for `xdcstore import <PATH>`
+
+        xdcget export 
+
+## Getting a Codeberg API access token 
+
+Login with Codeberg and open https://codeberg.org/user/settings/applications 
+to generate a new token.  This token does not need any special "scopes"
+it's only used for querying releases of public repositories.  
+You can copy the resulting API token into your clipboard
+and then insert it into the config file: 
+
+    # the line you need to put into `xdcget.ini` 
+    CODEBERG_USER = <your-codeberg-user-name> 
+    CODEBERG_TOKEN = <paste-your-codeberg-access-token-here> 
+
+
+## Getting a Github API access token 
+
+Login with github and open https://github.com/settings/tokens
+to generate a new token.  This token does not need any access
+to your private repos -- it's only used for querying releases 
+of public repositories.  You may give it 90 days or other expiration
+times as you feel fine with. 
+You can copy the resulting API token into your clipboard
+and then insert it into the config file: 
+
+    # the line you need to put into `xdcget.ini` 
+    GITHUB_USER = <your-github-user-name> 
+    GITHUB_TOKEN = <paste-your-github-access-token-here> 
