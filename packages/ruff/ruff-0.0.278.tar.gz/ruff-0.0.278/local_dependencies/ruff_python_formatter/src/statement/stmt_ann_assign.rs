@@ -1,0 +1,30 @@
+use crate::prelude::*;
+use crate::FormatNodeRule;
+use ruff_formatter::write;
+use rustpython_parser::ast::StmtAnnAssign;
+
+#[derive(Default)]
+pub struct FormatStmtAnnAssign;
+
+impl FormatNodeRule<StmtAnnAssign> for FormatStmtAnnAssign {
+    fn fmt_fields(&self, item: &StmtAnnAssign, f: &mut PyFormatter) -> FormatResult<()> {
+        let StmtAnnAssign {
+            range: _,
+            target,
+            annotation,
+            value,
+            simple: _,
+        } = item;
+
+        write!(
+            f,
+            [target.format(), text(":"), space(), annotation.format()]
+        )?;
+
+        if let Some(value) = value {
+            write!(f, [space(), text("="), space(), value.format()])?;
+        }
+
+        Ok(())
+    }
+}

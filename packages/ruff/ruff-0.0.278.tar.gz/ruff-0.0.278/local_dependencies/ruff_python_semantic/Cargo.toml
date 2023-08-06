@@ -1,0 +1,28 @@
+[package]
+name = "ruff_python_semantic"
+version = "0.0.0"
+publish = false
+authors = ["Charlie Marsh <charlie.r.marsh@gmail.com>"]
+edition = "2021"
+rust-version = "1.70"
+homepage = "https://beta.ruff.rs/docs"
+documentation = "https://beta.ruff.rs/docs"
+repository = "https://github.com/astral-sh/ruff"
+license = "MIT"
+resolver = "2"
+
+[lib]
+
+[dependencies]
+ruff_python_ast = { path = "../ruff_python_ast" }
+ruff_python_stdlib = { path = "../ruff_python_stdlib" }
+ruff_text_size = { git = "https://github.com/astral-sh/RustPython-Parser.git", rev = "c174bbf1f29527edd43d432326327f16f47ab9e0" }
+ruff_index = { path = "../ruff_index" }
+
+bitflags = { version = "2.3.1" }
+is-macro = { version = "0.2.2" }
+nohash-hasher = { version = "0.2.0" }
+num-traits = { version = "0.2.15" }
+rustc-hash = { version = "1.1.0" }
+rustpython-parser = { git = "https://github.com/astral-sh/RustPython-Parser.git", rev = "c174bbf1f29527edd43d432326327f16f47ab9e0" , default-features = false, features = ["full-lexer", "num-bigint"] }
+smallvec = { version = "1.10.0" }

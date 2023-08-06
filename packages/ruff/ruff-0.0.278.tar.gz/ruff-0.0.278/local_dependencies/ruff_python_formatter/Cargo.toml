@@ -1,0 +1,43 @@
+[package]
+name = "ruff_python_formatter"
+version = "0.0.0"
+publish = false
+authors = ["Charlie Marsh <charlie.r.marsh@gmail.com>"]
+edition = "2021"
+rust-version = "1.70"
+homepage = "https://beta.ruff.rs/docs"
+documentation = "https://beta.ruff.rs/docs"
+repository = "https://github.com/astral-sh/ruff"
+license = "MIT"
+resolver = "2"
+
+[dependencies]
+ruff_formatter = { path = "../ruff_formatter" }
+ruff_python_whitespace = { path = "../ruff_python_whitespace" }
+ruff_python_ast = { path = "../ruff_python_ast" }
+ruff_text_size = { git = "https://github.com/astral-sh/RustPython-Parser.git", rev = "c174bbf1f29527edd43d432326327f16f47ab9e0" }
+
+anyhow = { version = "1.0.69" }
+bitflags = { version = "2.3.1" }
+clap = { version = "4.1.8", features = ["derive"] }
+countme = "3.0.1"
+is-macro = { version = "0.2.2" }
+itertools = { version = "0.10.5" }
+once_cell = { version = "1.17.1" }
+rustc-hash = { version = "1.1.0" }
+rustpython-parser = { git = "https://github.com/astral-sh/RustPython-Parser.git", rev = "c174bbf1f29527edd43d432326327f16f47ab9e0" , default-features = false, features = ["full-lexer", "num-bigint"] }
+serde = { version = "1.0.152", features = ["derive"] , optional = true }
+smallvec = { version = "1.10.0" }
+thiserror = { version = "1.0.43" }
+unic-ucd-ident = "0.9.0"
+
+[[test]]
+name = "ruff_python_formatter_fixtures"
+path = "tests/fixtures.rs"
+test = true
+required-features = [ "serde" ]
+
+
+[features]
+serde = ["dep:serde", "ruff_formatter/serde"]
+default = ["serde"]
