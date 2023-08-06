@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: dxlib
+Version: 0.2.0
+Summary: Quantitative Methods for Finance
+Home-page: https://github.com/delphos-quant/dxlib
+Author: Rafael Zimmer
+Author-email: rzimmerde@gmail.com
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.25.1)
+Requires-Dist: matplotlib (==3.7.2)
+Requires-Dist: pandas (==2.0.3)
+Requires-Dist: rich (==13.4.2)
+Requires-Dist: requests (~=2.31.0)
+Requires-Dist: yfinance (==0.2.24)
+Requires-Dist: bt (~=0.2.9)
+Requires-Dist: pmdarima (~=2.0.3)
+
+# Quantitative Analysis library
+
+Contains basic methods, interfaces and integration calls
+for statistical tools, as well as for data gathering functions.
+
+
+## Installation
+
+`pip install dxlib`
+
+
+## Quickstart
+
+```
+from dxlib import finite_differences
+
+import numpy
+import matplotlib.pyplot
+
+x = np.arange(-3, 3, h)
+y = np.tanh(x)
+
+dy = finite_differences(x, y)
+```
+
+A visual graph of the finite differences should be plotted,
+and the numerical values for the differentiation at the point x
+returned.
