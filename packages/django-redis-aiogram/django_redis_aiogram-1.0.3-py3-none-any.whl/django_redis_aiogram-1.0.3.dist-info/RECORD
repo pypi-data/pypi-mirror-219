@@ -1,0 +1,16 @@
+telegram_bot/__init__.py,sha256=OQ27gfkTHaDIWSeJlT1nZYup-7LIu8VmNrcOy6B4j-Y,193
+telegram_bot/apps.py,sha256=2oHorcgQVjJlsmF_AVUnCTSmTXOfkGwwVh0HQKcGdgE,414
+telegram_bot/checks.py,sha256=ZnX-j5d0-_QyoMGN0a8ZbPzJMsIgkUQybJrv3iP7jzQ,1471
+telegram_bot/defaults.py,sha256=LGjsDQFz35XFxhSf1pnInLqG-RXWCsG1vGtOuzOVlDE,409
+telegram_bot/redis.py,sha256=x3d8Hxr2MroiqrnfGYvOvrCys9-Gz-IYa6ILiC1n2kY,109
+telegram_bot/settings.py,sha256=C8EE0SMTyDh3ZjwA2qSPnPYmB12nYkohza1LD-Wj9fc,939
+telegram_bot/signals.py,sha256=Zuax95OUYGISu5MagLQcSV9AKBPsCfpw4aSLZqq4IR4,556
+telegram_bot/telegram_bot.py,sha256=AvFzsfU4fXYHPvDyOX55XVU7CQcSrAjod9p-PbM0PoY,5434
+telegram_bot/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+telegram_bot/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+telegram_bot/management/commands/start_tgbot.py,sha256=CgbBMDhFyWje3ac5ufxZkJYnLWPK4BWXl_j_OciUwxM,1414
+django_redis_aiogram-1.0.3.dist-info/LICENSE,sha256=w0lRgvc4c9JztjKgQnS5fWsm-keaiOiYsUYI18Jjxh4,1064
+django_redis_aiogram-1.0.3.dist-info/METADATA,sha256=lQatweasO6HWn3UwG3p0zAOmHowhqyQm9aCX9PH_BE0,3249
+django_redis_aiogram-1.0.3.dist-info/WHEEL,sha256=2wepM1nk4DS4eFpYrW1TTqPcoGNfHhhO_i5m4cOimbo,92
+django_redis_aiogram-1.0.3.dist-info/top_level.txt,sha256=vMBFx-75Bfu1rS0v48o8Z4qJchCgTkCz5XXyKLm_m0s,13
+django_redis_aiogram-1.0.3.dist-info/RECORD,,
