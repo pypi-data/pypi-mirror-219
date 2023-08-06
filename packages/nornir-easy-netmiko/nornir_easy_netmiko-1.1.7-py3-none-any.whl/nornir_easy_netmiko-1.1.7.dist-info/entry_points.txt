@@ -1,0 +1,3 @@
+[nornir.plugins.connections]
+easy_netmiko=nornir_easy_netmiko.connections:Netmiko
+
