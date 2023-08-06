@@ -1,0 +1,12 @@
+README.md
+setup.py
+PySolidState.egg-info/PKG-INFO
+PySolidState.egg-info/SOURCES.txt
+PySolidState.egg-info/dependency_links.txt
+PySolidState.egg-info/requires.txt
+PySolidState.egg-info/top_level.txt
+crystal_structure/__init__.py
+crystal_structure/atom.py
+crystal_structure/base.py
+crystal_structure/crystalStructure.py
+crystal_structure/lattice.py
