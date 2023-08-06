@@ -1,0 +1,6 @@
+jsonschema>=4.17.3
+python-dotenv>=1.0.0
+fs>=2.4.16
+nbdev>=2.3.12
+
+[dev]

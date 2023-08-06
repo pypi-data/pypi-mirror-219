@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+python_schematized_config.egg-info/PKG-INFO
+python_schematized_config.egg-info/SOURCES.txt
+python_schematized_config.egg-info/dependency_links.txt
+python_schematized_config.egg-info/entry_points.txt
+python_schematized_config.egg-info/not-zip-safe
+python_schematized_config.egg-info/requires.txt
+python_schematized_config.egg-info/top_level.txt
+schematized_config/__init__.py
+schematized_config/_modidx.py
+schematized_config/cli.py
+schematized_config/core.py
