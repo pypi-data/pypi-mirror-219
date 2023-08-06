@@ -1,0 +1,11 @@
+*.egg-info
+*.py[co]
+*.sw[po]
+*~
+.coverage
+.eggs
+.python-version
+.tox
+build
+dist
+docs/_build
