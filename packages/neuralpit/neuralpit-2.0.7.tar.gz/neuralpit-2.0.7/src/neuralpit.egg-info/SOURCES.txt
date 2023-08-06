@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+src/neuralpit/__init__.py
+src/neuralpit.egg-info/PKG-INFO
+src/neuralpit.egg-info/SOURCES.txt
+src/neuralpit.egg-info/dependency_links.txt
+src/neuralpit.egg-info/requires.txt
+src/neuralpit.egg-info/top_level.txt
+src/neuralpit/services/__init__.py
+src/neuralpit/services/conversation.py
+src/neuralpit/services/conversion.py
+test/testCreateConversation.py
