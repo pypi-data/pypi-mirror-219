@@ -1,0 +1,41 @@
+import logging
+import logging.config
+
+config = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s %(levelname)-8s [%(threadName)s] %(name)s %(filename)s: %(lineno)d: %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "simple"
+        },
+        # "file": {
+        #     "class": "logging.handlers.TimedRotatingFileHandler",
+        #     "filename": "../logs/client.log",
+        #     "level": "INFO",
+        #     "formatter": "simple",
+        #     "encoding": "UTF-8",
+        #     "when": "d",
+        #     "interval": 1,
+        #     "backupCount": 30
+        # },
+    },
+    "root": {
+        "level": "INFO",
+        "handlers": [
+            # "file",
+            "console"
+        ]
+    }
+}
+
+# 设置日志
+logging.config.dictConfig(config)
+
+logger = logging.getLogger(__name__)

@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pyezoo
+Version: 2.0.1
+Summary: python3 sdk for ezoodb.
+Home-page: https://www.ezoodb.com
+Author: eZoo
+Author-email: ezoo@ezoodb.com
+Project-URL: Documentation, https://www.ezoodb.com/ezoo-doc?u=/doc/3.eZoo%25E6%258A%2580%25E6%259C%25AF%25E6%2589%258B%25E5%2586%258C/5.eZoo-API/
+Requires: thrift
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: thrift
+
+# pyezoo
+
+**pyezoo** is a python-sdk for [eZooDB](https://www.ezoodb.com/)
+
+```python
+>>> from pyezoo import Connection
+>>> conn = Connection(host='xxx.xxx.xxx.xxx', port=9090, user='xxx', password='xxx', auth=True)
+>>> conn.get_client().hello()
+Response(message='Welcome to ezoo!', status=0, cost_time=0.0)
+>>> conn.get_client().get_node_with_id(db_name="xxx", id=1, retry=True)
+node_s(type='xxx', props={...}, node_id=1, status=0, message='OK.', cost_time=0.000112842)
+```
+
+## Installing pyezoo and Supported Versions
+
+pyezoo is available op PypI:
+
+```console
+python3 -m pip install pyezoo
+```
+
+pyezoo officially supports Python 3.7+.
+
+## API Reference and User Guide available on [eZoo-API DOCS](https://www.ezoodb.com/ezoo-doc?u=/doc/3.eZoo%25E6%258A%2580%25E6%259C%25AF%25E6%2589%258B%25E5%2586%258C/5.eZoo-API/)
