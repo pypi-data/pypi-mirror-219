@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: comet_mpm
+Version: 0.4.2
+Summary: Comet MPM SDK
+Home-page: https://www.comet.ml
+Author: Comet ML Inc.
+Author-email: mail@comet.ml
+License: Proprietary
+Keywords: comet_mpm
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+Python SDK for [Comet Model Production Monitoring](https://www.comet.ml/site/comet-mpm/)
