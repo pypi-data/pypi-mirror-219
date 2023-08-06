@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: pyPreservicaGov
+Version: 0.0.8
+Summary: Python Library For Harvesting Modern.Gov Records into Preservica for Long Term Preservation
+Home-page: https://pyPreservicaGov.readthedocs.io/
+Author: James Carr
+Author-email: drjamescarr@gmail.com
+License: Apache License 2.0
+Project-URL: Documentation, https://pyPreservicaGov.readthedocs.io
+Project-URL: Source, https://github.com/carj/pyPreservica.Gov
+Project-URL: Discussion Forum, https://groups.google.com/g/pyPreservicaGov
+Keywords: Preservica API Preservation
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Archiving
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyPreservica
+Requires-Dist: python-dateutil
+Requires-Dist: bs4
+Requires-Dist: pathvalidate
+
+# pyPreservica.Gov
+
+Python Module For Harvesting public Modern.Gov Committee and Meeting Records into Preservica for Long Term Preservation.
+
+pyPreservica.Gov is a Python Module which allows Preservica users to automatically harvest public records from the 
+Civica Modern.Gov Content Management system directly into a Preservica Long Term Digital Preservation platform
+
+
+## Usage
+
+Once installed you can run pyPreservica.Gov directly from the command line
+
+        $ python -m  pyPreservicaGov
+
+The first time the module is run, it will create a credentials.properties file in the local directory and then exit
+
+Edit the credentials.properties, the first section should contain your Preservica username, password and hostname of
+the Preservica system you would like to connect to.
+
+The second section contains the security tag which should be assigned to the records as they are ingested. For example 
+records which can be published immediately on the Preservica access portal should be set to "public".
+
+The site_name parameter should point to the URL of the Modern.Gov system you would like to harvest.
+
+parent.folder should be the UUID of the Preservica collection the Committee folders will be ingested into. 
+
+The committee.FromDate and committee.ToDate parameters specify the date range of meetings which will be harvested.
+    
+    [credentials]
+    username=test@test.com
+    password=1234567
+    server=uk.preservica.com
+    
+    [Modern.Gov]
+    security.tag=open
+    site_name=https://democracy.local_authority.gov.uk/
+    parent.folder=372d2881-7cce-4c2e-99f7-386c3cf4a922
+    committee.FromDate=01/01/1980
+    committee.ToDate=01/01/2024
+
+
+Once the credentials.properties has been updated you can run pyPreservica.Gov again directly from the command line
+to start the harvest process.
+
+        $ python -m  pyPreservicaGov
+
+
+## License
+
+The package is available as open source under the terms of the Apache License 2.0
+
+
+## Installation
+
+pyPreservica.Gov is available from the Python Package Index (PyPI)
+
+https://pypi.org/project/pyPreservica.Gov/
+
+To install pyPreservica.Gov, simply run this simple command in your terminal of choice:
+
+
+    $ pip install pyPreservica.Gov
+
+
+
+
+
