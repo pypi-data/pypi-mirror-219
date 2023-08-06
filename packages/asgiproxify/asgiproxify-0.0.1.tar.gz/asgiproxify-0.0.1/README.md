@@ -1,0 +1,113 @@
+# Asgiproxify
+
+Asgiproxify is an ASGI middleware for dynamic reverse proxy.
+
+
+## Installation
+
+Of course, you can directly install from PyPI.
+
+```
+(venv) $ pip install asgiproxify
+```
+
+
+## Getting Started
+
+You can easily make a running example from these lines:
+
+```
+import uvicorn
+
+from asgiproxify import Asgiproxify
+
+proxify = Asgiproxify()
+uvicorn.run(proxify)
+```
+
+Oh, you have an ASGI server already? You can set a fallback:
+
+```
+import uvicorn
+
+from app import app
+from asgiproxify import Asgiproxify
+
+proxify = Asgiproxify(app) # or proxify.to(app)
+uvicorn.run(proxify)
+```
+
+Adding a new reverse proxy endpoint is as simple as:
+
+```
+import uvicorn
+
+from asgiproxify import Asgiproxify, AsgiproxifyHandler
+
+proxify = Asgiproxify()
+
+
+@proxify.register('/example/')
+class FooProxyHanlder(AsgiproxifyHandler):
+	pass
+
+uvicorn.run(proxify)
+```
+
+This will register a handler to handle all requests to `/example/*`.
+By default, an AsgiproxifyHandler will proxy any request to example.org.
+
+AsgiproxifyHandler can be smarter than that, like proxy to any URL
+you wish, like this:
+
+```
+import uvicorn
+
+from asgiproxify import Asgiproxify, AsgiproxifyHandler
+
+proxify = Asgiproxify()
+
+
+@proxify.register('/LICENSE')
+class FooProxyHanlder(AsgiproxifyHandler):
+	def make_request_url(self):
+		return 'https://www.gnu.org/licenses/gpl-3.0.txt'
+
+uvicorn.run(proxify)
+```
+
+You may dynamically make revrese proxy by reading self.scope. Its
+content is specified in [ASGI Specification](https://asgi.readthedocs.io/en/latest/specs/www.html#http).
+
+A little example for that will be:
+
+```
+import uvicorn
+
+from asgiproxify import Asgiproxify, AsgiproxifyHandler
+
+proxify = Asgiproxify()
+
+
+@proxify.register('/')
+class FooProxyHanlder(AsgiproxifyHandler):
+	def make_request_url(self):
+		return 'https://ftp.gnu.org' + self.scope['path']
+
+uvicorn.run(proxify)
+```
+
+You can do more with it by utilizing the scope and other infomation.
+The parameters you can tweek from the hander are `request_url`,
+`request_cookies`, `request_headers` and `response_headers`. If that's
+not enough for you, you can override `make_request` which will allow
+you to create your own aiohttp request!
+
+You can consult `proxify.py` for more technical infomation.
+
+## License
+
+This project is proudly licensed in GNU General Public License v3
+or later.
+
+Please refer to `COPYING` for more infomation.

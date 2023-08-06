@@ -1,0 +1,11 @@
+COPYING
+README.md
+pyproject.toml
+setup.py
+asgiproxify/__init__.py
+asgiproxify/proxify.py
+asgiproxify.egg-info/PKG-INFO
+asgiproxify.egg-info/SOURCES.txt
+asgiproxify.egg-info/dependency_links.txt
+asgiproxify.egg-info/requires.txt
+asgiproxify.egg-info/top_level.txt
