@@ -1,0 +1,156 @@
+Metadata-Version: 2.1
+Name: plone.all-in-one-accessibility
+Version: 1.0a1
+Summary: An add-on for Plone
+Home-page: https://github.com/collective/plone.all_in_one_accessibility
+Author: Skynet Technologies USA LLC
+Author-email: developer3@skynettechnologies.com
+License: GPL version 2
+Project-URL: PyPI, https://pypi.org/project/plone.all_in_one_accessibility/
+Project-URL: Source, https://github.com/collective/plone.all_in_one_accessibility
+Project-URL: Tracker, https://github.com/collective/plone.all_in_one_accessibility/issues
+Keywords: Python Plone CMS
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: Addon
+Classifier: Framework :: Plone :: 5.2
+Classifier: Framework :: Plone :: 6.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Requires-Python: >=3.7
+Provides-Extra: test
+License-File: LICENSE.GPL
+License-File: LICENSE.rst
+
+.. This README is meant for consumption by humans and PyPI. PyPI can render rst files so please do not use Sphinx features.
+   If you want to learn more about writing documentation, please check out: http://docs.plone.org/about/documentation_styleguide.html
+   This text does not appear on PyPI or github. It is a comment.
+
+.. image:: https://github.com/collective/plone.all_in_one_accessibility/actions/workflows/plone-package.yml/badge.svg
+    :target: https://github.com/collective/plone.all_in_one_accessibility/actions/workflows/plone-package.yml
+
+.. image:: https://coveralls.io/repos/github/collective/plone.all_in_one_accessibility/badge.svg?branch=main
+    :target: https://coveralls.io/github/collective/plone.all_in_one_accessibility?branch=main
+    :alt: Coveralls
+
+.. image:: https://codecov.io/gh/collective/plone.all_in_one_accessibility/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/collective/plone.all_in_one_accessibility
+
+.. image:: https://img.shields.io/pypi/v/plone.all_in_one_accessibility.svg
+    :target: https://pypi.python.org/pypi/plone.all_in_one_accessibility/
+    :alt: Latest Version
+
+.. image:: https://img.shields.io/pypi/status/plone.all_in_one_accessibility.svg
+    :target: https://pypi.python.org/pypi/plone.all_in_one_accessibility
+    :alt: Egg Status
+
+.. image:: https://img.shields.io/pypi/pyversions/plone.all_in_one_accessibility.svg?style=plastic   :alt: Supported - Python Versions
+
+.. image:: https://img.shields.io/pypi/l/plone.all_in_one_accessibility.svg
+    :target: https://pypi.python.org/pypi/plone.all_in_one_accessibility/
+    :alt: License
+
+
+==============================
+plone.all_in_one_accessibility
+==============================
+
+An add-on for Plone
+
+Features
+--------
+
+- Can be bullet points
+
+
+Examples
+--------
+
+This add-on can be seen in action at the following sites:
+- Is there a page on the internet where everybody can see the features?
+
+
+Documentation
+-------------
+
+Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
+
+
+Translations
+------------
+
+This product has been translated into
+
+- Klingon (thanks, K'Plai)
+
+
+Installation
+------------
+
+Install plone.all_in_one_accessibility by adding it to your buildout::
+
+    [buildout]
+
+    ...
+
+    eggs =
+        plone.all_in_one_accessibility
+
+
+and then running ``bin/buildout``
+
+
+Authors
+-------
+
+Provided by awesome people ;)
+
+
+Contributors
+------------
+
+Put your name here, you deserve it!
+
+- ?
+
+
+Contribute
+----------
+
+- Issue Tracker: https://github.com/collective/plone.all_in_one_accessibility/issues
+- Source Code: https://github.com/collective/plone.all_in_one_accessibility
+- Documentation: https://docs.plone.org/foo/bar
+
+
+Support
+-------
+
+If you are having issues, please let us know.
+We have a mailing list located at: project@example.com
+
+
+License
+-------
+
+The project is licensed under the GPLv2.
+
+
+Contributors
+============
+
+- Skynet Technologies USA LLC, developer3@skynettechnologies.com
+
+
+Changelog
+=========
+
+
+1.0a1 (unreleased)
+------------------
+
+- Initial release.
+  [developer3@skynettechnologies.com]
