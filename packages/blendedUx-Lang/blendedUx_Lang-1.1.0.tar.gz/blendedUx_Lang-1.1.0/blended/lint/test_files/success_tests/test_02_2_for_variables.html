@@ -1,0 +1,23 @@
+{% for item in list %}|
+  {% if value %}|
+    {% set value = value + 1 %}|
+  {% else %}|
+    {% set value = 1 %}|
+  {% endif %}|
+  Inner: {{ value }}|
+{% endfor %}|
+Outer: {{ value }}|
+
+{% for item in list %}|
+  {% if loop.first %}|
+    {% set value = 1 %}|
+  {% else %}|
+    {% set value = value + 1 %}|
+  {% endif %}|
+  {% if loop.last %}|
+    Final inner: {{ value }}|
+  {% else %}|
+    Inner: {{ value }}|
+  {% endif %}|
+{% endfor %}|
+Outer: {{ value }}|

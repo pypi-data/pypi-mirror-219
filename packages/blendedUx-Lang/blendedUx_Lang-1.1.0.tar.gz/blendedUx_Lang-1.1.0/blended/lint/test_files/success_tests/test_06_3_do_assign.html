@@ -1,0 +1,8 @@
+{% set variable = 2 %}
+{% macro newvar(val) %}
+{% set variable = val %}
+variable inside macro: {{ variable }}
+{% endmacro %}
+{% do newvar(3) %}
+{% print newvar(4) %}
+variable outside macro: {{ variable }}

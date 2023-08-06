@@ -1,0 +1,10 @@
+{% set local1 = 2 %}
+{% for index in range %}
+{% set local1 = local1 * 2 %}
+{% endfor %}
+{{ local1 }}
+{% set local2 = variable %}
+{% if local2 %}
+{% set local2 = local2|title %}
+{% endif %}
+{{ local2 }}

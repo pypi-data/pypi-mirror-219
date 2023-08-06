@@ -1,0 +1,6 @@
+{% filter trim %}
+  {% macro inaccessible() %}
+    This macro will cause the template to fail.
+  {% endmacro %}
+{% endfilter %}
+{% echo inaccessible() %}
