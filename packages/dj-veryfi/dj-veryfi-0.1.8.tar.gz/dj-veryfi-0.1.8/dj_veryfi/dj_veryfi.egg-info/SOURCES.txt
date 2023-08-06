@@ -1,0 +1,17 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+dj_veryfi/apps.py
+dj_veryfi/fields.py
+dj_veryfi/models.py
+dj_veryfi/tests.py
+dj_veryfi/veryfi.py
+dj_veryfi/dj_veryfi.egg-info/PKG-INFO
+dj_veryfi/dj_veryfi.egg-info/SOURCES.txt
+dj_veryfi/dj_veryfi.egg-info/dependency_links.txt
+dj_veryfi/dj_veryfi.egg-info/requires.txt
+dj_veryfi/dj_veryfi.egg-info/top_level.txt
+dj_veryfi/migrations/0001_initial.py
+dj_veryfi/migrations/__init__.py
