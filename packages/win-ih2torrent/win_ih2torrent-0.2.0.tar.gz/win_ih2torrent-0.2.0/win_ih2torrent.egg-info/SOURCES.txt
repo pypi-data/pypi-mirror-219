@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+Makefile
+README.md
+README.rst
+ih2torrent.py
+requirements.txt
+setup.py
+version.py
+win_ih2torrent.egg-info/PKG-INFO
+win_ih2torrent.egg-info/SOURCES.txt
+win_ih2torrent.egg-info/dependency_links.txt
+win_ih2torrent.egg-info/entry_points.txt
+win_ih2torrent.egg-info/requires.txt
+win_ih2torrent.egg-info/top_level.txt
