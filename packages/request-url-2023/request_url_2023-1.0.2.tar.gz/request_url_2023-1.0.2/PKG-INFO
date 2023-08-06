@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: request_url_2023
+Version: 1.0.2
+Summary: send bulk requests to a url
+Home-page: https://www.linkedin.com/in/chandlersong/
+Author: chandler song
+Author-email: 275737875@qq.com
+License: MIT
+Keywords: requests url
+Platform: all
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: Chinese (Simplified)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+
+# Introduction
+## Install package
+```shell
+pip install request-url-2023
+```
+##  Example Usage:
+```python
+from request_url_2023 import send_requests
+
+send_requests.run(url="https://www.hrtechchina.com/")
+```
+
+## Params
+
+```python
+from request_url_2023 import send_requests
+
+# 总的请求数
+# TOTAL_COUNT = 10000
+# 线程池数目，
+# THREAD_NUM = 20
+# 每个协程同时发送多少个请求
+# COROUTINE_REQUEST_COUNT = 50
+
+send_requests.run(
+    url="https://www.hrtechchina.com/",
+    TOTAL_COUNT = 1000,
+    THREAD_NUM = 20,
+    COROUTINE_REQUEST_COUNT = 50)
+```
+```
