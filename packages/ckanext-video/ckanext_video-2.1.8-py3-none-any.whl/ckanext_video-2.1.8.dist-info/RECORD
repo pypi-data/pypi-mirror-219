@@ -1,0 +1,15 @@
+ckanext/__init__.py,sha256=pPFGaEBho6aXrNll6VHU1_JDpW-pqmnlHnPBYh-9z3w,306
+ckanext/video/__init__.py,sha256=pPFGaEBho6aXrNll6VHU1_JDpW-pqmnlHnPBYh-9z3w,306
+ckanext/video/plugin.py,sha256=4ajfH_OXTdT2pt7EjRmagFvt0oObtb5nNYLO0TQPhqQ,2381
+ckanext/video/providers.py,sha256=trvR99b2ng3DacFsuPa8jZXaEYOzUBhkeGXh4TLWBug,507
+ckanext/video/logic/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+ckanext/video/logic/validators.py,sha256=jDt1deFJ2h1ENd6ioPRJfi06ybA8HtN2R1UpcNTHsyk,582
+ckanext/video/theme/templates/video_form.html,sha256=AeWo1f6CePP1foO758OyMvwrNA_5leU7Zm7JhYnrlW0,528
+ckanext/video/theme/templates/video_view.html,sha256=u0I7x6T3vDgC7A5Lf-29RtsksoRHl3JyfU5_plL7RYU,197
+docs/_scripts/gen_api_pages.py,sha256=KtihsFPCreXRtaFmyaj7F9ORVX59s08mPdJ9HnbcwyY,1239
+ckanext_video-2.1.8.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+ckanext_video-2.1.8.dist-info/METADATA,sha256=yTtrBGqJtFUfgbkdiVx3_DZC7bC4d25QtvHSAKSdQvI,4472
+ckanext_video-2.1.8.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+ckanext_video-2.1.8.dist-info/entry_points.txt,sha256=s8WIrYqa18-_1WNoBAfMCxiOBCvVMsVSC3knR9ogXXs,56
+ckanext_video-2.1.8.dist-info/top_level.txt,sha256=w-vKlvacHfVip3Sq_burAFRwyFHya8Z-yVMARpWRWrU,13
+ckanext_video-2.1.8.dist-info/RECORD,,
