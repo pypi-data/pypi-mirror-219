@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: lps-som
+Version: 0.0.0
+Summary: Self Organizing Maps with GPU Support.
+Home-page: https://github.com/rctorres/lps-som
+Author: Rodrigo Coura Torres
+Author-email: torres.rc@gmail.com
+Project-URL: Bug Tracker, https://github.com/rctorres/lps-som/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# lps-som
+
+## Self Organizing Maps with GPU Support
+
