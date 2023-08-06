@@ -1,0 +1,566 @@
+#!/usr/bin/env python
+
+import os
+import glob
+import warnings
+import platform
+
+import encap_lib.encap_settings as settings
+from encap_lib.machines import LocalMachine
+from encap_lib.encap_lib import get_machine, filename_and_file_extension, get_interpreter_from_file_extension, extract_folder_name
+from encap_lib.encap_lib import record_process, remove_process_from_database
+from encap_lib import slurm
+from encap_lib.status import get_status, print_status
+import encap_lib.git_tracker as git_tracker
+
+def tail_pull(machine, run_folder_name, pid=None, log_file_name="log"):
+    if pid is not None and platform.system() != "Darwin":
+        machine.run_code(f"touch {run_folder_name}/{log_file_name}; tail -f -n +1 --pid={pid} -f {run_folder_name}/{log_file_name}", verbose=True, output=True)
+        machine.run_code(f"rm {run_folder_name}/pid -f")
+    else:
+        # Runs the tail command until it sees the special character
+        machine.run_code(f"""#!/bin/bash
+touch {run_folder_name}/{log_file_name}
+while IFS= read -r LOGLINE || [[ -n "$LOGLINE" ]]; do
+    [[ "${{LOGLINE}}" == "{chr(4)}" ]] && exit 0
+    printf '%s\\n' "$LOGLINE"
+done < <(tail -f {run_folder_name}/{log_file_name})
+""", verbose=True, output=True)
+    
+    machine.pull(run_folder_name, run_folder_name, directory=True)
+
+
+def run(machine, file_extension, args, run_folder_name, target_file, target_file_path, interprter_args="", number_of_instances=1):
+    """
+    Run the file and save outputs in log, save PID in the file pid.
+    """
+    machine.push(target_file_path, target_file_path, directory=False, verbose=True)
+
+    # Check if the files is executable, if yes then run it directly
+    is_executable = os.access(target_file_path, os.X_OK)
+
+    # Get interpreter from file extension
+    interpreter = get_interpreter_from_file_extension(file_extension, ignore_file_extensior_if_interpreter_set_in_settings=True, error_if_not_found=not is_executable)
+
+    # Give warning if an interpreter is set in the settings file
+    if is_executable and "interpreter" in settings.config:
+        warnings.warn(f"WARNING: 'interpreter' is set in the settings files, but your file is executable. The interpreter in the (settings file)/(command line) will be ignored.", UserWarning)
+    
+    if is_executable and interpreter != "":
+        warnings.warn(f"WARNING: Your file is executable, but the interpreter {interpreter} could be infered. The file will be executed, make sure that this is what you want!", UserWarning)
+
+    if isinstance(number_of_instances, int):
+        iterator = range(number_of_instances)
+    else:
+        iterator = number_of_instances
+
+    log_file_names = []
+    pids = []
+    for i in iterator:
+
+        if i == 0:
+            log = "log"
+        else:
+            log = f"log_{i}"
+        
+        print_instance = ""
+        if len(iterator) > 1:
+            print_instance = f"echo 'Instance {i}' >> {log} 2>&1"
+        
+
+        setsid = "setsid"
+        if platform.system() == "Darwin":
+            setsid = ''
+        if is_executable:
+            run_the_experiment = f"""{setsid} nohup bash -c "time (./{target_file} {args}) 2>&1 | tee -a /dev/null" >> {log} 2>&1 &"""
+        else:
+            run_the_experiment = f"""{setsid} nohup bash -c "time ({interpreter} {interprter_args} {target_file} {args}) 2>&1 | tee -a /dev/null" >> {log} 2>&1 &"""
+        
+        code = f'''
+        set -e # Exit on error
+        
+        cd {run_folder_name}
+        export ENCAP_PROCID={i}
+        export ENCAP_NAME="{run_folder_name}"
+        date &> {log}
+        echo "host: $(hostname)" >> {log} 2>&1
+        {print_instance}
+        echo "{target_file_path} {args}  \n" >> {log} 2>&1
+        # Tee avoids buffering
+        {run_the_experiment}
+        PID=$!
+        disown
+        echo $PID 
+        '''
+
+        if i == 0:
+            code += f"""
+        
+        echo "$PID" > pid"""
+            pid = machine.run_code(code, output=True)[0]
+            print('PID ' + pid)
+        else:
+            pid = machine.run_code(code, output=True)[0]
+        
+        pids.append(pid)
+        log_file_names.append(log)
+
+    return pids[0], log_file_names[0]
+
+def run_slurm(machine, file_extension, target, args, run_folder_name, target_file, target_file_path, slurm_settings, interpreter_args="", name=None):
+    machine.push(target_file_path, target_file_path, directory=False, verbose=True)
+
+    # Delete previous log file and create a new one
+    machine.run_code(f"""rm {run_folder_name}/pid -f
+    rm {run_folder_name}/slurm_files/log* -f
+    touch {run_folder_name}/log
+    mkdir -p {run_folder_name}/slurm_files
+    """)
+    if not ("i" in slurm_settings):
+        slurm_settings["i"] = 1
+    
+    if not ("ntasks-per-node" in slurm_settings):
+        slurm_settings["ntasks-per-node"] = 1
+
+    if isinstance(slurm_settings["i"], int):
+        iterator = range(slurm_settings["i"])
+    else:
+        iterator = slurm_settings["i"]
+    
+    log_file_name = ""
+    # Create the slurm script for all slurm instances
+    for i in iterator:
+        if i == 0:
+            slurm_instance_text = ""
+        else:
+            slurm_instance_text = f"_{i}"
+        
+        if log_file_name == "":
+            log_file_name = f"log{slurm_instance_text}"
+            # Delete previous log file and create a new one if it is the first instance
+            machine.run_code(f"""rm {run_folder_name}/{log_file_name} -f
+                                 touch {run_folder_name}/{log_file_name }""")
+        
+        runslurm_file_name = f"{run_folder_name}/slurm_files/run{slurm_instance_text}.slurm"
+        executable_file_name = f"{run_folder_name}/slurm_files/run{slurm_instance_text}.sh"
+        log_file_name_slurm = f"{run_folder_name}/slurm_files/log{slurm_instance_text}.slurm"
+
+        # Script to run the file and save outputs in log
+        code, args_replace = slurm.generate_slurm_executable(file_extension, run_folder_name, target_file_path, args, target_file=target_file, slurm_instance=i, ntpn=slurm_settings["ntasks-per-node"])
+        
+        # Save the script in the run_folder
+        machine.write_file(executable_file_name, code, verbose=True)
+
+        # Define job name
+        job_name = f"{target}/{name}{slurm_instance_text}"
+
+        # Add arguments to the slurm job name
+        if len(args_replace) > 0:
+            args_ = args_replace.replace(" ", "_")
+            if len(args_) != 0 and args_[0] == "_":
+                args_ = args_[1:]
+            
+            job_name = f"{job_name}_{args_}"
+        
+        # Generate the slurm settings script
+        code = slurm.generate_code_for_slurm_script(run_folder_name, slurm_settings, runslurm_file_name, executable_file_name, log_file_name_slurm, job_name=job_name)
+
+        # Write the slurm file
+        machine.write_file(runslurm_file_name, code, verbose=True)
+
+        # Run the slurm file
+        out = machine.run_code(f"sbatch {runslurm_file_name}", verbose=True)
+        if "sbatch: command not found" in out[0]:
+            print("Error: Slurm does not seem to be installed on this machine.")
+            exit(1)
+    return log_file_name
+
+def get_script_name(run_folder_name, script_name):
+    
+    # Search in the run_folder for the script_name with * as a wildcard
+    script_name_ = os.path.join(run_folder_name, script_name)
+    script_names = glob.glob(script_name_)
+    assert len(script_names) == 1, f"Found {len(script_names)} scripts matching {script_name} in {run_folder_name}."
+    script_name_ = script_names[0]
+
+    # Remove the run_folder_name from the script_name
+    script_name = os.path.basename(script_name_)
+    
+    return script_name
+
+def create_folder_and_check_if_experiment_exists(machine, pargs, folder_name, run_folder_name):
+    """
+    Creates folder if it does not exist and checks if the caspsule already exists.
+    """
+    code = f'''
+    mkdir -p {folder_name}
+    if [ -d "{run_folder_name}" ]
+    then
+        echo "exists"
+    else
+        mkdir -p {run_folder_name}
+        echo "ok"
+    fi
+    '''
+    out = machine.run_code(code)
+    assert len(out) == 1, str(out)
+    out = out[0]
+
+    if out == "ok":
+        pass
+
+    elif out == "exists":
+        if not pargs.yes:
+            c = input(f"The experiment {run_folder_name} already exists. This action will overwrite the {run_folder_name} folder. Do you whish to continue y/n? ")
+            if c == "y" or c == "Y":
+                pass
+            else:
+                quit()
+    else:
+        raise Exception(f"Unexpected value {out}.")
+    
+def mode_run_file(folder_name, run_folder_name, source_file_path, local_project_dir, target_file_path, machine, pargs, interpreter_args=""):
+    assert pargs.name is not None, "The experiment_name -n must be specified."
+
+    #Syncs folders
+    machine.sync_files()
+
+    # Creates folder if it does not exist and checks if the caspsule already exists.
+    create_folder_and_check_if_experiment_exists(machine, pargs, folder_name, run_folder_name)
+
+    # Copy the local copy of pargs.target to the run_folder
+    machine.push(source_file_path, target_file_path, directory=False, verbose=True)
+
+    # Run the file and save outputs in log, save PID in the file pid.
+    mode_rerun_file(run_folder_name=run_folder_name, local_project_dir=local_project_dir, machine=machine, pargs=pargs, rerun=False)
+
+def mode_run_folder(folder_name, run_folder_name, source_file_path, local_project_dir, machine, pargs, interpreter_args=""):
+    assert pargs.name is not None, "The experiment_name -n must be specified."
+
+    # Syncs folders
+    machine.sync_files()
+
+    # Creates folder if it does not exist and checks if the caspsule already exists.
+    create_folder_and_check_if_experiment_exists(machine, pargs, folder_name, run_folder_name)
+    
+
+    # Copy the local version of pargs.target to the run_folder
+    machine.push(source_file_path, run_folder_name + "/", directory=True, copy_full_dir=False, verbose=True)
+
+    # Patch settings with all .encap.conf files
+    settings.load_encap_config_files_recursive(os.path.join(os.getcwd(), run_folder_name))
+
+    # Infer the proper script_name
+    if "script_name" in settings.config:
+        script_name = settings.config["script_name"]
+    else:
+        # Defaul script name is run.*
+        script_name = "run.*"
+    
+    script_name = get_script_name(run_folder_name, script_name)
+
+    settings.config["script_name"] = script_name
+    settings.args_config["script_name"] = script_name
+
+    # Run the file and save outputs in log, save PID in the file pid.
+    mode_rerun_file(run_folder_name=run_folder_name,
+                    local_project_dir=local_project_dir, machine=machine,
+                    pargs=pargs, rerun=False)
+    
+
+def mode_rerun_file(run_folder_name, local_project_dir, machine, pargs, rerun=True, interpreter_args=""):
+    assert pargs.name is not None, "The experiment_name -n must be specified."
+
+    # Check if the experiment in run_folder_name exists
+    assert os.path.isdir(run_folder_name), f"The experiment {run_folder_name} does not exist."
+
+
+    # Patch settings with all .encap.conf files
+    settings.load_encap_config_files_recursive(os.path.join(os.getcwd(), run_folder_name))
+
+    # If any git-tracking is enabled, then we need to save in the config
+    if "git-track" in settings.config:
+        settings.config["git-track"] = git_tracker.get_current_commit_hashes(settings.config["git-track"])
+    
+    if "git-track-force" in settings.config:
+        settings.config["git-track-force"] = git_tracker.get_current_commit_hashes(settings.config["git-track-force"], force=True, verbose=settings.debug,
+                                                                                   commit_message=f"{run_folder_name} automatic commit from encap.")
+        
+    # Save the settings
+    settings.write_config_file(os.path.join(run_folder_name, ".encap_history.conf"), settings.config,
+                               comment="This file is automatically generated by encap. Effective encap configuration file from last run that has no effect on future runs.")
+    
+    pid = None
+
+    # Read settings
+    if "args" in settings.config:
+        args = settings.config["args"]
+    else:
+        args = ""
+    
+    if "script_name" in settings.config:
+        target_file = settings.config["script_name"]
+    else:
+        # Infer the proper script_name, the default is run.* (This can only happen in folder mode)
+        target_file = get_script_name(run_folder_name, "run.*")
+        settings.config["script_name"] = target_file
+        settings.args_config["script_name"] = target_file
+    
+    target_file_path = os.path.join(run_folder_name, target_file)
+    _, file_extension = filename_and_file_extension(target_file_path)
+
+    
+    
+
+    # If .encap.conf file exists in the run_folder, load it, merge it with the comannd line arguments and save it
+    if os.path.exists(os.path.join(run_folder_name, ".encap.conf")):
+        run_folder_config = settings.read_config_file(os.path.join(run_folder_name, ".encap.conf"))
+
+        run_folder_config = settings.merge_dicts(run_folder_config, settings.args_config)
+    else:
+        run_folder_config = settings.args_config
+    
+    settings.write_config_file(os.path.join(run_folder_name, ".encap.conf"), run_folder_config,
+                               comment="This file is automatically generated by encap. This file will patch the global configuration file if the experiment is rerun.")
+
+    if rerun:
+        machine.sync_files()
+        machine.push(target_file_path, target_file_path, directory=False, verbose=True) # TODO: The entire folder should be pushed, not just the file.
+    
+    # Are we using slurm?
+    if not settings.using_slurm:
+        if "i" in settings.config:
+            number_of_instances = settings.config["i"]
+        else:
+            number_of_instances = 1
+        
+        pid, log_file_name = run(machine, file_extension, args, run_folder_name=run_folder_name, target_file=target_file, target_file_path=target_file_path, number_of_instances=number_of_instances)
+    
+    else:
+
+        # Load the slurm settings from the loaded config file
+        slurm_settings = slurm.read_slurm_settings_from_encapconfig(pargs.vm, local_project_dir)
+        
+        # Run the SLURM job with the slurm config file
+        log_file_name = run_slurm(machine, file_extension, pargs.target, args, run_folder_name=run_folder_name, target_file=target_file, target_file_path=target_file_path, slurm_settings=slurm_settings, name=pargs.name)
+
+    machine.pull(run_folder_name, run_folder_name, directory=True)
+
+    # Record active process
+    record_process(pargs.vm, pargs.target, pargs.name)
+    tail_pull(machine, run_folder_name, pid, log_file_name = log_file_name)
+    remove_process_from_database(pargs.target, pargs.name)
+
+
+def parse_arguments():
+    import argparse
+    from argparse import ArgumentParser
+    import textwrap
+
+    parser = ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
+    parser.add_argument("mode", help=textwrap.dedent("""The mode of the program. Either run, rerun, tail, copy, status or kill.
+run: Copies the target file into the experiment and runs it.
+rerun: Reruns the target file in the experiment without copying.
+tail: Tails the log file of the experiment.
+copy: Copies the experiment specifeid with -cn into the experiment specified with -n.
+status: Prints the status of all the experiments running on the machine.
+kill: Kills the running experiment. Note that if the flag -i is specified, then only the instance/list of instances specified by -i is killed. Else all instances if -i is not specified.
+
+    """))
+
+    parser.add_argument("target", nargs="?", help="Name of the file to run.", default=None)
+    parser.add_argument("-n", "--name", dest="name", help="Experiment name.", default=None)
+    parser.add_argument("-cn", "--copy-name", dest="copy_name", help="Experiment to copy from.", required=False, default=None)
+    parser.add_argument("-args", "--args", dest="args", help="Arguments passed to the programm.", default=None)
+    parser.add_argument("-vm", "--vm_name", dest="vm", help="Name of the VM.", default=None)
+    parser.add_argument("-sn", "--script_name", dest="script_name", help="In case it is run on a folder this specifies the file that should be run. The default behaviour is to search for a file run.*.", default=None)
+    parser.add_argument("-i", "--number_of_instances", dest="i", help="Number of instances to start in parallel. For each instance an enviromental variable ENCAP_PROCID=<instance_number> will be set. You can also pass a list or any python expression as a string. If you pass a list it will run the instances in that list. Example: -i [0, 2, 3] or range(5, 20). Similar to -sl_i in slurm mode.", default=None, type=eval)
+    parser.add_argument("-int", "--interpreter", dest="interpreter", help="The interpreter to use. Default is to infer it from the file extension.", default=None)
+
+    # Slurm arguments
+    parser.add_argument("-sl", "--slurm", action="store_true", dest="slurm", help="Run the job on slurm. If any slurm option is used this is True by default.", default=False)
+    parser.add_argument("-sl_nodes", "--slurm_nodes", dest="sl_nodes", help="Number of nodes to start in slurm. - nodes", default=None, type=int)
+    parser.add_argument("-sl_ntpn", "--slurm_ntasks-per-node", dest="sl_ntpn", help="Number of tasks per node to start in slurm. - ntasks-per-node", default=None, type=int)
+    parser.add_argument("-sl_time", "--slurm_time", dest="sl_time", help="Time to run the job in slurm. - time", default=None)
+    parser.add_argument("-sl_partition", "--slurm_partition", dest="sl_partition", help="Partition to run the job in slurm.", default=None)
+    parser.add_argument("-sl_account", "--slurm_account", dest="sl_account", help="Account to run the job in slurm.", default=None)
+    parser.add_argument("-sl_cpus", "--slurm_cpus-per-task", dest="sl_cpus", help="Number of cpus to run the job in slurm. - cpus-per-task", default=None, type=int)
+    parser.add_argument("-sl_nice", "--slurm_nice", dest="sl_nice", help="Nice value to run the job in slurm. Sets the priority, higer nice values equals lower priority. - nice", default=None, type=int)
+    parser.add_argument("-sl_i", "--slurm_instances", dest="sl_i", help="Number of seperate slurm instances to start. If you use {i} in args it will be replaced by the index number of the slurm instance. For each instance the ENCAP_PROCID enviromental variable and the ENCAP_SLURM_INSTANCE variable will be set. If you pass a list it will run the instances in that list. Example: -sl_i [0, 2, 3] or range(5, 20)", default=None, type=eval)
+    
+    # Other arguments
+    parser.add_argument("-y", "--yes",
+                        action="store_true", dest="yes", default=False,
+                        help="All prompts will be answerd with yes.")
+
+    parser.add_argument("-d", "--debug",
+                        action="store_true", dest="debug", default=False,
+                        help="All commands will be printed.")
+
+    parser.add_argument("-dr", "--dryrun",
+                        action="store_true", dest="dryrun", default=False,
+                        help="No command will be executed. Also implies debug.")
+
+    pargs = parser.parse_args()
+
+    # Read the data in
+    if pargs.debug:
+        settings.debug = True
+    if pargs.dryrun:
+        settings.dryrun = True
+    
+    if pargs.target is None:
+        assert pargs.mode == "status", "No target specified."
+    
+    if pargs.name is None:
+        assert pargs.mode == "status", "encap: error: the following arguments are required: -n/--name"
+    
+    if pargs.mode == "copy":
+        assert pargs.copy_name is not None, "You need to specify a experiment to copy from with -cn."
+    else:
+        assert pargs.copy_name is None, "You can only copy from a experiment in copy mode."
+    
+    settings.read_terminal_arguments(pargs) 
+    return pargs
+
+def main():
+
+    pargs = parse_arguments()
+    local_project_dir = os.getcwd()
+    localmachine = LocalMachine(local_project_dir)
+
+    if pargs.vm is not None:
+        machine = get_machine(pargs.vm, local_project_dir=local_project_dir)
+    else:
+        machine = localmachine
+    
+    # modes not requiring a target
+    if pargs.mode == "status":
+        encap_process_dict = get_status(machine)
+        print_status(encap_process_dict)
+
+        slurm.print_slurm_status_if_using_slurm(machine)
+        exit()
+
+
+    source_file_path = pargs.target
+    # Check if it will run in folder mode or file mode
+    if os.path.isdir(source_file_path):
+        if source_file_path[-1] == "/":
+            source_file_path = source_file_path[:-1]
+        
+        root_path, folder_name = extract_folder_name(source_file_path)
+
+        folder_name = os.path.join(root_path, "0encap_folder", folder_name)
+        run_folder_name = os.path.join(folder_name, pargs.name)
+
+        is_file = False
+
+    elif os.path.isfile(source_file_path):
+        folder_name, file_extension = filename_and_file_extension(source_file_path)
+
+        # Get the file name
+        script_name = os.path.basename(source_file_path)
+
+        run_folder_name = os.path.join(folder_name, pargs.name)
+        settings.config["script_name"] = script_name
+        target_file_path = os.path.join(run_folder_name, script_name)
+        is_file = True
+
+
+    else:
+        assert False, f"{source_file_path} is neither a directory nor a file."
+    
+
+    if pargs.mode == "run":
+        if is_file:
+            mode_run_file(folder_name=folder_name, run_folder_name=run_folder_name,
+                          source_file_path=source_file_path, local_project_dir=local_project_dir, target_file_path=target_file_path,
+                          machine=machine, pargs=pargs)
+        else:
+            mode_run_folder(folder_name=folder_name, run_folder_name=run_folder_name,
+                            source_file_path=source_file_path, local_project_dir=local_project_dir,
+                            machine=machine, pargs=pargs)
+        
+    elif pargs.mode == "rerun":
+        mode_rerun_file(run_folder_name=run_folder_name,
+                        local_project_dir=local_project_dir,
+                        machine=machine, pargs=pargs)
+        
+        
+    elif pargs.mode == "tail":
+        code = f"cat {run_folder_name}/pid"
+        out = machine.run_code(code, verbose=False, output=True)
+        
+        assert len(out) == 1, out
+        if out[0].isdigit():
+            pid = out[0]
+            print("PID: ", pid)
+
+            machine.pull(run_folder_name, run_folder_name, directory=True)
+
+            tail_pull(machine, run_folder_name, pid)
+            remove_process_from_database(pargs.target, pargs.name)
+
+        elif  out[0][:4] == "cat:":
+                machine.pull(run_folder_name, run_folder_name, directory=True)
+
+                machine.run_code(f"cat {run_folder_name}/log", verbose=True, output=True)
+
+    elif pargs.mode == "copy":
+        copy_folder_name = os.path.join(folder_name, pargs.copy_name)
+        if not machine.exists(copy_folder_name):
+            print(f"encap error: {copy_folder_name} does not exist.")
+            exit()
+        
+        create_folder_and_check_if_experiment_exists(machine, pargs, folder_name, run_folder_name)
+        
+        if is_file:
+            file_list = [script_name]
+        else:
+            # Copy the files named like files from source_file_path from copy_folder_name to run_folder_name
+            file_list = os.listdir(source_file_path) 
+        
+        if os.path.isfile(os.path.join(copy_folder_name, ".encap.conf")):
+            file_list += [".encap.conf"]
+        
+        for file in file_list:
+            copy_file_path = os.path.join(copy_folder_name, file)
+            target_file_path = os.path.join(run_folder_name, file)
+            machine.push(copy_file_path, target_file_path, directory=False, verbose=True)
+        
+        if settings.debug : print(f"Files copied from {copy_folder_name} to {run_folder_name}")
+
+        print(f"""You can run the copied experiment with:
+encap rerun {pargs.target} -n {pargs.name}""")
+
+
+    elif pargs.mode == "kill":
+        encap_process_dict = get_status(machine, run_folder_name=run_folder_name, id=pargs.i)
+
+        if len(encap_process_dict) == 0:
+            print(f"No process {run_folder_name} found.")
+            exit()
+        
+        print("Killing:")
+        print_status(encap_process_dict)
+        code = ""
+
+        for pid in encap_process_dict:
+            code += f"kill {pid}; "
+        machine.run_code(code, verbose=True)
+
+    elif pargs.mode == "pull":
+        assert pargs.name is not None, "The experiment_name -n must be specified."
+        machine.pull(run_folder_name, run_folder_name, directory=True, verbose=True)
+
+    elif pargs.mode == "push":
+        assert pargs.name is not None, "The experiment_name -n must be specified."
+        machine.push(run_folder_name, run_folder_name, directory=True, verbose=True)
+    
+    else:
+        raise ValueError(f"The mode '{pargs.mode}' is not available.")
+
+
+if __name__ == "__main__":
+    main()
