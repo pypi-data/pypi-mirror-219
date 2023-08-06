@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: repod
+Version: 0.3.0.post0
+Summary: Tooling to maintain binary package repositories for Linux distributions using the pacman package manager
+Keywords: arch linux repository pacman packages
+Home-page: https://gitlab.archlinux.org/archlinux/repod
+Author-Email: Arch Linux <arch-projects@lists.archlinux.org>
+License: GPL-3.0-or-later
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Database
+Classifier: Topic :: Database :: Database Engines/Servers
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Topic :: Internet
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Software Development
+Classifier: Topic :: System :: Archiving :: Packaging
+Classifier: Topic :: System :: Operating System
+Classifier: Topic :: System :: Software Distribution
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Project-URL: Bug tracker, https://gitlab.archlinux.org/archlinux/repod/-/issues/
+Project-URL: Homepage, https://gitlab.archlinux.org/archlinux/repod
+Project-URL: Repository, https://gitlab.archlinux.org/archlinux/repod
+Project-URL: Documentation, https://repod.archlinux.page
+Requires-Python: <4.0,>=3.10
+Requires-Dist: aiofiles>=23.1.0
+Requires-Dist: email-validator>=2.0.0
+Requires-Dist: jinja2>=3.1.2
+Requires-Dist: orjson>=3.9.2
+Requires-Dist: pydantic>=2.0
+Requires-Dist: pydantic-settings>=2.0.2
+Requires-Dist: python-magic>=0.4.27
+Requires-Dist: pyxdg>=0.28
+Requires-Dist: pyzstd>=0.15.7
+Requires-Dist: subprocess-tee>=0.4.1
+Requires-Dist: tomli>=2.0.1; python_version < "3.11"
+Requires-Dist: pyalpm<1.0.0,>=0.10.6; extra == "alt-vercmp"
+Requires-Dist: file-magic<1.0.0,>=0.4.0; extra == "alt-file"
+Provides-Extra: alt_vercmp
+Provides-Extra: alt_file
+Description-Content-Type: text/markdown
+
+# repod
+This project contains tooling to maintain binary package repositories for Linux
+distributions using the [pacman](https://archlinux.org/pacman/) package manager.
+
+The latest documentation can be found at
+[repod.archlinux.page](https://repod.archlinux.page).
+
+**NOTE**: *Repod is still alpha grade software and as such has not yet reached
+its targeted feature set. It has not been thoroughly tested in the field and
+therefore should not be used in a production environment!*
+
+## Installation
+
+You can install repod using your distribution's package manager or
+alternatively by executing
+
+```
+pip install repod
+```
+
+Further information on optional requirements and setting up a development
+environment can be found in the official [installation
+instructions](https://repod.archlinux.page/repod/installation.html).
+
+## Usage
+
+Please refer to the [usage
+information](https://repod.archlinux.page/repod/usage.html) in the official
+documentation to learn how to use repod.
+
+## Contributing
+
+Read our [contributing guide](https://repod.archlinux.page/contributing.html)
+to learn more about how to provide fixes or improvements for the code and
+documentation.
+
+## License
+
+Repod's code is licensed under the terms of the **GPL-3.0-or-later** (see the
+top-level *LICENSE* file), its documentation is licensed under the terms of the
+**GFDL-1.3-or-later** (see the *docs/LICENSE* file) and its artwork (created by
+Safi @ [betriebsbuero](http://betriebsbuero.com)) is licensed under the terms
+of the **CC-BY-SA-4.0** (see the *docs/artwork/LICENSE* file).
