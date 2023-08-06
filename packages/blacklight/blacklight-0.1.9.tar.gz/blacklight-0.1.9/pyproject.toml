@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "blacklight"
+version = "0.1.9"
+description = "AutoML utilizing Genetic Algorithms and Neural Networks"
+authors = ["Cole Agard <ctagard19@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+numpy = "*"
+pandas = "*"
+fastparquet = "*"
+openpyxl = "*"
+matplotlib = "*"
+tqdm = "*"
+scikit-learn = "*"
+tensorflow = "*"
+tensorflow-macos = {version = "*", markers = "platform_machine == 'arm64' and sys.platform == 'darwin'"}
+tensorflow-metal = {version = "*", markers = "platform_machine == 'arm64' and sys.platform == 'darwin'"}
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+flake8 = "*"
+autopep8 = "*"
+coverage = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
