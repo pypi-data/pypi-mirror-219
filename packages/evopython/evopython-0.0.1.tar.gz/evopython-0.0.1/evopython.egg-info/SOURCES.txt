@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+evopython/__init__.py
+evopython/bed.py
+evopython/feature.py
+evopython/gtf.py
+evopython/maf.py
+evopython.egg-info/PKG-INFO
+evopython.egg-info/SOURCES.txt
+evopython.egg-info/dependency_links.txt
+evopython.egg-info/requires.txt
+evopython.egg-info/top_level.txt
