@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: azure-speech-tools
+Version: 0.0.2
+Summary: This is the Azure Speech Services tools package
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: azure-cognitiveservices-speech
+Requires-Dist: azure-identity
+Requires-Dist: azure-storage-blob
+
+UNKNOWN
+

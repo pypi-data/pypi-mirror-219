@@ -1,0 +1,23 @@
+azure_speech_tools.tools.azure_speech_tts.azure_speech_tts:
+  function: azure_speech_tts
+  inputs:
+    connection:
+      type:
+      - CustomConnection
+    input_text:
+      type:
+      - string
+    output_blob_account_name:
+      type:
+      - string
+    output_blob_container_name:
+      type:
+      - string
+    voice_name:
+      default: en-us-jennyneural
+      type:
+      - string
+  module: azure_speech_tools.tools.azure_speech_tts
+  name: Azure Speech Service TTS
+  description: This tool uses the Azure Speech Service to convert text to speech and upload the result to a blob.
+  type: python
