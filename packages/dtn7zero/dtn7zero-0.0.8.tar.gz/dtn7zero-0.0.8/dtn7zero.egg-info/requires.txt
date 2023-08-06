@@ -1,0 +1,4 @@
+requests>=2.27.1
+cbor2
+netifaces
+py-dtn7==0.3.0b1
