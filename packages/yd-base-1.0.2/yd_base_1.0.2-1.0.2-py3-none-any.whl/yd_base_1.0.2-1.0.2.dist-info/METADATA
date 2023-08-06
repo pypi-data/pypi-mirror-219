@@ -1,0 +1,117 @@
+Metadata-Version: 2.1
+Name: yd-base-1.0.2
+Version: 1.0.2
+Summary: A python package for yellowdot's base classes and Utilities
+Home-page: https://github.com/Yellow-Dot-Energy-Company-Ltd/yd_base_py
+Author: Bruno Kiprop and Jamie Omondi
+Author-email: brunookiprop@gmail.com,cruiseomondi90@gmail.com
+License: MIT,GNU
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: firebase-admin
+
+[![Publish yd_base_py](https://github.com/Yellow-Dot-Energy-Company-Ltd/yd_base_py/actions/workflows/publish.yaml/badge.svg?branch=dev)](https://github.com/Yellow-Dot-Energy-Company-Ltd/yd_base_py/actions/workflows/publish.yaml)
+
+## YD-BASE-PY
+
+A python package that houses yellow dot's common classes & code across its microservices
+
+### Installation from GitHub
+
+``` 
+pip install git+https://github.com/Yellow-Dot-Energy-Company-Ltd/yd_base_py.git
+```
+
+### Installation from GitHub (specific branch)
+
+```
+pip install git+'url branch'
+```
+
+### Installation from GitHub (specific tag)
+
+```
+pip install git+'url tag'
+```
+
+### Installation from GitHub (specific commit)
+
+```
+pip install git+'url commit'
+```
+
+### Installation from GitHub (Package)
+
+```
+pip install git+'url package'
+```
+
+### Installation from PyPi
+
+```
+pip install yd-base-py
+```
+
+### Requirements
+
+- Python 3.6+
+- pip 20.0.2+
+- pytest 5.4.1+
+- twine 3.1.1+
+- setuptools 46.1.3+
+- firebase-admin 4.4.0+
+
+### Features
+
+- YDLogger
+- YDFirebase
+- YDFirebaseUserUtils
+- YDFirebaseFCM
+- FBUserResponse
+- Response
+
+### Usage
+
+```
+from yd_base_py import YDLogger
+logger = YDLogger.get_logger(__name__)
+logger.info("Hello World")
+
+```
+
+### Development
+
+```
+git clone 'Repo URL'
+cd yd_base_py
+pip install -e .
+```
+
+### Testing
+
+```
+pip install -r requirements.txt
+pytest
+```
+
+### Publishing
+
+```
+python setup.py sdist bdist_wheel
+twine upload dist/*
+```
+
+### License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+[GNU](https://choosealicense.com/licenses/gpl-3.0/)
+
+### Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+### Authors
+
+- [Bruno Kiprop](https://github.com/bufleek)
+- [Jamie Omondi](https://github.com/jamie-codez)
+
