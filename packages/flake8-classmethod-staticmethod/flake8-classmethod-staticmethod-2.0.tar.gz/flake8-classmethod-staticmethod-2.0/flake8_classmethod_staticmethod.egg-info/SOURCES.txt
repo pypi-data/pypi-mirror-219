@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+flake8_classmethod_staticmethod/__init__.py
+flake8_classmethod_staticmethod/checker.py
+flake8_classmethod_staticmethod.egg-info/PKG-INFO
+flake8_classmethod_staticmethod.egg-info/SOURCES.txt
+flake8_classmethod_staticmethod.egg-info/dependency_links.txt
+flake8_classmethod_staticmethod.egg-info/entry_points.txt
+flake8_classmethod_staticmethod.egg-info/not-zip-safe
+flake8_classmethod_staticmethod.egg-info/top_level.txt
