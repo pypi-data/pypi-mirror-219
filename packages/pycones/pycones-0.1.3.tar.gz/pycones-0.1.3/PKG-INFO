@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: pycones
+Version: 0.1.3
+Summary: 
+Author: william
+Author-email: william_swl@163.com
+Requires-Python: >=3.6
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: matplotlib (>=3.0)
+Requires-Dist: numpy (>=1.0)
+Requires-Dist: pandas (>=2.0)
+Description-Content-Type: text/markdown
+
+# pycones
+
+[![PyPI Version][pypi-image]][pypi-url]
+
+...
+
+<!-- Badges: -->
+
+[pypi-image]: https://img.shields.io/pypi/v/pycones
+[pypi-url]: https://pypi.org/project/pycones
+
+
+## basic utils
+
+- flatten a list
+
+```python
+flatten([1, 2, [3, [4, 5]]])
+# [1, 2, 3, 4, 5]
+```
+
+- join lists into a string
+
+```python
+list_join(list("abc"), list("def"), sep=",")
+# "a,b,c,d,e,f"
+```
+
+- switch jupyter kernel into python or r
+
+```python
+nb_kernel_switch(notebook_path, kernel='python')
+```
+
