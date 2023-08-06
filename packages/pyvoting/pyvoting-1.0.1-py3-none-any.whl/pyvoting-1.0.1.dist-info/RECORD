@@ -1,0 +1,17 @@
+pyvoting/ApprovalVoting.py,sha256=2VKZVQAW_cFvNHKNPfknYTwfeY0rS0xleK4y7tMYAv8,3360
+pyvoting/NormalizedScoreVoting.py,sha256=_cRqiCXbXndunhgXvNxcLvreAlR5P362367mNAUs0ys,4001
+pyvoting/PluralityVoting.py,sha256=OPUPJzAvgm2cvglPbD5F3WkQAzkwORJQv3yTuPObHfM,4163
+pyvoting/RankedChoiceVoting.py,sha256=ez4hrVePVN1wgJ_EwMza_KBjQ84b1-gjh2SZRiCLoiY,4946
+pyvoting/STARVoting.py,sha256=lsBdduuGFKhLpnsFQG-yjdZGb-s5-NS3wCwzK0CTs6I,5802
+pyvoting/ScoreVoting.py,sha256=8WLLixafmv3p-s_9U6FYLBcGEMQHn0cjfB12bNd5iXc,3569
+pyvoting/StandardizedScoreVoting.py,sha256=Y0HRIKHq3GV7KB8NCqAppYIs_Qfo-VqLLPZsviAzhxY,3990
+pyvoting/TierListVoting.py,sha256=pNUE0q9yKWWHfx-lfsYxDgk0IcBtmKUzLiycX5cZ89k,5573
+pyvoting/TieredPopularityVoting.py,sha256=QhkuApCtxmocgg_lVWu2NYcsaWAlB5d0ZjCFHE7PBII,5578
+pyvoting/Voting.py,sha256=Rf0ouoVLiBeclyAN6HED7uYjP0RytRYuZ0qfyFc9Jo4,8707
+pyvoting/__init__.py,sha256=NDlFY5A_0ipOIZWuHAHPRBQrfpHVl5uqFedPl84Bt_U,429
+pyvoting/main.py,sha256=joTfZyrKN8D-6ZhqzwmVjWHyudEI61dTb-OesCfYnSo,1290
+pyvoting-1.0.1.dist-info/LICENCE,sha256=ZjE3n5PqVgR5ZzPcIbEfJHIyfB8f9BjfJI3hTgeO8CI,34607
+pyvoting-1.0.1.dist-info/METADATA,sha256=YHPdHl8X9srOk90tKy-ecKVvSXP52fxYe0LOrrmbfak,14455
+pyvoting-1.0.1.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+pyvoting-1.0.1.dist-info/top_level.txt,sha256=aRyB6i_tJ3dhX3zpqAZ2agkj4NAgIZLPI5xmU7s_QHM,9
+pyvoting-1.0.1.dist-info/RECORD,,
