@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+deepchecks_llm_client/__init__.py
+deepchecks_llm_client/api.py
+deepchecks_llm_client/client.py
+deepchecks_llm_client/openai_instrumentor.py
+deepchecks_llm_client/utils.py
+deepchecks_llm_client.egg-info/PKG-INFO
+deepchecks_llm_client.egg-info/SOURCES.txt
+deepchecks_llm_client.egg-info/dependency_links.txt
+deepchecks_llm_client.egg-info/requires.txt
+deepchecks_llm_client.egg-info/top_level.txt
+examples/__init__.py
+examples/usage.py
