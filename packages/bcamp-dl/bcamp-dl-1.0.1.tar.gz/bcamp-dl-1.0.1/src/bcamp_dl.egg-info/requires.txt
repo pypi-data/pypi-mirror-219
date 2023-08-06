@@ -1,0 +1,17 @@
+browser-cookie3==0.19.1
+bs4==0.0.1
+requests==2.31.0
+rich==13.4.2
+
+[build]
+setuptools==68.0.0
+setuptools-scm==7.1.0
+build==0.10.0
+twine==4.0.2
+
+[tests]
+black==23.7.0
+mypy==1.4.1
+ruff==0.0.278
+types-beautifulsoup4
+types-requests
