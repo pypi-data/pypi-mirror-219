@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: Algo-Vi
+Version: 1.0.3
+Summary: It visual the Search Algorithm
+Home-page: https://github.com/punithanae/Python_library
+Author: Punithan
+Author-email: punithanae@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Python_library
+# Install_library
+pip install Algo-Vi
+
+# Description
+1.Run the library and enter the list value
+2.Select your Algo
+3.See the Visual
