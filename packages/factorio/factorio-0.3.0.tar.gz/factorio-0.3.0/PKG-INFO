@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: factorio
+Version: 0.3.0
+Summary: A fixtures replacement tool
+Home-page: https://factorio.readthedocs.io/en/stable/
+License: LGPL-3.0+
+Keywords: tests
+Author: Stephanos Kuma
+Author-email: stephanos@kuma.ai
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: Faker (>=19.0,<20.0)
+Project-URL: Documentation, https://factorio.readthedocs.io/en/stable/
+Project-URL: Repository, https://github.com/spapanik/factorio
+Description-Content-Type: text/x-rst
+
+=====================================
+factorio: A fixtures replacement tool
+=====================================
+
+.. image:: https://github.com/spapanik/factorio/actions/workflows/tests.yml/badge.svg
+  :alt: Tests
+  :target: https://github.com/spapanik/factorio/actions/workflows/tests.yml
+.. image:: https://img.shields.io/github/license/spapanik/factorio
+  :alt: License
+  :target: https://github.com/spapanik/factorio/blob/main/LICENSE.txt
+.. image:: https://img.shields.io/pypi/v/factorio
+  :alt: PyPI
+  :target: https://pypi.org/project/factorio
+.. image:: https://pepy.tech/badge/factorio
+  :alt: Downloads
+  :target: https://pepy.tech/project/factorio
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+  :alt: code style: black
+  :target: https://github.com/psf/black
+.. image:: https://img.shields.io/badge/build%20automation-yamk-success
+  :alt: build automation: yam
+  :target: https://github.com/spapanik/yamk
+.. image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v1.json
+  :alt: Lint: ruff
+  :target: https://github.com/charliermarsh/ruff
+
+
+In a nutshell
+-------------
+
+Installation
+^^^^^^^^^^^^
+
+The easiest way is to use `poetry`_ to manage your dependencies and add *factorio* to them.
+
+.. code-block:: toml
+
+    [tool.poetry.dependencies]
+    factorio = "*"
+
+Usage
+^^^^^
+
+Usage description goes here
+
+Links
+-----
+
+- `Documentation`_
+- `Changelog`_
+
+
+.. _poetry: https://python-poetry.org/
+.. _Changelog: https://github.com/spapanik/factorio/blob/main/CHANGELOG.rst
+.. _Documentation: https://factorio.readthedocs.io/en/latest/
+
