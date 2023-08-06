@@ -1,0 +1,3 @@
+[console_scripts]
+ctc=ctc.cli.cli_run:run_cli
+
