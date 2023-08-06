@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Icotest-DeviceServer"
+version = "1.0.3"
+description = "DeviceServer API"
+readme = "README.md"
+keywords = ["OpenAPI", "OpenAPI-Generator", "DeviceServer"]
+authors = [
+    { name = "David Atkins", email =  "david@3adesign.co.uk" },
+    { name = "Ivo Shipkaliev", email = "ivo@3adesign.co.uk" }
+]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "six >= 1.10",
+    "python_dateutil >= 2.5.3",
+    "setuptools >= 21.0.0",
+    "urllib3 >= 1.25.3",
+]
+requires-python = ">=3.4"
+
