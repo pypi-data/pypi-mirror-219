@@ -1,0 +1,2 @@
+[gui_scripts]
+nordvpn-tray = nordvpn_tray.__main__:main
