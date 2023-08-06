@@ -1,0 +1,9 @@
+flux-burst
+requests
+python-terraform
+
+[all]
+flux-burst
+requests
+python-terraform
+pytest>=4.6.2
