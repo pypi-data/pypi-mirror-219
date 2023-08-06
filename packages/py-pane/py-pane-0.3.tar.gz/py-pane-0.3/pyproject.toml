@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=51.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-pane"
+version = "0.3"
+authors = [
+	{name = "Colin Gilgenbach", email = "hexane@mit.edu"},
+]
+license = {file = "LICENSE.txt"}
+description = "A modern dataclass & data conversion library, focused on speed and expressiveness."
+readme = "README.md"
+keywords = ["dataclass", "validation", "parsing", "conversion"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Typing :: Typed",
+]
+
+requires-python = ">=3.10"
+dependencies = [
+  'PyYAML >= 6.0',
+  'typing_extensions ~= 4.5'  # frozen_default
+]
+
+[project.optional-dependencies]
+dev = [
+  'pytest >= 6.2.4',
+]
+
+[project.urls]
+Repository = "https://github.com/hexane360/pane.git"
+
+[tool.setuptools]
+
+[tool.pyright]
+pythonVersion = "3.10"
+include = ['pane']
+ignore = ['**/test_*.py']  # ddon't type check tests
+
+typeCheckingMode = "strict"
+#reportUnknownLambdaType = "none"
+#reportUnknownVariableType = "none"
+#reportMissingTypeArgument = "none"
+#reportMissingParameterType = "none"
+reportMissingTypeStubs = "information"
+reportUnusedImport = "warning"
+reportImportCycles = "none"  # convert -> converters -> convert (typechecking only)
+reportUnusedVariable = "warning"
+reportPrivateUsage = "none"
+reportUnnecessaryIsInstance = "none"
+reportUnnecessaryComparison = "information"
+reportUnnecessaryCast = "warning"
+reportUntypedBaseClass = "information"
+reportConstantRedefinition = "none"
