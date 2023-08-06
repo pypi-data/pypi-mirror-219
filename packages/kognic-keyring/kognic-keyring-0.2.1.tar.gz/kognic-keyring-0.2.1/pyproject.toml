@@ -1,0 +1,19 @@
+[build-system]
+requires = [
+    "setuptools",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kognic-keyring"
+version = "0.2.1"
+authors = [
+    { name = "Kognic", email = "python.core.maintainers@kognic.com" },
+]
+description = "Kognic Keyring"
+dependencies = [
+    "keyrings.google-artifactregistry-auth>=1.1.2,<2"
+]
+
+[project.entry-points."keyring.backends"]
+kognic_key_auth = "keyrings.kognic.proxy_auth"
