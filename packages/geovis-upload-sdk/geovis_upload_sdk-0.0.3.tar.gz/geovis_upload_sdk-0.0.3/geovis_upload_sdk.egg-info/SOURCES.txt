@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+geovis_upload_sdk/__init__.py
+geovis_upload_sdk/sign.py
+geovis_upload_sdk/upload.py
+geovis_upload_sdk.egg-info/PKG-INFO
+geovis_upload_sdk.egg-info/SOURCES.txt
+geovis_upload_sdk.egg-info/dependency_links.txt
+geovis_upload_sdk.egg-info/top_level.txt

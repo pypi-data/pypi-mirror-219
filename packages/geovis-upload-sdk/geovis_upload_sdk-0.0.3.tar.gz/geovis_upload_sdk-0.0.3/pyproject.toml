@@ -1,0 +1,18 @@
+[project]
+name = "geovis_upload_sdk"
+version = "0.0.3"
+authors = [
+    { name = "kevinxuelei", email = "kevinxuelei@163.com" },
+]
+description = "geovis upload file sdk"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/pypa/sampleproject"
+"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
