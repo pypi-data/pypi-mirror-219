@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: animate-transit
+Version: 1.0
+Summary: Generates an animation and lightcurve for a transiting 2-body system
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: imageio
+Requires-Dist: tqdm
+
