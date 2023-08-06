@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: vum
+Version: 1.0.0.1
+Summary: A simple UI with curses
+Home-page: https://github.com/GaffaSnobb/vum
+Author: ['Jon Kristian Dahl']
+Author-email: jonkd@uio.no
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3.11
+
