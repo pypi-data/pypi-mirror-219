@@ -1,0 +1,10 @@
+pyproject.toml
+setup.py
+base_service/__init__.py
+base_service/service.py
+base_service/worker.py
+miauw_base_service.egg-info/PKG-INFO
+miauw_base_service.egg-info/SOURCES.txt
+miauw_base_service.egg-info/dependency_links.txt
+miauw_base_service.egg-info/requires.txt
+miauw_base_service.egg-info/top_level.txt
