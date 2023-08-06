@@ -1,0 +1,16 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+Secos/models/__init__.py
+Secos/models/download.py
+Secos/models/load.py
+Secos/models/models.py
+Secos/utils/__init__.py
+Secos/utils/utils.py
+noun_decomposition.egg-info/PKG-INFO
+noun_decomposition.egg-info/SOURCES.txt
+noun_decomposition.egg-info/dependency_links.txt
+noun_decomposition.egg-info/requires.txt
+noun_decomposition.egg-info/top_level.txt
+tests/test_decomposition.py
