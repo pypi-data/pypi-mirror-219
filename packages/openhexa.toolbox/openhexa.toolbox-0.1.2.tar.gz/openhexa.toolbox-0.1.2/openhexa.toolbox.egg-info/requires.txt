@@ -1,0 +1,9 @@
+requests
+python-dateutil
+pandas
+polars
+diskcache
+
+[dev]
+pytest
+build
