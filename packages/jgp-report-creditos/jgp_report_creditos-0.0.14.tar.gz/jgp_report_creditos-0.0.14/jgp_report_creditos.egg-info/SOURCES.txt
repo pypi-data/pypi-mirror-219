@@ -1,0 +1,27 @@
+LICENSE
+README.md
+setup.py
+jgp_report_creditos/__init__.py
+jgp_report_creditos/report.py
+jgp_report_creditos/test.py
+jgp_report_creditos.egg-info/PKG-INFO
+jgp_report_creditos.egg-info/SOURCES.txt
+jgp_report_creditos.egg-info/dependency_links.txt
+jgp_report_creditos.egg-info/top_level.txt
+jgp_report_creditos/core/__init__.py
+jgp_report_creditos/core/deposito.py
+jgp_report_creditos/core/rutas.py
+jgp_report_creditos/core/contrato/__init__.py
+jgp_report_creditos/core/contrato/v1/Controlar tablas de firmas.py
+jgp_report_creditos/core/contrato/v1/__init__.py
+jgp_report_creditos/core/contrato/v1/base.py
+jgp_report_creditos/core/contrato/v1/contratos.py
+jgp_report_creditos/core/exception/__init__.py
+jgp_report_creditos/core/exception/exception.py
+jgp_report_creditos/resources/img/logo_jgp.png
+jgp_report_creditos/template/__init__.py
+jgp_report_creditos/template/components.py
+jgp_report_creditos/template/template.py
+jgp_report_creditos/tests/__init__.py
+jgp_report_creditos/tests/test_contratos.py
+jgp_report_creditos/tests/test_deposito.py
