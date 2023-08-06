@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "loutilities"
+dynamic = ["version"]
+description = "some hopefully useful utilities"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.9"
+authors = [
+    { name = "Lou King", email = "lking@pobox.com" },
+]
+dependencies = [
+    "flask-security-too>=5.0.0",
+    "flask-sqlalchemy>=3.0.5",
+]
+
+[project.scripts]
+agegrade = "loutilities.agegrade:main"
+apikey = "loutilities.apikey:main"
+applytemplate = "loutilities.applytemplate:main"
+filtercsv = "loutilities.filtercsv:main"
+makerst = "loutilities.makerst:main"
+
+[project.urls]
+Homepage = "http://github.com/louking/loutilities"
+"Bug Tracker" = "https://github.com/louking/loutilities/issues"
+
+[tool.hatch.build]
+sources = ['loutilities']
+include = [
+    'tables-assets/static/*',
+    'tables-assets/static/user/*',
+    'tables-assets/static/user/admin/*',
+    'tables-assets/templates/*',
+    'tables-assets/templates/security/*',
+    'tables-assets/templates/security/email/*',
+    '*.csv',
+]
+
+[tool.hatch.version]
+path = "loutilities/version.py"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "loutilities",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ['loutilities']
