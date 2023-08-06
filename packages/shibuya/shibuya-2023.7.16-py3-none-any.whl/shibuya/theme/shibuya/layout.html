@@ -1,0 +1,22 @@
+{%- extends "base.html" -%}
+
+{%- block document -%}
+<div class="document">
+  {%- include "partials/banner.html" -%}
+  {%- block header -%}
+    {% include "components/site-head.html" with context %}
+  {%- endblock -%}
+
+  <div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        {% block body %}{% endblock %}
+      </article>
+    </main>
+  </div>
+
+  {%- block footer -%}
+    {% include "components/site-foot.html" with context %}
+  {%- endblock -%}
+</div>
+{%- endblock -%}
