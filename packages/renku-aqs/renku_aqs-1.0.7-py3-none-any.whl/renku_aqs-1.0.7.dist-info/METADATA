@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: renku-aqs
+Version: 1.0.7
+Summary: Renku AQS plugin
+Author: Gabriele Barni, Volodymyr Savchenko
+Author-email: 
+License: Apache License 2.0
+Keywords: Renku AQS
+Platform: any
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 4 - Beta
+License-File: LICENSE
+Requires-Dist: deepdiff
+Requires-Dist: pydotplus
+Requires-Dist: rdflib
+Requires-Dist: bs4
+Requires-Dist: renku (==2.6.0)
+Requires-Dist: astroquery
+Requires-Dist: aqsconverters
+Requires-Dist: nb2workflow (>=1.3.41)
+Requires-Dist: pyvis (==0.3.0)
+Requires-Dist: lockfile
+
