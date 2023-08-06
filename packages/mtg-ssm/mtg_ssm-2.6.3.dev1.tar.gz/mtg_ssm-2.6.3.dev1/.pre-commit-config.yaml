@@ -1,0 +1,41 @@
+repos:
+  - repo: local
+    hooks:
+      - id: black
+        name: black
+        description: "Black: The uncompromising Python code formatter"
+        entry: black
+        language: system
+        require_serial: true
+        types: [python]
+      - id: isort
+        name: Check import order
+        language: system
+        entry: isort
+        types: [python]
+      - id: pylint
+        name: Static analysis from pylint
+        language: system
+        entry: pylint
+        types: [python]
+      - id: mypy
+        name: Type checking from mypy
+        language: system
+        entry: mypy
+        types: [python]
+      - id: doc8-python
+        name: Documentation checking from doc8 (Python)
+        language: system
+        entry: doc8
+        types: [python]
+      - id: doc8-rst
+        name: Documentation checking from doc8 (reStructuredText)
+        language: system
+        entry: doc8
+        types: [rst]
+      - id: eclint
+        name: EditorConfig file validation
+        language: node
+        additional_dependencies: [eclint]
+        entry: eclint
+        args: [check]
