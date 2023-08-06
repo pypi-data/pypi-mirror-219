@@ -1,0 +1,2 @@
+[console_scripts]
+tickit = tickit.cli:main
