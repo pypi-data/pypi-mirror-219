@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: agentevents
+Version: 0.1.0
+Summary: Searchable events with colorful log output for agents.
+Home-page: https://github.com/AutonomousResearchGroup/agentevents
+Author: Moon
+Author-email: shawmakesmagic@gmail.com
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# agentevents
+
+Colorful, searchable event logs for your agent.
+
+
+# Quickstart
+
+# TODO
+
+# Installation
+
+```bash
+pip install agentevents
+```
+
+# Usage
+
+# TODO
+
+# Testing
+```
+pytest test.py
+```
+
+# Publishing
+
+```bash
+bash publish.sh --version=<version> --username=<pypi_username> --password=<pypi_password>
+```
+
+# Contributions Welcome
+
+If you like this library and want to contribute in any way, please feel free to submit a PR and I will review it. Please note that the goal here is simplicity and accesibility, using common language and few dependencies.
+
