@@ -1,0 +1,28 @@
+[project]
+name = "XtermGUI"
+description = "A lightweight, expressive GUI framework for compatible terminals"
+readme = "README.md"
+version = "0.1.1"
+authors = [
+    { name = "Kieran Lock", email = "kieran.lock@outlook.com" }
+]
+keywords = ["gui", "framework", "xterm", "zero-dependency", "terminal-based"]
+classifiers = [
+    "Development Status :: 3 - Alpha", 
+    "Environment :: Console", 
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)", 
+    "Operating System :: POSIX :: Linux", 
+    "Programming Language :: Python :: 3.11", 
+    "Intended Audience :: Developers"
+]
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.urls]
+GitHub = "https://github.com/Kieran-Lock/XtermGUI"
+Documentation = "https://github.com/Kieran-Lock/XtermGUI/blob/main/DOCUMENTATION.md"
+License = "https://github.com/Kieran-Lock/XtermGUI/blob/main/LICENSE"
