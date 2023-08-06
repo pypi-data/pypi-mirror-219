@@ -1,0 +1,52 @@
+{% extends "se/base.html" %}
+
+{% block css %}
+    .paragraph {
+        vertical-align: top;
+        display: inline-block;
+        width: 49%;
+    }
+    .chart {
+        display: inline-block;
+        width: 24%;
+    }
+    .crawler_chart {
+        display: inline-block;
+        width: 32%;
+    }
+    #top_bar {
+        padding-bottom: 0px;
+    }
+{% endblock %}
+
+{% block body %}
+    <h4>Index</h4>
+    <span class="paragraph">
+         {{ doc_count }} documents with {{ lang_count }} different languages are indexed.<br/>
+         Average document size is {{ doc_size }} for a total of {{ db_size }}.<br/>
+         {{ lang_recognizable }} languages can be recognized, {{ lang_parsable|length }} can be parsed:<br/>
+         {{ lang_parsable|join:", " }}.
+    </span>
+    <span class="chart">{{ hdd_pie|safe }}</span>
+    {% if lang_chart %}
+        <span class="chart">{{ lang_chart|safe }}</span>
+    {% endif %}
+    <h4>Crawlers</h4>
+    <h5>Last 24h</h5>
+    {% if m_doc_count %}
+        <span class="crawler_chart">{{ m_doc_count|safe }}</span>
+        <span class="crawler_chart">{{ m_idx_speed|safe }}</span>
+        <span class="crawler_chart">{{ m_url_queue|safe }}</span>
+    {% else %}
+        No data
+    {% endif %}
+    <br/>
+    <h5>Last year</h5>
+    {% if d_doc_count %}
+        <span class="crawler_chart">{{ d_doc_count|safe }}</span>
+        <span class="crawler_chart">{{ d_idx_speed|safe }}</span>
+        <span class="crawler_chart">{{ d_url_queue|safe }}</span>
+    {% else %}
+        No data
+    {% endif %}
+{% endblock %}

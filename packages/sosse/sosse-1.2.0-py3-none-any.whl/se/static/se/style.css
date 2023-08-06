@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+}
+li {
+    list-style-type: none;
+    padding: 5px;
+}
+li:nth-of-type(2n + 1) {
+    background-color: #eee;
+}
+#top_bar {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #e7f0ff;
+    margin: 0px 0px 25px 0px;
+    padding: 8px;
+    box-shadow: 0px 5px 5px 0px #e3e5f6;
+}
+#logo img {
+    vertical-align: middle;
+    width: 35px;
+    margin-right: 5px;
+}
+#logo {
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    height: 100%
+}
+#menu_username {
+    top: 10px;
+    right: 45px;
+    position: absolute;
+    text-align: right;
+    font-size: 13px;
+}
+#user_menu {
+    top: 8px;
+    right: 8px;
+    width: 130px;
+}
+#user_menu_button {
+    background-image: url('/static/se/icon-user.svg');
+}
+#conf_menu {
+    top: 48px;
+    right: 8px;
+    width: 130px;
+}
+#conf_menu_button {
+    background-image: url('/static/se/icon-cog.svg');
+}
+.menu {
+    position: absolute;
+    text-align: right;
+}
+.panel {
+    padding: 4px 4px 4px 4px;
+    border-color: #cfcbcb;
+    border-style: solid;
+    border-radius: 4px;
+    border-width: 1px;
+    background-color: #fff;
+    position: relative;
+    z-index: 999;
+    display: none;
+}
+.menu_links {
+    text-align: center;
+}
+.links {
+    display: block;
+    font-size: 16px;
+    text-decoration: none;
+    color: #000;
+}
+.links:hover {
+    background-color: #e7f0ff;
+}
+.img_button {
+    background-size: 15px 15px;
+    background-repeat:  no-repeat;
+    background-position: center;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 7px;
+}
+button,input,select {
+    background-color: #e7f0ff;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #e7f0ff;
+    padding: 10px;
+    margin: 2px 0px 2px 0px;
+}
+button:focus,input:focus,select:focus {
+    outline: 0px;
+    border-style: solid;
+    border-bottom-width: 1px;
+    border-color: #6066bf;
+}
+button:hover,input:hover,select:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+.a_button {
+    color: #000;
+    text-decoration: none;
+    background-color: #e7f0ff;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #e7f0ff;
+    padding: 10px;
+    margin: 2px 0px 2px 0px;
+}
+.a_button:hover {
+    background-color: #eee;
+}
+.a_button_disabled {
+    background-color: #eee;
+    color: #737373;
+}
+.pagination {
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+}
+
+.field-_url > a {
+    display: inline-block;
+    width: 500px;
+    overflow: hidden;
+    text-overflow: "…";
+    white-space: nowrap;
+}

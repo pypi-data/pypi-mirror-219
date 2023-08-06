@@ -1,0 +1,71 @@
+{% extends "se/base.html" %}
+
+{% block js %}
+document.addEventListener("DOMContentLoaded", function(event) {
+    const supportedLangs = {{ supported_langs|safe }};
+    const langSelect = document.getElementById('language');
+    const userLang = getLang();
+
+    Object.keys(supportedLangs).map(function (langIso) {
+        const lang = supportedLangs[langIso];
+        const langInput = document.createElement('option');
+        langInput.value = langIso;
+
+        const langTitle = lang.name[0].toUpperCase() + lang.name.substr(1);
+        if (lang.flag) {
+            langInput.text = `${lang.flag} ${langTitle}`;
+        } else {
+            langInput.text = langTitle;
+        }
+
+        if (langIso === userLang) {
+            langInput.setAttribute('selected', '');
+        }
+        langSelect.append(langInput);
+    });
+
+    const pageSize = document.getElementById('page_size');
+    pageSize.value = getPageSize({{ settings.SOSSE_DEFAULT_PAGE_SIZE }});
+
+    const cachedLinks = document.getElementById('cached_links');
+    cachedLinks.checked = getCachedLinks();
+});
+
+function save() {
+    const langSelect = document.getElementById('language');
+    const langValue = langSelect.options[langSelect.selectedIndex].value;
+    localStorage.setItem('sosseLanguage', langSelect.value);
+
+    const pageSize = document.getElementById('page_size');
+    localStorage.setItem('sossePageSize', pageSize.value);
+
+    const cachedLinks = document.getElementById('cached_links');
+    localStorage.setItem('sosseCachedLinks', cachedLinks.checked);
+
+    window.location = '/';
+}
+function cancel() {
+    window.location = '/';
+}
+{% endblock %}
+
+{% block css %}
+.label {
+    padding-bottom: 5px;
+}
+{% endblock %}
+
+{% block body %}
+    <div class="label">Search terms parsing language</div>
+    <select id="language"></select>
+    <br/><br/>
+    <div class="label">Results by page</div>
+    <input id="page_size" type="number" step="10" min="10" max="{{ settings.SOSSE_MAX_PAGE_SIZE }}">
+    <br/><br/>
+    <input id="cached_links" type="checkbox">
+    <label for="cached_links">Search result principal links point to cache</label>
+    <br/><br/>
+
+    <button onclick="save()">Save</button>
+    <button onclick="cancel()">Cancel</button>
+{% endblock %}
