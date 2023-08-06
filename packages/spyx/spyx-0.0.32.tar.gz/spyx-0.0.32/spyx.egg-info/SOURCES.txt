@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.py
+spyx/__init__.py
+spyx/_version.py
+spyx/activation.py
+spyx/data.py
+spyx/loss.py
+spyx/nn.py
+spyx.egg-info/PKG-INFO
+spyx.egg-info/SOURCES.txt
+spyx.egg-info/dependency_links.txt
+spyx.egg-info/requires.txt
+spyx.egg-info/top_level.txt
+tests/test_networks.py
