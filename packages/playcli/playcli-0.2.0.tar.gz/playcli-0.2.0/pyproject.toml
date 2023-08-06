@@ -1,0 +1,48 @@
+[tool.poetry]
+name = "playcli"
+version = "0.2.0"
+description = "Browse and search games with ease"
+authors = ["Alekyo4 <alexsandergomes4742@gmail.com>"]
+license = "BeerWare"
+readme = "README.md"
+
+classifiers = [
+    "Natural Language :: Portuguese (Brazilian)",
+    "Environment :: Console",
+    "Intended Audience :: Customer Service",
+    "Programming Language :: Python :: 3",
+    "Topic :: Games/Entertainment"
+]
+
+[tool.poetry.urls]
+documentation = "https://github.com/alekyo4/playcli"
+code = "https://github.com/alekyo4/playcli"
+bug = "https://github.com/alekyo4/playcli/issues"
+
+[tool.poetry.scripts]
+playcli = "playcli.main:main"
+
+[tool.taskipy.tasks]
+format = "black . && isort ."
+test = "pytest"
+
+[tool.isort]
+profile = "black"
+line_length = 79
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.9.0"}
+beautifulsoup4 = "^4.12.2"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+black = "^23.7.0"
+isort = "^5.12.0"
+taskipy = "^1.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
