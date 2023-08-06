@@ -1,0 +1,21 @@
+## Using Python library
+
+First, create a virtualenv (this just needs to be done once):
+```bash
+python -m venv .env
+```
+
+Then, activate the virtualenv (needs to be done every time):
+```bash
+source .env/bin/activate
+```
+
+Now, install the requirements (just needs to be done once):
+```bash
+pip install -r requirements.txt
+```
+
+Finally, install the Python library at the local virtual environment with the following command (needs to be done every time you change the Rust code):
+```bash
+maturin develop --release
+```

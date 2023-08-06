@@ -1,0 +1,19 @@
+[package]
+name = "glazari-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "glazari_test"
+# "cdylib" is necessary to produce a shared library for Python to import from
+crate-type = ["cdylib"]
+
+[dependencies]
+rand = "0.8.4"
+
+[dependencies.pyo3]
+version = "0.14.5"
+features = ["abi3-py37"]
+
