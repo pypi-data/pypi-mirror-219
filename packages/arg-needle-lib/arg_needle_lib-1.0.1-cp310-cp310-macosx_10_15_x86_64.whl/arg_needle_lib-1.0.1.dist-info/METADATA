@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: arg-needle-lib
+Version: 1.0.1
+Summary: Ancestral recombination graph (ARG) data structure and operations.
+Home-page: https://palamaralab.github.io/software/argneedle/
+Author: ARG-Needle Developers
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click
+Requires-Dist: h5py
+Requires-Dist: msprime (>=1.0.0)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: tskit (>=0.1.5)
+Provides-Extra: dev
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: tszip (>=0.2.1) ; extra == 'dev'
+
+# arg-needle-lib
+
+This repository contains arg-needle-lib, which implements an ARG data structure and ARG-based analyses such as genealogy-wide association.
+
+## Quickstart
+
+### Install the Python module from PyPI
+
+Most functionality is available through a Python module which can be installed with:
+
+```bash
+pip install arg-needle-lib
+```
+
+This Python module is currently available on Linux and macOS.
+
+### Documentation
+
+Please see the [ARG-Needle manual](https://palamaralab.github.io/software/argneedle/) for all usage instructions and documentation.
+
+## License
+
+arg-needle-lib is distributed under the GNU General Public License v3.0 (GPLv3). For any questions or comments on arg-needle-lib, please contact Pier Palamara using `<lastname>@stats.ox.ac.uk`.
+
+## Acknowledgements
+
+arg-needle-lib is developed by (in alphabetical order) Arjun Biddanda, Fergus Cooper, Árni Freyr Gunnarsson, Pier Francesco Palamara, Sinan Shi, Brian C. Zhang, and Jiazheng Zhu.
+
+## Reference
+
+If you use this software, please cite:
+
+B. C. Zhang, A. Biddanda, Á. F. Gunnarsson, F. Cooper, P. F. Palamara, Biobank-scale inference of ancestral recombination graphs enables genealogical analysis of complex traits. [Nature Genetics, 2023](https://www.nature.com/articles/s41588-023-01379-x).
+
+# arg-needle-lib Release Notes
+
+
+## v1.0.1 (2023-07-14)
+
+### Breaking changes
+
+None
+
+### Other changes
+
+- Clean-up and release of the source code.
+- Improved mutation class.
+- Added from-to parameters to some functions.
+
+
+## v1.0.0 (2023-03-07)
+
+Initial PyPI release of arg-needle-lib.
