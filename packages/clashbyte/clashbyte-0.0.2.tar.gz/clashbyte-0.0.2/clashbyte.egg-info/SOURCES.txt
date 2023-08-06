@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+clashbyte/__init__.py
+clashbyte/apis.py
+clashbyte/toolbox.py
+clashbyte.egg-info/PKG-INFO
+clashbyte.egg-info/SOURCES.txt
+clashbyte.egg-info/dependency_links.txt
+clashbyte.egg-info/requires.txt
+clashbyte.egg-info/top_level.txt
+tests/test_clash_meta_apis.py
