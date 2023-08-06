@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: mocap
+Version: 0.1.1
+Summary: Aruco tag based motion capture system
+Home-page: https://github.com/rems-ucla/mocap
+Author: UCLA LEMUR
+License: LGPLv3
+Project-URL: GitHub, https://github.com/rems-ucla/mocap
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Robot Framework
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3
