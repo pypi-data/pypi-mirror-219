@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: helios-rl
+Version: 1.0.37
+Summary: Applying the HELIOS architecture to Reinforcement Learning problems.
+Home-page: https://github.com/pdfosborne/HELIOS-RL
+Author: Philip Osborne
+Author-email: pdfosborne@gmail.com
+License: GNU Public License v3
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scipy (>=1.10.1)
+Requires-Dist: torch
+Requires-Dist: sentence-transformers
+
