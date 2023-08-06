@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "podcast-summarizer"
+version = "0.2.2"
+description = "Summarizes podcasts."
+authors = ["Diego Quinteiro <diegoquinteiro@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "podcast_summarizer"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+openai = "^0.27.8"
+click = "^8.1.4"
+openai-whisper = "20230314"
+click-spinner = "^0.1.10"
+yt-dlp = "^2023.7.6"
+webvtt-py = "^0.4.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+podcast-summarizer = "podcast_summarizer.cli:cli"
