@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: amtflash
+Version: 0.0.1
+Summary: Device driver for the AMT Flash (MPPS) v13 OBD Cable
+Author-email: Endes <endes@disroot.org>
+License: Apache-2.0
+Project-URL: Homepage, https://github.com/endes0/amtflash
+Project-URL: Repository, https://github.com/endes0/amtflash.git
+Project-URL: Source, https://github.com/endes0/amtflash
+Project-URL: Issues, https://github.com/endes0/amtflash/issues
+Keywords: obd,obdii,obd-ii,obd2,car,vehicle,MPPS,AMT,driver
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pyusb (>=1.2.1)
+
+# amtflash
+Device driver for the AMT Flash (MPPS) v13 OBD Cable
+
+# Usage
+``` python
+from amtflash import AMTFlash
+device = AMTFlash()
+print("Version: {}".format(device.get_version()))
+print("Version: {}".format(device.get_version_str()))
+´´´
