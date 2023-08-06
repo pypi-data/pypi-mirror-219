@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+copr-cli.spec
+requirements.txt
+run_tests.sh
+setup.py
+man/copr-cli.1.asciidoc
+man/copr-cli.cheat
+man/copr.1
+mockbuild.egg-info/PKG-INFO
+mockbuild.egg-info/SOURCES.txt
+mockbuild.egg-info/dependency_links.txt
+mockbuild.egg-info/top_level.txt
