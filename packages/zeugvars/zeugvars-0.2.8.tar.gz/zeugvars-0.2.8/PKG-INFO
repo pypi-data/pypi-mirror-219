@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: zeugvars
+Version: 0.2.8
+Summary: The `zeugvars` library has been deprecated, please install `commonvars` instead!
+Home-page: https://github.com/bswck/commonvars
+Author: bswck
+Author-email: bswck.dev@gmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+The `zeugvars` library has been deprecated, please install `commonvars` instead!
+
+```bash
+$ pip install commonvars
+```
