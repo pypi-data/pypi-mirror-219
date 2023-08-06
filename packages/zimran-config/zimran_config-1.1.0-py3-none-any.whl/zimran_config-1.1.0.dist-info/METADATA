@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: zimran-config
+Version: 1.1.0
+Summary: Pydantic based configuration for FastAPI services
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic-settings (==2.0.*)
+
+## Installation
+
+```bash
+pip install zimran-config
+```
+
+## Usage
+
+```python
+from zimran.config import CommonSettings
+
+
+class Settings(CommonSettings):
+    pass
+ 
+
+settings = Settings()
+```
