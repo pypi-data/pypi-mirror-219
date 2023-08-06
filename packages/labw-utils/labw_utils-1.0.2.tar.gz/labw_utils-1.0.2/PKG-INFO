@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: labw_utils
+Version: 1.0.2
+Summary: Utilities Python functions & classes used in LabW
+Author-email: YU Zhejian <Zhejian.19@intl.zju.edu.cn>, YUAN Ruihong <Ruihong.19@intl.zju.edu.cn>, SU Yaqi <Yaqi.19@intl.zju.edu.cn>
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Unix Shell
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: bioutils
+Provides-Extra: mlutils
+Provides-Extra: ysjs
+Provides-Extra: ysjsd
+Provides-Extra: appenders
+Provides-Extra: all
+License-File: Copying.md
+
+---
+orphan: true
+---
+
+# `labw_utils` -- Utility Python functions & classes used in LabW
+
+Is not finished -- Do not use.
