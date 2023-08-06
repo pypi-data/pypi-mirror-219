@@ -1,0 +1,8 @@
+
+        [console_scripts]
+            batou = batou.main:main
+        [zc.buildout]
+            requirements = batou.buildout:Requirements
+        [batou.provisioners]
+            fc-nixos-dev-container = batou.provision:FCDevContainer
+    
