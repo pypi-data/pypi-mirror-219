@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+definitions.py
+setup.py
+setup_macos_arm.py
+libpresign.egg-info/PKG-INFO
+libpresign.egg-info/SOURCES.txt
+libpresign.egg-info/dependency_links.txt
+libpresign.egg-info/top_level.txt
+src/module.cpp
+src/module.h
+src/presign.cpp
+src/presign.h
