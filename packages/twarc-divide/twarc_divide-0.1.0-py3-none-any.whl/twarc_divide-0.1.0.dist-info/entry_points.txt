@@ -1,0 +1,2 @@
+[twarc.plugins]
+divide = twarc_divide:divide
