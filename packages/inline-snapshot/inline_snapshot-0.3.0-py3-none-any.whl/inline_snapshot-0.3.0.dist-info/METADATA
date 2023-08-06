@@ -1,0 +1,129 @@
+Metadata-Version: 2.1
+Name: inline-snapshot
+Version: 0.3.0
+Summary: golden master/snapshot/approval testing library which puts the values right into your source code
+Home-page: https://github.com/15r10nk/inline-snapshots
+License: MIT
+Author: Frank Hoffmann
+Author-email: 15r10nk@polarbit.de
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Pytest
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Testing
+Requires-Dist: asttokens (>=2.0.5,<3.0.0)
+Requires-Dist: black (>=23.3.0,<24.0.0)
+Requires-Dist: click (>=8.1.4,<9.0.0)
+Requires-Dist: executing (>=1.2.0,<2.0.0)
+Project-URL: Bug Tracker, https://github.com/15r10nk/inline-snapshots/issues
+Project-URL: Repository, https://github.com/15r10nk/inline-snapshots
+Description-Content-Type: text/markdown
+
+# inline-snapshot
+
+[![Docs](https://img.shields.io/badge/docs-mkdocs-green)](https://15r10nk.github.io/inline-snapshot/)
+[![pypi version](https://img.shields.io/pypi/v/inline-snapshot.svg)](https://pypi.org/project/inline-snapshot/)
+![PyPI - Downloads](https://img.shields.io/pypi/dw/inline-snapshot)
+[![coverage](https://img.shields.io/badge/coverage-100%25-blue)](https://15r10nk.github.io/inline-snapshot/contributing/#coverage)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/15r10nk)](https://github.com/sponsors/15r10nk)
+
+> *create and update inline snapshots in your code.*
+
+## Installation
+
+You can install "inline-snapshot" via [pip](https://pypi.org/project/pip/):
+
+``` bash
+pip install inline-snapshot
+```
+
+## Usage
+
+You can use `snapshot()` instead of the value which you want to compare with.
+
+<!-- inline-snapshot: outcome-errors=1 outcome-passed=1 -->
+```python
+from inline_snapshot import snapshot
+
+
+def test_something():
+    assert 1548 * 18489 == snapshot()
+```
+
+You can now run the tests and record the correct values.
+
+```
+$ pytest --inline-snapshot=create
+```
+
+<!-- inline-snapshot: create -->
+```python
+from inline_snapshot import snapshot
+
+
+def test_something():
+    assert 1548 * 18489 == snapshot(28620972)
+```
+
+inline-snapshot provides more advanced features like:
+
+<!-- inline-snapshot: fix create trim this -->
+```python
+from inline_snapshot import snapshot
+
+
+def test_something():
+    for number in range(5):
+        # testing for numeric limits
+        assert number <= snapshot(4)
+        assert number >= snapshot(0)
+
+    for c in "hello world":
+        # test if something is part of a set
+        assert c in snapshot(["h", "e", "l", "o", " ", "w", "r", "d"])
+
+    s = snapshot(
+        {
+            0: {"square": 0, "pow_of_two": False},
+            1: {"square": 1, "pow_of_two": True},
+            2: {"square": 4, "pow_of_two": True},
+            3: {"square": 9, "pow_of_two": False},
+            4: {"square": 16, "pow_of_two": True},
+        }
+    )
+
+    for number in range(5):
+        # create sub-snapshots at runtime
+        assert s[number]["square"] == number**2
+        assert s[number]["pow_of_two"] == ((number & (number - 1) == 0) and number != 0)
+```
+
+More information can be found in the [documentation](https://15r10nk.github.io/inline-snapshot/).
+
+<!-- -8<- [start:Feedback] -->
+## Feedback
+
+inline-snapshot provides some advanced ways to work with snapshots.
+
+I would like to know how these features are used to further improve this small library.
+Let me know if you've found interesting use cases for this library via [twitter](https://twitter.com/15r10nk) or in the github [discussions](https://github.com/15r10nk/inline-snapshot/discussions/new?category=show-and-tell).
+
+## Issues
+
+If you encounter any problems, please [report an issue](https://github.com/15r10nk/inline-snapshot/issues) along with a detailed description.
+<!-- -8<- [end:Feedback] -->
+
+## License
+
+Distributed under the terms of the [MIT](http://opensource.org/licenses/MIT) license, "inline-snapshot" is free and open source software.
+
