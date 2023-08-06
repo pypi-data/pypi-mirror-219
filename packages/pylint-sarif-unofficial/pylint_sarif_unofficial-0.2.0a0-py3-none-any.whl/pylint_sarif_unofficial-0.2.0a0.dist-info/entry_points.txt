@@ -1,0 +1,4 @@
+[console_scripts]
+pylint2cso=pylint2cso:main
+pylint2sarif=pylint2sarif:main
+
