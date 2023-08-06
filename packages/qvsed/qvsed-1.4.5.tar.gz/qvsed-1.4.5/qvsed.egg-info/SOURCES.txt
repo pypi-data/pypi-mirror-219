@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+qvsed/__init__.py
+qvsed/config_default.py
+qvsed/qvsed.py
+qvsed/qvsed.ui
+qvsed.egg-info/PKG-INFO
+qvsed.egg-info/SOURCES.txt
+qvsed.egg-info/dependency_links.txt
+qvsed.egg-info/entry_points.txt
+qvsed.egg-info/requires.txt
+qvsed.egg-info/top_level.txt
