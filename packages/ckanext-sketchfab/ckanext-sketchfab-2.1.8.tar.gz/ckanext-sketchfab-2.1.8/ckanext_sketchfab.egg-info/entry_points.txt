@@ -1,0 +1,2 @@
+[ckan.plugins]
+sketchfab = ckanext.sketchfab.plugin:SketchfabPlugin
