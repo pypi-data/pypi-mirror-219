@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: 11x-wagtail-blog
+Version: 0.1.0
+Summary: Docstring
+Keywords: wagtail,blog
+Author-email: The Magnificant Nick <it@11x.engineering>
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: wagtail >=4.0,<6
+Requires-Dist: sphinx ; extra == "doc"
+Requires-Dist: sphinx-rtd-theme ; extra == "doc"
+Requires-Dist: tox-gh-actions >=3.0 ; extra == "github"
+Requires-Dist: black ; extra == "test"
+Requires-Dist: tox >=4.6.3 ; extra == "test"
+Requires-Dist: faker >=18.11.2 ; extra == "test"
+Project-URL: Documentation, https://11x-wagtail-blog.readthedocs.io/en/latest/
+Project-URL: Home, https://github.com/11x-engineering/11x-wagtail-blog
+Project-URL: Source, https://github.com/11x-engineering/11x-wagtail-blog
+Provides-Extra: doc
+Provides-Extra: github
+Provides-Extra: test
+
+11x Wagtail Blog
+================
+
+An blog feature for 11x.Engineering featured as its first blog post.
+
+Set development status to Alpha. Status bump up to Beta when docs are published.
+
