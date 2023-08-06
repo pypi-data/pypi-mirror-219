@@ -1,0 +1,66 @@
+[project]
+authors = [
+    { name = "GreyElaina", email = "GreyElaina@outlook.com" },
+]
+requires-python = ">=3.7,<4.0"
+dependencies = [
+    "typing-extensions>=3.10.0; python_version < \"3.9\"",
+]
+name = "graia-broadcast"
+version = "0.20.0"
+description = "a highly customizable, elegantly designed event system based on asyncio"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+
+[tool.pdm]
+includes = [
+    "src/graia",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "black<23.0.0,>=22.1.0",
+    "pre-commit",
+    "flake8<5.0.0,>=4.0.1",
+    "isort<6.0.0,>=5.10.1",
+    "pytest<8.0.0,>=7.0.1",
+    "coverage<7.0.0,>=6.3.2",
+    "pytest-asyncio<1.0.0,>=0.18.2",
+]
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "*/test/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if (typing\\.)?TYPE_CHECKING( is True)?:",
+    "\\.\\.\\.",
+    "pass",
+    "@(abc\\.)?abstractmethod",
+    "@(typing\\.)?overload",
+    "def __repr__",
+    "def __str__",
+    "def __repr_args__",
+    "except ImportError:",
+]
+
+[build-system]
+requires = [
+    "pdm-pep517",
+]
+build-backend = "pdm.pep517.api"
