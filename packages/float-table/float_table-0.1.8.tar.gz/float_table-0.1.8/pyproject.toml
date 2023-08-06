@@ -1,0 +1,44 @@
+[tool]
+[tool.poetry]
+name = "float-table"
+version = "0.1.8"
+homepage = "https://github.com/tadamcz/float-table"
+description = "Top-level package for float-table."
+authors = ["Tom Adamczewski <tadamczewskipublic@gmail.com>"]
+readme = "README.md"
+classifiers=[
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3',
+]
+packages = [
+    { include = "float_table" },
+    { include = "tests", format = "sdist" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<4"
+numpy = "^1"
+pandas = "^2"
+tabulate = "^0.9.0"
+
+[tool.poetry.group.dev.dependencies]
+bump2version = "*"
+coverage = "*"
+pytest = ">=7.2.0"
+pytest-pycharm = "*"
+sigfig = "*"
+
+black = {extras = ["d"], version = "*"}
+tabulate = "^0.9.0"
+
+
+
+[tool.black]
+line-length = 100
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+profile = "black"
