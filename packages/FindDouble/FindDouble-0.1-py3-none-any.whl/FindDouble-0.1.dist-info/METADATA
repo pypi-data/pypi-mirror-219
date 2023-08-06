@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: FindDouble
+Version: 0.1
+Summary: Find doubles in Gaia by cross-matching with WDS catalog
+License: MIT
+Requires-Dist: numpy
+Requires-Dist: astropy
+Requires-Dist: matplotlib
+Requires-Dist: astroquery
+Requires-Dist: pandas
+
