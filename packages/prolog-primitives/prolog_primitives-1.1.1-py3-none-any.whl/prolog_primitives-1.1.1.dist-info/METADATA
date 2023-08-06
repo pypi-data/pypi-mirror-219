@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: prolog-primitives
+Version: 1.1.1
+Summary: description here
+Home-page: https://github.com/lorenzo-osimani/prolog_primitives/
+Author: Lorenzo Osimani
+Author-email: lorenzo.osimani@studio.unibo.it
+License: Apache 2.0 License
+Project-URL: Bug Reports, https://github.com/lorenzo-osimani/prolog_primitives/issues
+Project-URL: Source, https://github.com/lorenzo-osimani/prolog_primitives/
+Keywords: aeuitas,horizon2020,xai,bias
+Platform: Independant
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Prolog
+Requires-Python: >=3.9.0, <=3.11.3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: scikit-learn (>=1.0.2)
+Requires-Dist: pandas (>=1.4.2)
+Requires-Dist: grpcio (>=1.54.0)
+Requires-Dist: grpcio-tools (>=1.54.0)
+Requires-Dist: pymongo (>=4.3.3)
+Requires-Dist: tensorflow (>=2.12.0)
+Requires-Dist: datasets (>=2.12.0)
+
+# Prolog Primitives Library
+
+Hello
