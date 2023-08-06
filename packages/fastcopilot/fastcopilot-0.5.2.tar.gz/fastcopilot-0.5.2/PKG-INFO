@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: fastcopilot
+Version: 0.5.2
+Summary: Fast Copilot framework, easy to learn, fast to code, fast to build a copilot for your applications.
+Author: Jackson
+Author-email: jackson.zhang0429@gmail.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: loguru (>=0.7.0,<0.8.0)
+Requires-Dist: openai (>=0.27.8,<0.28.0)
+Requires-Dist: pydantic (>=2.0,<3.0)
+Description-Content-Type: text/markdown
+
+# FastCopilot
+
+## Example
+
+```python
+from fastcopilot import Copilot
+
+
+copilot = Copilot(api_key="your-api-key")
+
+while True:
+    ipt = input("Me: ")
+    reply = copilot.run(ipt.strip())
+    print(reply)
+```
+
+### For asyncio
+```python
+import asyncio
+
+from fastcopilot import Copilot
+
+
+copilot = Copilot(api_key="your-api-key")
+
+def main():
+    while True:
+        ipt = input("Me: ")
+        reply = await copilot.arun(ipt.strip())
+        print(reply)
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
