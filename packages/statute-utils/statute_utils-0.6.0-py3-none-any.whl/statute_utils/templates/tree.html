@@ -1,0 +1,73 @@
+{%- macro summarize(unit) -%}
+  {# The label class is added to style the combination of item + caption in styles.css #}
+  {%- set clean_item = unit.item|default('Container')|string -%}
+  {%- if clean_item|is_hidden -%}
+    {%- if unit.caption -%}
+      <strong class="label">{{unit.caption}}</strong>
+    {%- endif -%}
+  {%- else -%}
+    <strong class="label">{{clean_item}}</strong>
+    {%- if unit.caption -%}
+      <em class="label" style="margin-left: 0.25em;">{{unit.caption}}</em>
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro create_branch(unit) -%}
+  {{ summarize(unit)}} {# Create the label based on <strong> and <em> tags #}
+  {%- if unit.content -%}
+    {{unit.content|trim|safe|md_to_html }} {# Needs to be safe since some unit content may have html #}
+  {%- endif -%}
+  {% if unit|is_par %}
+    <span id="{{unit.id|set_mp_slug}}" data-item="{{unit.item}}" class="par-branch"></span>
+  {% endif %}
+{%- endmacro -%}
+
+{%- macro create_branches(units) -%}
+  {%- if units -%}
+    <ul>
+      {%- for unit in units -%}
+        <li id="{{unit.id|set_mp_slug}}" {#- id for branching -#}
+          {%- if unit|is_par %}data-par="true"{% endif -%}{#- data-par for indention via a css -#}
+        >
+          {{ create_branch(unit) }}
+          {%- set target_units = unit.units|from_json -%}
+
+          {%- if target_units -%}
+            {# determine whether par. 1 is in next ul tag or ul to start with par. 2.. #}
+            {%- set child = target_units[0] -%}
+            {%- if child|is_first_par -%}
+              {{ create_branch(child) }}
+              {{ create_branches(child.units) }}
+              {% if target_units|length > 1 -%}
+                {%- set target_units = target_units[1:] -%}
+                {{ create_branches(target_units) }}
+              {%- endif -%}
+            {% else %}
+              {{ create_branches(target_units) }}
+            {%- endif -%}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro connect_breadcrumbs(units) -%}
+  <span class="crumbs">
+    {% for unit in units -%}
+      <span class="crumb">
+        {{ unit|crumb }}
+      </span>
+    {%- endfor %}
+  </span>
+{%- endmacro -%}
+
+{%- macro create_paragraphs(units) -%}
+{% if units %}
+  {%- for unit in units -%}
+    {{ unit|paragrapher }}
+    {{ create_paragraphs(unit.units|from_json) }}
+  {%- endfor -%}
+{% endif %}
+{%- endmacro -%}
