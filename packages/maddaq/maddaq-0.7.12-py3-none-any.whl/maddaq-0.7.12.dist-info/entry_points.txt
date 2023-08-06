@@ -1,0 +1,5 @@
+[gui_scripts]
+analyze_data = maddaq:analyze_data
+getFileInfo = maddaq:getFileInfo
+getSpectrum = maddaq:getSpectrum
+show_data = maddaq:show_data
