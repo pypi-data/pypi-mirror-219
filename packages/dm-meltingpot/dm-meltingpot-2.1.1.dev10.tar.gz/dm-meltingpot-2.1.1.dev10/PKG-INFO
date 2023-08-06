@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: dm-meltingpot
+Version: 2.1.1.dev10
+Summary: A suite of test scenarios for multi-agent reinforcement learning.
+Home-page: https://github.com/deepmind/meltingpot
+Download-URL: https://github.com/deepmind/meltingpot/releases
+Author: DeepMind
+Author-email: noreply@google.com
+License: Apache 2.0
+Keywords: multi-agent reinforcement-learning python machine-learning
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.9
+Provides-Extra: rllib
+Provides-Extra: pettingzoo
+License-File: LICENSE
