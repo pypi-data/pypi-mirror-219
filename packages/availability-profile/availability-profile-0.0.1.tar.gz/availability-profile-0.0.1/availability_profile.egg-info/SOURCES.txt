@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+pyproject.toml
+availability/__init__.py
+availability/profile.py
+availability/sets.py
+availability/util.py
+availability_profile.egg-info/PKG-INFO
+availability_profile.egg-info/SOURCES.txt
+availability_profile.egg-info/dependency_links.txt
+availability_profile.egg-info/requires.txt
+availability_profile.egg-info/top_level.txt
+tests/test_profile.py

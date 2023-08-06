@@ -1,0 +1,15 @@
+sortedcontainers
+Spans
+
+[dev]
+coverage>=5.3
+black
+build
+
+[docs]
+Sphinx
+docutils
+nbsphinx
+
+[test]
+coverage
