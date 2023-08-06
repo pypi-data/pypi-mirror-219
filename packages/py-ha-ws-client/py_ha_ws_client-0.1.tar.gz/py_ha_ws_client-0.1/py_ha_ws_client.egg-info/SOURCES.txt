@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+py_ha_ws_client/__init__.py
+py_ha_ws_client/client.py
+py_ha_ws_client.egg-info/PKG-INFO
+py_ha_ws_client.egg-info/SOURCES.txt
+py_ha_ws_client.egg-info/dependency_links.txt
+py_ha_ws_client.egg-info/requires.txt
+py_ha_ws_client.egg-info/top_level.txt
