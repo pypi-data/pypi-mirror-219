@@ -1,0 +1,139 @@
+Metadata-Version: 2.1
+Name: gesp
+Version: 0.1
+Summary: convenient scraping of german court decisions
+Project-URL: Homepage, https://github.com/niklaswais/gesp
+Project-URL: Bug Tracker, https://github.com/niklaswais/gesp/issues
+Author-email: Niklas Wais <niklas.wais@uni-leipzig.de>
+License-File: LICENCE.md
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: attrs<22.0,>=21.4.0
+Requires-Dist: automat<21.0,>=20.2.0
+Requires-Dist: certifi>=2022.6.15
+Requires-Dist: cffi<2.0,>=1.15.1
+Requires-Dist: charset-normalizer<3.0,>=2.1.0
+Requires-Dist: constantly<16.0,>=15.1.0
+Requires-Dist: cryptography<40.0,>=37.0.2
+Requires-Dist: cssselect<2.0,>=1.1.0
+Requires-Dist: filelock<4.9,>=3.7.1
+Requires-Dist: hyperlink<22.0,>=21.0.0
+Requires-Dist: idna<4.0,>=3.3
+Requires-Dist: incremental<22.0,>=21.3.0
+Requires-Dist: itemadapter<1.0,>=0.6.0
+Requires-Dist: itemloaders<2.0,>=1.0.4
+Requires-Dist: jmespath<2.0,>=1.0.1
+Requires-Dist: lxml<5.0,>=4.9.1
+Requires-Dist: parsel<2.0,>=1.6.0
+Requires-Dist: protego<1.0,>=0.2.1
+Requires-Dist: pyasn1-modules<1.0,>=0.2.8
+Requires-Dist: pyasn1<1.0,>=0.4.8
+Requires-Dist: pycparser<3.0,>=2.21
+Requires-Dist: pydispatcher<3.0,>=2.0.5
+Requires-Dist: pyopenssl<23.0,>=22.0.0
+Requires-Dist: queuelib<2.0,>=1.6.2
+Requires-Dist: requests-file<2.0,>=1.5.1
+Requires-Dist: requests<3.0,>=2.28.1
+Requires-Dist: scrapy<3.0,>=2.6.1
+Requires-Dist: service-identity<22.0,>=21.1.0
+Requires-Dist: six<2.0,>=1.16.0
+Requires-Dist: tldextract<4.0,>=3.3.0
+Requires-Dist: twisted<23.0,>=22.4.0
+Requires-Dist: typing-extensions<5.0,>=4.3.0
+Requires-Dist: urllib3<2.0,>=1.26.9
+Requires-Dist: w3lib<2.0,>=1.22.0
+Requires-Dist: zope-interface<6.0,>=5.4.0
+Description-Content-Type: text/markdown
+
+**Copyright notice**: Automated retrieval of decisions from federal and state databases is permitted for non-commercial purposes only. Since gesp accesses these databases, the use of gesp is also permitted for **non-commercial purposes only**.
+
+## gesp: convenient scraping of German court decisions
+
+The federal and state governments in Germany make court decisions available for download on individual online platforms. In addition to the lack of uniformity, these platforms only allow individual retrieval out of the box. With gesp, decisions can be downloaded in large quantities in a filter-based and reproducible manner.
+
+### A. Installation
+Download & build the package:
+```Shell
+git clone https://github.com/niklaswais/gesp && cd gesp && python -m build
+```
+Install the local .tar.gz:
+```Shell
+python -m pip install dist/gesp-0.1.tar.gz
+```
+
+### B. Basic Usage
+A call without command-line arguments will result in the retrival of all **machine-readable** (= non-PDF) court decisions. If only a **subset** is to be downloaded, the arguments **"-s"** (followed by abbreviations of states) and **"-t"** (followed by abbreviations of court types) can be used. Multiple states or court types are separated by commas.
+```Shell
+python -m gesp -s bund,by,hh,nw -c bgh,ag,lg,olg
+```
+Since Saxony and Bremen provide court decisions only as PDF files, they are excluded when gesp is run without flags. An explicit call nevertheless makes the corresponding files available (-s sn,hb).
+
+A specific path under which the decisions are to be stored can be specified with the argument "-p". If the folder has not been created yet, gesp will take care of that. If the folder has already been created and contains the results of a previous execution, this will cause an **update** of the dataset.
+```Shell
+python -m gesp -p path/to/folder
+```
+
+An existing fingerprint (see C.) can be used to **reconstruct** a dataset. To do so, the path to the fingerprint file must be passed as an argument using "-fp". Naturally, "-c" and "-s" arguments are not allowed in this case.
+```Shell
+python -m gesp -fp /path/to/fingerprint
+```
+
+### C. Results
+If no specific path is passed with "-p", gesp will create a folder for the results in the current working directory ("results/"). The name of the subfolder is based on the date and time of execution to avoid conflicts in subsequent runs. Decisions that are available as **html/xhtml** files are preferentially downloaded as such. However, some federal states unfortunately provide decisions only as pdf files. The editable documents are minimally cleaned up (e.g., print dialogs and navigation menus are removed), but **not pre-processed**, unless "-pp" is used (see E.).
+
+### D. Reproducibility
+To create a fingerprint file alongside the downloaded court decisions in the results folder ("fp.xz"), set the "-fp" **flag**. If you want to reconstruct the dataset of a previous run, e.g. because you are working on multiple machines or in a team, simply share the fingerprint file. Using the fingerprint file by means of "-fp" as an **argument** will result in the assembly of an identical collection.
+
+The fingerprinting feature of gesp can also be used to meet good scientific practice standards without the need to provide large collections of data. Since it is part of good scientific practice to disclose the data basis of the results obtained, publications on the empirical study of court decisions must be accompanied by relatively large data sets. Instead of making the entire collection of decisions available for retrieval online, simply share the fingerprint file that others may use to retrieve your data.
+
+### E. Pre-Processing
+The use of "-pp" activates pre-processing. A separate subfolder is created in the "results" folder for the subsequent outputs.
+
+### F. Delayed Retrieval
+You can use the argument "-w" to add a delay between two consecutive downloads of decisions from the same source. This reduces the server load for the provider of the decisions and can prevent bans.
+
+### G. Appendix
+#### 1. Abbreviations for "-s" (federal/states)
+| Name | Abbreviation |
+| --- | --- |
+| Federal | *bund* |
+| Baden-Württemberg | *bw* |
+| Bavaria | *by* |
+| Berlin | *be* |
+| Brandenburg | *bb* |
+| Bremen | *hb* |
+| Hamburg | *hh* |
+| Hesse | *he* |
+| Mecklenburg-Vorpommern | *mv* |
+| Lower Saxony | *ni* |
+| North Rhine-Westphalia | *nw* |
+| Rhineland-Palatinate | *rp* |
+| Saarland | *sl* |
+| Saxony | *sn* |
+| Saxony-Anhalt | *st* |
+| Schleswig-Holstein | *sh* |
+| Thuringia | *th* |
+
+#### 2. Abbreviations for "-c" (court types)
+| Name | Abbreviation |
+| --- | --- |
+| Amtsgerichte | *ag* |
+| Arbeitsgerichte | *arbg* |
+| Bundesgerichtshof | *bgh* |
+| Bundesfinanzhof | *bfh* |
+| Bundesverwaltungsgericht | *bverwg* |
+| Bundesverfassungsgericht | *bverfg* |
+| Bundespatentgericht | *bpatg* |
+| Bundesarbeitsgericht | *bag* |
+| Bundessozialgericht | *bsg* |
+| Finanzgerichte | *fg* |
+| Landesarbeitsgerichte | *lag* |
+| Landgerichte | *lg* |
+| Landessozialgerichte | *lsg* |
+| Landesverfassungsgerichte | *verfgh* |
+| Oberlandesgerichte (incl. KG, BayObLG) | *olg* |
+| Oberverwaltungsgerichte (incl. vgh) | *ovg* |
+| Sozialgerichte | *sg* |
+ 
