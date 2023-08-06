@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: shil
+Version: 2023.7.15.12.33
+Summary: Shell helper utilities for python
+Home-page: https://github.com/elo-enterprises/shil/
+Author: elo
+License: MIT
+Project-URL: Documentation, https://github.com/elo-enterprises/shil/
+Project-URL: Source, https://github.com/elo-enterprises/shil/
+Project-URL: Download, https://github.com/elo-enterprises/shil/#files
+Platform: any
+Classifier: Programming Language :: Python
+Requires-Python: >3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Requires-Dist: TatSu (==5.8.3)
+Requires-Dist: pydantic (==1.10.11)
+Requires-Dist: fleks (>=2023.7.13.2.21)
+Requires-Dist: rich (==13.3.4)
+Provides-Extra: dev
+Requires-Dist: IPython ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: tox ; extra == 'lint'
+Provides-Extra: publish
+Requires-Dist: twine ; extra == 'publish'
+Provides-Extra: testing
+Requires-Dist: IPython ; extra == 'testing'
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: mock ; extra == 'testing'
+Requires-Dist: flake8 (==5.0.4) ; extra == 'testing'
+
+<table>
+  <tr>
+    <td colspan=2><strong>
+    shil
+      </strong>&nbsp;&nbsp;&nbsp;&nbsp;
+      <small><small>
+      </small></small>
+    </td>
+  </tr>
+  <tr>
+    <td width=15%><img src=img/icon.png style="width:150px"></td>
+    <td>
+    Shell-util library for python.  Includes helpers for subprocess invocation, shell-formatters / pretty-printers, and more.
+    </td>
+  </tr>
+</table>
+
+---------------------------------------------------------------------------------
+
+  * [Overview](#overview)
+    * [Features](#features)
+  * [Installation](#installation)
+  * [Usage](#usage)
+
+
+---------------------------------------------------------------------------------
+
+## Overview
+
+The `shil` library provides various shell-utilities for python.
+
+### Features
+
+* Helpers for subprocess invocation
+* Shell-formatters / pretty-printers
+* A somewhat usable parser / grammer for bash
+* Support or [rich protocols](#placeholder)
+
+---------------------------------------------------------------------------------
+
+## Installation
+
+See [pypi](https://pypi.org/project/shil/) for available releases.
+
+```
+pip install shil
+```
+
+---------------------------------------------------------------------------------
+
+## Usage
+
+---------------------------------------------------------------------------------
+
+See also:
+
+* [the unit-tests](tests/units) for some examples of library usage
+* [the smoke-tests](tests/smoke/test.sh) for example usage of stand-alone scripts
+
+```
+import shil 
+import json
+
+# Working with models for Invocation/InvocationResponse:
+req = cmd = shil.Invocation(command='ls /tmp')
+resp = cmd()
+print(resp.stdout)
+
+# More functional approach:
+resp = shil.invoke('ls /tmp')
+
+# Loading data when command-output is JSON
+req = cmd = shil.Invocation(command='echo {"foo":"bar"}')
+resp = cmd()
+print(resp.data)
+assert type(resp.data)==type({})
+
+# Uses pydantic, so serialization is straightforward
+json.loads(resp.json())
+json.loads(req.json())
+for k,v in req.dict().items():
+  assert getattr(resp,k)==v
+
+# Rich console output for Invocations and InvocationResponse
+import rich
+rich.print(resp)
+```
