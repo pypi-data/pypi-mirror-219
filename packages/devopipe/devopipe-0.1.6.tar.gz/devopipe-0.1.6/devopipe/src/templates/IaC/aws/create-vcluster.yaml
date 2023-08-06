@@ -1,0 +1,14 @@
+resource "helm_release" {{ vcluster_name }} {
+  name       = "{{ vcluster_name }}"
+  repository = "https://charts.loft.sh"
+  chart      = "vcluster"
+  namespace  = "{{ namespace_name }}"
+  values     = [file("{{ values_file }}")]
+  depends_on = [{{ depends_on  }}]
+}
+
+# vcluster_name = "test-vcluster"
+# namespace_name = "devolink-test"
+# values_file = "values/vcluster-test.yaml"
+# depends_on = kubernetes_namespace.devolink-test
+

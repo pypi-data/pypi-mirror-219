@@ -1,0 +1,14 @@
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              buildType: 'current'
+              artifactName: {{ artifact_pipeline_name }}
+              targetPath: '$(Pipeline.Workspace)'
+          - task: Bash@3
+            displayName: Load Docker Image
+            inputs:
+              targetType: 'inline'
+              script: |      
+                docker load --input $(Pipeline.Workspace)/{{ artifact_tar_name }}.tar
+
+# artifact_tar_name = frontend_image
+# artifact-pipeline-name = 'MY_ARTIFACT'

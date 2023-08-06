@@ -1,0 +1,19 @@
+        - task: Docker@2
+          displayName: 'Login to Docker Hub'
+          inputs:
+            command: login
+            containerRegistry: 'dockerhub'
+            dockerRegistryEndpoint: 'DockerHubConnection'
+
+        - script: docker tag {{image_name}} {{registry_username}}/{{registry_name}}:latest
+          displayName: Tag frontend image as the latest for Docker Hub
+        - script: docker tag {{image_name}} {{registry_username}}/{{registry_name}}:$(Build.BuildId)
+          displayName: Tag frontend image with the number of this build
+        - script: docker push {{registry_username}}/{{registry_name}}:latest
+          displayName: Push Image to Docker Hub
+        - script: docker push {{registry_username}}/{{registry_name}}:$(Build.BuildId)
+          displayName: Push Image to Docker Hub
+
+# image_name = frontend_react
+# registry_username = danielrodrdevo
+# registry_name =  devofront

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-database
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp-database
+  template:
+    metadata:
+      labels:
+        app: myapp-database
+    spec:
+      containers:
+        - name: database
+          image: postgres:15.3
+          volumeMounts:
+            - name: persistent-storage
+              mountPath: /var/lib/postgresql/data
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_USER
+              value: admin
+            - name: POSTGRES_PASSWORD
+              value: ml7H0G8H5j!
+            - name: POSTGRES_DB
+              value: metrics_database
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+      volumes:
+        - name: persistent-storage
+          persistentVolumeClaim:
+            claimName: ebs-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-database
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: myapp-database
+  ports:
+    - port: 5432
+      targetPort: 5432
+      protocol: TCP

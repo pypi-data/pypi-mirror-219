@@ -1,0 +1,14 @@
+          - task: Bash@3
+            displayName: Save Docker Image
+            inputs:
+              targetType: 'inline'
+              script: |
+                docker save {{ artifact_tar_name }} -o $(Pipeline.Workspace)/{{ artifact_tar_name }}.tar
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: '$(Pipeline.Workspace)/{{ artifact_tar_name }}.tar'
+            artifact: {{ artifact_pipeline_name }}
+            publishLocation: 'pipeline'
+
+# artifact_tar_name = frontend_image
+# artifact-pipeline-name = 'MY_ARTIFACT'

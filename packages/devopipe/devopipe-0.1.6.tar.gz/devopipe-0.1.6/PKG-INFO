@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: devopipe
+Version: 0.1.6
+Summary: 
+Author: Daniel Rodrigues
+Author-email: daniel.neves.rodrigues@devoteam.com
+Requires-Python: >=3.11,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: pyyaml (>=6.0,<7.0)
+Requires-Dist: typer[all] (>=0.7.0,<0.8.0)
+Description-Content-Type: text/markdown
+
+

@@ -1,0 +1,47 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-aws-devolink
+  namespace: {{ namespace }}
+  labels:
+    app: ingress-aws-devolink
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    # Health Check Settings
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthcheck-path: /api/v1/
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: "15"
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: "5"
+    alb.ingress.kubernetes.io/success-codes: "200"
+    alb.ingress.kubernetes.io/healthy-threshold-count: "2"
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: "2"
+
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: {{ frontend_route }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ frontend_service }}
+                port:
+                  number: 3000
+    - http:
+        paths:
+          - path: {{ backend_route }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ backend_service }}
+                port:
+                  number: 8000
+
+# namespace = devolink-production
+# frontend_service = myapp-x-default-x-production-vcluster
+# backend_service = myapp-backend-x-default-x-production-vcluster
+# frontend_route = /frontend/
+# backend_route = /api/v1/

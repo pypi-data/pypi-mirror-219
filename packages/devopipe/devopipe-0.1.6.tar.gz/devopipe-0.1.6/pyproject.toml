@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "devopipe"
+version = "0.1.6"
+description = ""
+authors = ["Daniel Rodrigues <daniel.neves.rodrigues@devoteam.com>"]
+readme = "README.md"
+packages = [{include = "devopipe"}]
+
+[tool.poetry.scripts]
+devopipe = "devopipe.src.main:app"
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+typer = {extras = ["all"], version = "^0.7.0"}
+jinja2 = "^3.1.2"
+pyyaml = "^6.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
