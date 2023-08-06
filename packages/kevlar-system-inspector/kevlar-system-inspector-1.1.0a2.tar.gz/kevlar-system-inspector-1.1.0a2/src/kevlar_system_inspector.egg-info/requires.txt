@@ -1,0 +1,11 @@
+pytest>=6.2
+rich
+docutils
+jinja2>=2.11
+pyelftools
+
+[test]
+black>=22.0
+flake8>=5.0
+mypy==1.0
+pytest-cov>=4.0

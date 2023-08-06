@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from kevlar_system_inspector import main
+main()
