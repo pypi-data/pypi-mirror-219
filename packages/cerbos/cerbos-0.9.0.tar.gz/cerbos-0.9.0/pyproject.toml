@@ -1,0 +1,139 @@
+[project]
+name = "cerbos"
+description = "SDK for working with Cerbos: an open core, language-agnostic, scalable authorization solution"
+readme = "README.md"
+authors = [
+    { name = "Cerbos Developers", email = "sdk+python@cerbos.dev" },
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Topic :: Software Development :: Libraries",
+]
+dependencies = [
+    "dataclasses-json>=0.5.7",
+    "requests-toolbelt>=0.9.1",
+    "httpx[http2]>=0.22.0",
+    "anyio>=3.6.1",
+    "tenacity>=8.1.0",
+    "grpcio-tools>=1.54.2",
+]
+requires-python = ">=3.8"
+dynamic = []
+version = "0.9.0"
+
+[project.license]
+text = "Apache-2.0"
+
+[project.urls]
+Homepage = "https://cerbos.dev"
+
+[project.optional-dependencies]
+testcontainers = [
+    "testcontainers>=3.5.3",
+]
+
+[tool.pdm.version]
+source = "scm"
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "black>=22.3.0",
+    "isort>=5.10.1",
+]
+test = [
+    "pytest>=7.3.1",
+]
+tools = [
+    "unasync>=0.5.0",
+    "setuptools>=63.2.0",
+    "commitizen>=3.2.2",
+    "ptpython>=3.0.23",
+]
+
+[tool.pdm.scripts.isort]
+cmd = "isort cerbos/sdk tests"
+
+[tool.pdm.scripts.black]
+cmd = "black cerbos/sdk tests"
+
+[tool.pdm.scripts.format]
+composite = [
+    "isort",
+    "black",
+]
+
+[tool.pdm.scripts.unasync]
+cmd = "python utils/gen_unasync.py"
+
+[tool.pdm.scripts.pre_build]
+composite = [
+    "unasync",
+    "format",
+]
+
+[tool.pdm.scripts.pre_test]
+composite = [
+    "unasync",
+]
+
+[tool.pyprojectx]
+pdm = "pdm"
+black = "black"
+isort = "isort"
+twine = "twine"
+cz = "cz"
+
+[tool.pyprojectx.aliases]
+generate = "pdm run python utils/gen_unasync.py"
+install = "pdm install"
+run = "pdm run"
+outdated = "pdm update --outdated"
+pytest = "pdm run pytest tests"
+test = "pw@generate && pw@pytest"
+format = "pdm format"
+test_upload = "twine upload -r testpypi dist/*"
+tag_release = "pdm run cz bump --changelog --increment"
+changelog = "pdm run cz changelog"
+
+[tool.pyright]
+extraPaths = [
+    "__pypackages__/3.10/lib/",
+]
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+
+[tool.isort]
+profile = "black"
+
+[tool.commitizen]
+name = "cz_customize"
+version_provider = "scm"
+tag_format = "v$major.$minor.$patch$prerelease"
+annotated_tag = true
+update_changelog_on_bump = true
+
+[tool.commitizen.customize]
+commit_parser = "^(?P<change_type>feat|fix|enhancement|docs|chore)(\\\\(.*?\\\\))?:\\s(?P<message>.*)?"
+change_type_order = [
+    "feat",
+    "enhancement",
+    "fix",
+    "docs",
+]
+
+[tool.commitizen.customize.change_type_map]
+feat = "Features"
+fix = "Bug fixes"
+enhancement = "Enhancements"
+docs = "Documentation"
+chore = "Chores"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
