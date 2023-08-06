@@ -1,0 +1,2 @@
+from setuptools import setup
+setup(name="greenai", version="0.0.1", py_modules=["greenai"], author="Alex Combessie", author_email="alex@giskard.ai", description="This is a placeholder package created by registerit.", url="https://giskard.ai")
