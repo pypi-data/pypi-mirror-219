@@ -1,0 +1,34 @@
+{
+  "Class": [
+    {
+      "label": "Person",
+      "id": "schema:Person"
+    },
+    {
+      "label": "Association",
+      "id": "prov:Association"
+    },
+    {
+      "label": "Dataset",
+      "id": "schema:Dataset"
+    }
+  ],
+  "ObjectProperty": [
+    {
+      "label": "type",
+      "id": "rdf:type"
+    },
+    {
+      "label": "name",
+      "id": "schema:name"
+    },
+    {
+      "label": "agent",
+      "id": "prov:agent"
+    },
+    {
+      "label": "qualifiedAssociation",
+      "id": "prov:qualifiedAssociation"
+    }
+  ]
+}
