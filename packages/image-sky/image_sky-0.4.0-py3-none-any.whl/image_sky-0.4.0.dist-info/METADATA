@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: image-sky
+Version: 0.4.0
+Summary: Run many jobs transparently on aliyun fc and other cloud services
+Home-page: http://pywren.io
+Author: zhudayong
+Author-email: 671850478@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: Click
+Requires-Dist: boto3
+Requires-Dist: oss2
+Requires-Dist: alibabacloud-tea-console
+Requires-Dist: alibabacloud-fc-open20210406
+Requires-Dist: PyYAML
+Requires-Dist: enum34
+Requires-Dist: flaky
+Requires-Dist: glob2
+Requires-Dist: watchtower
+Requires-Dist: tblib
+
+image_sky lets you transparently run your python functionson aliyun cloud services, including aliyun fc .
+
+
