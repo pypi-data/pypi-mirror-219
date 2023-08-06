@@ -1,0 +1,23 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:plone="http://namespaces.plone.org/plone">
+
+ <adapter factory=".groupByModifiers.groupby_modifier" name="modifier_example" />
+
+  <plone:service
+    method="GET"
+    for="zope.interface.Interface"
+    factory=".get.FacetedSearchGet"
+    name="@faceted-search"
+    permission="zope2.View"
+    />
+
+  <plone:service
+    method="POST"
+    for="zope.interface.Interface"
+    factory=".get.FacetedSearchPost"
+    name="@faceted-search"
+    permission="zope2.View"
+    />
+
+</configure>
