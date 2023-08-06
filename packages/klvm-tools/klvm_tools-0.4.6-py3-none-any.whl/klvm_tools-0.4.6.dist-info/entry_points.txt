@@ -1,0 +1,6 @@
+[console_scripts]
+brun = klvm_tools.cmds:brun
+opc = klvm_tools.cmds:opc
+opd = klvm_tools.cmds:opd
+read_ir = klvm_tools.cmds:read_ir
+run = klvm_tools.cmds:run
