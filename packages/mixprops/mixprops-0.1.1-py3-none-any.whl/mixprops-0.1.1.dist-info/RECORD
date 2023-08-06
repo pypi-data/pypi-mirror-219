@@ -1,0 +1,13 @@
+mixprops/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mixprops/cli.py,sha256=bfNG_qhAACnm9ABexk0IpEy9kfv3zx6dNtOHRFaCZwc,1549
+mixprops/constants.py,sha256=07bH1T3OPj50Xa-AfI_1rTFBJyHR0714driJFAaueUM,205
+mixprops/data/species_T_1000_6000.csv,sha256=TpmQeWzXUStkX34JaSF0kk10wDNwLeaKv_mDzgxqZZ4,9650
+mixprops/data/species_T_200_1000.csv,sha256=Ufini67aM1EfBcLkc1gRqrSs5ZhYYmC5rd6DKKeXIHk,9140
+mixprops/database.py,sha256=Dwk18xqaIPwepQKig0mpxYX0aR__xt6_mwz9hCWK00I,889
+mixprops/mixture.py,sha256=HAWvDKZMSaQaU_hUqOYoroDgaU9Vyq6QErMDL3KXGk8,4579
+mixprops/reference_conditions.py,sha256=UVedubkf9MIRiZ-BbMtTPe4Fqaq1BdbvTSLVjkoWVu0,1530
+mixprops/species.py,sha256=huSUX_fcceTgZ00O0FqrbLvckT1zJfiMjCrd210rfCM,2399
+mixprops-0.1.1.dist-info/LICENSE,sha256=GvgI0cQO97s-9gCv-DW6FJkioe06yIyVX4X2G4utBkY,1064
+mixprops-0.1.1.dist-info/METADATA,sha256=L4Y9OfKZRKPxtsdEKNPPxCffooGex3UZTwtEbVrhnrA,2047
+mixprops-0.1.1.dist-info/WHEEL,sha256=7Z8_27uaHI_UZAc4Uox4PpBhQ9Y5_modZXWMxtUi4NU,88
+mixprops-0.1.1.dist-info/RECORD,,
