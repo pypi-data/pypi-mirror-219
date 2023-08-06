@@ -1,0 +1,8 @@
+httpx==0.23.3
+httpx[http2]
+asciistuff==1.2.3
+prettytable==3.6.0
+pandas==1.5.3
+tldextract==3.4.0
+defusedxml==0.7.1
+IPy==1.1
