@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "maui-rc"
+version = "0.1.2"
+description = "Wrapper for controlling Teledyne-Lecroy Maui oscilloscopes."
+authors = ["Kristofer Karam <karamrkristofer@gmail.com>"]
+readme = "README.md"
+packages = [{include = "maui_rc"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pyvisa = "^1.13.0"
+pyvisa-py = "^0.7.0"
+pyvicp = "^1.1.0"
+black = "^23.7.0"
+pytest = "^7.4.0"
+numpy = "^1.25.1"
+zeroconf = "^0.71.0"
+psutil = "^5.9.5"
+pyusb = "^1.2.1"
+ieee754 = "^0.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
