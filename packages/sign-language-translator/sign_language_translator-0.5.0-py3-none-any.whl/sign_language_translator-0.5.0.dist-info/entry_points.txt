@@ -1,0 +1,3 @@
+[console_scripts]
+slt=sign_language_translator.cli:slt
+
