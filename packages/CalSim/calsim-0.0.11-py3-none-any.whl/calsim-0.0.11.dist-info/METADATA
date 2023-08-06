@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: CalSim
+Version: 0.0.11
+Summary: Simulator package for Berkeley robotics course.
+Project-URL: Homepage, https://github.com/mzdesa/CalSim
+Project-URL: Bug Tracker, https://github.com/mzdesa/CalSim
+Author-email: Massimiliano de Sa <mz.desa@berkeley.edu>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: matplotlib>=3.5.0
+Requires-Dist: numpy>=1.20.0
+Requires-Dist: seaborn>=0.10.0
+Description-Content-Type: text/markdown
+
+# CalSim
+Multi-purpose educational robotics simulator built for the Berkeley courses 106/206 AB.
+
+## Building Package
+To build a new version of the package, first open the pyproject.toml file and increment the version number by 1 - say, for example, that the version number is now 0.0.2. Once you've done this, enter the command "python -m build" in the directory containing pyproject.toml. After this, you're ready to upload your new version to PyPI. To do this, type "twine upload dist/calsim-0.0.2*" to upload version 0.0.2. Note that the star is included such that both the tar.gz and .whl build files associated with V0.0.2 are uploaded.
