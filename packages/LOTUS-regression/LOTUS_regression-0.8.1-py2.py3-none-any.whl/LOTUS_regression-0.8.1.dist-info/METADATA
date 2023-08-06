@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: LOTUS-regression
+Version: 0.8.1
+Summary: Regression analysis code for LOTUS
+Home-page: http://arg.usask.ca/docs/LOTUS_regression
+Author: USask ARG
+Author-email: 
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: appdirs
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: xarray
+
+UNKNOWN
+
