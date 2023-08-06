@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: ravityemaillib
+Version: 0.1.1.1
+Summary: Ravity Custom Libraries
+Home-page: UNKNOWN
+Author: Me
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: email
+Requires-Dist: smtplib
+Requires-Dist: logging
+
+UNKNOWN
+
