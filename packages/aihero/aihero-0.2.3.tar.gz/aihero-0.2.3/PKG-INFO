@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: aihero
+Version: 0.2.3
+Summary: AI Hero Python SDK
+Home-page: https://github.com/ai-hero/python-client-sdk
+Author: AI Hero Team
+Author-email: team@aihero.studio
+License: MIT
+Keywords: AI Hero,Spotcheck,MLOps,AI,Data Annotation,Labeling,Model Training,Model Serving,Model Deployment
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# AI Hero Python SDK
+1. Log into [https://app.aihero.studio] and create a project.
+
+
+2. Install AI Hero using pip
+```                
+pip install aihero
+```
+                
+3. In your code, import aihero and get this project.
+```                
+from aihero import Project
+project = Project(project_id="YOUR PROJECT ID", api_key="YOUR API KEY")
+```
+                
+Start using any of our tools
