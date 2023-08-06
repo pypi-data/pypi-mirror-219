@@ -1,0 +1,6 @@
+requests
+deep_translator
+colorama
+httpx[http2]
+google-cloud-translate==2.0.1
+browser_cookie3
