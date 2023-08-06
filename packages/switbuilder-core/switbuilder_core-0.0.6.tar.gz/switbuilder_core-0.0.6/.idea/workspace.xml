@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7747ff4f-b6a5-4206-b1a9-45990956cc9c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/activity_handler_abc.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/activity_router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/action/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/channel/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/channel/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/channel/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/channel/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/conversation/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/conversation/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/conversation/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/conversation/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/exception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/cid_image_email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/email_with_attachment.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/empty_receiver_email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/html_email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/invalid_swit_image.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/large_cid_image_email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/email/plain_text_email.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/html/example1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/html/example2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/html/example3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/html/example4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/tests/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/imap/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/membership/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/membership/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/membership/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/membership/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/project/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/project/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/project/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/project/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/task/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/task/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/task/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/task/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/workspace/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/workspace/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/workspace/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/apis/v1/workspace/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/dependencies.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/exception.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/router.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/auth/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/lokalise.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/type.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/Icon.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/button.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/collection_entry.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/container.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/divider.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/file.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/header.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/html_frame.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/input.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/select.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/select_item.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/signIn_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/static_action.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/tabs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/text_paragraph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/switcore/ui/textarea.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2R5mmYJlTfSwpfOSM7LajyfPTWX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.google.cloudcode.ide_session_index": "20230717_0010",
+    "last_opened_file_path": "/Users/el/PycharmProjects/core/switcore",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/switcore" />
+      <recent name="$PROJECT_DIR$/apis" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/ui" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/switcore" />
+      <recent name="$PROJECT_DIR$/apis/v1" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/switbuilder-core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for switcore.apis.v1.imap.tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/header" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;switcore.apis.v1.imap.tests&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for switcore.apis.v1.imap.tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;switcore.apis.v1.imap.tests&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for switcore.apis.v1.imap.tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/signin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;switcore.apis.v1.imap.tests&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for switcore.apis.v1.imap.tests" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/header" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;switcore.apis.v1.imap.tests&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test (1)" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/header" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test (2)" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/switbuilder-core/ui/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/switbuilder-core/ui/collection_entry" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/switbuilder-core/ui/header" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/switbuilder-core/ui/signin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/switbuilder-core/ui/swit_response" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/header" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/signin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/input" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/signin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for tests.Test" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="core" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ui/swit_response" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;tests.Test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for switcore.apis.v1.imap.tests" />
+        <item itemvalue="Python tests.Python tests for switcore.apis.v1.imap.tests" />
+        <item itemvalue="Python tests.Python tests for switcore.apis.v1.imap.tests" />
+        <item itemvalue="Python tests.Python tests for switcore.apis.v1.imap.tests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7747ff4f-b6a5-4206-b1a9-45990956cc9c" name="Changes" comment="" />
+      <created>1686548475284</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686548475284</updated>
+      <workItem from="1686548477381" duration="1680000" />
+      <workItem from="1686551857739" duration="121000" />
+      <workItem from="1686616607584" duration="3201000" />
+      <workItem from="1686620027905" duration="684000" />
+      <workItem from="1686629986173" duration="3126000" />
+      <workItem from="1687758375245" duration="386000" />
+      <workItem from="1689250625591" duration="36000" />
+      <workItem from="1689250806915" duration="2161000" />
+      <workItem from="1689287326456" duration="22000" />
+      <workItem from="1689287357011" duration="77000" />
+      <workItem from="1689287435257" duration="46000" />
+      <workItem from="1689287487514" duration="1547000" />
+      <workItem from="1689309026861" duration="1964000" />
+      <workItem from="1689550354850" duration="8828000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/core$.coverage" NAME=" Coverage Results" MODIFIED="1686548968679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ui/swit_response" />
+  </component>
+</project>
