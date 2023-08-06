@@ -1,0 +1,43 @@
+[project]
+name = "deairequest"
+version = "0.0.14"
+authors = [
+  { name="Maarten Ectors", email="maarten@0011.ai" }
+]
+description = "A Decentralised AI library which allows to run remote AI jobs"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/0011ai/deairequest"
+"Bug Tracker" = "https://github.com/0011ai/deairequest/issues"
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "requests",
+    "build"
+]
+
+build-backend = "setuptools.build_meta"
+[tool.bumpver]
+current_version = "2023.1002-alpha"
+version_pattern = "YYYY.BUILD[-TAG]"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"README.md" = [
+    "{version}",
+    "{pep440_version}",
+]
+
