@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: paaster
+Version: 1.0.6
+Summary: Upload locally encrypted pastes from your terminal to Paaster
+License: GPL-3.0
+Author: WardPearce
+Author-email: wardpearce@protonmail.com
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: pyperclip (>=1.8.2,<2.0.0)
+Requires-Dist: pysodium (>=0.7.12,<0.8.0)
+Requires-Dist: requests (>=2.28.2,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Paaster CLI
+Upload locally encrypted pastes to paaster.io from your desktop.
+
+## Support
+- Linux (Tested)
+- Windows (Tested)
+- MacOS (Not test, please submit issue if works or not)
+
+## Installing
+- `pip3 install paaster`
+
+## Commands
+- paaster --help
+    - Shows commands
+- paaster upload
+    - Upload locally encrypted clipboard to API.
+- paaster set --name "" --value ""
+    - Sets config parameters
+
+## Parameters
+- API_URL
+    - Backend URL, type string
+- FRONTEND_URL
+    - Frontend URL, type string
+- COPY_URL_TO_CLIPBOARD
+    - If to copy URL to clipboard, type "true/false"
+- OPEN_URL_IN_BROWSER
+    - If to open paste in browser, type "true/false"
+
