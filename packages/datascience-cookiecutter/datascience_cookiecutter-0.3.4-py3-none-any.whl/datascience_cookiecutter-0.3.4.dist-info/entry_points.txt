@@ -1,0 +1,3 @@
+[console_scripts]
+cookiecutter = datascience_cookiecutter.__main__:create_project
+
