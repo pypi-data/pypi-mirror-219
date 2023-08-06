@@ -1,0 +1,13 @@
+distro
+pydantic[email]<2.0
+rich
+pycryptodome
+pandas
+numpy
+scipy
+humanize
+PyYAML
+requests
+joblib
+treelib
+filesplit

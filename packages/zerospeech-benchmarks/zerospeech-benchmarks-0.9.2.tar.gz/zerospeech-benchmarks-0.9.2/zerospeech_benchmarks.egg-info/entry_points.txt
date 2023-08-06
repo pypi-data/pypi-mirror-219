@@ -1,0 +1,8 @@
+[console_scripts]
+abxLS-csv = zerospeech.leaderboards.exporters.abxLS:cmd
+sLM21-csv = zerospeech.leaderboards.exporters.sLM21:cmd
+tde17-csv = zerospeech.leaderboards.exporters.tde17:cmd
+zrc = zerospeech.startup:main
+
+[vocolab_ext.leaderboards]
+zrc_leaderboards = zerospeech.leaderboards.vocolab_ext:VocolabLeaderboardManager
