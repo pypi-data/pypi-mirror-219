@@ -1,0 +1,98 @@
+[tool.poetry]
+name = "narpyn"
+version = "0.1.0"
+description = "A Python API library for NARS"
+authors = ["Adrian Borucki <ab@synthillect.ai>"]
+license = "Apache-2.0"
+readme = "README.md"
+packages = [{include = "narpyn"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+ruff = "^0.0.270"
+pytest = "^7.3.1"
+ipython = "^8.14.0"
+pre-commit = "^3.3.3"
+
+[project]
+name = "narpyn"
+dynamic = ["version"]
+description = "A Python API library for NARS"
+keywords = [
+  "nars",
+  "ai",
+]
+authors = [{name = "Adrian Borucki", email = "ab@synthillect.ai"}]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: Implementation :: CPython",
+]
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "ona>=0.9.2",
+]
+
+[project.urls]
+Homepage = "https://ntoxeg.github.io/narpyn/"
+Sponsor = "https://github.com/sponsors/ntoxeg"
+Tracker = "https://github.com/ntoxeg/narpyn/issues"
+Source = "https://github.com/ntoxeg/narpyn"
+
+[build-system]
+requires = ["hatchling>=1.17.0", "hatch-vcs", "hatch-build-scripts"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.sdist]
+exclude = [
+  "/.github",
+]
+
+[tool.hatch.build.targets.wheel]
+exclude = [
+  "/tests",
+]
+
+[tool.hatch.build.targets.wheel.hooks.mypyc]
+enable-by-default = false
+dependencies = ["hatch-mypyc>=0.14.1"]
+require-runtime-dependencies = true
+mypy-args = [
+  "--no-warn-unused-ignores",
+]
+
+[tool.ruff.isort]
+known-first-party = ["narpyn"]
+
+[terminal.styles]
+spinner = "dots"
+
+[tool.coverage.run]
+source_pkgs = ["narpyn", "tests"]
+branch = true
+parallel = true
+
+[tool.coverage.paths]
+narpyn = ["narpyn", "*/narpyn/narpyn"]
+tests = ["tests", "*/narpyn/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
+
+[tool.isort]
+profile = "black"
