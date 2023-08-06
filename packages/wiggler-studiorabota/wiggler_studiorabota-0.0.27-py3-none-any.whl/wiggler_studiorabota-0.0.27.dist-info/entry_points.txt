@@ -1,0 +1,2 @@
+[console_scripts]
+wiggler = wiggler.cli:main
