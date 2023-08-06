@@ -1,0 +1,14 @@
+astropy
+healpy
+matplotlib
+meander
+numpy
+pandas
+wipac-dev-tools
+
+[examples]
+wipac-rest-tools
+
+[tests]
+pytest
+pytest-mock
