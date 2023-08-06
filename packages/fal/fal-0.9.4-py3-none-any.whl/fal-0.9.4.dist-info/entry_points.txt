@@ -1,0 +1,4 @@
+[console_scripts]
+dbt-fal=fal.dbt.cli:cli
+fal=fal.dbt.cli:fal_cli
+
