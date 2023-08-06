@@ -1,0 +1,3 @@
+[console_scripts]
+fastapi_yaml=fastapi_yaml.main:main
+
