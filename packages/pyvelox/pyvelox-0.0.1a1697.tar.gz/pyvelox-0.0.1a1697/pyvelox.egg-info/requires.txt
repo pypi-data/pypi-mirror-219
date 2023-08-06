@@ -1,0 +1,8 @@
+cffi
+typing
+tabulate
+typing-inspect
+pyarrow
+
+[tests]
+pyarrow
