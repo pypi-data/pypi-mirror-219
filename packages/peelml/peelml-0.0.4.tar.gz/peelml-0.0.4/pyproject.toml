@@ -1,0 +1,47 @@
+[tool.poetry]
+name = "peelml"
+version = "0.0.4"
+description = "Peel away the pain of ml deployment"
+authors = ["Rachel Hu <goldpiggy@berkeley.edu>"]
+maintainers = [
+    "Jared Wilber <jdwlbr@gmail.com>",
+    "Rachel Hu <goldpiggy@berkeley.edu>"
+    ]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+typer = "0.9.0"
+inquirer = "3.1.3"
+python-dotenv = "1.0.0"
+flask-cors = "4.0.0"
+langchain = "0.0.220"
+docx2txt = "0.8"
+pdfminer-six = "20221105"
+openai = "0.27.8"
+tiktoken = "0.4.0"
+tokenizers = "0.13.3"
+chromadb = "0.3.26"
+llama-cpp-python = "0.1.66"
+boto3 = "1.26.165"
+flask = "2.2.3"
+click = "8.0.4"
+virtualenv = "20.16.5"
+poetry = "1.4.2"
+sagemaker = "2.169.0"
+numba = "0.57.1"
+llvmlite = "0.40.1"
+umap = "0.1.1"
+umap-learn = "0.5.3"
+scikit-learn = "1.3.0"
+duckdb = "0.8.1"
+fastapi = "0.100.0"
+pydantic = "1.10.11"
+starlette = "0.27.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+peelml = "peelml.cli:cli"
