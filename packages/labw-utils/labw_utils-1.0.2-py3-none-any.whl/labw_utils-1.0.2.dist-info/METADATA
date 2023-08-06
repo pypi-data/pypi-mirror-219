@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: labw-utils
+Version: 1.0.2
+Summary: Utilities Python functions & classes used in LabW
+Author-email: YU Zhejian <Zhejian.19@intl.zju.edu.cn>, YUAN Ruihong <Ruihong.19@intl.zju.edu.cn>, SU Yaqi <Yaqi.19@intl.zju.edu.cn>
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Unix Shell
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: Copying.md
+Requires-Dist: tomli-w (>=1.0)
+Requires-Dist: numpy (>=1.24)
+Requires-Dist: tqdm (>=4.64)
+Requires-Dist: pandas[performance] (>=1.4)
+Requires-Dist: joblib (>=1.2)
+Provides-Extra: all
+Requires-Dist: flask (~=2.2.3) ; extra == 'all'
+Requires-Dist: gevent (~=22.10.2) ; extra == 'all'
+Requires-Dist: jinja2 (>=3.1.2) ; extra == 'all'
+Requires-Dist: joblib (>=1.2) ; extra == 'all'
+Requires-Dist: numpy (>=1.24) ; extra == 'all'
+Requires-Dist: pandas[performance] (>=1.4) ; extra == 'all'
+Requires-Dist: psutil (~=5.9.4) ; extra == 'all'
+Requires-Dist: pysam (>=0.20) ; extra == 'all'
+Requires-Dist: requests (>=2.28) ; extra == 'all'
+Requires-Dist: sqlalchemy (~=1.4.46) ; extra == 'all'
+Requires-Dist: tomli-w (>=1.0) ; extra == 'all'
+Requires-Dist: torch (~=2.0.0) ; extra == 'all'
+Requires-Dist: tqdm (>=4.64) ; extra == 'all'
+Provides-Extra: appenders
+Requires-Dist: pyarrow (>=9.0.0) ; extra == 'appenders'
+Requires-Dist: fastparquet (>=2023.2.0) ; extra == 'appenders'
+Requires-Dist: pytables (>=3.7.0) ; extra == 'appenders'
+Provides-Extra: bioutils
+Requires-Dist: pysam (>=0.20) ; extra == 'bioutils'
+Provides-Extra: mlutils
+Requires-Dist: torch (~=2.0.0) ; extra == 'mlutils'
+Provides-Extra: ysjs
+Requires-Dist: requests (>=2.28) ; extra == 'ysjs'
+Provides-Extra: ysjsd
+Requires-Dist: flask (~=2.2.3) ; extra == 'ysjsd'
+Requires-Dist: sqlalchemy (~=1.4.46) ; extra == 'ysjsd'
+Requires-Dist: psutil (~=5.9.4) ; extra == 'ysjsd'
+Requires-Dist: gevent (~=22.10.2) ; extra == 'ysjsd'
+Requires-Dist: jinja2 (>=3.1.2) ; extra == 'ysjsd'
+
+---
+orphan: true
+---
+
+# `labw_utils` -- Utility Python functions & classes used in LabW
+
+Is not finished -- Do not use.
