@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: ndp-app-versioncontrol
+Version: 1.4
+Summary: Version Control Mechanism for Zetaris Platform (https://www.zetaris.com/)
+Home-page: https://github.com/zetaris/versioncontrol
+Author: Harshal Shah
+Author-email: harshal.shah@zetaris.com
+License: Proprietary
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: jaydebeapi
+Requires-Dist: numpy
+Requires-Dist: pycryptodomex
+Requires-Dist: getpass4
+Requires-Dist: pyyaml
+Requires-Dist: sqlalchemy
+
+### Usage and Installation
+```
+pip3 install ndp-app-versioncontrol==1.4
+
+from ndp_versioncontrol.generate_backup_sql import object_versioncontrol
+
+object_versioncontrol(folder_path,user_email,user_password,api_url,backup_or_restore,data_object_type,data_object_container_name,data_object_name)
+
+```
