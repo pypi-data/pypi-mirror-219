@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "typedhttp"
+version = "0.3.0"
+description = ""
+authors = ["Lucas Silva <lucas76leonardo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "typedhttp", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = {version = "^2.31.0", extras = ["requests"]}
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+black = "^23.7.0"
+types-requests = "^2.31.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

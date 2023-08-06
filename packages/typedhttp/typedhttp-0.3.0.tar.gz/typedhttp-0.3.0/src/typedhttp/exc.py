@@ -1,0 +1,6 @@
+class TypedHttpError(Exception):
+    ...
+
+
+class NoExceptionProvidedForStatusCode(TypedHttpError):
+    ...
