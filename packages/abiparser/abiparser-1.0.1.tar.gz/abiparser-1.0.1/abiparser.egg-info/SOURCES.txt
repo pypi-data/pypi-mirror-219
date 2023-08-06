@@ -1,0 +1,8 @@
+README.md
+setup.py
+abiparser/__init__.py
+abiparser.egg-info/PKG-INFO
+abiparser.egg-info/SOURCES.txt
+abiparser.egg-info/dependency_links.txt
+abiparser.egg-info/top_level.txt
+tests/test_abi_parser.py
