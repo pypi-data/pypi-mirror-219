@@ -1,0 +1,5 @@
+main:
+  output: ckanext-webview/%(version)s_webview.css
+  filters: less
+  contents:
+    - less/webview.less
