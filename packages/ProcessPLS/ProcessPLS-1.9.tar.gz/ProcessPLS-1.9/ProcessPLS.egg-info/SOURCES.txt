@@ -1,0 +1,15 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+ProcessPLS.egg-info/PKG-INFO
+ProcessPLS.egg-info/SOURCES.txt
+ProcessPLS.egg-info/dependency_links.txt
+ProcessPLS.egg-info/requires.txt
+ProcessPLS.egg-info/top_level.txt
+processPLS/__init__.py
+processPLS/datasets.py
+processPLS/model.py
+processPLS/data/OilDistillationData.csv
+processPLS/data/ValdeLoirData.csv
+processPLS/data/__init__.py
