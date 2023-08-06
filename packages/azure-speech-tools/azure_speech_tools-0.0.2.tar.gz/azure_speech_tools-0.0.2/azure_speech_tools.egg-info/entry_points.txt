@@ -1,0 +1,3 @@
+[package_tools]
+my_tools = azure_speech_tools.tools.utils:list_package_tools
+
