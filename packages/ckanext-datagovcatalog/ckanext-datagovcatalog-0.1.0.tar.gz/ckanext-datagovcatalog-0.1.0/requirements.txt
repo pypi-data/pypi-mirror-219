@@ -1,0 +1,6 @@
+-e git+https://github.com/GSA/ckanext-harvest.git@eb73bed1739ac8656d892a609b5ee303e34251ca#egg=ckanext-harvest
+
+ckantoolkit>=0.0.7
+pika
+pyopenssl==22.1.0
+ckanext-envvars==0.0.3
