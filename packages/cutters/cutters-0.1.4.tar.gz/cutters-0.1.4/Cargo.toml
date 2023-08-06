@@ -1,0 +1,16 @@
+[package]
+name = "cutters-python"
+version = "0.1.4"
+authors = ["cyanic-selkie <cyanic-selkie@protonmail.com>"]
+edition = "2021"
+
+[lib]
+name = "cutters"
+crate-type = ["cdylib"]
+
+[dependencies.cutters]
+version = "=0.1.4"
+
+[dependencies.pyo3]
+version = "=0.19.1"
+features = ["extension-module"]
