@@ -1,0 +1,102 @@
+<!DOCTYPE html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FastAPI Tableau</title>
+  <link rel="stylesheet" type="text/css" href="static/css/styles.css">
+  
+</head>
+<body>
+  <header class="md-header" data-md-component="header" data-md-state="shadow">
+    <nav class="md-header__inner md-grid" aria-label="Header">
+      <a href="{{ app_base_url }}" class="nav-bar">
+        <label class="md-header__button md-icon">
+          <!-- back icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><title>back</title><path class="cls-1" d="M61.44,0A61.51,61.51,0,1,1,18,18,61.25,61.25,0,0,1,61.44,0Zm5,45.27A7.23,7.23,0,1,0,56.14,35.13L35,56.57a7.24,7.24,0,0,0,0,10.15l20.71,21A7.23,7.23,0,1,0,66.06,77.62l-8.73-8.87,24.86-.15a7.24,7.24,0,1,0-.13-14.47l-24.44.14,8.84-9Z"/></svg>
+        </label>
+        <div class="md-header__title" data-md-component="header-title">
+          <div class="md-header__ellipsis">
+            <div class="md-header__topic">
+              <span class="md-ellipsis">
+                FastAPI Tableau — Setting up Tableau Online / Desktop
+              </span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </nav>
+  </header>
+  <div class="md-container">
+    <main class="md-main">
+      <div class="md-main__inner md-grid">
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" style="margin-top: -2rem !important;">   
+            <h1 style="font-size: 37px; letter-spacing: normal;">
+              {{ request.app.title }} 
+              {% if request.app.version %}
+              <div class="small-button" style="line-height: 1.4; margin-left: -5px;">
+                <div class="version">
+                  {{ request.app.version }}
+                </div>
+              </div>
+              {% endif %}
+            </h1>
+            {% if request.app.description %}
+              <div class="api-desc">
+                  {{ request.app.description|markdown|safe }}
+              </div>
+            {% endif %}
+            {% if warning_message %}
+              <div class="warning-container">
+                {{ warning_message|markdown|safe }}
+              </div>
+            {% endif %}         
+            <h2>Configure Tableau to access extensions hosted on RStudio Connect</h2>
+            <div>
+              <h3>If you are using Tableau Server or Tableau Online:</h3>
+              <ol>
+                <li>Using an administrative account, login to Tableau Server/Online</li>
+                <li>Navigate to Settings, then Extensions</li>
+                <li>Under the heading 'Analytics Extensions', select 'Enable analytics extensions for site'</li>
+                <li>Create a new connection and select the connection type of 'Analytics Extensions API'</li>
+                <li>Choose if your RStudio Connect server uses SSL</li>
+                <li>Enter the information for your RStudio Connect Server:</li>
+                <div class="indented-detail">
+                  <div><span class="bold-text">Host: </span><span class="pill">{{ server_domain }}</span></div>
+                  <div><span class="bold-text">Port: </span><span class="pill">{{ server_port }}</span></div>
+                </div>
+                <li>Select 'Sign in with a username and password' and enter the credentials:</li>
+                <div class="indented-detail">
+                  <div><span class="bold-text">Username: </span><span class="pill">rstudio-connect</span></div>
+                  <div><span class="bold-text">Password: </span><span class="pill">&lt;Any valid API key from RStudio Connect&gt;</span></div>
+                </div>
+                <li>Create / Save changes</li>
+              </ol>
+            </div>
+            <div>
+              <h3>If you are using Tableau Desktop:</h3>
+              <ol>
+                <li>Navigate to Help, Settings and Performance, Manage Analytics Extension Connection...</li>
+                <li>Select 'TabPy/External API'</li>
+                <li>Enter the information for your RStudio Connect Server:</li>
+                <div class="indented-detail">
+                  <div><span class="bold-text">Host: </span><span class="pill">{{ server_domain }}</span></div>
+                  <div><span class="bold-text">Port: </span><span class="pill">{{ server_port }}</span></div>
+                </div>
+                <li>If desired, select 'Sign in with a username and password' and enter the credentials:</li>
+                <div class="indented-detail">
+                  <div><span class="bold-text">Username: </span><span class="pill">rstudio-connect</span></div>
+                  <div><span class="bold-text">Password: </span><span class="pill italic-text">Any valid API key from RStudio Connect</span></div>
+                </div>
+                <li>Select whether to Require SSL</li>
+                <li>Save changes</li>
+              </ol>
+            </div>
+            <p>For more information about configuring Tableau and RStudio Connect to work together, see the <a href=https://docs.rstudio.com/rsc/integration/tableau/>RStudio Connect documentation</a>.</p>
+            <p>For more information about setting up analytics extensions in Tableau, please see the <a href="https://help.tableau.com/current/server/en-us/config_r_tabpy.htm">Tableau documentation</a>.</p>
+          </article>
+        </div>
+      </div>      
+    </main> 
+  </div>
+</body>
+</html>
