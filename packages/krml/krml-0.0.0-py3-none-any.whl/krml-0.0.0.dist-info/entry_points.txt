@@ -1,0 +1,3 @@
+[console_scripts]
+krml=krml.__main__:main
+
