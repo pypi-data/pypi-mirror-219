@@ -1,0 +1,10 @@
+absl-py
+attrs
+google-auth
+google-auth-httplib2
+httplib2
+mock
+numpy
+requests-toolbelt
+retrying
+urllib3

@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: hcls-imaging-ml-toolkit-ez-wsi
+Version: 1.0.0
+Summary: Fork of Toolkit for deploying ML models on GCP leveraging Google Cloud Healthcare API.
+Home-page: https://github.com/armantajback/healthcare
+Author: Google
+Author-email: noreply@google.com
+License: Apache 2.0
+Requires-Python: >=3
