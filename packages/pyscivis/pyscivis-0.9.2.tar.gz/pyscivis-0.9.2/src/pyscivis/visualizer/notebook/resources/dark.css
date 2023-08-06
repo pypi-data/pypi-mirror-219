@@ -1,0 +1,62 @@
+
+/* COLORS
+#E0E0E0: TEXT/BORDER WHITE
+#15191C: BACKGROUND DARKGRAY
+#2f3235: CLICKED/ACTIVE LIGHTER DARKGRAY
+#555   : HOVER LIGHTGRAY
+*/
+
+
+.dark {
+    background-color: #15191C !important;
+    color: #E0E0E0 !important;
+}
+
+.dark .statistics-table {
+    background-color: #15191C !important;
+    color: #E0E0E0 !important;
+}
+
+.dark .bk-btn, .dark .bk-input, .dark .bk-menu {
+    background-color: #15191C !important;
+    color: #E0E0E0 !important;
+}
+
+.dark .bk-btn:hover, .dark bk-input:hover, .dark .bk-menu>:not(.bk-divider):hover,
+.dark .statistics-table tr:hover, .dark .statistics-table tr:hover, .dark .bk-tab:hover,
+.dark .slick-row:hover, .dark .slick-header-column:hover
+{
+    background-color: #555 !important;
+}
+
+.dark select.bk-input {
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+}
+
+.dark .statistics-table td {
+    border-color: #E0E0E0 !important;
+}
+
+.dark .statistics-table tr:nth-child(even), .dark .slick-row.even {
+    background-color: #2f3235 !important;
+}
+
+.dark .statistics-table tr:nth-child(odd), .dark .slick-row.odd {
+    background-color: #15191C !important;
+}
+
+.dark .slick-row {
+    color: #E0E0E0 !important;
+}
+
+.dark .bk-tab {
+    color: #E0E0E0 !important;
+    border-color: #2f3235 !important;
+    border-width: 2px 2px 0px 2px !important;
+}
+
+.dark .bk-btn.bk-active, .dark .bk-tab.bk-active{
+    background-color: #2f3235  !important;
+    border-color: #E0E0E0 !important;
+}

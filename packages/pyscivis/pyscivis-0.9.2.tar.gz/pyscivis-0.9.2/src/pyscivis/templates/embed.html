@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pyscivis</title>
+    <link href="/static/css/bootstrap-3.4.0.min.css" rel="stylesheet">
+
+    <script language="javascript" type="text/javascript" src="/static/js/jquery-3.6.0.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/static/js/jstree-3.3.11.min.js"></script>
+
+    <link href="static/css/intro-comp.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="/static/js/intro-comp.js"></script>
+
+    <link href="/static/css/custom.css" rel="stylesheet">
+    <script language="javascript" type="text/javascript" src="/static/js/custom.js"></script>
+
+
+    <link class="dark-style" href="/static/css/dark_mode.css" rel="stylesheet" media="max-width: 1px">
+    <link class="dark-style" href="/static/css/themes/default-dark/jstree-3.3.11.min.css" rel="stylesheet" media="max-width: 1px">
+    <link class="dark-style" href="/static/css/intro-dark.css" rel="stylesheet" media="max-width: 1px">
+
+    <link class="default-style" href="/static/css/themes/default/jstree-3.3.11.min.css" rel="stylesheet">
+
+</head>
+<body>
+    {{ script|safe }}
+    <div class="topcorner">
+        <div style="float: left; padding-right: 15px; padding-top:3px">
+            <label class="switch" for="darkmodetoggle">
+                <input type="checkbox" id="darkmodetoggle" />
+                <div class="slider round"></div>
+            </label>
+        </div>
+
+        <div class="bk bk-root bk-btn-group" style="float: right;">
+            <button class="bk bk-btn bk-btn-default" type="button" onclick="startIntro()">?</button>
+        </div>
+    </div>
+</body>
+</html>
