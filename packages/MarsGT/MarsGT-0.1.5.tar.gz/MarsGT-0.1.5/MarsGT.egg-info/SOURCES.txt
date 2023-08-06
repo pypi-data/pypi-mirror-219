@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+MarsGT/__init__.py
+MarsGT/conv.py
+MarsGT/egrn.py
+MarsGT/marsgt_model.py
+MarsGT/utils.py
+MarsGT.egg-info/PKG-INFO
+MarsGT.egg-info/SOURCES.txt
+MarsGT.egg-info/dependency_links.txt
+MarsGT.egg-info/requires.txt
+MarsGT.egg-info/top_level.txt
