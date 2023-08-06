@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: fnbot
+Version: 1.2.16
+Summary: yoshino bot
+Home-page: https://github.com/Co1Li1La1/yoshino-bot
+Author: Co1Li1La1
+Author-email: mrhblfx@gmail.com
+License: MIT License
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
