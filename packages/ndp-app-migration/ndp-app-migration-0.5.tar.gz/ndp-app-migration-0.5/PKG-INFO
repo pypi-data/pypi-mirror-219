@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ndp-app-migration
+Version: 0.5
+Summary: Data Objects Migration Mechanism for Zetaris Platform (https://www.zetaris.com/)
+Home-page: https://github.com/zetaris/versioncontrol
+Author: Harshal Shah
+Author-email: harshal.shah@zetaris.com
+License: Proprietary
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+### Usage and Installation
+```
+pip3 install ndp-app-migration==0.5
+
+from ndp_migration.objects_migration import migration_data_objects
+
+migration_data_objects(folder_path,key_decrypt,api_url,jar_file_name,option_for_backup,target_host,target_user_id,target_password,con_name,pipe_name,object_type)
+
+migration_data_objects(source_email_address, source_password, folder_path, source_api_url, option_for_backup,target_api_url, ,target_user_id,target_password,con_name,pipe_name,object_type)
+
+```
