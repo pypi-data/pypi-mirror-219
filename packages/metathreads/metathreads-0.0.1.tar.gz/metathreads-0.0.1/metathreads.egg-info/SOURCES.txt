@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+metathreads/__init__.py
+metathreads/config.py
+metathreads/constants.py
+metathreads/metathreads.py
+metathreads/request_util.py
+metathreads/util.py
+metathreads.egg-info/PKG-INFO
+metathreads.egg-info/SOURCES.txt
+metathreads.egg-info/dependency_links.txt
+metathreads.egg-info/requires.txt
+metathreads.egg-info/top_level.txt
