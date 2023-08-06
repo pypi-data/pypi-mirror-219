@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://www.preservica.com/customindex/v1">
+	
+	<schemaName>Modern.Gov Attachment</schemaName>
+	<schemaUri>https://moderngov.gov.uk/attachment</schemaUri>
+	<shortName>attachment</shortName>
+		
+
+    <term indexName="attachmentid" displayName="Attachment ID" xpath="//attachment:attachment/attachment:attachmentdetails/attachment:attachmentid" indexType="LONG"  />
+	<term indexName="title" displayName="Attachment Title" xpath="//attachment:attachment/attachment:attachmentdetails/attachment:title" indexType="STRING_EXACT"  />
+	<term indexName="isrestricted" displayName="Attachment Restricted" xpath="//attachment:attachment/attachment:attachmentdetails/attachment:isrestricted" indexType="STRING_FACET"  />
+	<term indexName="ownertitle" displayName="Attachment Owner Title" xpath="//attachment:attachment/attachment:attachmentdetails/attachment:ownertitle" indexType="STRING_EXACT"  />
+	<term indexName="ownertitle" displayName="Attachment Owner Title" xpath="//attachment:attachment/attachment:attachmentdetails/attachment:ownertitle" indexType="STRING_EXACT"  />
+
+
+    <term indexName="roomtitle" displayName="Room Title" xpath="//meet:meeting/meet:meetingroom/meet:roomtitle" indexType="STRING_EXACT"  />
+	<term indexName="attendee" displayName="Attendee Name" xpath="//meet:meeting/meet:attendees/meet:attendee/@name" indexType="STRING_FACET"  />
+	<term indexName="meetingdate" displayName="Meeting Date" xpath="//meet:meeting/meet:meetingdate" indexType="DATE"  />
+
+</index>
+

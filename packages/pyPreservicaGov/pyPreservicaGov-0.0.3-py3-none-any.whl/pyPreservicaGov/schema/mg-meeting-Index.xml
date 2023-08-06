@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index xmlns="http://www.preservica.com/customindex/v1">
+	
+	<schemaName>Modern.Gov Meeting</schemaName>
+	<schemaUri>https://moderngov.gov.uk/meeting</schemaUri>
+	<shortName>meet</shortName>
+		
+
+	<term indexName="meetingid" displayName="Meeting ID" xpath="//meet:meeting/meet:meetingid" indexType="LONG"  />
+	<term indexName="meetingdate" displayName="Meeting Date" xpath="//meet:meeting/meet:meetingdate" indexType="DATE"  />
+	<term indexName="meetingtime" displayName="Meeting Time" xpath="//meet:meeting/meet:meetingtime" indexType="STRING_EXACT"  />
+	<term indexName="iswebcast" displayName="Is Web Cast" xpath="//meet:meeting/meet:iswebcast" indexType="STRING_FACET"  />
+	<term indexName="agendapublished" displayName="Is Agenda Published" xpath="//meet:meeting/meet:agendapublished" indexType="STRING_FACET"  />
+	<term indexName="decisionpublished" displayName="Is Decision Published" xpath="//meet:meeting/meet:decisionpublished" indexType="STRING_FACET"  />
+    <term indexName="meetingstatus" displayName="Meeting Status" xpath="//meet:meeting/meet:meetingstatus" indexType="STRING_EXACT"  />
+    <term indexName="roomtitle" displayName="Room Title" xpath="//meet:meeting/meet:meetingroom/meet:roomtitle" indexType="STRING_EXACT"  />
+	<term indexName="attendee" displayName="Attendee Name" xpath="//meet:meeting/meet:attendees/meet:attendee/@name" indexType="STRING_FACET"  />
+
+
+</index>
+
