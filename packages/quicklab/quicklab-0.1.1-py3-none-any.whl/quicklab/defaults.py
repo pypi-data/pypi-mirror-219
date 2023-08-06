@@ -1,0 +1,10 @@
+NANO_ID_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz-"
+NANO_URLSAFE_ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyz-_"
+NANO_MACHINE_ALPHABET = "0123456789abcdefghijklmnopqrstuvwxyz"
+QUICKLAB_CONF = "quicklab.toml"
+QL_DNS_KEY = "QL_DNS_KEY"
+QL_COMPUTE_KEY = "QL_COMPUTE_KEY"
+QL_SA_EMAIL = "QL_SA_EMAIL"
+GOOGLE_AUTH_ENV = "GOOGLE_APPLICATION_CREDENTIALS"
+ENVS_FILES = [".env", ".env.dev", ".env.test", ".env.prod"]
+LOG_BUCKET = "quicklab"
