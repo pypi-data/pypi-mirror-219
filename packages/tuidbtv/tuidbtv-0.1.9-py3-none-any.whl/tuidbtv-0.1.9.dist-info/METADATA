@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: tuidbtv
+Version: 0.1.9
+Summary: console database client
+Home-page: https://github.com/lakdemon/TUIDBTV
+License: MIT
+Author: lakdemon
+Requires-Python: >=3.10,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: mysql-connector-python (>=8.0.11,<9.0.0)
+Requires-Dist: psycopg (>=3.0.15,<4.0.0)
+Requires-Dist: textual (>=0.28.1,<0.29.0)
+Project-URL: Bug Tracker, https://github.com/lakdemon/TUIDBTV/issues
+Description-Content-Type: text/markdown
+
+# TUIDBTV
+
+Terminal User interface DataBase Tables Viewer
+
+based on [Textualize/textual](https://github.com/Textualize/textual)
+
+---
+
+#### Installation
+```bash
+sudo pip install tuidbtv
+```
+---
+#### Run
+```bash
+tuidbtv
+```
+---
+#### Requirments
+- python >= 3.11
+- textual
+- psycopg
+- mysql-connector-python
+
+You may need to install psycopg binary distribution
+```bash
+pip install psycopg_binary
+```
+### Screenshots
+
+![Screen1](/resources/screen1.png)
+![Screen2](/resources/screen2.png)
+![Screen3](/resources/screen3.png)
+![Screen4](/resources/screen4.png)

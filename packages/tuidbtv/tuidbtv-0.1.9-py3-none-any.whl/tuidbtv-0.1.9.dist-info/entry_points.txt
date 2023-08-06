@@ -1,0 +1,3 @@
+[console_scripts]
+tuidbtv=tuidbtv.__main__:run
+
