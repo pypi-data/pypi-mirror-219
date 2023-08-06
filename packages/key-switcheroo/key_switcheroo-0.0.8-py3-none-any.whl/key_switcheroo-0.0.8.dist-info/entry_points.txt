@@ -1,0 +1,4 @@
+[console_scripts]
+switcheroo_publish=switcheroo.ssh.scripts.publish:main
+switcheroo_retrieve=switcheroo.ssh.scripts.retrieve:main
+
