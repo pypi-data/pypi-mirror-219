@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "agency"
+version = "1.2.1"
+description = "A fast and minimal actor model framework for building agent-integrated systems"
+authors = ["Daniel Rodriguez"]
+license = "GPL-3.0"
+readme = "README.md"
+include = ["agency/**/*"]
+exclude = ["*"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+asyncio = "^3.4"
+colorama = "^0.4"
+pydantic = "^1.8"
+kombu = "^5.3.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.2"
+pytest-asyncio = "^0.21.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
