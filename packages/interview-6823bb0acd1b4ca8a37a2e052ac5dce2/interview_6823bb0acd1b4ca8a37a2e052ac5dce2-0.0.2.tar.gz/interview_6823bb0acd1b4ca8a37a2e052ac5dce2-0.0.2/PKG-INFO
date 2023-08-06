@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: interview_6823bb0acd1b4ca8a37a2e052ac5dce2
+Version: 0.0.2
+Summary: Interview task that I don't want to be too easy to find
+Home-page: https://github.com/hatchways-community/6823bb0acd1b4ca8a37a2e052ac5dce2
+Author: Alex Hall
+Author-email: alex.mojaki@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: dev
+License-File: LICENSE.txt

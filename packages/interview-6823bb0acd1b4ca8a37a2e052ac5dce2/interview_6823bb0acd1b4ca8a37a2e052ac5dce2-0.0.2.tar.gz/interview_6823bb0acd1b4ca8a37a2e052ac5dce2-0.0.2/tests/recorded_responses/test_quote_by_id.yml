@@ -1,0 +1,9 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd96e05de30eff6ebccf0d0","dialog":"Fool of a Took! Throw
+      yourself in next time, and rid us of your stupidity!","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfea0","id":"5cd96e05de30eff6ebccf0d0"}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/quote/5cd96e05de30eff6ebccf0d0

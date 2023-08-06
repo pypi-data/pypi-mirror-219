@@ -1,0 +1,13 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: "{\n  \"args\": {}, \n  \"headers\": {\n    \"Accept\": \"*/*\", \n    \"\
+      Accept-Encoding\": \"gzip, deflate\", \n    \"Authorization\": \"Bearer\", \n\
+      \    \"Host\": \"httpbin.org\", \n    \"User-Agent\": \"python-requests/2.31.0\"\
+      , \n    \"X-Amzn-Trace-Id\": \"Root=1-64adb9a9-1d61c73a374c8124170317cd\"\n\
+      \  }, \n  \"origin\": \"102.132.225.69\", \n  \"url\": \"https://httpbin.org/get\"\
+      \n}\n"
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://httpbin.org/get

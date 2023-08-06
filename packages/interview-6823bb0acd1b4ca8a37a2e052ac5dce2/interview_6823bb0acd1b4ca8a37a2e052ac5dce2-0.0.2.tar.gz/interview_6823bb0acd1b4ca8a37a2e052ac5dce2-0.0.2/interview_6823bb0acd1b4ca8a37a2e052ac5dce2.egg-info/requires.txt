@@ -1,0 +1,6 @@
+requests
+
+[dev]
+pytest
+responses
+pre-commit

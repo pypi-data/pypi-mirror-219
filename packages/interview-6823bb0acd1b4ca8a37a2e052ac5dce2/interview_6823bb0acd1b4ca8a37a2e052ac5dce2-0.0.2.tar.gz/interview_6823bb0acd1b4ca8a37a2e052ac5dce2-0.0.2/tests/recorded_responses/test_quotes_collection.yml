@@ -1,0 +1,17 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd96e05de30eff6ebcce7e9","dialog":"Deagol!","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfe9e","id":"5cd96e05de30eff6ebcce7e9"},{"_id":"5cd96e05de30eff6ebcce7ea","dialog":"Deagol!","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfe9e","id":"5cd96e05de30eff6ebcce7ea"},{"_id":"5cd96e05de30eff6ebcce7eb","dialog":"Deagol!","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfe9e","id":"5cd96e05de30eff6ebcce7eb"}],"total":2384,"limit":3,"page":1,"pages":795}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/quote?limit=3&page=1
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd96e05de30eff6ebcce7ec","dialog":"Give us that! Deagol
+      my love","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfe9e","id":"5cd96e05de30eff6ebcce7ec"},{"_id":"5cd96e05de30eff6ebcce7ed","dialog":"Why?","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfca7","id":"5cd96e05de30eff6ebcce7ed"},{"_id":"5cd96e05de30eff6ebcce7ee","dialog":"Because'',
+      it''s my birthday and I wants it.","movie":"5cd95395de30eff6ebccde5d","character":"5cd99d4bde30eff6ebccfe9e","id":"5cd96e05de30eff6ebcce7ee"}],"total":2384,"limit":3,"page":2,"pages":795}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/quote?limit=3&page=2

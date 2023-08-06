@@ -1,0 +1,68 @@
+responses:
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd96e05de30eff6ebcced61","dialog":"Who is she? This woman
+      you sing of?","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfc15","id":"5cd96e05de30eff6ebcced61"},{"_id":"5cd96e05de30eff6ebcced62","dialog":"Tis
+      the Lady of L''thien. The Elf Maiden who gave her love to Beren ... a mortal.","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfbe6","id":"5cd96e05de30eff6ebcced62"},{"_id":"5cd96e05de30eff6ebcced64","dialog":"What
+      are they eating when they can''t get hobbit?","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfc7c","id":"5cd96e05de30eff6ebcced64"}],"total":503,"limit":3,"page":1,"pages":168}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c/quote?limit=3&page=1
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd96e05de30eff6ebcced65","dialog":"What happened to her?","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfc15","id":"5cd96e05de30eff6ebcced65"},{"_id":"5cd96e05de30eff6ebcced66","dialog":"She
+      died.","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfbe6","id":"5cd96e05de30eff6ebcced66"},{"_id":"5cd96e05de30eff6ebcced67","dialog":"The
+      power of Isengard is at your command","movie":"5cd95395de30eff6ebccde5c","character":"5cd99d4bde30eff6ebccfea4","id":"5cd96e05de30eff6ebcced67"}],"total":503,"limit":3,"page":2,"pages":168}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c/quote?limit=3&page=2
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
+- response:
+    auto_calculate_content_length: false
+    body: '{"docs":[{"_id":"5cd95395de30eff6ebccde5c","name":"The Fellowship of the
+      Ring","runtimeInMinutes":178,"budgetInMillions":93,"boxOfficeRevenueInMillions":871.5,"academyAwardNominations":13,"academyAwardWins":4,"rottenTomatoesScore":91}],"total":1,"limit":1000,"offset":0,"page":1,"pages":1}'
+    content_type: text/plain
+    method: GET
+    status: 200
+    url: https://the-one-api.dev/v2/movie/5cd95395de30eff6ebccde5c
