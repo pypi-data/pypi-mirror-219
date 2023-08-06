@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+pyproject.toml
+metalmaps/__init__.py
+metalmaps/__version__.py
+metalmaps/colorcycle.py
+metalmaps/colors.py
+metalmaps/make_cmap.py
+metalmaps.egg-info/PKG-INFO
+metalmaps.egg-info/SOURCES.txt
+metalmaps.egg-info/dependency_links.txt
+metalmaps.egg-info/requires.txt
+metalmaps.egg-info/top_level.txt
