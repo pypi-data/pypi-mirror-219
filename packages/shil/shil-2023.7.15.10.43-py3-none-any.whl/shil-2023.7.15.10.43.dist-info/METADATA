@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: shil
+Version: 2023.7.15.10.43
+Summary: Shell helper utilities for python
+Home-page: https://github.com/elo-enterprises/shil/
+Author: elo
+License: MIT
+Project-URL: Documentation, https://github.com/elo-enterprises/shil/
+Project-URL: Source, https://github.com/elo-enterprises/shil/
+Project-URL: Download, https://github.com/elo-enterprises/shil/#files
+Platform: any
+Classifier: Programming Language :: Python
+Requires-Python: >3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Requires-Dist: TatSu (==5.8.3)
+Requires-Dist: pydantic (==1.10.11)
+Requires-Dist: fleks (>=2023.7.13.2.21)
+Requires-Dist: rich (==13.3.4)
+Provides-Extra: dev
+Requires-Dist: IPython ; extra == 'dev'
+Provides-Extra: lint
+Requires-Dist: tox ; extra == 'lint'
+Provides-Extra: publish
+Requires-Dist: twine ; extra == 'publish'
+Provides-Extra: testing
+Requires-Dist: IPython ; extra == 'testing'
+Requires-Dist: tox ; extra == 'testing'
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+Requires-Dist: mock ; extra == 'testing'
+Requires-Dist: flake8 (==5.0.4) ; extra == 'testing'
+
+See the project README
