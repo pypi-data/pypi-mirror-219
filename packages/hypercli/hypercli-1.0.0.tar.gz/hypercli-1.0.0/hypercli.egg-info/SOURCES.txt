@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+hypercli/__init__.py
+hypercli/core.py
+hypercli.egg-info/PKG-INFO
+hypercli.egg-info/SOURCES.txt
+hypercli.egg-info/dependency_links.txt
+hypercli.egg-info/not-zip-safe
+hypercli.egg-info/requires.txt
+hypercli.egg-info/top_level.txt
