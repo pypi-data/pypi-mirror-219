@@ -1,0 +1,11 @@
+python-dateutil
+humanfriendly
+pytimeparse2
+
+[devel]
+build
+black
+pyfakefs
+pylint
+pytest
+ruff
