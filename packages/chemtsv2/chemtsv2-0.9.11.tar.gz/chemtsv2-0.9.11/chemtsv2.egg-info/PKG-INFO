@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: chemtsv2
+Version: 0.9.11
+Summary:  ChemTSv2 is a flexible and versatile molecule generator based on reinforcement learning with natural language processing.
+Home-page: https://github.com/molecule-generator-collection/ChemTSv2
+Download-URL: https://github.com/molecule-generator-collection/ChemTSv2
+Author: Shoichi Ishida
+Author-email: ishida.sho.nm@yokohama-cu.ac.jp
+Maintainer: Shoichi Ishida
+Maintainer-email: ishida.sho.nm@yokohama-cu.ac.jp
+License: MIT LIcense
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+ChemTSv2 is a refined and extended version of [ChemTS](https://www.tandfonline.com/doi/full/10.1080/14686996.2017.1401424).
+The original implementation is available at https://github.com/tsudalab/ChemTS.
+
+It provides:
+
+- easy-to-run interface by using only a configuration file
+- easy-to-define framework for users' any reward function, molecular filter, and tree policy
+- various usage examples in the GitHub repository
+
