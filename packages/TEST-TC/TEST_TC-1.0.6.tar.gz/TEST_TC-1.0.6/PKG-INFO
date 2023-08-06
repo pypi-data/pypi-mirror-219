@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: TEST_TC
+Version: 1.0.6
+Summary: Lo scopo di questa libreria è fornire uno strumento completo per il rilascio di modelli predittivi basati su serie temporali nell'ambito della Telemedicina, al fine di supportare la gestione e la pianificazione delle attività sulla Piattaforma Nazionale di Telemedicina (PNT)
+Author-email: Skienda <f.ischiboni@skienda.it>
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.9
