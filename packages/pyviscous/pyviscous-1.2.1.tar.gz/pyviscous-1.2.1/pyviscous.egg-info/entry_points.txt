@@ -1,0 +1,2 @@
+[console_scripts]
+pyviscous = pyviscous.cli:main
