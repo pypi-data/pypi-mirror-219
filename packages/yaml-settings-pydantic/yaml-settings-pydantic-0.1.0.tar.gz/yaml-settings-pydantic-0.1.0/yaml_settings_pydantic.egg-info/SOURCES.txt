@@ -1,0 +1,10 @@
+README.txt
+pyproject.toml
+setup.cfg
+tests/test_everything.py
+yaml_settings_pydantic/__init__.py
+yaml_settings_pydantic.egg-info/PKG-INFO
+yaml_settings_pydantic.egg-info/SOURCES.txt
+yaml_settings_pydantic.egg-info/dependency_links.txt
+yaml_settings_pydantic.egg-info/requires.txt
+yaml_settings_pydantic.egg-info/top_level.txt
