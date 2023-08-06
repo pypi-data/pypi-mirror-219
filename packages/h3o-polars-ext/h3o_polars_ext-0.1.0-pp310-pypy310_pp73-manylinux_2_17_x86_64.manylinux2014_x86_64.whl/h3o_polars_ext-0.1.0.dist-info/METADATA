@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: h3o_polars_ext
+Version: 0.1.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Summary: Add h3o polars extenstions
+Author: Sean Lane
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: homepage, https://github.com/neiybor/h3o_polars_ext
+Project-URL: repository, https://github.com/neiybor/h3o_polars_ext
+
+# h3o-polars-ext
+
+Adds Polars extensions to use the h3o library from Python.
+
+This currently more of a proof-of-concept than anything else, so caveat emptor.
+
+## Installation
+
+This project uses [Poetry](https://python-poetry.org/) for dependency management.
+
+Clone the repo and run `poetry install` to install dependencies.
+
+Install: `poetry run maturin develop -m Cargo.toml`
+
