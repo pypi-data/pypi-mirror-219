@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: odoo14-addons-oca-l10n-belgium
+Version: 14.0.20230717.1
+Summary: Meta package for oca-l10n-belgium Odoo addons
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: Framework :: Odoo :: 14.0
+Requires-Dist: odoo14-addon-account-statement-import-coda
+Requires-Dist: odoo14-addon-companyweb-base
+Requires-Dist: odoo14-addon-companyweb-payment-info
+Requires-Dist: odoo14-addon-l10n-be-intrastat-product
+Requires-Dist: odoo14-addon-l10n-be-mis-reports
+Requires-Dist: odoo14-addon-l10n-be-mis-reports-xml
+Requires-Dist: odoo14-addon-l10n-be-national-number
+Requires-Dist: odoo14-addon-l10n-be-partner-kbo-bce
+Requires-Dist: odoo14-addon-l10n-be-vat-reports
+
+UNKNOWN
+
