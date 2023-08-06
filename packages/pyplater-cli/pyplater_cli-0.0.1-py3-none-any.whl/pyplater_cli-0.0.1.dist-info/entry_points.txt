@@ -1,0 +1,3 @@
+[console_scripts]
+pyplater=pyplater_cli.cli:pyplater
+
