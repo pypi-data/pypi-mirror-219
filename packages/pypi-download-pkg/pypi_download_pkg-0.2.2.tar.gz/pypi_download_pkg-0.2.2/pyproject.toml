@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "pypi-download-pkg"
+version = "0.2.2"
+description = ""
+authors = ["BMSuisse"]
+readme = "README.md"
+packages = [{include = "pypi_download_pkg"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+requests = "^2.31.0"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.3.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pyright = "^1.1.307"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+download_linux_pkg = { callable = "pypi_download_pkg.cli:cli" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
