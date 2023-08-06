@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: BabitMF
+Version: 0.0.7
+Summary: Babit Multimedia Framework
+Home-page: https://github.com/BabitMF/bmf
+Author: 
+Author-email: 
+Requires-Python: >= 3.6
+License-File: LICENSE
+Requires-Dist: numpy (>=1.19.5)
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+Babit Multimedia Framework
