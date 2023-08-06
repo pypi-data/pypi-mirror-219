@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+REMclust/GaussianMixture.py
+REMclust/REM.py
+REMclust/__init__.py
+REMclust/overlap.py
+REMclust.egg-info/PKG-INFO
+REMclust.egg-info/SOURCES.txt
+REMclust.egg-info/dependency_links.txt
+REMclust.egg-info/requires.txt
+REMclust.egg-info/top_level.txt
