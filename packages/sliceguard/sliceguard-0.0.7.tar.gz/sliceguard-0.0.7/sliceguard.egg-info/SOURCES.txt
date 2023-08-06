@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+sliceguard/__init__.py
+sliceguard/detection.py
+sliceguard/embedding_utils.py
+sliceguard/explanation.py
+sliceguard/sliceguard.py
+sliceguard/utils.py
+sliceguard.egg-info/PKG-INFO
+sliceguard.egg-info/SOURCES.txt
+sliceguard.egg-info/dependency_links.txt
+sliceguard.egg-info/requires.txt
+sliceguard.egg-info/top_level.txt
+tests/test_sliceguard.py
