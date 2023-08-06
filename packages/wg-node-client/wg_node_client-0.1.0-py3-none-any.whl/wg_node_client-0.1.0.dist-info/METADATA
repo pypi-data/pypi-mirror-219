@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: wg-node-client
+Version: 0.1.0
+Author-Email: jieggii <jieggii@protonmail.com>
+License: MIT
+Requires-Python: >=3.11
+Requires-Dist: rsa>=4.9
+Requires-Dist: aiohttp>=3.8.4
+Description-Content-Type: text/markdown
+
+# Python client for wg-node
+
