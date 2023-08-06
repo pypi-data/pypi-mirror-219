@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: kandinsky.py
+Version: 2.2
+Summary: Reverse Engineered Kandinskt 2.2 API
+Author: zenafey
+Author-email: zenafey@eugw.ru
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+Requires-Dist: aiohttp
+Requires-Dist: Pillow
+
+# kandinsky.py
+Reverse Engineered fusion-brain API
+
+### Installation 
+```
+pip install kandinsky.py
+```
+
+
+
+### Example of usage
+```python
+from kandinsky import generate
+
+generate(prompt="red car", path="./0.png")
+```
+image will appear in path that you specified
+
