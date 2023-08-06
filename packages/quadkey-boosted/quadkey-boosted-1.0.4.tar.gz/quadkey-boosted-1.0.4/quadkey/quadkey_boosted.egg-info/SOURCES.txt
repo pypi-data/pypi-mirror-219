@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+quadkey/core/__init__.py
+quadkey/core/test_c_code.py
+quadkey/core/utils.c
+quadkey/core/utils.pyx
+quadkey/quadkey_boosted.egg-info/PKG-INFO
+quadkey/quadkey_boosted.egg-info/SOURCES.txt
+quadkey/quadkey_boosted.egg-info/dependency_links.txt
+quadkey/quadkey_boosted.egg-info/entry_points.txt
+quadkey/quadkey_boosted.egg-info/requires.txt
+quadkey/quadkey_boosted.egg-info/top_level.txt
+tests/test_quadkey_c_.py

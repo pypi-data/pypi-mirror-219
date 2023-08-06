@@ -1,0 +1,14 @@
+[build-system]
+requires = ["wheel", "Cython"]
+build-backend = "setuptools.build_meta"
+[tool.bumpver]
+current_version = "1.0.4"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit = true
+tag = true
+tag_name = "v{version}"
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"']
+"quadkey/__init__.py" = ['__version__ = "{version}"']
+"setup.py" = ['version="{version}"']
