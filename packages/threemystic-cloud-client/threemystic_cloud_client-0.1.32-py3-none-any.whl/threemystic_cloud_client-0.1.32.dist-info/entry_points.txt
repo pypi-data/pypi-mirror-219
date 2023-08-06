@@ -1,0 +1,2 @@
+[console_scripts]
+3mystic_cloud_client = threemystic_cloud_client.cli:main
