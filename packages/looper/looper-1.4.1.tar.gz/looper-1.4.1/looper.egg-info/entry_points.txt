@@ -1,0 +1,2 @@
+[console_scripts]
+looper = looper.__main__:main
