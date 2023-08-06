@@ -1,0 +1,2 @@
+[console_scripts]
+wrap = django_to_native.wrapper:wrap_desktop
