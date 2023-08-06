@@ -1,0 +1,8 @@
+/*
+ * Change Code Cell style on a hidden cell.
+ * This helps identifying hidden cells
+ */
+
+.hidden-enabled.jp-Notebook-cell {
+  background: #d2c0cd !important;
+}
