@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "json-schema-for-humans"
+version = "0.44.6"
+description = "Generate static HTML documentation from JSON schemas"
+authors = ["Denis Blanchette <tools@coveo.com>", "AbdulRahman Al Hamali <tools@coveo.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/coveooss/json-schema-for-humans"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Topic :: Documentation"
+]
+include = [
+    "json_schema_for_humans/*.py",
+    "json_schema_for_humans/schema/*.py",
+    "json_schema_for_humans/templates/**"
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+click = "^8.0.1"
+dataclasses-json = "^0.5.6"
+htmlmin = "^0.1.12"
+Jinja2 = ">3"
+markdown2 = "^2.4.1"
+Pygments = "^2.10.0"
+pytz = "*"
+PyYAML = ">=5.4.1,<7"
+requests = "^2.31.0"
+MarkupSafe = "^2.0"
+
+
+[tool.poetry.dev-dependencies]
+beautifulsoup4 = "^4.10.0"
+black = "^22.10"
+pytest = "^6.2.5"
+
+
+
+[tool.poetry.scripts]
+generate-schema-doc = "json_schema_for_humans.cli:main"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+target-version = ["py36", "py37"]
+include = "(json_schema_for_humans|tests).*\\.pyi?$|setup.py"
+exclude = """
+(
+  /( \
+     \\.eggs \
+    |\\.git \
+    |\\.hg \
+    |\\.mypy_cache \
+    |\\.pytest_cache \
+    |py\\d+_venv \
+    |\\.tox \
+    |\\.venv \
+    |_build \
+    |buck-out \
+    |build \
+    |dist \
+    |html-coverage \
+    |docs \
+    |target
+  )/
+)
+"""
