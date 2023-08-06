@@ -1,0 +1,160 @@
+Metadata-Version: 2.1
+Name: agentevents
+Version: 0.1.3
+Summary: Searchable events with colorful log output for agents.
+Home-page: https://github.com/AutonomousResearchGroup/agentevents
+Author: Moon
+Author-email: shawmakesmagic@gmail.com
+License: MIT
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: agentmemory
+Requires-Dist: rich
+
+# agentevents
+
+Colorful, searchable event logs for your agent.
+
+
+# Why Use This?
+
+This package simplifies some things you might want to do in your agentic applications.
+
+1. Create a sequential log of events that occur in your agent which can be searched and filtered.
+2. Log all events into a file.
+3. Track all events by epoch to associate events with particular runs.
+
+# Installation
+
+```bash
+pip install agentevents
+```
+
+# Quickstart
+
+```python
+from event_manager import create_event, get_events, search_events
+
+# Create an event
+create_event('My Event Content', type='info', subtype='subtype', creator='John', metadata={'extra':'data'})
+
+# Get all info type events
+info_events = get_events(type='info')
+
+# Search events
+search_results = search_events('My Event Content')
+
+# events are saved to logs/events.txt by default
+```
+
+# Concepts
+
+### Vector Search
+
+This package is backed by a vector search engine. All events are searchable by their "document" data.
+
+### Epochs
+
+If you are running a looping or pipeline application, you can track the epoch of the event. This is useful for associating events with particular runs of your application. For a looping application, you can increment the epoch every time the loop runs. For a pipeline application, you can increment the epoch every time the pipeline runs.
+
+### Event Types and Subtypes
+
+You can assign types to events so you can filter and display them.
+
+### Event Colors
+
+You can assign colors to event types, which will be used in the display, by creating a dictionary of event types and colors and passing it to the `create_event` function.
+
+A set of default colors is provided:
+
+```python
+{
+    "unknown": "white",
+    "error": "red",
+    "warning": "yellow",
+    "info": "blue",
+    "success": "green",
+    "debug": "magenta",
+    "critical": "red",
+    "start": "green",
+    "stop": "red",
+    "pause": "yellow",
+    "resume": "green",
+    "epoch": "blue",
+}
+```
+
+You can override these colors by passing a dictionary of event types and colors to the `create_event` function.
+
+# Documentation
+
+### `create_event(content, type=None, subtype=None, creator=None, metadata={}, type_colors={}, panel=True)`
+
+Create an event with provided metadata and saves it to the event log file.
+
+**Parameters:**
+
+- `content` (str): Content of the event.
+- `type` (str, optional): Type of the event. Defaults to None.
+- `subtype` (str, optional): Subtype of the event. Defaults to None.
+- `creator` (str, optional): Creator of the event. Defaults to None.
+- `metadata` (dict, optional): Additional metadata for the event. Defaults to an empty dictionary.
+- `type_colors` (dict, optional): Dictionary with event types as keys and colors as values. Defaults to an empty dictionary.
+- `panel` (bool, optional): Determines if the output should be within a Panel. Defaults to True.
+
+**Returns:**
+
+None.
+
+### `get_events(type=None, n_results=None, filter_metadata=None)`
+
+Retrieve the last n events.
+
+**Parameters:**
+
+- `type` (str, optional): The type of events to retrieve. Defaults to None.
+- `n_results` (int, optional): The number of results to return. Defaults to None.
+- `filter_metadata` (dict, optional): Filter by metadata keys. Defaults to None.
+
+**Returns:**
+
+List of event documents.
+
+### `search_events(search_text, n_results=None)`
+
+Ssearch for events that match the search text.
+
+**Parameters:**
+
+- `search_text` (str): The text to search for.
+- `n_results` (int, optional): The number of results to return. Defaults to None.
+
+**Returns:**
+
+List of event documents that match the search criteria.
+
+### `write_to_log(content, write_to_debug=False, filename="logs/events.txt")`
+
+This function writes content to the event log file.
+
+**Parameters:**
+
+- `content` (str): String to be written in the log file.
+- `write_to_debug` (bool, optional): Whether the content is written to debug file or not. Defaults to False.
+- `filename` (str, optional): Name of the file where the content is written. Defaults to "logs/events.txt".
+
+**Returns:**
+
+None.
+
+# Contributions Welcome
+
+If you like this library and want to contribute in any way, please feel free to submit a PR and I will review it. Please note that the goal here is simplicity and accesibility, using common language and few dependencies.
+
