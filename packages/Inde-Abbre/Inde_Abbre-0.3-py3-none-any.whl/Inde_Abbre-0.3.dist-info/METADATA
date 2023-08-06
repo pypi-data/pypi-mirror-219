@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: Inde-Abbre
+Version: 0.3
+Summary: A Library that is used to retrieve the INDIAN Abbreviations
+Home-page: UNKNOWN
+Author: Richard Alphone
+Author-email: richardriche96@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+Requires-Dist: pandas
+Requires-Dist: json
+Requires-Dist: os
+
+## Inde_Abbre:
+The purpose of this library is to retrieve the Indian Abbreviations and 
+it will extend with more
+
+## Resources for installing the Library
+Import Library:
+```
+from Inde_Abbre import Abbreviation
+```
+Output:
+```
+Abbreviation('lic')
+Life Insurance Corporation of India
+```
+Output2:
+```
+Abbreviation('lic')
+Life Insurance Corporation of India
+If it doesn't have it will show data is not available 
+```
+
