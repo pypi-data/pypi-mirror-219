@@ -1,0 +1,99 @@
+Metadata-Version: 2.1
+Name: MRzeroCore
+Version: 0.2.2
+Classifier: Programming Language :: Rust
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Requires-Dist: torch>=1.12
+Requires-Dist: pypulseq
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+License-File: LICENSE
+Summary: Core functionality of MRzero
+Author-email: Jonathan Endres <jonathan.endres@uk-erlangen.de>
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: Repository, https://gitlab.cs.fau.de/mrzero/MRzero-Core
+Project-URL: MRzero-Paper, https://arxiv.org/abs/2002.04265
+Project-URL: Documentation, https://mrzerocore.readthedocs.io
+
+# MR Zero Core
+```python
+import MRZeroCore as mr0
+```
+
+
+MRzero Core contains all essential parts of MRzero that are (close to) finalized.
+Over time, more and more functionality should be pushed from MRzero to the Core,
+while experimental scripts and WIP functionality stays in the MRzero git.
+Everything contained in the Core should be documented, have a stable API and,
+in the near future, be tested.
+
+# BUILDING from Windows...
+
+## ...for Windows
+```
+maturin build --interpreter python
+```
+
+## ... for Linux
+Crosscompiling for linux requires docker to be installed.
+```
+docker run --rm -v D:/repos/MRzero-Core:/io ghcr.io/pyo3/maturin build
+```
+This builds a manylinux verison of the wheel but fails to add all the python scripts to it.
+Copy the .dist-info folder and the _prepass.abi3.so file into a windows wheel.
+
+To build the documentation, run
+```
+jupyter-book build documentation/
+```
+in the root folder of this project. This requires jupyter-book, as well as MRzeroCore itself to be installed.
+
+# UPLOAD to PyPI
+```
+maturin upload target/wheels/MRzeroCore-{ version }-cp37-abi3-win_amd64.whl target/wheels/MRzeroCore-{ version }-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl -u <pypi-user> -p <pypi-pwd>
+```
+
+# CHANGELOG
+
+We really should start tracking all the changes...
+
+# CONTENTS
+
+The MRzero Core contains the following, which can be imported with e.g.:
+```python
+from MRzeroCore.phantom import VoxelGridPhantom
+```
+
+# TODO:
+Mention pTx support for pulseq / simulation
+
+> NOTE:
+>
+> This list is currently WIP and does not reflect the actual state of MRzero Core.
+> Before publishing v1.0 of MRzero Core, it should be changed to reflect what is
+> currently contained and what is still TODO.
+
+### MRzeroCore
+- phantom
+    - CustomVoxelPhantom
+    - VoxelGridPhantom
+    - SimData
+- pulseq
+    - Pulseq Interpreter
+    - Pulseq Sequence Exporter
+- reconstruction
+    - Adjoint
+    - FFT
+    - NUFFT (requires torchkbnufft dependency)
+    - Grappa
+- sequence
+    - Tools for sequence design and visualisation
+    - Templates for simple GRE, TSE, ... sequences
+- simulation
+    - Prepass
+    - PDG
+    - Isochromats
+
