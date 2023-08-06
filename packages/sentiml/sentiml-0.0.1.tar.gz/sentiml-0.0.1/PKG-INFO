@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: sentiml
+Version: 0.0.1
+Summary: Sentinel for ML Models
+License: LGPL-3.0-or-later
+Author: Lissa Hyacinth
+Author-email: lissa@shareableai.com
+Requires-Python: >=3.10,<3.11
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Dist: weaver-json (>=0.0.2)
+Description-Content-Type: text/markdown
+
+# Installation
+
+Update your pypoetry to point towards the currently non-versioned Weaver repo.
