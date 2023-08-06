@@ -1,0 +1,2 @@
+[console_scripts]
+yaoys_checkin = yaoys_checkin.AutoCheckIn:start_checkin
