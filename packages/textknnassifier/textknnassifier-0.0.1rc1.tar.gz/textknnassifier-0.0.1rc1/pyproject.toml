@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "textknnassifier"
+version = "0.0.1rc1"
+description = "TextKNNClassifier is a k-nearest neighbors classifier for text data. It uses a compression algorithm to compute the distance between texts and predicts the label of a test entry based on the labels of the k-nearest neighbors in the training data."
+authors = ["Reinder Vos de Wael <reinder.vosdewael@childmind.org>"]
+license = "LGPL-2.1"
+readme = "README.md"
+packages = [{include = "textknnassifier", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+pdoc = "^14.0.0"
+pytest = "^7.3.2"
+mypy = "^1.4.0"
+black = "^23.3.0"
+isort = "^5.12.0"
+pre-commit = "^3.3.3"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.11.1"
+
+[tool.poetry.extras]
+docs = ["pdoc"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+  "src"
+]
+
+[tool.mypy]
+ignore_missing_imports = true
