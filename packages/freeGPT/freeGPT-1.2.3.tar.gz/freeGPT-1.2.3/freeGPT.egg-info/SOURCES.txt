@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+freeGPT/__init__.py
+freeGPT/alpaca_7b.py
+freeGPT/gpt3.py
+freeGPT/gpt4.py
+freeGPT.egg-info/PKG-INFO
+freeGPT.egg-info/SOURCES.txt
+freeGPT.egg-info/dependency_links.txt
+freeGPT.egg-info/requires.txt
+freeGPT.egg-info/top_level.txt
