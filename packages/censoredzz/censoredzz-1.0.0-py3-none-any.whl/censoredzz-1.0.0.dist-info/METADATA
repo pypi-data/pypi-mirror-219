@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: censoredzz
+Version: 1.0.0
+Summary: Python package for censoring profane words in Nepali-(Roman) text
+Home-page: https://github.com/12-Twelvve/pypi_censored_text
+Author: Kuber Budhathoki
+Author-email: koobear99@gmail.com
+Requires-Dist: regex
+Requires-Dist: sklearn
+
