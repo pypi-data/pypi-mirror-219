@@ -1,0 +1,3 @@
+[console_scripts]
+quaeso = quaeso.__main__:main
+
