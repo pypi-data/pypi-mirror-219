@@ -1,0 +1,14 @@
+LICENSE
+README.md
+pyproject.toml
+src/__init__.py
+src/cadence_detector/CadenceDetectData.py
+src/cadence_detector/CadenceDetectStateMachine.py
+src/cadence_detector/CadenceDetector.py
+src/cadence_detector/__init__.py
+src/cadence_detector/cadence_detector.py
+src/cadence_detector.egg-info/PKG-INFO
+src/cadence_detector.egg-info/SOURCES.txt
+src/cadence_detector.egg-info/dependency_links.txt
+src/cadence_detector.egg-info/requires.txt
+src/cadence_detector.egg-info/top_level.txt
