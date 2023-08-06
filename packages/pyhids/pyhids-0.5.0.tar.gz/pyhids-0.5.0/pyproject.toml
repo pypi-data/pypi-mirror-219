@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "pyHIDS"
+version = "0.5.0"
+description = "A host-based intrusion detection system."
+authors = ["Cédric Bonhomme <cedric@cedricbonhomme.org>"]
+license = "GPL-3.0-or-later"
+readme = "README.md"
+
+keywords = ["hids", "security"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Security",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+
+[tool.poetry.scripts]
+pyhids-genKeys = "pyhids.genKeys:main"
+pyhids-genBase = "pyhids.genBase:main"
+pyhids-run = "pyhids.pyHIDS:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+rsa = "^4.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
