@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+pathgenmap/EggAnnot.py
+pathgenmap/Integration.py
+pathgenmap/PathAnalys.py
+pathgenmap/PathGenMap.py
+pathgenmap/SpeciesAbundance.py
+pathgenmap/__init__.py
+pathgenmap.egg-info/PKG-INFO
+pathgenmap.egg-info/SOURCES.txt
+pathgenmap.egg-info/dependency_links.txt
+pathgenmap.egg-info/requires.txt
+pathgenmap.egg-info/top_level.txt
