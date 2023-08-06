@@ -1,0 +1,11 @@
+## Include
+include README.md COPYING COPYING.lesser NOTICE requirements.txt
+recursive-include compiler *.py *.tl *.tsv *.txt
+recursive-include tests *.py
+
+## Exclude
+prune noelgram/errors/exceptions
+prune noelgram/raw/functions
+prune noelgram/raw/types
+prune noelgram/raw/base
+exclude noelgram/raw/all.py
