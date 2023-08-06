@@ -1,0 +1,7 @@
+
+        [ckan.plugins]
+        datagovcatalog=ckanext.datagovcatalog.plugin:DatagovcatalogPlugin
+
+        [babel.extractors]
+        ckan = ckan.lib.extract:extract_ckan
+    
