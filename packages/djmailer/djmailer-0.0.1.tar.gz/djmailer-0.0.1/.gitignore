@@ -1,0 +1,11 @@
+db.sqlite3
+.mypy_cache/
+.coverage
+*cache*
+.idea/
+.tox/
+dist/
+venv/
+env/
+*.pyc
+*.log
