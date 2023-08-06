@@ -1,0 +1,81 @@
+Metadata-Version: 2.1
+Name: dask-expr
+Version: 0.1.0
+Summary: High Level Expressions for Dask 
+Maintainer-email: Matthew Rocklin <mrocklin@gmail.com>
+License: BSD
+Keywords: dask pandas
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: System :: Distributed Computing
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: dask (>=2023.07)
+Requires-Dist: pyarrow
+Requires-Dist: pandas (>=2)
+
+Dask Expressions
+================
+
+Dask Dataframes with query optimization.
+
+This is a proof-of-concept rewrite of Dask dataframe that includes query
+optimization and generally improved organization.
+
+Example
+-------
+
+```python
+import dask_expr as dx
+
+df = dx.datasets.timeseries()
+df.head()
+
+df.groupby("name").x.mean().compute()
+```
+
+Query Representation
+--------------------
+
+Dask-expr encodes user code in an expression tree:
+
+```python
+>>> df.x.mean().pprint()
+
+Mean:
+  Projection: columns='x'
+    Timeseries: seed=1896674884
+```
+
+This expression tree will be optimized and modified before execution:
+
+```python
+>>> df.x.mean().optimize().pprint()
+
+Div:
+  Sum:
+    Fused(375f9):
+    | Projection: columns='x'
+    |   Timeseries: dtypes={'x': <class 'float'>} seed=1896674884
+  Count:
+    Fused(375f9):
+    | Projection: columns='x'
+    |   Timeseries: dtypes={'x': <class 'float'>} seed=1896674884
+```
+
+Stability
+---------
+
+This project is a work in progress and will be changed without notice or
+deprecation warning.  Please provide feedback, but it's best to avoid use in
+production settings.
