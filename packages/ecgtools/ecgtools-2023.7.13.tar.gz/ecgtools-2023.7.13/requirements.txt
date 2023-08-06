@@ -1,0 +1,9 @@
+cf_xarray
+joblib
+netCDF4
+xarray
+pyyaml
+pydantic>=2.0
+pandas
+fsspec
+intake-esm>=2023.7.7
