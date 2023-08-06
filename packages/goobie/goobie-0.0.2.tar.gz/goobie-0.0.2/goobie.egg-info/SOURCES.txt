@@ -1,0 +1,8 @@
+setup.py
+goobie.egg-info/PKG-INFO
+goobie.egg-info/SOURCES.txt
+goobie.egg-info/dependency_links.txt
+goobie.egg-info/top_level.txt
+goobie/stubs/__init__.pyi
+goobie/stubs/core.pyi
+goobie/stubs/handler.pyi
