@@ -1,0 +1,25 @@
+# Necessary for Backtesting, SQL Data Loader
+CLIENT_DATA:
+    HOST:
+    API_KEY:
+    HISTORY_KEY:
+
+# Necessary for Backtesting
+CONTRACT_DATA:
+    TIME_FROM: 2021-07-09 14:00:00 # YYYY-MM-DD hh:mm:ss
+    TIME_TILL: 2021-07-09 15:00:00 # YYYY-MM-DD hh:mm:ss -> can be omitted
+    SQL_TIME_FROM: 2021-01-01 10:00:00
+    SQL_TIME_TILL: 2021-01-01 11:00:00
+    CONTRACT_TIME: all # either hourly, half-hourly or quarter-hourly
+    DELIVERY_AREA: 10YDE-RWENET---I # EIC - Number
+    EXCHANGE: epex
+    PORTFOLIO: TP1 # Portfolio ID
+
+# Necessary for SQL Data Loader
+SQL_DATA:
+    DB_TYPE:
+    USER:
+    PASSWORD:
+    DB_HOST:
+    DATABASE:
+    PORT:  # can be omitted
