@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: scisuit
+Version: 1.0.3
+Summary: Scientific Computing Package
+Author-email: Gokhan Bingol <gbingol@sciencesuit.org>
+Project-URL: Homepage, https://www.sciencesuit.org
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C++
+Classifier: License :: Free for non-commercial use
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: wxPython
+
+<h2>A computing library for engineers.</h2>
+
+
+<p>Contains apps (literally they are wxPython apps) and the following:</p>
+<ol>
+	<li>Integration, fitting, root finding methods,</li>
+	<li><b>eng:</b> Food, psychrometry, refrigerants,</li>
+	<li><b>stats:</b> Follows R terminology and includes several methods,</li>
+	<li><b>util:</b> Utility package,</li>
+	<li><b>wxpy:</b> Utilities specific to wxPython.</li>
+</ol>
