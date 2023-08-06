@@ -1,0 +1,208 @@
+# Package Overview
+package_name: ames_model
+
+# Data Files
+training_data_file: train.csv
+test_data_file: test.csv
+
+# Variables
+# The variable we are attempting to predict (sale price)
+target: SalePrice
+
+# set train/test split
+test_size: 0.1
+
+# to set the random seed
+random_state: 0
+
+pipeline_name: ames_model
+pipeline_save_file: ames_model_output_v
+
+variables_to_rename:
+  1stFlrSF: FirstFlrSF
+  2ndFlrSF: SecondFlrSF
+  3SsnPorch: ThreeSsnPortch
+
+impute_none_vars:
+  - 'Alley'
+  - 'BsmtQual'
+  - 'BsmtCond'
+  - 'BsmtExposure'
+  - 'BsmtFinType1'
+  - 'BsmtFinType2'
+  - 'FireplaceQu'
+  - 'GarageType'
+  - 'GarageFinish'
+  - 'GarageQual'
+  - 'GarageCond'
+  - 'PoolQC'
+  - 'Fence'
+  - 'MiscFeature'
+
+impute_mode_vars:
+  - 'MSZoning'
+  - 'Street'
+  - 'LotShape'
+  - 'LandContour'
+  - 'Utilities'
+  - 'LotConfig'
+  - 'LandSlope'
+  - 'Neighborhood'
+  - 'Condition1'
+  - 'Condition2'
+  - 'BldgType'
+  - 'HouseStyle'
+  - 'RoofStyle'
+  - 'RoofMatl'
+  - 'Exterior1st'
+  - 'Exterior2nd'
+  - 'MasVnrType'
+  - 'ExterQual'
+  - 'ExterCond'
+  - 'Foundation'
+  - 'Heating'
+  - 'HeatingQC'
+  - 'CentralAir'
+  - 'Electrical'
+  - 'KitchenQual'
+  - 'Functional'
+  - 'PavedDrive'
+  - 'SaleType'
+  - 'SaleCondition'
+  - 'MSSubClass'
+  - 'MoSold'
+
+impute_zero_vars:
+  - 'MasVnrArea'
+
+impute_median_vars:
+  - 'LotFrontage'
+  - 'LotArea'
+  - 'OverallQual'
+  - 'OverallCond'
+  - 'YearBuilt'
+  - 'YearRemodAdd'
+  - 'BsmtFinSF1'
+  - 'BsmtFinSF2'
+  - 'BsmtUnfSF'
+  - 'TotalBsmtSF'
+  - 'FirstFlrSF'
+  - 'SecondFlrSF'
+  - 'LowQualFinSF'
+  - 'GrLivArea'
+  - 'BsmtFullBath'
+  - 'BsmtHalfBath'
+  - 'FullBath'
+  - 'HalfBath'
+  - 'BedroomAbvGr'
+  - 'KitchenAbvGr'
+  - 'TotRmsAbvGrd'
+  - 'Fireplaces'
+  - 'GarageCars'
+  - 'GarageArea'
+  - 'WoodDeckSF'
+  - 'OpenPorchSF'
+  - 'EnclosedPorch'
+  - 'ThreeSsnPortch'
+  - 'ScreenPorch'
+  - 'PoolArea'
+  - 'MiscVal'
+  - 'YrSold'
+
+impute_from_other_vars:
+  - 'GarageYrBlt'
+
+ref_vars:
+  - 'YearBuilt'
+
+binarise_vars:
+  - 'BsmtFinSF2'
+  - 'LowQualFinSF'
+  - 'EnclosedPorch'
+  - 'ScreenPorch'
+  - 'MiscVal'
+
+cat_vars_dt:
+  - 'MSZoning'
+  - 'Street'
+  - 'Alley'
+  - 'LotShape'
+  - 'LandContour'
+  - 'Utilities'
+  - 'LotConfig'
+  - 'LandSlope'
+  - 'Neighborhood'
+  - 'Condition1'
+  - 'Condition2'
+  - 'BldgType'
+  - 'HouseStyle'
+  - 'RoofStyle'
+  - 'RoofMatl'
+  - 'Exterior1st'
+  - 'Exterior2nd'
+  - 'MasVnrType'
+  - 'ExterQual'
+  - 'ExterCond'
+  - 'Foundation'
+  - 'BsmtQual'
+  - 'BsmtCond'
+  - 'BsmtExposure'
+  - 'BsmtFinType1'
+  - 'BsmtFinType2'
+  - 'Heating'
+  - 'HeatingQC'
+  - 'CentralAir'
+  - 'Electrical'
+  - 'KitchenQual'
+  - 'Functional'
+  - 'FireplaceQu'
+  - 'GarageType'
+  - 'GarageFinish'
+  - 'GarageQual'
+  - 'GarageCond'
+  - 'PavedDrive'
+  - 'PoolQC'
+  - 'Fence'
+  - 'MiscFeature'
+  - 'SaleType'
+  - 'SaleCondition'
+  - 'MSSubClass'
+  - 'MoSold'
+  - 'IsNew'
+
+discrete_vars_dt:
+  - 'OverallQual'
+  - 'OverallCond'
+  - 'BsmtFullBath'
+  - 'BsmtHalfBath'
+  - 'FullBath'
+  - 'HalfBath'
+  - 'BedroomAbvGr'
+  - 'KitchenAbvGr'
+  - 'TotRmsAbvGrd'
+  - 'Fireplaces'
+  - 'GarageCars'
+  - 'ThreeSsnPortch'
+  - 'PoolArea'
+  - 'TotBathrooms'
+  - 'TotRms'
+
+drop_vars:
+  - 'Id'
+  - 'YrSold'
+
+int_model_hyperp:
+  n_estimators: 1000
+  verbosity: -1
+  bagging_freq: 1
+  num_leaves: 12
+  min_data_in_leaf: 2
+
+float_model_hyperp:
+  learning_rate: 0.008898951387523906
+  subsample: 0.8300474397273252
+  colsample_bytree: 0.7228360502352134
+
+str_model_hyperp:
+  objective: 'regression'
+
