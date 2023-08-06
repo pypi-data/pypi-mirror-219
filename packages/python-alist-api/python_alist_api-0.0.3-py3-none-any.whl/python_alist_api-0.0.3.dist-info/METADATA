@@ -1,0 +1,103 @@
+Metadata-Version: 2.1
+Name: python-alist-api
+Version: 0.0.3
+Summary: Python wrapper for the Alist API
+Author-email: Kai Peng <pkemb@outlook.com>
+Maintainer-email: Kai Peng <pkemb@outlook.com>
+License: The MIT License (MIT)
+        
+        Copyright (c) 2023 Kai Peng, https://pkemb.com <pkemb@outlook.com>
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://github.com/pkemb/python-alist-api
+Project-URL: Bug Reports, https://github.com/pkemb/python-alist-api/issues
+Project-URL: Funding, https://github.com/pkemb/python-alist-api
+Project-URL: Say Thanks!, https://github.com/pkemb/python-alist-api
+Project-URL: Source, https://github.com/pkemb/python-alist-api/
+Keywords: Alist,API,Python
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: User Interfaces
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: requests
+
+## 项目描述
+
+[Alist](https://github.com/alist-org/alist) 的 python api。Alist api的说明可以参考[API Document](https://alist-doc.nn.ci/docs/api)。
+
+仅支持Alist v2。
+
+## 安装
+
+```shell
+pip install python-alist-api
+```
+
+## 使用方法
+
+### 示例1：创建alist客户端
+
+匿名登录，只能使用`/public` API。
+
+```python
+from alist import AlistClient
+client = AlistClient('https://your.alist.domain')
+```
+
+使用密码或授权码登录，能使用`/public`和`/admin` API。
+
+```python
+from alist import AlistClient
+client = AlistClient('https://your.alist.domain', password='xxxxx')
+# 或者
+client = AlistClient('https://your.alist.domain', authorization='xxxxx')
+```
+
+### 示例2：获取alist版本号
+
+```python
+version = client.public.settings.version()
+```
+
+### 示例3：获取文件列表。
+
+```python
+result = client.public.path('/xxxxx')
+```
+
+### 示例4：打开搜索
+
+需要使用密码或授权码登录客户端。
+
+```python
+client.admin.settings.enable_search(True)
+```
+
+### 示例5：上传文件
+
+需要使用密码或授权码登录客户端，或开启了游客上传。
+
+```python
+client.public.upload(['path/to/file1', 'path/to/file2'], '/target/path')
+```
