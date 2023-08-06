@@ -1,0 +1,73 @@
+# SPDX-FileCopyrightText: Alex Lemna <git@alexanderlemna.com>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[project]
+name = "auldcommons"
+readme = "README.md"
+license = { text = "MIT License" }
+# urls.homepage
+urls.repository = "https://github.com/AlexLemna/auldcommons"
+# urls.documentation
+# urls.changelog
+requires-python = ">= 3.10"
+dependencies = [
+    # none
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = [
+    #
+    # installing dependencies
+    # -----------------------
+    #
+    "pip",
+    "pip-tools",
+    #
+    # style enforcement, linting, etc.
+    # -----------------------------
+    # Various tools to help enforce consistency.
+    "black",
+    "isort",
+    "reuse", # <-- for copyright
+    #
+    # building the package
+    # --------------------
+    "build",
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.2",
+    #
+    # testing the package
+    # -------------------
+    "pytest",
+    #
+    # publishing the package to PyPI
+    # ------------------------------
+    "twine",
+]
+
+
+[build-system]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.isort]
+atomic = true
+profile = "black"
+line_length = 88
+skip_gitignore = true
+skip_glob = [".vscode", "developer notes", "requirements"]
+known_first_party = ["auldcommons"]
+
+[tool.pip-tools]
+allow-unsafe = true
+generate-hashes = true
+resolver = "backtracking"
+
+[tool.setuptools_scm]
+# turns on automatic use of SCM (git) tag

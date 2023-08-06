@@ -1,0 +1,12 @@
+
+[dev]
+pip
+pip-tools
+black
+isort
+reuse
+build
+setuptools>=45
+setuptools_scm[toml]>=6.2
+pytest
+twine
