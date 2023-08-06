@@ -1,0 +1,15 @@
+browser_cookie3
+ctapipe~=0.19
+ctapipe-io-nectarcam
+mechanize
+pandas
+
+[all]
+pytest
+setuptools_scm
+
+[dev]
+setuptools_scm
+
+[tests]
+pytest
