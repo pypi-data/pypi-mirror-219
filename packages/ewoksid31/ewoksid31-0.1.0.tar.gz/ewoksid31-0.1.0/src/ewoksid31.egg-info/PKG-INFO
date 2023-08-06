@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: ewoksid31
+Version: 0.1.0
+Summary: Data processing workflows for ID31
+Home-page: https://gitlab.esrf.fr/workflow/ewoksid31/
+Author: ESRF
+Author-email: wout.de_nolf@esrf.fr
+License: MIT
+Project-URL: Source, https://gitlab.esrf.fr/workflow/ewoksid31/
+Project-URL: Documentation, https://ewoksid31.readthedocs.io/
+Project-URL: Tracker, https://gitlab.esrf.fr/workflow/ewoksid31/issues/
+Keywords: ewoks
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
+Provides-Extra: dev
+Provides-Extra: doc
+License-File: LICENSE.md
+
+# ewoksid31
+
+Data processing workflows for ID31
+
+## Documentation
+
+https://ewoksid31.readthedocs.io/
