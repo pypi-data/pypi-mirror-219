@@ -1,0 +1,6 @@
+
+10.172.255.47
+
+eros tcp --ip 10.172.255.47 log
+eros tcp --ip 10.250.100.224 cli
+eros uart cli
