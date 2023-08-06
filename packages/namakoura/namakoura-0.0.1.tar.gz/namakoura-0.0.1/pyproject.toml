@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "namakoura"
+version = "0.0.1"
+description = "A central Minecraft historical senquential savedata manager"
+authors = ["快乐的老鼠宝宝 <keaitianxinmail@qq.com>"]
+license = "AGPL"
+readme = "README.md"
+packages = [{ include = "namakoura", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
