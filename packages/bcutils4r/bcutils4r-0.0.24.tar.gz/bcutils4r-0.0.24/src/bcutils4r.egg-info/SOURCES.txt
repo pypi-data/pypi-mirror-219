@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/bcutils4r/__init__.py
+src/bcutils4r/eval_classification.py
+src/bcutils4r.egg-info/PKG-INFO
+src/bcutils4r.egg-info/SOURCES.txt
+src/bcutils4r.egg-info/dependency_links.txt
+src/bcutils4r.egg-info/requires.txt
+src/bcutils4r.egg-info/top_level.txt
