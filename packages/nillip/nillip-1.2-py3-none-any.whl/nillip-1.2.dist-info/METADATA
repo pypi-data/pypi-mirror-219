@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: nillip
+Version: 1.2
+Summary: custom utils package for me, but feel free to use it if you want
+Home-page: https://github.com/hireslab/whacc
+Author: Phillip Maire
+Author-email: phillip.maire@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: natsort (==7.1.1)
+
+UNKNOWN
+
+
