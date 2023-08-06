@@ -1,0 +1,5 @@
+PLAY_ICON = "images/play2.png"
+PAUSE_ICON = "images/pause2.png"
+CHART_ICON = "images/chart.png"
+DELETE_ICON = "images/delete.png"
+ADD_ICON = "images/add.png"
