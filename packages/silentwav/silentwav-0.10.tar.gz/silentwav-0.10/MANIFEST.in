@@ -1,0 +1,3 @@
+include silentwav/requirements.txt
+include silentwav/thirdparty.json
+include silentwav/README.MD

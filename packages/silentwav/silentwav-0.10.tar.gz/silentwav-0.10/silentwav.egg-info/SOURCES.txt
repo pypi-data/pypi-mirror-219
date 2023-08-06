@@ -1,0 +1,14 @@
+LICENSE.rst
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+silentwav/README.MD
+silentwav/__init__.py
+silentwav/requirements.txt
+silentwav/thirdparty.json
+silentwav.egg-info/PKG-INFO
+silentwav.egg-info/SOURCES.txt
+silentwav.egg-info/dependency_links.txt
+silentwav.egg-info/requires.txt
+silentwav.egg-info/top_level.txt
