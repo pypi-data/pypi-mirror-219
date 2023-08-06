@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+src/aseprite_ini/__init__.py
+src/aseprite_ini.egg-info/PKG-INFO
+src/aseprite_ini.egg-info/SOURCES.txt
+src/aseprite_ini.egg-info/dependency_links.txt
+src/aseprite_ini.egg-info/requires.txt
+src/aseprite_ini.egg-info/top_level.txt
+tests/test_.py
