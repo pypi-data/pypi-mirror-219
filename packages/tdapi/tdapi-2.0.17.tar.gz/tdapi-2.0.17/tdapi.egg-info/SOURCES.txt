@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+readme.md
+setup.cfg
+setup.py
+scripts/automation.py
+tdapi.egg-info/PKG-INFO
+tdapi.egg-info/SOURCES.txt
+tdapi.egg-info/dependency_links.txt
+tdapi.egg-info/not-zip-safe
+tdapi.egg-info/requires.txt
+tdapi.egg-info/top_level.txt
+uiautomation/__init__.py
+uiautomation/uiautomation.py
+uiautomation/version.py
+uiautomation/bin/UIAutomationClient_VC140_X64.dll
+uiautomation/bin/UIAutomationClient_VC140_X86.dll
