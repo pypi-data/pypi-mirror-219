@@ -1,0 +1,14 @@
+LICENSE
+README.rst
+setup.py
+STGMVA/STGMVA.py
+STGMVA/__init__.py
+STGMVA/model.py
+STGMVA/preprocess.py
+STGMVA/utils.py
+STGMVA.egg-info/PKG-INFO
+STGMVA.egg-info/SOURCES.txt
+STGMVA.egg-info/dependency_links.txt
+STGMVA.egg-info/not-zip-safe
+STGMVA.egg-info/requires.txt
+STGMVA.egg-info/top_level.txt

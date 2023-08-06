@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: STGMVA
+Version: 1.0.0
+Summary: Clustering, imputation, and integration for spatial transcriptomics using spatiotemporal gaussian mixture variational autoencoder
+Home-page: https://github.com/narutoten520/STGMVA
+Author: Teng Liu
+Author-email: tengliu17@gmail.com
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+ In this study, we present STGMVA, a comprehensive analysis toolkit employs a spatiotemporal gaussian mixture variational autoencoder to tackle these tasks effectively. STGMVA consists of two stages: pretraining the gene expression and spatial location using a gaussian mixture model, and learning the embedding vectors through a variational graph autoencoder. Results demonstrate STGMVA surpasses state-of-the-art approaches on various spatial transcriptomics datasets, exhibiting superior performance across different scales and resolutions. Notably, STGMVA achieves the highest clustering accuracy in human brain, mouse hippocampus, and mouse olfactory bulb tissues. Furthermore, STGMVA enhances and denoises gene expression patterns for gene imputation task. Additionally, STGMVA has the capability to correct batch effects and achieve joint analysis when integrating multiple tissue slices. 
