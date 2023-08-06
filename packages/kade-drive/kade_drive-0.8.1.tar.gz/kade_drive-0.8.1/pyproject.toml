@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "kade_drive"
+version = "0.8.1"
+description = "distributed file system based on kademlia dht"
+authors = ["DanielUH2019 <danielcardenascabrera2016@gmail.com>", "JavierOramas <javiale2000@gmail.com>", "Lia001218 <liazerqueraf@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "kade_drive"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+rpyc="5.3.1"
+typer="0.9.0"
+message-system = "^0.1.2"
+
+[tool.poetry.group.tests.dependencies]
+pytest="^7.2.0"
+pandas="^1.5.3"
+scikit-learn="^1.0"
+
+[tool.poetry.scripts]
+server = 'kade_drive.server:start'
+cli = 'kade_drive.cli:start_cli'
+test_store ='kade_drive.test_store_file:test_store_df'
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
