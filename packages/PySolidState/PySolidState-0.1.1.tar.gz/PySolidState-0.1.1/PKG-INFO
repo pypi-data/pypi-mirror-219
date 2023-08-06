@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: PySolidState
+Version: 0.1.1
+Summary: PySolidState is a library developed to facilitate the study of solid-state materials, ranging from crystal structures to tight-binding models. It provides a set of tools and functionalities that enable researchers and students to analyze and simulate various aspects of the solid-state physics.
+Home-page: https://github.com/miguelta281/PySolidState
+Author: Jose Miguel Tarazona, Yerimi Gamboa Caballero, Felipe
+Author-email: makesens19@gmail.com
+License: GNU General Public License v3.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+# PySolidState
+PySolidState is a library developed to facilitate the study of solid-state materials, ranging from crystal structures to tight-binding models. It provides a set of tools and functionalities that enable researchers and students to analyze and simulate various aspects of the solid-state physics.
+
+## Instalation 
+
+
+## Uso
+
+### Create lattice
+
+
+### Create base
+
+### Create crystal structure
