@@ -1,0 +1,9 @@
+pydantic
+requests
+StrEnum
+loguru
+babel
+aiohttp
+aiodns
+pillow
+python-dotenv
