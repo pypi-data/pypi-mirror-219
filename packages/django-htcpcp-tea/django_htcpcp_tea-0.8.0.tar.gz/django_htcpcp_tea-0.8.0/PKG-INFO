@@ -1,0 +1,287 @@
+Metadata-Version: 2.1
+Name: django-htcpcp-tea
+Version: 0.8.0
+Summary: Django app implementing HTCPCP-TEA as defined in RFC 7168.
+Home-page: https://github.com/blueschu/django-htcpcp-tea
+License: MIT
+Keywords: htcpcp,django,rfc-2324,rfc-7168,coffee,tea
+Author: Brian Schubert
+Author-email: brianm.schubert@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: django (>=2.0,<3.0)
+Project-URL: Documentation, https://django-htcpcp-tea.readthedocs.io/en/latest/
+Project-URL: Repository, https://github.com/blueschu/django-htcpcp-tea
+Description-Content-Type: text/x-rst
+
+Django HTCPCP-TEA
+=================
+
+.. image:: https://travis-ci.com/blueschu/django-htcpcp-tea.svg?branch=master
+    :target: https://travis-ci.com/blueschu/django-htcpcp-tea
+    :alt: Travis CI Build
+
+.. image:: https://coveralls.io/repos/github/blueschu/django-htcpcp-tea/badge.svg?branch=master
+    :target: https://coveralls.io/github/blueschu/django-htcpcp-tea?branch=master
+    :alt: Coverage
+
+.. image:: https://readthedocs.org/projects/django-htcpcp-tea/badge/?version=latest
+    :target: https://django-htcpcp-tea.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+.. image:: https://img.shields.io/pypi/v/django-htcpcp-tea.svg
+    :target: https://pypi.org/project/django-htcpcp-tea/
+    :alt: PyPI - django-htcpcp-tea
+
+.. image:: https://img.shields.io/github/license/blueschu/django-htcpcp-tea.svg
+    :target: ./LICENSE
+    :alt: License
+
+..
+
+    [T]here is a strong, dark, rich requirement for a protocol designed
+    espressoly for the brewing of coffee.
+
+    --- RFC 2324 Section 1
+
+A `Django`_ app that implements the TEA extension to HTCPCP as defined in `RFC 7168`_.
+
+This app extends the Django web framework to simulate the functionality of an HTCPCP server. Both the HTCPCP/1.0 protocol from `RFC 2324`_ and the HTCPCP-TEA protocol from `RFC 7168`_ are supported.
+
+.. _RFC 7168: https://tools.ietf.org/html/rfc7168
+.. _Django: https://www.djangoproject.com/
+.. _RFC 2324: https://tools.ietf.org/html/rfc2324
+
+Notable features:
+
+- Customizable coffee and teapots
+- Support for BREW and WHEN HTTP methods
+- Interactive brewing sessions
+- HTCPCP response codes (e.g. 418 I'm a teapot)
+- User-defined forbidden combinations of beverage additions
+
+Documentation
+-------------
+
+Documentation for Django HTCPCP-TEA is available on `Read the Docs`_.
+
+.. _Read the Docs: https://django-htcpcp-tea.readthedocs.io/en/latest/?badge=latest
+
+References
+----------
+
+- `[RFC 2324] Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0)`_
+- `[RFC 7158] The Hyper Text Coffee Pot Control Protocol for Tea Efflux Appliances (HTCPCP-TEA)`_
+- `[RFC 2295] Transparent Content Negotiation in HTTP`_
+- `MDN Web Docs | HTTP response codes`_
+
+.. _[RFC 2324] Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0): https://tools.ietf.org/html/rfc2324
+.. _[RFC 7158] The Hyper Text Coffee Pot Control Protocol for Tea Efflux Appliances (HTCPCP-TEA): https://tools.ietf.org/html/rfc7168
+.. _[RFC 2295] Transparent Content Negotiation in HTTP: https://tools.ietf.org/html/rfc2295
+.. _MDN Web Docs | HTTP response codes: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+
+Related Work
+------------
+
+- Shane Brunswick's `Save 418 Movement`_.
+- Dash Winterson's `HTCPCP Middleware (django-htcpcp)`_
+
+.. _Save 418 Movement: http://save418.com/
+.. _HTCPCP Middleware (django-htcpcp): https://github.com/dashdanw/django-htcpcp
+
+License
+-------
+
+This software is licensed under the `MIT License`_. For more
+information, read the file `LICENSE`_.
+
+.. _MIT License: https://opensource.org/licenses/MIT
+.. _LICENSE: ./LICENSE
+
+Changes
+=======
+
+For complete record of changes, see the commit log of the `public git repository`_.
+
+.. _public git repository: https://github.com/blueschu/django-htcpcp-tea
+
+v0.8.0
+----------
+
+- Migrated build system from ``setuptools`` to ``poetry``.
+- Upgraded supported Python versions from 3.4-3.8 to 3.8+.
+- Development: use black formatting and isort import ordering.
+
+v0.7.0
+------
+
+Released 2019-08-29
+
+- Add initial example usage documentation
+- Add setting to override MIME type for HTCPCP responses
+- Add PyPI package version badge to README
+- Add Python 3.8 dev build to Travis-CI config
+- Change PyPI development status classifier to Beta
+- Fix server name being overridden for non-HTCPCP requests
+- Remove explicit module names from API documentation
+- Remove supported Python and Django version badges from README
+
+v0.6.0
+------
+
+Released 2019-07-14
+
+- Add units tests for ``middleware`` module
+- Add units test for ``admin`` module
+- Add check to strictly enforce HTCPCP MIME types
+- Add setting to override the rot url view for HTCPCP requests
+- Add documentation for overriding HTCPCP templates
+- Add changelog to Sphinx documentation
+- Add API summary to Sphinx documentation
+- Add support for the extension to the ``Safe`` header field from RFC 2324
+- Amend minor typo in ``utils`` module docstrings
+- Expand unit tests for ``views`` module
+- Move ``require_htcpcp`` decorator to the ``decorators`` module
+- Update the package installation instructions
+
+v0.5.1
+------
+
+Released 2019-07-08
+
+- Fix attribute error when running tests with Django 2.0 / Python 3.4
+
+v0.5.0
+------
+
+Released 2019-07-08
+
+- Add unit tests for the ``views`` module
+- Add formal support for Python 3.7
+- Expand ``utils`` unit tests
+- Fix missing ``Alternates`` header due to generator exhaustion
+- Fix ``Server`` header override when the WSGI implementation does not populate the ``SERVER_SOFTWARE`` variable
+- Fix detection of supported teas in the request URI
+- Refactor handling of ``Alternates`` header generation
+- Refactor the pots data fixture to include a pot that supports a proper subset of available teas
+
+v0.4.0
+------
+
+Released 2019-07-05
+
+- Add setting to override the ``Server`` header for HTCPCP responses
+- Add support for user-defined forbidden combinations of additions
+- Add additional unit tests for the ``utils`` and ``models`` modules
+- Add data fixture for demo forbidden combinations of additions
+- Update README description
+- Update package metadata
+- Update reStructuredText formatting in the configuration docs
+- Optimized model listings on the admin site
+
+v0.3.1
+------
+
+Released 2019-06-25
+
+- Remove Sphinx build directory from package data
+
+
+v0.3.0
+------
+
+Released 2019-06-24
+
+- Add Sphinx documentation for installation and configuration
+- Add unit tests for the models module
+- Update links in REAME.rst
+- Fix typo in Travis-CI build matrix
+- Fix error in ``utils`` module unit tests
+
+
+v0.2.2
+------
+
+Released 2019-06-24
+
+- Fix syntax error in Python 3.4
+- Fix dependency errors for Travis-CI build jobs (123e022)
+
+
+v0.2.1
+------
+
+Released 2019-06-24
+
+- Add Travis-CI and Coveralls reporting to README
+
+v0.2.0
+------
+
+Released 2019-06-24
+
+- Add informative content to README
+- Add data fixture for RFC 2324 additions
+- Add data fixture for RFC 7168 additions
+- Add data fixture for RFC 7168 teas
+- Add data fixture for demo pots
+- Add default ``coverage`` configuration
+- Add Travis-CI integration
+- Add script to run Django tests
+- Add ``tests`` package
+- Add unit tests for ``utils`` module
+- Fix filter override in ``admin.PotsServingMixin``
+- Fix duplicate tea types being recorded in admin counts
+- Refactor template hierarchy
+- Improve context visibility in templates
+- Refactor logic for determining a pots addition and milk support
+
+v0.1.2
+------
+
+Released 2019-06-23
+
+- Re-release patch version due to packaging mishap
+
+v0.1.1
+------
+
+Released 2019-06-23
+
+- Add data files to package manifest
+
+v0.1.0
+------
+
+Released 2019-06-21
+
+- Add licence
+- Add app class
+- Add ``Pot`` model
+- Add ``TeaType`` model
+- Add ``Addition`` model
+- Add initial admin site
+- Add ``settings`` module
+- Add initial url config
+- Add initial HTCPCP middleware
+- Add ``require_htcpcp`` decorator
+- Add HTCPCP view
+- Add initial templates
+- Add ``utils`` module
+- Add setup script
+
