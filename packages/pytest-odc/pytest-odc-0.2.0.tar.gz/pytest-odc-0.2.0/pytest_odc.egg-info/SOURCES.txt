@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+odc/testing/__init__.py
+odc/testing/database.py
+pytest_odc.egg-info/PKG-INFO
+pytest_odc.egg-info/SOURCES.txt
+pytest_odc.egg-info/dependency_links.txt
+pytest_odc.egg-info/entry_points.txt
+pytest_odc.egg-info/requires.txt
+pytest_odc.egg-info/top_level.txt
+tests/test_example.py
