@@ -1,0 +1,24 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+[project]
+name = "blockmangoaccount"
+version = "0.0.2"
+authors = [
+  { name="Сергей - t.me/dedinside0011", email="sergeycikkatkovcik@gmail.com" },
+]
+description = "Библиотека мира Blockman Developer: Click ```Creator```"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+
+
+[project.urls]
+"Creator" = "https://t.me/sasibacka"
+"Mini-Builder" = "https://t.me/dedinside0011"
+"Host (BETA) for you project" = "https://t.me/sasibackahost"
