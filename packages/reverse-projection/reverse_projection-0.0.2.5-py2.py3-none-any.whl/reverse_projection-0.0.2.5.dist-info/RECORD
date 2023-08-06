@@ -1,0 +1,16 @@
+reverse_projection/__init__.py,sha256=i7z5sA90bM7CY_UOROIqekIROQuqOQQaqN92eus0C-s,37
+reverse_projection/search/__init__.py,sha256=dFWHWMP5TWiLkvy7nATLwE5wKmHWYwBXJDqCjv9RWXw,35
+reverse_projection/search/algorithms.py,sha256=zpB7ZwJ819WW6tq9Y1vIcO-2XW2n8lzXL3yEQrUD_Pg,3488
+reverse_projection/search/main.py,sha256=uF_DgZGg7jtYgsmWAz0w_iJvMAclrQ7Co8mTYV5YJq8,8713
+reverse_projection/webapis/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+reverse_projection/webapis/algorithms.py,sha256=Xahmgka7-5ENB0nKg34KrAxtav8w8sMGqeAj96ggKiQ,18993
+reverse_projection/webapis/configs.py,sha256=c2lWyy0ClgPHtSJ-_NkZRR5FB1VKEssBQMlDrvhBRvs,1431
+reverse_projection/webapis/data.py,sha256=ElPL03aIhSuPfpAN_ZU-3BLPGFHQYAJm44FefZtdRmI,5094
+reverse_projection/webapis/db.py,sha256=HF8fC51A4THv0GmDMl6wZ6_rRrNRfYxDFKKfEWQoxPM,25697
+reverse_projection/webapis/decomposers.py,sha256=J07ncJFwgEzQGAD3jMR0GMnfQqUhNSDzIY2Wp-2jEWE,3690
+reverse_projection/webapis/targets.py,sha256=BjVrwW64AO7Gz8Hiivv2_zNNOCTqbW5wYgFq8QOm4zk,8614
+reverse_projection/webapis/utils.py,sha256=OyzRKUP-3Bi04R2m6XjoyjXiQ5g2k236pJP6IYAzhwM,905
+reverse_projection-0.0.2.5.dist-info/METADATA,sha256=1ci2qRy_q-j8jrT3n4nGW3IUS29srMq3MzYIFu1WVsA,696
+reverse_projection-0.0.2.5.dist-info/WHEEL,sha256=z9j0xAa_JmUKMpmz72K0ZGALSM_n-wQVmGbleXx2VHg,110
+reverse_projection-0.0.2.5.dist-info/top_level.txt,sha256=4w1TqS1315WsvaFGfkvs35bcKIkjGH22JgvRVVlThoI,19
+reverse_projection-0.0.2.5.dist-info/RECORD,,

@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: reverse-projection
+Version: 0.0.2.5
+Summary: reverse-projection
+Author: luktian
+Author-email: luktian05@gmail.com
+Maintainer: luktian
+Maintainer-email: luktian@gmail.com
+License: BSD License
+Platform: windows
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: hyperopt
+Requires-Dist: numpy
+Requires-Dist: scikit-learn
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: cachelib
+Requires-Dist: openpyxl
+Requires-Dist: xlrd
+Requires-Dist: xlwt
+Requires-Dist: flask-mail
+
+UNKNOWN
+
