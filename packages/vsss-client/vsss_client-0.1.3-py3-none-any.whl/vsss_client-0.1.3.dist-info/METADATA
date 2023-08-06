@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: vsss-client
+Version: 0.1.3
+Home-page: https://github.com/fbot-furg/vsss-client.git
+Author: Lucas de Felippe & Lucas Martins
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+License-File: LICENSE
+Requires-Dist: configparser
+
