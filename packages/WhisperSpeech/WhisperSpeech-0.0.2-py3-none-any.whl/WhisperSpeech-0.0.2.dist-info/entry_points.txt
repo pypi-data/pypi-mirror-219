@@ -1,0 +1,7 @@
+[console_scripts]
+whisperspeech_extract_acoustic = whisperspeech.extract_acoustic:extract_acoustic
+whisperspeech_extract_semantic = whisperspeech.extract_semb:extract_semantic
+whisperspeech_extract_stoks = whisperspeech.extract_stoks:extract_stoks
+
+[nbdev]
+whisperspeech = whisperspeech._modidx:d
