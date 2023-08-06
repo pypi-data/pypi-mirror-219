@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "data-pilot"
+version = "0.0.1"
+description = "Use LLMs to automate data science tasks"
+authors = ["Amar <amar439412@gmail.com>"]
+readme = "README.md"
+packages = [{include = "data_pilot"}]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+replicate = "^0.8.4"
+openai = "^0.27.8"
+pyspark = "^3.4.1"
+pandas = "^2.0.3"
+pip = "^23.1.2"
+supabase = "^1.0.3"
+python-decouple = "^3.8"
+requests = "^2.31.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
