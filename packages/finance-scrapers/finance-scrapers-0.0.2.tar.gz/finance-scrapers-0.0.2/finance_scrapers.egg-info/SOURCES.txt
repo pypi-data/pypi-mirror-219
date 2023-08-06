@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+finance_scrapers/__init__.py
+finance_scrapers/stock_options.py
+finance_scrapers/yahoo_finance.py
+finance_scrapers.egg-info/PKG-INFO
+finance_scrapers.egg-info/SOURCES.txt
+finance_scrapers.egg-info/dependency_links.txt
+finance_scrapers.egg-info/requires.txt
+finance_scrapers.egg-info/top_level.txt
