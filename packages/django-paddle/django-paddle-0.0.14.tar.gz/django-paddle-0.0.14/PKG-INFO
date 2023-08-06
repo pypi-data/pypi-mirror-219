@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: django-paddle
+Version: 0.0.14
+Summary: Django models for integrating Paddle.com subscriptions
+Home-page: https://github.com/kennell/django-paddle
+Author: Kevin Kennell
+Author-email: kevin@kennell.de
+Provides-Extra: dev
