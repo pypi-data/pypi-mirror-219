@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devopstrabalhofinal"
+version = "0.0.7"
+authors = [
+  { name="João Victor Milagres Guimarães", email="1398500@sga.pucminas.br" },
+  { name="Allan da Silveira e Silva", email="1405224@sga.pucminas.br" },
+  { name="Felipe Ferreira Alexandre", email="1386198@sga.pucminas.br" },
+  { name="Gabriel Murta Pimenta", email="1286408@sga.pucminas.br" },
+]
+description = "Código de Comando: Saudação"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
+
+[project.urls]
+"Homepage" = "https://github.com/jvmg96/devops_trabalho"
+"Bug Tracker" = "https://github.com/jvmg96/devops_trabalho/issues"

@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+requirements.txt
+src/codigo/__init__.py
+src/codigo/comando.py
+src/devopstrabalhofinal.egg-info/PKG-INFO
+src/devopstrabalhofinal.egg-info/SOURCES.txt
+src/devopstrabalhofinal.egg-info/dependency_links.txt
+src/devopstrabalhofinal.egg-info/requires.txt
+src/devopstrabalhofinal.egg-info/top_level.txt
+test/test_saudacao.py
