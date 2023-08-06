@@ -1,0 +1,16 @@
+napari-plugin-engine>=0.1.4
+numpy
+albumentations==1.0.3
+joblib==1.2.0
+light-the-torch
+matplotlib
+opencv-python==4.5.5.62
+PyQt5
+cupy-cuda102==10.6.0
+xlsxwriter
+pandas
+npe2
+pooch
+
+[:platform_system == "Linux"]
+cucim==22.6.0
