@@ -1,0 +1,12 @@
+file_writer/__init__.py,sha256=fb8TIGJoJNeO9adzhtbRhGI_vM3bZx3bTWPUulrZDYw,141
+file_writer/file_writer.py,sha256=2wAxki-htQGg3JnDl6ckmRghlD7uPGP-AcJku7KU_5I,9251
+file_writer/file_writer_manager.py,sha256=KpHCQvkZifR6qvA1Frag02WGMc-47pYueVuZVZSvaWM,8083
+file_writer/merged_dicts.py,sha256=UWDNeo1YUhj-Y9G2bUY8mYU-cdHIN6dSPrWr3brkKiw,1555
+file_writer_plugins/__init__.py,sha256=juUElpnn9nKGZKFpSWdfb1dmdhO0EakW0-bbZY-v0UM,119
+file_writer_plugins/cSAXS.py,sha256=SHfS4M61rfoO6SLPl5hAHLyK5XHyjvq0aLSe5u3ppto,17058
+file_writer_plugins/default_writer.py,sha256=zI0MnbL3X4r7KlmTYfladQMab4KG6-_4w9eO0nLs0O8,2274
+bec_file_writer-0.12.0.dist-info/METADATA,sha256=6sTN0JecMbz5oRD9oduA5UUf3gp9_ZGZ3AkghEMVYM0,696
+bec_file_writer-0.12.0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+bec_file_writer-0.12.0.dist-info/entry_points.txt,sha256=aXcWXhFGZXVpEZ1aeHpieRH1f3v8hRca5HS4ECXHFc4,54
+bec_file_writer-0.12.0.dist-info/top_level.txt,sha256=aEpdyYJwFJdUJgwTRCAuKqE8uZhNeqpsQwCUrXFYLRQ,32
+bec_file_writer-0.12.0.dist-info/RECORD,,
