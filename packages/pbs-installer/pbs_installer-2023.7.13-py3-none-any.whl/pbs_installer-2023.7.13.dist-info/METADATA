@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pbs-installer
+Version: 2023.7.13
+Summary: Installer for Python Build Standalone
+Author-Email: Frost Ming <me@frostming.com>
+License: MIT
+Requires-Python: >=3.7
+Requires-Dist: zstandard>=0.21.0
+Description-Content-Type: text/markdown
+
+# pbs-installer
+
+An installer for @indygreg's [python-build-standalone](https://github.com/indygreg/python-build-standalone)
+
+The list of python versions are kept sync with the upstream automatically, via a periodically GitHub Action.
