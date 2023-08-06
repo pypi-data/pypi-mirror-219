@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+whop_api_wrapper/Client.py
+whop_api_wrapper/Endpoints.py
+whop_api_wrapper/Objects.py
+whop_api_wrapper/__init__.py
+whop_api_wrapper.egg-info/PKG-INFO
+whop_api_wrapper.egg-info/SOURCES.txt
+whop_api_wrapper.egg-info/dependency_links.txt
+whop_api_wrapper.egg-info/requires.txt
+whop_api_wrapper.egg-info/top_level.txt
