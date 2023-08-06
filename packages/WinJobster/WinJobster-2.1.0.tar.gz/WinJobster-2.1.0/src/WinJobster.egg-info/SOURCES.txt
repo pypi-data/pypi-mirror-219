@@ -1,0 +1,16 @@
+LICENSE.md
+README.md
+pyproject.toml
+requirements.txt
+src/WinJobster/__init__.py
+src/WinJobster/_meta.py
+src/WinJobster/exceptions.py
+src/WinJobster/job.py
+src/WinJobster/loader.py
+src/WinJobster.egg-info/PKG-INFO
+src/WinJobster.egg-info/SOURCES.txt
+src/WinJobster.egg-info/dependency_links.txt
+src/WinJobster.egg-info/top_level.txt
+src/libs/WinJobster-x64.dll
+src/libs/WinJobster-x86.dll
+src/libs/get_dlls.py
