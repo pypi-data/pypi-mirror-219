@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: appsquared
+Version: 0.1.1
+Summary: Antigenic Prediction for Protein Sequences Pipeline
+License: MIT
+Author: nicole.paterson
+Author-email: qxa4@cdc.gov
+Requires-Python: >=3.9,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: biopython (==1.78)
+Requires-Dist: cython (==0.29.32)
+Requires-Dist: matplotlib (==3.6.2)
+Requires-Dist: numpy (>=1.22.4,<2.0.0)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: scikit-learn (==1.2.2)
+Requires-Dist: seaborn (==0.12.2)
+Requires-Dist: setuptools (>=61.0,<62.0)
+Requires-Dist: ticc (==0.1.4)
