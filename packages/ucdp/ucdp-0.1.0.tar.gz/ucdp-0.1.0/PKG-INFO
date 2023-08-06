@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: ucdp
+Version: 0.1.0
+Summary: Unified Chip Design Platform
+License: MIT
+Requires-Python: >=3.8.2,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: aligntext (>=1.0.0,<2.0.0)
+Requires-Dist: attrs (>=23.1.0,<24.0.0)
+Requires-Dist: case-converter (>=1.1.0,<2.0.0)
+Requires-Dist: fuzzywuzzy (>=0.18.0,<0.19.0)
+Requires-Dist: humannum (>=1.0.0,<2.0.0)
+Requires-Dist: icdutil (>=0.2.0,<0.3.0)
+Requires-Dist: matchor (>=0.1.0,<0.2.0)
+Requires-Dist: mementos (>=1.3.1,<2.0.0)
+Requires-Dist: python-levenshtein (>=0.21.1,<0.22.0)
+Requires-Dist: tabulate (>=0.9.0,<0.10.0)
+Requires-Dist: uniquer (>=1.0.2,<2.0.0)
+Description-Content-Type: text/markdown
+
+[![PyPI Version](https://badge.fury.io/py/ucdp.svg)](https://badge.fury.io/py/ucdp)
+[![Python Build](https://github.com/nbiotcloud/ucdp/actions/workflows/main.yml/badge.svg)](https://github.com/nbiotcloud/ucdp/actions/workflows/main.yml)
+[![Documentation](https://readthedocs.org/projects/ucdp/badge/?version=latest)](https://ucdp.readthedocs.io/en/latest/?badge=latest)
+[![Coverage Status](https://coveralls.io/repos/github/nbiotcloud/ucdp/badge.svg?branch=main)](https://coveralls.io/github/nbiotcloud/ucdp?branch=main)
+[![python-versions](https://img.shields.io/pypi/pyversions/ucdp.svg)](https://pypi.python.org/pypi/ucdp)
+[![pylint](https://img.shields.io/badge/linter-pylint-%231674b1?style=flat)](https://www.pylint.org/)
+[![black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+# Unified Chip Design Platform
+
+* [Documentation](https://ucdp.readthedocs.io/en/latest/)
+* [PyPI](https://pypi.org/project/ucdp/)
+* [Sources](https://github.com/nbiotcloud/ucdp)
+* [Issues](https://github.com/nbiotcloud/ucdp/issues)
+
+## Installation
+
+Installing it is pretty easy:
+
+```bash
+pip install ucdp
+```
+
