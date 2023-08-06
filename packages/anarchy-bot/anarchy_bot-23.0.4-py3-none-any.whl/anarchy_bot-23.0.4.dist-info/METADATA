@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: anarchy_bot
+Version: 23.0.4
+Summary: telegram bot that can add users to minecraft whitelist
+Project-URL: Documentation, https://t.me/gmanka
+Project-URL: Bug Tracker, https://t.me/gmanka
+Project-URL: Homepage, https://t.me/gmanka
+Author-email: gmanka <gmankab@gmail.com>
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Requires-Dist: gmanka-yml==23.0.*
+Requires-Dist: pyrogram==2.0.*
+Requires-Dist: rich==13.4.*
+Requires-Dist: tgcrypto==1.2.*
+Requires-Dist: uvloop==0.17.*
+Description-Content-Type: text/markdown
+
+# anarchy_bot
+
+telegram bot that can promote any user to admin
+
+## install
+
+```bash
+pip install -U anarchy_bot
+```
+
+## run
+
+```bash
+pythom -m anarchy_bot
+```
+
+## translate to your language
+
+- fork repo
+- go to [anarchy_bot/lang](https://github.com/gmankab/saltomaru_connect_tg/tree/main/saltomaru_connect_tg/lang)
+- duplicate `en.yml` file
+- rename it to something like `ru.yml`
+- edit file
+- make pull request
+- bot automatically decects language set in user's telegram client, and will search the dir for file with translation
+
