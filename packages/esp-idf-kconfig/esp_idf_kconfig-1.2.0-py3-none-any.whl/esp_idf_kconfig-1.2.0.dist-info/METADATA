@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: esp-idf-kconfig
+Version: 1.2.0
+Summary: Kconfig tooling for esp-idf
+Home-page: https://github.com/espressif/esp-idf-kconfig
+Author: Espressif Systems
+Author-email: 
+Keywords: espressif,embedded,project,configuration,kconfig
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Environment :: Console
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: kconfiglib (>=13.7.1)
+Provides-Extra: dev
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: pexpect ; extra == 'dev'
+
+# esp-idf-kconfig
+
+The ```esp-idf-kconfig``` package is part of the [ESP-IDF](https://github.com/espressif/esp-idf) SDK for Espressif products and is automatically installed.
+
+It is responsible for enabling project configuration using the ```kconfig``` language, providing IDE support for configuration and configuration documentation generation.
+
+For more information about how it works go to the [documentation](https://github.com/espressif/esp-idf-kconfig/blob/master/docs/DOCUMENTATION.md).
