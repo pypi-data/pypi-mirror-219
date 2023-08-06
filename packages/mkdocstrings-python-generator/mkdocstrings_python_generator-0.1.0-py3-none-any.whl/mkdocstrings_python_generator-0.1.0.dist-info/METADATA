@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: mkdocstrings-python-generator
+Version: 0.1.0
+Summary: Autogenerates a project's mkdocs reference documentation via mkdocstrings-python
+License: MIT
+Author: Philip Couling
+Author-email: couling@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: mkdocs (>=1.4.0,<2.0.0)
+Requires-Dist: mkdocstrings-python (>=1.0.0,<2.0.0)
+Description-Content-Type: text/markdown
+
+# mkdocstrings-python-generator
+
+mkdocstrings-python-generator is a mkdocs plugin for generating markdown pages automatically from python source code.
+
+It is intended to fill a gap which is currently left to each user of mkdoctstings-python.  Namely: generating markdown
+files for each python file.
+
+_Note despite the name there is no affiliation between mkdocstrings and mkdocstrings-python-generator. Please try to 
+determine which plugin is to blame before posting issues here or [there](https://github.com/mkdocstrings/python)._
+
+## Project Status
+
+This project is in a  very phase of development and not yet recomended for production.

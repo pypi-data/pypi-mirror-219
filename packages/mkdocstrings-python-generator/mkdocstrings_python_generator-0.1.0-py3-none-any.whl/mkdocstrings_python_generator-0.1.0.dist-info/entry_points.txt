@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+mkdocstrings-python-generator=mkdocstrings_python_generator.plugin:GeneratePythonDocs
+
