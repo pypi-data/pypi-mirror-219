@@ -1,0 +1,4 @@
+[console_scripts]
+test=toolbox.scripts:test
+toolbox=toolbox.cli:main
+
