@@ -1,0 +1,146 @@
+Metadata-Version: 2.1
+Name: catcher-modules
+Version: 6.0.7
+Summary: Additional modules for catcher.
+Home-page: https://github.com/comtihon/catcher_modules
+Author: Valerii Tikhonov, Ekaterina Belova
+Author-email: valerii.tikhonov@gmail.com
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Testing
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: catcher (>=1.35.3)
+Requires-Dist: arrow (==1.2.3)
+Provides-Extra: airflow
+Requires-Dist: cryptography (==36.0.1) ; extra == 'airflow'
+Provides-Extra: all
+Requires-Dist: cryptography (==36.0.1) ; extra == 'all'
+Requires-Dist: pyodbc (==4.0.32) ; extra == 'all'
+Requires-Dist: pika (==1.2.0) ; extra == 'all'
+Requires-Dist: redis (==4.1.0) ; extra == 'all'
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'all'
+Requires-Dist: imbox (==0.9.8) ; extra == 'all'
+Requires-Dist: simple-salesforce (==1.11.4) ; extra == 'all'
+Requires-Dist: cx-oracle (==8.3.0) ; extra == 'all'
+Requires-Dist: marketorestpython (==0.5.14) ; extra == 'all'
+Requires-Dist: boto3 (==1.24.18) ; extra == 'all'
+Requires-Dist: psycopg2 (==2.9.3) ; extra == 'all'
+Requires-Dist: pymongo (==3.12.3) ; extra == 'all'
+Requires-Dist: cython (==0.29.26) ; extra == 'all'
+Requires-Dist: couchbase (==4.0.1) ; extra == 'all'
+Requires-Dist: selenium (==4.1.0) ; extra == 'all'
+Requires-Dist: docker (==5.0.3) ; extra == 'all'
+Requires-Dist: elasticsearch (==7.16.2) ; extra == 'all'
+Requires-Dist: pymysql (==1.0.2) ; extra == 'all'
+Requires-Dist: pykafka (==2.8.0) ; extra == 'all'
+Provides-Extra: ci
+Requires-Dist: cryptography (==36.0.1) ; extra == 'ci'
+Requires-Dist: pyodbc (==4.0.32) ; extra == 'ci'
+Requires-Dist: pika (==1.2.0) ; extra == 'ci'
+Requires-Dist: redis (==4.1.0) ; extra == 'ci'
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'ci'
+Requires-Dist: imbox (==0.9.8) ; extra == 'ci'
+Requires-Dist: simple-salesforce (==1.11.4) ; extra == 'ci'
+Requires-Dist: cx-oracle (==8.3.0) ; extra == 'ci'
+Requires-Dist: marketorestpython (==0.5.14) ; extra == 'ci'
+Requires-Dist: boto3 (==1.24.18) ; extra == 'ci'
+Requires-Dist: psycopg2 (==2.9.3) ; extra == 'ci'
+Requires-Dist: pymongo (==3.12.3) ; extra == 'ci'
+Requires-Dist: cython (==0.29.26) ; extra == 'ci'
+Requires-Dist: selenium (==4.1.0) ; extra == 'ci'
+Requires-Dist: docker (==5.0.3) ; extra == 'ci'
+Requires-Dist: elasticsearch (==7.16.2) ; extra == 'ci'
+Requires-Dist: pymysql (==1.0.2) ; extra == 'ci'
+Requires-Dist: pykafka (==2.8.0) ; extra == 'ci'
+Provides-Extra: couchbase
+Requires-Dist: couchbase (==4.0.1) ; extra == 'couchbase'
+Provides-Extra: docker
+Requires-Dist: docker (==5.0.3) ; extra == 'docker'
+Provides-Extra: elastic
+Requires-Dist: elasticsearch (==7.16.2) ; extra == 'elastic'
+Provides-Extra: email
+Requires-Dist: imbox (==0.9.8) ; extra == 'email'
+Provides-Extra: kafka
+Requires-Dist: pykafka (==2.8.0) ; extra == 'kafka'
+Provides-Extra: marketo
+Requires-Dist: marketorestpython (==0.5.14) ; extra == 'marketo'
+Provides-Extra: mongodb
+Requires-Dist: pymongo (==3.12.3) ; extra == 'mongodb'
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'mongodb'
+Provides-Extra: mssql
+Requires-Dist: pyodbc (==4.0.32) ; extra == 'mssql'
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'mssql'
+Provides-Extra: mysql
+Requires-Dist: cython (==0.29.26) ; extra == 'mysql'
+Requires-Dist: pymysql (==1.0.2) ; extra == 'mysql'
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'mysql'
+Provides-Extra: oracle
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'oracle'
+Requires-Dist: cx-oracle (==8.3.0) ; extra == 'oracle'
+Provides-Extra: postgres
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'postgres'
+Requires-Dist: psycopg2 (==2.9.3) ; extra == 'postgres'
+Provides-Extra: rabbit
+Requires-Dist: pika (==1.2.0) ; extra == 'rabbit'
+Provides-Extra: redis
+Requires-Dist: redis (==4.1.0) ; extra == 'redis'
+Provides-Extra: s3
+Requires-Dist: boto3 (==1.24.18) ; extra == 's3'
+Provides-Extra: salesforce
+Requires-Dist: simple-salesforce (==1.11.4) ; extra == 'salesforce'
+Provides-Extra: selenium
+Requires-Dist: selenium (==4.1.0) ; extra == 'selenium'
+Provides-Extra: sqlite
+Requires-Dist: sqlalchemy (==1.4.29) ; extra == 'sqlite'
+
+.. image:: https://github.com/comtihon/catcher_modules/actions/workflows/test.yml/badge.svg?branch=master
+    :target: https://github.com/comtihon/catcher_modules/actions/workflows/test.yml
+.. image:: https://img.shields.io/pypi/v/catcher_modules.svg
+    :target: https://pypi.python.org/pypi/catcher_modules
+.. image:: https://img.shields.io/pypi/pyversions/catcher_modules.svg
+    :target: https://pypi.python.org/pypi/catcher_modules
+.. image:: https://img.shields.io/pypi/wheel/catcher_modules.svg
+    :target: https://pypi.python.org/pypi/catcher_modules
+.. image:: https://patrolavia.github.io/telegram-badge/chat.png
+    :target: https://t.me/catcher_e2e
+
+Catcher modules
+===============
+
+| External `Catcher`_ modules repository.
+| Besides the `built-in`_ Catcher support `external`_ modules: as python or any other executable scripts.
+| See `Catcher`_ documentation on installation catcher with catcher-modules.
+
+.. _Catcher: https://github.com/comtihon/catcher
+.. _built-in: https://catcher-test-tool.readthedocs.io/en/latest/source/internal_modules.html
+.. _external: https://catcher-test-tool.readthedocs.io/en/latest/source/steps.html#external-modules
+
+Usage
+-----
+You can either write your own module in python or as external shell script. Both ways are covered
+in Catcher documentation for `external`_ modules.
+
+Read the `docs`_ for existing modules usage info: `catcher_modules <./docs/source/catcher_modules.rst>`_
+
+.. _docs: https://catcher-modules.readthedocs.io/en/latest/
+
+
+Contribution
+------------
+If you believe your external python module can be useful for other people you can create a pull request here.
+You can find quick support in the telegram channel.
+
+Contributors:
+-------------
+* Many thanks to `Ekaterina Belova <https://github.com/kbelova>`_ for core & modules contribution.
+
+Additional dependencies
+-----------------------
+| `libclntsh.dylib` is required for `oracle`. Read more `here <https://oracle.github.io/odpi/doc/installation.html>`_.
+| `unixodbc-dev` and `driver <https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server>`_ are required for `mssql`
+| `Webdriver <https://www.selenium.dev/documentation/en/webdriver/driver_requirements/#quick-reference>`_ is required for selenium
+| Webdriver `bundle <https://www.selenium.dev/documentation/en/selenium_installation/installing_selenium_libraries/>`_ for your language (except python) is required for selenium.
