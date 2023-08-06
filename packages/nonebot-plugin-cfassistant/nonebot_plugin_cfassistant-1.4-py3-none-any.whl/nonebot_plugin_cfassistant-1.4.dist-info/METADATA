@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: nonebot-plugin-cfassistant
+Version: 1.4
+Summary: 一个支持CF(codeforces)平台查询比赛/比赛提醒/监测分数变化的nonebot机器人插件
+Home-page: https://github.com/coyude/nonebot-plugin-cfassistant
+Author: coyude
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: nonebot-plugin-apscheduler (>=0.3.0)
+Requires-Dist: nonebot2 (>=2.0.0)
+Requires-Dist: nonebot-adapter-onebot (>=2.2.3)
+Requires-Dist: aiosqlite (>=0.17.0)
+Requires-Dist: aiohttp (>=3.8.0)
+
