@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "np-config"
+version = "0.4.24"
+description = "Config fetching from file or Zookeeper - with local backup - repackaging code from AIBS mpeconfig."
+authors = [
+    "Ben Hardcastle <ben.hardcastle@alleninstitute.org>",
+    "Ross Hytnen <rossh@alleninstitute.org>", 
+    "Ben Sutton <ben.sutton@alleninstitute.org>",
+]
+maintainers = ["Ben Hardcastle <ben.hardcastle@alleninstitute.org>"]
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+packages = [{include = "np_config", from = "src"}]
+
+[tool.poetry.urls]
+"Repository" = "https://github.com/alleninstitute/np_config"
+"Bug Tracker" = "https://github.com/alleninstitute/np_config/issues"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+kazoo = "~2.8"
+pyyaml = ">= 5, <7"
+typing-extensions = ">= 4"
+appdirs = "^1"
+requests = "^2"
+"backports.cached-property" = "*"
+singledispatch = "^4.0.0"
+types-singledispatch = "^4.0.0.1"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "*"
+types-PyYaml = "*"
+types-requests = "*"
+pip-tools = "*"
+isort = "*"
+black = "*"
+pytest = "*"
+coverage = {extras = ["toml"], version = "^7.1.0"}
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+    "--doctest-modules",
+    # "--pdb",
+    # "--pdbcls=IPython.terminal.debugger:TerminalPdb",
+]
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+    "ELLIPSIS",
+]
+testpaths = [
+    "tests",
+    "src",
+]
+
+[tool.coverage.paths]
+source = ["src"]
+
+[tool.coverage.run]
+branch = true
+source = ["np_config"]
+
+[tool.coverage.report]
+show_missing = true
