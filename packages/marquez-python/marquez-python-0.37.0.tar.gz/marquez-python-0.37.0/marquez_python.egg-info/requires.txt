@@ -1,0 +1,16 @@
+requests
+six
+pyrfc3339
+deprecation
+
+[dev]
+pytest-cov
+mock
+flake8
+pytest
+
+[tests]
+pytest
+pytest-cov
+mock
+flake8
