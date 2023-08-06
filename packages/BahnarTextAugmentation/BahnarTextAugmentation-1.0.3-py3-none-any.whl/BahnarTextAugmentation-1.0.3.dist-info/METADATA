@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: BahnarTextAugmentation
+Version: 1.0.3
+Summary: Bahnar Text Augmentation
+Author: URA
+License: Apache License 2.0
+Requires-Dist: pyvi
+Requires-Dist: simalign
+Requires-Dist: sentencepiece
+Requires-Dist: transformers
+Requires-Dist: sacremoses
+Requires-Dist: nltk
+Requires-Dist: numpy (==1.22.0)
+Requires-Dist: pandas
+Requires-Dist: gensim (==4.3.0)
+Requires-Dist: openpyxl
+
