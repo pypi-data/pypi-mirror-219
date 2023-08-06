@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: proxyframe
+Version: 0.0.1
+Summary: Creating clones of datasets
+Author: Kyrylo Mordan
+Author-email: <parachute.repo@gmail.com>
+Keywords: python,clustering,clonning
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
+Requires-Dist: torch
+Requires-Dist: sklearn
+
+
+# proxyframe
+
+Under construction! Not ready for use yet! Currently experimenting and planning!
+
+### Initial plans
+
+Goal of the package to create imperfect clones for datasets to serve as proxies to evaluate model performace, run integrations tests etc.
+
+
+Developed by Kyrylo Mordan (c) 2023
+
+
