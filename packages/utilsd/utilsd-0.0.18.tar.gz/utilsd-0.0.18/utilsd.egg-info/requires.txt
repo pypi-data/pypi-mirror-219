@@ -1,0 +1,19 @@
+addict>=2.4.0
+click>=7.0
+numpy>=1.18.0
+pyyaml>=5.4.1
+yapf>=0.31.0
+typeguard<3.0,>=2.13
+
+[:python_version < "3.8"]
+numpy<1.22
+typing-extensions>=3.7
+
+[docs]
+sphinx
+nbsphinx
+pydata-sphinx-theme
+ipython
+
+[full]
+torch>=1.7.1
