@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: Upgrade-OC
+Version: 1.0.0
+Summary: Generic functions for handling upgrading services
+Home-page: UNKNOWN
+Author: Chris Nasr - Ouroboros Coding Inc.
+Author-email: chris@ouroboroscoding.com
+License: CUSTOM
+Project-URL: Source, https://github.com/ouroboroscoding/upgrade-python
+Project-URL: Tracker, https://github.com/ouroboroscoding/upgrade-python/issues
+Keywords: upgrade
+Platform: UNKNOWN
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Upgrade
+
+Methods to easily update data associated with services created by Ouroboros
+Coding Inc. to the latest version.
+
+This code comes without documentation as it's not meant to be used by anyone
+outside of Ouroboros Coding Inc. Please see LICENSE for further information.
+
