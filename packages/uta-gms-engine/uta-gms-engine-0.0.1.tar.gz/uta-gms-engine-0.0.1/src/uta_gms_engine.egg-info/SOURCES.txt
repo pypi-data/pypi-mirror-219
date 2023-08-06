@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+setup.cfg
+src/uta_gms_engine.egg-info/PKG-INFO
+src/uta_gms_engine.egg-info/SOURCES.txt
+src/uta_gms_engine.egg-info/dependency_links.txt
+src/uta_gms_engine.egg-info/top_level.txt
+src/utagms/Solver.py
+src/utagms/__init__.py
+src/utagms/solver.py
