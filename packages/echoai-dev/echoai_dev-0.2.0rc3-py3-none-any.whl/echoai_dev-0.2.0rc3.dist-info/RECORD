@@ -1,0 +1,11 @@
+echoai/__init__.py,sha256=aRvkoDK1brxszbgWXY1Jvj4B91xE8vk_5sdyFqWyNSU,21
+echoai/main.py,sha256=iE2bBvzia1ijVIVLYQGeSDQ5zLcua8vFRMN0fF97m9M,2988
+echoai/clients/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+echoai/clients/langchain_client.py,sha256=ByH6hJ05b33S6xq_ruM03xNzy9dkotSRmF3KWiawSOs,4338
+echoai/clients/openai_client.py,sha256=yc2PG7R1jMGOVv_9jPkZerYxUYfUqWTva_3W5FpNEFc,2826
+echoai_dev-0.2.0rc3.dist-info/LICENSE.txt,sha256=vLo94hSFHM5G7Vr0LWaYBEYW7qzoh8MjG8eiBHSrY54,1083
+echoai_dev-0.2.0rc3.dist-info/METADATA,sha256=2RUWKXoRuAbjhdMlChrhroqjEmj-_Y0zxRyu2J7krBk,1485
+echoai_dev-0.2.0rc3.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+echoai_dev-0.2.0rc3.dist-info/entry_points.txt,sha256=HWlNJK2YrhlgKM2bcpkDkRv-VGEkflP__Vz8cs373nc,44
+echoai_dev-0.2.0rc3.dist-info/top_level.txt,sha256=Es0TLP7h0ay5uLg-2yBbc45ukBezrjvyXAwwHHzvIXs,7
+echoai_dev-0.2.0rc3.dist-info/RECORD,,
