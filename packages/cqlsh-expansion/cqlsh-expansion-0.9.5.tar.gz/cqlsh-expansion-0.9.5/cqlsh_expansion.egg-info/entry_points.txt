@@ -1,0 +1,4 @@
+[console_scripts]
+cqlsh = cqlsh_expansion.__main__:main
+cqlsh-expansion = cqlsh_expansion.__main_expansion__:main
+cqlsh-expansion.init = cqlsh_expansion.post_install:initialize_cassandra_directory
