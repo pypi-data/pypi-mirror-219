@@ -1,0 +1,9 @@
+*.egg*
+*.pyc
+*.pyo
+*.swp
+build
+dist
+docs/_build
+__pycache__
+.tox

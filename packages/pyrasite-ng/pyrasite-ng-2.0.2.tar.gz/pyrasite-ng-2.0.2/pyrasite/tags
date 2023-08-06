@@ -1,0 +1,114 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+DistantInteractiveConsole	./reverse.py	/^class DistantInteractiveConsole(InteractiveConsole):$/;"	c
+PyrasiteIPC	./ipc.py	/^class PyrasiteIPC(object):$/;"	c
+PyrasiteMemoryViewer	./tools/memory_viewer.py	/^class PyrasiteMemoryViewer(object):$/;"	c
+ReverseConnection	./reverse.py	/^class ReverseConnection(threading.Thread, pyrasite.PyrasiteIPC):$/;"	c
+ReversePythonConnection	./reverse.py	/^class ReversePythonConnection(ReverseConnection):$/;"	c
+ReversePythonShell	./payloads/reverse_python_shell.py	/^class ReversePythonShell(pyrasite.ReversePythonConnection):$/;"	c
+ReversePythonShell	./reverse.py	/^class ReversePythonShell(threading.Thread, pyrasite.PyrasiteIPC):$/;"	c
+ReverseShell	./payloads/reverse_shell.py	/^class ReverseShell(pyrasite.ReverseConnection):$/;"	c
+TestCLI	./tests/test_cli.py	/^class TestCLI(object):$/;"	c
+TestCodeInjection	./tests/test_code_injection.py	/^class TestCodeInjection(object):$/;"	c
+TestIPC	./tests/test_ipc.py	/^class TestIPC(object):$/;"	c
+TestIPCContextManager	./tests/test_ipc.py	/^class TestIPCContextManager(object):$/;"	c
+__all__	./__init__.py	/^__all__ = ('inject', 'inspect', 'PyrasiteIPC',$/;"	v
+__copyright__	./__init__.py	/^__copyright__ = "Copyright (C) 2011-2013 Red Hat, Inc."$/;"	v
+__enter__	./ipc.py	/^    def __enter__(self):$/;"	m	class:PyrasiteIPC
+__exit__	./ipc.py	/^    def __exit__(self, *args, **kwargs):$/;"	m	class:PyrasiteIPC
+__init__	./ipc.py	/^    def __init__(self, pid, reverse='ReversePythonConnection', timeout=5):$/;"	m	class:PyrasiteIPC
+__init__	./reverse.py	/^    def __init__(self, host=None, port=None):$/;"	m	class:ReverseConnection
+__init__	./reverse.py	/^    def __init__(self, host=None, port=None):$/;"	m	class:ReversePythonShell
+__init__	./reverse.py	/^    def __init__(self, ipc):$/;"	m	class:DistantInteractiveConsole
+__init__	./tools/memory_viewer.py	/^    def __init__(self, pid, objects):$/;"	m	class:PyrasiteMemoryViewer
+__license__	./__init__.py	/^__license__ = """\\$/;"	v
+__repr__	./ipc.py	/^    def __repr__(self):$/;"	m	class:PyrasiteIPC
+__version__	./__init__.py	/^__version__ = '2.0'$/;"	v
+__version__	./tools/memory_viewer.py	/^__version__ = '1.0'$/;"	v
+assert_output_contains	./tests/test_code_injection.py	/^    def assert_output_contains(self, stdout, stderr, text):$/;"	m	class:TestCodeInjection
+close	./ipc.py	/^    def close(self):$/;"	m	class:PyrasiteIPC
+cmd	./ipc.py	/^    def cmd(self, cmd):$/;"	m	class:PyrasiteIPC
+connect	./ipc.py	/^    def connect(self):$/;"	m	class:PyrasiteIPC
+context_manager_business	./tests/context_manager_case.py	/^def context_manager_business(case):$/;"	f
+create_disabled_radio_button	./tools/memory_viewer.py	/^    def create_disabled_radio_button(self, name):$/;"	m	class:PyrasiteMemoryViewer
+create_payload	./ipc.py	/^    def create_payload(self):$/;"	m	class:PyrasiteIPC
+create_radio_button	./tools/memory_viewer.py	/^    def create_radio_button(self, g, name, obj, fn, disabled=False):$/;"	m	class:PyrasiteMemoryViewer
+display_object	./tools/memory_viewer.py	/^    def display_object(self, w, state):$/;"	m	class:PyrasiteMemoryViewer
+encoding	./inspector.py	/^encoding = sys.getdefaultencoding()$/;"	v
+expand_payload	./main.py	/^def expand_payload(payload):$/;"	f
+generate_program	./tests/utils.py	/^def generate_program(threads=1):$/;"	f
+get_object_buttons	./tools/memory_viewer.py	/^    def get_object_buttons(self, group=[]):$/;"	m	class:PyrasiteMemoryViewer
+get_payload_dir	./main.py	/^def get_payload_dir():$/;"	f
+host	./reverse.py	/^    host = 'localhost'$/;"	v	class:ReverseConnection
+host	./reverse.py	/^    host = 'localhost'$/;"	v	class:ReversePythonShell
+inject	./injector.py	/^    inject = inject_win/;"	v
+inject	./injector.py	/^def inject(pid, filename, verbose=False, gdb_prefix=''):$/;"	f
+inject	./ipc.py	/^    def inject(self):$/;"	m	class:PyrasiteIPC
+inject_win	./injector.py	/^    def inject_win(pid, filename, verbose=False, gdb_prefix=''):$/;"	f
+inspect	./inspector.py	/^def inspect(pid, address):$/;"	f
+interpreters	./tests/utils.py	/^def interpreters():$/;"	f
+list_payloads	./main.py	/^def list_payloads():$/;"	f
+listen	./ipc.py	/^    def listen(self):$/;"	m	class:PyrasiteIPC
+main	./main.py	/^def main():$/;"	f
+main	./tools/memory_viewer.py	/^    def main(self):$/;"	m	class:PyrasiteMemoryViewer
+main	./tools/memory_viewer.py	/^def main():$/;"	f
+on_command	./payloads/reverse_shell.py	/^    def on_command(self, cmd):$/;"	m	class:ReverseShell
+on_command	./reverse.py	/^    def on_command(self, cmd):$/;"	m	class:ReverseConnection
+on_command	./reverse.py	/^    def on_command(self, cmd):$/;"	m	class:ReversePythonConnection
+on_connect	./payloads/reverse_python_shell.py	/^    def on_connect(self):$/;"	m	class:ReversePythonShell
+on_connect	./payloads/reverse_shell.py	/^    def on_connect(self):$/;"	m	class:ReverseShell
+on_connect	./reverse.py	/^    def on_connect(self):$/;"	m	class:ReverseConnection
+palette	./tools/memory_viewer.py	/^    palette = [$/;"	v	class:PyrasiteMemoryViewer
+path	./payloads/dump_memory.py	/^    path = os.path.join(temp, 'pyrasite-%d-objects.json' % os.getpid())$/;"	v
+port	./payloads/reverse_python_shell.py	/^    port = 9001$/;"	v	class:ReversePythonShell
+port	./payloads/reverse_shell.py	/^    port = 9001$/;"	v	class:ReverseShell
+port	./reverse.py	/^    port = 9001$/;"	v	class:ReverseConnection
+port	./reverse.py	/^    port = 9001$/;"	v	class:ReversePythonShell
+ptrace_check	./main.py	/^def ptrace_check():$/;"	f
+raw_input	./reverse.py	/^    def raw_input(self, prompt=""):$/;"	m	class:DistantInteractiveConsole
+recv	./ipc.py	/^    def recv(self):$/;"	m	class:PyrasiteIPC
+recv_bytes	./ipc.py	/^    def recv_bytes(self, n):$/;"	m	class:PyrasiteIPC
+reliable	./ipc.py	/^    reliable = True$/;"	v	class:PyrasiteIPC
+reliable	./payloads/reverse_python_shell.py	/^    reliable = False$/;"	v	class:ReversePythonShell
+reliable	./payloads/reverse_shell.py	/^    reliable = False # This payload is designed to be used with netcat$/;"	v	class:ReverseShell
+reliable	./reverse.py	/^    reliable = True$/;"	v	class:ReverseConnection
+reliable	./reverse.py	/^    reliable = True$/;"	v	class:ReversePythonShell
+run	./reverse.py	/^    def run(self):$/;"	m	class:ReverseConnection
+run	./reverse.py	/^    def run(self):$/;"	m	class:ReversePythonShell
+run_program	./tests/utils.py	/^def run_program(program, exe='\/usr\/bin\/python'):$/;"	f
+send	./ipc.py	/^    def send(self, data):$/;"	m	class:PyrasiteIPC
+setUp	./tests/test_ipc.py	/^    def setUp(self):$/;"	m	class:TestIPC
+setUp	./tests/test_ipc.py	/^    def setUp(self):$/;"	m	class:TestIPCContextManager
+set_buffer	./reverse.py	/^    def set_buffer(self):$/;"	m	class:DistantInteractiveConsole
+setup_view	./tools/memory_viewer.py	/^    def setup_view(self):$/;"	m	class:PyrasiteMemoryViewer
+shell	./tools/shell.py	/^def shell():$/;"	f
+stop_program	./tests/utils.py	/^def stop_program(p):$/;"	f
+tearDown	./tests/test_ipc.py	/^    def tearDown(self):$/;"	m	class:TestIPC
+tearDown	./tests/test_ipc.py	/^    def tearDown(self):$/;"	m	class:TestIPCContextManager
+temp	./payloads/dump_memory.py	/^    temp = os.getenv('TEMP', os.getenv('TMP', '\/temp'))$/;"	v
+test_cmd	./tests/test_ipc.py	/^    def test_cmd(self):$/;"	m	class:TestIPC
+test_connect	./tests/test_ipc.py	/^    def test_connect(self):$/;"	m	class:TestIPC
+test_context_manager	./tests/test_ipc.py	/^    def test_context_manager(self):$/;"	m	class:TestIPCContextManager
+test_create_payload	./tests/test_ipc.py	/^    def test_create_payload(self):$/;"	m	class:TestIPC
+test_injecting_into_all_interpreters	./tests/test_code_injection.py	/^    def test_injecting_into_all_interpreters(self):$/;"	m	class:TestCodeInjection
+test_injection	./tests/test_cli.py	/^    def test_injection(self):$/;"	m	class:TestCLI
+test_invalid_payload	./tests/test_cli.py	/^    def test_invalid_payload(self):$/;"	m	class:TestCLI
+test_invalid_pid	./tests/test_cli.py	/^    def test_invalid_pid(self):$/;"	m	class:TestCLI
+test_list_payloads	./tests/test_cli.py	/^    def test_list_payloads(self):$/;"	m	class:TestCLI
+test_listen	./tests/test_ipc.py	/^    def test_listen(self):$/;"	m	class:TestIPC
+test_many_payloads_into_program_with_many_threads	./tests/test_code_injection.py	/^    def test_many_payloads_into_program_with_many_threads(self):$/;"	m	class:TestCodeInjection
+test_pyrasite_script	./tests/test_code_injection.py	/^    def test_pyrasite_script(self):$/;"	m	class:TestCodeInjection
+test_repr	./tests/test_ipc.py	/^    def test_repr(self):$/;"	m	class:TestIPC
+test_title	./tests/test_ipc.py	/^    def test_title(self):$/;"	m	class:TestIPC
+test_unreliable	./tests/test_ipc.py	/^    def test_unreliable(self):$/;"	m	class:TestIPC
+test_usage	./tests/test_cli.py	/^    def test_usage(self):$/;"	m	class:TestCLI
+title	./ipc.py	/^    def title(self):$/;"	m	class:PyrasiteIPC
+unhandled_input	./tools/memory_viewer.py	/^    def unhandled_input(self, key):$/;"	m	class:PyrasiteMemoryViewer
+unset_buffer	./reverse.py	/^    def unset_buffer(self):$/;"	m	class:DistantInteractiveConsole
+wait	./ipc.py	/^    def wait(self):$/;"	m	class:PyrasiteIPC
