@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: kanonym4text
+Version: 0.2.5
+Summary: k-anonymity for texts
+Home-page: https://github.com/neumanh/K-anonymity-fot-texts
+Author: Lior Trieman, Hadas Neuman
+Author-email: liortr30@gmail.com, hadas.doron@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/neumanh/K-anonymity-fot-texts/archive/refs/tags/0.2.5.tar.gz
+Keywords: python,k-anonymity,privacy,NLP
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Requires-Dist: annoy (==1.17.2)
+Requires-Dist: en-core-web-sm (==3.6.0)
+Requires-Dist: gensim (==4.3.1)
+Requires-Dist: k-means-constrained (==0.7.2)
+Requires-Dist: matplotlib (==3.7.1)
+Requires-Dist: nltk (==3.8.1)
+Requires-Dist: numpy (==1.23.0)
+Requires-Dist: pandas (==1.5.3)
+Requires-Dist: sentence-transformers (==2.2.2)
+Requires-Dist: spacy (==3.5.3)
+Requires-Dist: torch (==2.0.1)
+Requires-Dist: transformers (==4.29.0)
+
+A package that takes a dataframe with a corpus and return an anonymized corpus
+
+
