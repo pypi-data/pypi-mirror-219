@@ -1,0 +1,17 @@
+openlrc/__init__.py,sha256=dX8F112zbMt2u4hDYGVs71I0BBU8o7UJZBrfhMHhq10,106
+openlrc/chatbot.py,sha256=9s7aZ1NFpd6LMNiW9yRGiKtU9lHgkwm15fouvI5bu70,6642
+openlrc/context.py,sha256=43aa0SrsikJuyXtiEvJ5OKLnKs8WCe3qLGjxBG5uYak,2761
+openlrc/defaults.py,sha256=ISzG2opINaAdD4SwMNinjl47sv4r7qzt3njmZHZ4cgY,1424
+openlrc/exceptions.py,sha256=5LoV6HoTuoWOsVI_j9huLO4FuScj3WgiY5mnGIydJio,966
+openlrc/logger.py,sha256=ZjESfxXRpoLz5ehxSRD9BFV3_FYL3Qq_tdhs6T8QjNc,597
+openlrc/openlrc.py,sha256=1FbfK3c7GsOW5qcpc2wSvdYP-vHOKxP2AGRRPg-nnNQ,12901
+openlrc/opt.py,sha256=vc8ezotqGxNJJa7m11NInvLQpNaBTwlSC5T5YrMON9Y,5165
+openlrc/prompter.py,sha256=Vuo1CE_XYp9KtY1cJaEwFbFP9Rrf7OmhLSCyBm1s3iw,7702
+openlrc/subtitle.py,sha256=Um1xRsOO6MRj081_PGv0PR48onn5xGdO2u59ojVXFY0,6372
+openlrc/transcribe.py,sha256=qE61aylrhyRy_XgWTlTHVot00hm5QN_CgkZR4tzbOEU,6729
+openlrc/translate.py,sha256=khV8ko0AWoRqeKkg0a3Wy2c0ReG8wOfHAfYaWD1h4Vc,5735
+openlrc/utils.py,sha256=9_LEWCCpKUpxguSjcTLktzRSH_jn8FdH7Y0QSQxf-zI,6552
+openlrc-0.2.0.dist-info/LICENSE,sha256=te97TEsRpdSrKK_Ifa7qgXa-gepGBAr82cK_fCDBCKo,1083
+openlrc-0.2.0.dist-info/METADATA,sha256=CHL54RZLTffK6CfSusMvMU-z7FqCigA4eUZaaKz2e_E,7019
+openlrc-0.2.0.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+openlrc-0.2.0.dist-info/RECORD,,
