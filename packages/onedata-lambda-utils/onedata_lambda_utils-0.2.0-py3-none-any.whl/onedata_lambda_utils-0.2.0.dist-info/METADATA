@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: onedata-lambda-utils
+Version: 0.2.0
+Summary: Python Library containing utility functions for use in OpenFaaS lambda implementations
+Author: Rafal Widziszewski
+License: MIT
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: typing-extensions (==4.3.0)
+
+onedata-lambda-utils
+========================
+Python Library containing utility functions for use in OpenFaaS lambda implementations
+
+## Installation
+
+Installation:
+```bash
+   python -m pip install onedata_lambda_utils
+```
+
+## Compatibility
+
+Specific `onedata-lambda-utils` releases are intended to be used only with compatible Oneprovider versions:
+
+| Oneprovider version | Compatible python library versions |
+|---------------------|------------------------------------|
+| `21.02.3`+          | `0.2.x`                            |
+| `21.02.1 - 21.02.2` | `0.1.x`                            |
