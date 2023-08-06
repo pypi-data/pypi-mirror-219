@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+src/schelp/__init__.py
+src/schelp/__main__.py
+src/schelp/_version.py
+src/schelp/bin.py
+src/schelp/grammar.py
+src/schelp.egg-info/PKG-INFO
+src/schelp.egg-info/SOURCES.txt
+src/schelp.egg-info/dependency_links.txt
+src/schelp.egg-info/not-zip-safe
+src/schelp.egg-info/requires.txt
+src/schelp.egg-info/top_level.txt
