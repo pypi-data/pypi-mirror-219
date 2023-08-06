@@ -1,0 +1,14 @@
+kaiju_auth/__init__.py,sha256=XnGUCMBmkfoDvV0aU7mpI2CnkPgWqXkAHV0Jfco9mIg,93
+kaiju_auth/services.py,sha256=9O9YL6o1TEiQqRkRZJQRG_57E-ixoK-m_Kf0LRUWe4Q,39325
+kaiju_auth/permissions_gui/__init__.py,sha256=8Bxbwkjqk5QjDlZyXQ7R8dWLajhggp8of-yeZPz_pN0,55
+kaiju_auth/permissions_gui/models.py,sha256=JJFA7O1W-TaiJjVG1XgRKlhm92c0RRi4KJzFqKCXcWQ,3228
+kaiju_auth/permissions_gui/service.py,sha256=-zq5O6XhkF5wV7cRHHZBvpbdNZwOGyrzdkzlxWk2GOY,18327
+kaiju_auth/permissions_gui/validators.py,sha256=sytK30UHT8fg_SI5DaQRlsp1dEuyAholiOgF7fICp1I,1212
+kaiju_auth/tests/__init__.py,sha256=WlPruePOcaMi5ikqn6GheE1Z-zYcysb9M1dj6SteWGY,42
+kaiju_auth/tests/fixtures.py,sha256=VY2tGCDQuh6eVKsMw7k09utiaExEqHYOkcJ3j-9H6gg,1516
+kaiju_auth/tests/test_auth.py,sha256=c_2ePogWreVcRgTHc-SraX8Mkhlr2db7vdAOAkc9CsY,7967
+kaiju_auth-2.1.4.dist-info/LICENSE,sha256=XIlN2qA8UqpBDA-PteoYP4hTU0qBW0G9PRB__khO2zc,610
+kaiju_auth-2.1.4.dist-info/METADATA,sha256=8S_mcH8oq6QPD52EfZjKH3HdOKMpq0b_i8kLSEwG9zU,3101
+kaiju_auth-2.1.4.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+kaiju_auth-2.1.4.dist-info/top_level.txt,sha256=5F9g7EZLuzcI4ioeLmgI2Pp_r2yuzykkUc5L7lcUl2I,11
+kaiju_auth-2.1.4.dist-info/RECORD,,
