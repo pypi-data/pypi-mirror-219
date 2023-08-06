@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "scw-gateway"
+version = "0.6.1"
+description = "CLI to deploy and manage a self-hosted Kong gateway on Scaleway Serverless Ecosystem"
+authors = ["Simon Shillaker <sshillaker@scaleway.com>"]
+
+readme = "README.md"
+repository = "https://github.com/scaleway/serverless-gateway"
+documentation = "https://serverless-gateway.readthedocs.io/en/latest/"
+keywords = ["serverless", "scaleway", "gateway", "cloud", "caas"]
+
+# Should be one of:
+# "Development Status :: 3 - Alpha"
+# "Development Status :: 4 - Beta"
+# "Development Status :: 5 - Production/Stable"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Internet",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+packages = [{ include = "cli" }]
+include = ["CHANGELOG.md"]
+
+[tool.poetry.dependencies]
+loguru = "0.6.0"
+python = "^3.10"
+requests = "^2.28.2"
+click = "^8.1.3"
+pyyaml = "^6.0"
+scaleway = "^0.12.0"
+rich = "^13.4.2"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+mypy = "^1.4.1"
+pyjwt = "^2.7.0"
+pytest = "^7.3.1"
+pytest-mock = "^3.10.0"
+responses = "^0.23.1"
+types-pyyaml = "^6.0.12.9"
+types-requests = "^2.29.0.0"
+
+[tool.poetry.group.doc]
+optional = true
+
+[tool.poetry.group.doc.dependencies]
+myst-parser = "^2.0.0"
+sphinx = "^6.1.0"
+sphinx_rtd_theme = "^1.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+scwgw = "cli.cli:main"
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+testpaths = ["tests"]
+markers = ["deployed: Integration tests for a fully deployed environment"]
+
+[tool.mypy]
+exclude = ["venv", "endpoints"]
