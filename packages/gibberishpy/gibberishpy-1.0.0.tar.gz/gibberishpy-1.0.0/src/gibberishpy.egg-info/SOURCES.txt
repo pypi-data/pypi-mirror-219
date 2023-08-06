@@ -1,0 +1,10 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/gibberishpy/__init__.py
+src/gibberishpy/_error.py
+src/gibberishpy/scanner.py
+src/gibberishpy.egg-info/PKG-INFO
+src/gibberishpy.egg-info/SOURCES.txt
+src/gibberishpy.egg-info/dependency_links.txt
+src/gibberishpy.egg-info/top_level.txt
