@@ -1,0 +1,79 @@
+[tool.poetry]
+name = "fastchecks"
+version = "0.2.2"
+description = "🚥 Fast website monitoring backend service"
+authors = ["Dr. Juan Miguel Cejuela <i@juanmi.rocks>"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/juanmirocks/fastchecks"
+packages = [{ include = "fastchecks" }]
+include = ["NOTICE"]
+
+
+[tool.poetry.scripts]
+fastchecks = 'fastchecks.cli:main'
+
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.8.4"
+psycopg = { extras = ["binary", "pool"], version = "^3.1.9" }
+pydantic = "^2.0.1"
+apscheduler = "4.0.0a2"
+google-re2 = "^1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.4.1"
+pyflakes = "^3.0.1"
+bandit = "^1.7.5"
+black = "^23.3.0"
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.0"
+poethepoet = "^0.20.0"
+pytest-cov = "^4.1.0"
+pytest-xdist = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.black]
+line-length = 120
+
+
+[tool.mypy]
+files = ["fastchecks", "tests"]
+
+
+[tool.bandit.assert_used]
+skips = ["*/test_*.py"]
+
+
+# poethepoet: python & shell scripts to run within poetry: https://poethepoet.natn.io/
+[tool.poe.tasks]
+# format code
+fmt = "black ."
+
+# run tests with coverage -- for now do not use xdist's `-n auto` option
+test = "pytest --cov=fastchecks --cov-report=term-missing --cov-report=lcov:.cov/coverage.lcov" # HTML possible too: --cov-report=html:.cov/html"
+
+# Checks the validity of the pyproject.toml file
+lint_package = "poetry check"
+
+lint_errors = "pyflakes ."
+
+# For now ignore possible non 0 exit code; but at least report warnings & errors
+lint_types.shell = "mypy || true"
+lint_types_strict.shell = "mypy --strict || true"
+
+lint_bandit = "bandit -c pyproject.toml -r ."
+# snyk is not installed as a python dependency, but as a shell command (see how to install Snyk CLI: https://docs.snyk.io/snyk-cli/install-the-snyk-cli)
+lint_snyk.shell = "snyk code test; snyk test"
+lint_sec = ["lint_bandit", "lint_snyk"]
+
+# Snyk not added here since it might not be installed in the system
+lint_all = ["lint_package", "lint_errors", "lint_types", "lint_bandit"]
+
+test_n_lint = ["test", "lint_all"]
