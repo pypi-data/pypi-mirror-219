@@ -1,0 +1,1 @@
+from wiliot_deployment_tools.gw_certificate.tests.coupling import CouplingTest
