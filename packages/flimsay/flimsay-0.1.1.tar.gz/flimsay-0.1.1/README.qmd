@@ -1,0 +1,157 @@
+
+---
+title: "Flimsy: Fun/Fast Simple IMS Anyone like You can use."
+author: "Sebastian Paez"
+format:
+  gfm
+---
+
+version = 0.1.1
+
+This repository implements a very simple LGBM model
+to predict ion mobility from peptides.
+
+## Usage
+
+There are two main ways to interact with `flimsay`, one is using python and the other one is using the python api directly.
+
+### CLI
+
+```shell
+$ pip install flimsay
+```
+
+```shell
+$ flimsay fill_blib mylibrary.blib # This will add ion mobility data to a .blib file.
+```
+
+```{python}
+! flimsay fill_blib --help
+```
+
+### Python
+
+#### Single peptide
+
+```{python}
+from flimsay.model import FlimsayModel
+
+model_instance = FlimsayModel()
+model_instance.predict_peptide("MYPEPTIDEK", charge=2)
+```
+
+#### Many peptides at once
+
+```{python}
+import pandas as pd
+from flimsay.features import add_features, FEATURE_COLUMNS
+
+df = pd.DataFrame({
+    "Stripped_Seqs": ["LESLIEK", "LESLIE", "LESLKIE"]
+})
+df = add_features(
+    df,
+    stripped_sequence_name="Stripped_Seqs",
+    calc_masses=True,
+    default_charge=2,
+)
+df
+```
+
+```{python}
+model_instance.predict(df[FEATURE_COLUMNS])
+```
+
+## Performance
+
+### Prediction Performance
+
+![](https://github.com/TalusBio/flimsay/blob/main/train/plots/one_over_k0_model_ims_pred_vs_true.png)
+
+![](https://github.com/TalusBio/flimsay/blob/main/train/plots/ccs_predicted_vs_real.png)
+
+### Prediction Speed
+
+#### Single peptide prediction
+
+```{python}
+from flimsay.model import FlimsayModel
+
+model_instance = FlimsayModel()
+
+%timeit model_instance.predict_peptide("MYPEPTIDEK", charge=3)
+```
+
+In my laptop that takes 133 microseconds per peptide, or roughly 7,500 peptides per second.
+
+#### Batch Prediction
+
+```{python}
+# Lets make a dataset of 1M peptides to test
+import random
+import pandas as pd
+from flimsay.features import calc_mass, mass_to_mz, add_features
+
+random.seed(42)
+AMINO_ACIDS = list("ACDEFGHIKLMNPQRSTVWY")
+charges = [2,3,4]
+
+seqs = [random.sample(AMINO_ACIDS, 10) for _ in range(1_000_000)]
+charges = [random.sample(charges, 1)[0] for _ in range(1_000_000)]
+seqs = ["".join(seq) for seq in seqs]
+masses = [calc_mass(x) for x in seqs]
+mzs = [mass_to_mz(m, c) for m, c in zip(masses, charges)]
+
+df = pd.DataFrame({
+    "Stripped_Seqs": seqs,
+    "PrecursorCharge": charges,
+    "Mass": masses,
+    "PrecursorMz": mzs})
+df = add_features(df, stripped_sequence_name="Stripped_Seqs")
+
+
+# Now we get to run the prediction!
+%timeit model_instance.predict(df)
+```
+
+In my system every million peptides is predicted in 8.86 seconds, that is
+~ 113,000 per second.
+
+## Motivation
+
+There is a fair amount of data on CCS and ion mobility of peptides
+but only very few models actually use features that are directly
+interpretable.
+
+In addition, having a simpler model allows faster predictions
+in systems that are not equiped with GPUs.
+
+Therefore, this project aims to create a freely available, easy to use, interpretable and fast model to predict ion mobility and collisional cross-section for peptides.
+
+## Features
+
+The features used for prediction are meant to be
+simple and their implementation can be found here:
+[flimsy/features.py](flimsy/features.py)
+
+```{python}
+from flimsay.features import FEATURE_COLUMN_DESCRIPTIONS
+for k,v in FEATURE_COLUMN_DESCRIPTIONS.items():
+    print(f">>> The Feature '{k}' is defined as: \n\t{v}")
+```
+
+## Training
+
+Currently the training logic is handled using DVC (https://dvc.org).
+
+```shell
+git clone {this repo}
+cd flimsay/train
+dvc repro
+```
+
+Running this should automatically download the data,
+trian the models, calculate and update the metrics.
+
+The current version of this repo uses predominantly the data from:
+- Meier, F., Köhler, N.D., Brunner, AD. et al. Deep learning the collisional cross sections of the peptide universe from a million experimental values. Nat Commun 12, 1185 (2021). https://doi.org/10.1038/s41467-021-21352-8
