@@ -1,0 +1,3 @@
+[console_scripts]
+hy = hypermea.commands:initialize
+hypermea = hypermea.commands:initialize
