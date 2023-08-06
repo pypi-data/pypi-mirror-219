@@ -1,0 +1,41 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aiofiles = "*"
+aiohttp = "*"
+bs4 = "*"
+cssselect = "*"
+lxml = "*"
+natsort = "*"
+playwright = "*"
+regex = "*"
+tomlkit = "*"
+user-agent = "*"
+watchdog = "*"
+
+[dev-packages]
+tox-pyenv = "*"
+tox = "<4"
+pre-commit = "*"
+myst-parser = "*"
+sphinx = "*"
+sphinx-autodoc-typehints = "*"
+sphinx-autobuild = "*"
+sphinx-copybutton = "*"
+aioresponses = "*"
+pytest-asyncio = "*"
+pytest-console-scripts = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+pytest-playwright = "*"
+pytest-randomly = "*"
+pytest-xdist = "*"
+types-aiofiles = "*"
+pylint = "*"
+xsget = {editable = true, path = "."}
+
+[requires]
+python_version = "3.8"

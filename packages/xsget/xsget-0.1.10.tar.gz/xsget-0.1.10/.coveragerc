@@ -1,0 +1,12 @@
+[run]
+source = xsget
+concurrency = multiprocessing
+parallel = true
+sigterm = true
+
+[report]
+exclude_lines =
+    if __name__ == .__main__.:
+
+[html]
+directory = cover
