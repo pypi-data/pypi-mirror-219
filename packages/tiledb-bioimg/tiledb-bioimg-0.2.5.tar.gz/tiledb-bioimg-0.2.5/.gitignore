@@ -1,0 +1,18 @@
+*.pyc
+.idea
+.eggs/
+*.egg-info/
+build/
+dist/
+*.DS_Store
+docs/_build/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# setuptools-scm
+tiledb/bioimg/version.py
+
+# Unit test / coverage reports
+.coverage
