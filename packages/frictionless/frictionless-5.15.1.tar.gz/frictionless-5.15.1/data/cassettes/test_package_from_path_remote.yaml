@@ -1,0 +1,72 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.25.1
+    method: GET
+    uri: https://raw.githubusercontent.com/frictionlessdata/frictionless-py/master/data/package.json
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6vmUlBQykvMTVWygtI6IJGi1OL80qLk1GKgcDRQQEGhGkxiUwwWLUgsyQCJliQm
+        5aTqJReXKYFlaoFkLFctFwDpqh6KZwAAAA==
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - max-age=300
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Length:
+      - '82'
+      Content-Security-Policy:
+      - default-src 'none'; style-src 'unsafe-inline'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 09 Feb 2021 08:48:54 GMT
+      ETag:
+      - W/"6146a0ca3a109c07c2d1c77f444d0594c9e11fd4f679f2e65abff433714d9dc4"
+      Expires:
+      - Tue, 09 Feb 2021 08:53:54 GMT
+      Source-Age:
+      - '0'
+      Strict-Transport-Security:
+      - max-age=31536000
+      Vary:
+      - Authorization,Accept-Encoding
+      Via:
+      - 1.1 varnish
+      X-Cache:
+      - MISS
+      X-Cache-Hits:
+      - '0'
+      X-Content-Type-Options:
+      - nosniff
+      X-Fastly-Request-ID:
+      - db5ed3d12adee0a4e0f0a2b40f21504a695a4107
+      X-Frame-Options:
+      - deny
+      X-GitHub-Request-Id:
+      - B5A8:5722:C8C83:D7756:60224C72
+      X-Served-By:
+      - cache-fra19125-FRA
+      X-Timer:
+      - S1612860534.845776,VS0,VE159
+      X-XSS-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
