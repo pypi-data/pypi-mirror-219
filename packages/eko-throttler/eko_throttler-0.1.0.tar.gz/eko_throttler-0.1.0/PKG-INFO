@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: eko_throttler
+Version: 0.1.0
+Summary: Async implementation of a rate-limited lock object for Python 3.11.x
+Author-email: Drix Holway <ekoteqmedia@gmail.com>
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.11.0
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# eko_throttler
+Async implementation of a rate-limited lock object for Python 3.11.x
+
+## Info
+Author: Drix Holway
+Version: 0.1.0
+Revision Date: 2023-07-18
+
+## Usage
+
+```python
+from eko_throttler import Throttler
+
+async def main():
+	throttler = Throttler(10, 1)
+	async with throttler:
+		# do something
+```
+
+## Installation
+
+```bash
+pip install eko_throttler
+```
+
+## License
+Licensed under the [MIT](LICENSE) license.
+
+## Credits
+Copyright (c) 2023 Ekoteq
+
+Author: Drix Holway

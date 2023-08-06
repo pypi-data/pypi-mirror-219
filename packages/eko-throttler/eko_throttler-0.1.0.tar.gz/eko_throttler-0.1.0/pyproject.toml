@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eko_throttler"
+version = "0.1.0"
+authors = [
+	{ name="Drix Holway", email="ekoteqmedia@gmail.com" },
+]
+description = "Async implementation of a rate-limited lock object for Python 3.11.x"
+readme = "README.md"
+requires-python = ">=3.11.0"
+classifiers = [
+	"Development Status :: 3 - Alpha",
+	"Intended Audience :: Developers",
+	"License :: OSI Approved :: MIT License",
+	"Programming Language :: Python :: 3.11",
+	"Operating System :: OS Independent",
+]
