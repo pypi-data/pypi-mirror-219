@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: TextClassification
+Version: 0.2.4
+Summary: Create Text Classification Fine-Tunning Model
+Home-page: https://github.com/falahgs/
+Author: Falahgs.G.Saleih
+Author-email: falahgs07@gmail.com
+License: MIT
+Keywords: transformers,datasets
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: transformers (==4.27.0)
+Requires-Dist: datasets (==2.9)
+Requires-Dist: evaluate
+
+# Text Classification with NLP Models and Transformers
+
+## Introduction
+This Python package provides a simple and efficient solution for text classification tasks using Natural Language Processing (NLP) models and Transformer-based encoder-decoder models. It supports both binary classification and multiple classification scenarios, allowing you to train, evaluate, and deploy state-of-the-art models for classifying text data.
+
+## Features
+- Binary classification: Classify text data into two classes.
+- Multiple classification: Classify text data into multiple classes.
+- NLP models: Utilize powerful NLP models for accurate classification, such as BERT, GPT, RoBERTa, and more.
+- Transformer-based encoder-decoder models: Benefit from the encoder-decoder architecture for advanced classification tasks.
+- Easy deployment: Deploy your trained models effortlessly using the PyPI package.
+- Markdown format README file: Comprehensive documentation and usage instructions in Markdown format for seamless integration into your project.
+
+## Installation
+You can install the package from PyPI using the following command:
+
+```bash
+pip install text-classification-nlp
+```
+
+## Usage
+To use the text classification package, follow these steps:
+
+1. Import the necessary modules and dependencies.
+```python
+from text_classification_nlp import TextClassifier, TransformerEncoderDecoderModel
+```
+
+2. Load your dataset and preprocess the text data as required.
+```python
+# Example dataset loading and preprocessing
+data = load_dataset('your_dataset')
+preprocessed_data = preprocess_data(data)
+```
+
+3. Create an instance of the TextClassifier class.
+```python
+# Binary classification example
+binary_classifier = TextClassifier(model='bert', num_classes=2)
+
+# Multiple classification example
+multi_classifier = TextClassifier(model='roberta', num_classes=5)
+```
+
+4. Train your classifier using the prepared dataset.
+```python
+binary_classifier.train(preprocessed_data)
+
+multi_classifier.train(preprocessed_data)
+```
+
+5. Evaluate the performance of your trained classifier.
+```python
+binary_classifier.evaluate(test_data)
+
+multi_classifier.evaluate(test_data)
+```
+
+6. Deploy your trained model for predictions.
+```python
+binary_classifier.predict(text)
+
+multi_classifier.predict(text)
+```
+
+For detailed examples and advanced usage, refer to the provided documentation.
+
+## Citation
+If you use this package in your research or project, please cite it as follows:
+
+```
+Author. (Year). Text Classification with NLP Models and Transformers [Software]. Available from https://github.com/your_repository
+```
+
+## Dataset Example
+Here's an example of how your dataset should be structured:
+
+```json
+{
+  "data": [
+    {
+      "text": "This is an example text for classification.",
+      "label": 1
+    },
+    {
+      "text": "Another text for classification.",
+      "label": 0
+    },
+    ...
+  ]
+}
+```
+
+Ensure that your dataset is properly formatted with the "text" field containing the input text and the "label" field containing the corresponding class label.
+
+## Conclusion
+This text classification package provides a convenient and powerful solution for binary and multiple classification tasks using NLP models and Transformer-based encoder-decoder models. By leveraging the capabilities of these models, you can achieve accurate and efficient text classification results. Install the package today and start classifying your text data with ease!
