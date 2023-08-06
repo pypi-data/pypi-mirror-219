@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: tigersyn
+Version: 0.0.2a1
+Summary: Processing MRI images based on deep-learning
+Home-page: https://github.com/StanleyWangTW/tigersyn
+Author: X. S. Wang
+Author-email: 
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.9
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy
+Requires-Dist: nibabel
+Requires-Dist: nilearn
+Requires-Dist: onnxruntime
+
+# TigerSyn
+### As python package
+**Download**
+```
+pip install tigersyn
+```
+**Usage**
+```python
+import tigersyn
+tigersyn.run('s', r'C:\T1w_dir') # Producing syntheseg masks
+tigersyn.run('s', r'C:\T1w_dir', r'C:\output_dir') # save to output_dir
+``````
