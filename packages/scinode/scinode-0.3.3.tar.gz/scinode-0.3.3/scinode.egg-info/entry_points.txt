@@ -1,0 +1,31 @@
+[console_scripts]
+scinode = scinode.cli.main:scinode
+
+[scinode_cli]
+computer = scinode.cli.commands.computer:computer
+data = scinode.cli.commands.data:data
+mq = scinode.cli.commands.mq:mq
+node = scinode.cli.commands.node:node
+nodetree = scinode.cli.commands.nodetree:nodetree
+plugin = scinode.app.cli.commands.plugin:plugin
+profile = scinode.cli.commands.profile:profile
+scheduler = scinode.cli.commands.scheduler:scheduler
+shell = scinode.cli.commands.shell:shell
+web = scinode.app.cli.commands.web:web
+worker = scinode.cli.commands.worker:worker
+
+[scinode_node]
+bash_node = scinode.nodes.bash_node:node_list
+built_in = scinode.nodes.built_in:node_list
+control = scinode.nodes.control:node_list
+numpy_node = scinode.nodes.numpy_node:node_list
+python_builtin = scinode.nodes.python_builtin:node_list
+test = scinode.nodes.test:node_list
+test_node_group = scinode.nodes.test_node_group:node_list
+utils = scinode.nodes.utils:node_list
+
+[scinode_property]
+built_in = scinode.properties.built_in:property_list
+
+[scinode_socket]
+built_in = scinode.sockets.built_in:socket_list

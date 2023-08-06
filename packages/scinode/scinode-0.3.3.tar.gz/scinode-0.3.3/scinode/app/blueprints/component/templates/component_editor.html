@@ -1,0 +1,163 @@
+{% extends "base_editor.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css"></link>
+{% endblock %}
+
+{% block content %}
+<div class="row row-content">
+<div class="col col-sm-8">
+    <div>
+        <form style="font-size: 16px;">
+            <h6>Attributes</h6>
+            <div class="row mb-3">
+              <label  class="col-sm-2 form-label">UUID</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" id="componentUUID" disabled>
+              </div>
+              <label  class="col-sm-2 form-label">Name</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="componentName">
+              </div>
+              <label class="col-sm-2 form-label">Catalog</label>
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="componentCatalog">
+              </div>
+            </div>
+            <div class="row mb-3">
+                <label  class="col-sm-2 form-label">Args</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" id="componentArgs">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 form-label">Kwargs</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" id="componentKwargs">
+                </div>
+            </div>
+            <hr>
+            <div class="row mb-3">
+                <label><h6>Executor</h6></label>
+                <div class="row mb-3">
+                    <label class="offset-md-1 col-sm-2 form-label">Path</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="executorPath">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="offset-md-1 col-sm-2 form-label">Name</label>
+                    <div class="col-md-8">
+                      <input type="text" class="form-control" id="executorName">
+                    </div>
+                </div>
+                <div class="form-check offset-md-1 col-sm-4">
+                    <input class="form-check-input" type="checkbox" id="executorCheck">
+                    <label class="form-check-label" for="gridCheck">Is_class</label>
+                </div>
+            </div>
+            <div>
+                <label><h6>Controls</h6></label>
+                <button class="btn btn-sm btn-primary"
+                    id="addControlBtn" type="button">
+                    <i class="fa fa-plus fa-0.5x"></i>
+                  </button>
+                <div class="offset-md-0 col-sm-12">
+                <div class="table-responsive">
+                    <table class="table">
+                      <tbody id="tbody-control">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <div>
+                <label><h6>Inputs</h6></label>
+                <button class="btn btn-sm btn-primary"
+                    id="addInputBtn" type="button">
+                    <i class="fa fa-plus fa-0.5x"></i>
+                  </button>
+                <div class="offset-md-0 col-sm-12">
+                <div class="table-responsive">
+                    <table class="table">
+
+                      <tbody id="tbody-input">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+            <div>
+                <label><h6>Outputs</h6></label>
+                <button class="btn btn-sm btn-primary"
+                    id="addOutputBtn" type="button">
+                    <i class="fa fa-plus fa-0.5x"></i>
+                  </button>
+                <div class="offset-md-0 col-sm-12">
+                <div class="table-responsive">
+                    <table class="table">
+
+                      <tbody id="tbody-output">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+          </form>
+
+    </div>
+    <a class="btn btn-primary" onclick="previewComponent()" role="button">Preview</a>
+    <a class="btn btn-primary" onclick="saveComponent()" role="button">Save</a>
+</div>
+
+<div class="col col-sm-4 ">
+
+      <div class="tab-content">
+        <div>
+            <label>Preview</label>
+        </div>
+        <div class="editor tab-pane fade show active" id="rete" role="tabpanel" aria-labelledby="graph-tab"></div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    var component_json = {{ component_json | tojson | safe }};
+    var nodetree_data = {{ nodetree_data | tojson | safe }};
+    console.log("component_json: ", component_json);
+    // console.log(nodetree_data);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete@1.4.9/build/rete.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.14/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-vue-render-plugin@0.5.1/build/vue-render-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-connection-plugin@0.9.0/build/connection-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/alight@0.14.1/alight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-area-plugin@0.2.1/build/area-plugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/rete-comment-plugin@0.3.0/build/comment-plugin.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uuid4@2.0.3/browser.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.rawgit.com/arose/ngl/v2.0.0-dev.32/dist/ngl.js"></script>
+<script src="{{ url_for('static', filename='scinode_components.js')}}"></script>
+<script src="{{ url_for('static', filename='scinode_editor.js')}}"></script>
+<script src="{{ url_for('static', filename='sockets.js')}}"></script>
+<script src="{{ url_for('static', filename='controls.js')}}"></script>
+<script src="{{ url_for('static', filename='component_editor.js')}}"></script>
+<script>
+    $(document).ready(function () {
+      // jQuery button click event to add a row
+      $('#addControlBtn').on('click', addControl);
+      $('#addInputBtn').on('click', addInput);
+      $('#addOutputBtn').on('click', addOutput);
+      // jQuery button click event to remove a row.
+      $('#tbody-control').on('click', '.remove', removeItem);
+      $('#tbody-input').on('click', '.remove', removeItem);
+      $('#tbody-output').on('click', '.remove', removeItem);
+    });
+  </script>
+
+{% endblock %}

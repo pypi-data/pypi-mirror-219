@@ -1,0 +1,20 @@
+
+<div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="graph-tab" data-bs-toggle="tab" data-bs-target="#graph" type="button" role="tab" aria-controls="graph" aria-selected="true">Graph</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="table-tab" data-bs-toggle="tab" data-bs-target="#table" type="button" role="tab" aria-controls="table" aria-selected="false">Table</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab" aria-controls="text" aria-selected="false">Description</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="NodetreeNodeContent">
+        {% include "tab-graph.html" %}
+        {% include "tab-table.html" %}
+        {% include "tab-description.html" %}
+     </div>
+     </div>
+</div>

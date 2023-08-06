@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row row-content">
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Index</th>
+        <th>Name</th>
+        <th>State</th>
+        <th>Action</th>
+        <th>Worker</th>
+        <th>Command</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    async function deleteTemplate(uuid) {
+        console.log(uuid)
+        if(confirm('Are You Sure to Delete this Record ?')) {
+          const response = await fetch("/templates/" + uuid, {
+              method: 'DELETE',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+              body: {},
+              });
+              response.json().then(data => {
+                console.log(data);
+              });
+              // reload table
+          $('#data').DataTable().ajax.reload();
+        }
+      };
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/templates/api/template_data',
+        serverSide: true,
+        columns: [
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" href="/templates/' + row.uuid +'" role="button">View</a>' }},
+          {data: 'index'},
+          {data: 'name'},
+          {data: 'state'},
+          {data: 'action'},
+          {data: 'worker_name'},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" onclick="deleteTemplate(\'' + row.uuid + '\')" role="button">Delete</a>'}}
+        //   {data: 'action', orderable: false},
+        ],
+      });
+    });
+
+  </script>
+{% endblock %}

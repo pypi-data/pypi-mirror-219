@@ -1,0 +1,31 @@
+<div class="tab-pane fade show active" id="graph" role="tabpanel" aria-labelledby="graph-tab">
+   <div class="row row-content">
+      <div class="col col-sm-3" style="font-size: 16px;">
+         {% include "tab-graph-sidebar.html" %}
+      </div>
+      <div class="col col-sm-9">
+         <div class = "editor" id="rete">
+            <button class="btn btn-sm btn-primary" id="refreshControlBtn"
+               onclick="refreshNodeState()" type="button">
+            <i class="fa fa-arrows-rotate fa-0.5x"></i> Refresh
+            </button>
+            <button class="btn btn-sm btn-primary" id="arangeControlBtn"
+               onclick="arrangeNodetree()" type="button">
+            <i class="fa fa-layer-group fa-0.5x"></i> Arange
+            </button>
+            <div class="form-check form-switch" style="margin: 5px;">
+               <input class="form-check-input" type="checkbox" id="stateSwitchCheck">
+               <label class="form-check-label scinode-tooltip" for="stateSwitchCheck">
+                  Show Node State
+                  <div class="scinode-tooltiptext">
+                     <div style="border-radius: 5px; background: #73AD21;">Finished</div>
+                     <div style="border-radius: 5px; background: red;">Failed</div>
+                     <div style="border-radius: 5px; background: blue;">Running</div>
+                     <div style="border-radius: 5px; background: yellow;">Paused</div>
+                  </div>
+               </label>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

@@ -1,0 +1,231 @@
+.node .control input, .node .input-control input {
+  width: 100px;
+}
+
+select, input {
+  width: 100%;
+  border-radius: 30px;
+  background-color: white;
+  padding: 2px 6px;
+  border: 1px solid #999;
+  font-size: 110%;
+  width: 170px;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px; }
+
+.row-content {
+  margin: 0px auto;
+  padding: 10px 10px;
+  border-bottom: 1px ridge;
+  min-height: 400px;}
+
+.footer {
+  background-color: #D1C4E9;
+  margin: 0px auto;
+  padding: 20px 0px;
+}
+
+.editor {
+  background-color: rgb(205, 227, 215);
+  margin: 0px auto;
+  padding: 0px 0px;
+  min-height: 600px;
+  border: 4px solid rgb(0, 213, 255);
+}
+
+.node-content {
+  margin: 5px 20px;
+  padding: 0px 0px;
+  max-height: 200px;
+  border: 4px solid rgb(0, 213, 255);
+}
+
+
+#component-text {
+  min-height: 200px;
+  border: 4px solid rgb(0, 213, 255);
+}
+
+
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0; }
+
+.navbar-dark {
+  background-color: #512DA8; }
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
+
+
+
+
+
+  .sidebar li .submenu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .sidebar .nav-link {
+      font-weight: 500;
+      color: var(--bs-dark);
+  }
+  .sidebar .nav-link:hover {
+      color: var(--bs-primary);
+  }
+
+
+  .btn-sq {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+.accordion-button {
+  font-size:14px;
+}
+
+.form-control {
+  font-size:14px;
+}
+
+.form-group {
+  font-size:14px;
+}
+
+.btn {
+  font-size:14px;
+}
+
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.scinode-tooltip .scinode-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the scinode-tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.scinode-tooltip:hover .scinode-tooltiptext {
+  visibility: visible;
+}
+
+.control {
+  color: white;
+}
+
+.input-control {
+  color: white;
+}
+
+
+.node {
+  background: rgba(110, 137, 255, 0.798);
+  border: 2px solid #4e58bf;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 200px;
+  max-width: 200px;
+  height: auto;
+  padding-bottom: 6px;
+  box-sizing: content-box;
+  position: relative;
+  user-select: none;
+}
+.node:hover {
+  background: rgba(130, 153, 255, 0.8);
+}
+.node.selected {
+  background: #ffd92c;
+  border-color: #e3c000;
+}
+.node .title {
+  color: white;
+  border-radius: 4px 4px 0 0;
+  background-color: #4e58bf;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 8px;
+}
+.node .output {
+  text-align: right;
+}
+.node .input {
+  text-align: left;
+}
+.node .input-title, .node .output-title {
+  vertical-align: middle;
+  color: white;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  line-height: 24px;
+}
+.node .input-control {
+  z-index: 1;
+  width: calc(100% - 36px);
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 14px;
+}
+.node .control {
+  padding: 6px 18px;
+  font-size: 14px;
+}
+
+
+.node.failed {
+  background-color: red;
+}
+.node.finished {
+  background-color: green;
+}
+.node.paused {
+  background-color: rgb(225, 225, 3);
+}
+.node.running {
+  background-color: blue;
+}
+.node.waiting {
+  background-color: purple;
+}
+
+
+input[readonly] {
+  background-color: #e4e1e1;
+}
+
+.control-input {
+  text-align: right;
+  float:right;
+}
+
+.select-input {
+  text-align: left;
+  float:right;
+}

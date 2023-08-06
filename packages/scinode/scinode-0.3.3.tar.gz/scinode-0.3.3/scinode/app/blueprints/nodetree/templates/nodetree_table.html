@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row row-content">
+  <table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Index</th>
+        <th>Name</th>
+        <th>State</th>
+        <th>Action</th>
+        <th>Worker</th>
+        <th>Command</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    async function deleteNodetree(uuid) {
+        console.log("deleteNodetree: ", uuid)
+        if(confirm('Are You Sure to Delete this Record ?')) {
+          const response = await fetch("/nodetrees/" + uuid, {
+              method: 'DELETE',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+              body: {},
+              });
+              response.json().then(data => {
+                alert(data['message']);
+              });
+              // reload table
+          $('#data').DataTable().ajax.reload();
+        }
+      };
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/nodetrees/api/nodetree_data',
+        serverSide: true,
+        columns: [
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" href="/nodetrees/' + row.uuid +'" role="button">View</a>' }},
+          {data: 'index'},
+          {data: 'name'},
+          {data: 'state'},
+          {data: 'action'},
+          {data: 'worker_name'},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" href="/nodetrees/download-python/' + row.uuid +'" role="button">Export</a>' }},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" onclick="deleteNodetree(\'' + row.uuid + '\')" role="button">Delete</a>'}}
+        //   {data: 'action', orderable: false},
+        ],
+      });
+    });
+
+
+    $('#data tbody').on('click', 'tr', function () {
+        $(this).toggleClass('selected');
+    });
+  </script>
+{% endblock %}

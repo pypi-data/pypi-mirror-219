@@ -1,0 +1,119 @@
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+       <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Nodetree
+          </button>
+       </h2>
+       <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+             <form>
+                <div class="form-group row">
+                   <label for="nodetree_uuid" class="col-md-4 col-form-label">UUID</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="nodetree_uuid" name="nodetree_uuid"
+                         placeholder="" disabled>
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="nodetree_name" class="col-md-4 col-form-label">Name</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="nodetree_name" name="nodetree_name"
+                         placeholder="" onchange="setNodetreeProps({'name': this.value})">
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="nodetree_worker_name" class="col-md-4 col-form-label">Worker</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="nodetree_worker_name" name="nodetree_worker_name"
+                         placeholder="" onchange="setNodetreeProps({'worker_name': this.value})">
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="nodetree_state" class="col-md-4 col-form-label">State</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="nodetree_state" name="nodetree_state"
+                         placeholder="" disabled>
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="nodetree_action" class="col-md-4 col-form-label">Action</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="nodetree_action" name="nodetree_action"
+                         placeholder="" disabled>
+                   </div>
+                </div>
+             </form>
+             <div class="col col-sm-12">
+                <a class="btn btn-primary" onclick="saveNodetree()" role="button">Save</a>
+                <a class="btn btn-primary" onclick="launchNodetree()" role="button">Launch</a>
+                <a class="btn btn-primary" onclick="pauseNodetree()" role="button">Pause</a>
+                <a class="btn btn-warning" onclick="saveAsTemplate()" role="button">Save as template</a>
+                <a class="btn btn-danger" onclick="resetNodetree()" role="button">Reset</a>
+             </div>
+          </div>
+       </div>
+    </div>
+    <div class="accordion-item">
+       <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Node
+          </button>
+       </h2>
+       <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+             <form>
+                <div class="form-group row">
+                   <label for="node_uuid" class="col-md-4 col-form-label">UUID</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="node_uuid" name="node_uuid"
+                         placeholder="" disabled>
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="node_name" class="col-md-4 col-form-label">Name</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="node_name" name="node_name"
+                         placeholder="" onchange="setSelectedNodeProps({'name': this.value})">
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="node_worker_name" class="col-md-4 col-form-label">Worker</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="node_worker_name" name="node_worker_name"
+                         placeholder="" onchange="setSelectedNodeProps({'worker_name': this.value})">
+                   </div>
+                </div>
+                <div class="form-group row">
+                   <label for="node_state" class="col-md-4 col-form-label">State</label>
+                   <div class="col col-md-8">
+                      <input type="text" class="form-control" id="node_state" name="node_state"
+                         placeholder="" disabled>
+                   </div>
+                </div>
+             </form>
+             <div class="row">
+                <a class="btn btn-primary" onclick="actionSelectedNode('PLAY')" role="button">Play</a>
+                <a class="btn btn-warning" onclick="actionSelectedNode('PAUSE')" role="button">Pause</a>
+                <a class="btn btn-danger" onclick="actionSelectedNode('RESET')" role="button">Reset</a>
+             </div>
+            <div class="row">
+               <a class="btn btn-primary" onclick="editSelectedNodeData()" role="button">Edit</a>
+               <textarea class="form-control" id="node_edit" name="node_edit" rows="10"></textarea>
+               <a class="btn btn-primary" onclick="saveSelectedNodeData()" role="button">Save</a>
+            </div>
+          </div>
+       </div>
+    </div>
+    <div class="accordion-item">
+       <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Other
+          </button>
+       </h2>
+       <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+          </div>
+       </div>
+    </div>
+ </div>

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row row-content">
+  <table id="data" class="table table-striped">
+    <div>
+      <label>
+        <h3>Worker</h3>
+      </label>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <i class="fa fa-plus fa-0.5x"></i>
+      </button>
+
+
+    </div>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Work directory</th>
+        <th>Running</th>
+        <th>pid</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="worker-name" class="col-form-label">Name:</label>
+            <input type="text" class="form-control" id="worker-name" placeholder="local">
+          </div>
+          <div class="mb-3">
+            <label for="worker-work-dir" class="col-form-label">Work directory:</label>
+            <input class="form-control" id="worker-work-dir" placeholder="/home/xing/"></input>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button id="addWorkerBtn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+
+
+    async function addWorker() {
+        let name = document.getElementById("worker-name").value
+        let workdir = document.getElementById("worker-work-dir").value
+        let data = {"name": name, "workdir": workdir};
+        const response = await fetch("/configs/api/worker_add", {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              },
+            body: JSON.stringify(data),
+            });
+            response.json().then(data => {
+              alert(data['message']);
+            });
+            // reload table
+        $('#data').DataTable().ajax.reload();
+    };
+
+    async function actionWorker(name, action) {
+        let data = {"name": name, "action": action};
+        if(confirm('Are You Sure to ' + action + ' this Record ? This is only work, when your worker and web app run in the same computer. Otherwise, plase start the worker in the computer.')) {
+          const response = await fetch("/configs/api/worker_action", {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+              body: JSON.stringify(data),
+              });
+              response.json().then(data => {
+                alert(data['message']);
+              });
+              // reload table
+          $('#data').DataTable().ajax.reload();
+        }
+      };
+    $(document).ready(function () {
+      $('#data').DataTable({
+        ajax: '/configs/api/worker_data',
+        serverSide: true,
+        columns: [
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" href="/configs/workers/logfile/' + row.name +'" role="button">Logfile</a>' }},
+          {data: 'name'},
+          {data: 'workdir'},
+          {data: 'running'},
+          {data: 'pid'},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-danger" onclick="actionWorker(\'' + row.name + '\', \'stop\')" role="button">Stop</a>'}},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-primary" onclick="actionWorker(\'' + row.name + '\', \'start\')" role="button">Start</a>'}},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-warning" onclick="actionWorker(\'' + row.name + '\', \'restart\')" role="button">Restart</a>'}},
+          {data: null , "render": function (data,type,row) { return '<a class="btn btn-warning" onclick="actionWorker(\'' + row.name + '\', \'delete\', )" role="button">Delete</a>'}}
+        //   {data: 'action', orderable: false},
+        ],
+      });
+      $('#addWorkerBtn').on('click', addWorker);
+    });
+
+  </script>
+{% endblock %}

@@ -1,0 +1,8 @@
+recursive-include scinode/app/templates *
+recursive-include scinode/app/static *
+recursive-include scinode/app/blueprints/component/templates *
+recursive-include scinode/app/blueprints/config/templates *
+recursive-include scinode/app/blueprints/node/templates *
+recursive-include scinode/app/blueprints/data/templates *
+recursive-include scinode/app/blueprints/nodetree/templates *
+recursive-include scinode/app/blueprints/template/templates *
