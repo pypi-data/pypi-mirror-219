@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "JSON schema for NPM package.json files",
+  "definitions": {
+    "vscodeDependency": {
+      "description": "Packages installed by visutal studio code. Key for vscode extension id, value for version. Version definitions: ''(empty) - install when not exists; 'latest' - uninstall and install latest, '1.0.0'(specified) - install when version mismatched.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "pythonDependency": {
+      "description": "Packages installed by pip. Key for pip name, value for version. Version definitions: ''(empty) - install when not exists; 'latest' - uninstall and install latest, '1.0.0'(specified) - install when version mismatched.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "vscodeSettings": {
+      "description": "Write to visual studio code user settings <https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations>. Key and value format same to the user settings. In addition, the value support `devpm expression`: `$bash.which:[bin]` - returns the bin path in system by `which [bin]`; `$pip.which:[bin]` - returns the bin path in pip by `pip show [bin]`",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "osDependency": {
+      "type": "object",
+      "description": "Packages installed by custom bash script. Key for excutable name after installed, value is an object describes script in platforms. The platform is from python `sys.platform`, include 'darwin', 'win32' and 'linux'.",
+      "patternProperties": {
+        ".+": {
+          "type": "object",
+          "properties": {
+            "win32": {
+              "type": "string",
+              "description": "The dependency in win32, specified with a bash script or file URL."
+            },
+            "linux": {
+              "type": "string",
+              "description": "The dependency in linux, specified with a bash script or file URL."
+            },
+            "darwin": {
+              "type": "string",
+              "description": "The dependency in darwin, specified with a bash script or file URL."
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    },
+    "preCommitRepo": {
+      "type": "object",
+      "properties": {
+        "repo": {
+          "description": "The repo uri for pre-commit plugin. see https://pre-commit.com/hooks.html",
+          "type": "string",
+          "format": "uri"
+        },
+        "rev": {
+          "description": "The revision of the repo, see https://pre-commit.com/hooks.html",
+          "type": "string"
+        },
+        "hooks": {
+          "description": "The hooks provided by the repo, see https://pre-commit.com/hooks.html",
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "description": "The hook id, see https://pre-commit.com/hooks.html",
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "gitHook": {
+      "description": "Write to git hooks for root project and it's git submodules. Support commit-msg, pre-commit",
+      "type": "object",
+      "properties": {
+        "commit-msg": {
+          "description": "The commit-msg git hook.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "enum": ["regexp"],
+              "description": "The hook type, regexp for regular expression"
+            },
+            "pattern": {
+              "type": "string",
+              "description": "The pattern for type regexp"
+            },
+            "tips": {
+              "description": "The tips to show when the commit-msg test failed, used array to show multi-line.",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "pre-commit": {
+          "description": "The pre-commit git hook.",
+          "type": "object",
+          "properties": {
+            "type": {
+              "description": "The pre-commit hook type, 'pre-commit' for the python pre-commit which would generate '.pre-commit-config.yaml'",
+              "enum": ["pre-commit"]
+            },
+            "repos": {
+              "description": "The repos config used to generate '.pre-commit-config.yaml'",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/preCommitRepo"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "vscodeDependencies": {
+      "$ref": "#/definitions/vscodeDependency"
+    },
+    "pythonDependencies": {
+      "$ref": "#/definitions/pythonDependency"
+    },
+    "bashDependencies": {
+      "$ref": "#/definitions/osDependency"
+    },
+    "vscodeUserSettings": {
+      "$ref": "#/definitions/vscodeSettings"
+    },
+    "gitHooks": {
+      "$ref": "#/definitions/gitHook"
+    }
+  }
+}
