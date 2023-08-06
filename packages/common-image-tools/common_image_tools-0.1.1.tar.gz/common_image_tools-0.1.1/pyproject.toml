@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "common-image-tools"
+version = "0.1.1"
+description = ""
+authors = ["Federico Lanzani <federico@federicolanzani.com>"]
+readme = "README.md"
+packages = [{include = "common_image_tools"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pillow = "^9.5.0"
+opencv-python-headless = "^4.8.0.74"
+
+
+[tool.poetry.group.dev.dependencies]
+opencv-python = "^4.8.0.74"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
