@@ -1,0 +1,33 @@
+[project]
+name = "bibleit"
+version = "0.0.19"
+authors = [
+  { name="Felipe Mamud", email="trovatti@gmail.com" },
+]
+description = "Interactive bible reading"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "gnureadline; platform_system == 'Darwin'",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "flake8",
+  "requests"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/fmamud/bibleit"
+"Bug Tracker" = "https://github.com/fmamud/bibleit/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
