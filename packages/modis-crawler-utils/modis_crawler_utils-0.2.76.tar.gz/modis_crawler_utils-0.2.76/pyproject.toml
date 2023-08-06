@@ -1,0 +1,56 @@
+[tool.poetry]
+name = "modis-crawler-utils"
+version = "0.2.76"
+description = "Scrapy utils for Modis crawlers projects."
+authors = [
+    "Varlamov <varlamov@ispras.ru>",
+    "Yatskov <yatskov@ispras.ru>"
+]
+readme = "README.md"
+repository = "https://gitlab.at.ispras.ru/crawlers/crawler-utils"
+homepage = "https://gitlab.at.ispras.ru/crawlers/crawler-utils"
+packages = [{ include = "crawler_utils" }]
+license = "BSD"
+classifiers = [
+    'Development Status :: 3 - Alpha',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.9',
+    'Framework :: Scrapy',
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+    'License :: OSI Approved :: BSD License'
+]
+
+[tool.poetry.scripts]
+build-egg = "crawler_utils.deploy.create_egg:main"
+build-md = "crawler_utils.deploy.make_arguments_md_file:main"
+bump-version = "crawler_utils.deploy.bump_version:main"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+scrapy = ">=2.6.0"
+pymongo = ">=3.10.1"
+Pillow = ">=7.1.2"
+kafka-python = ">=2.0.1"
+requests = ">=2.23.0"
+itemadapter = ">=0.2.0"
+python-logstash = ">=0.4.6"
+elasticsearch = "7.8.1"
+ephemeral-port-reserve = ">=1.1.1"
+twisted = "*"
+certifi = "*"
+dateparser = ">=1.0.0"
+scrapy-splash = ">=0.8.0"
+scrapy-puppeteer-client = ">=0.0.6"
+pyopenssl = "22.0.0"
+cryptography = "36.0.2"
+
+[tool.poetry.dev-dependencies]
+twine = "*"
+semver = "*"
+flake8 = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
