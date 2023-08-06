@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: PythonODFTemplator
+Version: 1.1.1
+Summary: ODF templating library for python.
+Home-page: https://github.com/marvelph/PythonODFTemplator
+Author: Kenji Nishishiro
+Author-email: marvel@programmershigh.org
+License: MIT
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: Jinja2
+Requires-Dist: pylokit
+
+# PythonODFTemplator
+## ODF templating library for python.
+PythonODFTemplator is a template library for embedding values in [LibreOffice](https://www.libreoffice.org/) documents(ODF).
+[Jinja2](https://palletsprojects.com/p/jinja/) is used for the syntax to embed values in documents.
+The result of embedding the values can be output as a LibreOffice document(ODF) or PDF.
+
+This library was written by [Kenji Nishishiro](mailto:marvel@programmershigh.org).
+## Build instructions
+```
+pip install PythonODFTemplator
+```
+## How to use PythonODFTemplator
+Please read the source.
+
+## Licence
+MIT License
