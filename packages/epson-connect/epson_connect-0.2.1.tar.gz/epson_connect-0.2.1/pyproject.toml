@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "epson-connect"
+version = "0.2.1"
+description = "Bindings for the Espon Connect API"
+license = "MIT"
+authors = ["Paul Logston <paul.logston@gmail.com>"]
+maintainers = ["Paul Logston <paul.logston@gmail.com>"]
+readme = "README.md"
+homepage = "https://pypi.org/project/epson-connect/"
+repository = "https://github.com/logston/epson-connect"
+keywords = ["epson", "connect", "api"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Topic :: Internet",
+    "Topic :: Printing",
+    "Topic :: Software Development :: Libraries",
+    "Operating System :: OS Independent",
+]
+packages = [
+    { include = "epson_connect", from = "src" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+tox = ">=3.16.1"
+flake8 = ">=6.0.0"
+toml = ">=0.10.1"
+flake8-isort = ">=6.0.0"
+pytest = ">=5.4.0"
+coverage = ">=6.4.2"
+pytest-cov = ">=3.0.0"
+pytest-mock = "^3.11.1"
+sphinx = "^7.0.1"
+myst-parser = "^2.0.0"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src"
+python_files = "tests/test_*.py"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
