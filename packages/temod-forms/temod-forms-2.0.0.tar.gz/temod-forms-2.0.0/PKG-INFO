@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: temod-forms
+Version: 2.0.0
+Summary: Preset forms and user interractions with your Temod data models
+Author-email: PyAxolotl <abdellatifzied.saada@gmail.com>
+Project-URL: Homepage, https://github.com/TuburboMajus/temod-forms
+Project-URL: Bug Tracker, https://github.com/TuburboMajus/temod-forms/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# temod-forms
+Preset forms and user interractions with your Temod data models
