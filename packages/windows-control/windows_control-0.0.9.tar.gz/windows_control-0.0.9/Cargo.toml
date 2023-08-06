@@ -1,0 +1,30 @@
+[package]
+name = "windows_control_python"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = "debuginfo"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "windows_control"
+crate-type = ["cdylib"] # "cdylib" is necessary to produce a shared library for Python to import from.
+
+[dependencies]
+enigo = "0.1.2"
+phf = {version="0.11.2",features=["macros"]}
+winapi = { version = "0.3.9", features = ["winuser","libloaderapi","shellapi","winerror","dwmapi","shellscalingapi"] }
+# windows = "0.48.0"
+# opencv = {version = "0.82.1"}
+image = "0.24.6"
+show-image = "0.13.1"
+screenshots = "0.6.0"
+lazy_static = "1.4"
+
+[dependencies.pyo3]
+version = "0.19.0"
+features = ["abi3-py38","extension-module"] # "abi3-py38" tells pyo3 (and maturin) to build using the stable ABI with minimum Python version 3.8
+
