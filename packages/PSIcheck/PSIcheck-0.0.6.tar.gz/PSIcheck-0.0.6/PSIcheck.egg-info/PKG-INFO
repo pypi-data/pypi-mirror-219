@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: PSIcheck
+Version: 0.0.6
+Summary: check PSI-Blast result
+Author: Runjia Ji
+Author-email: jirunjia@gmail.com
+Classifier: Programming Language :: Python :: 3.0
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
