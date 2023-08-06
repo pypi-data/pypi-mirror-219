@@ -1,0 +1,2 @@
+[console_scripts]
+snap-helpers = snaphelpers.scripts.snap_helpers:script
