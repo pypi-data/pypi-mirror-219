@@ -1,0 +1,3 @@
+#!python
+from kevlar_system_inspector import main
+main()
