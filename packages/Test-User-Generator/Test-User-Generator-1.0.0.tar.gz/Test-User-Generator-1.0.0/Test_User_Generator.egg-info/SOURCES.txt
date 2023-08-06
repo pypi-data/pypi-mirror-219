@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+Test_User_Generator/__init__.py
+Test_User_Generator/user_generator.py
+Test_User_Generator.egg-info/PKG-INFO
+Test_User_Generator.egg-info/SOURCES.txt
+Test_User_Generator.egg-info/dependency_links.txt
+Test_User_Generator.egg-info/requires.txt
+Test_User_Generator.egg-info/top_level.txt
