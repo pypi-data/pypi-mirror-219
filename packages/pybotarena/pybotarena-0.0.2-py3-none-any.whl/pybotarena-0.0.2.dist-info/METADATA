@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pybotarena
+Version: 0.0.2
+Summary: Package to control robot in PybotARena App.
+Author-email: Chung Zhi Wei <zhiwei_chung@sutd.edu.sg>, Oka Kurniawan <oka_kurniawan@sutd.edu.sg>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# RobotAR Package
+
+Description of the package.
+
