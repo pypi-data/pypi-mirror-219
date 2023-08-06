@@ -1,0 +1,5 @@
+main:
+  output: ckanext-status/%(version)s_main.css
+  filters: less
+  contents:
+    - less/status.less
