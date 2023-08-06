@@ -1,0 +1,17 @@
+textframe/TableString.py,sha256=omZgrZdA9M4kYvuQ0wsrNnzcjT3R3HGnHLNSTznSFxw,8989
+textframe/__init__.py,sha256=1gkhsxnAOnQjwylPG1DiHMG8zYywleU9ey5jKgpKbCg,47
+textframe/test.py,sha256=Knp7m2lIsfhOloGUBQIhigTK8Uc0wLQLMCPSpOUO4PI,1300
+textframe/type.py,sha256=iBDg1sB9508GGGrzzj-eo1Lzjp-UAnqdZo8Af9cU1bw,801
+textframe/chars/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textframe/chars/border_chars.py,sha256=Kw2esrousd2_G_Qf7hUuTFbn6GVbo2jj24TLIPjEj0k,3935
+textframe/helpers/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+textframe/helpers/cell_string.py,sha256=fw5gUXQLFQ0Gh2hgvgwSzyq1YME4-X99Wo6AcQXlDnU,1562
+textframe/helpers/is_last_element.py,sha256=zPd_JMIcwdZq3bVfaHFwU28UksXJLmgWyVj_126AZII,89
+textframe/helpers/row_cross_border.py,sha256=Jy-V09JuyeLT7jdIBI9QVQCXRXPVulVRclxW8B4MRwk,2740
+textframe/helpers/row_outer_border.py,sha256=7tssumlfS9sK2iKKvktYsIcyloMW9YF0qnq-wNMBit4,490
+textframe/helpers/sanitize_text.py,sha256=DkJD_KACU205uap8uxmPQpy1DFi755ZWv3a0FTXZVUk,45
+textframe-0.0.4.dist-info/LICENCE,sha256=A3pxkjt2wIn_239E3OL4yx407KhLbW6fLRE200QdqUE,1069
+textframe-0.0.4.dist-info/METADATA,sha256=RIouraNQKnQjq6u9v81pRRNQ6jRFKCdAxcyoY9nJfaw,17390
+textframe-0.0.4.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+textframe-0.0.4.dist-info/top_level.txt,sha256=kAqi5sHXWGBU7cxcQxPN0v_VFzfaUymrT9A7Ju38-qc,10
+textframe-0.0.4.dist-info/RECORD,,
