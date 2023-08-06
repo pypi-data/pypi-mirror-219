@@ -1,0 +1,48 @@
+name: UNIXBuildAndPublish
+
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+
+jobs:
+  python-publish:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: nightly
+          override: true
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
+          poetry install
+
+      - name: Build Python package
+        run: poetry run maturin build --release --no-sdist --strip --interpreter python${{matrix.python_version}}
+
+      - name: Install wheels
+        run: pip install target/wheels/trattoria_core*.whl
+
+      - name: PyPi publish
+        env:
+          MATURIN_PASSWORD: ${{ secrets.PYPI }}
+        run: poetry run maturin publish --username ${{ secrets.PYPY_USER}} --interpreter python${{matrix.python_version}}
+
