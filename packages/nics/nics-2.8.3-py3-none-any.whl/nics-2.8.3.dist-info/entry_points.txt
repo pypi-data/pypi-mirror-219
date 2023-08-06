@@ -1,0 +1,2 @@
+[console_scripts]
+nics = nics.__main__:main
