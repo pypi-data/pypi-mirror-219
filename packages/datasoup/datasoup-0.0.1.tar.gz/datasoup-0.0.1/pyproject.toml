@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datasoup"
+version = "0.0.1"
+authors = [
+  { name="Guy de Winton", email="guy@codehippie.io" },
+]
+description = "A Python package to manage data storage, hosting, collection and processing."
+readme = "README.md"
+requires-python = ">=3.7"
+dependencies = [
+    'sqlalchemy>=2.0',
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/guydewinton/datasoup"
+"Bug Tracker" = "https://gitlab.com/guydewinton/datasoup/issues"

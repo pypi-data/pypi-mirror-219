@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: datasoup
+Version: 0.0.1
+Summary: A Python package to manage data storage, hosting, collection and processing.
+Author-email: Guy de Winton <guy@codehippie.io>
+Project-URL: Homepage, https://gitlab.com/guydewinton/datasoup
+Project-URL: Bug Tracker, https://gitlab.com/guydewinton/datasoup/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENCE
+
+```python
+import datasoup as ds
+
+dsdb = ds.db.connect("<connection_string>", options={})
+
+dsdb.project.list()
+
+dsdb.project.set("<project_name>", in_place=True)
+
+ds_project = dsdb.project.set("<project_name>", in_place=False)
+
+dsdb.project["<project_name>"].some_method()
+```
+
+
+---
+
+### thoughts
+
+use symlinks to distribute data
+or docker-compose to mount projects
+
