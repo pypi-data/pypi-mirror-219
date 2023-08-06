@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+setup.py
+custom_dataframe/__init__.py
+custom_dataframe/frontend/build/asset-manifest.json
+custom_dataframe/frontend/build/bootstrap.min.css
+custom_dataframe/frontend/build/index.html
+custom_dataframe/frontend/build/static/css/main.3d81d714.css
+custom_dataframe/frontend/build/static/css/main.3d81d714.css.map
+custom_dataframe/frontend/build/static/js/main.472b6776.js
+custom_dataframe/frontend/build/static/js/main.472b6776.js.LICENSE.txt
+custom_dataframe/frontend/build/static/js/main.472b6776.js.map
+streamlit_editable_dataframe.egg-info/PKG-INFO
+streamlit_editable_dataframe.egg-info/SOURCES.txt
+streamlit_editable_dataframe.egg-info/dependency_links.txt
+streamlit_editable_dataframe.egg-info/requires.txt
+streamlit_editable_dataframe.egg-info/top_level.txt
