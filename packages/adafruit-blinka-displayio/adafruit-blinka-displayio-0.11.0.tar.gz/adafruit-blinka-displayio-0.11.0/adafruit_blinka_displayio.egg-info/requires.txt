@@ -1,0 +1,7 @@
+Adafruit-Blinka>=7.0.0
+adafruit-circuitpython-typing
+pillow
+numpy
+
+[:python_version > "3.9"]
+pillow>=6.0.0
