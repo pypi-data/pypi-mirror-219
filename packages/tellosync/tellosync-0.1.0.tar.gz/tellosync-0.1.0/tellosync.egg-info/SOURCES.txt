@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+tellosync/__init__.py
+tellosync/stats.py
+tellosync/synchro.py
+tellosync/tello.py
+tellosync.egg-info/PKG-INFO
+tellosync.egg-info/SOURCES.txt
+tellosync.egg-info/dependency_links.txt
+tellosync.egg-info/requires.txt
+tellosync.egg-info/top_level.txt
