@@ -1,0 +1,83 @@
+#!/usr/bin/env sh
+set -eu
+
+if [ $# -lt 1 ] || [ "${1}" = "--help" ]; then
+    echo "Usage: $0 FILE ..."
+    echo ""
+    echo "Replace references to files with file content."
+    echo "Shebang is removed from patched content."
+    echo "It respects the identation relative to comment referencing the file."
+    echo ""
+    echo "Supported syntax is:"
+    echo "# file:path/to/file"
+    echo "Anything between file/end-file will get replaced with content from file."
+    echo "# end-file:path/to/file"
+    echo "or"
+    echo "// file:path/to/file"
+    echo "Anything between file/end-file will get replaced with content from file."
+    echo "// end-file:path/to/file"
+    test $# -lt 1 && exit 1 || exit 0
+fi
+
+patch_file() {
+    pf_file="${1}"
+    pf_patch="${2}"
+    pf_start="${3}"
+    pf_end="${4}"
+    pf_indentation="${5}"
+    pf_next="${pf_file}.next"
+
+    echo "Patching ${pf_file} with data from ${pf_patch}"
+
+    head -n "${pf_start}" "${pf_file}" >"${pf_next}"
+    while IFS="$(printf '\n')" read -r pf_line || [ -n "${pf_line}" ]; do
+        if [ "${pf_line#\#!/}" != "${pf_line}" ]; then # skip shebang
+            continue
+        fi
+        if [ "${pf_line}" = "" ]; then
+            printf "\n" >>"${pf_next}"
+        else
+            printf "%s\n" "${pf_indentation}${pf_line}" >>"${pf_next}"
+        fi
+    done <"${pf_patch}"
+    tail -n "+${pf_end}" "${pf_file}" >>"${pf_next}"
+    mv -f "${pf_next}" "${pf_file}"
+}
+
+process() {
+    p_file="${1}"
+    echo "Processing: ${p_file}"
+    p_count="$(grep -c -e '# file:' -e '// file:' "${p_file}" || true)"
+
+    p_i=0
+    while [ $p_i -ne $p_count ]; do
+        p_i=$((p_i + 1))
+        line="$(grep -n -e '# file:' -e '// file:' "${p_file}" | head -n "${p_i}" | tail -n 1)"
+        start="$(echo "${line}" | cut -d':' -f1 -)"
+        comment="$(echo "${line}" | tr -s ' ' | cut -d':' -f2 - | cut -d' ' -f2 -)"
+        indentation="$(echo "${line}" | cut -d':' -f2 - | cut -d'#' -f1 - | cut -d'/' -f1 -)"
+        ref_file="$(echo "${line}" | cut -d':' -f3 -)"
+        end="$(grep -n "${indentation}${comment} end-file:${ref_file}" "${p_file}" | head -n 1 | cut -d':' -f1 -)"
+
+        # Check referenced file relative to processed file and relative to CWD
+        rel_ref_file="$(dirname "${p_file}")/${ref_file}"
+        rel_ref_file="$(realpath "${rel_ref_file}" 2>/dev/null || true)"
+        if [ ! -f "${rel_ref_file}" ]; then
+            rel_ref_file="$(realpath "${PWD}/${ref_file}" 2>/dev/null || true)"
+        fi
+        if [ ! -f "${rel_ref_file}" ]; then
+            echo "Referenced file: ${ref_file} not found."
+            exit 1
+        fi
+        ref_file="${rel_ref_file}"
+        patch_file "${p_file}" "${ref_file}" "${start}" "${end}" "${indentation}"
+    done
+}
+
+main() {
+    for file in "$@"; do
+        process "${file}"
+    done
+}
+
+main "$@"

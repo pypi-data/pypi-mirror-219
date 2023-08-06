@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: inline-patch
+Version: 0.0.2
+Summary: Patch inline content referenced in file
+Author-email: Andrei Natanael Cosma <andrei@intersect.ro>
+Project-URL: Homepage, https://github.com/ancosma/inline-patch
+Project-URL: Bug Tracker, https://github.com/ancosma/inline-patch/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# inline-patch
+
+Patch inline content referenced in file
+
