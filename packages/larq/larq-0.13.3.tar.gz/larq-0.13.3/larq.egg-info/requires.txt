@@ -1,0 +1,25 @@
+numpy<2.0,>=1.15.4
+terminaltables>=3.1.0
+packaging>=19.2
+
+[:python_version < "3.8"]
+importlib-metadata<4.0,>=2.0
+
+[lint]
+black==23.7.0
+flake8==6.0.*
+isort==5.11.*
+pytype==2022.10.26
+
+[tensorflow]
+tensorflow>=1.14.0
+
+[tensorflow_gpu]
+tensorflow-gpu>=1.14.0
+
+[test]
+pytest==7.4.*
+pytest-cov<4.2,>=4.0
+pytest-xdist==3.2.*
+pytest-mock==3.11.*
+snapshottest==0.6.*
