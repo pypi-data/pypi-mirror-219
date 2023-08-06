@@ -1,0 +1,2 @@
+def printLu():
+	return "Lu"
