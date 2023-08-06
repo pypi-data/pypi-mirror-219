@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools"]
+
+[project]
+name = "dsds"
+version = "0.0.18"
+requires-python = ">=3.9"
+readme = "README.md"
+description = "A feature screening, selection, EDA, pipeline building and management tool centered around Polars dataframe."
+authors = [
+    {name = "Tianren Qin", email = "tq9695@gmail.com"}
+]
+license = {file = "LICENSE"}
+dependencies = [
+    "polars >= 0.18.6",
+    "scipy >= 1.11.1",
+    "pandas",
+    "numpy",
+    "typing_extensions >= 4.0.1"
+]
+
+keywords = ["data pipeline", "EDA", "feature-screening", "feature-selection"]
+
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.optional-dependencies]
+scikit-learn = ["scikit-learn"]
+xgboost = ["xgboost"]
+lightgbm = ["lightgbm"]
+all = ["scikit-learn", "xgboost", "lightgbm"]
+
+[project.urls]
+"Homepage" = "https://github.com/abstractqqq/dsds"
+
+[tool.ruff]
+line-length = 120
+fix = true
+src = ["src"]
