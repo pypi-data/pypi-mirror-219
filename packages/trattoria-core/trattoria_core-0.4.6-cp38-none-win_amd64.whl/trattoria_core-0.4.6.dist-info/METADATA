@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: trattoria-core
+Version: 0.4.6
+Requires-Dist: numpy >=1.20
+Summary: The heart of the trattoria library.
+Keywords: scientific-computing,python,science
+Author: Guillem Ballesteros <dev+crate@maxwellrules.com>
+Author-email: Guillem Ballesteros <dev+github@maxwellrules.com>
+License: MIT
+Requires-Python: >=3.8, <3.12
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+Project-URL: homepage, https://www.github.com/GCBallesteros/trattoria-core
+
+Trattoria-core is a very thin wrapper around the Rust library tttr-toolbox. For a more
+complete experience please look at the Trattoria python library.
+
