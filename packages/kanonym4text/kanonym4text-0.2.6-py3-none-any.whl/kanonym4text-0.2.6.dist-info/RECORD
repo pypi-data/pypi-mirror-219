@@ -1,0 +1,16 @@
+kanonym4text/__init__.py,sha256=1gAY1YaiYvgvSAKmpGsy9AOKEFIRhbSDiCUFRoY5Ejw,119
+kanonym4text/data/5000_most_common_words_by_order.txt,sha256=1lqan3KU0DumOZxBc-QDrLEUoelrvfuJeeOjOgmTgPo,35592
+kanonym4text/objects/__init__.py,sha256=5NC3XrKy-7ifbbywGFjk1SWy9aa0UjUgWTLgXh94N38,52
+kanonym4text/objects/kanonym.py,sha256=nxgei2ffCiGfcGJQGixS3e_GYNNQUg6BdGKEiWCSQIc,8241
+kanonym4text/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kanonym4text/utils/anonym_utils.py,sha256=oECjTYbLE_4xz9Cws6WjLI2yI_LhHWiMdU1fhfHe7sk,13287
+kanonym4text/utils/cluster_utils.py,sha256=CizVhBQqUKNF_I8Lr8n6N3bZvhQ6teGbZhJNVjL3MQw,8723
+kanonym4text/utils/llm_utils.py,sha256=imANEJE6kFdWMX6Xyfq0JGWfQtxqlt4naM1nBTq887Q,6355
+kanonym4text/utils/models.py,sha256=ysOCLNoQBmKqNpL7OdKUXKZafWi4oYcu79fqWobqhJI,721
+kanonym4text/utils/nlp_utils.py,sha256=-OI3b4i-hLV7Sbca7oUooSku-YyO9qr8sq57_q2azdI,11183
+kanonym4text/utils/utilization_utils.py,sha256=J7mrq6ajsQCJhlyJbWNIfGNStIAlAvTRYoS45w9Jpa4,3152
+kanonym4text-0.2.6.dist-info/LICENSE,sha256=Nvy5CZtGyQiE9WdZyJKvz1YQsTNHgBBqnPQhJOwdyx0,1068
+kanonym4text-0.2.6.dist-info/METADATA,sha256=qHUsUoKYjpnoUUI5xncxTp-ILedKJOk_W6Ot92kfF5g,1286
+kanonym4text-0.2.6.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+kanonym4text-0.2.6.dist-info/top_level.txt,sha256=Y3PyBdpUuL7cICIP7QQM7IV7lUVV--qMl2yD-x5ZPVI,13
+kanonym4text-0.2.6.dist-info/RECORD,,
