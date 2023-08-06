@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: zitan
+Version: 0.1.3
+Summary: This project is used to display ...
+Home-page: https://github.com/你的github账户/test(项目文件夹名称)
+Author: xxx
+Author-email: xxx@gmail.com
+License: MIT
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+This project is used to display ...
