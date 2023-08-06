@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: srai-core
+Version: 0.1.0
+Summary: A library core functions used in other SRAI libraries.
+Home-page: https://github.com/southriverai/srai-core
+Author: Jaap Oosterbroek
+Author-email: jaap.oosterbroek@southriverai.com
+License: MIT
+Download-URL: https://github.com/southriverai/srai-core/archive/v_01.tar.gz
+Keywords: SRAI,TOOLS
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+
+# srai-core
+
