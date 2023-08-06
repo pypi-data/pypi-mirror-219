@@ -1,0 +1,83 @@
+Metadata-Version: 2.1
+Name: chartart
+Version: 0.0.3.dev19
+Summary: ChartArt python package
+Home-page: https://github.com/pypa/sampleproject
+Author: BR-Advisers
+Author-email: info@br-advisers.com
+Project-URL: Bug Tracker, https://github.com/pypa/sampleproject/issues
+Keywords: chartart,NLP
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# ChartArt Package is under development
+
+Use 
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
+Change Log 
+
+0.0.1 => 0.0.2 
+Added support for =>
+-Publish post without javascript package from notebook
+-Pulish post from standalone python script (Non jupyter environment)
+
+
+0.0.2 => 0.0.3 
+Added support for features at the time of publishing post. Features will get used as filters.
+
+0.0.3.dev5 => 0.0.3.dev6
+-Support for status posts compatible with new low code platform.
+Example: 
+
+```
+
+filters = {
+    "dateAdded": datetime.datetime.now().isoformat() + 'Z',
+    'rowSubscriptionCol': 'vendor',
+    'type': 'aggregatePost'
+}
+
+data = {
+    'count': 5,
+    'status': 'Warning',
+    'vendor': 'GCP'
+}
+
+post = Post(postId='GCP_aggregatePost', postTitle='# Aggregated Post')
+post.addFilters(filters)
+post.createPost(data=data)
+
+```
+0.0.3.dev6 => 0.0.3.dev7
+-Added Exception handling code if response is not in json format
+
+0.0.3.dev7 => 0.0.3.dev8
+-Added code to retry 5xx error code 
+
+0.0.3.dev7 => 0.0.3.dev10
+-Resolved unauthorized error and changed sleep time
+
+0.0.3.dev12 => 0.0.3.dev13
+- Added line/bar/scatter chart subtypes
+- line type : line, area, spline, stepLine, splineArea, stepArea, stackedLine, stackedArea, stackedArea100, stackedLine100
+- bar type : bar,column,stackedBar,stackedColumn,stackedBar,stackedBar100,stackedColumn100  
+- scatter : bubble , if size is specified as list of float scatter chart will get ploted as bubble chart
+
+0.0.3.dev14 => 0.0.3.dev15
+- Tree Map : c (color) param is optional
+- Map : shapeDataField is new optional param (defaults to key 'Name'). primaryValueMapper and data is optional parameters now. This will be usefull for markers/bubbles where we dont need these inputs.
+- Map : added support fo sub layers. 
+
+0.0.3.dev18
+- Added startAngle, endAngle, radius, groupTo in circular chart
+- Added number format on axis
+
+0.0.3.dev19
+- added support to specify axis type 
+- Made default bin interval is 0 . 0 means syncfusion will calculate internally.
