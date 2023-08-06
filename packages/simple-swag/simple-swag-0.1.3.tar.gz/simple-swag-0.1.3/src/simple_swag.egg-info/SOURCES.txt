@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.cfg
+src/simple_swag.egg-info/PKG-INFO
+src/simple_swag.egg-info/SOURCES.txt
+src/simple_swag.egg-info/dependency_links.txt
+src/simple_swag.egg-info/entry_points.txt
+src/simple_swag.egg-info/requires.txt
+src/simple_swag.egg-info/top_level.txt
+src/swag/__init__.py
+src/swag/autoblog.py
+src/swag/builder.py
+src/swag/cli.py
+src/swag/lorem.py
+src/swag/resources.py
+tests/test_cli.py
