@@ -1,0 +1,3 @@
+[console_scripts]
+reveal_js = revealjs_bundler.reveal_js:main
+
