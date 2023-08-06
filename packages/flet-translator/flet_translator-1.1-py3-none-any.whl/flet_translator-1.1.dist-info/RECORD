@@ -1,0 +1,16 @@
+flet_translator/__init__.py,sha256=LT_7IXLLG5KjuYFAuGGTVehYEMrS4mc6CypcB1BFcxY,181
+flet_translator/tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flet_translator/tools/translate_control_content.py,sha256=UoPJutUnDEubCT85xCmnaHE-aAW9VY-fb_cC3EP_P1o,2686
+flet_translator/tools/translate_page.py,sha256=h-hVz5mG0UHjNEeJs7_5JecTuYOmvujwPWixjb4dfNQ,3743
+flet_translator/tools/translate_using_google.py,sha256=w9ZtF9rUs6MJbbleeWwOEt6T9jVtXJUgKLdczCVT-i8,594
+flet_translator/tools/translate_using_opusMT.py,sha256=apJaWw9-BubX0TEFHY1tM0h-8Hb6ACTnPPRrq4z_E7I,550
+flet_translator/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+flet_translator/utils/allowed_props_to_translate.py,sha256=H6OuUpuE3-o5XS93IoyUPs6Tumaf7oXOMgAP7m-9KNI,96
+flet_translator/utils/google_supported_langaues.py,sha256=BxziUEd3dWvQhuHCRHdb4L3yJCrrwRYpEQ7V-PDoZAo,3447
+flet_translator/utils/is_rtl.py,sha256=9cFCxwYs7HkmbFAPEBi0BhmHvKXAPtLuYFYuoCLGnNw,328
+flet_translator/utils/opusMT_supported_languages.py,sha256=Y8pbn4hOZ-YELiGiuvyylkcpKOJyj1GckXIURKlQ_LA,909
+flet_translator-1.1.dist-info/LICENSE,sha256=G4eTcZdmM8x3dHCkx1Y3tmgTV4idwt61dCGpEhdhFNc,1060
+flet_translator-1.1.dist-info/METADATA,sha256=VMVUfANee7tSE03AxAADw9yRHrmaoS5JxvqxOCx8tIw,4106
+flet_translator-1.1.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+flet_translator-1.1.dist-info/top_level.txt,sha256=FLuEfNrfkVyoR-1A5lWZnuV2nyWQtzgAwSNlXBsGaAE,16
+flet_translator-1.1.dist-info/RECORD,,
