@@ -1,0 +1,2 @@
+[console_scripts]
+aws-lambda-ci = ci:ci
