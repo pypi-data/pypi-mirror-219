@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+embedsrt/__init__.py
+embedsrt.egg-info/PKG-INFO
+embedsrt.egg-info/SOURCES.txt
+embedsrt.egg-info/dependency_links.txt
+embedsrt.egg-info/entry_points.txt
+embedsrt.egg-info/requires.txt
+embedsrt.egg-info/top_level.txt
