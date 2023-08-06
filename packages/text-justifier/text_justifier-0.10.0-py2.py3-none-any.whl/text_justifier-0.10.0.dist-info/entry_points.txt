@@ -1,0 +1,4 @@
+[console_scripts]
+justify = justifier.cli:main
+text-justifier = justifier.cli:main
+
