@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+apache_airflow_providers_kettle.egg-info/PKG-INFO
+apache_airflow_providers_kettle.egg-info/SOURCES.txt
+apache_airflow_providers_kettle.egg-info/dependency_links.txt
+apache_airflow_providers_kettle.egg-info/entry_points.txt
+apache_airflow_providers_kettle.egg-info/requires.txt
+apache_airflow_providers_kettle.egg-info/top_level.txt
+kettle_provider/__init__.py
+kettle_provider/hooks/__init__.py
+kettle_provider/operators/__init__.py
+kettle_provider/operators/kettle_operator.py
+kettle_provider/sensors/__init__.py
