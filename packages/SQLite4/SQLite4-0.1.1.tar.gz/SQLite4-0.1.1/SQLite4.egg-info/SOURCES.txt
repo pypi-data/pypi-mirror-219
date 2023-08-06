@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+SQLite4.egg-info/PKG-INFO
+SQLite4.egg-info/SOURCES.txt
+SQLite4.egg-info/dependency_links.txt
+SQLite4.egg-info/top_level.txt
+sqlite4/SQLite4.py
+sqlite4/__init__.py
+tests/__init__.py
+tests/test_crud_class.py
+tests/test_multithread.py
+tests/test_singleton.py
