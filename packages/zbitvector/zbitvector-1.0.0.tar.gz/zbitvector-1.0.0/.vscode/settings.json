@@ -1,0 +1,19 @@
+{
+    "editor.codeActionsOnSave": [
+        "source.organizeImports",
+    ],
+    "editor.formatOnSave": true,
+    "files.exclude": {
+        "**/__pycache__": true,
+    },
+    "isort.args": [
+        "--profile=black",
+    ],
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.typeCheckingMode": "strict",
+    "python.formatting.provider": "black",
+    "python.linting.pydocstyleEnabled": true,
+    "python.linting.pydocstyleArgs": [
+        "--match='(?!setup.py).*\\.py'",
+    ]
+}

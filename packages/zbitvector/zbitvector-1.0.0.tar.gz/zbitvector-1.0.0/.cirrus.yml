@@ -1,0 +1,64 @@
+sdist_task:
+  name: "package / sdist"
+  container:
+    image: python:latest
+  setup_script:
+    python3 -m pip install build
+  build_script:
+    python3 -m build --sdist --outdir wheelhouse
+  wheels_artifacts:
+    path: "wheelhouse/*"
+
+bdist_task:
+  matrix:
+    - name: "package / manylinux-x86-64"
+      compute_engine_instance: &BUILDER_TEMPLATE
+        image_project: cirrus-images
+        image: family/docker-builder
+        platform: linux
+        cpu: 4
+        memory: 2G
+      env:
+        CIBW_ARCHS: "x86_64"
+        CIBW_BUILD: "*manylinux*"
+    - name: "package / musllinux-x86-64"
+      compute_engine_instance:
+        <<: *BUILDER_TEMPLATE
+      env:
+        CIBW_ARCHS: "x86_64"
+        CIBW_BUILD: "*musllinux*"
+    - name: "package / manylinux-aarch64"
+      compute_engine_instance:
+        <<: *BUILDER_TEMPLATE
+        image: family/docker-builder-arm64
+        architecture: arm64
+      env:
+        CIBW_ARCHS: "aarch64"
+        CIBW_BUILD: "*manylinux*"
+    - name: "package / musllinux-aarch64"
+      compute_engine_instance:
+        <<: *BUILDER_TEMPLATE
+        image: family/docker-builder-arm64
+        architecture: arm64
+      env:
+        CIBW_ARCHS: "aarch64"
+        CIBW_BUILD: "*musllinux*"
+    - name: "package / macosx-arm64"
+      macos_instance:
+        image: ghcr.io/cirruslabs/macos-monterey-xcode:latest
+      env:
+        CIBW_ARCHS: "arm64"
+        CIBW_BEFORE_ALL: "sudo make ci"
+    - name: "package / macosx-x86-64"
+      macos_instance:
+        image: ghcr.io/cirruslabs/macos-monterey-xcode:latest
+      env:
+        CIBW_ARCHS: "x86_64"
+        CIBW_BEFORE_ALL: "sudo arch -x86_64 make ci"
+  setup_script:
+    - git tag -l
+    - python3 -m pip install cibuildwheel==2.14.0
+  build_script:
+    - python3 -m cibuildwheel
+  wheels_artifacts:
+    path: "wheelhouse/*"

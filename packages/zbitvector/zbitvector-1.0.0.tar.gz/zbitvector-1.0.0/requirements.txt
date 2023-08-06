@@ -1,0 +1,21 @@
+# Dependencies
+typing_extensions
+z3-solver
+
+# Linters
+black
+pydocstyle
+pyright
+
+# Toolchain
+build
+twine
+wheel
+
+# Testing
+asv
+pympler
+pytest
+
+# Documentation
+sphinx

@@ -1,0 +1,50 @@
+[project]
+name = "zbitvector"
+description = "A well-typed library for symbolic bitvectors"
+readme = "README.md"
+license = { text = "MIT License" }
+
+dynamic = ["version"]
+
+requires-python = ">= 3.8"
+dependencies = ["typing-extensions >= 4.0"]
+
+[project.urls]
+"Documentation" = "https://zbitvector.btidor.dev"
+"Source Code" = "https://github.com/btidor/zbitvector"
+
+[build-system]
+requires = ["cython", "setuptools", "setuptools_scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[tool.cibuildwheel]
+before-all = ["make ci"]
+test-requires = ["pytest", "z3-solver"]
+test-command = """ \
+    pytest --import-mode=append {project}/tests && \
+    pytest --pyargs --doctest-modules zbitvector && \
+    ZBITVECTOR_BACKEND=z3 pytest --import-mode=append {project}/tests && \
+    ZBITVECTOR_BACKEND=z3 pytest --pyargs --doctest-modules zbitvector \
+"""
+
+# Z3 doesn't distribute pre-built binaries for these platforms
+[[tool.cibuildwheel.overrides]]
+select = "*{musllinux,aarch64}*"
+test-requires = ["pytest"]
+test-command = """ \
+    pytest --import-mode=append {project}/tests && \
+    pytest --pyargs --doctest-modules zbitvector
+"""
+
+[tool.pyright]
+strict = ["**/*"]
+reportUnnecessaryTypeIgnoreComment = true
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+
+[tool.setuptools]
+packages = ["zbitvector", "zbitvector.pybitwuzla"]
+license-files = ["LICENSE", "THIRDPARTY"]
+
+[tool.setuptools_scm]
