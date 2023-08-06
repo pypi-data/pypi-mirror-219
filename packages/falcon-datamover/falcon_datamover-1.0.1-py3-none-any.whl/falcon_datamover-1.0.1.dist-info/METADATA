@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: falcon-datamover
+Version: 1.0.1
+Summary: Online File Transfer Optimization
+Author-email: Md Arifuzzaman <arif@nevada.unr.edu>
+License: MIT License
+        
+        Copyright (c) 2023 HIGH PERFORMANCE COMPUTING AND NETWORKING (HPCN) LAB, UNR
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/arif-zaman/falcon-datamover
+Keywords: data-transfer,high-performance-networks
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: joblib (>=1.2.0)
+Requires-Dist: numpy (==1.22.0)
+Requires-Dist: pyaml (==20.4.0)
+Requires-Dist: PyYAML (>=5.4.1)
+Requires-Dist: scikit-optimize (>=0.8.1)
+Requires-Dist: scipy (>=1.5.4)
+Requires-Dist: threadpoolctl (>=2.1.0)
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: bumpver ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: pip-tools ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+# Falcon: Online File Transfers Optimization
+The application can only correctly function on Linux-based operating systems due to several Linux-based functional dependencies.
+
+## Installation
+
+You can install the falcon-datamover package from [PyPI](https://pypi.org/project/falcon-datamover/):
+
+    pip install falcon-datamover
+
+or
+
+    python3 -m pip install falcon-datamover
+
+The Falcon package is supported on Python 3.6 and above.
+
+## Usage
+
+Falcon is a command line application. please run help to find required arguments
+
+    $ falcon --help
+    usage: falcon [-h] [--host HOST] [--port PORT] [--data_dir DATA_DIR] [--method METHOD] agent
+
+    positional arguments:
+    agent                Please choose agent type: sender or receiver
+
+    optional arguments:
+    -h, --help           show this help message and exit
+    --host HOST          Receiver host address; default: 127.0.0.1
+    --port PORT          Receiver port number; default: 50021
+    --data_dir DATA_DIR  data directory of sender or receiver
+    --method METHOD      choose one of them : gradient, bayes, brute, probe
+
+for example: on the receiver node:
+
+    $ falcon receiver --host 10.10.1.2 --port 5000 --data_dir /data/dest/
+
+similarly, on the sender node:
+
+    $ falcon sender --host 10.10.1.2 --port 5000 --data_dir /data/src/ --method probe
