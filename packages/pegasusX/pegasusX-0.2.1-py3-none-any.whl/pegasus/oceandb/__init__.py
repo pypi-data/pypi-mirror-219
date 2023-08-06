@@ -1,0 +1,2 @@
+import logging
+from pegasus.oceandb.utils.embedding_functions import ImageBindEmbeddingFunction
