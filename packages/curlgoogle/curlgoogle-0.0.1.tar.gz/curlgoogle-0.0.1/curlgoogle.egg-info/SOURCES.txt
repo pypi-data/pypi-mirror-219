@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+curlgoogle/__init__.py
+curlgoogle/console.py
+curlgoogle/curlgoogledownload.py
+curlgoogle/curlgoogleupload.py
+curlgoogle/info.py
+curlgoogle.egg-info/PKG-INFO
+curlgoogle.egg-info/SOURCES.txt
+curlgoogle.egg-info/dependency_links.txt
+curlgoogle.egg-info/entry_points.txt
+curlgoogle.egg-info/top_level.txt
