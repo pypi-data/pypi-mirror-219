@@ -1,0 +1,16 @@
+LICENSE
+README.md
+setup.py
+estela_queue_adapter/__init__.py
+estela_queue_adapter/abc_consumer.py
+estela_queue_adapter/abc_producer.py
+estela_queue_adapter/get_interface.py
+estela_queue_adapter/utils.py
+estela_queue_adapter.egg-info/PKG-INFO
+estela_queue_adapter.egg-info/SOURCES.txt
+estela_queue_adapter.egg-info/dependency_links.txt
+estela_queue_adapter.egg-info/requires.txt
+estela_queue_adapter.egg-info/top_level.txt
+estela_queue_adapter/kafka/__init__.py
+estela_queue_adapter/kafka/consumer.py
+estela_queue_adapter/kafka/producer.py

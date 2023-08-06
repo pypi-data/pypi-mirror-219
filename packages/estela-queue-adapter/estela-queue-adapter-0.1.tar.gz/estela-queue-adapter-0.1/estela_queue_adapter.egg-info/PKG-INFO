@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: estela-queue-adapter
+Version: 0.1
+Summary: Queue adapter for estela
+Classifier: Framework :: Scrapy
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+License-File: LICENSE
