@@ -1,0 +1,179 @@
+Metadata-Version: 2.1
+Name: banking-system
+Version: 1.0.5
+Summary: A simple banking management system package
+Author: Kunal Kumar
+Description-Content-Type: text/markdown
+
+```
+# Banking Management System
+
+The Banking Management System is a Python package that provides functionality for managing bank accounts and transactions. It allows users to create and manage accounts, make deposits and withdrawals, and perform various banking operations.
+
+# Banking Management System Package
+
+This is a simple banking management system package that provides classes and functionality for managing customer accounts, transactions, and balances.
+
+## Features
+
+- `Customer`: Represents a customer with a name and address.
+- `Account`: Represents a bank account with an account number and balance. Allows depositing and withdrawing funds.
+- `Transaction`: Represents a transaction between two accounts. Processes transfers of funds.
+
+
+## Installation
+
+To install the Banking Management System package, follow these steps:
+
+1. Make sure you have Python 3.x installed on your system.
+
+2. Open the command line and navigate to the directory where you want to install the package.
+
+3. Run the following command to install the package from PyPI:
+
+   ```
+   pip install banking-system
+   ```
+
+4. The package and its dependencies will be downloaded and installed.
+
+## Usage
+
+Here are some examples of how to use the Banking Management System package:
+
+### Creating a Bank Account
+
+```python
+from banking.account import Account
+
+# Create a bank account
+account = Account("John Doe", 1000.0)
+
+# Print the account details
+print(account)
+```
+
+
+### Making a Deposit
+
+```python
+from banking_system.account import Account
+
+# Create a bank account
+account = Account("John Doe", 1000.0)
+
+# Make a deposit of 500.0
+account.deposit(500.0)
+
+# Print the updated balance
+print(account.balance)
+```
+
+### Making a Withdrawal
+
+```python
+from banking_system.account import Account
+
+# Create a bank account
+account = Account("John Doe", 1000.0)
+
+# Make a withdrawal of 200.0
+account.withdraw(200.0)
+
+# Print the updated balance
+print(account.balance)
+```
+
+### Performing a Transaction
+
+```python
+from banking_system.transaction import Transaction
+
+# Create a transaction
+sender = Account("123456", 1000)
+receiver = Account("789012", 500)
+transaction = Transaction(sender, receiver, 500)
+
+# Process the transaction
+transaction.process_transaction()
+
+# Print the transaction details
+print(transaction)
+```
+
+For more information and detailed usage instructions, please refer to the documentation.
+
+## Contributing
+
+Contributions to the Banking Management System package are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request on GitHub.
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Distribution
+
+The command `python setup.py sdist bdist_wheel` is used to build distribution files for your Python package. Let's break down the different parts of this command:
+
+- `python`: This is the command to execute the Python interpreter.
+- `setup.py`: This is the setup script for your package. It contains metadata about your package, such as the package name, version, dependencies, and other details required for distribution.
+- `sdist`: This is a command option that tells `setup.py` to create a source distribution (`.tar.gz` file) of your package. It packages up all the source code and necessary files.
+- `bdist_wheel`: This is a command option that tells `setup.py` to create a binary distribution (`.whl` file) of your package. A wheel distribution is a more modern and preferred format as it contains pre-compiled bytecode that can be installed faster.
+
+By running `python setup.py sdist bdist_wheel`, you generate both a source distribution and a binary distribution of your package. The source distribution is useful for users who want to build and install the package from source. The binary distribution is convenient for users who want to install the package without compiling it.
+
+The resulting distribution files can then be uploaded to PyPI or distributed through other means so that users can easily install your package in their Python environments.
+
+## Uploading Distribution Files to PyPI using Twine
+
+To upload your distribution files (`dist` and `bdist_wheel`) to PyPI using Twine, follow these steps:
+
+1. Install Twine:
+   ```
+   pip install twine
+   pip install wheel
+   ```
+
+2. Build the distribution files:
+   Make sure you have already run the command `python setup.py sdist bdist_wheel` to generate the distribution files (`dist` and `bdist_wheel`).
+
+3. Upload to PyPI using Twine:
+   Run the following command to upload the distribution files to PyPI:
+   ```
+   twine upload dist/*
+   ```
+
+4. Provide your PyPI credentials:
+   When prompted, enter your PyPI username and password. Make sure you have registered an account on PyPI (https://pypi.org) before attempting to upload.
+
+   
+   ```
+   [pypi]
+   username = your_username
+   password = your_password
+   ```
+
+5. Verify the upload:
+   After the upload is complete, you should see output indicating the successful upload of your distribution files. You can visit your project page on PyPI to verify that the files are available for installation.
+
+   Keep in mind that the distribution files will be publicly accessible once uploaded to PyPI, so ensure that you have tested and prepared your package for distribution before uploading.
+
+That's it! Your distribution files are now available on PyPI for others to install using `pip install`.
+
+
+## Changes in 1.0.4
+
+Added new feature for modifying the customer using the set_info function in the Customer Class.
+# Modify customer information
+customer.set_info("John Smith", "456 Elm St")
+
+# Using build package
+```
+pip install build
+python -m build
+
+```
+
+
+
+```
