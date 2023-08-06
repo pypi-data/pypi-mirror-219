@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: kcfg
+Version: 0.1.0
+Summary: Tool to read and write KDE INI config files, replaces kwriteconfig5 / kreadconfig5
+Author-email: Aleksandar Radivojevic <rzhw3h@gmail.com>
+Requires-Python: >=3.8.1
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Topic :: Utilities
+Classifier: Topic :: Desktop Environment
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Project-URL: Home, https://github.com/sandorex/kcfg
+Project-URL: Tracker, https://github.com/sandorex/kcfg/issues
+
+# kcfg
+Replacement for the awful `kwriteconfig5` and `kreadconfig5`[^1]
+
+It has a different syntax but a much improved one, some examples below
+
+```
+$ kcfg 'kcminputrc/Libinput/1241/41119/E-Signal USB Gaming Mouse/PointerAcceleration' --write -0.200
+```
+
+[^1]: `kwriteconfig5` can't do the one thing it was made for and that is write strings, if you try to write '-0.200' it shits itself...
+
+## Status
+The software is almost done but i also plan to write tests to make sure it behaves like it should
+
+## How to use it
+The whole logic is inside `kcfg/kcfg.py` and always will be\
+This whole python package is just to allow easy installation/updates from pip
+
+You can clone whole repo and run it directly, or as a module `python3 -m kcfg`, you could download it with wget and run it
+
+*Although i would not recommend not updating it right now as it's still untested*
+
+
