@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: animate-transit
+Version: 0.1
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: imageio
+Requires-Dist: tqdm
+
