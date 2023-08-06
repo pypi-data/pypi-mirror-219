@@ -1,0 +1,808 @@
+# Translations for Shoestring.
+# Copyright (C) 2023 Symbol Contributors
+# This file is distributed under the same license as the Shoestring project.
+msgid ""
+msgstr ""
+
+#: shoestring/commands/announce_transaction.py:31
+msgid "announce-transaction-announce-successful"
+msgstr ""
+
+#: shoestring/commands/announce_transaction.py:24
+msgid "announce-transaction-preparing-to-announce"
+msgstr ""
+
+#: shoestring/commands/announce_transaction.py:36
+msgid "argument-help-announce-transaction-transaction"
+msgstr ""
+
+#: shoestring/commands/min_cosignatures_count.py:35
+#: shoestring/commands/renew_certificates.py:31
+#: shoestring/commands/setup.py:139 shoestring/commands/signer.py:95
+msgid "argument-help-ca-key-path"
+msgstr ""
+
+#: shoestring/commands/announce_transaction.py:35
+#: shoestring/commands/health.py:75 shoestring/commands/import_bootstrap.py:28
+#: shoestring/commands/init.py:29
+#: shoestring/commands/min_cosignatures_count.py:34
+#: shoestring/commands/renew_certificates.py:29
+#: shoestring/commands/renew_voting_keys.py:112
+#: shoestring/commands/reset_data.py:87 shoestring/commands/setup.py:131
+#: shoestring/commands/signer.py:94
+msgid "argument-help-config"
+msgstr ""
+
+#: shoestring/commands/health.py:76
+#: shoestring/commands/renew_certificates.py:30
+#: shoestring/commands/renew_voting_keys.py:113
+#: shoestring/commands/reset_data.py:88 shoestring/commands/setup.py:133
+msgid "argument-help-directory"
+msgstr ""
+
+#: shoestring/commands/import_bootstrap.py:29
+msgid "argument-help-import-bootstrap-bootstrap"
+msgstr ""
+
+#: shoestring/commands/min_cosignatures_count.py:36
+msgid "argument-help-min-cosignatures-count-update"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:49
+msgid "argument-help-pemtool-ask-pass"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:50
+msgid "argument-help-pemtool-force"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:48
+msgid "argument-help-pemtool-input"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:47
+msgid "argument-help-pemtool-output"
+msgstr ""
+
+#: shoestring/commands/renew_certificates.py:32
+msgid "argument-help-renew-certificates-renew-ca"
+msgstr ""
+
+#: shoestring/commands/reset_data.py:89
+msgid "argument-help-reset-data-purge-harvesters"
+msgstr ""
+
+#: shoestring/commands/setup.py:135
+msgid "argument-help-setup-metadata"
+msgstr ""
+
+#: shoestring/commands/setup.py:134
+msgid "argument-help-setup-overrides"
+msgstr ""
+
+#: shoestring/commands/init.py:28 shoestring/commands/setup.py:132
+msgid "argument-help-setup-package"
+msgstr ""
+
+#: shoestring/commands/setup.py:138
+msgid "argument-help-setup-security"
+msgstr ""
+
+#: shoestring/commands/signer.py:97
+msgid "argument-help-signer-filename"
+msgstr ""
+
+#: shoestring/commands/signer.py:96
+msgid "argument-help-signer-save"
+msgstr ""
+
+#: shoestring/internal/FileDownloader.py:40
+msgid "file-downloader-already-downloaded"
+msgstr ""
+
+#: shoestring/internal/FileDownloader.py:54
+msgid "file-downloader-downloaded-with-invalid-hash"
+msgstr ""
+
+#: shoestring/internal/FileDownloader.py:43
+msgid "file-downloader-exists-with-invalid-hash"
+msgstr ""
+
+#: shoestring/commands/announce_transaction.py:15
+#: shoestring/commands/min_cosignatures_count.py:18
+#: shoestring/commands/renew_voting_keys.py:32 shoestring/commands/setup.py:61
+msgid "general-connecting-to-node"
+msgstr ""
+
+#: shoestring/commands/init.py:17 shoestring/commands/reset_data.py:57
+#: shoestring/internal/Preparer.py:184
+#: shoestring/internal/VoterConfigurator.py:53
+msgid "general-copying-file"
+msgstr ""
+
+#: shoestring/commands/reset_data.py:62 shoestring/internal/Preparer.py:190
+msgid "general-copying-tree"
+msgstr ""
+
+#: shoestring/commands/renew_voting_keys.py:46
+#: shoestring/internal/Preparer.py:383
+msgid "general-created-aggregate-transaction"
+msgstr ""
+
+#: shoestring/healthagents/peer_api.py:19
+msgid "health-peer-api-error"
+msgstr ""
+
+#: shoestring/healthagents/peer_api.py:17
+msgid "health-peer-api-success"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:83
+msgid "health-peer-certificate-corrupt-full-certificate"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:32
+msgid "health-peer-certificate-expired"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:41
+msgid "health-peer-certificate-future-start"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:72
+msgid "health-peer-certificate-missing-files"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:34
+msgid "health-peer-certificate-near-expiry"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:36
+msgid "health-peer-certificate-not-near-expiry"
+msgstr ""
+
+#: shoestring/healthagents/peer_certificate.py:63
+msgid "health-peer-certificate-not-verifiable"
+msgstr ""
+
+#: shoestring/healthagents/rest_api.py:22
+msgid "health-rest-api-error"
+msgstr ""
+
+#: shoestring/healthagents/rest_api.py:20
+msgid "health-rest-api-success"
+msgstr ""
+
+#: shoestring/healthagents/rest_https_certificate.py:55
+msgid "health-rest-https-certificate-invalid"
+msgstr ""
+
+#: shoestring/healthagents/rest_https_certificate.py:58
+msgid "health-rest-https-certificate-valid"
+msgstr ""
+
+#: shoestring/commands/health.py:70
+msgid "health-running-health-agent"
+msgstr ""
+
+#: shoestring/healthagents/voting_keys.py:23
+msgid "health-voting-keys-active"
+msgstr ""
+
+#: shoestring/healthagents/voting_keys.py:21
+msgid "health-voting-keys-expired"
+msgstr ""
+
+#: shoestring/healthagents/voting_keys.py:26
+msgid "health-voting-keys-future"
+msgstr ""
+
+#: shoestring/healthagents/voting_keys.py:32
+msgid "health-voting-keys-not-registered"
+msgstr ""
+
+#: shoestring/healthagents/voting_keys.py:34
+msgid "health-voting-keys-registered"
+msgstr ""
+
+#: shoestring/healthagents/websockets.py:22
+msgid "health-websockets-connected"
+msgstr ""
+
+#: shoestring/healthagents/websockets.py:39
+msgid "health-websockets-received-block"
+msgstr ""
+
+#: shoestring/healthagents/websockets.py:41
+msgid "health-websockets-received-wrong-topic"
+msgstr ""
+
+#: shoestring/healthagents/websockets.py:43
+msgid "health-websockets-timed-out"
+msgstr ""
+
+#: shoestring/commands/import_bootstrap.py:14
+msgid "import-bootstrap-importing-harvester"
+msgstr ""
+
+#: shoestring/commands/import_bootstrap.py:19
+msgid "import-bootstrap-importing-voter"
+msgstr ""
+
+#: shoestring/__main__.py:19
+msgid "main-announce-transaction-help"
+msgstr ""
+
+#: shoestring/__main__.py:20
+msgid "main-health-help"
+msgstr ""
+
+#: shoestring/__main__.py:21
+msgid "main-import-bootstrap-help"
+msgstr ""
+
+#: shoestring/__main__.py:22
+msgid "main-init-help"
+msgstr ""
+
+#: shoestring/__main__.py:23
+msgid "main-min-cosignatures-count-help"
+msgstr ""
+
+#: shoestring/__main__.py:24
+msgid "main-pemtool-help"
+msgstr ""
+
+#: shoestring/__main__.py:25
+msgid "main-renew-certificates-help"
+msgstr ""
+
+#: shoestring/__main__.py:26
+msgid "main-renew-voting-keys-help"
+msgstr ""
+
+#: shoestring/__main__.py:27
+msgid "main-reset-data-help"
+msgstr ""
+
+#: shoestring/__main__.py:28
+msgid "main-setup-help"
+msgstr ""
+
+#: shoestring/__main__.py:29
+msgid "main-signer-help"
+msgstr ""
+
+#: shoestring/__main__.py:17
+msgid "main-subcommands-help"
+msgstr ""
+
+#: shoestring/__main__.py:16
+msgid "main-title"
+msgstr ""
+
+#: shoestring/__main__.py:30
+msgid "main-upgrade-help"
+msgstr ""
+
+#: shoestring/commands/min_cosignatures_count.py:24
+msgid "min-cosignatures-count-cosignatures-detected"
+msgstr ""
+
+#: shoestring/internal/NodewatchClient.py:37
+msgid "nodewatch-client-detected-epoch"
+msgstr ""
+
+#: shoestring/internal/NodewatchClient.py:33
+msgid "nodewatch-client-detected-height"
+msgstr ""
+
+#: shoestring/internal/PeerDownloader.py:64
+msgid "peer-downloader-loading-api-endpoints"
+msgstr ""
+
+#: shoestring/internal/PeerDownloader.py:20
+msgid "peer-downloader-saved-file"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:12
+msgid "pemtool-enter-private-key"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:27
+msgid "pemtool-error-output-file-already-exists"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:39
+msgid "pemtool-error-password-length"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:36
+msgid "pemtool-error-password-mismatch"
+msgstr ""
+
+#: shoestring/commands/pemtool.py:43
+msgid "pemtool-saved-pem-file"
+msgstr ""
+
+#: shoestring/commands/renew_voting_keys.py:89
+msgid "renew-voting-keys-maximum-already-registered"
+msgstr ""
+
+#: shoestring/commands/renew_voting_keys.py:85
+msgid "renew-voting-keys-no-voting-keys-found"
+msgstr ""
+
+#: shoestring/commands/renew_voting_keys.py:72
+msgid "renew-voting-keys-not-voting"
+msgstr ""
+
+#: shoestring/commands/renew_voting_keys.py:58
+msgid "renew-voting-keys-removing-expired-voting-keys"
+msgstr ""
+
+#: shoestring/commands/reset_data.py:11
+msgid "reset-data-recreating-directory"
+msgstr ""
+
+#: shoestring/commands/setup.py:73
+msgid "setup-no-state-changes-required"
+msgstr ""
+
+#: shoestring/commands/signer.py:32
+msgid "signer-aggregate-transaction"
+msgstr ""
+
+#: shoestring/commands/signer.py:33
+msgid "signer-inner-transactions"
+msgstr ""
+
+#: shoestring/commands/signer.py:46
+msgid "signer-signed-transaction"
+msgstr ""
+
+#: shoestring/commands/signer.py:26
+msgid "signer-transaction"
+msgstr ""
+
+#: shoestring/internal/TransactionSerializer.py:12
+msgid "transaction-serializer-saved-file"
+msgstr ""
+
+#: shoestring/commands/upgrade.py:16
+msgid "upgrade-purging-directory"
+msgstr ""
+
+#: shoestring/commands/upgrade.py:21
+msgid "upgrade-recreating-directory"
+msgstr ""
+
+#: shoestring/wizard/__main__.py:97 shoestring/wizard/buttons.py:29
+msgid "wizard-button-finish"
+msgstr ""
+
+#: shoestring/wizard/buttons.py:53 shoestring/wizard/navigation.py:52
+msgid "wizard-button-next"
+msgstr ""
+
+#: shoestring/wizard/navigation.py:51
+msgid "wizard-button-prev"
+msgstr ""
+
+#: shoestring/wizard/screens/root_check.py:16
+msgid "wizard-button-quit"
+msgstr ""
+
+#: shoestring/wizard/screens/certificates.py:34
+msgid "wizard-certificates-ca-cert-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/certificates.py:32
+msgid "wizard-certificates-ca-cert-label"
+msgstr ""
+
+#: shoestring/wizard/screens/certificates.py:38
+msgid "wizard-certificates-peer-cert-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/certificates.py:36
+msgid "wizard-certificates-peer-cert-label"
+msgstr ""
+
+#: shoestring/wizard/screens/certificates.py:50
+msgid "wizard-certificates-title"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:84
+msgid "wizard-dialog-message-generation-text"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:83
+msgid "wizard-dialog-message-generation-title"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:101
+msgid "wizard-dialog-message-import-text"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:100
+msgid "wizard-dialog-message-import-title"
+msgstr ""
+
+#: shoestring/wizard/screens/end_screen.py:19
+msgid "wizard-end-title"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:109
+msgid "wizard-harvesting-active"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:113
+msgid "wizard-harvesting-auto-harvest"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:148
+msgid "wizard-harvesting-beneficiary-address-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:146
+msgid "wizard-harvesting-beneficiary-address-label"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:130
+msgid "wizard-harvesting-delegate"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:117
+msgid "wizard-harvesting-generate-keys"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:136
+msgid "wizard-harvesting-max-unlocked-accounts-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:134
+msgid "wizard-harvesting-max-unlocked-accounts-label"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:142
+msgid "wizard-harvesting-min-fee-multiplier-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:140
+msgid "wizard-harvesting-min-fee-multiplier-label"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:123
+msgid "wizard-harvesting-signing-key-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:121
+msgid "wizard-harvesting-signing-key-label"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:170
+msgid "wizard-harvesting-title"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:80
+msgid "wizard-harvesting-token-active"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:83
+msgid "wizard-harvesting-token-auto-harvest"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:88
+msgid "wizard-harvesting-token-beneficiary-address"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:85
+msgid "wizard-harvesting-token-delegate"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:84
+msgid "wizard-harvesting-token-generate-keys"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:86
+msgid "wizard-harvesting-token-max-unlocked-accounts"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:87
+msgid "wizard-harvesting-token-min-fee-multiplier"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:127
+msgid "wizard-harvesting-vrf-key-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/harvesting.py:125
+msgid "wizard-harvesting-vrf-key-label"
+msgstr ""
+
+#: shoestring/wizard/__main__.py:103
+msgid "wizard-main-done"
+msgstr ""
+
+#: shoestring/wizard/TitleBar.py:26
+msgid "wizard-main-initial-title"
+msgstr ""
+
+#: shoestring/wizard/screens/modal.py:26
+msgid "wizard-modal-button-ok"
+msgstr ""
+
+#: shoestring/wizard/screens/network_type.py:25
+msgid "wizard-network-type-mainnet"
+msgstr ""
+
+#: shoestring/wizard/screens/network_type.py:26
+msgid "wizard-network-type-testnet"
+msgstr ""
+
+#: shoestring/wizard/screens/network_type.py:32
+msgid "wizard-network-type-title"
+msgstr ""
+
+#: shoestring/wizard/screens/network_type.py:16
+msgid "wizard-network-type-token"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:90
+msgid "wizard-node-settings-friendly-name-label"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:54
+msgid "wizard-node-settings-https"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:67
+msgid "wizard-node-settings-ip-or-domain-name-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:66
+msgid "wizard-node-settings-ip-or-domain-name-label"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:73
+msgid "wizard-node-settings-metadata-info-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:71
+msgid "wizard-node-settings-metadata-info-label"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:78
+msgid "wizard-node-settings-title"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:38
+msgid "wizard-node-settings-token-domain-name"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:39
+msgid "wizard-node-settings-token-friendly-name"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:37
+msgid "wizard-node-settings-token-https"
+msgstr ""
+
+#: shoestring/wizard/screens/node_settings.py:40
+msgid "wizard-node-settings-token-metadata"
+msgstr ""
+
+#: shoestring/wizard/screens/node_type.py:25
+msgid "wizard-node-type-dual"
+msgstr ""
+
+#: shoestring/wizard/screens/node_type.py:26
+msgid "wizard-node-type-peer"
+msgstr ""
+
+#: shoestring/wizard/screens/node_type.py:33
+msgid "wizard-node-type-title"
+msgstr ""
+
+#: shoestring/wizard/screens/node_type.py:16
+msgid "wizard-node-type-token"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:122
+#: shoestring/wizard/screens/obligatory.py:130
+msgid "wizard-obligatory-ca-pem-path-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:123
+#: shoestring/wizard/screens/obligatory.py:124
+msgid "wizard-obligatory-ca-pem-path-error-text-not-exist"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:128
+msgid "wizard-obligatory-ca-pem-path-label"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:109
+msgid "wizard-obligatory-destination-directory-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:107
+msgid "wizard-obligatory-destination-directory-label"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:142
+msgid "wizard-obligatory-generate-button"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:141
+msgid "wizard-obligatory-import-button"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:113
+msgid "wizard-obligatory-priv-ca"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:115
+msgid "wizard-obligatory-priv-generate-new"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:114
+msgid "wizard-obligatory-priv-import-hex"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:146
+msgid "wizard-obligatory-private-key-ca-pem-path-description"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:157
+msgid "wizard-obligatory-private-key-generate-description"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:149
+msgid "wizard-obligatory-private-key-hex-description"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:136
+msgid "wizard-obligatory-private-key-hex-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:134
+msgid "wizard-obligatory-private-key-hex-label"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:177
+msgid "wizard-obligatory-title"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:41
+msgid "wizard-obligatory-token-ca-pem-path"
+msgstr ""
+
+#: shoestring/wizard/screens/obligatory.py:39
+msgid "wizard-obligatory-token-destination-directory"
+msgstr ""
+
+#: shoestring/wizard/screens/root_check.py:27
+msgid "wizard-root-check-error-text"
+msgstr ""
+
+#: shoestring/wizard/screens/root_check.py:26
+msgid "wizard-root-check-title"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:20
+msgid "wizard-screen-group-certificates"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:22
+msgid "wizard-screen-group-end-screen"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:16
+msgid "wizard-screen-group-harvesting"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:19
+msgid "wizard-screen-group-node-settings"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:14
+msgid "wizard-screen-group-obligatory"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:17
+msgid "wizard-screen-group-voting"
+msgstr ""
+
+#: shoestring/wizard/screen_loader.py:13
+msgid "wizard-screen-group-welcome"
+msgstr ""
+
+#: shoestring/wizard/styles.py:39
+msgid "wizard-toggle-disabled"
+msgstr ""
+
+#: shoestring/wizard/styles.py:39
+msgid "wizard-toggle-enabled"
+msgstr ""
+
+#: shoestring/wizard/screens/voting.py:26
+msgid "wizard-voting-active"
+msgstr ""
+
+#: shoestring/wizard/screens/voting.py:31
+msgid "wizard-voting-title"
+msgstr ""
+
+#: shoestring/wizard/screens/voting.py:18
+msgid "wizard-voting-token-active"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:27
+msgid "wizard-welcome-command-token"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:38
+msgid "wizard-welcome-renew-certificates"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:39
+msgid "wizard-welcome-renew-voting-keys"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:37
+msgid "wizard-welcome-reset-data"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:35
+msgid "wizard-welcome-setup"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:54
+msgid "wizard-welcome-title"
+msgstr ""
+
+#: shoestring/wizard/screens/welcome.py:36
+msgid "wizard-welcome-upgrade"
+msgstr ""
+
+#~ msgid "wizard-network-type-mainnet"
+#~ msgstr ""
+
+#~ msgid "wizard-network-type-testnet"
+#~ msgstr ""
+
+#~ msgid "wizard-node-harvester-title"
+#~ msgstr ""
+
+#~ msgid "wizard-node-https-title"
+#~ msgstr ""
+
+#~ msgid "wizard-node-type-dual"
+#~ msgstr ""
+
+#~ msgid "wizard-node-type-peer"
+#~ msgstr ""
+
+#~ msgid "wizard-node-voter-title"
+#~ msgstr ""
+
+#~ msgid "wizard-peer-cert-names-title"
+#~ msgstr ""
+
+#~ msgid "wizard-welcome-steps"
+#~ msgstr ""
+
+#~ msgid "wizard-welcome-title"
+#~ msgstr ""
+
+#~ msgid "CA PEM file"
+#~ msgstr ""
+
+#~ msgid "Generate random private key"
+#~ msgstr ""
+
+#~ msgid "Import main private key in hex"
+#~ msgstr ""
+
