@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: pddatastore
+Version: 0.1
+Summary: A simple package for password-based data encryption/decryption
+Author: lml
+Requires-Python: >=3.6
