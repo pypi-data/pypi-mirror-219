@@ -1,0 +1,4 @@
+[console_scripts]
+hyfi=hyfi.__cli__:hydra_main
+hyfi-run=hyfi.__click__:cli
+
