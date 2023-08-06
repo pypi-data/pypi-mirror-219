@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: KwoksTool
+Version: 0.0.10
+Requires-Dist: selenium
+Requires-Dist: tushare
+Requires-Dist: pyexecjs
+Requires-Dist: requests
+Requires-Dist: pandas
+Requires-Dist: numpy
+
