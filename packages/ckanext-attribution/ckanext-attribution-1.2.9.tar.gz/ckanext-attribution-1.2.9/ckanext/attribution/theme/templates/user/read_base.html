@@ -1,0 +1,29 @@
+{% ckan_extends %}
+
+{% block content_primary_nav %}
+    {{ super() }}
+    {{ h.build_nav_icon('attribution_user.datasets', _('Contributions'),username=user.name, icon='quote-left') }}
+{% endblock %}
+
+{% block user_info_extras %}
+    {% set agent = h.agent_from_user(user.id) %}
+    {% if agent %}
+        {% if agent.external_id %}
+            {% set external_scheme = h.controlled_list('agent_external_id_schemes')[agent.external_id_scheme] %}
+            <dl>
+                <dt class="key">{{ external_scheme['label'] }} <i class="{{ external_scheme['fa_icon'] }}"></i></dt>
+                <dd class="value"><a href="{{ agent.external_id_url }}">{{ agent.external_id }}</a></dd>
+            </dl>
+        {% endif %}
+        {% if agent.affiliations %}
+            <dl>
+                <dt class="key" title="affiliated institutions and organisations">Affiliations</dt>
+                <dd class="value">
+                    {% for aff in agent.affiliations if aff['agent'].agent_type == 'org' %}
+                    {{ aff['agent'].display_name }}{% if not loop.last%};{% endif %}
+                    {% endfor %}
+                </dd>
+            </dl>
+        {% endif %}
+    {% endif %}
+{% endblock %}

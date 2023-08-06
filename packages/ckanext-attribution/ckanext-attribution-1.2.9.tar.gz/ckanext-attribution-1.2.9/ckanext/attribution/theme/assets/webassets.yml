@@ -1,0 +1,19 @@
+main-js:
+  output: ckanext-attribution/%(version)s_main.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - scripts/apps/package-edit/dist/*.js
+
+main-css:
+  output: ckanext-attribution/%(version)s_main.css
+  filters: less
+  contents:
+    - less/attribution.less
+
+addtl-css:
+  output: ckanext-attribution/%(version)s_addtl.css
+  filters: less
+  contents:
+    - less/attribution-additional.less

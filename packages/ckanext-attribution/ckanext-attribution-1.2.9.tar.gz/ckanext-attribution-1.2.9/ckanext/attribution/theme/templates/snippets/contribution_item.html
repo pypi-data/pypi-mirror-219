@@ -1,0 +1,40 @@
+{% extends 'snippets/package_item.html' %}
+
+{% set package = contribution['dataset'] %}
+
+{% block package_item %}
+<tr>
+    <td class="td-dataset">
+        {% block heading %}
+        {{ super() }}
+        {% endblock %}
+
+        {% block notes %}
+        {{ super() }}
+        {% endblock %}
+
+        {% block resources %}
+        {{ super() }}
+        {% endblock %}
+
+    </td>
+
+    <td class="td-roles">
+        {% if contribution['activities'] %}
+        <ul>
+            {% for a in contribution['activities'] %}
+            <li>{{ a.activity }}{% if a.order %}(#{{ a.order }}){% endif %}</li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+    </td>
+
+    <td class="td-order">
+        {% if contribution['citation'] %}
+            #{{ contribution['citation'] }}
+        {% else %}
+            Not cited
+        {% endif %}
+    </td>
+</tr>
+{% endblock %}

@@ -1,0 +1,18 @@
+{
+  "name": "ckanext-attribution",
+  "version": "1.2.9",
+  "description": "A CKAN extension that adds support for complex attribution.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NaturalHistoryMuseum/ckanext-attribution.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/NaturalHistoryMuseum/ckanext-attribution/issues"
+  },
+  "homepage": "https://github.com/NaturalHistoryMuseum/ckanext-attribution",
+  "dependencies": {
+    "package-edit": "file:assets/scripts/apps/package-edit"
+  }
+}
