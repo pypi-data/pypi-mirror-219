@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crateman"
+version = "1.0.1"
+description = "Build system focused on resolving and building dependencies."
+license = {text = "GPL-3.0"}
+authors = [
+    {name = "lch361", email = "surperior64@gmail.com"}
+]
+dependencies = ["toml"]
+readme = "README.md"
+keywords = ["build", "system", "dependency", "package", "manager", "development"]
+classifiers = [
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Utilities",
+    "Operating System :: POSIX :: Linux",
+	"Programming Language :: Python :: 3",
+    "Intended Audience :: Developers"
+]
+
+[project.scripts]
+crateman = "crateman.cli:crateman_entry"
+
+[tool.setuptools]
+packages = ["crateman"]

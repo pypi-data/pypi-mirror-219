@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+crateman/__init__.py
+crateman/cli.py
+crateman/config.py
+crateman/crate.py
+crateman/exception.py
+crateman/log.py
+crateman/resolver.py
+crateman.egg-info/PKG-INFO
+crateman.egg-info/SOURCES.txt
+crateman.egg-info/dependency_links.txt
+crateman.egg-info/entry_points.txt
+crateman.egg-info/requires.txt
+crateman.egg-info/top_level.txt
