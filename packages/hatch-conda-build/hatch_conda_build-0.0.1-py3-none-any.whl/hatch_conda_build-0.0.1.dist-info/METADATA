@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: hatch-conda-build
+Version: 0.0.1
+Summary: conda-build using pyproject.toml
+Requires-Python: >=3.8
+Requires-Dist: grayskull
+Requires-Dist: hatchling
+Description-Content-Type: text/markdown
+
+# hatch-conda-build
+
+Adding hatch conda-build support
