@@ -1,0 +1,116 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "granny-pliers"
+version = "0.0.18"
+
+authors = [
+    { name = "Dmytro Stepanenko", email = "dmitrijstepanenko@gmail.com" },
+]
+
+license = { file = "LICENSE" }
+
+keywords = [
+    "logging",
+    "configuration",
+    "tools",
+    "tool-belt"
+]
+description = "Set of tools"
+
+readme = "README.md"
+
+requires-python = ">=3.10.12"
+
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "structlog>=23.1.0",
+    "colorama>=0.4.6",
+    "jsonplus>=0.8.0",
+    "cryptography>=41.0.1",
+    "aiohttp>=3.8.4",
+    "aiofiles>=23.1.0",
+    "dateparser>=1.1.8",
+    "PyYAML>=6.0",
+    "motor==3.2.0",
+]
+
+[project.optional-dependencies]
+# Dev dependencies.
+dev = [
+    "black>=22.3.0",
+    "pylint>=2.17.4",
+    "coverage>=7.2.7",
+    "pytest>=7.4.0",
+    "pytest-cov==4.1.0",
+    "sphinx_rtd_theme==1.2.2",
+    "lumache"
+]
+
+[project.urls]
+"Homepage" = "https://gitlab.com/stepanenko-family/shared/granny-pliers.git"
+"Documentation" = "https://gitlab.com/stepanenko-family/shared/granny-pliers.git"
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$' # All Python files
+exclude = '''
+/(
+    \.git
+  | build
+  | dist
+  | tool-belt
+  | .pytest_cachci
+  | v
+)/
+'''
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.pylint.DESIGN]
+max-args = 10
+max-attributes = 20
+max-bool-expr = 5
+max-branches = 12
+max-locals = 15
+max-parents = 7
+max-public-methods = 30
+max-returns = 10
+max-statements = 50
+min-public-methods = 1
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = "E0602, W0718, R1735"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-s",
+    "--junitxml=junit.xml",
+    "--cov-report=term",
+    "--cov-report=xml:coverage.xml",
+    "--cov-report=html:coverage.html",
+    "--cov=src/granny_pliers"
+]
+cache_dir = ".cache/pytest_cache"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.paths]
+source = ["src/granny_pliers"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "@abstract", "if __name__:*"]
