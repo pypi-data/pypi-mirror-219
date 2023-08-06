@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: e2b-agent-protocol
+Version: 0.0.1
+Summary: API for interacting with Agent
+License: MIT
+Author: e2b
+Author-email: hello@e2b.dev
+Requires-Python: >=3.10,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: fastapi (>=0.100.0,<0.101.0)
+Requires-Dist: hypercorn[trio] (>=0.14.4,<0.15.0)
