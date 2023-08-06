@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: entail
+Version: 0.1.0
+Summary: placeholder
+Home-page: https://github.com/haowu4/entail
+Author: Hao Wu
+Author-email: haowu@dataset.sh
+License: MIT license
+Keywords: entail
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+License-File: LICENSE
+License-File: AUTHORS.rst
+
+======
+entail
+======
+
+
+.. image:: https://img.shields.io/pypi/v/entail.svg
+        :target: https://pypi.python.org/pypi/entail
+
+.. image:: https://img.shields.io/travis/haowu4/entail.svg
+        :target: https://travis-ci.com/haowu4/entail
+
+.. image:: https://readthedocs.org/projects/entail/badge/?version=latest
+        :target: https://entail.readthedocs.io/en/latest/?version=latest
+        :alt: Documentation Status
+
+
+
+
+placeholder
+
+
+* Free software: MIT license
+* Documentation: https://entail.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2023-07-12)
+------------------
+
+* First release on PyPI.
