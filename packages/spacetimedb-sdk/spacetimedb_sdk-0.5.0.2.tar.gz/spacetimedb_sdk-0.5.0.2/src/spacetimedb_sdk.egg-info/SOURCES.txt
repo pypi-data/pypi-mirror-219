@@ -1,0 +1,14 @@
+pyproject.toml
+src/gen_lazydocs.py
+src/spacetimedb_sdk/__init__.py
+src/spacetimedb_sdk/_version.py
+src/spacetimedb_sdk/client_cache.py
+src/spacetimedb_sdk/local_config.py
+src/spacetimedb_sdk/spacetime_websocket_client.py
+src/spacetimedb_sdk/spacetimedb_async_client.py
+src/spacetimedb_sdk/spacetimedb_client.py
+src/spacetimedb_sdk.egg-info/PKG-INFO
+src/spacetimedb_sdk.egg-info/SOURCES.txt
+src/spacetimedb_sdk.egg-info/dependency_links.txt
+src/spacetimedb_sdk.egg-info/requires.txt
+src/spacetimedb_sdk.egg-info/top_level.txt
