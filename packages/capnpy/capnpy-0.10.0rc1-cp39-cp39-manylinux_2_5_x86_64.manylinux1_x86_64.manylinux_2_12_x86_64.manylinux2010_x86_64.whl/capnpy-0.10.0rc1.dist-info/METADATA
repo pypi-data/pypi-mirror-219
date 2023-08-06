@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: capnpy
+Version: 0.10.0rc1
+Summary: UNKNOWN
+Home-page: https://github.com/antocuni/capnpy
+Author: Antonio Cuni
+Author-email: anto.cuni@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+License-File: LICENSE
+Requires-Dist: pypytools (>=0.3.3)
+Requires-Dist: docopt
+Requires-Dist: six
+Requires-Dist: cython (>=0.29.30)
+
+UNKNOWN
+
