@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mcxpy"
+version = "0.0.3"
+description = "For fetching mcx data"
+authors = [{ name = "Tapan Hazarika" }]
+readme = "README.md"
+license = {file = "LICENSE"}
+dependencies = ["pandas>=2.0.0","requests"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools.package-data]
+mcxpy = ["*.pyi", "*.typed"]
+
+
+[project.urls]
+"Homepage" = "https://github.com/Tapanhaz/mcxpy"
+
+
+
