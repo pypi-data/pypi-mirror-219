@@ -1,0 +1,363 @@
+Metadata-Version: 2.1
+Name: bb-apputils
+Version: 0.3.93
+Summary: App utilities
+Author: Erik Beebe
+Author-email: beebeapps_debugging@tuta.io
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Description-Content-Type: text/markdown
+
+# BB_Utils
+
+## Utilities for running simple applications
+
+#### Includes:
+
+- bbappdirs
+    - a simple module for handling user app directories.
+- bblogger
+    - custom Logger and Formatter class for the built-in python logging module
+- bbargparser
+    - parse command line arguments with options
+
+## BBLogger
+
+> Custom logging classes
+
+- Subclasses of logging.Logger and logging.Formatter
+
+```python
+
+class BBLogger(logging.getLoggerClass()):
+    """
+    Console and file logging, formatted with BBFormatter
+        - options are set through logger.getLogger() with initial call
+        - subsequent loggers should be called with python's logging
+          module: logging.getLogger()
+    """
+
+  # Added functions
+
+    def set_level(self, level):
+        """
+        Sets level for current and all other console loggers
+            - files will always be debugging mode
+            - acceptable modes:
+                'debug'    | logging.DEBUG    | 10 | 1 <or> 0
+                'info'     | logging.INFO     | 20 | 2
+                'warning'  | logging.WARNING  | 30 | 3
+                'error'    | logging.ERROR    | 40 | 4
+                'critical' | logging.CRITICAL | 50 | 5
+        """
+
+    def set_format(self, formatting):
+        """
+        Change formatting for console logging
+            'basic' - simple, nicely formatted messaging
+            'debug' - more info pertaining to each message
+                      * defaults to log level 1
+        """
+
+```
+
+## BBFormatter
+
+> Make logs pretty
+
+```python
+
+class BBFormatter(logging.Formatter):
+    """
+    BBFormatter - Color logging output with ansi or html
+
+        mode = 'basic' (console)
+                Basic logging for end user messages
+
+               'debug' (console)
+                More output information for debugging
+
+               'html' (file)
+                Uses html format to color logs to send to an html file or gui
+                program that supports html formatting
+
+               'plaintext' (file)
+                No escapes inserted for logging plaintext to a file
+    """
+
+```
+
+#### logger.getLogger()
+
+> Not to be confused with python's logging.getLogger(). Use this method for the original logger call ( during __init__.py for example ), then make all subsequent calls to get loggers with python's built-in logging.getLogger() method.
+
+```python
+
+def getLogger( name, level = 1, **opts ):
+    """
+    Set custom logger class and return logger
+      - only use this for initial call to logger. Use logging.getLogger() for
+        further logging modules
+
+        'name'    = Name of returned logger
+        'level'   = Log level for the returned logger. Defaults to 1.
+\
+        **opts:
+              More options for logger. To print the log to a file, 'filepath'
+            must be present in the opts.
+
+            'appname'      : [ DEFAULT 'BB-Logger' ] Application name
+            'console'      : [ DEFAULT = True ] Print logging to console
+            'consoleformat': [ DEFAULT = 'basic' ] Console formatting. Options are
+                                'basic' or 'debug'.
+            'color'        : [ DEFAULT = True ] colorized console logging
+            'filepath'     : [ DEFAULT None ] The path for the file to be written to.
+                                The directory for the file must exist. If the file
+                                exists and write_mode 'w' is used, log file will be
+                                overwritten.
+            'write_mode'   : [ DEFAULT = 'a'] Write mode - ('a', 'append', 'w', 'write')
+            'filelevel'    : [ DEFAULT = 1] Set log level for file. Default is 1, DEBUGGING
+                                - must be set with initial call to logger.getLogger()
+            'fileformat'   : [ DEFAULT = 'html' ] Text formatting for file - 'plaintext'
+                                or 'html'
+
+              A new file will be created if not existing as long as the directory
+            already exists. If only a filename is given for 'path', the file will
+            be written in the user's HOME folder. Extra options should only need
+            applied for the first time initiating a logger in your app/script unless
+            logfile changes are wanted for a particular logger. The 'color' option
+            only applies to console output.
+    """
+
+```
+
+### Example usage:
+
+```python
+
+# __init__.py
+
+from bb_logger import logger
+log = logger.getLogger( __name__, 3,
+                        appname   = "My Awesome Application",
+                        filepath  = "/path/to/logfile",
+                        filelevel = 1 )
+
+# -------------------------------------------------------------
+
+# __main__.py
+
+import logging
+log = logging.getLogger(__name__)
+
+```
+
+## BBAppDirs
+
+> Locates and creates application directories as needed according to application name. Keeps a temporary file while app is running to assure the same files are found during a user's session, even with multiple calls from different modules.
+
+```python
+
+class AppDirs:
+    """
+    Get system specific app directories
+        - for initiating app configurations
+
+        A temporary file is created and read for reading by other
+      modules within the app.
+
+      Module Data > 'expire' : expiration time in seconds
+                    'name'   : application name
+                    'logfile': logfile path
+                    'logs'   : list of stored logs from SimpleLog
+                    'time'   : initial AppDirs call time
+                    'tmp'    : temporary file path
+                    'shared' : shared dictionary data
+
+
+        self.data['logs'] = [{ 'levelname': str(),
+                               'level'    : int()
+                               'time'     : datetime.timestamp(),
+                               'msg'      : str(),
+                               'formatted': str()  },
+                                etc...  ]
+
+    """
+
+    def __init__( self, *, name = "", expire = 0, unique = "", simplelog = False, loglevel = 0, noerrors = False, shared = {} ):
+        """
+        name = provide application name
+            - required
+        expire = set an expiration time in seconds
+            - temporary file is abandoned/deleted if older than this time
+            - expire <= 0 = no expiration
+            - default = 0
+        unique = provide a name or unique set of characters
+            - prevent other programs or modules from unintentionally reading
+              or deleting the wrong temp files
+            - required with every call that wants to access this data
+        simplelog = use SimpleLog instead of python's built-in logging module
+            - default False
+        loglevel = log level for SimpleLog
+            - ignored for python's logging module
+        noerrors = don't print logs at exit due to errors
+            - only applies if loglevel not set for SimpleLog
+        shared = data to share throughout the application
+            - must be in dictionary format
+
+            SimpleLog is used for initial call. Subsequent calls, if the temp file
+          is created, will load python's built-in logging module unless 'simplelog'
+          is set to True.
+
+        """
+
+```
+
+#### SimpleLog
+
+> Includes a simple log class to use on initial call to AppDirs. You can optionally continue to only use SimpleLog if you set the kwarg 'simplelog' to True in AppDirs.
+
+```python
+
+class SimpleLog:
+    """
+    SimpleLog
+
+      A simple logger. Is used during initial call to AppDirs to give the application
+    the chance to initiate python's logging module before loading it here.
+    """
+
+    def __init__(self, level = 0, init = False, *, log_to_data):
+        """
+        Initiate SimpleLog
+            - level = 0: off [default]
+                      1: debug
+                      2: info
+                      3: warning
+                      4: error
+                      5: critical
+
+            - init = If True, will register self.onExit() with atexit. If log level is
+                     set to 0 [off], all log messages will be printed after exiting if
+                     any errors [>4] were recorded.
+
+            - log_to_data = callback function to write log data to temp file
+
+            Similar to the standard built-in logging, messages from set level and above
+          will be displayed. Level set to 0 will turn SimpleLog off. This does not effect
+          python's built-in logging module.
+
+        """
+
+```
+
+## BBArgParser
+
+```python
+
+from bbargparser import ArgParser
+
+# ------------------------------------
+
+class ArgParser(dict):
+    """
+    ArgParser
+      - multiple ways to parse options
+
+        opts = list of tuples
+
+        Each option can have as many keywords as wanted. Options are set up in
+      a Unix style. No hyphens are necessary when initiating accepted options. In
+      fact, they will be stripped from the beginning of each option and reassigned
+      appropriately if existing.
+
+        Options are given in a list/tuple. Each accepted option, both short and long
+      arguments, are given in the same tuple. Single letter options, short opts, will
+      be prepended with a single hyphen '-'. Long options with two hyphens '--'.
+
+        You can specify acceptable options or types as well for each keyword/group of
+      keywords. To do this, include '_+_' in the same tuple. Anything following this
+      value will symbolize an accepted user argument or argument type. You can specify
+      a path, file, or directory with '__path__', '__file__', or '__directory__'. The
+      directory or file options will check to make sure that the file or directory exists
+      as a file or directory. The path option only checks to make sure that the argument
+      is in the proper form of a file path, ignoring whether it exists or not. The file
+      path must be an absolute path.
+
+        Another accepted option type is '__count__n', while n is the number of arguments
+      required for that option. This is the only "accepted option" that you can combine
+      with another type. Anything other than types will not be accepted in combination.
+        For example:
+            ArgParser( [('i', 'items', '_+_', '__count__3', str)] ) requires 3 arguments
+          that are integers for the options '-i', '--items'.
+
+        You can also use regex to define an accepted argument with '__regex__:' with the
+      regex string following the colon (':'). Remember to use proper escapes. This option
+      uses the built-in re module.
+
+        The last "acceptable option" option is providing a function that returns True or
+      False and accepts a single string argument. This option can only be used by itself.
+
+        When specifying the type using the '_+_' value, any other arguments following it
+      will be ignored, unless it's '__count__n', in which case anything after that's not
+      a type will be ignored. If the user argument given doesn't match the type, a SyntaxError
+      exception will be raised, unless the type is '__file__' or '__directory__', in which
+      case a FileNotFoundError will be raised. An invalid option passed by the user will
+      cause SyntaxError to be raised.
+    """
+
+# Example:
+opts = ArgParser( [('i', 'input-file', '_+_', '__file__'),
+                   ('o', 'output-file', '_+_', '__path__')] )
+
+for opt, arg in opts( sys.argv[1:],
+                      ignore_delimiters = True,
+                      set_delimiter = None,
+                      clear = True )
+
+    """
+        Options would be set as '-i', '--input-file' and '-o', '--output-file'. The '-i'
+      option will only accept an existing file as an argument and the '-o' option will
+      accept an argument that matches a path format, regardless of whether it exists. opts(...)
+      will return a key, item list from the provided user arguments. The '.items()' function
+      should not be used when calling the class with user arguments. If no arguments are given,
+      self (dict) is returned. The default is to clear self every time it is called inless 'clear'
+      is set to False.
+
+    """
+
+```
+
+## Changelog
+
+- 0.3.5
+    - modified BBLogger and getLogger to hopefully maintain the right level across modules
+    - added 'rootlogger' level option
+
+- 0.3.8
+    - changed formatter to include filename instead of logger name
+
+- 0.3.9
+    - fixed logging error when not in terminal
+
+- 0.3.91
+    - fixed typo in basic logging.... maybe
+
+- 0.3.92
+    - 2nd attempt at fixing basic logging
+
+- 0.3.93
+    - rewrote the basic logging formatter
+
+## Thanks To:
+
+##### Colored logging with logging.Formatter()
+
+<p>Thread at <a href="https://stackoverflow.com/questions/384076/how-can-i-color-python-logging-output">Stack Overflow</a> on python log formatting</p>
+
+<p>Adapted from <a href="https://stackoverflow.com/a/56944256/3638629">original code</a> by user's at Stack Overflow</p>
+
+#### Thanks for providing help so people like me can learn :)
+
