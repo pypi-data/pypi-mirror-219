@@ -1,0 +1,21 @@
+# Metaplanet房间聊天客户端
+## 使用说明
+```python
+  from metaplanet_room_chat.client import doConnect
+  from metaplanet_room_chat.handlers import encodePacket, Cmds
+
+  def on_receive(packet, wsapp, config):
+      print(f"收到报文:{packet}")
+      data = {"roomId": 75800, "content": "我是python bot, 大家好"}
+      sendPack = encodePacket(Cmds["ROOM_MSG_SEND_C"], data=data)
+      wsapp.send(sendPack)
+
+  doConnect(
+      ws="ws://assets.tpulse.cn/metacat/api/websocket/chat-proxy", 
+      token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI3NDcwMCIsImF1ZCI6IkNoYXQgUHJveHkiLCJuYmYiOjE2ODk2NDIwNDUsImlzcyI6Imh0dHBzOi8vdHBsYW5ldC5ydWl4aS1zaC5jb20vIiwiZXhwIjoxNjkyMjM0MDQ1LCJlbnYiOiJmYXQiLCJpYXQiOjE2ODk2NDIwNDUsImp0aSI6IjIzYmRjY2VlLTM1OTMtNGUxYS1iMjM5LTQ0MjY4OWNjMTlhZCJ9.MLjUHZdz7ANQ5jYlH-uFPJ3N3pkBWulQUPwlPxcl7iU", 
+      roomId=75800, 
+      uid=74700,
+      on_receive=on_receive
+  )
+
+```

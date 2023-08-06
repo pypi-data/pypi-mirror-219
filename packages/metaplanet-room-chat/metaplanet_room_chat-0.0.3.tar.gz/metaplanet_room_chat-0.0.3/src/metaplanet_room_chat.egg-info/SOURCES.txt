@@ -1,0 +1,12 @@
+GUIDE.MD
+README.md
+pyproject.toml
+src/metaplanet_room_chat/__init__.py
+src/metaplanet_room_chat/client.py
+src/metaplanet_room_chat/config.py
+src/metaplanet_room_chat/handlers.py
+src/metaplanet_room_chat.egg-info/PKG-INFO
+src/metaplanet_room_chat.egg-info/SOURCES.txt
+src/metaplanet_room_chat.egg-info/dependency_links.txt
+src/metaplanet_room_chat.egg-info/requires.txt
+src/metaplanet_room_chat.egg-info/top_level.txt
