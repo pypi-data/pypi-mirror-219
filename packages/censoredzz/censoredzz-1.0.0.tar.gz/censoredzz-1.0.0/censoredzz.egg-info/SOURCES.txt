@@ -1,0 +1,11 @@
+setup.py
+censoredzz/__init__.py
+censoredzz/censor.py
+censoredzz/profanity.py
+censoredzz.egg-info/PKG-INFO
+censoredzz.egg-info/SOURCES.txt
+censoredzz.egg-info/dependency_links.txt
+censoredzz.egg-info/requires.txt
+censoredzz.egg-info/top_level.txt
+censoredzz/models/rf_model.pkl
+censoredzz/models/vocabulary.pkl
