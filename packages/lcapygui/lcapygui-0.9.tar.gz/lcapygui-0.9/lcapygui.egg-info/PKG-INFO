@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: lcapygui
+Version: 0.9
+Summary: A GUI for lcapy
+Home-page: https://github.com/mph-/lcapy-gui
+Author: Michael Hayes, Jordan Hay
+License: MIT
+Project-URL: Bug Tracker, https://github.com/mph-/lcapy-gui
+Description: # lcapy-gui
+        
+        This package provides an experimental GUI for Lcapy, lcapy-tk.
+        Schematics can be created and saved in a number of formats and
+        symbolic component voltages and currents can be inspected.
+        
+        From the console it can be run as `lcapy-tk`.
+        
+        From a python interpreter it can be run using:
+        
+            from lcapygui import LcapyTk
+            e = LcapyTk()
+            e.display()
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
