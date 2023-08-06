@@ -1,0 +1,22 @@
+[project]
+name = "featurefuse"
+version = "0.1.2"
+description = "featurefuse is Python package that allows you to choose which feature you make for machine learning models using yaml configuration."
+authors = [
+    { name = "yutaro.ueno", email = "yutarofortech@gmail.com" }
+]
+dependencies = ["pandas~=2.0.2"]
+readme = "README.md"
+requires-python = ">= 3.8"
+license = "MIT"
+repository = "https://github.com/imyutaro/featurefuse"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = ["pre-commit~=3.3.3", "hydra-core~=1.3.2", "pytest~=7.4.0"]
+[tool.hatch.metadata]
+allow-direct-references = true

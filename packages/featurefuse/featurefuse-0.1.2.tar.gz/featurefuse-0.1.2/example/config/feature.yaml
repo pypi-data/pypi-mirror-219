@@ -1,0 +1,17 @@
+use_feature:
+  - .example.naive_feature.NaiveFeature1
+  - .example.naive_feature.NaiveFeature2
+  - .example.naive_feature.NaiveFeature3
+  - .example.naive_feature.NaiveFeature4
+  - .example.naive_feature.NaiveFeature5
+feature_params:
+  NaiveFeature1:
+    shift_b_from: 1
+    shift_b_to: 24
+  NaiveFeature2:
+    rolling_min: 6
+    rolling_max: 6
+    rolling_mean: 6
+    rolling_median: 6
+  NaiveFeature3:
+  NaiveFeature4:

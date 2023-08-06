@@ -1,0 +1,8 @@
+defaults:
+  - use_feature: feature
+  - feature_params: feature
+hydra:
+  run:
+    dir: outputs/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  sweep:
+    dir: outputs/multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}

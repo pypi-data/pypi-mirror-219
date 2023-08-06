@@ -1,0 +1,8 @@
+NaiveFeature1:
+  shift_b_from: 1
+  shift_b_to: 24
+NaiveFeature2:
+  rolling_min: 6
+  rolling_max: 6
+  rolling_mean: 6
+  rolling_median: 6
