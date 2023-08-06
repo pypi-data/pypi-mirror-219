@@ -1,0 +1,11 @@
+starlette_middleware/__init__.py,sha256=jVjFls4dsTVN6zTf9X_uBcsFdJmRqRbBnLJ7_p72_7k,70
+starlette_middleware/middleware.py,sha256=3Ea6iWsSKdmg3QJtAuaMl0ebgjSFJefFDbG4iTbnva4,3851
+starlette_middleware/backend/__init__.py,sha256=YYncK1gxItiRDsg31Rh8MGGeUrvrBLxkaprvyyhpTDQ,33
+starlette_middleware/backend/base.py,sha256=P_SF1uAlLE7eFrKEfsJkR_-2h0xmUXKzJnLO7ZbBwCU,583
+starlette_middleware/backend/redis.py,sha256=0f3N7LSpajwmjVx4wzV5UDJxReEG5MdxERcVmN27tKk,749
+starlette_middleware/ext/__init__.py,sha256=uhaKn639b1Hfajc1mgsmZIJOEKBpCJg6_PRaPJkAwR0,50
+starlette_middleware/ext/encoding.py,sha256=Al7gqFpDJ-qrxUyOVNDoyy9nn9kFpeN30ad_87Of0KE,556
+starlette_middleware-0.0.2a1.dist-info/METADATA,sha256=uNyG7VrsDS4Q8kfurxv47K1wvFk7rwtCslQ8j3KTHPA,1697
+starlette_middleware-0.0.2a1.dist-info/WHEEL,sha256=9QBuHhg6FNW7lppboF2vKVbCGTVzsFykgRQjjlajrhA,87
+starlette_middleware-0.0.2a1.dist-info/licenses/LICENSE.md,sha256=7g_DFQNVHN0PM6fzrBQQnCScHbHSQm5IEONhT1__lHM,1087
+starlette_middleware-0.0.2a1.dist-info/RECORD,,
