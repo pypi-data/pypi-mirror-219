@@ -1,0 +1,7 @@
+include build.py
+include requirements.txt
+include dynamic_service\source
+include requirements-dev.txt
+include pyproject.toml
+include dynamic_service\source\assets\icon\icon.png
+include dynamic_service\source\assets\icon\icon.ico

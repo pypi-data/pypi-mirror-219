@@ -1,0 +1,10 @@
+dill>=0.3.5.1
+uvicorn
+fastapi
+attrs
+pyrepresent
+sockets-communication
+
+[dev]
+pdoc3
+twine
