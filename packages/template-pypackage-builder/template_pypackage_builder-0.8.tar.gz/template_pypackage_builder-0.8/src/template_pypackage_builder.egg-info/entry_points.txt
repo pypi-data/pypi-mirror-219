@@ -1,0 +1,3 @@
+[console_scripts]
+gitpip = template_pypackage_builder:pip_code
+pysetup = template_pypackage_builder:main
