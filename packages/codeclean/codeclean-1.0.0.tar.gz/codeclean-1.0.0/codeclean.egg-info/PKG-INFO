@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: codeclean
+Version: 1.0.0
+Summary: Remove comments and docstrings from Python code.
+Home-page: https://github.com/Ruu3f/cleancode
+Author: Ruu3f
+License: GPLv2
+Project-URL: Source, https://github.com/Ruu3f/cleancode
+Project-URL: Discord, https://discord.gg/XH6pUGkwRr
+Keywords: clean,code,cleaner,comments,docstrings
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+[![PyPI](https://img.shields.io/pypi/v/codecleaner)](https://pypi.org/project/codecleaner)
+[![Downloads](https://static.pepy.tech/badge/codecleaner)](https://pypi.org/project/codecleaner)
+[![Status](https://img.shields.io/pypi/status/codecleaner)](https://pypi.org/project/codecleaner)
+
+# codecleaner
+
+Remove comments and docstrings from Python code.
+
+## Get started:
+
+```
+python -m pip install --upgrade codecleaner
+```
+
+Join my [Discord server](https://discord.gg/XH6pUGkwRr) for live chat, support, or if you have any issues with this package.
+
+## Support this repository:
+
+- Star this repository :D
+- Join my [Discord Server](https://discord.gg/XH6pUGkwRr):
+
+[![DiscordWidget](https://discordapp.com/api/guilds/1120833966035976273/widget.png?style=banner2)](https://discord.gg/XH6pUGkwRr)
+
+## Example:
+
+```
+codecleaner filename.py --comments --docstrings
+```
