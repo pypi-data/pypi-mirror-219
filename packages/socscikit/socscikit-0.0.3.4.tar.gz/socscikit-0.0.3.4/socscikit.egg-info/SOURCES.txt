@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+socscikit/CompliSent.py
+socscikit/__init__.py
+socscikit/socialmedia.py
+socscikit.egg-info/PKG-INFO
+socscikit.egg-info/SOURCES.txt
+socscikit.egg-info/dependency_links.txt
+socscikit.egg-info/requires.txt
+socscikit.egg-info/top_level.txt
+socscikit/lexicon_dictionary/MASTER/MASTER_v2022.csv
+socscikit/lexicon_dictionary/MASTER/MASTER_v2022.pickle
