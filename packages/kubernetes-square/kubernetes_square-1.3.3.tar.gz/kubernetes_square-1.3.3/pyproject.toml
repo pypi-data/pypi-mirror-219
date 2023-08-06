@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "kubernetes-square"
+version = "1.3.3"
+description = ""
+authors = ["Oliver Nagy <olitheolix@gmail.com>"]
+packages = [
+    { include = "square" },
+]
+include = ["resources/defaultconfig.yaml"]
+
+
+[tool.poetry.dependencies]
+backoff = "*"
+colorama = "*"
+colorlog = "*"
+google = "*"
+google-api-python-client = "*"
+jsonpatch = "*"
+pydantic = ">=1.8"
+python = ">=3.10"
+pyyaml = "*"
+requests = "*"
+
+[tool.poetry.dev-dependencies]
+bumpversion = "*"
+flake8 = "*"
+flake8-isort = "*"
+ipython = ">=8.10"
+isort = "*"
+pytest = ">=7.2"
+pytest-cov = "*"
+pytest-dotenv = "*"
+pytest-flake8 = "*"
+requests-mock = "*"
+sh = "*"
+
+[tool.poetry.scripts]
+square = 'square.main:main'
+
+[build-system]
+requires = ["poetry>=1.2"]
+build-backend = "poetry.masonry.api"
