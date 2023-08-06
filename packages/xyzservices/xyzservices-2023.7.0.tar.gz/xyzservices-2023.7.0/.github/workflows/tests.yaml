@@ -1,0 +1,69 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+  schedule:
+    - cron: "59 23 * * 3"
+
+jobs:
+  Linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - uses: pre-commit/action@v3.0.0
+
+  unittests:
+    name: ${{ matrix.os }}, ${{ matrix.environment-file }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        environment-file: [ci/latest.yaml]
+    env:
+      THUNDERFOREST: ${{ secrets.THUNDERFOREST }}
+      JAWG: ${{ secrets.JAWG }}
+      MAPBOX: ${{ secrets.MAPBOX }}
+      MAPTILER: ${{ secrets.MAPTILER }}
+      TOMTOM: ${{ secrets.TOMTOM }}
+      OPENWEATHERMAP: ${{ secrets.OPENWEATHERMAP }}
+      HEREV3: ${{ secrets.HEREV3 }}
+      STADIA: ${{ secrets.STADIA }}
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: setup micromamba
+        uses: mamba-org/provision-with-micromamba@main
+        with:
+          environment-file: ${{ matrix.environment-file }}
+          micromamba-version: "latest"
+
+      - name: Install xyzservices
+        run: pip install .
+
+      - name: run tests - bash
+        run: pytest -v . -m "not request" --cov=xyzservices --cov-append --cov-report term-missing --cov-report xml --color=yes
+
+      - name: test providers - bash
+        run: pytest -v . -m request --cov=xyzservices --cov-append --cov-report term-missing --cov-report xml --color=yes
+        if: matrix.os == 'ubuntu-latest'
+
+      - name: remove JSON from share and test fallback
+        run: |
+          python -c 'import os, sys; os.remove(os.path.join(sys.prefix, "share", "xyzservices", "providers.json"))'
+          pytest -v . -m "not request" --cov=xyzservices --cov-append --cov-report term-missing --cov-report xml --color=yes
+        if: matrix.os != 'windows-latest'
+
+      - uses: codecov/codecov-action@v3
