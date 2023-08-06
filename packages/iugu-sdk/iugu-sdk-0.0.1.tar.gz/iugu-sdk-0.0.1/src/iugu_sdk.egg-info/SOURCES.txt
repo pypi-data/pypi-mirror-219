@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/iugu/__init__.py
+src/iugu/customer.py
+src/iugu_sdk.egg-info/PKG-INFO
+src/iugu_sdk.egg-info/SOURCES.txt
+src/iugu_sdk.egg-info/dependency_links.txt
+src/iugu_sdk.egg-info/requires.txt
+src/iugu_sdk.egg-info/top_level.txt
+tests/test_customer.py
