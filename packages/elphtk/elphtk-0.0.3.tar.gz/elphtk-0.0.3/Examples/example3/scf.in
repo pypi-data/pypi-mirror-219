@@ -1,0 +1,34 @@
+&CONTROL
+calculation =  'scf'
+restart_mode =  'from_scratch'
+outdir = './tmp/'
+pseudo_dir =  '/public1/home/sc40125/pseudo/pbe'
+prefix =  'ZrN'
+wf_collect=.true.
+/
+&SYSTEM
+ibrav= 6
+celldm(1) =     5.9540424190
+celldm(3) =     5.0257316998
+nat = 4
+ntyp = 2
+ecutwfc =  50
+ecutrho =  200
+occupations = 'smearing'
+smearing ='gaussian'
+degauss = 0.01
+!la2f=.true.
+/
+&ELECTRONS
+conv_thr=1.d-14
+/
+ATOMIC_SPECIES
+Zr   91.22400 Zr.pbe-mt_fhi.UPF
+N    14.00670 N.pbe-mt_fhi.UPF
+ATOMIC_POSITIONS crystal
+Zr       1.000000000   1.000000000   0.432173947
+Zr       0.500000000   0.500000000   0.567819456
+N        1.000000000   1.000000000   0.585259953
+N        0.500000000   0.500000000   0.414746643
+K_POINTS automatic
+9 9 1 0 0 0

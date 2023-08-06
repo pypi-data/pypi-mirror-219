@@ -1,0 +1,13 @@
+--
+&inputph
+  prefix   = 'ZrN',
+  fildyn   = 'ZrN.dyn',
+  outdir   = './tmp'
+  ldisp    = .true.,
+  trans    = .true.,
+  fildvscf = 'dvscf',
+  nq1=3,
+  nq2=3,
+  nq3=1,
+  tr2_ph   =  1.0d-14
+ /

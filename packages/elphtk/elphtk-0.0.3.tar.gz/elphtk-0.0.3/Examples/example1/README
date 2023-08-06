@@ -1,0 +1,5 @@
+To plot phonon bands from phonopy, run the script
+phplot
+
+For more option about plotting, run
+phplot -h

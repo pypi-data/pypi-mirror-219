@@ -1,0 +1,6 @@
+To plot some results calculated by EPW (a QE module), run
+post_epw
+to view available tasks
+
+use the --task option to specifiy the quantity you want to plot, for example, in the current directory
+post_epw --task=a2f --prefix=ZrN --show_plot=True

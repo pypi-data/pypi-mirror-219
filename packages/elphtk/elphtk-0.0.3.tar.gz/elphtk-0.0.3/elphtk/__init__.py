@@ -1,0 +1,7 @@
+__name__              =  "elphtk"
+__version__           =  "0.0.2"
+__author__            =  "Shunhong Zhang"
+__author_email__      =  "zhangshunhong.pku@gmail.com"
+__url__               =  "https://pypi.org/project/elphtk"
+__license__           =  "MIT License"
+__platforms__         =  "['Linux']"

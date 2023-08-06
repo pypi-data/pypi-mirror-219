@@ -1,0 +1,74 @@
+#!/usr/bin/env python
+
+
+#===========================================================================#
+#                                                                           #
+#  File:       readphonon.py                                                #
+#  Dependence: none                                                         #
+#  Usage:      parse data from band.yaml and plot the phonon spectra        #      
+#  Author:     Shunhong Zhang <szhang2@ustc.edu.cn>                         #
+#  Date:       Jan 31, 2020                                                 #
+#                                                                           #
+#===========================================================================#
+
+import numpy as np
+import os
+import re
+import phonopy.units as units
+from elphtk.phonopy_phonon import *
+
+
+def get_args(prog='phonon_plot.py'):
+    import argparse
+    from elphtk import arguments
+    desc_str='processing phonon files'
+    parser = argparse.ArgumentParser(prog=prog, description = desc_str)
+    arguments.add_control_arguments(parser)
+    arguments.add_io_arguments(parser)
+    arguments.add_fig_arguments(parser)
+    arguments.add_plot_arguments(parser)
+    arguments.add_phonon_arguments(parser)
+    parser.add_argument('--prefix',type=str,default=None)
+    parser.add_argument('--phlw',type=arguments.str2bool,nargs='?',const=False,default=False,help='phonon linewidth, need linewidth file')
+    parser.add_argument('--sc',type=eval,default=(1,1,1),help='size of supercell')
+    parser.add_argument('--plot_gamma',type=arguments.str2bool,nargs='?',const=False,default=False,help='plot gamma on phonon spectra')
+    parser.add_argument('--isigma',type=int,default=1,help='index of gamma files, represent the smearing')
+    args = parser.parse_args()
+    args.freq_unit='cm^{-1}'
+    return parser, args
+
+
+def main(args):
+    from elphtk.qe_phonon import get_qe_freq, get_k_node_from_matdyn
+    from elphtk.phonon_plot import plot_qe_ph, plot_phband, plot_gibbs
+    print ('File to plot phonon : {}'.format(args.filph))
+    if not args.enable_plot:
+        print ('Plotting disabled')
+        print ('Use dat files to plot manually')
+        print ('Or set --enable_plot=True to plot')
+
+    if args.source=='QE':
+        distance,freq=get_qe_freq(args)
+        k_node=get_k_node_from_matdyn(distance)
+        fig = plot_qe_ph(distance,freq,k_node,args)
+
+    elif args.source=='phonopy':
+        data_mode,qpts,distance,freq,eigenvec,xsym,xlabels=parse_yaml(args.filph)
+        if args.filph=='band.yaml': write_freq(distance,freq)
+        if data_mode=='band':   fig = plot_phband(distance,freq,xsym,xlabels,args)
+        if args.task=='gibbs':  fig = plot_gibbs()
+
+    elif args.source=='abinit':
+        print ('Abinit phonon not yet processible!')
+
+    else:
+        print ('Illegal source {} specified!'.format(args.source))
+
+
+parser, args=get_args()
+ 
+if __name__=='__main__':
+    from elphtk import __version__
+    from elphtk.pkg_info import verbose_pkg_info
+    verbose_pkg_info(__version__)
+    main(args)
