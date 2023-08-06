@@ -1,0 +1,324 @@
+Metadata-Version: 2.1
+Name: pyncos-module
+Version: 0.0.11
+Home-page: https://gitee.com/zwsjz/carbot-module-lib
+Author: xuwh
+Author-email: xuwhdev@gmail.com
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: pyserial (>=3.5)
+Requires-Dist: paho-mqtt (>=1.6.1)
+
+[![PyPI version](https://badge.fury.io/py/pyncos-module.svg)](https://badge.fury.io/py/pyncos-module)
+
+## NCOS-Module
+
+NCOS子设备基类。
+
+通过继承该类快速构建NCOS下的子设备模块，并与NCOS进行数据交换
+
+## 类
+
+### ModuleBase
+
+#### <span style="color:#4CAF50">| RUN </span>
+
+运行模块， 并开始管理主事件循环
+
+```python
+def run(self)
+```
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| BIND_NCOS_BROKER </span> 
+
+绑定NCOS的主题网关
+
+```python
+def bind_ncos_broker(self, host:str, port:int)
+```
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| host | str | 网关主机地址 |
+| port | int | 网关端口  |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| ADD_TOPIC </span> 
+
+添加模块订阅
+
+```python
+def add_topic(self, topic:str, accessor)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| topic | str | 订阅的主题 |
+| accessor | func |  接收到订阅消息时的处理函数 |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| SET_WILL </span> 
+
+设置模块遗愿，当模块与NCOS网关断开时向NCOS发送指定内容
+
+```python
+def set_will(self, content:str)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| content | str | 向NCOS发送的指定内容 |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_CONNECT </span> 
+
+当与MCU或其他设备建立好连接后执行本函数
+
+```python
+@abstractmethod
+def handle_connect(self)
+```
+
+##### 参数
+
+None
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_DISCONNECT </span> 
+
+当与MCU或其他设备断开连接后执行本函数
+
+```python
+@abstractmethod
+def handle_disconnect(self)
+```
+
+##### 参数
+
+None
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_STARTUP </span> 
+
+当模块run函数被调用时执行本函数
+
+```python
+@abstractmethod
+def handle_startup(self)
+```
+
+##### 参数
+
+None
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_EXIT </span> 
+
+当模块run函数退出时执行本函数
+
+```python
+@abstractmethod
+def handle_exit(self)
+```
+
+##### 参数
+
+None
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_POST_INSTALL </span> 
+
+主动向NCOS安装本模块时执行本函数
+
+```python
+@abstractmethod
+def handle_post_install(self)
+```
+
+##### 参数
+
+None
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_BROKER_CONNECTED </span> 
+
+与NCOS主题网关建立连接时执行本函数
+
+```python
+@abstractmethod
+def handle_broker_connected(self, client, userdata, flags, rc)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| client | object | the client instance for this callback |
+| userdata | object | 用户自定义数据 |
+| flags | dict | response flags sent by the broker |
+| rc | int | the connection result |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_NCOS_READY </span> 
+
+当收到NCOS广播已准备好时执行本函数
+
+```python
+@abstractmethod
+def handle_NCOS_ready(self, data)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| data | dict | 参见[NCOS_Ready](#ncos_ready) |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_DATA_PULL </span> 
+
+当NCOS发起拉取数据指令执行本函数
+
+```python
+@abstractmethod
+def handle_data_pull(self, data)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| data | dict | |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_CONFIG </span> 
+
+当NCOS向模块下发配置指令时执行本函数
+
+```python
+@abstractmethod
+def handle_config(self, data)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| data | dict |  |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_ACTION </span> 
+
+当NCOS向模块下发操作指令时执行本函数
+
+```python
+@abstractmethod
+def handle_action(self, data)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| data | dict |  |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_INSTALLED </span> 
+
+当收到NCOS对模块安装请求的响应时执行本函数
+
+```python
+@abstractmethod
+def handle_installed(self, result:bool, reason:str)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| result | bool | 安装结果的标识, true = 安装成功 |
+| reason | str | 安装失败的原因 |
+
+##### 返回
+
+None
+
+#### <span style="color:#4CAF50">| HANDLE_ERROR </span> 
+
+当模块发生异常时的处理函数
+
+```python
+@abstractmethod
+def handle_error(self, error)
+```
+
+##### 参数
+
+| 参数 | 类型 | 说明 |
+|:---- |:---- |:--- |
+| error | str | 异常信息 |
+
+##### 返回
+
+None
+
+### 数据结构
+
+#### NCOS_Ready
+
+```JSON
+{
+  "slots": []
+}
