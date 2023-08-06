@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: ec2ninja
+Version: 1.0
+Requires-Dist: Flask (==2.0.1)
+Requires-Dist: boto3 (==1.18.4)
+

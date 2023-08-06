@@ -1,0 +1,2 @@
+[console_scripts]
+ec2ninja = ec2ninja.app:main
