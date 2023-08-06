@@ -1,0 +1,16 @@
+cipromote/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cipromote/ci-cli.py,sha256=xGIJjESGjjHoKPoRaKlTYfhZZh26B1aXewqgXIjDYVU,25204
+cipromote/cli.py,sha256=suOC_P9mML1Jtlmq4csqkQ8KrW45lZpzDZbvXgBLnHg,8334
+cipromote/constants.py,sha256=ji33v6cltMq-0W9PEA7QwlSS7FRiZ1qu_M7vNxlSmME,114
+cipromote/instances.py,sha256=I5UiC7e39i5UeIKP8eThxgf5Lh04Ap37KYKplweT4Gg,1680
+cipromote/label_versions.py,sha256=Oqz1-hh7lxLLWt5GZVpuPcghQuK20RfNSYXcxj_lun4,5708
+cipromote/labels.py,sha256=NlHSrZqhpuHX39TVI5Sr2Jm0F9ShGbT2d_ctgQJ7A5k,3889
+cipromote/login.py,sha256=l7HBduKkwLqOOAFXned3l4JgiUTb7hoTHaf4Oyh1-wc,387
+cipromote/loginInput.py,sha256=kB5rqH6-GynNLX7Pp-tdl6rGwICTBTUtRwPbzczphXc,3510
+cipromote/projects.py,sha256=56jLPkm5gocJleaBuipH19yhVn-ocQjUVZSGgIxWXgI,2981
+cipromote/queries.py,sha256=yrycWJ0-mC3R5S-GNQ9VdQe1DcMg-tZwwtjDqCeyf6Y,11691
+cipromote/versioned_items.py,sha256=MZfMZ-5xP9-cR-ouwHOlAkJFBXtfgpufuqedmTnDYWM,2158
+cipromote-1.0.2.dist-info/METADATA,sha256=z_z3OW1qm5JcQa6P8gwBRQQdRvnpw-jL6PpamFBgmXM,698
+cipromote-1.0.2.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+cipromote-1.0.2.dist-info/entry_points.txt,sha256=t0nxWrIUJrA3CxqgnfLiVrRcL-wU4-XmE9Dw6_-ugW8,48
+cipromote-1.0.2.dist-info/RECORD,,
