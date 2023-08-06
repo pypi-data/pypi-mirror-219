@@ -1,0 +1,121 @@
+Metadata-Version: 2.1
+Name: es_client
+Version: 8.8.2
+Summary: Elasticsearch Client builder, complete with schema validation
+Project-URL: Homepage, https://github.com/untergeek/es_client
+Project-URL: Bug Tracker, https://github.com/untergeek/es_client/issues
+Project-URL: Documentation, https://es-client.readthedocs.io/
+Project-URL: Source Code, http://github.com/untergeek/es_client
+Project-URL: Release Notes, https://github.com/untergeek/es_client/releases
+Author-email: Aaron Mildenstein <aaron@mildensteins.com>
+License: Apache-2.0
+License-File: LICENSE
+Keywords: client,command-line,connect,elasticsearch
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.8
+Requires-Dist: certifi>=2023.5.7
+Requires-Dist: click==8.1.4
+Requires-Dist: elasticsearch8==8.8.2
+Requires-Dist: pyyaml==6.0.0
+Requires-Dist: six>=1.16.0
+Requires-Dist: voluptuous>=0.13.1
+Provides-Extra: doc
+Requires-Dist: sphinx; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme; extra == 'doc'
+Provides-Extra: test
+Requires-Dist: mock; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest>=7.2.1; extra == 'test'
+Requires-Dist: requests; extra == 'test'
+Description-Content-Type: text/x-rst
+
+.. _readme:
+
+es_client
+=========
+
+https://es-client.readthedocs.io/
+
+You may wonder why this even exists, as at first glance it doesn't seem to make
+anything any easier than just using the elasticsearch8 Python module to
+build a client connection.  I needed to be able to reuse the more complex
+schema validation bits I was employing, namely:
+
+* ``master_only`` detection
+* Elasticsearch version checking and validation, and the option to skip this.
+* Configuration value validation, including file paths for SSL certificates,
+  meaning:
+
+  * No unknown keys or unacceptable parameter values are accepted
+  * Acceptable values and ranges are established (where known)--and easy to
+    amend, if necessary.
+
+So, if you don't need these, then this library probably isn't what you're
+looking for.  If you want these features, then you've come to the right place.
+
+Example Usage
+-------------
+
+::
+
+    from es_client import Builder
+
+    config = {
+        'elasticsearch': {
+            'client': {
+                'hosts': 'https://10.0.0.123:9200',
+                'ca_certs': '/etc/elasticsearch/certs/ca.crt',
+                'request_timeout': 60,
+            },
+            'other_settings': {
+                'master_only': false,
+                'username': 'joe_user',
+                'password': 'password',
+            }
+        }
+    }
+
+    builder = Builder(configdict=config)
+
+    try:
+        builder.connect()
+    except:
+        # Do exception handling here...
+
+    client = builder.client
+
+Additionally, you can read from a YAML configuration file:
+
+::
+
+    ---
+    elasticsearch:
+      client:
+        hosts: https://10.0.0.123:9200
+        ca_certs: /etc/elasticsearch/certs/ca.crt
+        request_timeout: 60
+      other_settings:
+        master_only: false
+        username: joe_user
+        password: password
+
+::
+
+    from es_client import Builder
+
+    builder = Builder(configfile='/path/to/es_client.yml')
+
+    try:
+        builder.connect()
+    except:
+        # Do exception handling here...
+
+    client = builder.client
+
+The same schema validations apply here as well.
