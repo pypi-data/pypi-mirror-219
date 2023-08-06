@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: django-sso-client-manager
+Version: 0.0.2
+Summary: A Django app for the managing sso client that have login, logout and set code a in cookies.
+Home-page: https://github.com/rjnp2/django-sso-client-manager
+Author: rjnp2
+Author-email: rjnp2@outlook.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: cryptography (>=1.0.1)
+Requires-Dist: requests (>=2.31.0)
+Provides-Extra: dev
+Requires-Dist: twine (>=4.0.2) ; extra == 'dev'
+
+django-sso-client-manager
+=========================
+
+django-sso-client-manager is a Django app for the managing sso client that have login, logout and set code a in cookies.
+
+Installation
+------------
+
+    * pip install django-sso-client-manager
+    * Add ``sso_client_manager`` to your ``INSTALLED_APPS``
+    * Add ``sso_client_manager.middlewares.ParseCodeDataMiddleware`` to your ``MIDDLEWARE``
+
+::
+
+Setup in settings
+-----------------
+
+    *APPLICATION_ID
+    *SSO_SERVER_TOKEN
+    *SSO_SERVER_SESSIONID
+    *SSO_SERVER_USER
+    *SSO_SERVER_LOGIN
+    *SSO_SERVER_LOGOUT
+    *KEY
+    
+    Add this variable with value.
+
+::
+
+
+Compatibility
+-------------
+{py310}-django{4.* above}
+
+
