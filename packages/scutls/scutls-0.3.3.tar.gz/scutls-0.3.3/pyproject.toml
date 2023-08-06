@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "scutls"
+version = "0.3.3"
+description = "Single-cell data processing utility tools"
+authors = ["Kai Hu <kai.hu@umassmed.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+importlib-resources = "^5.8.0"
+wget = "^3.2"
+bs4 = "^0.0.1"
+urllib3 = "^1.26.10"
+GEOparse = "^2.0.3"
+biopython = "^1.80"
+regex = "^2023.5.5"
+pysam = "^0.21.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+scutls = 'scutls.arguments:main'
+
+[tool.poetry_bumpversion.file."scutls/__init__.py"]
