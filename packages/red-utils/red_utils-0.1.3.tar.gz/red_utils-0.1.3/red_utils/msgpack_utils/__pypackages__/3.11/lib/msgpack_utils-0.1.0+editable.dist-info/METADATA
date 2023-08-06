@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: msgpack_utils
+Version: 0.1.0+editable
+Author-Email: redjax <none@none.com>
+License: MIT
+Requires-Python: >=3.11
+Requires-Dist: msgpack>=1.0.5
+Description-Content-Type: text/markdown
+
+# msgpack_utils
