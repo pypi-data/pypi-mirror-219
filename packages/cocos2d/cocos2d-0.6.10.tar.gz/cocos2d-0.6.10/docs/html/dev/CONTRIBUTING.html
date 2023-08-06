@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributing &#8212; cocos v0.6.10 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference dependencies used on last cocos2d build" href="last_build.html" />
+    <link rel="prev" title="Testing and Building Release" href="testing_and_building.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="last_build.html" title="Reference dependencies used on last cocos2d build"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="testing_and_building.html" title="Testing and Building Release"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">cocos</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Dev Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contributing</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h1>
+<section id="patch-submission-guidelines-1">
+<h2>Patch submission guidelines <a class="footnote-reference brackets" href="#footnote-1" id="footnote-reference-1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a><a class="headerlink" href="#patch-submission-guidelines-1" title="Permalink to this headline">¶</a></h2>
+<p>We strongly prefer to receive contributions as Github Pull Requests (PR), and that
+is what’s described below.</p>
+<p>If for some reason that is inconvenient, you can generate a patch <a class="footnote-reference brackets" href="#footnote-2" id="footnote-reference-2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> and
+send it attached to the mailing list.</p>
+<p>Just in case, a <cite>good guide to git &lt;http://documentup.com/skwp/git-workflows-book&gt;</cite>.</p>
+</section>
+<section id="make-sure-there-is-an-open-issue-for-your-change">
+<h2>Make sure there is an open issue for your change<a class="headerlink" href="#make-sure-there-is-an-open-issue-for-your-change" title="Permalink to this headline">¶</a></h2>
+<p>Perhaps, if it’s a new feature, you probably want to
+<a class="reference external" href="http://groups.google.com/group/cocos-discuss">discuss it first</a></p>
+</section>
+<section id="have-a-local-clone-with-upload-rights-to-work-with">
+<h2>Have a local clone with upload rights to work with<a class="headerlink" href="#have-a-local-clone-with-upload-rights-to-work-with" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>if you have commit rights in los-cocos/cocos, have a clone of that project</p></li>
+<li><p>if you don’t, fork the project ( the button ‘fork’ in <a class="reference external" href="https://github.com/los-cocos/cocos">https://github.com/los-cocos/cocos</a> ) and then clone <code class="docutils literal notranslate"><span class="pre">your-username/cocos</span></code> project</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="create-a-new-git-branch-specific-to-your-change-s">
+<h2>Create a new Git branch specific to your change(s)<a class="headerlink" href="#create-a-new-git-branch-specific-to-your-change-s" title="Permalink to this headline">¶</a></h2>
+<p>For example, if you’re adding a new feature to foo the bars, do something
+like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+$ git pull
+$ git checkout -b foo-the-bars
+&lt;hack hack hack&gt;
+$ git push origin HEAD
+</pre></div>
+</div>
+<p>This makes life much easier for maintainers if you have (or ever plan to
+have) additional changes in your own <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
+</section>
+<section id="do-a-test-run-with-cocos-testcmp">
+<h2>Do a test run with cocos-testcmp<a class="headerlink" href="#do-a-test-run-with-cocos-testcmp" title="Permalink to this headline">¶</a></h2>
+<p>See details at <a class="reference external" href="https://github.com/los-cocos/cocos-testcmp">https://github.com/los-cocos/cocos-testcmp</a></p>
+</section>
+<section id="submit-pull-request-based-on-your-new-foo-the-bars-branch">
+<h2>Submit pull request based on your new ‘foo-the-bars’ branch<a class="headerlink" href="#submit-pull-request-based-on-your-new-foo-the-bars-branch" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Go to the Github page associated with your clone; if you forked it is the page for
+<code class="docutils literal notranslate"><span class="pre">your-username/cocos</span></code> project</p></li>
+<li><p>In the button-dropdown list <code class="docutils literal notranslate"><span class="pre">branch:</span> <span class="pre">zzz</span></code> select branch <code class="docutils literal notranslate"><span class="pre">foo-the-bar</span></code></p></li>
+<li><p>Press the green button to the left (the tooltip shows <code class="docutils literal notranslate"><span class="pre">preview,</span> <span class="pre">create</span> <span class="pre">a</span> <span class="pre">pull</span> <span class="pre">request</span></code>)</p></li>
+<li><p>Fill the subject and body. Make the subject descriptive and add a reference to the issue
+you are working, by example if the issue number was 123 the subject can be ‘foo the bars , #123’</p></li>
+</ul>
+</div></blockquote>
+<div class="admonition-a-corollary admonition">
+<p class="admonition-title">A corollary:</p>
+<p>Please <strong>don’t put multiple fixes/features in the same
+branch/pull request</strong>! In other words, if you’re hacking on new feature X
+and find a bugfix that doesn’t <em>require</em> new feature X, <strong>make a new
+distinct branch and PR</strong> for the bugfix.</p>
+</aside>
+</section>
+<section id="details">
+<h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You may want to use the <a class="reference external" href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">Tim Pope’s Git commit messages standard</a>.
+It’s not necessary, but if you are doing something big, we recommend
+describing it in the commit message.</p></li>
+<li><p>While working, <strong>rebase instead of merging</strong> (if possible).  We encourage
+using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">rebase</span></code> instead of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>.  If you are using
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, please run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">pull.rebase</span> <span class="pre">true</span></code> to prevent merges
+from happening and replace them with rebase goodness.  There is also an
+“emergency switch” in case rebases fail and you do not know what to do:
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">--no-rebase</span></code>.</p></li>
+<li><p><strong>Make sure documentation is updated</strong> — at the very least, keep docstrings
+current, and if necessary, update the reStructuredText documentation in <code class="docutils literal notranslate"><span class="pre">docgen/</span></code>.</p></li>
+<li><p><strong>Add a changelog entry</strong> at the top of <code class="docutils literal notranslate"><span class="pre">CHANGELOG</span></code> mentioning issue number
+and in the correct ‘New Features’/’Bugfixes’ section.</p></li>
+<li><p><strong>Be PEP8 compliant in new code</strong></p></li>
+<li><p><strong>Try writing some tests</strong> if possible — again, following existing tests is
+often easiest, and a good way to tell whether the feature you are modifying is
+easily testable.</p></li>
+<li><p>Make sure to mention the issue it affects in the description of your pull request,
+so it’s clear what to test and how to do it.</p></li>
+</ul>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="footnote-1" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#footnote-reference-1">1</a><span class="fn-bracket">]</span></span>
+<p>Very inspired by <a class="reference external" href="https://github.com/getnikola/nikola/blob/master/CONTRIBUTING.rst">Nikola’s ‘contributing’</a> thanks!</p>
+</aside>
+<aside class="footnote brackets" id="footnote-2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#footnote-reference-2">2</a><span class="fn-bracket">]</span></span>
+<p>A good article on generating patches: <a class="reference external" href="https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/">https://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git/</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#patch-submission-guidelines-1">Patch submission guidelines </a></li>
+<li><a class="reference internal" href="#make-sure-there-is-an-open-issue-for-your-change">Make sure there is an open issue for your change</a></li>
+<li><a class="reference internal" href="#have-a-local-clone-with-upload-rights-to-work-with">Have a local clone with upload rights to work with</a></li>
+<li><a class="reference internal" href="#create-a-new-git-branch-specific-to-your-change-s">Create a new Git branch specific to your change(s)</a></li>
+<li><a class="reference internal" href="#do-a-test-run-with-cocos-testcmp">Do a test run with cocos-testcmp</a></li>
+<li><a class="reference internal" href="#submit-pull-request-based-on-your-new-foo-the-bars-branch">Submit pull request based on your new ‘foo-the-bars’ branch</a></li>
+<li><a class="reference internal" href="#details">Details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="testing_and_building.html"
+                        title="previous chapter">Testing and Building Release</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="last_build.html"
+                        title="next chapter">Reference dependencies used on last cocos2d build</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/dev/CONTRIBUTING.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="last_build.html" title="Reference dependencies used on last cocos2d build"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="testing_and_building.html" title="Testing and Building Release"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">cocos</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Dev Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Contributing</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2023, cocos&#39;s team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.0.
+    </div>
+  </body>
+</html>

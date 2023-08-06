@@ -1,0 +1,20 @@
+cocos.scenes package
+====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cocos.scenes.pause
+   cocos.scenes.sequences
+   cocos.scenes.transitions
+
+Module contents
+---------------
+
+.. automodule:: cocos.scenes
+   :members:
+   :undoc-members:
+   :show-inheritance:

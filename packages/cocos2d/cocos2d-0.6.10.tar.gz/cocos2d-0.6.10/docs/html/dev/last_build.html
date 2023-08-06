@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Reference dependencies used on last cocos2d build &#8212; cocos v0.6.10 documentation</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Contributing" href="CONTRIBUTING.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CONTRIBUTING.html" title="Contributing"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">cocos</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Dev Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Reference dependencies used on last cocos2d build</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="reference-dependencies-used-on-last-cocos2d-build">
+<h1>Reference dependencies used on last cocos2d build<a class="headerlink" href="#reference-dependencies-used-on-last-cocos2d-build" title="Permalink to this headline">¶</a></h1>
+<p>Just for reference, package versions used in the cocos_build venv while building 0.6.9 on py3.7</p>
+<p>Notice that for testing more versions were used with cocos-testcmp</p>
+<p>The main dependencies, including unittesting (pytest), doc builder (Sphinx), pypi uploader (twine) were:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">six</span><span class="o">==</span><span class="mf">1.15.0</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.18.4</span>
+<span class="n">Pillow</span><span class="o">==</span><span class="mf">7.1.2</span>
+<span class="n">pyglet</span><span class="o">==</span><span class="mf">1.5.9</span>
+<span class="n">pyglet</span><span class="o">-</span><span class="n">ffmpeg2</span><span class="o">==</span><span class="mf">0.1.17</span>
+<span class="n">pytest</span><span class="o">==</span><span class="mf">6.0.1</span>
+<span class="n">Sphinx</span><span class="o">==</span><span class="mf">3.2.0</span>
+<span class="n">twine</span><span class="o">==</span><span class="mf">3.2.0</span>
+</pre></div>
+</div>
+<p>Which explodes by way of Sphinx, pytest, twine dependencies to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">py37_cocos</span><span class="p">)</span> <span class="n">D</span><span class="p">:</span>\<span class="n">dev</span>\<span class="n">cocos2020</span><span class="o">&gt;</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">freeze</span>
+<span class="n">alabaster</span><span class="o">==</span><span class="mf">0.7.12</span>
+<span class="n">atomicwrites</span><span class="o">==</span><span class="mf">1.4.0</span>
+<span class="n">attrs</span><span class="o">==</span><span class="mf">20.3.0</span>
+<span class="n">Babel</span><span class="o">==</span><span class="mf">2.9.0</span>
+<span class="n">bleach</span><span class="o">==</span><span class="mf">3.2.1</span>
+<span class="n">certifi</span><span class="o">==</span><span class="mf">2020.6.20</span>
+<span class="n">chardet</span><span class="o">==</span><span class="mf">3.0.4</span>
+<span class="n">cocos2d</span><span class="o">==</span><span class="mf">0.6.9</span>
+<span class="n">colorama</span><span class="o">==</span><span class="mf">0.4.4</span>
+<span class="n">docutils</span><span class="o">==</span><span class="mf">0.16</span>
+<span class="n">future</span><span class="o">==</span><span class="mf">0.18.2</span>
+<span class="n">idna</span><span class="o">==</span><span class="mf">2.10</span>
+<span class="n">imagesize</span><span class="o">==</span><span class="mf">1.2.0</span>
+<span class="n">importlib</span><span class="o">-</span><span class="n">metadata</span><span class="o">==</span><span class="mf">2.0.0</span>
+<span class="n">iniconfig</span><span class="o">==</span><span class="mf">1.1.1</span>
+<span class="n">Jinja2</span><span class="o">==</span><span class="mf">2.11.2</span>
+<span class="n">keyring</span><span class="o">==</span><span class="mf">21.5.0</span>
+<span class="n">MarkupSafe</span><span class="o">==</span><span class="mf">1.1.1</span>
+<span class="n">more</span><span class="o">-</span><span class="n">itertools</span><span class="o">==</span><span class="mf">8.6.0</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.19.4</span>
+<span class="n">packaging</span><span class="o">==</span><span class="mf">20.4</span>
+<span class="n">Pillow</span><span class="o">==</span><span class="mf">7.2.0</span>
+<span class="n">pkginfo</span><span class="o">==</span><span class="mf">1.6.1</span>
+<span class="n">pluggy</span><span class="o">==</span><span class="mf">0.13.1</span>
+<span class="n">py</span><span class="o">==</span><span class="mf">1.9.0</span>
+<span class="n">pyglet</span><span class="o">==</span><span class="mf">1.5.8</span>
+<span class="n">pyglet</span><span class="o">-</span><span class="n">ffmpeg2</span><span class="o">==</span><span class="mf">0.1.17</span>
+<span class="n">Pygments</span><span class="o">==</span><span class="mf">2.7.2</span>
+<span class="n">pyparsing</span><span class="o">==</span><span class="mf">2.4.7</span>
+<span class="n">pytest</span><span class="o">==</span><span class="mf">6.0.1</span>
+<span class="n">pytz</span><span class="o">==</span><span class="mf">2020.4</span>
+<span class="n">pywin32</span><span class="o">-</span><span class="n">ctypes</span><span class="o">==</span><span class="mf">0.2.0</span>
+<span class="n">readme</span><span class="o">-</span><span class="n">renderer</span><span class="o">==</span><span class="mf">28.0</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.24.0</span>
+<span class="n">requests</span><span class="o">-</span><span class="n">toolbelt</span><span class="o">==</span><span class="mf">0.9.1</span>
+<span class="n">rfc3986</span><span class="o">==</span><span class="mf">1.4.0</span>
+<span class="n">six</span><span class="o">==</span><span class="mf">1.15.0</span>
+<span class="n">snowballstemmer</span><span class="o">==</span><span class="mf">2.0.0</span>
+<span class="n">Sphinx</span><span class="o">==</span><span class="mf">3.2.0</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">applehelp</span><span class="o">==</span><span class="mf">1.0.2</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">devhelp</span><span class="o">==</span><span class="mf">1.0.2</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">htmlhelp</span><span class="o">==</span><span class="mf">1.0.3</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">jsmath</span><span class="o">==</span><span class="mf">1.0.1</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">qthelp</span><span class="o">==</span><span class="mf">1.0.3</span>
+<span class="n">sphinxcontrib</span><span class="o">-</span><span class="n">serializinghtml</span><span class="o">==</span><span class="mf">1.1.4</span>
+<span class="n">toml</span><span class="o">==</span><span class="mf">0.10.2</span>
+<span class="n">tqdm</span><span class="o">==</span><span class="mf">4.51.0</span>
+<span class="n">twine</span><span class="o">==</span><span class="mf">3.2.0</span>
+<span class="n">urllib3</span><span class="o">==</span><span class="mf">1.25.11</span>
+<span class="n">webencodings</span><span class="o">==</span><span class="mf">0.5.1</span>
+<span class="n">zipp</span><span class="o">==</span><span class="mf">3.4.0</span>
+</pre></div>
+</div>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="CONTRIBUTING.html"
+                        title="previous chapter">Contributing</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/dev/last_build.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="CONTRIBUTING.html" title="Contributing"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">cocos</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Dev Notes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Reference dependencies used on last cocos2d build</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2008-2023, cocos&#39;s team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.2.0.
+    </div>
+  </body>
+</html>

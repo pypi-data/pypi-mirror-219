@@ -1,0 +1,21 @@
+cocos.layer package
+===================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   cocos.layer.base_layers
+   cocos.layer.python_interpreter
+   cocos.layer.scrolling
+   cocos.layer.util_layers
+
+Module contents
+---------------
+
+.. automodule:: cocos.layer
+   :members:
+   :undoc-members:
+   :show-inheritance:
