@@ -1,0 +1,15 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "StreamlinkUtils"
+version = "0.0.1"
+description = "This module adds extra utilities to Streamlink's API. I am in no way connected with streamlink."
+authors = ["Parrot Developers <redacted@example.com>"]
+readme = "README.md"
+requires-python = ">=3.7"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+streamlink = "^2.4.0"
