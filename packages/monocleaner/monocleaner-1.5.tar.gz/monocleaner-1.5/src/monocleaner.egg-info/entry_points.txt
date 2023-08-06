@@ -1,0 +1,3 @@
+[console_scripts]
+monocleaner = monocleaner.monocleaner:main
+monocleaner-train = monocleaner.monocleaner_train:main
