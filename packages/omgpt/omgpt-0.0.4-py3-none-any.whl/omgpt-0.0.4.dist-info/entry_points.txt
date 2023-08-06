@@ -1,0 +1,4 @@
+[console_scripts]
+omgpt=omgpt:main
+test=pytest
+
