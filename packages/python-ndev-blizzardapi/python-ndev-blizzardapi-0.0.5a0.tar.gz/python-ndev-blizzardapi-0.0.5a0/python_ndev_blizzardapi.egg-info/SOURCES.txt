@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+blizzardAPI/__init__.py
+blizzardAPI/api.py
+blizzardAPI/blizzard_api.py
+blizzardAPI/battlenet/__init__.py
+blizzardAPI/battlenet/battlenet_api.py
+blizzardAPI/battlenet/battlenet_oauth.py
+blizzardAPI/tests/__init__.py
+blizzardAPI/tests/conftest.py
+python_ndev_blizzardapi.egg-info/PKG-INFO
+python_ndev_blizzardapi.egg-info/SOURCES.txt
+python_ndev_blizzardapi.egg-info/dependency_links.txt
+python_ndev_blizzardapi.egg-info/requires.txt
+python_ndev_blizzardapi.egg-info/top_level.txt
