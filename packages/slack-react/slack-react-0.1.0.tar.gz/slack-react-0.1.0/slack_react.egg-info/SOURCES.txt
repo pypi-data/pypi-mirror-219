@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+pyproject.toml
+slack_react.py
+.github/dependabot.yml
+.github/workflows/lint.yaml
+.github/workflows/pypi.yaml
+.github/workflows/release.yaml
+slack_react.egg-info/PKG-INFO
+slack_react.egg-info/SOURCES.txt
+slack_react.egg-info/dependency_links.txt
+slack_react.egg-info/entry_points.txt
+slack_react.egg-info/requires.txt
+slack_react.egg-info/top_level.txt
