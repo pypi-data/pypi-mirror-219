@@ -1,0 +1,2 @@
+[console_scripts]
+ct = camtools.tools.cli:main
