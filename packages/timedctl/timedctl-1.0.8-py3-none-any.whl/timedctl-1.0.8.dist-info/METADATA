@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: timedctl
+Version: 1.0.8
+Summary: CLI for timed
+Author: Arthur Deierlein
+Author-email: arthur.deierlein@adfinis.com
+Requires-Python: >=3.10,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: click (>=8.1.3,<9.0.0)
+Requires-Dist: libtimed (>=0.1.0,<0.2.0)
+Requires-Dist: pyfzf (>=0.3.1,<0.4.0)
+Requires-Dist: rich (>=13.4.2,<14.0.0)
+Requires-Dist: terminaltables (>=3.1.10,<4.0.0)
+Description-Content-Type: text/markdown
+
+# timedctl
+[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+
+
+Click TUI for [Timed](https://github.com/adfinis/timed-frontend) using [libtimed](https://github.com/adfinis/libtimed).
+
+## Getting started
+Build the project with `poetry build` and install it with `pip install dist/timedctl-*.whl`. You should now be able to use `timedctl` iin your terminal.
+
+## Configuration
+Create a config file at `$XDG_CONFIG_HOME/timedctl/config.toml`.
+The following values must be set:
+```json
+{
+    "username": "<your username>",
+    "oidc_client_id": "<your oidc client id>",
+    "oidc_auth_endpoint": "<your oidc auth endpoint>",
+    "oidc_token_endpoint": "<your oidc token endpoint>"
+}
+```
+
+## License
+Code released under the [GNU Affero General Public License v3.0](LICENSE).
+
