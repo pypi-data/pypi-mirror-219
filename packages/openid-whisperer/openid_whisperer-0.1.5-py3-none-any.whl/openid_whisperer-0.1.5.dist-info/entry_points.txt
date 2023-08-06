@@ -1,0 +1,3 @@
+[console_scripts]
+openid-whisperer=openid_whisperer.main:main
+
