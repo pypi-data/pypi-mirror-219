@@ -1,0 +1,1 @@
+from .doWellOpensourceLicenseCompatibility import doWellOpensourceLicenseCompatibility
