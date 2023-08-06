@@ -1,0 +1,3 @@
+[console_scripts]
+bog-fx = bog.scraper:cli
+
