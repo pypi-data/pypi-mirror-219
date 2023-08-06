@@ -1,0 +1,22 @@
+{
+	"name": "@anywidget/monorepo",
+	"scripts": {
+		"build": "pnpm build:nb && pnpm build:lab",
+		"build:nb": "pnpm --filter=!docs build && cp packages/anywidget/dist/index.js anywidget/nbextension/index.js",
+		"build:lab": "jupyter labextension build packages/anywidget",
+		"clean": "rm -rf anywidget/nbextension/index.js anywidget/labextension && pnpm -r exec rm -rf dist",
+		"version": "changeset version && pnpm install",
+		"release": "python -m build && changeset publish && twine upload dist/*",
+		"test": "vitest --environment=happy-dom",
+		"typecheck": "pnpm --parallel --recursive typecheck"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.26.2",
+		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
+		"esbuild": "^0.18.11",
+		"happy-dom": "^10.0.7",
+		"typescript": "^5.1.6",
+		"vitest": "^0.32.4"
+	},
+	"packageManager": "pnpm@8.6.1"
+}
