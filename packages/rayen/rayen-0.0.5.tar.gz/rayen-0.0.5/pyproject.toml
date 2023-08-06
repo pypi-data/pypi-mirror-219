@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "rayen"
+version = "0.0.5"
+authors = [
+  { name="Jesus Tordesillas", email="jtordesillas@ethz.ch" },
+]
+description = "Imposition of Hard Convex Constraints on Neural Networks"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+"colorama>=0.4.6",
+"cvxpy>=1.3.1",
+"cvxpylayers>=0.1.6",
+"numpy>=1.24.2",
+"pycddlib>=2.1.6",
+"scipy>=1.10.1",
+"torch>=1.13.1",
+"tqdm>=4.65.0",
+]
+license = {file = "LICENSE"}
+
+[project.urls]
+"Homepage" = "https://github.com/leggedrobotics/rayen"
+"Bug Tracker" = "https://github.com/leggedrobotics/rayen/issues"
+
+[tool.setuptools]
+packages = ["rayen"]

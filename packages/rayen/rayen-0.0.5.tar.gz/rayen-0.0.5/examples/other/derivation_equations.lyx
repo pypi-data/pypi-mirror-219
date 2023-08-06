@@ -1,0 +1,921 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 0.5cm
+\rightmargin 0.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Derivation of the equations 
+\end_layout
+
+\begin_layout Part
+For the github readme
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\hspace{2.5cm}$
+\end_inset
+
+Defining 
+\lang american
+
+\begin_inset Formula $\arraycolsep=1.2pt\boldsymbol{y}:=\left[\begin{array}{ccc}
+\boldsymbol{y}_{[0]} & \cdots & \boldsymbol{y}_{[k-1]}\end{array}\right]^{T}\in\mathbb{R}^{k}$
+\end_inset
+
+, the constraints supported are:
+\size small
+
+\begin_inset Formula 
+\begin{align*}
+ & \boldsymbol{A}_{1}\boldsymbol{y}\le\boldsymbol{b}_{1} &  & \text{\textbf{Linear (inequality)}}\\
+ & \boldsymbol{A}_{2}\boldsymbol{y}=\boldsymbol{b}_{2} &  & \text{\textbf{Linear (equality)}}\\
+ & \frac{1}{2}\boldsymbol{y}^{T}\boldsymbol{P}_{i}\boldsymbol{y}+\boldsymbol{q}_{i}^{T}\boldsymbol{y}+r_{i}\le0\;i=0,...,\eta-1 &  & \text{\textbf{Quadratic}}\\
+ & \left\Vert \boldsymbol{M}_{j}\boldsymbol{y}+\boldsymbol{s}_{j}\right\Vert -\boldsymbol{c}_{j}^{T}\boldsymbol{y}-d_{j}\le0\;j=0,...,\mu-1 &  & \text{\textbf{SOC}}\\
+ & \boldsymbol{y}_{[0]}\boldsymbol{F}_{0}+...+\boldsymbol{y}_{[k-1]}\boldsymbol{F}_{k-1}+\boldsymbol{F}_{k}\succeq\boldsymbol{0} &  & \text{\textbf{LMI}}
+\end{align*}
+
+\end_inset
+
+
+\size default
+\lang english
+
+\begin_inset Formula $\hspace{2.5cm}$
+\end_inset
+
+
+\lang american
+where 
+\begin_inset Formula $\boldsymbol{P}_{i}\succeq\boldsymbol{0}$
+\end_inset
+
+ (and symmetric) 
+\begin_inset Formula $\forall i=0,...,\eta-1$
+\end_inset
+
+, and where 
+\begin_inset Formula $\boldsymbol{F}_{0},...,\boldsymbol{F}_{k}$
+\end_inset
+
+ are symmetric matrices.
+\end_layout
+
+\begin_layout Part
+Ours
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+\lang american
+For convex quadratic functions
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang american
+Let's extend this for any convex quadratic function: Following slide 3.9
+ of https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf we have that:
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+g(\boldsymbol{y})=\frac{1}{2}\boldsymbol{y}^{T}\boldsymbol{P}\boldsymbol{y}+\boldsymbol{q}^{T}\boldsymbol{y}+r
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+where 
+\begin_inset Formula $\boldsymbol{P}\succeq\boldsymbol{0}$
+\end_inset
+
+.
+ Hence:
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+g(\boldsymbol{y}(\lambda))=\frac{1}{2}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)^{T}\boldsymbol{P}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+\boldsymbol{q}^{T}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+r=\frac{1}{2}\lambda^{2}\boldsymbol{\rho}^{T}\boldsymbol{P}\boldsymbol{\rho}+\lambda\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{\rho}+\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\lambda\boldsymbol{q}^{T}\boldsymbol{\rho}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+=\underbrace{\frac{1}{2}\boldsymbol{\rho}^{T}\boldsymbol{P}\boldsymbol{\rho}}_{=a}\lambda^{2}+\underbrace{\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)\boldsymbol{\rho}}_{=b}\lambda+\underbrace{\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r}_{=c}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+Multiplying everything with 
+\begin_inset Formula $\kappa^{2}=\frac{1}{\lambda^{2}}$
+\end_inset
+
+ we have that 
+\begin_inset Formula $\underbrace{a}_{:=c'}+\underbrace{b}_{:=b'}\kappa+\underbrace{c}_{:=a'}\kappa^{2}=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+The solution is then:
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\frac{-b'\pm\sqrt{\left(b'\right)^{2}-4a'c'}}{2a'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\frac{-\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)\boldsymbol{\rho}\pm\sqrt{\left(\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)\boldsymbol{\rho}\right)^{2}-4\left(\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r\right)\left(\frac{1}{2}\boldsymbol{\rho}^{T}\boldsymbol{P}\boldsymbol{\rho}\right)}}{2\left(\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+Note that the discriminant is equal to
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\boldsymbol{\rho}^{T}\left(\underbrace{\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)^{T}\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)-4\left(\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r\right)\frac{1}{2}\boldsymbol{P}}_{:=\psi}\right)\boldsymbol{\rho}=
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+Hence, denoting: 
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\sigma=2\left(\frac{1}{2}\boldsymbol{y}_{0}^{T}\boldsymbol{P}\boldsymbol{y}_{0}+\boldsymbol{q}^{T}\boldsymbol{y}_{0}+r\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{\phi}:=\frac{-\left(\boldsymbol{y}_{0}^{T}\boldsymbol{P}+\boldsymbol{q}^{T}\right)}{\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\delta:=\frac{\psi}{\sigma^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+The solution is simply 
+\begin_inset Formula $\boldsymbol{\phi}\boldsymbol{\rho}\pm\sqrt{\boldsymbol{\rho}^{T}\delta\boldsymbol{\rho}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+\lang american
+For SOC functions
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+
+\lang american
+The frontier is defined by
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+h(\boldsymbol{y})=\left\Vert \boldsymbol{M}\boldsymbol{y}+\boldsymbol{s}\right\Vert -\boldsymbol{c}^{T}\boldsymbol{y}-d=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+As we have that 
+\begin_inset Formula $\boldsymbol{y}=\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+h(\boldsymbol{y})=\left\Vert \boldsymbol{M}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+\boldsymbol{s}\right\Vert -\boldsymbol{c}^{T}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)-d=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left\Vert \boldsymbol{M}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+\boldsymbol{s}\right\Vert =\boldsymbol{c}^{T}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+d
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left\Vert \boldsymbol{M}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+\boldsymbol{s}\right\Vert ^{2}=\left(\boldsymbol{c}^{T}\left(\lambda\boldsymbol{\rho}+\boldsymbol{y}_{0}\right)+d\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left\Vert \lambda\boldsymbol{M}\boldsymbol{\rho}+\underbrace{\boldsymbol{M}\boldsymbol{y}_{0}+\boldsymbol{s}}_{:=\boldsymbol{\beta}}\right\Vert ^{2}=\left(\lambda\boldsymbol{c}^{T}\boldsymbol{\rho}+\underbrace{\boldsymbol{c}^{T}\boldsymbol{y}_{0}+d}_{:=\tau}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+(Note that we need to check that 
+\begin_inset Formula $\boldsymbol{c}^{T}\left(\lambda\boldsymbol{\rho}+\boldsymbol{w}\right)+d>0$
+\end_inset
+
+ later on)
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left\Vert \lambda\boldsymbol{M}\boldsymbol{\rho}+\boldsymbol{\beta}\right\Vert ^{2}=\left(\lambda\boldsymbol{c}^{T}\boldsymbol{\rho}+\tau\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left(\lambda\boldsymbol{M}\boldsymbol{\rho}+\boldsymbol{\beta}\right)^{T}\left(\lambda\boldsymbol{M}\boldsymbol{\rho}+\boldsymbol{\beta}\right)=\left(\lambda\boldsymbol{c}^{T}\boldsymbol{\rho}+\tau\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\boldsymbol{\rho}^{T}\boldsymbol{M}^{T}\boldsymbol{M}\boldsymbol{\rho}\lambda^{2}+\underbrace{\lambda\boldsymbol{\rho}^{T}\boldsymbol{M}^{T}\boldsymbol{\beta}+\lambda\boldsymbol{\beta}^{T}\boldsymbol{M}\boldsymbol{\rho}}_{=2\boldsymbol{\rho}^{T}\boldsymbol{M}^{T}\boldsymbol{\beta}\lambda}+\boldsymbol{\beta}^{T}\boldsymbol{\beta}=\lambda^{2}\left(\boldsymbol{c}^{T}\boldsymbol{\rho}\right)^{2}+2\lambda\left(\boldsymbol{c}^{T}\boldsymbol{\rho}\right)\tau+\tau^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\left(\underbrace{\boldsymbol{\rho}^{T}\boldsymbol{M}^{T}\boldsymbol{M}\boldsymbol{\rho}-\left(\boldsymbol{c}^{T}\boldsymbol{\rho}\right)^{2}}_{=a}\right)\lambda^{2}+\left(\underbrace{2\boldsymbol{\rho}^{T}\boldsymbol{M}^{T}\boldsymbol{\beta}-2\left(\boldsymbol{c}^{T}\boldsymbol{\rho}\right)\tau}_{=b}\right)\lambda+\underbrace{\left(\boldsymbol{\beta}^{T}\boldsymbol{\beta}-\tau^{2}\right)}_{=c}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+Multiplying everything with 
+\begin_inset Formula $\kappa^{2}=\frac{1}{\lambda^{2}}$
+\end_inset
+
+ we have that:
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+\begin_inset Formula 
+\[
+\underbrace{a}_{:=c'}+\underbrace{b}_{:=b'}\kappa+\underbrace{c}_{:=a'}\kappa^{2}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang american
+Now, note that the two solutions to this equation can be both negative or
+ both positive! This is due to the fact that by squaring both sides above
+ we are including both sides of the cone.
+ Hence, the solution will be 
+\begin_inset Formula $\kappa=\text{relu}\left(\text{max}\left(\kappa_{1},\kappa_{2}\right)\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $\kappa_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\kappa_{2}$
+\end_inset
+
+ are the two solutions shown above.
+\end_layout
+
+\end_deeper
+\begin_layout Part
+DC3
+\end_layout
+
+\begin_layout Standard
+First, note that we have 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{2}\boldsymbol{y}=\boldsymbol{b}_{2}\qquad\qquad\boldsymbol{y}:=\left[\begin{array}{c}
+\boldsymbol{y}_{o}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+\boldsymbol{A}_{2o} & \boldsymbol{A}_{2p}\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{y}_{o}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]=\boldsymbol{b}_{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{2o}\boldsymbol{y}_{o}+\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}=\boldsymbol{b}_{2}\implies\boldsymbol{y}_{o}=\boldsymbol{A}_{2o}^{-1}\left(\boldsymbol{b}_{2}-\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right):=\varphi({\color{red}\boldsymbol{y}_{p}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Linear Constraint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{1}\boldsymbol{y}\le\boldsymbol{b}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left[\begin{array}{cc}
+\boldsymbol{A}_{1o} & \boldsymbol{A}_{1p}\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{y}_{o}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]\le\boldsymbol{b}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{1o}\boldsymbol{y}_{o}+\boldsymbol{A}_{1p}{\color{red}\boldsymbol{y}_{p}}\le\boldsymbol{b}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{1o}\boldsymbol{A}_{2o}^{-1}\left(\boldsymbol{b}_{2}-\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)+\boldsymbol{A}_{1p}{\color{red}\boldsymbol{y}_{p}}\le\boldsymbol{b}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{1o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{1o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{A}_{1p}{\color{red}\boldsymbol{y}_{p}}\le\boldsymbol{b}_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underbrace{\left(\boldsymbol{A}_{1p}-\boldsymbol{A}_{1o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}\right)}_{:=\boldsymbol{A}_{1\text{effective}}}{\color{red}\boldsymbol{y}_{p}}\le\underbrace{\boldsymbol{b}_{1}-\boldsymbol{A}_{1o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}}_{:=\boldsymbol{b}_{1\text{effective}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{A}_{1\text{effective}}{\color{red}\boldsymbol{y}_{p}}-\boldsymbol{b}_{1\text{effective}}\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Quadratic Constraint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\boldsymbol{y}^{T}\boldsymbol{P}\boldsymbol{y}+\boldsymbol{q}^{T}\boldsymbol{y}+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\left[\begin{array}{cc}
+\boldsymbol{y}_{o}^{T} & {\color{red}\boldsymbol{y}_{p}^{T}}\end{array}\right]\left[\begin{array}{cc}
+\boldsymbol{P}_{0} & \boldsymbol{P}_{op}\\
+\boldsymbol{P}_{op}^{T} & \boldsymbol{P}_{p}
+\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{y}_{o}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]+\left[\begin{array}{cc}
+\boldsymbol{q}_{o}^{T} & \boldsymbol{q}_{p}^{T}\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{y}_{o}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\left[\begin{array}{cc}
+\boldsymbol{y}_{o}^{T} & {\color{red}\boldsymbol{y}_{p}^{T}}\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{P}_{o}\boldsymbol{y}_{0}+\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}\\
+\boldsymbol{P}_{op}^{T}\boldsymbol{y}_{0}+\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]+\left[\begin{array}{cc}
+\boldsymbol{q}_{o}^{T} & \boldsymbol{q}_{p}^{T}\end{array}\right]\left[\begin{array}{c}
+\boldsymbol{y}_{0}\\
+{\color{red}\boldsymbol{y}_{p}}
+\end{array}\right]+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\left(\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{o}\boldsymbol{y}_{o}+\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}+{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{op}^{T}\boldsymbol{y}_{o}+{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}\right)+\boldsymbol{q}_{o}^{T}\boldsymbol{y}_{o}+\boldsymbol{q}_{p}^{T}{\color{red}\boldsymbol{y}_{p}}+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\left(\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{o}\boldsymbol{y}_{o}+2\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}+{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}\right)+\boldsymbol{q}_{o}^{T}\boldsymbol{y}_{o}+\boldsymbol{q}_{p}^{T}{\color{red}\boldsymbol{y}_{p}}+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{o}\boldsymbol{y}_{o}+\boldsymbol{y}_{o}^{T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}+\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{q}_{o}^{T}\boldsymbol{y}_{o}+\boldsymbol{q}_{p}^{T}{\color{red}\boldsymbol{y}_{p}}+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now, note that 
+\begin_inset Formula 
+\[
+\boldsymbol{y}_{o}=\boldsymbol{A}_{2o}^{-1}\left(\boldsymbol{b}_{2}-\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)=\left(\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence, the inequality is:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\left(\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)^{T}\boldsymbol{P}_{o}\left(\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)+\left(\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)^{T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}+\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
++\boldsymbol{q}_{o}^{T}\left(\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}\right)+\boldsymbol{q}_{p}^{T}{\color{red}\boldsymbol{y}_{p}}+r\le0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Expanding the function we have:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{1}{2}\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}\underbrace{-\frac{1}{2}\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}-\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{A}_{2p}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}}_{=-\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}}+\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{A}_{2p}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}+...
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}-{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{A}_{2p}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{op}{\color{red}\boldsymbol{y}_{p}}+\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{p}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{q}_{o}^{T}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}-\boldsymbol{q}_{o}^{T}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{q}_{p}^{T}{\color{red}\boldsymbol{y}_{p}}+r
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And therefore:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\color{red}\boldsymbol{y}_{p}^{T}}\underbrace{\left(-\boldsymbol{A}_{2p}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{op}+\frac{1}{2}\boldsymbol{A}_{2p}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}+\frac{1}{2}\boldsymbol{P}_{p}\right)}_{:=\frac{1}{2}\boldsymbol{P}_{\text{effective}}}{\color{red}\boldsymbol{y}_{p}}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\underbrace{\left(\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{op}+\boldsymbol{q}_{p}^{T}-\boldsymbol{q}_{o}^{T}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}-\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{A}_{2p}\right)}_{:=\boldsymbol{q}_{\text{effective}}^{T}}{\color{red}\boldsymbol{y}_{p}}+...
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
++\underbrace{\boldsymbol{q}_{o}^{T}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}+\frac{1}{2}\boldsymbol{b}_{2}^{T}\boldsymbol{A}_{2o}^{-T}\boldsymbol{P}_{o}\boldsymbol{A}_{2o}^{-1}\boldsymbol{b}_{2}+r}_{:=r_{\text{effective}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gradient
+\end_layout
+
+\begin_layout Standard
+From section 3.2 of the DC3 paper, we have that, if we have the constraints
+ 
+\begin_inset Formula $\boldsymbol{g}(\boldsymbol{y})\le0$
+\end_inset
+
+, then we need to compute this gradient:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\left\Vert \text{relu}\left(\boldsymbol{g}\left(\left[\begin{array}{c}
+{\color{red}\boldsymbol{y}_{p}}\\
+\varphi({\color{red}\boldsymbol{y}_{p}})
+\end{array}\right]\right)\right)\right\Vert ^{2}}{\partial{\color{red}\boldsymbol{y}_{p}}}=2\frac{\partial\text{relu}\left(\boldsymbol{g}\left(\left[\begin{array}{c}
+{\color{red}\boldsymbol{y}_{p}}\\
+\varphi({\color{red}\boldsymbol{y}_{p}})
+\end{array}\right]\right)\right)}{\partial{\color{red}\boldsymbol{y}_{p}}}\boldsymbol{g}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Denoting 
+\begin_inset Formula $\boldsymbol{u}\left({\color{red}\boldsymbol{y}_{p}}\right)$
+\end_inset
+
+ the function inside the norm, we have to compute this gradient:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\boldsymbol{u}^{T}\boldsymbol{u}}{\partial{\color{red}\boldsymbol{y}_{p}}}=2\frac{\partial\boldsymbol{u}}{\partial{\color{red}\boldsymbol{y}_{p}}}\boldsymbol{u}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the linear constraint, we have that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\boldsymbol{u}^{T}\boldsymbol{u}}{\partial{\color{red}\boldsymbol{y}_{p}}}=2\left(\boldsymbol{A}_{1\text{effective}}^{T}\right)\text{relu}\left(\boldsymbol{A}_{1\text{effective}}{\color{red}\boldsymbol{y}_{p}}-\boldsymbol{b}_{1\text{effective}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the quadratic constraint, we have that:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\boldsymbol{u}^{T}\boldsymbol{u}}{\partial{\color{red}\boldsymbol{y}_{p}}}=2\left(\boldsymbol{P}_{\text{effective}}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{q}_{\text{effective}}\right)\text{relu}\left(\frac{1}{2}{\color{red}\boldsymbol{y}_{p}^{T}}\boldsymbol{P}_{\text{effective}}{\color{red}\boldsymbol{y}_{p}}+\boldsymbol{q}_{\text{effective}}^{T}{\color{red}\boldsymbol{y}_{p}}+r_{\text{effective}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
