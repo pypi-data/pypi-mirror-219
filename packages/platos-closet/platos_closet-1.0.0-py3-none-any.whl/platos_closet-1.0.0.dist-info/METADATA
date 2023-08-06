@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: platos-closet
+Version: 1.0.0
+Summary: Package that tells you if a planet can be detected by PLATO space mission
+Home-page: https://github.com/Fernando-Canales/platos_closet
+Author: Fernando Gutierrez Canales and John Hood
+Author-email: fernando.canales@obspm.fr
+License: MIT
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+License-File: LICENSE
+
