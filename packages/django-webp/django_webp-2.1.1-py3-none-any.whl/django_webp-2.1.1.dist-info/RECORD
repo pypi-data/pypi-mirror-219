@@ -1,0 +1,13 @@
+django_webp/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_webp/context_processors.py,sha256=3GVbU6EJYjQ-yJBwcdv-_x5nH9B8psZk5JOoQXKvxLw,398
+django_webp/utils.py,sha256=GNJ-NNpKV5xBmqVr4ZR8dtOP7mYmqqqKaOtysPeE1ow,775
+django_webp/management/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_webp/management/commands/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_webp/management/commands/clean_webp_images.py,sha256=xHzhig19QYFi08y2yTTlijOdMe2OAiQIvCF-wXOYiQY,490
+django_webp/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+django_webp/templatetags/webp.py,sha256=rvmYeFDLJtk2DAkvIn2vy6zXhMk82R7mjiZLQoCFVwo,5587
+django_webp-2.1.1.dist-info/LICENSE,sha256=76fexavrZn_eeBNV8VN-64UOUvrVwOW7ZXSqM-rg8Gk,1079
+django_webp-2.1.1.dist-info/METADATA,sha256=skasHIETNcJxprfJwwqM7Z1DAkV2-0gcDws5NolkhTg,5408
+django_webp-2.1.1.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+django_webp-2.1.1.dist-info/top_level.txt,sha256=ebb4lPVlfqfOX-aHd0JaytQM8DHHBEgySgzn1Si-fPs,12
+django_webp-2.1.1.dist-info/RECORD,,
