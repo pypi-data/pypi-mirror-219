@@ -1,0 +1,20 @@
+- actions:
+  - say If you need some help, type 'help'
+  - wink
+
+- actions:
+  - yawn
+
+- actions:
+  - emote leans uncomfortably up against the wall, dozing.
+
+- actions:
+  - ah
+  - say There are terrible schemes afoot...
+  - say Type 'list' to see what quests are in store for you!
+
+- conversation:
+  - match: '.*?quest.*?'
+    response: "Type 'list' to see available questing senarios."
+  - match: '.*?join.+?quest.*?'
+    response: "Type 'help' to get started with quests."

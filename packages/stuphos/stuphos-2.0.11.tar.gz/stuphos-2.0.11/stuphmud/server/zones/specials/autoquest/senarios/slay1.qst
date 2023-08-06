@@ -1,0 +1,132 @@
+- quest-type: $builtin.slay.AutoSlay
+  class: Golden
+  name: Anti-Life
+  description:
+    - 'Puran, the Elder God of Magic and Life awaits discovery and obliteration.'
+    - 'Guide this major deity into the void and turn the wheel of time.'
+
+  field: world # bounty-style
+  opponents:
+    - mark-vnum: 54824 # Puran, Elder God of Magic and Life
+      skills:
+        - bash: 100%
+
+  time-limit: minutes(10)
+  frequency: 1/day
+  reward:
+    - gold-points: max(5, 1000 / player.level)
+
+  requirements:
+    - min-level: 106
+    - either:
+      - min-level: 85
+      - remort: 2
+    - either:
+      - gold: 500000
+      - item-vnum: 5818 # Satan's Aura of Flame
+
+- quest-type: $builtin.slay.AutoSlay
+  class: Arena
+  name: Necro-Guards
+  min-level: 40
+  max-level: 80
+  field:
+    - arena: labrinthia
+  opponents:
+    - mark-vnum: 10229 # an Elite Guard
+      count: 2
+      hit-points: opponent.max_hit + player.level * 100
+      gold: 10000
+      equipment:
+        - arms: 10251 # a set of plate greaves
+          body: 10253 # a field plate breastplate
+          legs: 10252 # plate leggings
+          two-handed: 10254 # halberd
+      reward:
+        - silver-points: 10
+        - equipment
+
+  requirements:
+    - min-level: 106
+
+- quest-type: $builtin.slay.AutoSlay
+  class: Wild
+  name: TheBeast
+  field: roaming
+  flags: non-cancelable
+  opponents:
+    - mark-vnum: 3047 # Ash
+      load-room: 8668
+      equipment:
+        - two-handed: 1232 # a bloody chainsaw
+      arrival-messages:
+        - '$n crawls up from the grave.'
+        - 'You try not to vomit.'
+      death-message: '$n is sent back into the chasm from whence it came.'
+      reward:
+        - item-vnum: 3330 # Book of Wandering
+          item-vnum: 58521 # a dose of pepperweed (harsh)
+
+  requirements:
+    - min-level: 106
+
+- quest-type: $builtin.slay.AutoSlay
+  class: Wild
+  name: wolf pack
+  description:
+    - 'Fight a pack of roaming beastly fidos! Sounds easy? Be warned:'
+    - 'they come with a vengeance and will not stop until each one is dead!'
+
+  field: roaming
+  reward: redeemable
+  slay-message: '&m*&N &wYour quest is once step closer to completion!&N &m*&N'
+
+  opponents:
+    - mark-vnum: 3062
+      count: 4
+      load-room: 8668
+      inventory:
+        - 3015 # a piece of meat
+
+  requirements:
+    - min-level: 106
+
+- quest-type: $builtin.slay.AutoSlay
+  class: Horror
+  name: '666'
+  field: roaming
+  opponents:
+    - mark-vnum: 5839 # Satan
+      load-room: 8668
+      flags: sentinel
+      equipment:
+        - body: 5818 # Satan's Aura of Flame
+          wield: 5817 # Satan's Pitchfork
+
+    - mark-vnum: 5838 # a Demon from Beyond the Pale
+      load-room: 8668
+      flags: sentinel
+      count: 2
+
+  reward:
+    - gold: 500000
+
+  requirements:
+    - min-level: 106
+
+- quest-type: $builtin.slay.AutoSlay
+  class: Cake
+  name: Scrap
+  field: roaming
+  time-limit: seconds(10)
+  opponents:
+    - mark-vnum: 3066 # an alley cat
+      load-room: 1496 # Quest Master
+      flags: sentinel
+
+  reward:
+    - gold: 250
+      merit-points: 1
+
+  requirements:
+    - min-level: 106
