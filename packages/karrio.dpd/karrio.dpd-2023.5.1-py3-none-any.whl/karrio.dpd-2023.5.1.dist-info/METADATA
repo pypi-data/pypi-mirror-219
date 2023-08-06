@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: karrio.dpd
+Version: 2023.5.1
+Summary: Karrio - DPD Shipping Extension
+Home-page: https://github.com/karrioapi/karrio
+Author: karrio
+Author-email: hello@karrio.io
+License: Apache-2.0
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: carrier.dpd
+Requires-Dist: karrio
+
+
+# karrio.dpd
+
+This package is a DPD extension of the [karrio](https://pypi.org/project/karrio) multi carrier shipping SDK.
+
+## Requirements
+
+`Python 3.7+`
+
+## Installation
+
+```bash
+pip install karrio.dpd
+```
+
+## Usage
+
+```python
+import karrio
+from karrio.mappers.dpd.settings import Settings
+
+
+# Initialize a carrier gateway
+dpd = karrio.gateway["dpd"].create(
+    Settings(
+        ...
+    )
+)
+```
+
+Check the [Karrio Mutli-carrier SDK docs](https://docs.karrio.io) for Shipping API requests
+
+

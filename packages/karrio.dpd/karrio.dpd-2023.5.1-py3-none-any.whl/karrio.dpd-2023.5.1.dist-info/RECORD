@@ -1,0 +1,15 @@
+karrio/mappers/dpd/__init__.py,sha256=VNwkdMYU7ospY0_Bqyh9tgRIAnNLOE3nbL6DrWZzK28,462
+karrio/mappers/dpd/mapper.py,sha256=WDl4ypWHQYUPdu_06VqTVmgAzT8ghf5kDV6CROsS_MY,1576
+karrio/mappers/dpd/proxy.py,sha256=X75kXx1sBUU0BUgQTP0kqmdQTh01eJbgtc6uydgpe1A,1855
+karrio/mappers/dpd/settings.py,sha256=7TW09lRj8tj7gbN9XNxaN8U8d6_fWjOW0SMt9CWasgE,1304
+karrio/providers/dpd/__init__.py,sha256=q84FCmlbGI4Wo94ixjqQL4Mkeo08V1zj1PF0wizJYvs,242
+karrio/providers/dpd/error.py,sha256=XBuROolEZedFyV9rCukYSZvRQDi9RjChbrmOTS7Tlv0,1037
+karrio/providers/dpd/tracking.py,sha256=ds_bML0xPjrYsJiZH-01ehdJwE1VXqu1Dw4sCvzk90k,4241
+karrio/providers/dpd/units.py,sha256=a1mDI8DyRgOqb2syhh9iNmF7slcrVcq0uuwIhUw-Hkw,7720
+karrio/providers/dpd/utils.py,sha256=1Mnfe-YBMurlIIdKIxR6pPQ2vXwnpIevVn8jK1XoYuw,4059
+karrio/providers/dpd/shipment/__init__.py,sha256=60BkyUw1p_8mF9wiv-lO30Pt73BZ1GblL8wcZsUViCo,104
+karrio/providers/dpd/shipment/create.py,sha256=YctaCjvs502jR07TlMTk-uY5WCcCMDMtn-rmNaESw0Q,21830
+karrio.dpd-2023.5.1.dist-info/METADATA,sha256=ms_jz9NryKu1xQz1tpKSV8096BqDxwYXiqhBarsQ5f4,952
+karrio.dpd-2023.5.1.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+karrio.dpd-2023.5.1.dist-info/top_level.txt,sha256=mfkVZXzNuVRmA7NRlck_Ub-C8Zgtqxbx3gX1Rq_W-i0,7
+karrio.dpd-2023.5.1.dist-info/RECORD,,
