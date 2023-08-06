@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: Potoo
+Version: 0.1.0
+Summary: Markdown presentation tool build on top of textual
+Author-email: Gilbus <gilbus@tinkershell.eu>
+License: GPL
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+# Topoo
+
+A [textual](https://textual.textualize.io) based application to present your
+markdown-based slides inside the terminal. Great
+
+### What's up with the name?
+
+Since the textual project, apparently, started naming their textual based
+applications after bird species I searched for one with large eyes, since you
+usually need to zoom in on your terminal to get to a usable font size **and**
+whose name wasn't already taken on PyPI. _Potoo_ seemed perfect since, according
+to Wikipedia, they "are a group of birds related to the nightjars and
+_frogmouths_" and guess what the
+[textual based markdown viewer](https://github.com/Textualize/frogmouth) is
+called.

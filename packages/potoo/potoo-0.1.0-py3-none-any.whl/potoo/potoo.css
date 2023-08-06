@@ -1,0 +1,25 @@
+#footer {
+  height: 1;
+  dock: bottom;
+  layout: grid;
+  grid-size: 3 1;
+  grid-columns: 1fr 1fr 1fr;
+}
+
+#title {
+  text-align: left;
+  max-width: 40%
+}
+
+#footer-center {
+  text-align: center;
+}
+
+#slide-counter {
+  text-align: right;
+}
+
+/* That's actually our help footer */
+Footer {
+  display: none;
+}
