@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: snowline
+Version: 0.6.3
+Summary: Fit and compare complex models quickly. Laplace Approximation, Variational Bayes, Importance Sampling.
+Home-page: https://github.com/JohannesBuchner/snowline
+Author: Johannes Buchner
+Author-email: johannes.buchner.acad@gmx.com
+License: GNU General Public License v3
+Keywords: snowline
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Provides-Extra: plot
+License-File: LICENSE
+
+=========
+snowline
+=========
+
+Fit and compare models very quickly. MCMC-free.
+
+.. image:: https://img.shields.io/pypi/v/snowline.svg
+        :target: https://pypi.python.org/pypi/snowline
+
+.. image:: https://github.com/JohannesBuchner/snowline/actions/workflows/tests.yml/badge.svg
+        :target: https://github.com/JohannesBuchner/snowline/actions/workflows/tests.yml
+
+.. image:: https://img.shields.io/badge/docs-published-ok.svg
+        :target: https://johannesbuchner.github.io/snowline/
+        :alt: Documentation Status
+
+About
+-----
+
+Posterior distributions and corner plots without MCMC?
+No dealing with convergence criteria?
+
+Yes!
+
+Tailored for low-dimensional (d<10) problems with a single mode,
+this package automatically finds the best fit and uses the local covariance matrix
+as a Laplace Approximation. Then Importance Sampling and Variational Bayes come 
+in to improve from a single-gaussian approximation to more complex shapes.
+This allows sampling efficiently in some problems, and provides a estimate
+for the marginal likelihood.
+
+This package is built on top the excellent (i)minuit and pypmc packages.
+
+You can help by testing snowline and reporting issues. Code contributions are welcome.
+See the `Contributing page <https://johannesbuchner.github.io/snowline/contributing.html>`_.
+
+Features
+---------
+
+* Pythonic. pip installable.
+* Easy to program for: Sanity checks with meaningful errors
+* Fast
+* MPI support
+
+Usage
+^^^^^
+
+Read the full documentation at:
+
+https://johannesbuchner.github.io/snowline/
+
+
+Licence
+^^^^^^^
+
+GPLv3 (see LICENCE file). If you require another license, please contact me.
+
+Icon made by `Vecteezy <https://www.vecteezy.com/free-vector/hill>`_.
+
+
+Other projects
+^^^^^^^^^^^^^^
+
+See also:
+
+ * UltraNest: https://johannesbuchner.github.io/UltraNest/
+ * autoemcee: https://johannesbuchner.github.io/autoemcee/
+
+
+==============
+Release Notes
+==============
+
+0.4.0 (2020-03-07)
+------------------
+
+* Improve robustness to poor Laplace approximations
+
+
+0.3.0 (2020-05-07)
+------------------
+
+* Numerical robustness
+
+
+0.2.0 (2020-04-21)
+------------------
+
+* Robustness improvements
+* Packaging and testing improvements
+
+
+0.1.0 (2020-03-07)
+------------------
+
+* First version
