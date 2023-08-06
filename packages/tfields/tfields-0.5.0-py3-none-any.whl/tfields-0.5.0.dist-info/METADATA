@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: tfields
+Version: 0.5.0
+Summary: Tensors, tensor fields, graphs, mesh manipulation, CAD and more on the basis of numpy.ndarrays. All objects keep track of their coordinate system. Symbolic math operations work for object manipulation.
+Home-page: https://gitlab.mpcdf.mpg.de/dboe/tfields
+License: MIT
+Keywords: tensors, tensor-fields, graphs, mesh, numpy, math
+Author: Daniel Böckenhoff
+Author-email: dboe@ipp.mpg.de
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Provides-Extra: io
+Requires-Dist: numpy (>=1.20.0)
+Requires-Dist: numpy-stl ; extra == "io"
+Requires-Dist: pathlib ; python_version < "3.10"
+Requires-Dist: rna (>=0.10.0)
+Requires-Dist: scipy (>=1.9.2)
+Requires-Dist: sortedcontainers
+Requires-Dist: sympy (<=1.6.2)
+Project-URL: Documentation, https://dboe.pages.mpcdf.de/tfields
+Project-URL: Repository, https://gitlab.mpcdf.mpg.de/dboe/tfields
+Description-Content-Type: text/x-rst
+
+library documentation
+=====================
+
+..
+    [shields-start]
+
+.. pypi
+.. image:: https://img.shields.io/pypi/v/tfields.svg
+    :target: https://pypi.python.org/pypi/tfields
+.. ci
+.. image:: https://gitlab.mpcdf.mpg.de/dboe/tfields/badges/master/pipeline.svg
+    :target: https://gitlab.mpcdf.mpg.de/dboe/tfields/-/pipelines/latest
+
+.. latest release
+.. image:: https://gitlab.mpcdf.mpg.de/dboe/tfields/-/badges/release.svg
+    :target: https://gitlab.mpcdf.mpg.de/dboe/tfields/-/releases
+
+.. coverage
+.. image:: https://gitlab.mpcdf.mpg.de/dboe/tfields/badges/master/coverage.svg
+    :target: https://gitlab.mpcdf.mpg.de/dboe/tfields/commits/master
+
+.. docs
+.. image:: https://img.shields.io/website-up-down-green-red/https/dboe.pages.mpcdf.de/tfields.svg?label=docs
+    :target: https://dboe.pages.mpcdf.de/tfields
+
+.. pre-commit
+.. image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
+   :target: https://github.com/pre-commit/pre-commit
+   :alt: pre-commit
+
+..
+    [shields-end]
+
+Overview
+--------
+
+..
+    [overview-start]
+
+Tensors, tensor fields, graphs, mesh manipulation, CAD and more on the basis of numpy.ndarrays. All objects keep track of their coordinate system. Symbolic math operations work for object manipulation.
+
+..
+    [overview-end]
+
+Licensed under the ``MIT License``
+
+Resources
+~~~~~~~~~
+
+..
+    [resources-start]
+
+* Source code: https://gitlab.mpcdf.mpg.de/dboe/tfields
+* Documentation: https://dboe.pages.mpcdf.de/tfields
+* Pypi: https://pypi.python.org/pypi/tfields
+
+
+..
+    [resources-end]
+
+
+Features
+~~~~~~~~
+
+..
+    [features-start]
+
+The following features should be highlighted:
+
+* Tensors
+* TensorFields
+* TensorMaps with fields
+* Mesh manipulation by graph theory
+* TODO
+  
+..
+    [features-end]
+
+Review of alternative/supplementary APIs
+----------------------------------------
+* `sympy.diffgeom`: https://docs.sympy.org/latest/modules/diffgeom.html - Symbolic differential algebra implementation. It is not yet covering a broad variety of functionality and is not so well maintained.
+* Units: You can find a comparison of modules handling units here: https://socialcompare.com/en/comparison/python-units-quantities-packages - astropy looks best to our understanding but sympy would integrated nicer without an additional package.
+
