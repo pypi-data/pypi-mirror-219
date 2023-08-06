@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "offat"
+version = "0.3.0"
+description = "Offensive API tester tool automates checks for common API vulnerabilities"
+authors = ["Dhrumil Mistry <56185972+dmdhrumilmistry@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+aiohttp = "^3.8.4"
+pyyaml = "^6.0"
+prance = "^23.6.21.0"
+openapi-spec-validator = "^0.5.7"
+colorama = "^0.4.6"
+tabulate = "^0.9.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+
+
+[tool.poetry.urls]
+"Home" = "https://github.com/dmdhrumilmistry/offat"
+"Bug Tracker" = "https://github.com/dmdhrumilmistry/offat/issues"
+"Support" = "https://github.com/sponsors/dmdhrumilmistry/"
+"PayPal" = "https://paypal.me/dmdhrumilmistry"
+
+
+[tool.poetry.scripts]
+offat = "offat.__main__:start"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
