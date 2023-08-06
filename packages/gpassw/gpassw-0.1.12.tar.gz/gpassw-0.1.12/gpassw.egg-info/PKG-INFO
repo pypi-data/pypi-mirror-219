@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: gpassw
+Version: 0.1.12
+Summary: A very easy generator of passwords
+Author: barlin41k
+Author-email: sasaigrypocta@gmail.com
+Description-Content-Type: text/markdown
+
+# gpassw - генератор паролей!
+`gpassw` - очень простой в использовании генератор паролей для Вашех потребностей.
+
+# Минимальный пример использования
+```
+from os import system
+try: 
+    from colorama import Style, Fore, init
+    init()
+except:
+    system("pip install colorama")
+    from colorama import Style, Fore, init
+    init()
+try: 
+    from gpassw.functions import Password
+except:
+    system("pip install gpassw")
+    from gpassw.functions import Password
+
+name = input("Напиши своё имя: ")
+print(f"Привет, {name}! Сейчас подберём для тебя оптимальный пароль...")
+password = Password.get(10) #Генерация пароля из букв
+print(f"Мы подобрали тебе пароль - {password}
+Окей?")
+answer = input("Да/Нет: ")
+if answer == "Да" or answer == "да":
+    print("Теперь напиши пароль, который мы тебе подобрали для входа в аккаунт.")
+else:
+    raise SystemExit(1)
+hello_password = input("Пароль: ")
+while hello_password != password:
+    print(Fore.RED + "Пароль неверный." + Style.RESET_ALL)
+    hello_password = input("Пароль: ")
+print("Вы успешно вошли!")
+```
+
+# Как установить?
+Всего лишь требуеться просто прописать команду в консоли: `pip install gpassw`
+    
