@@ -1,0 +1,73 @@
+Metadata-Version: 2.1
+Name: valdazpack
+Version: 0.1.1
+Summary: DAZ Package Validator
+Home-page: https://github.com/Omniflux/valdazpack
+License: MIT
+Author: Omni Flux
+Author-email: omniflux@omniflux.com
+Requires-Python: >=3.11.4,<4.0.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Utilities
+Requires-Dist: Pillow (>=10.0.0,<11.0.0)
+Requires-Dist: fs.dimzipfs (>=0.1.0,<0.2.0)
+Requires-Dist: fs.wrapcifs (>=0.1.0,<0.2.0)
+Requires-Dist: jinja2 (>=3.1.2,<4.0.0)
+Requires-Dist: jsonpath-ng (>=1.5.3,<2.0.0)
+Requires-Dist: jsonschema[format] (>=4.18.3,<5.0.0)
+Requires-Dist: lxml (>=4.9.3,<5.0.0)
+Project-URL: Repository, https://github.com/Omniflux/valdazpack
+Description-Content-Type: text/x-rst
+
+valdazpack
+==========
+
+``valdazpack`` is a DAZ Studio content validator.
+
+Supported Python versions
+-------------------------
+
+- Python 3.11
+
+Usage
+-----
+
+``valdazpack [-h] [-d <DEPENDENCIES ...>] [-D] [-O] [-p] [-s] [-H | -T TEMPLATE] [-o OUTPUT] [-v] product_path [product_path ...]``
+
+positional arguments:
+  product_path          DIM Packages, ZIP files, or Content Directories to validate
+
+options:
+  -h, --help            show this help message and exit
+  -d <DEPENDENCIES ...>, --dependencies <DEPENDENCIES ...>
+                        additional DIM Packages, ZIP files, or Content Directories which are not validated but which the validated product depends on
+  -D, --daz             enable validation rules for products distributed by Daz Productions, Inc
+  -O, --daz-original    enable validation rules for products produced by Daz Productions, Inc
+  -H, --html            generate HTML report
+  -T TEMPLATE, --template TEMPLATE
+                        generate report using Jinja template
+  -o OUTPUT, --output OUTPUT
+                        write report to file
+  -v, --verbose         enable verbose output
+
+For non-DIM ZIP files, a subdirectory may be specified as the content root by appending ``!<subdirectory>`` to the filename: ``example.zip!My Library``
+
+.. code:: 
+
+    E:\> valdazpack --dependencies "C:\Users\Username\Documents\MDL" --html --output report.html OMNFLUX00000001-01_NVIDIAvMaterials170ShaderPresets.zip
+
+    E:\> valdazpack --dependencies "D:\InstallManager\Downloads\IM00042071-02_Genesis8MaleStarterEssentials.zip" --html --output report.html "D:\My Custom G8M Character"
+
+    E:\> valdazpack --daz-original --html --output report.html "D:\InstallManager\Downloads\IM00042071-02_Genesis8MaleStarterEssentials.zip"
+
+    E:\> valdazpack --html --output report.html "example.zip!My Library"
+
+License
+-------
+
+This module is published under the MIT license.
