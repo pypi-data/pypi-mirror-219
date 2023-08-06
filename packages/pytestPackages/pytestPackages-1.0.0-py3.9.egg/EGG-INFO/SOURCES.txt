@@ -1,0 +1,11 @@
+licence.txt
+setup.py
+pytestPackages/__init__.py
+pytestPackages/plugin.py
+pytestPackages/test_sample.py
+pytestPackages.egg-info/PKG-INFO
+pytestPackages.egg-info/SOURCES.txt
+pytestPackages.egg-info/dependency_links.txt
+pytestPackages.egg-info/entry_points.txt
+pytestPackages.egg-info/requires.txt
+pytestPackages.egg-info/top_level.txt
