@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/elfrad_itb.egg-info/PKG-INFO
+src/elfrad_itb.egg-info/SOURCES.txt
+src/elfrad_itb.egg-info/dependency_links.txt
+src/elfrad_itb.egg-info/top_level.txt
+src/praktikum/__init__.py
+src/praktikum/basic_electronic.py
+src/praktikum/oscillator_copitts.py
+src/praktikum/oscillator_hartley.py
