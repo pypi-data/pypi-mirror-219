@@ -1,0 +1,13 @@
+click_schema_config/__init__.py,sha256=3oHgnXBJMjrEldODRoe8Vi75aBMhQS0PJVvBm2W6C6c,150
+click_schema_config/click.py,sha256=dSRSPJH9n_ZymaK5QCRF15qxQIKWYvevAxZZ2iJTfcg,2518
+click_schema_config/commands/codegen.py,sha256=O3asJdi04GqkH06W6XD7qKRIaG8vipn5KnbeecS1IBY,3344
+click_schema_config/commands/templates/__init__.py.jinja,sha256=MFnV1c4GRtmkaO-8PLyIqAd5wlSGTOQl7DKIfY0R7Z8,69
+click_schema_config/commands/templates/dataclass.py.jinja,sha256=eoOr-p6b5lnltCKvJcXzdr2elrr0dJvWHH3Fli4sVMM,768
+click_schema_config/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+click_schema_config/read_config.py,sha256=a3fX-PgtqQWRQ8ml-dEUokH1WgS1F0x9E8LcjrMKdpw,3585
+click_schema_config/types.py,sha256=1XJTRwvkgSWe4SbNBXvwGOSKql3sXpGX6CyKgxfIn6E,408
+click_schema_config-0.2.3.dist-info/LICENSE,sha256=6LUzQuoZyGAzHTPf4lo9OqaRcFuGgJoGQQKcF88mT2E,1069
+click_schema_config-0.2.3.dist-info/METADATA,sha256=ryM7Boy28asPUft_zDPgojBqSeyawULosQgQgyV4u98,5883
+click_schema_config-0.2.3.dist-info/WHEEL,sha256=Zb28QaM1gQi8f4VCBhsUklF61CTlNYfs9YAZn-TOGFk,88
+click_schema_config-0.2.3.dist-info/entry_points.txt,sha256=QC5fYSKhr6EvRQgo_jZMq8nRGI8IPNuZujx27suKlRk,76
+click_schema_config-0.2.3.dist-info/RECORD,,

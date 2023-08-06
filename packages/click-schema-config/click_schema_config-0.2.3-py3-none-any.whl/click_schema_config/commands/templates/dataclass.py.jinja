@@ -1,0 +1,28 @@
+from pydantic import BaseModel
+
+{%macro dataclass(name, partial=False) %}
+class {{name}}{%if partial%}Partial{%endif%}(BaseModel):
+    {%for variable in variables %}
+        {%if variable.description%}
+
+    """
+            {% for line in variable.description.splitlines() %}
+    {{line.lstrip()}}
+            {% endfor %}
+    """
+        {%endif%}
+    {{variable.programmatic_name}}: {{variable.type}}
+        {%- if not partial %}
+            {% if not variable.required %} = {{variable.value.__repr__()}} {%endif%}
+        {% else %}
+            {% if variable.type != "None" %} | None{%endif%} = None {% endif %}
+        {% if variable.description %}
+
+        {% endif %}
+
+    {% endfor %}
+{% endmacro %}
+
+{{ dataclass(name) }}
+
+{{ dataclass(name, partial=True) }}
