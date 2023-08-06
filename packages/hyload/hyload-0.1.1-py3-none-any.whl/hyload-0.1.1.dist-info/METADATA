@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: hyload
+Version: 0.1.1
+Summary: Framework for load testing
+Home-page: http://www.byhy.net
+Download-URL: https://pypi.python.org/pypi/hyload
+Author: baiyueheiyu 白月黑羽
+Author-email: jcyrss@gmail.com
+License: Apache License 2.0
+Keywords: hyload loadtesting
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Testing
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: gevent (>=20.9.0)
+Requires-Dist: matplotlib
+Requires-Dist: paramiko
+
+## Introduction
+
+hyload 是一款性能测试库。目前针对HTTP接口的服务端系统进行性能压力测试。
+
+它提供了一个高效异步收发HTTP消息的库，可以让你使用Python语言自己开发代码。
+
+
+它有如下优点：
+
+- 简单易用
+
+点击就可以产生 测试代码模板，修修改改 就能进行简单场景的测试
+
+- 性能强
+
+单机可达 每秒 一万个请求，并发连接数可达 数万
+
+- 灵活性高
+
+使用 Python 代码编写测试场景，可以灵活适应各种测试需求。 尤其是专家模式，提供最大的灵活性。
+
+
+## Installation
+
+```py
+pip install hyload
+```
+   
+
+
+## Documentation
+
+
+操作教程，请访问 [白月黑羽官网](https://www.byhy.net/tut/others/loadtest/01/) 
+
+
+
+
