@@ -1,0 +1,1 @@
+from salure_helpers.elastic.elastic import Elastic
