@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: isyndicate
+Version: 1.0.0
+Summary: Updates an RSS feed with the next image from a set of numbered images
+Author-email: Matt Wisniewski <healthycrowd@mattw.life>
+License: MIT
+Project-URL: homepage, https://github.com/healthycrowd/isyndicate
+Keywords: isyndicate,utility,rss,fnum,image,syndicate
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8.0
+License-File: LICENSE
+Requires-Dist: feedparser (~=6.0)
+Requires-Dist: rssadd (~=1.1)
+Requires-Dist: fnum (~=1.5)
+Requires-Dist: imeta (~=1.2)
+Requires-Dist: sociallimits (~=1.0)
+

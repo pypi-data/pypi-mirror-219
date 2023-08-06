@@ -1,0 +1,2 @@
+class SyndicateException(Exception):
+    pass
