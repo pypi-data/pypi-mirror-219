@@ -1,0 +1,17 @@
+# vim: set ft=systemd:
+
+[Unit]
+Description=GWDataFind Server
+After=network.target
+
+[Service]
+Type=simple
+User=gwdatafind
+ExecStart=/usr/bin/python3 -m gunicorn.app.wsgiapp --config /usr/share/gwdatafind-server/gunicorn.conf.py "gwdatafind_server:create_app()"
+ExecStop=/bin/kill -s TERM $MAINPID
+NoNewPrivileges=true
+PrivateTmp=true
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

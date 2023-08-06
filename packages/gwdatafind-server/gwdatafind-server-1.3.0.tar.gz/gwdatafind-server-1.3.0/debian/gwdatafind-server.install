@@ -1,0 +1,7 @@
+# web server config examples
+config/*.conf    usr/share/gwdatafind-server/
+config/*.conf.py usr/share/gwdatafind-server/
+# service config file
+config/*.ini     etc/
+# systemd
+config/*.service lib/systemd/system/

@@ -1,0 +1,55 @@
+# ---------------------------
+# Documentation workflow
+# ---------------------------
+
+include:
+  # https://computing.docs.ligo.org/gitlab-ci-templates/
+  - project: computing/gitlab-ci-templates
+    # https://computing.docs.ligo.org/gitlab-ci-templates/python/
+    file: python.yml
+
+# -- docs -------------------
+#
+# These jobs run the sphinx
+# documentation build
+#
+
+docs:
+  stage: documentation
+  image: python:3.9
+  extends:
+    # https://computing.docs.ligo.org/gitlab-ci-templates/python/.python:mkdocs
+    - .python:mkdocs
+  needs: []
+  rules:
+    # production build
+    - if: '$CI_PROJECT_NAMESPACE == "computing/gwdatafind" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+      variables:
+        MKDOCS_OPTIONS: "--strict --use-directory-urls"
+    # development build
+    - variables:
+        MKDOCS_OPTIONS: "--strict --no-directory-urls"
+  variables:
+    GIT_SUBMODULE_STRATEGY: normal
+    REQUIREMENTS: "-r docs/requirements.txt"
+
+# -- deploy -----------------
+#
+# Deploy the documentation
+#
+
+pages:
+  stage: deploy
+  needs:
+    - docs
+  script:
+    - mv -v site public
+    - find public -type f
+  artifacts:
+    paths:
+      - public
+  rules:
+    # if running on a tag from the main repo (i.e. a release)
+    - if: '$CI_PROJECT_NAMESPACE == "computing/gwdatafind" && $CI_COMMIT_TAG'
+    # if commit message asks to deploy the docs
+    - if: '$CI_COMMIT_MESSAGE =~ /\[deploy docs\]/'

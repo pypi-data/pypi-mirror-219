@@ -1,0 +1,55 @@
+# -- gwdatafind-server source package -----------------------------------------------
+
+Source: gwdatafind-server
+Maintainer: Duncan Meacher <duncan.meacher@ligo.org>
+Section: python
+Priority: optional
+Standards-Version: 3.9.1
+X-Python3-Version: >= 3.6
+Build-Depends:
+ debhelper (>= 9),
+ debhelper (>= 9.20160709~) | dh-systemd,
+ dh-python,
+ python3-all,
+ python3-configobj,
+ python3-flask (>= 1.0.0),
+ python3-ligo-segments,
+ python3-scitokens,
+ python3-setuptools,
+ python3-setuptools-scm,
+ python3-wheel,
+
+# -- python3-gwdatafind-server ------------------
+
+Package: python3-gwdatafind-server
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${python3:Depends},
+ python3-configobj,
+ python3-flask (>= 1.0.0),
+ python3-ligo-segments,
+ python3-scitokens,
+Description: Server app for the GWDataFind service
+ The GWDataFind service allows users to query for the location of
+ files containing data from the current
+ gravitational-wave detectors.
+ This package provides the Python 3 server app.
+
+# -- gwdatafind-server ------------------
+
+Package: gwdatafind-server
+Architecture: all
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ ${python3:Depends},
+ adduser,
+ python3-gwdatafind-server (= ${binary:Version}),
+ python3-gunicorn,
+Description: Server app for the GWDataFind service
+ The GWDataFind service allows users to query for the location of
+ files containing data from the current
+ gravitational-wave detectors.
+ This package provides the HTTP app configuration for a GWDataFind
+ Service instance.

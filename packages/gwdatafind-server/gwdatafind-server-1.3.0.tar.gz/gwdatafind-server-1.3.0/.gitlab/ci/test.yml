@@ -1,0 +1,41 @@
+# ---------------------------
+# Testing workflow
+# ---------------------------
+
+# test template used in other jobs
+# see python.yml for example
+
+.test:
+  extends:
+    # https://computing.docs.ligo.org/gitlab-ci-templates/python/#.python:pytest
+    - .python:pytest
+  stage: testing
+  variables:
+    # target for coverage
+    COVERAGE_TARGET: "gwdatafind_server"
+    # don't need the git repo
+    GIT_STRATEGY: none
+    # configure pytest
+    PYTEST_OPTIONS: "-ra -v --pyargs tests/"
+    # use python3
+    PYTHON: "python3"
+  script:
+    # ignore _version.py in coverage
+    - |
+      cat > .coveragerc << EOF
+      [run]
+      omit =
+          */_version.py
+      EOF
+    # extract the tests from the tarball
+    - tar -xf gwdatafind-server-*.tar.* --wildcards "*/tests" --strip-components=1
+    # run pytest
+    - !reference [".python:pytest", script]
+  # upload coverage file as an artifact to be combined later
+  artifacts:
+    when: always
+    paths:
+      - .coverage-*
+  # disable coverage total for test jobs, this is reported
+  # by the coverage job
+  coverage: null

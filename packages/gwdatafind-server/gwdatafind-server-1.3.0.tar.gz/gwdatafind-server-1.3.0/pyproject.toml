@@ -1,0 +1,38 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "setuptools_scm[toml]>=3.4",
+    "wheel",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "gwdatafind_server/_version.py"
+
+# -- coverage.py
+
+[tool.coverage.paths]
+# map standard install paths back to the source to
+# enable merging coverage of installed module from
+# multiple platforms
+source = [
+    "gwdatafind_server/",  # <-- source path, must come first
+    "/usr/lib/python*/*-packages/gwdatafind_server/",
+    "/usr/local/lib/python*/*-packages/gwdatafind_server/",
+]
+
+[tool.coverage.run]
+# measure coverage for the gwdatafind_server package
+source = ["gwdatafind_server"]
+
+[tool.coverage.report]
+# print report with one decimal point
+precision = 1
+
+# -- pytest
+
+[tool.pytest.ini_options]
+addopts = "-r a"
+filterwarnings = [
+	"error",
+]

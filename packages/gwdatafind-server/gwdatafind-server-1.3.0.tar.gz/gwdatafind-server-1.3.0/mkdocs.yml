@@ -1,0 +1,57 @@
+# metadata
+site_name: 'GWDataFind Server'
+site_description: 'GWDataFind Server'
+site_author: 'IGWN'
+site_url: 'https://computing.docs.ligo.org/gwdatafind/server'
+repo_url: 'https://git.ligo.org/computing/gwdatafind/server'
+repo_name: 'GitLab'
+edit_uri: 'edit/master/docs'
+copyright: 'Copyright &copy; 2022 Cardiff University and University Of Wisconsin-Milwaukee'
+
+# configuration
+theme:
+  name: 'material'
+  custom_dir: 'docs/theme'
+  favicon: 'assets/images/favicon.ico'
+  language: en
+  logo: 'assets/images/logo.png'
+  features:
+    - navigation.sections
+    - navigation.expand
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: igwn
+      toggle:
+        icon: material/eye-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: orange
+      accent: orange
+      toggle:
+        icon: material/eye
+        name: Switch to light mode
+
+# extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - markdown.extensions.codehilite
+  - meta
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - toc:
+      permalink: true
+
+# content
+docs_dir: docs
+nav:
+  - index.md
+  - configuration.md
+  - API:
+    - Overview: api/index.md
+    - Versions:
+      - api/v1.md
+
+extra:
+  generator: false

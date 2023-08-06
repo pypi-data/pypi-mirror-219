@@ -1,0 +1,18 @@
+# filetypes to ignore
+*.pyc
+.DS_store
+*.swp
+
+# build files/directories to ignore
+/dist/
+/build/
+/.cache/
+/*.egg-info/
+/.eggs/
+__pycache__/
+/.coverage
+.pytest_cache/
+/site/
+
+# setuptools-scm
+/gwdatafind_server/_version.py

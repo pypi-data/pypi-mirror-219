@@ -1,0 +1,10 @@
+configobj
+flask>=1.0.0
+ligo-segments
+scitokens
+
+[docs]
+mkdocs
+
+[test]
+pytest

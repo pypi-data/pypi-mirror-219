@@ -1,0 +1,35 @@
+stages:
+  - source distribution
+  - source packages
+  - binary packages
+  - testing
+  - docker
+  - documentation
+  - code quality
+  - deploy
+
+workflow:
+  rules:
+    # do not run detached merge_request_event pipelines
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      when: never
+    # run all other pipelines
+    - when: always
+
+include:
+  # tarball
+  - local: '/.gitlab/ci/dist.yml'
+  # RHEL packaging
+  - local: '/.gitlab/ci/rhel.yml'
+  # Debian packaging
+  - local: '/.gitlab/ci/debian.yml'
+  # Python tests
+  - local: '/.gitlab/ci/python.yml'
+  # Docker builds
+  - local: '/.gitlab/ci/docker.yml'
+  # Code coverage
+  - local: '/.gitlab/ci/coverage.yml'
+  # Code quality
+  - local: '/.gitlab/ci/analysis.yml'
+  # Documentation
+  - local: '/.gitlab/ci/docs.yml'

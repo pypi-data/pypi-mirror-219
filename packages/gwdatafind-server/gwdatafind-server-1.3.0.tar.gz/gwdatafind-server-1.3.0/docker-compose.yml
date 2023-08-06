@@ -1,0 +1,26 @@
+
+version: '3.8'
+services:
+
+    gwdatafind:
+        container_name: gwdatafind-server
+        ports:
+            - '443:443'
+        image: containers.ligo.org/computing/gwdatafind/gwdatafind-server:latest
+        restart: always
+        volumes:
+          - type: bind
+            source: /etc/pki/tls
+            target: /etc/pki/tls
+            read_only: true
+          - type: bind
+            source: /etc/grid-security
+            target: /etc/grid-security
+            read_only: true
+          - type: bind
+            source: /var/lib/diskcache
+            target: /var/lib/diskcache
+            read_only: true
+        environment:
+          - APACHE_SERVER_NAME=datafind.ligo.uwm.edu
+          - APACHE_SERVER_ADMIN=albert.einstein@ligo.org

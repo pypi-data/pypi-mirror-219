@@ -1,0 +1,7 @@
+# for mkdocs
+fontawesome-markdown
+mkdocs
+pymdown-extensions >=7.0
+
+# igwn-mkdocs-material-theme
+-r theme/requirements.txt

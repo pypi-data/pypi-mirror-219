@@ -1,0 +1,5 @@
+include LICENSE README.md
+recursive-include config *.conf *.conf.py *.ini *.service
+recursive-include debian *
+recursive-include tests *
+include python-gwdatafind-server.spec

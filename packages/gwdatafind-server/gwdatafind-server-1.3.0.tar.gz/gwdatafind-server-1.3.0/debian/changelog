@@ -1,0 +1,77 @@
+gwdatafind-server (1.3.0-1) stable; urgency=low
+
+  * Improved/cleaned up build and CI testing scripts
+  * Added OSDF URL support
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Thu, 13 Jul 2023 00:00:00 +0100
+
+gwdatafind-server (1.2.2-1) stable; urgency=low
+
+  * Fixed bug in single file queries
+  * Fixed bug in search for fractional GPS times
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Fri, 05 May 2023 00:00:00 +0100
+
+gwdatafind-server (1.2.1-1) stable; urgency=low
+
+  * Added comment handling in cache file
+  * Updated default SciToken issue and scope
+  * Added ability to search for fractional GPS times
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Fri, 07 Apr 2023 00:00:00 +0100
+
+gwdatafind-server (1.2.0-1) stable; urgency=low
+
+  * Added full SciToken authentication support
+  * Updated README to point to documentation pages
+  * Improved error handling
+  * Updated CI tests and coverage
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Thu, 21 Apr 2022 00:00:00 +0100
+
+gwdatafind-server (1.1.0-3) UNRELEASED; urgency=low
+
+  * use gunicorn module directly to avoid gunicorn* ambiguity
+  * no need for separate Debian service unit
+
+ -- Steffen Grunewald <steffen.grunewald@ligo.org>  Wed, 30 Mar 2022 15:45:00 +0200
+
+gwdatafind-server (1.1.0-2) UNRELEASED; urgency=low
+
+  * add gwdatafind-server package
+  * modify rules for multiple packages
+  * Debian service unit needs different path to gunicorn executable
+  * install files for both packages
+  * add gunicorn.conf.py to tarball
+  * add python3-scitokens to install deps
+  * no need to declare files in /etc/ as conffiles
+  * let dh_systemd (with dh --with systemd) take care of pre/post scripts
+
+ -- Steffen Grunewald <steffen.grunewald@ligo.org>  Tue, 29 Mar 2022 15:35:00 +0200
+
+gwdatafind-server (1.1.0-1) stable; urgency=low
+
+  * Updated version numbers
+  * Added no-authentication method with virtual hosts
+  * Added API versioning
+  * general clean up of code
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Fri, 11 Mar 2022 00:00:00 +0100
+
+gwdatafind-server (1.0.1-1) stable; urgency=low
+
+  * Updated version numbers
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Thu, 15 Oct 2020 00:00:00 +0100
+
+gwdatafind-server (1.0.0-1) stable; urgency=low
+
+  * Added X.509 certifiacate authentication
+
+ -- Duncan Meacher <duncan.meacher@ligo.org>  Fri, 24 Jul 2020 00:00:00 +0100
+
+gwdatafind-server (0.1.0-1) unstable; urgency=low
+
+  * first release of new server
+
+ -- Duncan Macleod <duncan.macleod@ligo.org>  Mon, 10 Aug 2018 00:00:00 +0100

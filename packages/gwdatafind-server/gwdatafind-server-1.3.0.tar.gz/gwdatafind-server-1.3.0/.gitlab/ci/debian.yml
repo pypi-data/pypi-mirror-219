@@ -1,0 +1,172 @@
+# ---------------------------
+# Debian packaging workflow
+# ---------------------------
+
+include:
+  # https://computing.docs.ligo.org/gitlab-ci-templates/
+  - project: computing/gitlab-ci-templates
+    # https://computing.docs.ligo.org/gitlab-ci-templates/debian/
+    file: debian.yml
+  # local test template
+  - local: /.gitlab/ci/test.yml
+
+# -- macros
+
+.bullseye:
+  image: igwn/builder:bullseye
+
+.bookworm:
+  image: igwn/builder:bookworm
+
+# -- source packages --------
+#
+# These jobs make DSC packages
+#
+
+.dsc:
+  extends:
+    # https://computing.docs.ligo.org/gitlab-ci-templates/debian/#.debian:dsc
+    - .debian:dsc
+  stage: source packages
+  needs:
+    - tarball
+  variables:
+    TARBALL: "gwdatafind-server-*.tar.*"
+  before_script:
+    - !reference [".debian:dsc", "before_script"]
+    # -- hack the tarball so that setuptools-scm version matches
+    #    the debian changelog
+    - apt-get -yqq install devscripts
+    - export DEBFULLNAME="GitLab"
+    - export DEBEMAIL="gitlab@git.ligo.org"
+    # unpack the tarball
+    - tar -zxf ${TARBALL}
+    # get version from the Python metadata
+    - PKG_VERSION=$(grep ^Version gwdatafind-server-*/PKG-INFO | cut -d\  -f2)
+    # add changelog entry
+    - (cd gwdatafind-server-*/ && dch --force-bad-version --newversion ${PKG_VERSION}-9999 'Rebuild for CI')
+    # pack it up again
+    - tar -zcf ${TARBALL} gwdatafind-server-*/
+
+dsc:bullseye:
+  extends:
+    - .dsc
+    - .bullseye
+
+dsc:bookworm:
+  extends:
+    - .dsc
+    - .bookworm
+
+# -- binary packages --------
+#
+# These jobs generate DEB
+# binary packages from the
+# DSC sources packages
+#
+
+.deb:
+  extends:
+    # https://computing.docs.ligo.org/gitlab-ci-templates/debian/#.debian:deb
+    - .debian:deb
+  stage: binary packages
+  variables:
+    DSC: "gwdatafind-server_*.dsc"
+
+deb:bullseye:
+  extends:
+    - .deb
+    - .bullseye
+  needs:
+    - dsc:bullseye
+
+deb:bookworm:
+  extends:
+    - .deb
+    - .bookworm
+  needs:
+    - dsc:bookworm
+
+# -- test -------------------
+
+.test:debian:
+  extends:
+    # see /.gitlab/ci/test.yml
+    - .test
+    # https://computing.docs.ligo.org/gitlab-ci-templates/debian/#.debian:base
+    - .debian:base
+  before_script:
+    # set up apt
+    - !reference [".debian:base", before_script]
+    # setup local apt repository with high priority
+    - apt-get -y -q -q install local-apt-repository
+    - mkdir -pv /srv/local-apt-repository
+    - |
+      cat > /etc/apt/preferences.d/99local-apt-repository << EOF
+      Package: *
+      Pin: origin ""
+      Pin-Priority: 1001
+      EOF
+    # fill our local apt repo and rebuild it
+    - mv -v *.deb /srv/local-apt-repository
+    - /usr/lib/local-apt-repository/rebuild
+    - apt-get -y -q update
+    # install our package(s)
+    - apt-cache policy gwdatafind-server
+    - apt-get -y install gwdatafind-server
+    # install testing dependencies
+    - apt-get -y -q install
+          findutils
+          python3-coverage
+          python3-pytest
+          python3-pytest-cov
+  script:
+    - !reference [".test", script]
+    # check user was created
+    - getent passwd | egrep '^gwdatafind:' || { echo "gwdatafind user not found" 2>&1; exit 1; }
+
+test:bullseye:
+  extends:
+    - .test:debian
+    - .bullseye
+  needs:
+    - tarball
+    - deb:bullseye
+  image: igwn/base:bullseye
+
+test:bookworm:
+  extends:
+    - .test:debian
+    - .bookworm
+  needs:
+    - tarball
+    - deb:bookworm
+  image: igwn/base:bookworm
+
+# -- lint -------------------
+#
+# These jobs check the code
+# for quality issues
+#
+
+.lintian:
+  extends:
+    # https://computing.docs.ligo.org/gitlab-ci-templates/debian/#.debian:lint
+    - .debian:lint
+  stage: code quality
+  variables:
+    LINTIAN_OPTIONS: "--color always --suppress-tags initial-upload-closes-no-bugs --fail-on warning --allow-root --pedantic"
+
+lintian:bullseye:
+  extends:
+    - .lintian
+    - .bullseye
+  needs:
+    - deb:bullseye
+
+lintian:bookworm:
+  extends:
+    - .lintian
+    - .bookworm
+  needs:
+    - deb:bookworm
