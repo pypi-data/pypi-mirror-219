@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: hooks-toolkit
+Version: 0.0.1
+Summary: 
+Author: Denis Angell
+Author-email: denis@transia.co
+Requires-Python: >=3.11.4,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: transia-xrpl-py (>=1.7.0a1,<2.0.0)
