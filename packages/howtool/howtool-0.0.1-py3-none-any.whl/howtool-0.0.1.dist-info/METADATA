@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: howtool
+Version: 0.0.1
+Summary: A toolkit to make tools document LLM friendly
+Home-page: http://github.com/fugue-project/howtool
+Author: The Fugue Development Team
+Author-email: hello@fugue.ai
+License: Apache-2.0
+Keywords: fugue llm agent doc
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: fugue (>=0.8.1)
+Requires-Dist: docutils (>=0.18)
+Requires-Dist: docstring-parser
+
+# HowTool
+
+A toolkit to make tools document LLM friendly
+
+
