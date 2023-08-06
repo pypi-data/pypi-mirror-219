@@ -1,0 +1,11 @@
+LICENSE
+README.md
+setup.py
+ezGPX.egg-info/PKG-INFO
+ezGPX.egg-info/SOURCES.txt
+ezGPX.egg-info/dependency_links.txt
+ezGPX.egg-info/requires.txt
+ezGPX.egg-info/top_level.txt
+ezgpx/__init__.py
+tests/test_GPX.py
+tests/test_utils.py
