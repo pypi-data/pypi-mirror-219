@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: miko-analyzer
+Version: 0.3.3
+Summary: Analyzing tool for deep learning based chemical research.
+Home-page: https://github.com/cloudac7/miko-analysis
+License: Apache-2.0
+Author: Cloudac7
+Author-email: scottryuu@outlook.com
+Requires-Python: >=3.8,<3.12
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: ai2-kit (>=0.3.18,<0.4.0)
+Requires-Dist: ase (>=3.21.1,<4.0.0)
+Requires-Dist: dscribe (>=2.0,<3.0)
+Requires-Dist: matplotlib (>=3.7.1,<4.0.0)
+Requires-Dist: mdanalysis (>=2.2,<3.0)
+Requires-Dist: numpy (>=1.18,<1.24)
+Requires-Dist: pandas (>=1.3.3,<2.0.0)
+Requires-Dist: pymatgen (>=2023.5.10,<2024.0.0)
+Requires-Dist: scipy (>=1.10.1,<2.0.0)
+Requires-Dist: seaborn (>=0.12.2,<0.13.0)
+Project-URL: Repository, https://github.com/cloudac7/miko-analysis
+Description-Content-Type: text/markdown
+
+# Miko-Analyzer
+
+[![Python package](https://github.com/Cloudac7/miko-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/Cloudac7/miko-analyzer/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/Cloudac7/miko-analyzer/badge.svg?branch=master)](https://coveralls.io/github/Cloudac7/miko-analyzer?branch=master)
+
+> コードで占う巫女。
+> Miko using code to perform divinition.
+
+An analysis plugin for [Deep Potential](https://github.com/deepmodeling/deepmd-kit) based chemical research.
+
+Supporting simple calculation workflow with the help of [DPDispatcher](https://github.com/deepmodeling/dpdispatcher).
+
+## Installation
+
+To install, clone the repository:
+
+```
+git clone https://github.com/cloudac7/miko-analyzer.git
+```
+
+and then install with `pip`:
+
+```
+cd miko-analyzer
+pip install .
+```
+
+
