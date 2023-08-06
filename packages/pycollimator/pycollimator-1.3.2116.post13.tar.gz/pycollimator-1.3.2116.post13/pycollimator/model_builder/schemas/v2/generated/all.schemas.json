@@ -1,0 +1,225 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "BlockOverride": {
+            "properties": {
+                "outputs": {
+                    "$ref": "#/definitions/PortOverrides"
+                },
+                "parameters": {
+                    "$ref": "#/definitions/ParameterOverrides"
+                },
+                "path": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "path"
+            ],
+            "type": "object"
+        },
+        "ChatCompleteRequestPayload": {
+            "properties": {
+                "messages": {
+                    "items": {
+                        "$ref": "#/definitions/ChatMessage"
+                    },
+                    "type": "array"
+                },
+                "model": {
+                    "type": "string"
+                },
+                "temperature": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "messages",
+                "model",
+                "temperature"
+            ],
+            "type": "object"
+        },
+        "ChatCompleteResponsePayload": {
+            "properties": {
+                "content": {
+                    "type": "string"
+                },
+                "finishReason": {
+                    "$ref": "#/definitions/FinishReason"
+                },
+                "functionCall": {
+                    "$ref": "#/definitions/FunctionCall"
+                }
+            },
+            "type": "object"
+        },
+        "ChatMessage": {
+            "properties": {
+                "automaticMessageContent": {
+                    "type": "string"
+                },
+                "content": {
+                    "type": "string"
+                },
+                "functionArgs": {
+                    "type": "string"
+                },
+                "functionName": {
+                    "type": "string"
+                },
+                "functionResult": {
+                    "type": "string"
+                },
+                "originalUserContent": {
+                    "type": "string"
+                },
+                "role": {
+                    "$ref": "#/definitions/ChatMessageRole"
+                }
+            },
+            "required": [
+                "content",
+                "role"
+            ],
+            "type": "object"
+        },
+        "ChatMessageRole": {
+            "enum": [
+                "assistant",
+                "function",
+                "system",
+                "user"
+            ],
+            "type": "string"
+        },
+        "FinishReason": {
+            "enum": [
+                "content_filter",
+                "function_call",
+                "length",
+                "stop"
+            ],
+            "type": "string"
+        },
+        "FunctionCall": {
+            "properties": {
+                "arguments": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "arguments",
+                "name"
+            ],
+            "type": "object"
+        },
+        "ModelOverrides": {
+            "properties": {
+                "block_overrides": {
+                    "items": {
+                        "$ref": "#/definitions/BlockOverride"
+                    },
+                    "type": "array"
+                },
+                "recorded_signals": {
+                    "$ref": "#/definitions/RecordedSignals"
+                }
+            },
+            "type": "object"
+        },
+        "ParameterOverrides": {
+            "additionalProperties": {
+                "$ref": "#/definitions/ParameterValueOverride"
+            },
+            "type": "object"
+        },
+        "ParameterValueOverride": {
+            "properties": {
+                "is_string": {
+                    "type": "boolean"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "value"
+            ],
+            "type": "object"
+        },
+        "PortOverride": {
+            "properties": {
+                "parameters": {
+                    "$ref": "#/definitions/ParameterOverrides"
+                }
+            },
+            "type": "object"
+        },
+        "PortOverrides": {
+            "additionalProperties": {
+                "$ref": "#/definitions/PortOverride"
+            },
+            "type": "object"
+        },
+        "ProjectBranchPrefsV1": {
+            "properties": {
+                "selected_branch_name": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecordedSignals": {
+            "properties": {
+                "signal_ids": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "signal_ids"
+            ],
+            "type": "object"
+        },
+        "SignalID": {
+            "type": "string"
+        },
+        "WebSocketMessage": {
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "jwt": {
+                    "type": "string"
+                },
+                "payload": {},
+                "type": {
+                    "$ref": "#/definitions/WebSocketMessageType"
+                }
+            },
+            "required": [
+                "id",
+                "payload",
+                "type"
+            ],
+            "type": "object"
+        },
+        "WebSocketMessageType": {
+            "enum": [
+                "CHAT_COMPLETE_ABORT",
+                "CHAT_COMPLETE_ERROR",
+                "CHAT_COMPLETE_REQUEST",
+                "CHAT_COMPLETE_RESPONSE",
+                "HELLO",
+                "INTERNAL_ERROR"
+            ],
+            "type": "string"
+        }
+    }
+}
