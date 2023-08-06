@@ -1,0 +1,13 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ExtractEmailAttachments/ExtractEmailAttachments.pyd
+ExtractEmailAttachments/__init__.py
+ExtractEmailAttachments/eml_demo.pyd
+ExtractEmailAttachments/eml_function.pyd
+ExtractEmailAttachments.egg-info/PKG-INFO
+ExtractEmailAttachments.egg-info/SOURCES.txt
+ExtractEmailAttachments.egg-info/dependency_links.txt
+ExtractEmailAttachments.egg-info/top_level.txt
