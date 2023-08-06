@@ -1,0 +1,7 @@
+setuptools_scm>=4.1.2
+boto3~=1.24.96
+pyyaml>=6.0
+xmltodict
+tenacity>=6.2.0
+cm-cluster-on-demand-config==9.2.13
+cm-cluster-on-demand==9.2.13
