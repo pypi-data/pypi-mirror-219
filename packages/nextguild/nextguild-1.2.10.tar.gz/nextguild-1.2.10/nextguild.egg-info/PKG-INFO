@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: nextguild
+Version: 1.2.10
+Summary: Interactions with the Guilded API made simpler
+Author-email: Arjun Sharda <sharda.aj17@gmail.com>, Erik Thorsell <contact@erikthorsell.com>
+License: MIT License
+        
+        Copyright (c) 2023 Arjun Sharda
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/ArjunSharda/nextguild
+Project-URL: Bug Tracker, https://github.com/ArjunSharda/nextguild/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# NextGuild
+![image](https://user-images.githubusercontent.com/108808053/235311374-bdcdcdac-3c04-4b86-b336-1d2a02f5e914.png)
+
+
+
+
+# About
+
+NextGuild is a Guilded API wrapper written in Python.
+
+
+Founded in 2023, the ©️ Nextguild Project (2023-present) is the most user-friendly Python library for interacting with the Guilded API. Because of our commitment to make it as simple and easy to use as possible, it serves as an excellent resource for both beginners learning Python programming and experienced programmers looking for a straightforward development experience. 
+
+Made from a team of 2 people, this was a project originally thought for a fun purpose and for testing of the Guilded API, which eventually turned into a API wrapper for multi-purpose use.
+
+
+Installation
+------------
+**[Python 3.7+](https://www.python.org/downloads/) is required**
+```bash
+# MacOS / Linux (via Terminal)
+python3 -m pip install -U nextguild
+
+# Windows (via CMD Prompt)
+py -3 -m pip install -U nextguild
+```
+
+<br>NextGuild also requires 2 other packages to be installed before using it. <br>
+If you haven't installed them already, execute the following command in your terminal:
+```bash
+pip install requests websockets
+```
+
+## Documentation
+
+For NextGuild's official documentation, visit [this link](https://github.com/ArjunSharda/nextguild/tree/main/docs).
+
+## Founders
+
+[Arjun Sharda](https://github.com/ArjunSharda)<br>
+[Erik Thorsell](https://github.com/erik-thorsell)
+
+## Contributing
+
+Please see the [CONTRIBUTING.MD](https://github.com/ArjunSharda/nextguild/blob/main/CONTRIBUTING.md) file for the official guidelines to contribute.
+
+## License
+
+©️ The NextGuild Project (2023-present) is under the [MIT](https://choosealicense.com/licenses/mit/) license, and usage of the library is subject to the terms of the MIT license.
+
+
+<hr>
+<h6 align="center">© The NextGuild Project 2023-present
+<br>
+All Rights Reserved</h6>
+
+
