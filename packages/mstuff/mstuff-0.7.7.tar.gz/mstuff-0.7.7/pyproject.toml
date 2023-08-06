@@ -1,0 +1,11 @@
+[project]
+name = 'mstuff'
+version = '0.7.7'
+authors = [
+	{ name = 'Matt Groth', email = 'mjgroth@mit.edu'} 
+]
+dependencies = [
+	'requests',
+	'aiohttp'
+]
+description = 'a general library'
