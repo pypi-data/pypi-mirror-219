@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/coursebox_testing/__init__.py
+src/coursebox_testing.egg-info/PKG-INFO
+src/coursebox_testing.egg-info/SOURCES.txt
+src/coursebox_testing.egg-info/dependency_links.txt
+src/coursebox_testing.egg-info/requires.txt
+src/coursebox_testing.egg-info/top_level.txt
+src/coursebox_testing/testing/__init__.py
+src/coursebox_testing/testing/testing.py

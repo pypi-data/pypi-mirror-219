@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: coursebox_testing
+Version: 0.0.3
+Summary: A course management system currently used at DTU (testing software)
+Home-page: https://lab.compute.dtu.dk/tuhe/coursebox_testing
+Author: Tue Herlau
+Author-email: tuhe@dtu.dk
+License: MIT
+Project-URL: Bug Tracker, https://lab.compute.dtu.dk/tuhe/coursebox_testing/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Coursebox DTU (testing tools)
+DTU course management software (testing plugins)
+
+## Installation
+```terminal
+pip install git+https://gitlab.compute.dtu.dk/tuhe/coursebox_testing
+```
+
+
+## Citing
+```bibtex
+@online{coursebox,
+	title={Coursebox (0.1.1): \texttt{pip install coursebox}},
+	url={https://lab.compute.dtu.dk/tuhe/coursebox},
+	urldate = {2021-09-07}, 
+	month={9},
+	publisher={Technical University of Denmark (DTU)},
+	author={Tue Herlau},
+	year={2023},
+}
+```
