@@ -1,0 +1,40 @@
+[project]
+name = "pqp"
+version = "0.3.4"
+description = "Subroutines for structural causal modeling"
+license = {file = "LICENSE.txt"}
+authors = [{name = "Leo Ware"}]
+dependencies = [
+    "pandas",
+    "numpy",
+    "tomli",
+    "matplotlib"
+]
+requires-python = ">=3.8"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["causal inference", "causal identification"]
+
+[project.optional-dependencies]
+dev = [
+    "sphinx",
+    "maturin",
+    "sphinx-autobuild",
+    "pytest",
+    "networkx",
+]
+
+[project.urls]
+Homepage = "https://leo-ware.github.io/capstone/"
+Source = "https://github.com/leo-ware/capstone"
+
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"
+
+[tool.maturin]
+python-source = "python"
+# compatibility = "linux"
