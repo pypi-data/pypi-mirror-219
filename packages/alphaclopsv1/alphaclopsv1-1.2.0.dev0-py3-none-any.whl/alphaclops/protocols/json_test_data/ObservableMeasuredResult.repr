@@ -1,0 +1,1 @@
+alphaclops.work.ObservableMeasuredResult(setting=alphaclops.work.InitObsSetting(init_state=alphaclops.ProductState({alphaclops.LineQubit(0): alphaclops.Z.basis[+1], alphaclops.LineQubit(1): alphaclops.Z.basis[+1]}), observable=(alphaclops.X(alphaclops.LineQubit(0))*alphaclops.Y(alphaclops.LineQubit(1)))), mean=1.23, variance=0.45, repetitions=10000, circuit_params={'b': 4})

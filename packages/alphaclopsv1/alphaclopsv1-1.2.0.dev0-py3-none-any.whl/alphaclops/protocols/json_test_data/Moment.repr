@@ -1,0 +1,5 @@
+[alphaclops.Moment(
+    alphaclops.X(alphaclops.LineQubit(0)),
+    alphaclops.Y(alphaclops.LineQubit(1)),
+    alphaclops.Z(alphaclops.LineQubit(2)),
+)]

@@ -1,0 +1,33 @@
+[
+  {
+    "alphaclops_type": "LinearDict",
+    "keys": [],
+    "values": []
+  },
+  {
+    "alphaclops_type": "LinearDict",
+    "keys": ["a"],
+    "values": [1]
+  },
+  {
+    "alphaclops_type": "LinearDict",
+    "keys": ["a", "b"],
+    "values": [1, 2]
+  },
+  {
+    "alphaclops_type": "LinearDict",
+    "keys": [
+      {
+        "alphaclops_type": "_PauliX",
+        "exponent": 1,
+        "global_shift": 0.0
+      },
+      {
+        "alphaclops_type": "_PauliY",
+        "exponent": 1,
+        "global_shift": 0.0
+      }
+    ],
+    "values": [1.0, 2]
+  }
+]

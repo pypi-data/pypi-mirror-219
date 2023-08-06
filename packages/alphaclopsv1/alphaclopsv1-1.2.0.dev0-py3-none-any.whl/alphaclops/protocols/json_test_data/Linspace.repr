@@ -1,0 +1,4 @@
+[
+    alphaclops.Linspace("a", start=0, stop=1, length=4),
+    alphaclops.Linspace("b", start=1, stop=2, length=3, metadata=alphaclops.NamedQubit("b"))
+]

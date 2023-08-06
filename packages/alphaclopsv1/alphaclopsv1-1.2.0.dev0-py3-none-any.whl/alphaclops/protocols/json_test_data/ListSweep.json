@@ -1,0 +1,23 @@
+{
+  "alphaclops_type": "ListSweep",
+  "resolver_list": [
+    {
+      "alphaclops_type": "ParamResolver",
+      "param_dict": [
+        [
+          "a",
+          0.1
+        ]
+      ]
+    },
+    {
+      "alphaclops_type": "ParamResolver",
+      "param_dict": [
+        [
+          "b",
+          0.2
+        ]
+      ]
+    }
+  ]
+}

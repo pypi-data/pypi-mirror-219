@@ -1,0 +1,60 @@
+[
+  {
+    "alphaclops_type": "Gateset",
+    "gates": [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "YPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.YPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.YPowGate)`",
+        "ignore_global_phase": true
+      },
+      {
+        "alphaclops_type": "AnyUnitaryGateFamily",
+        "num_qubits": 2
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": {
+          "alphaclops_type": "_PauliX",
+          "exponent": 1.0,
+          "global_shift": 0.0
+        },
+        "name": "Instance GateFamily: X",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `g == X`",
+        "ignore_global_phase": true
+      }
+    ],
+    "name": null,
+    "unroll_circuit_op": true
+  },
+  {
+    "alphaclops_type": "Gateset",
+    "gates": [
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": {
+          "alphaclops_type": "_PauliX",
+          "exponent": 1.0,
+          "global_shift": 0.0
+        },
+        "name": "Instance GateFamily: X",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `g == X`",
+        "ignore_global_phase": true
+      },
+      {
+        "alphaclops_type": "GateFamily",
+        "gate": "YPowGate",
+        "name": "Type GateFamily: alphaclops.ops.common_gates.YPowGate",
+        "description": "Accepts `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.YPowGate)`",
+        "ignore_global_phase": true
+      },
+      {
+        "alphaclops_type": "AnyUnitaryGateFamily",
+        "num_qubits": 2
+      }
+    ],
+    "name": "Custom Name",
+    "unroll_circuit_op": false
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "alphaclops_type": "ControlledOperation",
+  "controls": [
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 0
+    },
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 1
+    }
+  ],
+  "control_values": [
+    [
+      0
+    ],
+    [
+      1
+    ]
+  ],
+  "sub_operation": {
+    "alphaclops_type": "SingleQubitPauliStringGateOperation",
+    "pauli": {
+      "alphaclops_type": "_PauliY",
+      "exponent": 1,
+      "global_shift": 0.0
+    },
+    "qubit": {
+      "alphaclops_type": "NamedQubit",
+      "name": "target"
+    }
+  }
+}

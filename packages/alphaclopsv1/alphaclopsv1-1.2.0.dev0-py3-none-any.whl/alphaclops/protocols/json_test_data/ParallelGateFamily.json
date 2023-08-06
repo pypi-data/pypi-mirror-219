@@ -1,0 +1,20 @@
+[
+  {
+    "alphaclops_type": "ParallelGateFamily",
+    "gate": "XPowGate",
+    "name": "INF Parallel Type GateFamily: alphaclops.ops.common_gates.XPowGate",
+    "description": "Accepts\n1. `alphaclops.Gate` instances `g` s.t. `isinstance(g, alphaclops.ops.common_gates.XPowGate)` OR\n2. `alphaclops.ParallelGate` instance `g` s.t. `g.sub_gate` satisfies 1. and `alphaclops.num_qubits(g) <= INF` OR\n3. `alphaclops.Operation` instance `op` s.t. `op.gate` satisfies 1. or 2.",
+    "max_parallel_allowed": null
+  },
+  {
+    "alphaclops_type": "ParallelGateFamily",
+    "gate": {
+      "alphaclops_type": "_PauliX",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    "name": "ParallelXFamily",
+    "description": "Up to 4 parallel X gates",
+    "max_parallel_allowed": 4
+  }
+]

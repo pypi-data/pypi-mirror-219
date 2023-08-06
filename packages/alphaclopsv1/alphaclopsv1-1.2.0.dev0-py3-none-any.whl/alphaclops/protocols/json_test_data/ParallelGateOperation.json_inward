@@ -1,0 +1,18 @@
+{
+  "alphaclops_type": "ParallelGateOperation",
+  "gate": {
+    "alphaclops_type": "_PauliY",
+    "exponent": 1.0,
+    "global_shift": 0.0
+  },
+  "qubits": [
+    {
+      "alphaclops_type": "NamedQubit",
+      "name": "a"
+    },
+    {
+      "alphaclops_type": "NamedQubit",
+      "name": "b"
+    }
+  ]
+}

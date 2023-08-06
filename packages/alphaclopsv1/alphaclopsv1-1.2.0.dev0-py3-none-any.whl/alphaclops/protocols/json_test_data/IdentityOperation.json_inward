@@ -1,0 +1,40 @@
+[
+  {
+    "alphaclops_type": "IdentityOperation",
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      }
+    ]
+  },
+  {
+    "alphaclops_type": "IdentityOperation",
+    "qubits": [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 2
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 3
+      },
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 4
+      }
+    ]
+  }
+]

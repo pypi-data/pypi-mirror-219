@@ -1,0 +1,205 @@
+[
+  {
+    "alphaclops_type": "Circuit",
+    "moments": [
+      {
+        "alphaclops_type": "Moment",
+        "operations": [
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "HPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 0
+              }
+            ]
+          },
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "HPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 1
+              }
+            ]
+          },
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "HPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 2
+              }
+            ]
+          },
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "HPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 3
+              }
+            ]
+          },
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "HPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 4
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "alphaclops_type": "Moment",
+        "operations": [
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "MeasurementGate",
+              "num_qubits": 5,
+              "key": "0,1,2,3,4",
+              "invert_mask": []
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 0
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 1
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 2
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 3
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 4
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "device": {
+      "alphaclops_type": "_UnconstrainedDevice"
+    }
+  },
+  {
+    "alphaclops_type": "Circuit",
+    "moments": [
+      {
+        "alphaclops_type": "Moment",
+        "operations": [
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "CCXPowGate",
+              "exponent": 1,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 0
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 1
+              },
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "alphaclops_type": "Moment",
+        "operations": [
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "XPowGate",
+              "exponent": 0.123,
+              "global_shift": 0.0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "device": {
+      "alphaclops_type": "_UnconstrainedDevice"
+    }
+  },
+  {
+    "alphaclops_type": "Circuit",
+    "moments": [
+      {
+        "alphaclops_type": "Moment",
+        "operations": [
+          {
+            "alphaclops_type": "GateOperation",
+            "gate": {
+              "alphaclops_type": "XPowGate",
+              "exponent": {
+                "alphaclops_type": "sympy.Symbol",
+                "name": "theta"
+              },
+              "global_shift": 0
+            },
+            "qubits": [
+              {
+                "alphaclops_type": "LineQubit",
+                "x": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "device": {
+      "alphaclops_type": "_UnconstrainedDevice"
+    }
+  }
+]

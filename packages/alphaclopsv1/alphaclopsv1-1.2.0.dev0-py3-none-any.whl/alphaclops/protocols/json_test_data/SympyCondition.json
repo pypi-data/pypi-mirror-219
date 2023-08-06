@@ -1,0 +1,17 @@
+{
+  "alphaclops_type": "SympyCondition",
+  "expr":
+  {
+    "alphaclops_type": "sympy.GreaterThan",
+    "args": [
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "a"
+      },
+      {
+        "alphaclops_type": "sympy.Symbol",
+        "name": "b"
+      }
+    ]
+  }
+}

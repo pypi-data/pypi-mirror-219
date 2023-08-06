@@ -1,0 +1,1 @@
+alphaclops.PauliStringPhasor(((1+0j)*alphaclops.X(alphaclops.LineQubit(0))*alphaclops.Y(alphaclops.LineQubit(1))*alphaclops.Z(alphaclops.LineQubit(2))), qubits=(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2)), exponent_neg=0.2, exponent_pos=0.1)

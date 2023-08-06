@@ -1,0 +1,15 @@
+[
+  {
+    "alphaclops_type": "BooleanHamiltonian",
+    "qubit_map": {
+      "q0": {
+        "alphaclops_type": "NamedQubit",
+        "name": "q0"
+      }
+    },
+    "boolean_strs": [
+      "q0"
+    ],
+    "theta": 0.20160913
+  }
+]

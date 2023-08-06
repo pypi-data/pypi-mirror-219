@@ -1,0 +1,14 @@
+{
+  "alphaclops_type": "MutableDensePauliString",
+  "pauli_mask": [
+    1,
+    1,
+    3,
+    3
+  ],
+  "coefficient": {
+    "alphaclops_type": "complex",
+    "real": -2.0,
+    "imag": 0.0
+  }
+}

@@ -1,0 +1,42 @@
+[{
+  "alphaclops_type": "PauliMeasurementGate",
+  "observable": [
+    {
+      "alphaclops_type": "_PauliX",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    {
+      "alphaclops_type": "_PauliY",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    {
+      "alphaclops_type": "_PauliZ",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    }
+  ],
+  "key": "key"
+},
+{
+  "alphaclops_type": "PauliMeasurementGate",
+  "observable": [
+    {
+      "alphaclops_type": "_PauliX",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    {
+      "alphaclops_type": "_PauliY",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    },
+    {
+      "alphaclops_type": "_PauliZ",
+      "exponent": 1.0,
+      "global_shift": 0.0
+    }
+  ],
+  "key": "p:q:key"
+}]

@@ -1,0 +1,23 @@
+[alphaclops.Circuit([
+    alphaclops.Moment(
+        alphaclops.H(alphaclops.LineQubit(0)),
+        alphaclops.H(alphaclops.LineQubit(1)),
+        alphaclops.H(alphaclops.LineQubit(2)),
+        alphaclops.H(alphaclops.LineQubit(3)),
+        alphaclops.H(alphaclops.LineQubit(4)),
+    ),
+    alphaclops.Moment(
+        alphaclops.MeasurementGate(5, '0,1,2,3,4', ()).on(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2), alphaclops.LineQubit(3), alphaclops.LineQubit(4)),
+    ),
+]), alphaclops.Circuit([
+    alphaclops.Moment(
+        alphaclops.TOFFOLI(alphaclops.LineQubit(0), alphaclops.LineQubit(1), alphaclops.LineQubit(2)),
+    ),
+    alphaclops.Moment(
+        (alphaclops.X**0.123).on(alphaclops.LineQubit(0)),
+    ),
+]), alphaclops.Circuit([
+    alphaclops.Moment(
+        (alphaclops.X**sympy.Symbol('theta')).on(alphaclops.LineQubit(0)),
+    ),
+])]

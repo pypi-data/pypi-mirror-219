@@ -1,0 +1,21 @@
+{
+  "alphaclops_type": "ProjectorSum",
+  "linear_dict": [
+    [
+      [
+        [
+          {
+            "alphaclops_type": "NamedQubit",
+            "name": "q0"
+          },
+          0
+        ]
+      ],
+      {
+        "alphaclops_type": "complex",
+        "real": 1.0,
+        "imag": 0.0
+      }
+    ]
+  ]
+}

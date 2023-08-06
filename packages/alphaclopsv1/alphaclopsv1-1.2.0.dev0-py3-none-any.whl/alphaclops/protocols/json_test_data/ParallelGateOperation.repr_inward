@@ -1,0 +1,1 @@
+alphaclops.ParallelGate(alphaclops.Y, 2).on(alphaclops.NamedQubit('a'), alphaclops.NamedQubit('b'))

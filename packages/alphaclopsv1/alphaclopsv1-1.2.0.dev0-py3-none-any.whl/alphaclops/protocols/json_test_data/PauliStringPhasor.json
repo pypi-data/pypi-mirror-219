@@ -1,0 +1,62 @@
+ {
+  "alphaclops_type": "PauliStringPhasor",
+  "pauli_string": {
+    "alphaclops_type": "PauliString",
+    "qubit_pauli_map": [
+      [
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 0
+        },
+        {
+          "alphaclops_type": "_PauliX",
+          "exponent": 1.0,
+          "global_shift": 0.0
+        }
+      ],
+      [
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 1
+        },
+        {
+          "alphaclops_type": "_PauliY",
+          "exponent": 1.0,
+          "global_shift": 0.0
+        }
+      ],
+      [
+        {
+          "alphaclops_type": "LineQubit",
+          "x": 2
+        },
+        {
+          "alphaclops_type": "_PauliZ",
+          "exponent": 1.0,
+          "global_shift": 0.0
+        }
+      ]
+    ],
+    "coefficient": {
+      "alphaclops_type": "complex",
+      "real": 1.0,
+      "imag": 0.0
+    }
+  },
+  "qubits": [
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 0
+    },
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 1
+    },
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 2
+    }
+  ],
+  "exponent_neg": 0.2,
+  "exponent_pos": 0.1
+}

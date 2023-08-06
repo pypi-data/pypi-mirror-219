@@ -1,0 +1,65 @@
+{
+  "alphaclops_type": "CliffordState",
+  "qubit_map": [
+    [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      0
+    ]
+  ],
+  "tableau": {
+    "alphaclops_type": "CliffordTableau",
+    "n": 1,
+    "rs": [
+      false,
+      false
+    ],
+    "xs": [
+      [
+        true
+      ],
+      [
+        false
+      ]
+    ],
+    "zs": [
+      [
+        false
+      ],
+      [
+        true
+      ]
+    ]
+  },
+  "ch_form": {
+    "alphaclops_type": "StabilizerStateChForm",
+    "n": 1,
+    "G": [
+      [
+        true
+      ]
+    ],
+    "F": [
+      [
+        true
+      ]
+    ],
+    "M": [
+      [
+        false
+      ]
+    ],
+    "gamma": [
+      0
+    ],
+    "v": [
+      false
+    ],
+    "s": [
+      false
+    ],
+    "omega": 1
+  }
+}

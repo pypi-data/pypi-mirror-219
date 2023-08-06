@@ -1,0 +1,21 @@
+[
+  {
+    "alphaclops_type": "IdentityGate",
+    "num_qubits": 1
+  },
+  {
+    "alphaclops_type": "IdentityGate",
+    "num_qubits": 5
+  },
+  {
+    "alphaclops_type": "IdentityGate",
+    "num_qubits": 5,
+    "qid_shape": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  }
+]

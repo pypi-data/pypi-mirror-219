@@ -1,0 +1,31 @@
+{
+  "alphaclops_type": "MutablePauliString",
+  "pauli_int_dict": [
+    [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 0
+      },
+      1
+    ],
+    [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 1
+      },
+      2
+    ],
+    [
+      {
+        "alphaclops_type": "LineQubit",
+        "x": 2
+      },
+      3
+    ]
+  ],
+  "coefficient": {
+    "alphaclops_type": "complex",
+    "real": 0.0,
+    "imag": 2.0
+  }
+}

@@ -1,0 +1,58 @@
+[
+  {
+    "alphaclops_type": "KrausChannel",
+    "_kraus_ops": [
+      [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      [
+        [
+          0.5,
+          -0.5
+        ],
+        [
+          -0.5,
+          0.5
+        ]
+      ]
+    ],
+    "_key": {
+      "alphaclops_type": "MeasurementKey",
+      "name": "x_meas",
+      "path": []
+    }
+  },
+  {
+    "alphaclops_type": "KrausChannel",
+    "_kraus_ops": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "_key": null
+  }
+]

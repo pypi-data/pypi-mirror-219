@@ -1,0 +1,13 @@
+{
+  "alphaclops_type": "sympy.Equality",
+  "args": [
+    {
+      "alphaclops_type": "sympy.Symbol",
+      "name": "s"
+    },
+    {
+      "alphaclops_type": "sympy.Symbol",
+      "name": "t"
+    }
+  ]
+}

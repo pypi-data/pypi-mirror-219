@@ -1,0 +1,69 @@
+[
+  {
+    "alphaclops_type": "ClassicalDataDictionaryStore",
+    "records": [
+      [
+        {
+          "alphaclops_type": "MeasurementKey",
+          "name": "m",
+          "path": []
+        },
+        [[0, 1]]
+      ]
+    ],
+    "measured_qubits": [
+      [
+        {
+          "alphaclops_type": "MeasurementKey",
+          "name": "m",
+          "path": []
+        },
+        [[
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 0
+          },
+          {
+            "alphaclops_type": "LineQubit",
+            "x": 1
+          }
+        ]]
+      ]
+    ],
+    "channel_records": [
+      [
+        {
+          "alphaclops_type": "MeasurementKey",
+          "name": "c",
+          "path": []
+        },
+        [3]
+      ]
+    ],
+    "measurement_types": [
+      [
+        {
+          "alphaclops_type": "MeasurementKey",
+          "name": "m",
+          "path": []
+        },
+        1
+      ],
+      [
+        {
+          "alphaclops_type": "MeasurementKey",
+          "name": "c",
+          "path": []
+        },
+        2
+      ]
+    ]
+  },
+  {
+    "alphaclops_type": "ClassicalDataDictionaryStore",
+    "records": [],
+    "measured_qubits": [],
+    "channel_records": [],
+    "measurement_types": []
+  }
+]

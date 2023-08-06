@@ -1,0 +1,10 @@
+{
+  "alphaclops_type": "OpIdentifier",
+  "gate_type": "XPowGate",
+  "qubits": [
+    {
+      "alphaclops_type": "LineQubit",
+      "x": 1
+    }
+  ]
+}
