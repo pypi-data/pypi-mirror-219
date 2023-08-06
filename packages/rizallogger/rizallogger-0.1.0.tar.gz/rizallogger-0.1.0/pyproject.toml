@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "rizallogger"
+version = "0.1.0"
+description = "Make easy to log your project"
+authors = ["Safrizal"]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.10.5"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/rzmobiledev/rzlogger"
+"Bug Tracker" = "https://github.com/rzmobiledev/rzlogger/issues"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+setuptools = "^68.0.0"
+wheel = "^0.40.0"
+tqdm = "^4.65.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
