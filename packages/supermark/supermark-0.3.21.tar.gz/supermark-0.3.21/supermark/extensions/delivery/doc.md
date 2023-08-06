@@ -1,0 +1,1 @@
+A paragraph style for deliveries.

@@ -1,0 +1,21 @@
+div.milestone p {
+    padding: 10px;
+    background-color: #EBF0C4;
+    border-radius: 5px;
+    position: relative;
+    padding: 1rem 1rem 1rem 3.5rem;
+}
+
+div.milestone p::before {
+    content: '\f3cb';
+    font-family: bootstrap-icons !important;
+    color: #7C8934;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}

@@ -1,0 +1,1 @@
+:tip: Here is a tip that makes life easier for you.

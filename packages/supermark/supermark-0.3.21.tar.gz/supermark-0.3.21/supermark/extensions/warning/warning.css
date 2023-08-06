@@ -1,0 +1,22 @@
+div.warning p {
+    padding: 10px;
+    background-color: #ffd9ab;
+    border-radius: 5px;
+    border-left: 0px solid #fc8c03;
+    position: relative;
+    padding: 1rem 1rem 1rem 3.5rem;
+}
+
+div.warning p::before {
+    content: '\f33a';
+    font-family: bootstrap-icons !important;
+    color: #fc8c03;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}

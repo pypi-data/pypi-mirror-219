@@ -1,0 +1,21 @@
+div.tip p {
+  padding: 10px;
+  background-color: #E3BCDA;
+  border-radius: 5px;
+  position: relative;
+  padding: 1rem 1rem 1rem 3.5rem;
+}
+
+div.tip p::before {
+  content: '\f706';
+  font-family: bootstrap-icons !important;
+  color: #75225E;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
