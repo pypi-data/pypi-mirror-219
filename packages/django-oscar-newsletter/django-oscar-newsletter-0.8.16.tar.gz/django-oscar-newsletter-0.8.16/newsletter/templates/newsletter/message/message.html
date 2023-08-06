@@ -1,0 +1,55 @@
+{% load thumbnail i18n %}<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ newsletter.title }}: {{ message.title }}</title>
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto);
+    /* The rest of your CSS here */
+    *{ font-family: Roboto, Arial, sans-serif;}
+  </style>
+</head>
+<body style="margin:0;">
+  <div style="width:100%;background-color:{{ CONFIG.color_1 }};height:25px;"></div>
+  <div style="width:100%;background-color:#f9f8f8;height:5px;"></div>
+  <div dir="ltr">
+    <center>
+      <table cellspacing=20>
+        <tbody>
+          {% for article in message.articles.all %}
+            <tr>
+              <td valign="top" align="center">
+                <table style="border: 1px solid #cccccc; background-color: #ffffff; width: 660px; background-position: initial initial; background-repeat: initial initial;" cellpadding="5" border="0">
+                  <tbody>
+                    <tr>
+                      <td style="padding:5px;" class="text" valign="top">
+                        <center>
+                          {% if article.url %}
+                            <a href="{{ article.url }}">
+                          {% endif %}
+                          {% if article.image %}
+                            <img src="{{ BASE_URL }}{% thumbnail article.image 800x533 quality=90 %}" width=800 height=533 alt="{{ article.title }}">
+                          {% endif %}
+                          {% if article.url %}
+                            </a>
+                          {% endif %}
+                        </center>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </center>
+  </div>
+  {% if newsletter.footer_template_html %}
+    {% include newsletter.footer_html %}
+  {% else %}
+    {% include './default_footer.html' %}
+  {% endif %}
+</body>
+</html>

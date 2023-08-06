@@ -1,0 +1,8 @@
+# Text files
+include README.rst
+include README.md
+include COPYRIGHT
+
+include VERSION
+
+recursive-include newsletter/ *
