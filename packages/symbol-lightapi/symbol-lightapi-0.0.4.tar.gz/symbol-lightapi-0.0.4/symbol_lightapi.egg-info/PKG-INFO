@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: symbol-lightapi
+Version: 0.0.4
+Summary: Symbol Light API
+Home-page: https://github.com/symbol/product/tree/main/python/lightapi
+Author: Symbol Contributors
+Author-email: contributors@symbol.dev
+License: MIT
+Keywords: symbol,symbollightapi,lightapi,Symbol Light API
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+
+# Python Light API
+
+Provides partial Python wrappers for calling NEM and Symbol API functions.
+
+Only a subset of APIs are currently supported.
+
+PRs are accepted for extending the set of APIs.
