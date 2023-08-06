@@ -1,0 +1,12 @@
+name: mtg_scryfall_grabber_dev
+channels:
+- conda-forge
+dependencies:
+- python=3.8
+- pip
+- pip:
+  - argparse
+  - requests==2.29.*
+  - mtg_scryfall_grabber
+  - pytest
+  - pylint
