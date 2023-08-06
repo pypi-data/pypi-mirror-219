@@ -1,0 +1,28 @@
+[project]
+name = "sensitivities"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "Linear and stochastic sensitivity analysis and error propagation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Luis Riegger"},
+    {email = "lri@me.com"}
+]
+
+dependencies = [
+    "numpy",
+    "scipy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest",
+    "black",
+    "matplotlib"
+]
+
+[project.urls]
+homepage = "https://github.com/himbeles/sensitivities"
+repository = "https://github.com/himbeles/sensitivities"
