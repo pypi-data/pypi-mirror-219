@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: pp-project-pkg
+Version: 1.0.202307131704
+Summary: Production Planing functions package
+Author: ['Malav Bateriwala']
+Requires-Python: >=3.8
+Requires-Dist: mb-base
+
