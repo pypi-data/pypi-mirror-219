@@ -1,0 +1,5 @@
+[cubicweb.cubes]
+file = cubicweb_file
+
+[cubicweb.i18ncube]
+file = cubicweb_file.i18n
