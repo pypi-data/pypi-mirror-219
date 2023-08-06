@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: pallur
+Version: 0.1.1
+Summary: A Modern Command Line Tool for Apache Kafka.
+Home-page: https://github.com/Clivern/Pallur/
+Author: Clivern
+Author-email: hello@clivern.com
+License: MIT
+Project-URL: Documentation, https://github.com/Clivern/Pallur/
+Project-URL: Source, https://github.com/Clivern/Pallur/
+Project-URL: Changelog, https://github.com/Clivern/Pallur/blob/main/CHANGELOG.rst
+Project-URL: Tracker, https://github.com/Clivern/Pallur/issues
+Project-URL: Download, https://pypi.org/project/Pallur/#files
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/x-rst; charset=UTF-8
+License-File: LICENSE.txt
+
+.. image:: https://img.shields.io/pypi/v/pallur.svg
+    :alt: PyPI-Server
+    :target: https://pypi.org/project/pallur/
+.. image:: https://github.com/clivern/pallur/actions/workflows/ci.yml/badge.svg
+    :alt: Build Status
+    :target: https://github.com/clivern/pallur/actions/workflows/ci.yml
+
+|
+
+=======
+Pallur
+=======
+
+A Modern Command Line Tool for Apache Kafka. It is easy to install and use.
+
+To use pallur, follow the following steps:
+
+1. Create a python virtual environment or use system wide environment
+
+.. code-block::
+
+    $ python3 -m venv venv
+    $ source venv/bin/activate
+
+
+2. Install pallur package with pip.
+
+.. code-block::
+
+    $ pip install pallur
+
+
+3. Get pallur command line help
+
+.. code-block::
+
+    $ pallur --help

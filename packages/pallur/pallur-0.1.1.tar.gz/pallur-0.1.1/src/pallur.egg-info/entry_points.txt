@@ -1,0 +1,2 @@
+[console_scripts]
+pallur = pallur.cli:main
