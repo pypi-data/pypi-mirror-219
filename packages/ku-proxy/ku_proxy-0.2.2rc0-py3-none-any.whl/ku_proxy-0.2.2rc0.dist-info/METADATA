@@ -1,0 +1,116 @@
+Metadata-Version: 2.1
+Name: ku-proxy
+Version: 0.2.2rc0
+Summary: ku is fast, async, modern, little tcp man-in-the-middle proxy library, written in pure Python 3
+Home-page: https://gitlab.com/seeklay/ku
+Author: seeklay
+Author-email: rudeboy@seeklay.icu
+License: MIT
+Download-URL: https://gitlab.com/seeklay/ku
+Platform: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# ku
+ku is fast, async, modern, little tcp man-in-the-middle proxy library, written in pure [Python 3](https://www.python.org/).
+
+[![](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/) [![](https://img.shields.io/gitlab/license/seeklay/ku.svg)](LICENSE/) [![](https://tokei.rs/b1/gitlab/seeklay/ku)](#) [![](https://badgen.net/pypi/v/ku-proxy) ![](https://img.shields.io/pypi/dw/ku-proxy?style=flat&logo=pypi)](https://pypi.org/project/ku-proxy/) [![](https://gitlab.com/seeklay/ku/badges/main/pipeline.svg)](https://gitlab.com/seeklay/ku/-/pipelines) [![](https://gitlab.com/seeklay/ku/badges/main/coverage.svg)](https://coveralls.io/gitlab/seeklay/ku)
+
+### Features
+ - Dump data between clients and server
+ - Spoof data in both directions
+ - Drop data selectively
+ - IPv6 Ready (pass upstream_6 for upstreaming ipv6 or enclose ipv6 addr in brackets like [::1] for listening addrs
+
+### Is this proxy fast?
+[Proxy speed comparison results](speedtest.md)
+
+### TODO
+
+ - [x] Tcp mitm proxy library
+ - [x] Proxy executable script (kun (alpha))
+
+### Installation
+```bash
+pip install -U ku-proxy
+```
+
+### Docs
+Check out the latest documentation: [ku-proxy.seeklay.pp.ua](https://ku-proxy.seeklay.pp.ua)
+
+### Author
+[seeklay](https://gitlab.com/seeklay/)
+
+### License
+[MIT](LICENSE)
+
+### Simple proxy usage:
+**Try to run this script and open http://localhost:80 in you browser**
+
+```python
+from ku import ku, tcpsession
+from time import sleep
+
+proxy = ku(("localhost", 80, "[::1]", 80), ("g.co", 80))
+
+while 7:
+    try:
+        sleep(0.07)
+    except KeyboardInterrupt:
+        proxy.shutdown() #proxy creates a thread to async poll for socket events
+        break            #we need to call shutdown() to break the thread loop
+```
+
+### Advanced proxy usage:
+
+```python
+from ku import ku, tcpsession, Pass, Reject
+from time import sleep
+
+class conn(tcpsession):
+
+    def __init__(self, client, server, proxy):
+        self.client = client
+        self.server = server
+        self.proxy = proxy
+        self.id = id(self)        
+        print(F"#{self.id} new conn {client.getpeername()}->{client.getsockname()}::{server.getsockname()}->{server.getpeername()}")
+
+    def clientbound(self, data):        
+        print(F"#{self.id} server->client  {len(data)}")
+        print(data)
+        return Pass
+
+    def serverbound(self, data):        
+        print(F"#{self.id} client->server  {len(data)}")
+        print(data)
+        #return None
+        #in python None is returned by default, None == Pass
+
+    def connection_made(self):
+        print(F"#{self.id} connection_made")
+
+    def connection_lost(self, side, err):
+        side = 'client' if side is self.client else 'server' if side is not None else 'proxy'
+        print(F"#{self.id} connection_lost by {side} due to {err}")
+
+print("Starting...")
+proxy = ku(("localhost", 80), ("api.ipify.org", 80), conn)
+print("Started")
+
+while 1:
+    try:
+        sleep(0.07)
+    except KeyboardInterrupt:
+        print("Shutting down...")
+        proxy.shutdown()
+        print("Exiting...")
+        break
+```
+
+See [examples/](examples/) for more
+
+
