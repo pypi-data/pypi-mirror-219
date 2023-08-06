@@ -1,0 +1,11 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+big_query_testing_xyz.egg-info/PKG-INFO
+big_query_testing_xyz.egg-info/SOURCES.txt
+big_query_testing_xyz.egg-info/dependency_links.txt
+big_query_testing_xyz.egg-info/requires.txt
+big_query_testing_xyz.egg-info/top_level.txt
+code_query/__init__.py
+code_query/main.py
