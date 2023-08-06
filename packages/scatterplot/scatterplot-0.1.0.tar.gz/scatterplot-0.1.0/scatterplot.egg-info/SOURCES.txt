@@ -1,0 +1,12 @@
+README.md
+setup.py
+scatterplot/__init__.py
+scatterplot/main.py
+scatterplot/scatterplot.py
+scatterplot.egg-info/PKG-INFO
+scatterplot.egg-info/SOURCES.txt
+scatterplot.egg-info/dependency_links.txt
+scatterplot.egg-info/requires.txt
+scatterplot.egg-info/top_level.txt
+tests/__init__.py
+tests/test_scatterplot.py
