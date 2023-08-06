@@ -1,0 +1,3 @@
+[console_scripts]
+wake=wake.cli:cli
+
