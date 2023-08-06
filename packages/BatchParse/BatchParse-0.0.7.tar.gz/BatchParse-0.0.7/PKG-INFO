@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: BatchParse
+Version: 0.0.7
+Summary: A Batch Parser
+Author: kdot227
+License: MIT
+Keywords: conversion
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENSE
+
+Easy Way to Parse Batch Code in Python
