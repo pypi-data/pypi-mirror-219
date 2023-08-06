@@ -1,0 +1,12 @@
+[project]
+name = "lazrs"
+classifier = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Rust",
+]
+
+
+[build-system]
+requires = ["maturin>=0.14,<0.15"]
+build-backend = "maturin"

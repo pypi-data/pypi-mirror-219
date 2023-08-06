@@ -1,0 +1,177 @@
+name: Building
+
+on: [push, pull_request]
+
+jobs:
+  macos-build-x86_64:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+          python-version: [ '3.7', '3.8', '3.9', '3.10', '3.11' ]
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build wheels
+        uses: messense/maturin-action@v1
+        with:
+          target: x86_64-apple-darwin
+          command: build
+          args: --release --out dist --interpreter python${{ matrix.python-version }}
+
+      # Upload the wheels of the build for manual download/inspection
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./dist/*.whl
+
+  macos-build-aarch64:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ '3.9', '3.10', '3.11' ]
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Build wheels
+        uses: messense/maturin-action@v1
+        with:
+          target: aarch64-apple-darwin
+          command: build
+          args: --release --out dist --interpreter python${{ matrix.python-version }}
+
+      # Upload the wheels of the build for manual download/inspection
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./dist/*.whl
+
+
+  windows-build:
+    name: windows-build-${{ matrix.arch }} (${{ matrix.python-version }})
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [ '3.7', '3.8', '3.9', '3.10', '3.11' ]
+        arch: ['x86', 'x64']
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: ${{ matrix.arch }}
+
+      - name: Build wheels
+        if: matrix.arch == 'x86'
+        uses: messense/maturin-action@v1
+        with:
+          command: build
+          args: --release --out dist --target i686-pc-windows-msvc
+
+      - name: Build wheels
+        if: matrix.arch == 'x64'
+        uses: messense/maturin-action@v1
+        with:
+          command: build
+          args: --release --out dist
+
+      # Upload the wheels of the build for manual download/inspection
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./dist/*.whl
+
+
+  linux-build:
+    name: 'linux-build-${{ matrix.target }} (${{ matrix.python.version }})'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [x86_64, aarch64]
+        python: [
+          {
+            version: '3.7',
+            PYO3_CROSS_LIB_DIR: '/opt/python/cp37-cp37m/lib'
+          },
+          {
+            version: '3.8',
+            PYO3_CROSS_LIB_DIR: '/opt/python/cp38-cp38/lib'
+          },
+          {
+            version: '3.9',
+            PYO3_CROSS_LIB_DIR: '/opt/python/cp39-cp39/lib'
+          },
+          {
+            version: '3.10',
+            PYO3_CROSS_LIB_DIR: '/opt/python/cp310-cp310/lib'
+          },
+          {
+            version: '3.11',
+            PYO3_CROSS_LIB_DIR: '/opt/python/cp311-cp311/lib'
+          },
+        ]
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python.version }}
+
+      - name: Build wheels
+        if: matrix.target == 'x86_64'
+        uses: messense/maturin-action@v1
+        with:
+          target: ${{ matrix.target }}
+          command: build
+          manylinux: 2014
+          args: --release --out dist --interpreter python${{ matrix.python.version }}
+
+      - name: Build wheels
+        if: matrix.target == 'aarch64'
+        uses: messense/maturin-action@v1
+        env:
+          PYO3_CROSS_LIB_DIR: '${{ matrix.python.PYO3_CROSS_LIB_DIR }}'
+        with:
+          target: ${{ matrix.target }}
+          command: build
+          manylinux: auto
+          args: --release --out dist --interpreter python${{ matrix.python.version }}
+
+
+      # Upload the wheels of the build for manual download/inspection
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./dist/*.whl
+
+  # sdist is needed for the conda recipe
+  sdist:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python.version }}
+
+      - name: Build sdist
+        uses: messense/maturin-action@v1
+        with:
+          command: sdist
+          args: --out dist
+
+      # Upload the wheels of the build for manual download/inspection
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./dist/*.tar.gz
+
