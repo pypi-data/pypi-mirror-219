@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: mstuff
+Version: 0.7.7
+Summary: a general library
+Author-email: Matt Groth <mjgroth@mit.edu>
+Requires-Dist: requests
+Requires-Dist: aiohttp
+
