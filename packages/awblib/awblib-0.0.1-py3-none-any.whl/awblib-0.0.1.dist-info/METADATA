@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: awblib
+Version: 0.0.1
+Summary: A bunch of Automatic White-Balancing (AWB) Algorithm implementations
+Home-page: https://github.com/JoeyTeng/AWB-Lib
+License: Apache-2.0
+Author: Joey Teng
+Author-email: joey.teng.dev@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Dist: jax (>=0.4.0,<0.5.0)
+Requires-Dist: jaxlib (>=0.4.0,<0.5.0)
+Requires-Dist: jaxtyping (>=0.2.13,<0.2.20) ; python_version >= "3.8" and python_version < "3.9"
+Requires-Dist: jaxtyping (>=0.2.19,<0.3.0) ; python_version >= "3.9" and python_version < "4.0"
+Requires-Dist: numpy (>=1.22.0,<2.0.0)
+Requires-Dist: typing_extensions (>=4.3.0,<5.0.0)
+Project-URL: Bug Tracker, https://github.com/JoeyTeng/AWB-Lib/issues
+Project-URL: Repository, https://github.com/JoeyTeng/AWB-Lib
+Description-Content-Type: text/markdown
+
+# AWB-Lib
+
