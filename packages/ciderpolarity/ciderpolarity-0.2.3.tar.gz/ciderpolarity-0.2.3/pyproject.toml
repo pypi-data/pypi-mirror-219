@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ciderpolarity"
+version = "0.2.3"
+description = ""
+authors = ["jcy204 <jcy204@exeter.ac.uk>"]
+readme = "README.md"
+homepage = "https://github.com/jcy204/ciderPolarity"
+repository = "https://github.com/jcy204/ciderPolarity"
+
+[tool.poetry.dependencies]
+python = "^3.7,<3.13"
+gensim = "^4.1.0"
+numpy = "^1.22.0"
+pandas = "^1.4.0"
+scikit-learn = "^1.1.0"
+scipy = "^1.8.0"
+tqdm = "^4.55.0"
+vadersentiment = "^3.3.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
