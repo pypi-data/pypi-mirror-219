@@ -1,0 +1,64 @@
+[tool.poetry]
+
+authors = [
+  "Craig Trim <craigtrim@gmail.com>",
+]
+
+maintainers = [
+  "Craig Trim <craigtrim@gmail.com>",
+]
+
+description = "Use spaCy to Parse Input Tokens"
+license = "None"
+name = "spacy-token-parser"
+readme = "README.md"
+version = "0.1.16"
+
+keywords = ["nlp", "nlu", "ai", "parser", "spacy"]
+repository = "https://github.com/craigtrim/spacy-token-parser"
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/craigtrim/spacy-token-parser/issues"
+
+[tool.poetry.build]
+generate-setup-file = true
+
+[tool.poetry.dependencies]
+baseblock = "*"
+nltk = "3.8.1"
+python = "^3.8.5"
+spacy = "3.5.0"
+wordnet-lookup = "*"
+
+[tool.poetry.dev-dependencies]
+autopep8 = "*"
+en-core-web-sm = {path = "resources/lib/en_core_web_sm-3.5.0.tar.gz"}
+flakeheaven = "*"
+plac = "*"
+pre-commit = "^2.20.0"
+pytest = "*"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.flakeheaven]
+base = "https://raw.githubusercontent.com/flakeheaven/flakeheaven/main/pyproject.toml"
+exclude = ["__init__.py", "README.md", "setup.py", ".venv", ".git"]
+format = "grouped"
+max_line_length = 500
+show_source = true
+
+[tool.flakeheaven.plugins]
+# F401 (Missing Import)
+# F403 (Unable to Detect Undefined Names)
+"flake8-*" = ["+*"]
+flake8-bandit = ["-*", "+S1??"]
+flake8-docstrings = ["-*"]
+pyflakes = ["+*", "-F401", "-F403"]
