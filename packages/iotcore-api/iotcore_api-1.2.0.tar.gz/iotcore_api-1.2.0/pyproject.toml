@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "iotcore-api"
+version = "1.2.0"
+description ="IoT core connection methods and utilities in Python"
+authors = ["Ricardo Gomez-Aldaravi <ricardo.gomez.aldaravi@idrica.com>", "Laura Moreno <laura.moreno@idrica.com>"]
+readme = "README.md"
+packages = [
+    {include = 'iotcoreapi/*.py'}
+]
+keywords = ["iotcoreapi", "goaigua"]
+
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^2.0.1"
+requests = "^2.30.0"
+
+
+[tool.poetry.group.dev.dependencies]
+python-dotenv = "^1.0.0"
+pytest = "^7.2.2"
+mkdocs = "^1.4.2"
+mkdocstrings = "^0.20.0"
+mkdocs-material = "^9.1.3"
+mkdocstrings-python = "^0.8.3"
+mkdocs-git-revision-date-localized-plugin = "^1.2.0"
+mkdocs-pdf-export-plugin = "^0.5.10"
+pre-commit = "^3.3.2"
+toml = "^0.10.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
