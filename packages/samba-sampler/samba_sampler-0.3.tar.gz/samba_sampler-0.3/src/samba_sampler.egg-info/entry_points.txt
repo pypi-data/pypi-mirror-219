@@ -1,0 +1,2 @@
+[console_scripts]
+samba_sampler = samba_sampler.__main__:main

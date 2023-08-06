@@ -1,0 +1,9 @@
+
+[dev]
+black
+flake8
+twine
+wheel
+
+[test]
+pytest
