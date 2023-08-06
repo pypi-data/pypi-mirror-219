@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: Ali_Basic_Calculator
+Version: 0.0.1
+Summary: A very basic calculator
+Home-page: 
+Author: Ali Asanjarani
+Author-email: aliwork.as@gmail.com
+License: MIT
+Keywords: calculator
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+License-File: LICENCE.txt
+
+This is very simple calculator that takes tow numbers and either add, subtract, multiply, divide or the_root them.
+
+
+Change Log
+==========
+
+0.0.1 (7/17/2023)
+-----------------
+-First Release
