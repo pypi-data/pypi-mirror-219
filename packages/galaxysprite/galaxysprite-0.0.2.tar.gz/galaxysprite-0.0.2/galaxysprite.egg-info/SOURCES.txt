@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+galaxysprite/__init__.py
+galaxysprite.egg-info/PKG-INFO
+galaxysprite.egg-info/SOURCES.txt
+galaxysprite.egg-info/dependency_links.txt
+galaxysprite.egg-info/requires.txt
+galaxysprite.egg-info/top_level.txt
+galaxysprite/src/__init__.py
+galaxysprite/src/compressor.py
+galaxysprite/src/density.py
+galaxysprite/src/galactic.py
+galaxysprite/src/main.py
