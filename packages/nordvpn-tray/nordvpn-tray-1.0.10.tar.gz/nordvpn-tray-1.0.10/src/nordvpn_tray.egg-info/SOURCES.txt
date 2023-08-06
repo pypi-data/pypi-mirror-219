@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+src/nordvpn_tray/__init__.py
+src/nordvpn_tray/__main__.py
+src/nordvpn_tray.egg-info/PKG-INFO
+src/nordvpn_tray.egg-info/SOURCES.txt
+src/nordvpn_tray.egg-info/dependency_links.txt
+src/nordvpn_tray.egg-info/entry_points.txt
+src/nordvpn_tray.egg-info/requires.txt
+src/nordvpn_tray.egg-info/top_level.txt
+src/nordvpn_tray/resources/nvt.ico
