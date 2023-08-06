@@ -1,0 +1,3 @@
+[console_scripts]
+fastapi-serve = fastapi_serve.__main__:serve
+
