@@ -1,0 +1,20 @@
+{
+  "license": "ISC",
+  "scripts": {
+    "build": "exec webpack --env production=true",
+    "start": "exec webpack serve --host 127.0.0.1 --port 5002"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^5.2.6",
+    "mini-css-extract-plugin": "^2.1.0",
+    "webix-jet": "^2.1.3",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2",
+    "webpack": "^5.44.0"
+  }
+}
