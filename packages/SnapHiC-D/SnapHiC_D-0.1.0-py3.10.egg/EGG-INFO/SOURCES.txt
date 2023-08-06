@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+run_SnapHiC_D.py
+setup.py
+SnapHiC_D/SnapHiC_D.py
+SnapHiC_D/__init__.py
+SnapHiC_D/__main__.py
+SnapHiC_D.egg-info/PKG-INFO
+SnapHiC_D.egg-info/SOURCES.txt
+SnapHiC_D.egg-info/dependency_links.txt
+SnapHiC_D.egg-info/entry_points.txt
+SnapHiC_D.egg-info/requires.txt
+SnapHiC_D.egg-info/top_level.txt
