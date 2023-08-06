@@ -1,0 +1,12 @@
+importlib-resources
+requests
+tqdm>=4.55.1
+ckanext-ckanpackager~=2.2.0
+ckanext-versioned-datastore~=4.2.0
+ckantools>=0.3.0
+
+[test]
+mock
+pytest>=4.6.5
+pytest-cov>=2.7.1
+coveralls
