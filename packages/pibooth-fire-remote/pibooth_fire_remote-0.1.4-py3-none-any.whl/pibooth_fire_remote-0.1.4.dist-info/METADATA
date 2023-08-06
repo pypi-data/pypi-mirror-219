@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: pibooth-fire-remote
+Version: 0.1.4
+Summary: UNKNOWN
+Home-page: https://github.com/chilipp89/pibooth-qr-download
+Author: P. Junietz
+License: MIT
+Keywords: Raspberry Pi,camera,photobooth,Bluetooth,Remote
+Platform: unix
+Platform: linux
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Natural Language :: English
+Classifier: Topic :: Multimedia :: Graphics :: Capture :: Digital Camera
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: evdev
+Requires-Dist: pibooth (>=2.0.0)
+Requires-Dist: pygame
+
+# pibooth-fire-remote
+Remote Control with bluetooth Remote
+
+# Install
+pip install pibooth-fire-remote
+
+The default settings are mapped to my fire stick gen 1 remote.
+Map you bluetooth remote using the quick start manual from evdev.
+
+## Configuration
+[FIRE-Remote]
+- enterBtn
+- backBtn
+- settingsBtn
+- homeBtn
+- up
+- down
+- left
+- right
+- playpause
+- forward
+- backward
+
+## Current button mapping:
+- enterBtn: Take Picture
+- settingsBtn: Open Menu
+- forward: Print
+
+
+
+
+
+
