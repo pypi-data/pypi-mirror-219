@@ -1,0 +1,10 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+kmemory/__init__.py
+kmemory/kmemory.py
+kmemory.egg-info/PKG-INFO
+kmemory.egg-info/SOURCES.txt
+kmemory.egg-info/dependency_links.txt
+kmemory.egg-info/top_level.txt
