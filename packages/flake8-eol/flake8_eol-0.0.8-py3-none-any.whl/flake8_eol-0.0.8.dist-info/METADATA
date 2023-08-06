@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: flake8-eol
+Version: 0.0.8
+Summary: Flake8 plugin to enforce Unix/Linux EOL consistency
+Author: Claudio Scheer
+Author-email: claudioscheer@protonmail.com
+Classifier: Framework :: Flake8
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: flake8 (>=3.7.0)
+
+# flake8-eol
+
+Flake8 plugin to enforce Unix/Linux EOL consistency. The plug-in simply checks that Python files' line endings are terminated with '\n' only.
+
+# Error codes
+
+| Error code | Description                                      |
+| :--------: | :----------------------------------------------- |
+|   EOL001   | Line endings are not consistent with Unix/Linux. |
+
+# Installation
+
+```bash
+pip install flake8-eol
+```
