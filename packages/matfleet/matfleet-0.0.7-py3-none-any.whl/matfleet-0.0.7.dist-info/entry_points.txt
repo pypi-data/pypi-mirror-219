@@ -1,0 +1,2 @@
+[console_scripts]
+pic2pdf = matfleet.untilities.mang_jpg2pdf:pictures2pdf
