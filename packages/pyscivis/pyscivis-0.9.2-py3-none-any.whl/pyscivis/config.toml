@@ -1,0 +1,47 @@
+[image]
+initial_color_mapper = "Linear"  # ("Linear", "Log")
+initial_value_kind = "Real"  # ("Real", "Imaginary", "Abs", "Phase")
+initial_palette = "Greyscale"  # ("Greyscale", "Turbo", "Inferno")
+initial_palette_size = 100  # palette size on load (equal or smaller than `palette_size` from below)
+
+preload_bounds = true  # This will make the app calculate the min-max values of your image(s) on load as opposed to when needed
+
+palette_names = ["Greyscale", "Turbo", "Inferno", "Viridis"]
+palette_funcs = ["grey", "turbo", "inferno", "viridis"]  # https://docs.bokeh.org/en/latest/docs/reference/palettes.html#functions
+palette_size = 100  # 0 < x <= 256  # total palette size
+
+log_span = [1, 10]  # steepness of logarithmic scale
+
+histogram_bins = 20
+max_calc_size = 16000000  # max amount of data points evaluated by statistics and histogram
+
+ds_downsample_images_threshold = 1024  # Images will only be downsampled if they have this^2 or more values
+ds_threshold = 512  # Downsampled images max size will be this^2
+ds_throttle = 50  # delay in milliseconds after each downsample-operation
+
+# How are `ds_downsample_images_threshold` and `ds_threshold` different?
+# `ds_downsample_images_threshold` allows loading of bigger images without downsampling (which can take some time)
+#   but then there will not be any more delay caused by downsampling (because its disabled)
+# `ds_threshold` limits the size of images with a size beyond `ds_downsample_images_threshold`. These
+#   Images are downsampled; to avoid having to wait too long for the constant redrawing of these images
+#   we want a smaller value than for `ds_downsample_images_threshold`.
+
+
+# Image layouting settings, change as needed
+pref_height = 450
+min_height = 300
+max_height = 500
+min_width = 200
+max_width = 600
+border = 60
+
+format_state = false  # Whether to show the state (in the Image's `state`-tab) in a formatted way or as a single line.
+
+
+[notebook]
+ports = [50001, 50020]  # This option is only used if the notebook is used in a docker container (not in its browser)
+
+[parser]
+chunk_size = 250000000  # 250 MB
+collapse_parallel = false  # remove x & y values skipped by parallel-imaging
+always_save_mmap = false  # not implemented yet #todo

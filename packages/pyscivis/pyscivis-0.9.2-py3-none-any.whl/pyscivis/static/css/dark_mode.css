@@ -1,0 +1,76 @@
+
+/* COLORS
+#E0E0E0: TEXT/BORDER WHITE
+#15191C: BACKGROUND DARKGRAY
+#2f3235: CLICKED/ACTIVE LIGHTER DARKGRAY
+#555   : HOVER LIGHTGRAY
+*/
+
+
+/** START STANDALONE UNIQUE STYLES **/
+body {
+    background-color: #15191C !important;
+    color: #E0E0E0 !important;
+}
+
+a.introjs-button[role="button"] {
+    color: initial !important;
+}
+
+.jstree-default-dark {
+    background-color: inherit !important;
+    color: inherit !important;
+}
+.jstree-anchor{
+    color: inherit !important;
+}
+
+.jstree-hovered {
+    border-radius: 4px !important;
+    box-shadow: none !important;
+}
+.jstree-clicked {
+    background-color: #2f3235 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+}
+/** END STANDALONE UNIQUE STYLES **/
+
+button, .bk-btn, .bk-input, .bk-menu {
+    background-color: #15191C !important;
+    color: #E0E0E0 !important;
+}
+
+button:hover, .bk-btn:hover, bk-input:hover, .bk-menu>:not(.bk-divider):hover,
+.statistics-table tr:hover, .slick-row:hover, .slick-header-column:hover,
+.bk-tab:hover{
+    background-color: #555 !important;
+}
+
+select.bk-input {
+    appearance: auto !important;
+    -webkit-appearance: auto !important;
+}
+
+.statistics-table td {
+    border-color: #E0E0E0 !important;
+}
+
+.statistics-table tr:nth-child(even), .slick-row.even   {
+    background-color: #2f3235 !important;
+}
+
+.dark .statistics-table tr:nth-child(odd), .slick-row.odd {
+    background-color: #15191C !important;
+}
+
+.bk-tab {
+    color: #E0E0E0 !important;
+    border-color: #2f3235 !important;
+    border-width: 2px 2px 0px 2px !important;
+}
+
+.bk-btn.bk-active, .bk-tab.bk-active{
+    background-color: #2f3235  !important;
+    border-color: #E0E0E0 !important;
+}
