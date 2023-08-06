@@ -1,0 +1,64 @@
+---
+properties:
+  src_root:
+    type: string
+    default: src
+
+  ninja_out:
+    type: string
+    default: ninja
+
+  dist_out:
+    type: string
+    default: dist
+
+  build_root:
+    type: string
+    default: build
+
+  common_ldflags:
+    type: array
+    default: ["-Wl,--gc-sections"]
+    items:
+      type: string
+
+  extra_dist:
+    type: array
+    items:
+      type: string
+
+  project:
+    type: object
+    additionalProperties: false
+    properties:
+      name:
+        type: string
+        default: yambs-sample
+
+      github:
+        type: object
+        additionalProperties: false
+        required: [owner]
+        properties:
+          # If not set, fallback to project.name.
+          repo:
+            type: string
+          owner:
+            type: string
+
+      version:
+        type: object
+        additionalProperties: false
+        properties:
+          major:
+            type: integer
+            minimum: 0
+            default: 0
+          minor:
+            type: integer
+            minimum: 1
+            default: 1
+          patch:
+            type: integer
+            minimum: 0
+            default: 0
