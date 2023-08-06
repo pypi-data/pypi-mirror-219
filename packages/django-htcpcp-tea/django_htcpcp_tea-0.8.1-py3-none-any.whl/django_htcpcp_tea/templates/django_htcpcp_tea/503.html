@@ -1,0 +1,7 @@
+{% extends "django_htcpcp_tea/base_error.html" %}
+
+{% block error_title %}503 Service Unavailable{% endblock %}
+
+{% block error_body %}
+    <p>{{ error_reason }}</p>
+{% endblock %}
