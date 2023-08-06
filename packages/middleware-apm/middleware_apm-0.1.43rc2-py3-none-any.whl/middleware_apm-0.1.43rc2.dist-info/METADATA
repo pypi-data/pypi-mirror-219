@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: middleware-apm
+Version: 0.1.43rc2
+Summary: This package is use to check the RAM and CPU Usage of Current Device.
+Home-page: https://github.com/middleware-labs/agent-apm-python.git
+Author: middleware-dev
+Description-Content-Type: text/plain
+License-File: LICENSE
+Requires-Dist: distro (==1.4.0)
+Requires-Dist: fluent-logger (==0.10.0)
+Requires-Dist: opentelemetry-api (==1.15.0)
+Requires-Dist: opentelemetry-distro (==0.36b0)
+Requires-Dist: opentelemetry-exporter-otlp-proto-grpc (==1.15.0)
+Requires-Dist: opentelemetry-instrumentation (==0.36b0)
+Requires-Dist: opentelemetry-instrumentation-flask (==0.36b0)
+Requires-Dist: opentelemetry-instrumentation-wsgi (==0.36b0)
+Requires-Dist: opentelemetry-proto (==1.15.0)
+Requires-Dist: opentelemetry-sdk (==1.15.0)
+Requires-Dist: opentelemetry-semantic-conventions (==0.36b0)
+Requires-Dist: opentelemetry-util-http (==0.36b0)
+Requires-Dist: PyYAML (==5.3.1)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: thrift (==0.16.0)
+Requires-Dist: pyroscope-io (==0.8.5)
+
+This is a Utility Package for Windows to check different utilities like Disk Usage, Memory Usage using python code.
