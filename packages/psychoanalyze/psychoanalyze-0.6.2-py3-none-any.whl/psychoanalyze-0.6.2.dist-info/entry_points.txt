@@ -1,0 +1,3 @@
+[console_scripts]
+psychoanalyze=psychoanalyze.__main__:main
+
