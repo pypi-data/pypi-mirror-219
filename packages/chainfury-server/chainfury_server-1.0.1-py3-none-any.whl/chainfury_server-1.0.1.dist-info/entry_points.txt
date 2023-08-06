@@ -1,0 +1,4 @@
+[console_scripts]
+cf_server=chainfury_server.server:main
+chainfury_server=chainfury_server.server:main
+
