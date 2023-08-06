@@ -1,0 +1,16 @@
+[package]
+name = "chia_streamable_macro"
+version = "0.2.4"
+edition = "2021"
+license = "Apache-2.0"
+description = "Streamable derive macro for serializing/deserializing types in Chia protocol format"
+authors = ["Arvid Norberg <arvid@libtorrent.org>"]
+homepage = "https://github.com/Chia-Network/chia_rs/"
+repository = "https://github.com/Chia-Network/chia_rs/"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0.22", features = ["full"] }
+quote = "1.0.28"
