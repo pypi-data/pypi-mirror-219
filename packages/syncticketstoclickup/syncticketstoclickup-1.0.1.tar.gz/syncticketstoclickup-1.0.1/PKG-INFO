@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: syncticketstoclickup
+Version: 1.0.1
+Summary: A package that allows to sync tickets from Zendesk to ClickUp.
+Author: abrahamprz (Abraham Perez)
+Author-email: fcoabrahamprz@gmail.com
+Keywords: python,zendesk,clickup,ticket,task,sync,requests
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Operating System :: Unix
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# zendesk-clickup
+Project that syncs all tickets from Zendesk to ClickUp. This is useful for teams that use them for managing customer support tickets and want to keep the ticket numbers consistent across both platforms.
+
+## Configuration
+
+1. Duplicate the `.env.example` file and rename it to `.env`.
+2. Replace the placeholder values in the `.env` file with your actual configuration.
+
+## Usage
+This is the basic usage of the module to sync all tickets from Zendesk to ClickUp.
+
+```python
+from syncticketstoclickup.zendesk_to_clickup import ZendeskToClickUp
+
+ZendeskToClickUp().sync_zendesk_to_clickup()
+```
