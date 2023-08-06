@@ -1,0 +1,3 @@
+[console_scripts]
+damn=damn_tool.__init__:cli
+
