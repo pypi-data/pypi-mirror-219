@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: drupal-scout
+Version: 1.0.0
+Summary: Scout out for transitive versions of Drupal modules for the upgrade of the core.
+Home-page: https://github.com/rtech91/drupal-scout
+Author: Andrew [R-Tech] Tsyganiuk
+Author-email: in0mad91@gmail.com
+License: MIT
+Keywords: drupal scout upgrade update
+Provides-Extra: dev
+License-File: LICENSE.txt

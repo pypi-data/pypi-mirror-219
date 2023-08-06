@@ -1,0 +1,11 @@
+jq
+argparse
+requests
+packaging
+prettytable
+
+[dev]
+nose
+coverage
+pipdeptree
+pip-autoremove
