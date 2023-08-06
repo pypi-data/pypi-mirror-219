@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "setuptools_scm[toml]>=7.1"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "clargs"
+description = "Easily generate commandline apps from your functions, based on type hints"
+authors = [
+  { name = "Claude", email = "pypi@claude.nl" },
+]
+license = { file = "LICENSE.txt" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.10"
+dynamic = ["version"]
+
+[project.urls]
+"Homepage" = "https://github.com/reinhrst/clargs"
+"Bug Tracker" = "https://github.com/reinhrst/clargs/issues"
+
+[tool.setuptools_scm]
