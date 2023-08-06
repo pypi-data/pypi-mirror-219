@@ -1,0 +1,1 @@
+from yamet.collectors.singles import Data
