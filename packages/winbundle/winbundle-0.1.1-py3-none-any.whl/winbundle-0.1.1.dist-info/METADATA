@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: winbundle
+Version: 0.1.1
+Summary: A simple freezer for windows
+Author-email: Alex Walters <alex.walters@gmail.com>
+License: MIT
+Project-URL: Source, https://github.com/tritium21/winbundle
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: distlib
+Requires-Dist: questionary
+Requires-Dist: toml
+Requires-Dist: pywin32-ctypes
+Requires-Dist: construct
+
+# winbundle
+
+A python freeze tool that does the simplest thing that could possibly work, with the aim of being more reliable than more clever solutions.
