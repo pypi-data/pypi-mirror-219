@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+shiba_mysql.egg-info/PKG-INFO
+shiba_mysql.egg-info/SOURCES.txt
+shiba_mysql.egg-info/dependency_links.txt
+shiba_mysql.egg-info/requires.txt
+shiba_mysql.egg-info/top_level.txt
+shibamysql/__init__.py
+shibamysql/database.py
+shibamysql/query_builder.py
+shibamysql/table_builder.py
