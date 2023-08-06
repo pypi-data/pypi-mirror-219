@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: rfcxtf
+Version: 0.0.4
+Summary: Support for building TensorFlow classifiers on Arbimon and Guardian platforms
+Home-page: https://github.com/rfcx/rfcx-sdk-python
+Author: Rainforest Connection
+Author-email: antony@rfcx.org
+License: None
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: tensorflow
+Requires-Dist: pysndfile
+Requires-Dist: numpy
+
+UNKNOWN
+
