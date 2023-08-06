@@ -1,0 +1,2 @@
+[gui_scripts]
+cruiz = cruiz.__main__:main
