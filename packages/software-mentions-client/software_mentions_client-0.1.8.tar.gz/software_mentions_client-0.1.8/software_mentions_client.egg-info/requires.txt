@@ -1,0 +1,4 @@
+requests
+lmdb==1.4.1
+boto3
+pymongo

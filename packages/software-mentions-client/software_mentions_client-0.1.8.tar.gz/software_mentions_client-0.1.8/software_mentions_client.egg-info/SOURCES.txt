@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+Readme.md
+config.json
+requirements.txt
+setup.py
+software_mentions_client/S3.py
+software_mentions_client/__init__.py
+software_mentions_client/client.py
+software_mentions_client/consistency_check.py
+software_mentions_client.egg-info/PKG-INFO
+software_mentions_client.egg-info/SOURCES.txt
+software_mentions_client.egg-info/dependency_links.txt
+software_mentions_client.egg-info/requires.txt
+software_mentions_client.egg-info/top_level.txt
+software_mentions_client/resources/covid_blacklist.txt
+software_mentions_client/resources/stopwords_en.txt
