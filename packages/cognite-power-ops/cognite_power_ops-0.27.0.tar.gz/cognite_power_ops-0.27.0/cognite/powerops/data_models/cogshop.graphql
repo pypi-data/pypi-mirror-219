@@ -1,0 +1,34 @@
+type ValueTransformation {
+  method: String!
+  arguments: JSONObject
+}
+
+type OutputMapping{
+  shopObjectType: String!
+  shopAttributeName: String!
+  cdfAttributeName: String!
+  unit: String
+  isStep: Boolean
+}
+
+type CommandsConfig {
+  commands: [String!]!
+}
+
+type Scenario {
+  name: String!
+  template: ScenarioTemplate
+  mappingsOverride: [InputTimeSeriesMapping]
+  commands: CommandsConfig
+}
+
+
+type ScenarioTemplate {
+  watercourse: String!
+  shopVersion: String!
+  templateVersion: String!
+  model: File
+  shopFiles: [File]
+  baseMapping: [InputTimeSeriesMapping]
+  outputDefinitions: [OutputMapping]
+}
