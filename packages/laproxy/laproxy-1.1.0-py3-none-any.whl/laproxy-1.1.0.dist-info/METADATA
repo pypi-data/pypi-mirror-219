@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: laproxy
+Version: 1.1.0
+Summary: An easy to use proxy for A/D CTFs
+Home-page: https://github.com/rikyiso01/LaProxy
+License: MIT
+Keywords: proxy,ctf-tools,attack-defense-ctf
+Author: Riccardo Isola
+Author-email: riky.isola@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Internet :: Proxy Servers
+Classifier: Typing :: Typed
+Requires-Dist: aiotools (>=1.6.1,<2.0.0)
+Requires-Dist: attrs (>=23.1.0,<24.0.0)
+Requires-Dist: typing-extensions (>=4.7.1,<5.0.0)
+Project-URL: Documentation, https://rikyiso01.github.io/LaProxy
+Project-URL: Repository, https://github.com/rikyiso01/LaProxy
+Description-Content-Type: text/markdown
+
+# LaProxy
+
+## Introduction
+
+> An easy to use proxy for A/D CTFs  
+> You can read the documentation at [rikyiso01.github.io/LaProxy](https://rikyiso01.github.io/LaProxy)
+
+## Code Samples
+
+> ### TCP
+>
+> ```python
+> from laproxy import TCPProxy, TCPHandler
+>
+>
+> class Handler(TCPHandler):
+>     def process(self, packet: bytes, inbound: bool, /) -> bytes | None:
+>         if b"ciao" in packet and not inbound:
+>             return None
+>         return packet
+>
+>
+> if __name__ == "__main__":
+>     TCPProxy("0.0.0.0", 1234, "127.0.0.1", 5005, Handler).run()
+> ```
+>
+> ### HTTP
+>
+> ```python
+> from laproxy import TCPProxy, HTTPHandler, HTTPRequest, HTTPResponse
+>
+>
+> class Handler(HTTPHandler):
+>     def request(self, request: HTTPRequest, /) -> HTTPRequest | None:
+>         return request
+>
+>     def response(self, response: HTTPResponse, /) -> HTTPResponse | None:
+>         if b"flag" in response.body:
+>             return None
+>         return response
+>
+> if __name__ == "__main__":
+>     TCPProxy("0.0.0.0", 1234, "127.0.0.1", 5005, Handler).run()
+> ```
+>
+> You can find more examples in the samples folder
+
+## Installation
+
+> Install locally with:
+>
+> ```bash
+> python3 -m pip install laproxy
+> ```
+>
+> Or use it in a docker compose:
+>
+> ```yaml
+> version: "3.9"
+> services:
+>     proxy:
+>         image: ghcr.io/rikyiso01/laproxy:latest
+>         ports:
+>             - "1234:1234"
+>         volumes:
+>             - ./proxy.py:/app/proxy.py
+> ```
+
