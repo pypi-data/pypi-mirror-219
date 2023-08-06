@@ -1,0 +1,136 @@
+{
+  "name": "jupysql-plugin",
+  "version": "0.1.7",
+  "description": "Jupyterlab extension for JupySQL",
+  "private": true,
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "https://github.com/ploomber/jupysql-plugin.git",
+  "bugs": {
+    "url": "https://github.com/ploomber/jupysql-plugin.git/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Ploomber",
+    "email": "contact@ploomber.io"
+  },
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,js,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "style": "style/index.css",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ploomber/jupysql-plugin.git.git"
+  },
+  "workspaces": {
+    "packages": [
+      "jupysql_plugin",
+      "ui-tests"
+    ]
+  },
+  "scripts": {
+    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build:prod": "jlpm clean && jlpm build:lib:prod && jlpm build:labextension",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc --sourceMap",
+    "build:lib:prod": "tsc",
+    "clean": "jlpm clean:lib",
+    "clean:lib": "rimraf lib tsconfig.tsbuildinfo",
+    "clean:lintcache": "rimraf .eslintcache .stylelintcache",
+    "clean:labextension": "rimraf jupysql_plugin/labextension jupysql_plugin/_version.py",
+    "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
+    "eslint": "jlpm eslint:check --fix",
+    "eslint:check": "eslint . --cache --ext .ts,.tsx",
+    "install:extension": "jlpm build",
+    "lint": "jlpm stylelint && jlpm prettier && jlpm eslint",
+    "lint:check": "jlpm stylelint:check && jlpm prettier:check && jlpm eslint:check",
+    "prettier": "jlpm prettier:base --write --list-different",
+    "prettier:base": "prettier \"**/*{.ts,.tsx,.js,.jsx,.css,.json,.md}\"",
+    "prettier:check": "jlpm prettier:base --check",
+    "stylelint": "jlpm stylelint:check --fix",
+    "stylelint:check": "stylelint --cache \"style/**/*.css\"",
+    "test": "jest --coverage",
+    "watch": "run-p watch:src watch:labextension",
+    "watch:src": "tsc -w",
+    "watch:labextension": "jupyter labextension watch ."
+  },
+  "@comment": {
+    "dependencies": {
+      "@lumino/widgets": "An official library to implement the frontend of the widgets: https://github.com/jupyterlab/lumino"
+    }
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@jupyter-widgets/base": "^6.0.4",
+    "@jupyterlab/application": "^3.6.2",
+    "@jupyterlab/codeeditor": "^3.6.2",
+    "@jupyterlab/codemirror": "^3.6.3",
+    "@jupyterlab/completer": "^3.6.2",
+    "@jupyterlab/notebook": "^3.6.2",
+    "@jupyterlab/statedb": "^3.6.2",
+    "@lumino/widgets": "<2.0.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.4",
+    "@types/codemirror": "^5.60.7",
+    "@types/underscore": "^1.11.4",
+    "bootstrap": "^5.2.3",
+    "react": "^18.2.0",
+    "sql-formatter": "^12.2.0",
+    "underscore": "^1.13.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@jupyterlab/builder": "^3.1.0",
+    "@jupyterlab/testutils": "^3.0.0",
+    "@types/bootstrap": "^5.2.6",
+    "@types/jest": "^26.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.8.1",
+    "@typescript-eslint/parser": "^4.8.1",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "jest": "^26.0.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.3.0",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended": "^6.0.0",
+    "stylelint-config-standard": "~24.0.0",
+    "stylelint-prettier": "^2.0.0",
+    "ts-jest": "^26.0.0",
+    "typescript": "~4.1.3"
+  },
+  "sideEffects": [
+    "style/*.css",
+    "style/index.js"
+  ],
+  "styleModule": "style/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "jupyterlab": {
+    "extension": true,
+    "outputDir": "jupysql_plugin/labextension",
+    "sharedPackages": {
+      "@jupyter-widgets/base": {
+        "bundled": false,
+        "singleton": true
+      }
+    },
+    "_build": {
+      "load": "static/remoteEntry.e80d3b8b00f5114eb1bb.js",
+      "extension": "./extension",
+      "style": "./style"
+    }
+  }
+}
