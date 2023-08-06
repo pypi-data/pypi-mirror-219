@@ -1,0 +1,53 @@
+[project]
+name = "arke-discord"
+description = "Python Discord API Wrapper made from the ground up."
+authors = [
+    { name = "Emre Terzioglu", email = "emreterzioglu49@gmail.com" },
+]
+dependencies = [
+    "aiohttp<4.0,>=3.8.0",
+    "discord-typings<1.0,>=0.6.0",
+]
+requires-python = ">=3.10"
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Framework :: AsyncIO",
+    "Topic :: Internet",
+    "Topic :: Internet :: WWW/HTTP",
+    "Typing :: Typed",
+]
+readme = "README.md"
+dynamic = []
+version = "0.1.2"
+
+[project.license]
+text = "MIT"
+
+[project.urls]
+Homepage = "https://github.com/EmreTech/arke"
+"Bug Tracker" = "https://github.com/EmreTech/arke/issues"
+
+[tool.pdm.version]
+source = "scm"
+write_to = "arke/_version.py"
+write_template = "__version__ = \"{}\""
+
+[tool.black]
+line-length = 100
+include = [
+    "arke",
+]
+
+[tool.isort]
+profile = "black"
+
+[build-system]
+requires = [
+    "pdm-backend",
+]
+build-backend = "pdm.backend"
