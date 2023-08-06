@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+tabela_sac/__init__.py
+tabela_sac/_modidx.py
+tabela_sac/cli.py
+tabela_sac/core.py
+tabela_sac.egg-info/PKG-INFO
+tabela_sac.egg-info/SOURCES.txt
+tabela_sac.egg-info/dependency_links.txt
+tabela_sac.egg-info/entry_points.txt
+tabela_sac.egg-info/not-zip-safe
+tabela_sac.egg-info/requires.txt
+tabela_sac.egg-info/top_level.txt
