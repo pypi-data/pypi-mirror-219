@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "iciflaskn"
+version = "0.1.0"
+description = "A configurable flask blueprint providing authentication via ICICLE Tapis OAuth2"
+authors = ["Joe Stubbs <joestubbs5@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.31.0"
+flask = "^2.3.2"
+tapipy = "^1.4.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
