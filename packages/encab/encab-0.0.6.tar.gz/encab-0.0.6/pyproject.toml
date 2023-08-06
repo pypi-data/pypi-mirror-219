@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=63.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "encab"
+version = "0.0.6"
+authors = [
+  { name="Sebastian Kuebeck", email="sebastian.kuebeck@encab.io" },
+]
+description = "Process manager"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "PyYAML >= 6.0, < 7",
+  "types-PyYAML >= 6.0.12.2, < 7",
+  "marshmallow >= 3.19.0, < 4",
+  "marshmallow-dataclass[enum,union] >= 8.5.10, < 9",
+  "marshmallow-enum >= 1.5.1, < 2",
+  "pluggy >= 1.0.0, < 2",
+  "python-dotenv >= 0.21.1, < 1"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/sebastian-kuebeck/encab"
+"Documentation" = "https://encab.readthedocs.io"
+"Bug Tracker" = "https://github.com/sebastian-kuebeck/encab"
+
+[project.scripts]
+encab = "encab.encab:encab"
+
+[tool.ruff]
+line-length = 120
