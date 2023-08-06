@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: ARIclicker
+Version: 2.0.0
+Summary: The best autoclicker in minecraft!
+Home-page: UNKNOWN
+Author: LIN,Zhe
+Author-email: 2081812728@qq.com
+License: MIT
+Description:   # **--ARIclicker--** # 
+        
+        
+        ## Runtime Dependencies ##
+        * python>=3.0
+        
+        
+        
+        ## Requires ##
+        * pynput
+        ## Installation ##
+        `
+        pip install ARIclicker
+        `
+        
+        ## Function ##
+        * `def autoclick(start_stop_key_character, end_key_character, button,delay_min, delay_max) `
+        
+        
+        
+        
+Keywords: autoclicker,minecraft-auto
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires: pynput
+Description-Content-Type: text/markdown
