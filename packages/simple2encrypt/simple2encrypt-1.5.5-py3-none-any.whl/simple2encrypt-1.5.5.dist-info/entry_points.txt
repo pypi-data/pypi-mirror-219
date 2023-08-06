@@ -1,0 +1,5 @@
+[console_scripts]
+aes-decrypt = example_decrypt:main
+aes-encrypt = example_encrypt:main
+aes-key = simple2encrypt:main
+aes-message = example_message:main
