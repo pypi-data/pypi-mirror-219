@@ -1,0 +1,240 @@
+#root {
+    --font-family: arial;
+    --font-size: 0.7em;
+    --max-height: 2400px;
+    --edge-size: 150px;
+    --node-size: 100px;
+    --padding-quantum: 5px;
+    --edge-color: #ccc;
+    --edge-hover-color: #94a0b4;
+    --node-color: #fff;
+    --node-hover-color: #c8e4f8;
+    --node-border-color: #ccc;
+    --text-color: #333;
+    --text-hover-color: #333;
+    --button-color: #b99191;
+    --button-hover-color: #960000;
+    --transition-time: 0.75s;
+    --edge-length-before: calc(var(--padding-quantum) * 2);
+    --edge-style: 1px solid var(--edge-color);
+    --node-outer-padding: var(--padding-quantum) 0 var(--padding-quantum)
+        var(--edge-size);
+    --node-border-style: 1px solid var(--node-border-color);
+    --node-border-radius: var(--padding-quantum);
+    --node-inner-padding: var(--padding-quantum) var(--padding-quantum);
+    --node-left-item-width: calc(var(--padding-quantum) * 4);
+    --node-text-color: var(--text-color);
+    --node-font-size: var(--font-size);
+    --node-width: var(--node-size);
+    --node-hover-color: var(--node-hover-color);
+    --node-hover-text-color: #var(--text-hover-color);
+    --node-hover-border-style: 1px solid var(--edge-hover-color);
+    --edge-label-margin-x: calc(var(--padding-quantum) * 2);
+    --edge-label-margin-y: 2px;
+    --child-button-margin: 0px 0px 0px 3px;
+    --child-button-size: calc(var(--padding-quantum) * 2);
+    --child-button-color: var(--button-color);
+    --child-button-hover-color: var(--button-hover-color);
+}
+body {
+    height: auto;
+}
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+button {
+    display: block;
+    margin: 5px auto;
+    padding: 5px;
+}
+.tree {
+    display: -ms-flexbox;
+    display: inline-block;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    min-width: 0;
+    max-width: 100%;
+    padding: 10px;
+}
+.tree,
+.tree ul {
+    transition: all var(--transition-time) ease;
+    -webkit-transition: all var(--transition-time) ease;
+    -moz-transition: all var(--transition-time) ease;
+    -ms-transition: all var(--transition-time) ease;
+    -o-transition: all var(--transition-time) ease;
+}
+.tree ul {
+    display: inline-flex;
+    padding-left: var(--edge-length-before);
+    padding-right: var(--padding-quantum);
+    position: relative;
+    display: -ms-flexbox;
+    flex-direction: column;
+    justify-content: center;
+    max-height: var(--max-height);
+    max-width: var(--max-height);
+}
+.tree li {
+    text-align: center;
+    list-style-type: none;
+    position: relative;
+    padding: var(--node-outer-padding);
+    display: flex;
+    transition: all var(--transition-time) ease;
+    -webkit-transition: all var(--transition-time) ease;
+    -moz-transition: all var(--transition-time) ease;
+    -ms-transition: all var(--transition-time) ease;
+    -o-transition: all var(--transition-time) ease;
+}
+.tree li:after,
+.tree li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    border-left: var(--edge-style);
+    width: var(--edge-size);
+    height: 50%;
+}
+.tree li:after {
+    bottom: auto;
+    top: 50%;
+    border-top: var(--edge-style);
+}
+.tree li:only-child:after,
+.tree li:only-child:before {
+    display: none;
+}
+.tree li:only-child {
+    padding-left: 0;
+}
+.tree li:first-child:before,
+.tree li:last-child:after {
+    border: 0;
+}
+.tree li:last-child:before {
+    border-bottom: var(--edge-style);
+}
+.tree ul ul:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    border-top: var(--edge-style);
+    width: var(--edge-length-before);
+    height: 0;
+}
+.tree li .node {
+    border: var(--node-border-style);
+    text-decoration: none;
+    background-color: var(--node-color);
+    color: var(--node-text-color);
+    font-family: var(--font-family);
+    font-size: var(--node-font-size);
+    display: flex;
+    align-self: center;
+    border-radius: var(--node-border-radius);
+    -webkit-border-radius: var(--node-border-radius);
+    -moz-border-radius: var(--node-border-radius);
+    -ms-border-radius: var(--node-border-radius);
+    -o-border-radius: var(--node-border-radius);
+    transition: all var(--transition-time) ease;
+    -webkit-transition: all var(--transition-time) ease;
+    -moz-transition: all var(--transition-time) ease;
+    -ms-transition: all var(--transition-time) ease;
+    -o-transition: all var(--transition-time) ease;
+}
+.tree li .node .node-content-left {
+    cursor: pointer;
+    width: var(--node-left-item-width);
+    font-weight: 700;
+    border-right: var(--node-border-style);
+    border-radius: var(--node-border-radius) 0 0 var(--node-border-radius);
+    -webkit-border-radius: var(--node-border-radius) 0 0
+        var(--node-border-radius);
+    -moz-border-radius: var(--node-border-radius) 0 0 var(--node-border-radius);
+    -ms-border-radius: var(--node-border-radius) 0 0 var(--node-border-radius);
+    -o-border-radius: var(--node-border-radius) 0 0 var(--node-border-radius);
+}
+.tree li .node .node-content-left,
+.tree li .node .node-content-right {
+    padding: var(--node-inner-padding);
+    margin: 0;
+    display: flex;
+    align-self: stretch;
+    align-items: center;
+    justify-content: center;
+}
+.tree li .node .node-content-right {
+    width: 100%;
+    flex-direction: column;
+    width: var(--node-width);
+    border-radius: 0 var(--node-border-radius) var(--node-border-radius) 0;
+    -webkit-border-radius: 0 var(--node-border-radius) var(--node-border-radius)
+        0;
+    -moz-border-radius: 0 var(--node-border-radius) var(--node-border-radius) 0;
+    -ms-border-radius: 0 var(--node-border-radius) var(--node-border-radius) 0;
+    -o-border-radius: 0 var(--node-border-radius) var(--node-border-radius) 0;
+}
+.tree li .node .node-content-right-item {
+    padding: 0;
+}
+.tree li .node:hover {
+    background: var(--node-hover-color);
+    color: var(--node-hover-text-color);
+    border: var(--node-hover-border-style);
+}
+.tree li .edge-content {
+    margin: var(--edge-label-margin-y) var(--edge-label-margin-x);
+    text-decoration: none;
+    color: var(--node-text-color);
+    font-family: var(--font-family);
+    font-size: var(--node-font-size);
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: calc(var(--edge-size) - var(--edge-label-margin-x) * 2);
+}
+.child-button,
+.tree li .edge-content {
+    transition: all var(--transition-time) ease;
+    -webkit-transition: all var(--transition-time) ease;
+    -moz-transition: all var(--transition-time) ease;
+    -ms-transition: all var(--transition-time) ease;
+    -o-transition: all var(--transition-time) ease;
+}
+.child-button {
+    display: inline-block;
+    align-self: center;
+    margin: var(--child-button-margin);
+    border-top: var(--child-button-size) solid transparent;
+    border-bottom: var(--child-button-size) solid transparent;
+    border-left: var(--child-button-size) solid var(--child-button-color);
+}
+.child-button:hover {
+    border-left: var(--child-button-size) solid var(--child-button-hover-color);
+    cursor: pointer;
+}
+/*# sourceMappingURL=main.b99ffb9e.chunk.css.map */
