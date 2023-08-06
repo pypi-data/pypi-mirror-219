@@ -1,0 +1,31 @@
+{% load static %}
+
+{% load django_glue %}
+
+{% csrf_token %}
+
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_keep_live.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+
+<script type="application/javascript">
+    const DJANGO_DEBUG = {% if debug %}true{% else %}false{% endif %}
+    const DJANGO_GLUE_AJAX_URL = '{% url 'django_glue:django_glue_data_handler' %}'
+    const DJANGO_GLUE_KEEP_LIVE_URL = '{% url 'django_glue:django_glue_keep_live_handler' %}'
+
+    window.glue_keep_live = new GlueKeepLive()
+
+    setInterval(() => {
+        window.glue_keep_live.update(DJANGO_GLUE_KEEP_LIVE_URL)
+    }, 2000)
+
+</script>
+
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_csrf.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_ajax.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_event.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_response.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_message.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_model_object.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_query_set.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_template.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_view.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
+<script type="application/javascript" src="{% static 'django_glue/js/django_glue_shortcuts.js' %}?v={{ DJANGO_GLUE_VERSION }}"></script>
