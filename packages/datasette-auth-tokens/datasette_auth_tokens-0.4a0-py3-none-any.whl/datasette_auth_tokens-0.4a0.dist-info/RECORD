@@ -1,0 +1,10 @@
+datasette_auth_tokens/__init__.py,sha256=Jj4fiHR3B5TqctmoXDErcam_oxQ43A_U6qIj_bBp3gg,5930
+datasette_auth_tokens/views.py,sha256=XrbSykpQK_p8CYEZjaGYSPtvZzZCzkEGMONXhG7YHj4,7389
+datasette_auth_tokens/templates/create_api_token.html,sha256=eyi481vE_19QaG65oO6a7djd6JqM2LOkAouOU0AV4Qw,5585
+datasette_auth_tokens/templates/token_details.html,sha256=ceYZvfmNMnKHsLvigb8ebawytTUp4kQ7DpQYaeLR_DM,1036
+datasette_auth_tokens-0.4a0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+datasette_auth_tokens-0.4a0.dist-info/METADATA,sha256=-SuQdsoetnSvr-hJRzpWnKd93xjOXNRU7mms5zP_3M4,8300
+datasette_auth_tokens-0.4a0.dist-info/WHEEL,sha256=pkctZYzUS4AYVn6dJ-7367OJZivF2e8RA9b_ZBjif18,92
+datasette_auth_tokens-0.4a0.dist-info/entry_points.txt,sha256=0Sov51uZorOc4TxgcJ_4fdwB244KtX9H5AEPIGHpOSM,48
+datasette_auth_tokens-0.4a0.dist-info/top_level.txt,sha256=lCT7ytC3E1EfTqmOn8k7C2dx3Pkvx-WuIlowOGhhykQ,22
+datasette_auth_tokens-0.4a0.dist-info/RECORD,,
