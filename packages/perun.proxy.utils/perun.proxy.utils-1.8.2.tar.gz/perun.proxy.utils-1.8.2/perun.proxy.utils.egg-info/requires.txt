@@ -1,0 +1,12 @@
+PyYAML<7.0,>=5.4
+asyncssh~=2.13
+beautifulsoup4~=4.12
+check_nginx_status~=1.0
+check_syncrepl_extended~=2020.13
+docker~=6.0
+pymongo~=4.3
+requests~=2.31
+setuptools
+
+[ldap]
+ldap3~=2.9.1
