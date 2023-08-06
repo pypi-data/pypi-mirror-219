@@ -1,0 +1,11 @@
+repos:
+-   repo: https://github.com/ambv/black
+    rev: stable
+    hooks:
+    - id: black
+- repo: local
+  hooks:
+    - id: nosetests
+      name: nosetests
+      entry: sh -ec 'nosetests -w janis'
+      language: system

@@ -1,0 +1,797 @@
+.gitignore
+.pre-commit-config.yaml
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE
+README.md
+constants.py
+pyproject.toml
+setup.py
+updatesubmodules.sh
+.github/workflows/publish.yml
+.github/workflows/unit_tests.yml
+docs/Makefile
+docs/about.rst
+docs/bioinformatics.md
+docs/conf.py
+docs/index.rst
+docs/make.bat
+docs/motiviations.rst
+docs/regeneratedocumentation.py
+docs/requirements.txt
+docs/userguide.rst
+docs/_static/css/custom.css
+docs/casestudy/conversionproblem.md
+docs/casestudy/conversions_vcf_tabix.png
+docs/casestudy/parsingcwl.md
+docs/datatypes/bai.rst
+docs/datatypes/bam.rst
+docs/datatypes/bed.rst
+docs/datatypes/bedgz.rst
+docs/datatypes/bedtabix.rst
+docs/datatypes/boolean.rst
+docs/datatypes/compressedindexedvcf.rst
+docs/datatypes/compressedtarfile.rst
+docs/datatypes/compressedvcf.rst
+docs/datatypes/crai.rst
+docs/datatypes/cram.rst
+docs/datatypes/crampair.rst
+docs/datatypes/csv.rst
+docs/datatypes/directory.rst
+docs/datatypes/double.rst
+docs/datatypes/fasta.rst
+docs/datatypes/fastabwa.rst
+docs/datatypes/fastafai.rst
+docs/datatypes/fastagz.rst
+docs/datatypes/fastagzbwa.rst
+docs/datatypes/fastagzfai.rst
+docs/datatypes/fastagzwithindexes.rst
+docs/datatypes/fastawithindexes.rst
+docs/datatypes/fastdict.rst
+docs/datatypes/fastgzdict.rst
+docs/datatypes/fastq.rst
+docs/datatypes/fastqgz.rst
+docs/datatypes/file.rst
+docs/datatypes/filename.rst
+docs/datatypes/float.rst
+docs/datatypes/gzip.rst
+docs/datatypes/htmlfile.rst
+docs/datatypes/index.rst
+docs/datatypes/indexedbam.rst
+docs/datatypes/indexedvcf.rst
+docs/datatypes/integer.rst
+docs/datatypes/jsonfile.rst
+docs/datatypes/kallistoidx.rst
+docs/datatypes/sam.rst
+docs/datatypes/stderr.rst
+docs/datatypes/stdout.rst
+docs/datatypes/string.rst
+docs/datatypes/tarfile.rst
+docs/datatypes/textfile.rst
+docs/datatypes/tsv.rst
+docs/datatypes/vcf.rst
+docs/datatypes/whisperidx.rst
+docs/datatypes/zip.rst
+docs/development/contributing.md
+docs/development/index.rst
+docs/development/optional.md
+docs/development/releasing.md
+docs/development/testing.md
+docs/generationhelpers/codetool.py
+docs/generationhelpers/commandtool.py
+docs/generationhelpers/datatype.py
+docs/generationhelpers/operators.py
+docs/generationhelpers/pipelines.py
+docs/generationhelpers/template.py
+docs/generationhelpers/utils.py
+docs/generationhelpers/workflow.py
+docs/pipelines/WGSGermlineGATKVariantsOnly_1_3_1.dot
+docs/pipelines/WGSGermlineGATKVariantsOnly_1_3_1.dot.png
+docs/pipelines/WGSGermlineGATKVariantsOnly_1_4_0.dot
+docs/pipelines/WGSGermlineGATKVariantsOnly_1_4_0.dot.png
+docs/pipelines/WGSGermlineGATK_1_3_1.dot
+docs/pipelines/WGSGermlineGATK_1_3_1.dot.png
+docs/pipelines/WGSGermlineGATK_1_4_0.dot
+docs/pipelines/WGSGermlineGATK_1_4_0.dot.png
+docs/pipelines/WGSGermlineMultiCallersVariantsOnly_1_3_1.dot
+docs/pipelines/WGSGermlineMultiCallersVariantsOnly_1_3_1.dot.png
+docs/pipelines/WGSGermlineMultiCallersVariantsOnly_1_4_0.dot
+docs/pipelines/WGSGermlineMultiCallersVariantsOnly_1_4_0.dot.png
+docs/pipelines/WGSGermlineMultiCallers_1_3_1.dot
+docs/pipelines/WGSGermlineMultiCallers_1_3_1.dot.png
+docs/pipelines/WGSGermlineMultiCallers_1_4_0.dot
+docs/pipelines/WGSGermlineMultiCallers_1_4_0.dot.png
+docs/pipelines/WGSSomaticGATKVariantsOnly_1_3_1.dot
+docs/pipelines/WGSSomaticGATKVariantsOnly_1_3_1.dot.png
+docs/pipelines/WGSSomaticGATKVariantsOnly_1_4_0.dot
+docs/pipelines/WGSSomaticGATKVariantsOnly_1_4_0.dot.png
+docs/pipelines/WGSSomaticGATK_1_3_1.dot
+docs/pipelines/WGSSomaticGATK_1_3_1.dot.png
+docs/pipelines/WGSSomaticGATK_1_4_0.dot
+docs/pipelines/WGSSomaticGATK_1_4_0.dot.png
+docs/pipelines/WGSSomaticMultiCallersVariantsOnly_1_3_0.dot
+docs/pipelines/WGSSomaticMultiCallersVariantsOnly_1_3_0.dot.png
+docs/pipelines/WGSSomaticMultiCallersVariantsOnly_1_4_0.dot
+docs/pipelines/WGSSomaticMultiCallersVariantsOnly_1_4_0.dot.png
+docs/pipelines/WGSSomaticMultiCallers_1_3_0.dot
+docs/pipelines/WGSSomaticMultiCallers_1_3_0.dot.png
+docs/pipelines/WGSSomaticMultiCallers_1_4_0.dot
+docs/pipelines/WGSSomaticMultiCallers_1_4_0.dot.png
+docs/pipelines/index.rst
+docs/pipelines/wgsgermlinegatk.rst
+docs/pipelines/wgsgermlinegatkvariantsonly.rst
+docs/pipelines/wgsgermlinemulticallers.rst
+docs/pipelines/wgsgermlinemulticallersvariantsonly.rst
+docs/pipelines/wgssomaticgatk.rst
+docs/pipelines/wgssomaticgatkvariantsonly.rst
+docs/pipelines/wgssomaticmulticallers.rst
+docs/pipelines/wgssomaticmulticallersvariantsonly.rst
+docs/profiling/bwamem.md
+docs/profiling/cutadapt.md
+docs/profiling/gatk_haplotypecaller.md
+docs/profiling/optimise.md
+docs/references/callcaching.md
+docs/references/cli.md
+docs/references/commandtool.rst
+docs/references/conditionals.rst
+docs/references/configuration.rst
+docs/references/cwl.rst
+docs/references/dynamicworkflows.rst
+docs/references/engines.rst
+docs/references/errors.md
+docs/references/expressions.rst
+docs/references/faq.md
+docs/references/index.rst
+docs/references/listoperators.rst
+docs/references/prepare.rst
+docs/references/resources.md
+docs/references/scattering.rst
+docs/references/secondaryfiles.rst
+docs/references/selectors.rst
+docs/references/shed.rst
+docs/references/types.rst
+docs/references/unittest.rst
+docs/references/updating.md
+docs/references/wdl.rst
+docs/references/workflow.rst
+docs/references/tools/codetool.rst
+docs/references/tools/pythontool.rst
+docs/resources/bakecookie-wf.png
+docs/resources/bakecookie.gliffy
+docs/resources/requirements.md
+docs/resources/run-unit-tests.png
+docs/resources/simple.png
+docs/resources/optimisation/bwamem-cost.pdf
+docs/resources/optimisation/bwamem-total.pdf
+docs/resources/optimisation/cutadapt-cputime.svg
+docs/resources/optimisation/cutadapt-time-taken.pdf
+docs/templates/index.rst
+docs/templates/local.rst
+docs/templates/molpath.rst
+docs/templates/pawsey.rst
+docs/templates/pbs_singularity.rst
+docs/templates/pmac.rst
+docs/templates/singularity.rst
+docs/templates/slurm_singularity.rst
+docs/templates/spartan.rst
+docs/templates/wehi.rst
+docs/tools/index.rst
+docs/tools/bioinformatics/index.rst
+docs/tools/bioinformatics/arriba/arriba.rst
+docs/tools/bioinformatics/arriba/arriba_1.1.0.rst
+docs/tools/bioinformatics/arriba/arriba_1.2.0.rst
+docs/tools/bioinformatics/arriba/index.rst
+docs/tools/bioinformatics/bcftools/bcftoolsannotate.rst
+docs/tools/bioinformatics/bcftools/bcftoolsannotate_v1.5.rst
+docs/tools/bioinformatics/bcftools/bcftoolsannotate_v1.9.rst
+docs/tools/bioinformatics/bcftools/bcftoolsconcat.rst
+docs/tools/bioinformatics/bcftools/bcftoolsconcat_v1.9.rst
+docs/tools/bioinformatics/bcftools/bcftoolsindex.rst
+docs/tools/bioinformatics/bcftools/bcftoolsindex_v1.9.rst
+docs/tools/bioinformatics/bcftools/bcftoolsnorm.rst
+docs/tools/bioinformatics/bcftools/bcftoolsnorm_v1.5.rst
+docs/tools/bioinformatics/bcftools/bcftoolsnorm_v1.9.rst
+docs/tools/bioinformatics/bcftools/bcftoolssort.rst
+docs/tools/bioinformatics/bcftools/bcftoolssort_v1.9.rst
+docs/tools/bioinformatics/bcftools/bcftoolsview.rst
+docs/tools/bioinformatics/bcftools/bcftoolsview_v1.5.rst
+docs/tools/bioinformatics/bcftools/bcftoolsview_v1.9.rst
+docs/tools/bioinformatics/bcftools/index.rst
+docs/tools/bioinformatics/bedtools/bedtoolscoveragebed.rst
+docs/tools/bioinformatics/bedtools/bedtoolscoveragebed_v2.29.2.rst
+docs/tools/bioinformatics/bedtools/bedtoolsgenomecoveragebed.rst
+docs/tools/bioinformatics/bedtools/bedtoolsgenomecoveragebed_v2.29.2.rst
+docs/tools/bioinformatics/bedtools/bedtoolsintersectbed.rst
+docs/tools/bioinformatics/bedtools/bedtoolsintersectbed_v2.29.2.rst
+docs/tools/bioinformatics/bedtools/index.rst
+docs/tools/bioinformatics/biobambam/bamsormadup.rst
+docs/tools/bioinformatics/biobambam/bamsormadup_2.0.87.rst
+docs/tools/bioinformatics/biobambam/index.rst
+docs/tools/bioinformatics/broad institute/gatk3depthofcoverage.rst
+docs/tools/bioinformatics/broad institute/gatk3depthofcoverage_3.8-0.rst
+docs/tools/bioinformatics/broad institute/gatk3depthofcoverage_3.8-1.rst
+docs/tools/bioinformatics/broad institute/index.rst
+docs/tools/bioinformatics/bwa/bwaindex.rst
+docs/tools/bioinformatics/bwa/bwaindex_v0.7.15.rst
+docs/tools/bioinformatics/bwa/bwamem.rst
+docs/tools/bioinformatics/bwa/bwamem_v0.7.15.rst
+docs/tools/bioinformatics/bwa/index.rst
+docs/tools/bioinformatics/cellranger/cellrangermkfastq.rst
+docs/tools/bioinformatics/cellranger/cellrangermkfastq_v3.0.2.rst
+docs/tools/bioinformatics/cellranger/index.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/index.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_alignreads.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_alignreads_v2.5.3a.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_alignreads_v2.7.1a.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_alignreads_v2.7.5c.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_genomegenerate.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_genomegenerate_v2.5.3a.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_genomegenerate_v2.7.1a.rst
+docs/tools/bioinformatics/cold spring harbor laboratory/star_genomegenerate_v2.7.5c.rst
+docs/tools/bioinformatics/common/BwaAligner_1_0_0.dot
+docs/tools/bioinformatics/common/BwaAligner_1_0_0.dot.png
+docs/tools/bioinformatics/common/GATKBaseRecalBQSRWorkflow_4_1_2.dot
+docs/tools/bioinformatics/common/GATKBaseRecalBQSRWorkflow_4_1_2.dot.png
+docs/tools/bioinformatics/common/GATKBaseRecalBQSRWorkflow_4_1_3.dot
+docs/tools/bioinformatics/common/GATKBaseRecalBQSRWorkflow_4_1_3.dot.png
+docs/tools/bioinformatics/common/IndexFasta_1_0_0.dot
+docs/tools/bioinformatics/common/IndexFasta_1_0_0.dot.png
+docs/tools/bioinformatics/common/bwaaligner.rst
+docs/tools/bioinformatics/common/bwaaligner_1.0.0.rst
+docs/tools/bioinformatics/common/bwamemsamtoolsview.rst
+docs/tools/bioinformatics/common/bwamemsamtoolsview_0.7.17%7c1.9.rst
+docs/tools/bioinformatics/common/concatstrelkasomaticvcf.rst
+docs/tools/bioinformatics/common/concatstrelkasomaticvcf_0.1.16.rst
+docs/tools/bioinformatics/common/filtervardictsomaticvcf.rst
+docs/tools/bioinformatics/common/filtervardictsomaticvcf_v1.9.rst
+docs/tools/bioinformatics/common/gatkbaserecalbqsrworkflow.rst
+docs/tools/bioinformatics/common/gatkbaserecalbqsrworkflow_4.1.2.rst
+docs/tools/bioinformatics/common/gatkbaserecalbqsrworkflow_4.1.3.rst
+docs/tools/bioinformatics/common/index.rst
+docs/tools/bioinformatics/common/indexfasta.rst
+docs/tools/bioinformatics/common/indexfasta_1.0.0.rst
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_0_12.dot
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_0_12.dot.png
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_1_2.dot
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_1_2.dot.png
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_1_3.dot
+docs/tools/bioinformatics/common/mergeAndMarkBams_4_1_3.dot.png
+docs/tools/bioinformatics/common/mergeandmarkbams.rst
+docs/tools/bioinformatics/common/mergeandmarkbams_4.0.12.rst
+docs/tools/bioinformatics/common/mergeandmarkbams_4.1.2.rst
+docs/tools/bioinformatics/common/mergeandmarkbams_4.1.3.rst
+docs/tools/bioinformatics/cutadapt/cutadapt.rst
+docs/tools/bioinformatics/cutadapt/cutadapt_1.18.rst
+docs/tools/bioinformatics/cutadapt/cutadapt_2.1.rst
+docs/tools/bioinformatics/cutadapt/cutadapt_2.4.rst
+docs/tools/bioinformatics/cutadapt/cutadapt_2.5.rst
+docs/tools/bioinformatics/cutadapt/cutadapt_2.6.rst
+docs/tools/bioinformatics/cutadapt/index.rst
+docs/tools/bioinformatics/dawson labs/FreeBayesSomaticWorkflowCram_0_1_1.dot
+docs/tools/bioinformatics/dawson labs/FreeBayesSomaticWorkflowCram_0_1_1.dot.png
+docs/tools/bioinformatics/dawson labs/FreeBayesSomaticWorkflow_0_1_1.dot
+docs/tools/bioinformatics/dawson labs/FreeBayesSomaticWorkflow_0_1_1.dot.png
+docs/tools/bioinformatics/dawson labs/Mutect2JointSomaticWorkflowCram_0_1_1.dot
+docs/tools/bioinformatics/dawson labs/Mutect2JointSomaticWorkflowCram_0_1_1.dot.png
+docs/tools/bioinformatics/dawson labs/Mutect2JointSomaticWorkflow_0_1_1.dot
+docs/tools/bioinformatics/dawson labs/Mutect2JointSomaticWorkflow_0_1_1.dot.png
+docs/tools/bioinformatics/dawson labs/Strelka2PassWorkflowCram_0_2.dot
+docs/tools/bioinformatics/dawson labs/Strelka2PassWorkflowCram_0_2.dot.png
+docs/tools/bioinformatics/dawson labs/Strelka2PassWorkflow_0_2.dot
+docs/tools/bioinformatics/dawson labs/Strelka2PassWorkflow_0_2.dot.png
+docs/tools/bioinformatics/dawson labs/callsomaticfreebayes.rst
+docs/tools/bioinformatics/dawson labs/callsomaticfreebayes_0.1.8.rst
+docs/tools/bioinformatics/dawson labs/createcallregions.rst
+docs/tools/bioinformatics/dawson labs/createcallregions_v0.1.0.rst
+docs/tools/bioinformatics/dawson labs/freebayessomaticworkflow.rst
+docs/tools/bioinformatics/dawson labs/freebayessomaticworkflow_0.1.1.rst
+docs/tools/bioinformatics/dawson labs/freebayessomaticworkflowcram.rst
+docs/tools/bioinformatics/dawson labs/freebayessomaticworkflowcram_0.1.1.rst
+docs/tools/bioinformatics/dawson labs/index.rst
+docs/tools/bioinformatics/dawson labs/mutect2jointsomaticworkflow.rst
+docs/tools/bioinformatics/dawson labs/mutect2jointsomaticworkflow_0.1.1.rst
+docs/tools/bioinformatics/dawson labs/mutect2jointsomaticworkflowcram.rst
+docs/tools/bioinformatics/dawson labs/mutect2jointsomaticworkflowcram_0.1.1.rst
+docs/tools/bioinformatics/dawson labs/refilterstrelka2calls.rst
+docs/tools/bioinformatics/dawson labs/refilterstrelka2calls_0.1.8.rst
+docs/tools/bioinformatics/dawson labs/strelka2passworkflow.rst
+docs/tools/bioinformatics/dawson labs/strelka2passworkflow_0.2.rst
+docs/tools/bioinformatics/dawson labs/strelka2passworkflowcram.rst
+docs/tools/bioinformatics/dawson labs/strelka2passworkflowcram_0.2.rst
+docs/tools/bioinformatics/ekg/index.rst
+docs/tools/bioinformatics/ekg/vcfallelicprimitives.rst
+docs/tools/bioinformatics/ekg/vcfallelicprimitives_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfcombine.rst
+docs/tools/bioinformatics/ekg/vcfcombine_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcffilter.rst
+docs/tools/bioinformatics/ekg/vcffilter_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcffixup.rst
+docs/tools/bioinformatics/ekg/vcffixup_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcflength.rst
+docs/tools/bioinformatics/ekg/vcflength_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfrandomsample.rst
+docs/tools/bioinformatics/ekg/vcfrandomsample_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfroc.rst
+docs/tools/bioinformatics/ekg/vcfroc_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfstreamsort.rst
+docs/tools/bioinformatics/ekg/vcfstreamsort_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfuniq.rst
+docs/tools/bioinformatics/ekg/vcfuniq_v1.0.1.rst
+docs/tools/bioinformatics/ekg/vcfuniqalleles.rst
+docs/tools/bioinformatics/ekg/vcfuniqalleles_v1.0.1.rst
+docs/tools/bioinformatics/ensembl/filtervep.rst
+docs/tools/bioinformatics/ensembl/filtervep_98.3.rst
+docs/tools/bioinformatics/ensembl/index.rst
+docs/tools/bioinformatics/ensembl/vep_cache.rst
+docs/tools/bioinformatics/ensembl/vep_cache_98.3.rst
+docs/tools/bioinformatics/ensembl/vep_database.rst
+docs/tools/bioinformatics/ensembl/vep_database_98.3.rst
+docs/tools/bioinformatics/erik garrison/freebayes.rst
+docs/tools/bioinformatics/erik garrison/freebayes_1.2.rst
+docs/tools/bioinformatics/erik garrison/freebayes_1.3.1.rst
+docs/tools/bioinformatics/erik garrison/freebayes_cram.rst
+docs/tools/bioinformatics/erik garrison/freebayes_cram_1.3.1.rst
+docs/tools/bioinformatics/erik garrison/index.rst
+docs/tools/bioinformatics/facets/facetssnppileup.rst
+docs/tools/bioinformatics/facets/facetssnppileup_0.5.14-2.rst
+docs/tools/bioinformatics/facets/facetssnppileup_0.5.14.1.rst
+docs/tools/bioinformatics/facets/facetssnppileup_0.5.14.rst
+docs/tools/bioinformatics/facets/index.rst
+docs/tools/bioinformatics/fastqc/fastqc.rst
+docs/tools/bioinformatics/fastqc/fastqc_single.rst
+docs/tools/bioinformatics/fastqc/fastqc_single_scattered.rst
+docs/tools/bioinformatics/fastqc/fastqc_single_scattered_v0.11.8.rst
+docs/tools/bioinformatics/fastqc/fastqc_single_scattered_v0_11_8.dot
+docs/tools/bioinformatics/fastqc/fastqc_single_scattered_v0_11_8.dot.png
+docs/tools/bioinformatics/fastqc/fastqc_single_v0.11.5.rst
+docs/tools/bioinformatics/fastqc/fastqc_single_v0.11.8.rst
+docs/tools/bioinformatics/fastqc/fastqc_v0.11.5.rst
+docs/tools/bioinformatics/fastqc/fastqc_v0.11.8.rst
+docs/tools/bioinformatics/fastqc/index.rst
+docs/tools/bioinformatics/gatk4/gatk4applybqsr.rst
+docs/tools/bioinformatics/gatk4/gatk4applybqsr_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4applybqsr_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4applybqsr_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4applybqsr_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4baserecalibrator.rst
+docs/tools/bioinformatics/gatk4/gatk4baserecalibrator_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4baserecalibrator_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4baserecalibrator_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4baserecalibrator_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4calculatecontamination_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4collectinsertsizemetrics.rst
+docs/tools/bioinformatics/gatk4/gatk4collectinsertsizemetrics_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4collectinsertsizemetrics_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4collectinsertsizemetrics_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4collectinsertsizemetrics_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4createsequencedictionary.rst
+docs/tools/bioinformatics/gatk4/gatk4createsequencedictionary_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4createsequencedictionary_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4createsequencedictionary_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4depthofcoverage.rst
+docs/tools/bioinformatics/gatk4/gatk4depthofcoverage_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4fastqtosam.rst
+docs/tools/bioinformatics/gatk4/gatk4fastqtosam_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4fastqtosam_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4fastqtosam_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4fastqtosam_4.1.4.1.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4filtermutectcalls_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbamfiles.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbamfiles_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbamfiles_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbamfiles_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbqsrreports.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbqsrreports_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbqsrreports_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbqsrreports_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gatherbqsrreports_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gathervcfs.rst
+docs/tools/bioinformatics/gatk4/gatk4gathervcfs_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gathervcfs_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gathervcfs_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4gathervcfs_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4genotypeconcordance.rst
+docs/tools/bioinformatics/gatk4/gatk4genotypeconcordance_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4genotypeconcordance_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4genotypeconcordance_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4genotypeconcordance_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4getpileupsummaries_cram_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4haplotypecaller_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4learnreadorientationmodel_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4markduplicates.rst
+docs/tools/bioinformatics/gatk4/gatk4markduplicates_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4markduplicates_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4markduplicates_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4markduplicates_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergebamalignment.rst
+docs/tools/bioinformatics/gatk4/gatk4mergebamalignment_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergebamalignment_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergebamalignment_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergebamalignment_4.1.4.1.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergemutectstats_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4mergesamfiles.rst
+docs/tools/bioinformatics/gatk4/gatk4mergesamfiles_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergesamfiles_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergesamfiles_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mergesamfiles_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.6.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.7.0.rst
+docs/tools/bioinformatics/gatk4/gatk4mutect2_cram_4.1.8.1.rst
+docs/tools/bioinformatics/gatk4/gatk4printreads.rst
+docs/tools/bioinformatics/gatk4/gatk4printreads_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4printreads_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4printreads_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4printreads_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4selectvariants.rst
+docs/tools/bioinformatics/gatk4/gatk4selectvariants_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4selectvariants_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4selectvariants_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4selectvariants_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4setnmmdanduqtags.rst
+docs/tools/bioinformatics/gatk4/gatk4setnmmdanduqtags_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4setnmmdanduqtags_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4sortsam.rst
+docs/tools/bioinformatics/gatk4/gatk4sortsam_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4sortsam_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4sortsam_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4sortsam_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4splitreads.rst
+docs/tools/bioinformatics/gatk4/gatk4splitreads_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4splitreads_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4splitreads_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatk4variantfiltration.rst
+docs/tools/bioinformatics/gatk4/gatk4variantfiltration_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatk4variantfiltration_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatk4variantfiltration_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatk4variantfiltration_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatkaddorreplacereadgroups.rst
+docs/tools/bioinformatics/gatk4/gatkaddorreplacereadgroups_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatkaddorreplacereadgroups_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatkaddorreplacereadgroups_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatkaddorreplacereadgroups_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatkreordersam.rst
+docs/tools/bioinformatics/gatk4/gatkreordersam_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/gatksplitncigarreads.rst
+docs/tools/bioinformatics/gatk4/gatksplitncigarreads_4.0.12.0.rst
+docs/tools/bioinformatics/gatk4/gatksplitncigarreads_4.1.2.0.rst
+docs/tools/bioinformatics/gatk4/gatksplitncigarreads_4.1.3.0.rst
+docs/tools/bioinformatics/gatk4/gatksplitncigarreads_4.1.4.0.rst
+docs/tools/bioinformatics/gatk4/index.rst
+docs/tools/bioinformatics/htslib/bgzip.rst
+docs/tools/bioinformatics/htslib/bgzip_1.2.1.rst
+docs/tools/bioinformatics/htslib/bgzip_1.9.rst
+docs/tools/bioinformatics/htslib/index.rst
+docs/tools/bioinformatics/htslib/tabix.rst
+docs/tools/bioinformatics/htslib/tabix_1.2.1.rst
+docs/tools/bioinformatics/htslib/tabix_1.9.rst
+docs/tools/bioinformatics/igvtools/igvtoolsindexfeatures.rst
+docs/tools/bioinformatics/igvtools/igvtoolsindexfeatures_2.5.3.rst
+docs/tools/bioinformatics/igvtools/index.rst
+docs/tools/bioinformatics/illumina/bcl2fastq.rst
+docs/tools/bioinformatics/illumina/bcl2fastq_2.20.0.rst
+docs/tools/bioinformatics/illumina/happy_validator.rst
+docs/tools/bioinformatics/illumina/happy_validator_v0.3.9.rst
+docs/tools/bioinformatics/illumina/index.rst
+docs/tools/bioinformatics/illumina/manta.rst
+docs/tools/bioinformatics/illumina/manta_1.4.0.rst
+docs/tools/bioinformatics/illumina/manta_1.5.0.rst
+docs/tools/bioinformatics/illumina/manta_cram.rst
+docs/tools/bioinformatics/illumina/manta_cram_1.4.0.rst
+docs/tools/bioinformatics/illumina/manta_cram_1.5.0.rst
+docs/tools/bioinformatics/illumina/strelka_germline.rst
+docs/tools/bioinformatics/illumina/strelka_germline_2.9.10.rst
+docs/tools/bioinformatics/illumina/strelka_germline_2.9.9.rst
+docs/tools/bioinformatics/illumina/strelka_somatic.rst
+docs/tools/bioinformatics/illumina/strelka_somatic_2.9.10.rst
+docs/tools/bioinformatics/illumina/strelka_somatic_2.9.9.rst
+docs/tools/bioinformatics/illumina/strelka_somatic_cram.rst
+docs/tools/bioinformatics/illumina/strelka_somatic_cram_2.9.10.rst
+docs/tools/bioinformatics/illumina/strelka_somatic_cram_2.9.9.rst
+docs/tools/bioinformatics/io_lib/index.rst
+docs/tools/bioinformatics/io_lib/scramble.rst
+docs/tools/bioinformatics/io_lib/scramble_1.14.12.rst
+docs/tools/bioinformatics/kallisto/index.rst
+docs/tools/bioinformatics/kallisto/kallistoindex.rst
+docs/tools/bioinformatics/kallisto/kallistoindex_v0.46.2.rst
+docs/tools/bioinformatics/kallisto/kallistoquant.rst
+docs/tools/bioinformatics/kallisto/kallistoquant_v0.46.2.rst
+docs/tools/bioinformatics/multiqc/index.rst
+docs/tools/bioinformatics/multiqc/multiqc.rst
+docs/tools/bioinformatics/multiqc/multiqc_v1.7.rst
+docs/tools/bioinformatics/oncopipe/OncopipeSamplePreparation_v0_1_0.dot
+docs/tools/bioinformatics/oncopipe/OncopipeSamplePreparation_v0_1_0.dot.png
+docs/tools/bioinformatics/oncopipe/index.rst
+docs/tools/bioinformatics/oncopipe/oncopipe.rst
+docs/tools/bioinformatics/oncopipe/oncopipe_v0.1.0.rst
+docs/tools/bioinformatics/oncopipe/oncopipe_v0_1_0.dot
+docs/tools/bioinformatics/oncopipe/oncopipe_v0_1_0.dot.png
+docs/tools/bioinformatics/oncopipe/oncopipesamplepreparation.rst
+docs/tools/bioinformatics/oncopipe/oncopipesamplepreparation_v0.1.0.rst
+docs/tools/bioinformatics/oshlack/allsorts.rst
+docs/tools/bioinformatics/oshlack/allsorts_v0.1.0.rst
+docs/tools/bioinformatics/oshlack/index.rst
+docs/tools/bioinformatics/papenfuss labs/gridss.rst
+docs/tools/bioinformatics/papenfuss labs/gridss_v2.2.3.rst
+docs/tools/bioinformatics/papenfuss labs/gridss_v2.4.0.rst
+docs/tools/bioinformatics/papenfuss labs/gridss_v2.5.1-dev.rst
+docs/tools/bioinformatics/papenfuss labs/gridss_v2.6.2.rst
+docs/tools/bioinformatics/papenfuss labs/gridss_v2.9.4.rst
+docs/tools/bioinformatics/papenfuss labs/index.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/AddBamStatsGermline_v0_1_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/AddBamStatsGermline_v0_1_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/AddBamStatsSomatic_v0_1_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/AddBamStatsSomatic_v0_1_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/AnnotateDepthOfCoverage_v0_1_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/AnnotateDepthOfCoverage_v0_1_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/MolpathGermlineWorkflow_v1_0_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/MolpathGermlineWorkflow_v1_0_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/MolpathTumorOnlyWorkflow_v1_0_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/MolpathTumorOnlyWorkflow_v1_0_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/PerformanceSummaryGenome_v0_1_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/PerformanceSummaryGenome_v0_1_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/PerformanceSummaryTargeted_v0_1_0.dot
+docs/tools/bioinformatics/peter maccallum cancer centre/PerformanceSummaryTargeted_v0_1_0.dot.png
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstats.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstats_0.0.7.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstatsgermline.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstatsgermline_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstatssomatic.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addbamstatssomatic_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addsymtodepthofcoverage.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/addsymtodepthofcoverage_0.0.7.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/annotatedepthofcoverage.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/annotatedepthofcoverage_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/combinevariants.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/combinevariants_0.0.8.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/extractstrelkasomaticaddp.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/extractstrelkasomaticaddp_0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/extractstrelkasomaticaddp_0.1.1.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/genecoveragepersample.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/genecoveragepersample_0.0.7.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/genecoveragepersample_0.0.8.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generategenomefileforbedtoolscoverage.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generategenomefileforbedtoolscoverage_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generateintervalsbychromosome.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generateintervalsbychromosome_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generatevardictheaderlines.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/generatevardictheaderlines_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/index.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/molpathgermlineworkflow.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/molpathgermlineworkflow_v1.0.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/molpathtumoronlyworkflow.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/molpathtumoronlyworkflow_v1.0.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/parsefastqcadaptors.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/parsefastqcadaptors_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummary.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummary_0.0.7.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummarygenome.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummarygenome_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummarytargeted.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/performancesummarytargeted_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/prepareallsortsinput.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/prepareallsortsinput_v0.1.0.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/splitmultiallele.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/splitmultiallele_v0.5772.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/splitmultiallelenormalisevcf.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/splitmultiallelenormalisevcf_v0.5772.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/trimiupac.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/trimiupac_0.0.4.rst
+docs/tools/bioinformatics/peter maccallum cancer centre/trimiupac_0.0.5.rst
+docs/tools/bioinformatics/samtools/index.rst
+docs/tools/bioinformatics/samtools/samtoolsfaidx.rst
+docs/tools/bioinformatics/samtools/samtoolsfaidx_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolsfaidx_1.9.0.rst
+docs/tools/bioinformatics/samtools/samtoolsflagstat.rst
+docs/tools/bioinformatics/samtools/samtoolsflagstat_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolsflagstat_1.9.0.rst
+docs/tools/bioinformatics/samtools/samtoolsindex.rst
+docs/tools/bioinformatics/samtools/samtoolsindex_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolsindex_1.9.0.rst
+docs/tools/bioinformatics/samtools/samtoolsmpileup.rst
+docs/tools/bioinformatics/samtools/samtoolsmpileup_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolsmpileup_1.9.0.rst
+docs/tools/bioinformatics/samtools/samtoolssort.rst
+docs/tools/bioinformatics/samtools/samtoolssort_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolssort_1.9.0.rst
+docs/tools/bioinformatics/samtools/samtoolsview.rst
+docs/tools/bioinformatics/samtools/samtoolsview_1.7.0.rst
+docs/tools/bioinformatics/samtools/samtoolsview_1.9.0.rst
+docs/tools/bioinformatics/sequenza/index.rst
+docs/tools/bioinformatics/sequenza/seqzbam2seqz.rst
+docs/tools/bioinformatics/sequenza/seqzbam2seqz_2.2.0.9000.rst
+docs/tools/bioinformatics/sequenza/seqzbam2seqz_3.0.0.rst
+docs/tools/bioinformatics/sequenza/seqzbinning.rst
+docs/tools/bioinformatics/sequenza/seqzbinning_2.2.0.9000.rst
+docs/tools/bioinformatics/sequenza/seqzbinning_3.0.0.rst
+docs/tools/bioinformatics/subread/featurecounts.rst
+docs/tools/bioinformatics/subread/featurecounts_2.0.1.rst
+docs/tools/bioinformatics/subread/index.rst
+docs/tools/bioinformatics/ucsf/cnvkit.rst
+docs/tools/bioinformatics/ucsf/cnvkit_0.9.6.rst
+docs/tools/bioinformatics/ucsf/index.rst
+docs/tools/bioinformatics/usadel lab/index.rst
+docs/tools/bioinformatics/usadel lab/trimmomaticpairedend.rst
+docs/tools/bioinformatics/usadel lab/trimmomaticpairedend_0.35.rst
+docs/tools/bioinformatics/usadel lab/trimmomaticsingleend.rst
+docs/tools/bioinformatics/usadel lab/trimmomaticsingleend_0.35.rst
+docs/tools/bioinformatics/vardict/index.rst
+docs/tools/bioinformatics/vardict/vardict_germline.rst
+docs/tools/bioinformatics/vardict/vardict_germline_1.5.6.rst
+docs/tools/bioinformatics/vardict/vardict_germline_1.5.7.rst
+docs/tools/bioinformatics/vardict/vardict_germline_1.5.8.rst
+docs/tools/bioinformatics/vardict/vardict_germline_1.6.0.rst
+docs/tools/bioinformatics/vardict/vardict_germline_1.7.0.rst
+docs/tools/bioinformatics/vardict/vardict_somatic.rst
+docs/tools/bioinformatics/vardict/vardict_somatic_1.5.6.rst
+docs/tools/bioinformatics/vardict/vardict_somatic_1.5.7.rst
+docs/tools/bioinformatics/vardict/vardict_somatic_1.5.8.rst
+docs/tools/bioinformatics/vardict/vardict_somatic_1.6.0.rst
+docs/tools/bioinformatics/vardict/vardict_somatic_1.7.0.rst
+docs/tools/bioinformatics/variant callers/GATK4_GermlineVariantCaller_4_0_12_0.dot
+docs/tools/bioinformatics/variant callers/GATK4_GermlineVariantCaller_4_0_12_0.dot.png
+docs/tools/bioinformatics/variant callers/GATK4_GermlineVariantCaller_4_1_3_0.dot
+docs/tools/bioinformatics/variant callers/GATK4_GermlineVariantCaller_4_1_3_0.dot.png
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCallerTumorOnlyTargeted_v0_1_1.dot
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCallerTumorOnlyTargeted_v0_1_1.dot.png
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCaller_4_0_12_0.dot
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCaller_4_0_12_0.dot.png
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCaller_4_1_3_0.dot
+docs/tools/bioinformatics/variant callers/GATK4_SomaticVariantCaller_4_1_3_0.dot.png
+docs/tools/bioinformatics/variant callers/gatk4_germlinevariantcaller.rst
+docs/tools/bioinformatics/variant callers/gatk4_germlinevariantcaller_4.0.12.0.rst
+docs/tools/bioinformatics/variant callers/gatk4_germlinevariantcaller_4.1.3.0.rst
+docs/tools/bioinformatics/variant callers/gatk4_somaticvariantcaller.rst
+docs/tools/bioinformatics/variant callers/gatk4_somaticvariantcaller_4.0.12.0.rst
+docs/tools/bioinformatics/variant callers/gatk4_somaticvariantcaller_4.1.3.0.rst
+docs/tools/bioinformatics/variant callers/gatk4_somaticvariantcallertumoronlytargeted.rst
+docs/tools/bioinformatics/variant callers/gatk4_somaticvariantcallertumoronlytargeted_v0.1.1.rst
+docs/tools/bioinformatics/variant callers/index.rst
+docs/tools/bioinformatics/variant callers/strelkaGermlineVariantCaller_v0_1_1.dot
+docs/tools/bioinformatics/variant callers/strelkaGermlineVariantCaller_v0_1_1.dot.png
+docs/tools/bioinformatics/variant callers/strelkaSomaticVariantCaller_v0_1_1.dot
+docs/tools/bioinformatics/variant callers/strelkaSomaticVariantCaller_v0_1_1.dot.png
+docs/tools/bioinformatics/variant callers/strelkagermlinevariantcaller.rst
+docs/tools/bioinformatics/variant callers/strelkagermlinevariantcaller_v0.1.1.rst
+docs/tools/bioinformatics/variant callers/strelkasomaticvariantcaller.rst
+docs/tools/bioinformatics/variant callers/strelkasomaticvariantcaller_v0.1.1.rst
+docs/tools/bioinformatics/variant callers/vardictGermlineVariantCaller_v0_1_1.dot
+docs/tools/bioinformatics/variant callers/vardictGermlineVariantCaller_v0_1_1.dot.png
+docs/tools/bioinformatics/variant callers/vardictSomaticVariantCaller_v0_1_0.dot
+docs/tools/bioinformatics/variant callers/vardictSomaticVariantCaller_v0_1_0.dot.png
+docs/tools/bioinformatics/variant callers/vardictgermlinevariantcaller.rst
+docs/tools/bioinformatics/variant callers/vardictgermlinevariantcaller_v0.1.1.rst
+docs/tools/bioinformatics/variant callers/vardictsomaticvariantcaller.rst
+docs/tools/bioinformatics/variant callers/vardictsomaticvariantcaller_v0.1.0.rst
+docs/tools/bioinformatics/vcftools/index.rst
+docs/tools/bioinformatics/vcftools/vcftools.rst
+docs/tools/bioinformatics/vcftools/vcftools_0.1.16.rst
+docs/tools/bioinformatics/vcftools/vcftoolsvcfconcat.rst
+docs/tools/bioinformatics/vcftools/vcftoolsvcfconcat_0.1.16.rst
+docs/tools/bioinformatics/vcftools/vcftoolsvcfmerge.rst
+docs/tools/bioinformatics/vcftools/vcftoolsvcfmerge_0.1.16.rst
+docs/tools/bioinformatics/whisper/index.rst
+docs/tools/bioinformatics/whisper/whisperalign.rst
+docs/tools/bioinformatics/whisper/whisperalign_v2.0.rst
+docs/tools/bioinformatics/whisper/whisperindex.rst
+docs/tools/bioinformatics/whisper/whisperindex_v2.0.rst
+docs/tools/unix/awk.rst
+docs/tools/unix/awk_v1.0.0.rst
+docs/tools/unix/cat.rst
+docs/tools/unix/cat_v1.0.0.rst
+docs/tools/unix/echo.rst
+docs/tools/unix/echo_v1.0.0.rst
+docs/tools/unix/hello.rst
+docs/tools/unix/hello_v1.0.0.rst
+docs/tools/unix/hello_v1_0_0.dot
+docs/tools/unix/hello_v1_0_0.dot.png
+docs/tools/unix/index.rst
+docs/tools/unix/javacompiler.rst
+docs/tools/unix/javacompiler_v1.0.0.rst
+docs/tools/unix/md5sum.rst
+docs/tools/unix/md5sum_v1.0.0.rst
+docs/tools/unix/sleep.rst
+docs/tools/unix/sleep_v1.0.0.rst
+docs/tools/unix/tar.rst
+docs/tools/unix/tar_v1.0.0.rst
+docs/tools/unix/uncompressarchive.rst
+docs/tools/unix/uncompressarchive_v1.0.0.rst
+docs/tools/unix/untar.rst
+docs/tools/unix/untar_v1.0.0.rst
+docs/tutorials/collectingoutputs.rst
+docs/tutorials/container.md
+docs/tutorials/hpcconfiguration.md
+docs/tutorials/running.md
+docs/tutorials/toolbox.md
+docs/tutorials/tutorial0.md
+docs/tutorials/tutorial1.md
+docs/tutorials/tutorial2.md
+docs/tutorials/tutorial3.md
+examples/README.md
+examples/__init__.py
+examples/dynamicworkflow.py
+examples/echo.py
+examples/secondaryfiles.py
+examples/simple.md
+examples/simple.py
+examples/simplewrapped.py
+janis/__init__.py
+janis/__meta__.py
+janis/data_types/__init__.py
+janis/tools/__init__.py
+janis_pipelines.egg-info/PKG-INFO
+janis_pipelines.egg-info/SOURCES.txt
+janis_pipelines.egg-info/dependency_links.txt
+janis_pipelines.egg-info/entry_points.txt
+janis_pipelines.egg-info/not-zip-safe
+janis_pipelines.egg-info/requires.txt
+janis_pipelines.egg-info/top_level.txt
+janisdk/__init__.py
+janisdk/main.py
+janisdk/container/__init__.py
+janisdk/container/parse_help.py
+janisdk/container/test_cltbuilder.py
+janisdk/fromcwl/__init__.py
+janisdk/fromwdl/__init__.py
+janisdk/runtest/__init__.py
+janisdk/runtest/runner.py
+notebooks/simple.png
+notebooks/workshop1.ipynb
+presentations/2019-12-10 - ABACBS.pptx
+progress/2019-02.md
