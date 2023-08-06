@@ -1,0 +1,10 @@
+setup.py
+regulator/__init__.py
+regulator/_regex_core.py
+regulator/regex.py
+regulator/test_regex.py
+regulator.egg-info/PKG-INFO
+regulator.egg-info/SOURCES.txt
+regulator.egg-info/dependency_links.txt
+regulator.egg-info/requires.txt
+regulator.egg-info/top_level.txt
