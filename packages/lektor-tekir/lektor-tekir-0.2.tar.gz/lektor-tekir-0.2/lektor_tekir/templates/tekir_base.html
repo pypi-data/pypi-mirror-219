@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{{ g.admin_context.pad.env.project.name }} - {{ _('Admin Panel') }}</title>
+  <link rel="stylesheet" href="{{ url_for('tekir_admin.static', filename='tekir-admin.css') }}">
+  <script src="{{ url_for('tekir_admin.static', filename='htmx.min.js') }}"></script>
+  <script src="{{ url_for('tekir_admin.static', filename='color-mode.js') }}"></script>
+  <script src="{{ url_for('tekir_admin.static', filename='tekir-admin.js') }}"></script>
+</head>
+<body>
+  <header id="main-header">
+    <h1>{{ _('Admin Panel') }}</h1>
+
+    <div id="tekir-settings">
+      <ul id="tekir-langs">
+        {% for locale in translations() %}
+          {% set base_path = url_for('tekir_admin.summary').split('/')[:-2] %}
+          {% set route = request.full_path.split('/')[(base_path | length) + 1:] %}
+        <li><a href="{{ '%s/%s/%s' % ('/'.join(base_path), locale, '/'.join(route)) }}">{{ locale }}</a></li>
+        {% endfor %}
+      </ul>
+
+      <div id="tekir-color-modes">
+        <button class="color-mode light" aria-label="{{ _('Toggle light mode') }}">
+          {% include 'sun.svg' %}
+        </button>
+        <button class="color-mode dark" aria-label="{{ _('Toggle dark mode') }}">
+          {% include 'moon.svg' %}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="main-tabs" aria-label="{{ _('main navigation') }}">
+    <ul>
+      <li><a href="{{ url_for('tekir_admin.summary') }}">{% include 'home.svg' %} {{ _('Summary') }}</a></li>
+      <li><a href="{{ url_for('tekir_admin.contents', path='/') }}">{% include 'contents.svg' %} {{ _('Content') }}</a></li>
+    </ul>
+  </nav>
+
+  <main class="{{ self._TemplateReference__context.name.split('.')[0] }}">
+    {% block body %}{% endblock %}
+  </main>
+</body>
+</html>

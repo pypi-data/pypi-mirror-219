@@ -1,0 +1,2 @@
+[console_scripts]
+lektor-tekir = lektor_tekir.cli:main

@@ -1,0 +1,159 @@
+# Translations template for PROJECT.
+# Copyright (C) 2023 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-07-12 23:06+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+#: lektor_tekir/api.py:117
+msgid "No changes."
+msgstr ""
+
+#: lektor_tekir/api.py:120
+msgid "Content saved."
+msgstr ""
+
+#: lektor_tekir/api.py:137
+msgid "There are unsaved changes. Do you want to continue?"
+msgstr ""
+
+#: lektor_tekir/api.py:175
+msgid "Deleted."
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:6
+#: lektor_tekir/templates/tekir_base.html:14
+msgid "Admin Panel"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:26
+msgid "Toggle light mode"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:29
+msgid "Toggle dark mode"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:36
+msgid "main navigation"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:38
+msgid "Summary"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_base.html:39
+msgid "Content"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_content_edit.html:12
+msgid "Save"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_content_edit.html:14
+msgid "Done"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_content_edit.html:19
+msgid "Close"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_content_edit.html:24
+msgid "Continue"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_content_edit.html:25
+msgid "Cancel"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:5
+msgid "You are here:"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:8
+#: lektor_tekir/templates/tekir_contents.html:10
+msgid "home"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:17
+msgid "Edit"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:21
+msgid "Subpages"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:27
+#: lektor_tekir/templates/tekir_contents.html:55
+msgid "Select"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:28
+msgid "Title"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:29
+msgid "Type"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:43
+#: lektor_tekir/templates/tekir_contents.html:69
+msgid "Delete selected items"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:49
+msgid "Attachments"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:56
+msgid "File name"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:76
+msgid "This operation will delete the following content items:"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:78
+msgid "Do you want to continue?"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:79
+msgid "Yes, delete"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_contents.html:80
+msgid "No, cancel"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_fields.html:47
+msgid "Add"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_fields.html:64
+msgid "Delete"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_fields.html:65
+msgid "Move up"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_fields.html:66
+msgid "Move down"
+msgstr ""
+
+#: lektor_tekir/templates/tekir_summary.html:4
+msgid "Number of Pages"
+msgstr ""
+
