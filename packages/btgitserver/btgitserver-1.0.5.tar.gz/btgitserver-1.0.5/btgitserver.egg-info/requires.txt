@@ -1,0 +1,15 @@
+btconfig<5.0.0,>=4.4.4
+coloredlogs<16.0,>=15.0.0
+flask<3.0,>=2.0.0
+setuptools
+dulwich==0.19.5
+Flask
+Flask-HTTPAuth
+gunicorn
+
+[tests]
+pytest
+pytest-cov
+coveralls
+flake8
+mypy
