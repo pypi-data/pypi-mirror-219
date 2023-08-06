@@ -1,0 +1,94 @@
+[tool.black]
+extend-exclude ='((.+_pb2_grpc)|(.+_pb2))+(.py)$' # Regex to files with _pb2_grpc.py and _pb2.py Auto Generated Code are excluded
+line-length = 100
+exclude = '''
+(
+\.git # root of the project
+| \.venv
+| venv
+)
+'''
+
+[tool.poetry]
+name = "ni_measurementlink_service"
+version = "1.1.0"
+description = "MeasurementLink Support for Python"
+authors = ["NI <opensource@ni.com>"]
+readme = "README.md" # apply the repo readme to the package as well
+repository = "https://github.com/ni/measurementlink-python/"
+license = "MIT"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Manufacturing",
+    "Intended Audience :: Science/Research",
+    "Operating System :: Microsoft :: Windows",
+    # Poetry automatically adds classifiers for the license and the supported Python versions.
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering",
+    "Topic :: System :: Hardware",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+# This package includes gRPC stubs that were generated with the version of grpcio-tools specified
+# below. Please keep the minimum grpcio version in sync with the grpcio-tools version. Otherwise,
+# the generated gRPC stubs may not work with the minimum grpcio version.
+grpcio = "^1.49.1"
+protobuf = "^4.21"
+pywin32 = {version = ">=303", platform = "win32"}
+deprecation = ">=2.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.2.0"
+ni-python-styleguide = ">=0.4.1"
+# When you update the grpcio-tools version, you should update the minimum grpcio version
+# and regenerate gRPC stubs.
+grpcio-tools = "1.49.1"
+pytest-cov = ">=3.0.0"
+pytest-mock = ">=3.0"
+mypy = ">=1.0"
+mypy-protobuf = ">=3.4"
+types-protobuf = "^4.21"
+types-pkg-resources = "*"
+types-pywin32 = {version = ">=304", platform = "win32"}
+grpc-stubs = "^1.53"
+
+[tool.poetry.group.docs]
+optional = true
+
+[tool.poetry.group.docs.dependencies]
+Sphinx = "^5.0.1"
+sphinx-rtd-theme = "^1.0.0"
+sphinx-autoapi = "^1.8.4"
+m2r2 = "^0.3.2"
+toml = "^0.10.2"
+tomlkit = "^0.11.0"
+sphinx-click = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core>=1.2.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ni-python-styleguide]
+extend_exclude = "*_pb2_grpc.py,*_pb2.py,venv,ni_measurementlink_generator/*"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules --strict-markers"
+filterwarnings = ["always::ImportWarning", "always::ResourceWarning"]
+testpaths = ["tests"]
+
+[tool.mypy]
+warn_unused_configs = true
+namespace_packages = true
+check_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = [
+  # https://github.com/briancurtin/deprecation/issues/56 - Add type information (PEP 561)
+  "deprecation.*",
+  "grpc.framework.foundation.*"
+]
+ignore_missing_imports = true
